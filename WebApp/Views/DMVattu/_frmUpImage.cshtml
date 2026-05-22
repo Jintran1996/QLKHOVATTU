@@ -1,0 +1,49 @@
+﻿
+@using System.Globalization;
+@model ToolsApp.Models.DMVATTUViewModels
+    @{ 
+        var MAVT = ViewBag.MAVT;
+    }
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary card-outline">
+            <div class="card-body pad">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="col-md-12">
+                                    <div class="row" style="margin-bottom:5px">
+                                        <label class="col-md-3">Tải hình ảnh: </label>
+                                        <div class="custom-file col-md-9">
+                                            <input type="file" enctype="multipart/form-data" class="form-control" id="Images" name="Images" accept="image/*" multiple>
+
+                                            <input type="text" id="MAVT" name="MAVT" class="form-control" value="@MAVT" hidden />
+                                            <!-- Ghi chú -->
+                                            <small class="form-text text-muted">
+                                                <span style="color:red">*</span> Vui lòng chọn hình ảnh định dạng <b>PNG</b> hoặc <b>JPG</b>
+                                            </small>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    <!-- /.col -->
+</div>
+
+
+
+
+

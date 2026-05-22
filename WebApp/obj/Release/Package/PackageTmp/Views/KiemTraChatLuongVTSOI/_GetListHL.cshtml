@@ -1,0 +1,103 @@
+﻿@{
+    var list = ViewBag.data as List<ToolsApp.EntityFramework.VatTu.SP_LoadCL_KHOXEM_Result>;
+
+    var Stt = 0;
+}
+
+<table id="myTableKT" class="table table-bordered">
+    <thead>
+        <tr style="background-color: #00CED1; text-align: center ">
+            <th width="150px">Tên hàng</th>
+            <th width="150px">Mã sản phẩm</th>
+            <th width="250px">Mã phiếu PD</th>
+            <th width="150px">Loại vật tư</th>
+            <th width="60px">Đơn vị tính</th>
+            <th width="60px">Nhập kho kiểm tra</th>
+            <th width="70px">Kho nhận xét</th>
+            <th width="70px">Nguồn cung cấp</th>
+        </tr>
+    </thead>
+
+    <tbody id="detailKT">
+        @if (list != null && list[0].SoCT != null && list[0].MaPhieuPD != null && list[0].MaVT != null)
+        {
+            foreach (var item_chitiet in list)
+            {
+                <tr id="row_@(Stt)">
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_TenVT" name="Detail[@(Stt)].TenVT" type="text" value="@item_chitiet.TenVT" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_TenVT"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_MaVT" name="Detail[@(Stt)].MaVT" type="text" value="@item_chitiet.MaVT" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_MaVT"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_MaPhieuPD" name="Detail[@(Stt)].MaPhieuPD" type="text" value="@item_chitiet.MaPhieuPD" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_MaPhieuPD"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_LoaiVT" name="Detail[@(Stt)].LoaiVT" type="text" value="@item_chitiet.LoaiVT" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_LoaiVT"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_DVT" name="Detail[@(Stt)].DVT" type="text" value="@item_chitiet.DVT" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_DVT"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_Thuc" name="Detail[@(Stt)].Thuc" type="number" value="@item_chitiet.Thuc" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_Thuc"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_KhoKiemTra" name="Detail[@(Stt)].KhoKiemTra" type="text" value="@item_chitiet.KhoKiemTra" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_KhoKiemTra"
+                              data-valmsg-replace="true"></span>
+                    </td>
+
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_NhaCC" name="Detail[@(Stt)].NhaCC" type="text" value="@item_chitiet.NhaCC">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_NhaCC"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                </tr>
+
+                Stt++;
+            }
+        }
+    </tbody>
+
+</table>
+
+
+<script>
+    var index = @(Stt);
+
+    $(document).ready(function () {
+        //Nút tạo nhiều dòng dữ liệu
+        $("#addMore").click(function (e) {
+            var mau = $('#tblMau').html();
+
+            mau = mau.replace(/{index}/g, index);
+
+            $('#detailKT').append(mau);
+
+            index++;
+        });
+    });
+</script>
+
+

@@ -1,0 +1,459 @@
+﻿
+@{
+    ViewBag.CTPhieu = "Danh Sách Xuất Kho";
+
+    //  var madh = ViewBag.madh as List<ToolsApp.EntityFramework.QuanLyKhoMoc2023.Sp_API_LoadDonHang_CoKeyHH_Result>;
+    // var APIs = ViewBag.APIs as IEnumerable<ToolsApp.EntityFramework.QuanLyKhoMoc2023.tblphieukho>;
+
+    var MAHTHUC = ViewBag.MAHTHUC;
+    var SOCTXN = ViewBag.SOCTXN;
+    var ChkAPI = ViewBag.ChkAPI;
+    var MAKHO = ViewBag.MAKHO;
+    var masoi = ViewBag.masoi as List<ToolsApp.EntityFramework.KhoSoi.LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_Result>;   
+    var DMLO = ViewBag.DMLO as List<ToolsApp.EntityFramework.KhoSoi.SP_LOAD_NL_DMLO_BY_HIEU_Result>;
+    var NL_DMNHACCAP = ViewBag.NL_DMNHACCAP as List<ToolsApp.EntityFramework.KhoSoi.NL_DMNHACCAP>;
+    var dhsoi = ViewBag.dhsoi as List<ToolsApp.EntityFramework.KhoSoi.VATTU2024_SPLOAD_MADONHANG_ND_XK_Result>;
+
+
+
+}
+@using System.Globalization;
+@model ToolsApp.Models.NL_CTXUATNHAPViewModels
+
+
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenSOCTXN" name="SophieuN_CT" value="@SOCTXN.Trim()" hidden />
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenMAKHO" value="@MAKHO.Trim()" hidden />
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenMAHTHUC" name="SophieuN_CT" value="@MAHTHUC.Trim()" hidden />
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab-getlist-ctphieu" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home-ct" role="tab" aria-controls="custom-tabs-one-home-ct" aria-selected="true">Danh sách chi tiết phiếu @Model.SOCTXN </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home-ct" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab-getlist-ctphieu">
+                                <!--data-->
+                                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmctphieuXN", id = "frmctphieuXN", enctype = "multipart/form-data" }))
+                                {
+                                 
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row ">
+                                                    <div class="col-md-4">
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3">SOCTXN :</label>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control" type="text" autocomplete="off" value="@Model.SOCTXN" readonly
+                                                                       id="SOCTXN_CT" name="SOCTXN" />
+                                                                <input class="form-control" type="text" autocomplete="off"
+                                                                       id="MAHTHUC" name="MAHTHUC" value="@MAHTHUC.Trim()" hidden />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3 ">Loại đơn hàng:</label>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control chosen-select" id="LOAIDONHANG" name="LOAIDONHANG">
+                                                                    <option value="INKH"> INKH</option>
+                                                                    <option value="OUTKH"> OUTKH</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3">Ngày kế toán:</label>
+                                                            <div class="col-md-9">
+                                                                <input id="NGAYKETOAN" name="NGAYKETOAN_" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3">Mã sợi :</label>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control chosen-select" id="MAVT" name="MAVT" onchange="updateInputValue()">
+                                                                    <option selected value="">-- Chọn mã sợi --</option>
+                                                                    @foreach (var item in masoi)
+                                                                    {
+                                                                        <option value="@item.MAVT"
+                                                                                data-maphieupd="@item.MAPHIEUPD"
+                                                                                data-hieu="@item.HIEU"
+                                                                                data-lo="@item.LO"
+                                                                                data-SOLUONGTON="@item.SOLUONGTT">
+                                                                            MAVT: @item.MAVT ||Hiệu: @item.HIEU || Lô: @item.LO || MAPHIEUPD: @item.MAPHIEUPD ||  SOLUONGTT: @item.SOLUONGTT
+                                                                        </option>
+                                                                    }
+                                                                </select>
+                                                                <input hidden type="text" class="form-control" id="MAPHIEUPD" name="MAPHIEUPD" readonly>
+                                                                <input hidden type="text" class="form-control" id="HIEU" name="HIEU" readonly>
+                                                                <input hidden type="text" class="form-control" id="LO" name="LO" readonly>
+                                                                <input hidden class="form-control" id="SOLUONGTON" name="SOLUONGTON" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3 ">Số lượng:</label>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control" type="number" autocomplete="off" value="0.00" min="0" oninput="inputChange_Checksluong()"
+                                                                       id="SOLUONGYC" name="SOLUONGYC" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3 ">Ghi chú:</label>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control" type="text" autocomplete="off" value=""
+                                                                       id="GHICHU" name="GHICHU" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    @if (MAHTHUC == "XD1" || MAHTHUC == "XD2" || MAHTHUC == "XAH")
+                                                    {
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="row" style="margin-bottom:5px">
+                                                                    <label class="col-md-3">Mã đơn hàng :</label>
+                                                                    <div class="col-md-9">
+                                                                        <select class="form-control chosen-select" id="MADH" name="MADH">
+                                                                            <option disabled selected value="">-- Chọn mã đơn hàng --</option>
+                                                                            @foreach (var item in dhsoi)
+                                                                            {
+                                                                                <option value="@item.MADH">
+                                                                                    MADH: @item.MADH
+                                                                                </option>
+                                                                            }
+                                                                        </select>
+                                                                        <small style="color:red;">* Bắt buộc phải chọn mã đơn hàng sản xuất</small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    @*Row 3*@
+                                                    <div class="row">
+                                                    </div>
+                                                    <div class="row">
+                                                    </div>
+                                                    @if (ChkAPI != "1")
+                                                    {
+                                                    <div class="text-center">
+                                                        <button type="button" id="btSavect" class="btn btn-sm btn-primary" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                                    </div>
+                                                    }
+                                                </div>
+
+
+                                                <!-- /.card -->
+                                            </div>
+                                            <!--data-->
+                                        </div>
+                                    
+                                }
+                                <div class="card-body pad">
+                                    <div class="row">
+                                        <div class="col-md-12 table-body-view-ctphieu  table-responsive">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+<script>
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+
+
+
+    function isreloadData_getlist_ctphieu() {
+        var SOCTXN_ = $("#SOCTXN_CT").val();
+
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu_View")',
+                timeout: 20000,
+                data: {
+                    SOCTXN: SOCTXN_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-view-ctphieu').html(response);
+
+                    $("#myTablectview").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+    function reloadData_getlist_ctphieu_theomadh(MAPHIEUPD_) {
+        var Search_ = MAPHIEUPD_ == null ? $('#MAPHIEUPD').val() : MAPHIEUPD_ ;
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu_theomadh")',
+                timeout: 20000,
+                data: {
+                    Sophieu: Search_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-ctphieu_theomadh').html(response);
+
+                    $("#myTablect").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+
+
+
+    function updateInputValue() {
+        var selectBox = document.getElementById("MAVT");
+       // var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+        var selectedData = selectBox.options[selectBox.selectedIndex].getAttribute('data-maphieupd');
+        document.getElementById("MAPHIEUPD").value = selectedData;
+        var selectedData = selectBox.options[selectBox.selectedIndex].getAttribute('data-hieu');
+        document.getElementById("HIEU").value = selectedData;
+        var selectedData = selectBox.options[selectBox.selectedIndex].getAttribute('data-lo');
+        document.getElementById("LO").value = selectedData;
+        var selectedData = selectBox.options[selectBox.selectedIndex].getAttribute('data-SOLUONGTON');
+        document.getElementById("SOLUONGTON").value = selectedData;
+
+        console.log($('#MAPHIEUPD').val(), $('#HIEU').val(), $('#LO').val(), $('#SOLUONGTON').val())
+    }
+    function inputChange_Checksluong() {
+
+        var datayc = $('#SOLUONGYC').val();
+        var dataton = $('#SOLUONGTON').val();
+        var s1 = parseFloat(datayc);
+        var s2 = parseFloat(dataton);
+        console.log(s1, s2);
+
+        if (s1 > s2) {
+            $('#SOLUONGYC').val(0);
+            notify("Số lượng yêu cầu không được lớn hơn số lượng tồn hiện tại || SOLUONGTON: " + dataton  , "error");
+        }
+        return;
+    }
+    function onkey_Number(value) {
+        if (!value) {
+            return;
+        }
+        return padLeftWithBounds(parseInt(value), '0', 5, 0, 99999);
+    };
+
+    function padLeftWithBounds(input, padChar, maxLength, min, max) {
+        if (input <= min)
+            return min;
+        if (input >= max)
+            return max;
+        var s = input.toString(10);
+        var padding = "";
+        for (var i = 0; i < maxLength; ++i)
+            padding += padChar;
+        return padding.substring(0, maxLength - s.length) + s;
+    };
+
+     function Deletect(Khoa_) {
+            var hidenMAKHO = $("#hidenMAKHO").val();
+            var hidenMAHTHUC = $("#hidenMAHTHUC").val();
+            var hidenSOCTXN = $("#hidenSOCTXN").val();
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã hàng này?' + Khoa_);
+             if (confirm_) {
+                 $.ajax({
+                     url: '@Url.Action("_DeletectFun")',
+                     timeout: 2000000,
+                     type: "POST",
+                     data: { Khoa: Khoa_ },
+                     beforeSend: function (xhr) {
+                         $(".divLoading").addClass("loading");
+                     },
+                     success: function (result) {
+
+                         if (result.status >= 1) {
+                             notify(result.text, "success");
+                             Details(hidenSOCTXN, "", hidenMAHTHUC, hidenMAKHO); // LOAD LẠI FORM DETAILS
+
+                         }
+                         else {
+                             notify(result.text, "error");
+                         }
+                         $(".divLoading").removeClass("loading");
+                     },
+                     error: function (message) {
+                         $(".divLoading").removeClass("loading");
+                     }
+                 });
+             }
+        }
+
+        function DeletectALL(SOCTXN_) {
+            var hidenMAKHO = $("#hidenMAKHO").val();
+            var hidenMAHTHUC = $("#hidenMAHTHUC").val();
+            var hidenSOCTXN = $("#hidenSOCTXN").val();
+            var confirm_ = confirm('Bạn có chắc muốn xóa tất cả theo số phiếu này?' + SOCTXN_);
+             if (confirm_) {
+                 $.ajax({
+                     url: '@Url.Action("_DeleteALLFun")',
+                     timeout: 2000000,
+                     type: "POST",
+                     data: { SOCTXN: SOCTXN_ },
+                     beforeSend: function (xhr) {
+                         $(".divLoading").addClass("loading");
+                     },
+                     success: function (result) {
+                         if (result.status >= 1) {
+                             notify(result.text, "success");
+                             Details(hidenSOCTXN, "", hidenMAHTHUC, hidenMAKHO); // LOAD LẠI FORM DETAILS
+                         }
+                         else {
+                             notify(result.text, "error");
+                         }
+                         $(".divLoading").removeClass("loading");
+                     },
+                     error: function (message) {
+                         $(".divLoading").removeClass("loading");
+                     }
+                 });
+             }
+        }
+
+</script>
+
+<script type="text/javascript">
+    $("#NGAYKETOAN").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+    $(document).ready(function () {
+        isreloadData_getlist_ctphieu($("#hidenSOCTXN").val());
+
+        $("#btSavect").click(function () {
+            var hidenMAKHO = $("#hidenMAKHO").val();
+            var hidenMAHTHUC = $("#hidenMAHTHUC").val();
+            var hidenSOCTXN = $("#hidenSOCTXN").val();
+
+            form = $("#frmctphieuXN");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+            $.validator.unobtrusive.parse("#frmctphieuXN");
+                if (form.valid()) {
+                    $.ajax({
+                         url: '@Url.Action("_InsertFunCTPhieuXN")',
+                        type: "POST",
+                        data: $('#frmctphieuXN').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                Details(hidenSOCTXN, "", hidenMAHTHUC, hidenMAKHO); // LOAD LẠI FORM DETAILS
+                              
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+            });
+    })
+</script>
+
+
+
+
+
+
+
+

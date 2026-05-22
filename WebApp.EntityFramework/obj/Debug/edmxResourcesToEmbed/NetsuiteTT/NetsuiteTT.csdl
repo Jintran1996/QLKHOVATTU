@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NetsuiteTTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NetsuiteTTEntities1" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="VATTU2024_SP_LOAD_ExpenseCodeList" ReturnType="Collection(NetsuiteTTModel.VATTU2024_SP_LOAD_ExpenseCodeList_Result)" />
+    <FunctionImport Name="SPLOAD_TONKHOALL_TP_2024" ReturnType="Collection(NetsuiteTTModel.SPLOAD_TONKHOALL_TP_2024_Result)" />
+    <FunctionImport Name="VATTU2024_LOAD_LOAISPCHITIET" ReturnType="Collection(NetsuiteTTModel.VATTU2024_LOAD_LOAISPCHITIET_Result)">
+      <Parameter Name="MAVT" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="BongIns" EntityType="NetsuiteTTModel.BongIn" />
+    <EntitySet Name="BongNenVais" EntityType="NetsuiteTTModel.BongNenVai" />
+    <EntitySet Name="BTM_Serial_No_List" EntityType="NetsuiteTTModel.BTM_Serial_No_List" />
+    <EntitySet Name="CaDets" EntityType="NetsuiteTTModel.CaDet" />
+    <EntitySet Name="Classes" EntityType="NetsuiteTTModel.Class" />
+    <EntitySet Name="CongNgheDets" EntityType="NetsuiteTTModel.CongNgheDet" />
+    <EntitySet Name="DongBoVATTU_SOI__Json_Log" EntityType="NetsuiteTTModel.DongBoVATTU_SOI__Json_Log" />
+    <EntitySet Name="Donvi_mapping_Department" EntityType="NetsuiteTTModel.Donvi_mapping_Department" />
+    <EntitySet Name="DonViTienTes" EntityType="NetsuiteTTModel.DonViTienTe" />
+    <EntitySet Name="DSInvoiceXuatKhaus" EntityType="NetsuiteTTModel.DSInvoiceXuatKhau" />
+    <EntitySet Name="DSPhieuUploadNS" EntityType="NetsuiteTTModel.DSPhieuUploadN" />
+    <EntitySet Name="DSPhieuViPhamEntities" EntityType="NetsuiteTTModel.DSPhieuViPhamEntity" />
+    <EntitySet Name="DSPhieuViPhamQuantityItems" EntityType="NetsuiteTTModel.DSPhieuViPhamQuantityItem" />
+    <EntitySet Name="DSPhieuViPhamSerialLotNumbers" EntityType="NetsuiteTTModel.DSPhieuViPhamSerialLotNumber" />
+    <EntitySet Name="Expense_Code" EntityType="NetsuiteTTModel.Expense_Code" />
+    <EntitySet Name="GhiLog_DMVattu_ErrorAPI_NS" EntityType="NetsuiteTTModel.GhiLog_DMVattu_ErrorAPI_NS" />
+    <EntitySet Name="KenhPhanPhois" EntityType="NetsuiteTTModel.KenhPhanPhoi" />
+    <EntitySet Name="Khoes" EntityType="NetsuiteTTModel.Kho" />
+    <EntitySet Name="KhoanMucChiPhis" EntityType="NetsuiteTTModel.KhoanMucChiPhi" />
+    <EntitySet Name="KhoVais" EntityType="NetsuiteTTModel.KhoVai" />
+    <EntitySet Name="KichCoes" EntityType="NetsuiteTTModel.KichCo" />
+    <EntitySet Name="LoaiGiaBans" EntityType="NetsuiteTTModel.LoaiGiaBan" />
+    <EntitySet Name="LoaiKhachHangs" EntityType="NetsuiteTTModel.LoaiKhachHang" />
+    <EntitySet Name="LoaiMayDets" EntityType="NetsuiteTTModel.LoaiMayDet" />
+    <EntitySet Name="LoaiNhaCungCaps" EntityType="NetsuiteTTModel.LoaiNhaCungCap" />
+    <EntitySet Name="LoaiSanPhams" EntityType="NetsuiteTTModel.LoaiSanPham" />
+    <EntitySet Name="LoaiSanPhamChiTiets" EntityType="NetsuiteTTModel.LoaiSanPhamChiTiet" />
+    <EntitySet Name="LoaiVatTus" EntityType="NetsuiteTTModel.LoaiVatTu" />
+    <EntitySet Name="LoaiYeuCaus" EntityType="NetsuiteTTModel.LoaiYeuCau" />
+    <EntitySet Name="LoaiYeuCauSanXuats" EntityType="NetsuiteTTModel.LoaiYeuCauSanXuat" />
+    <EntitySet Name="NguocGocs" EntityType="NetsuiteTTModel.NguocGoc" />
+    <EntitySet Name="NguonHangSanXuats" EntityType="NetsuiteTTModel.NguonHangSanXuat" />
+    <EntitySet Name="NhomHangs" EntityType="NetsuiteTTModel.NhomHang" />
+    <EntitySet Name="NhomHoaVanDetIns" EntityType="NetsuiteTTModel.NhomHoaVanDetIn" />
+    <EntitySet Name="NhomMucDichSuDungs" EntityType="NetsuiteTTModel.NhomMucDichSuDung" />
+    <EntitySet Name="NhomSanPhams" EntityType="NetsuiteTTModel.NhomSanPham" />
+    <EntitySet Name="NhomSanPhamKinhDoanhs" EntityType="NetsuiteTTModel.NhomSanPhamKinhDoanh" />
+    <EntitySet Name="NhomSois" EntityType="NetsuiteTTModel.NhomSoi" />
+    <EntitySet Name="NhomTrangPhucs" EntityType="NetsuiteTTModel.NhomTrangPhuc" />
+    <EntitySet Name="PhanLoaiSPMays" EntityType="NetsuiteTTModel.PhanLoaiSPMay" />
+    <EntitySet Name="PhanNhomSanPhams" EntityType="NetsuiteTTModel.PhanNhomSanPham" />
+    <EntitySet Name="PhuongThucThanhToans" EntityType="NetsuiteTTModel.PhuongThucThanhToan" />
+    <EntitySet Name="SaleOrder_Viseri" EntityType="NetsuiteTTModel.SaleOrder_Viseri" />
+    <EntitySet Name="SaleOrder_Viseri_Item" EntityType="NetsuiteTTModel.SaleOrder_Viseri_Item" />
+    <EntitySet Name="Table_LoaiPhieuVanChuyenNoiBo" EntityType="NetsuiteTTModel.Table_LoaiPhieuVanChuyenNoiBo" />
+    <EntitySet Name="Table_Mapping_DinhMuc_KeyHH_MOC" EntityType="NetsuiteTTModel.Table_Mapping_DinhMuc_KeyHH_MOC" />
+    <EntitySet Name="Table_Mapping_MACP_TenVT_Dinhmucdet" EntityType="NetsuiteTTModel.Table_Mapping_MACP_TenVT_Dinhmucdet" />
+    <EntitySet Name="Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z" EntityType="NetsuiteTTModel.Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z" />
+    <EntitySet Name="Table_Mapping_MaHangSPM_MaKieuDang" EntityType="NetsuiteTTModel.Table_Mapping_MaHangSPM_MaKieuDang" />
+    <EntitySet Name="Table_Mapping_Mavattu_DVT" EntityType="NetsuiteTTModel.Table_Mapping_Mavattu_DVT" />
+    <EntitySet Name="Table_TAX_CODE" EntityType="NetsuiteTTModel.Table_TAX_CODE" />
+    <EntitySet Name="TaiKhoanNhanVien_Netsuite" EntityType="NetsuiteTTModel.TaiKhoanNhanVien_Netsuite" />
+    <EntitySet Name="TBL_Mapping_DoiTuongKhachHang_Customers" EntityType="NetsuiteTTModel.TBL_Mapping_DoiTuongKhachHang_Customers" />
+    <EntitySet Name="Tbl_Mapping_NguonGocSP_ThuongHieu" EntityType="NetsuiteTTModel.Tbl_Mapping_NguonGocSP_ThuongHieu" />
+    <EntitySet Name="TenHopQuis" EntityType="NetsuiteTTModel.TenHopQui" />
+    <EntitySet Name="ThiTruongXuatKhaus" EntityType="NetsuiteTTModel.ThiTruongXuatKhau" />
+    <EntitySet Name="Chart_of_Accounts" EntityType="NetsuiteTTModel.Chart_of_Accounts" />
+    <EntitySet Name="Donvi_mapping_Department_bk150424" EntityType="NetsuiteTTModel.Donvi_mapping_Department_bk150424" />
+    <EntitySet Name="GioiTinhs" EntityType="NetsuiteTTModel.GioiTinh" />
+    <EntitySet Name="kho_bk_30052024" EntityType="NetsuiteTTModel.kho_bk_30052024" />
+    <EntitySet Name="KhuVucs" EntityType="NetsuiteTTModel.KhuVuc" />
+    <EntitySet Name="OtherChagreForPurchases" EntityType="NetsuiteTTModel.OtherChagreForPurchase" />
+    <EntitySet Name="Table_Mapping_Mavattu_DVT_BK_23032024" EntityType="NetsuiteTTModel.Table_Mapping_Mavattu_DVT_BK_23032024" />
+    <EntitySet Name="TBL_Data_BCChiPhiVatTu_BC14" EntityType="NetsuiteTTModel.TBL_Data_BCChiPhiVatTu_BC14" />
+  </EntityContainer>
+  <ComplexType Name="VATTU2024_SP_LOAD_ExpenseCodeList_Result">
+    <Property Type="String" Name="ExpenseCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ParentExpenseCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ExternalID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MAVATTU" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MAVT_CP_MOC" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MACP_SOI" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Cotonkho" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SPLOAD_TONKHOALL_TP_2024_Result">
+    <Property Type="Int32" Name="STT" Nullable="false" />
+    <Property Type="String" Name="externalid" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="parent" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="makho" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="tenkho" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="loai" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ID_nhamaysx" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IDMADV" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NHAMAY" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="VATTU2024_LOAD_LOAISPCHITIET_Result">
+    <Property Type="String" Name="externalid" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="MaLoaiSPCT" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="PhanNhomSanPham" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Kytu1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MoTa" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MANHOM" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <EntityType Name="BongIn">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BongNenVai">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BTM_Serial_No_List">
+    <Key>
+      <PropertyRef Name="Internal_ID" />
+    </Key>
+    <Property Name="Internal_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="From_Date" Type="DateTime" Precision="7" />
+    <Property Name="To_Date" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="CaDet">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaCaDet" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="parent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tbl_franchise" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="code_Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Desciption" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CongNgheDet">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DongBoVATTU_SOI__Json_Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Json" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="JsonNotification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Error" Type="Boolean" />
+    <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PhanLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MayTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Donvi_mapping_Department">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="internalid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="parent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idmadv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="madv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idmacs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mabp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account_Donvi_Xsudung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="donvidathang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ghichu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="DonViTienTe">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QuocGia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KyHieu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DSInvoiceXuatKhau">
+    <Key>
+      <PropertyRef Name="invoice" />
+    </Key>
+    <Property Name="invoice" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="thitruong" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="khuvuc" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DSPhieuUploadN">
+    <Key>
+      <PropertyRef Name="SoPhieu" />
+    </Key>
+    <Property Name="SoPhieu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Showroom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DSPhieuViPhamEntity">
+    <Key>
+      <PropertyRef Name="Sophieu" />
+    </Key>
+    <Property Name="Sophieu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Showroom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DSPhieuViPhamQuantityItem">
+    <Key>
+      <PropertyRef Name="Item" />
+    </Key>
+    <Property Name="Sophieu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Item" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DSPhieuViPhamSerialLotNumber">
+    <Key>
+      <PropertyRef Name="SerialLotNumber" />
+    </Key>
+    <Property Name="Sophieu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Item" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SerialLotNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Expense_Code">
+    <Key>
+      <PropertyRef Name="stt" />
+    </Key>
+    <Property Name="Internalid_ExpenseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Externalid_ExpenseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name_code" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Expense_code1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CP_NguoiLaoDong" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Department" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Acount_Chiphi_SX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="GhiLog_DMVattu_ErrorAPI_NS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Internalid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Externalid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAVT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenVT" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LogNS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ngaylog" Type="DateTime" Precision="3" />
+    <Property Name="HanhDong" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="KenhPhanPhoi">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaKenh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Kho">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="parent" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="makho" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tenkho" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="loai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_nhamaysx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDMADV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NHAMAY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="KhoanMucChiPhi">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="KhoVai">
+    <Key>
+      <PropertyRef Name="MaKhoVai" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaKhoVai" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="KichCo">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KyTu15" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KyTu11" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LoaiGiaBan">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoaiGia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LoaiKhachHang">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LoaiMayDet">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KyHieu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LoaiNhaCungCap">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LoaiSanPham">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiSanPham1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KyTu1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LoaiSanPhamChiTiet">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoaiSPCT" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PhanNhomSanPham" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Kytu1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LoaiVatTu">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiVatTu1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LoaiYeuCau">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiYeuCau1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LoaiYeuCauSanXuat">
+    <Key>
+      <PropertyRef Name="Internalid_LoaiYCSX" />
+    </Key>
+    <Property Name="Internalid_LoaiYCSX" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name_Loai" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="GC_SOI" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="NguocGoc">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaNguonGoc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChonHayNhapHang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ThiTruong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhienMaDonHangNhuomIn" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NguonHangSanXuat">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NhomHang">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiSanPham" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NhomTrangPhuc" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MaLoaiSanPham" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MaNguonGoc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NhanHang" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NhomVai" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NhomHoaVanDetIn">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KyHieu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhamViBanHang" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NhomMucDichSuDung">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NhomMucDichSD" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NhomSanPham">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NhomSanPhamKinhDoanh">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaNhom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NhomSoi">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaNhomSoi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KyHieuThanhPham" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NhomTrangPhuc">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaNhom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhamViBanHang" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PhanLoaiSPMay">
+    <Key>
+      <PropertyRef Name="Externalid_NhomSPM" />
+    </Key>
+    <Property Name="Externalid_NhomSPM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name_NS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name_TT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_TT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KyTu1" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PhanNhomSanPham">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaLoaiSP" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="MaLoaiSP_TT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LoaiSanPham_NS" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NameSP" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="KyTu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LoaiVT_TT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hieuluc" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PhuongThucThanhToan">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SaleOrder_Viseri">
+    <Key>
+      <PropertyRef Name="SoHD" />
+    </Key>
+    <Property Name="SoHD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NgayHD" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MaDonHang" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NgayDonHang" Type="DateTime" Precision="3" />
+    <Property Name="LoaiDonHang" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HinhThuGiaCong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiGC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaDonViNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MaKhoNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="QuocGia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ThiTruong" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DonGia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DonViTinhGia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TyGia" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MaHangThanhPham" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TongSLKhachGiao" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SLThanhPhamDuKien" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DVT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DinhMucGM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TieuHaoVoHinh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TieuHaoHuuHinh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DVTTieuHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NgayDuKienGiaoHang" Type="DateTime" Precision="3" />
+    <Property Name="NguoiCN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NgayCN" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NguoiDC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NgayDC" Type="DateTime" Precision="3" />
+    <Property Name="KetThucDonHang" Type="Boolean" />
+    <Property Name="NguoiKTDH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NgayKTDH" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SaleOrder_Viseri_Item">
+    <Key>
+      <PropertyRef Name="ID_Khoa" />
+    </Key>
+    <Property Name="MaDonHang" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MaVatTuKH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TenVatTu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SLKhachGiao" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MaCongDoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DinhMucGM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LyDoNhan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgCapNhat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+    <Property Name="NgDieuChinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayDieuChinh" Type="DateTime" Precision="3" />
+    <Property Name="ID_Khoa" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table_LoaiPhieuVanChuyenNoiBo">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="InternalID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExternalID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiPhieu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_DinhMuc_KeyHH_MOC">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="Internalid_BOM_Rev" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KeyHH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDChiPhi" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Internalid_BOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SoLanTinh_KeyHH" Type="String" MaxLength="150" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_MACP_TenVT_Dinhmucdet">
+    <Key>
+      <PropertyRef Name="INT" />
+    </Key>
+    <Property Name="MACP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ten" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MAPPING_KYHIEUCP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="INT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z">
+    <Key>
+      <PropertyRef Name="INT" />
+    </Key>
+    <Property Name="MACP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ten" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MAPPING_KYHIEUCP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="INT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_MaHangSPM_MaKieuDang">
+    <Key>
+      <PropertyRef Name="ID_TT" />
+      <PropertyRef Name="LOAISP" />
+    </Key>
+    <Property Name="Externalid_MaKieuDang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_TT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="LOAISP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Externalid_NhomMDSD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Externalid_LoaiSPMay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_Mavattu_DVT">
+    <Key>
+      <PropertyRef Name="stt" />
+    </Key>
+    <Property Name="Internalid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Externalid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenDVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="stt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Table_TAX_CODE">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="Internalid_taxcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name_Tax_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Desciption" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HieuLuc" Type="Boolean" />
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="TaiKhoanNhanVien_Netsuite">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="department" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="internalid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBL_Mapping_DoiTuongKhachHang_Customers">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExternalID_CUSTOMER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Showroom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaLoaiKhachHang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="MaDoiTuongKH" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DoiTuong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MST" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiDaiDien" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgayMuaHangDauTien" Type="DateTime" Precision="3" />
+    <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayCap" Type="DateTime" Precision="3" />
+    <Property Name="NoiCap" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SoTaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nganhang" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ThiTruong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NhanVienQuanLy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KenhPP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KhuVuc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SanPham" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HieuLuc" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedByID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="DonViPhuTrach" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BH_KT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+    <Property Name="Ghichu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GuiAPI" Type="Boolean" />
+    <Property Name="NgayGuiAPI" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tbl_Mapping_NguonGocSP_ThuongHieu">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Externalid" />
+      <PropertyRef Name="ID_TT" />
+      <PropertyRef Name="LOAISP" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Internalid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_TT" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="LOAISP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TenHopQui">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Loai" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThiTruongXuatKhau">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThiTruong" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiThongTin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Chart_of_Accounts">
+    <Key>
+      <PropertyRef Name="int" />
+    </Key>
+    <Property Name="InternalID_NS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Number_TT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Externalid_NS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="int" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Donvi_mapping_Department_bk150424">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="internalid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="parent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idmadv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="madv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idmacs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mabp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account_Donvi_Xsudung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="donvidathang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ghichu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GioiTinh">
+    <Key>
+      <PropertyRef Name="code_sex" />
+      <PropertyRef Name="internalID" />
+    </Key>
+    <Property Name="code_sex" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="decription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="internalID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="kho_bk_30052024">
+    <Key>
+      <PropertyRef Name="STT" />
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="externalid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="parent" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="makho" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tenkho" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="loai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_nhamaysx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDMADV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NHAMAY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="KhuVuc">
+    <Key>
+      <PropertyRef Name="internalid" />
+    </Key>
+    <Property Name="internalid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="parent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OtherChagreForPurchase">
+    <Key>
+      <PropertyRef Name="ExternalID" />
+    </Key>
+    <Property Name="ExternalID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ExpenseCogsAccount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="UsedByBTMMCSuiteApp" Type="Boolean" />
+    <Property Name="WipStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_Mavattu_DVT_BK_23032024">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Internalid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Externalid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenDVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TBL_Data_BCChiPhiVatTu_BC14">
+    <Key>
+      <PropertyRef Name="ID_" />
+    </Key>
+    <Property Name="Item" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ItemName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SoPhieu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayPhieu" Type="DateTime" Precision="0" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SoTienNo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SoTienCo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountMain" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Memo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCN" Type="DateTime" Precision="3" />
+    <Property Name="MANVCN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_" Type="Guid" Nullable="false" />
+    <Property Name="PhongBan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KeToanKiemTra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

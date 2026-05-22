@@ -1,0 +1,403 @@
+﻿
+@{ var locations = ViewBag.locations as List<ToolsApp.EntityFramework.VatTu.VATTU2024_DMKHO>; }
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📦 TRA CỨU TIẾN ĐỘ MUA HÀNG - MÃ VẬT TƯ</title>
+    <link rel="stylesheet" href="~/Content/bootstraptracuuxnk.min.css" />
+
+    <style>
+        body {
+            background: #f5f7fa;
+        }
+
+        .card {
+            border-radius: 16px;
+        }
+
+        .table thead th {
+            background: #0d6efd;
+            color: white;
+        }
+
+        table.dataTable {
+            width: max-content !important; /* ⭐ CỰC QUAN TRỌNG */
+        }
+
+        .dataTables_scrollBody table {
+            width: max-content !important;
+        }
+        table.dataTable td input,
+        table.dataTable td select {
+            min-width: 120px;
+        }
+    
+          
+         
+    </style>
+</head>
+
+<body>
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+            <h3 class="card-title"><b>📦 TRA CỨU TIẾN ĐỘ MUA HÀNG - VẬT TƯ</b></h3>
+        </div>
+
+        <div class="card-body row">
+
+            <!-- SEARCH BY PHIEU -->
+            <div class="col-md-2">
+                <div class="form-check mb-2">
+                    <input class="form-check-input search-type" type="radio" name="searchType" value="DK2">
+                    <label class="form-check-label"><b>Theo mã phiếu phê duyệt</b> </label>
+                </div>
+                <input type="text" id="MAPHIEUPDSearch" class="form-control"
+                       placeholder="Nhập mã phiếu phê duyệt">
+            </div>
+
+            <!-- SEARCH BY MAVT -->
+            <div class="col-md-2">
+                <div class="form-check mb-2">
+                    <input class="form-check-input search-type" type="radio" name="searchType" value="DK4">
+                    <label class="form-check-label"><b>Theo mã vật tư</b></label>
+                </div>
+                <input type="text" id="MAVTSearch" class="form-control"
+                       placeholder="Nhập mã vật tư">
+            </div>
+
+            <!-- SEARCH BY DATE -->
+            <div class="col-md-4">
+                <div class="form-check mb-2">
+                    <input class="form-check-input search-type" type="radio" name="searchType" value="DK3" checked>
+                    <label class="form-check-label"><b>Theo ngày phê duyệt</b></label>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><b>Từ ngày</b></span>
+                    </div>
+
+                    <input type="text" id="TUNGAYSearch" class="form-control"
+                           value="@DateTime.Now.AddDays(-3).ToString("dd/MM/yyyy")">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><b>Đến ngày</b></span>
+                    </div>
+
+                    <input type="text" id="DENNGAYSearch" class="form-control"
+                           value="@DateTime.Now.ToString("dd/MM/yyyy")">
+                </div>
+            </div>
+
+            <!-- SEARCH BY WEEK -->
+ 
+            <div class="col-md-2">
+                <div class="form-check mb-2">
+                    <input class="form-check-input search-type" type="radio" name="searchType" value="DK5">
+                    <label class="form-check-label"><b>Theo Tuần</b></label>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><b>Chọn tuần</b></span>
+                    </div>
+
+                    <input type="date"
+                           class="form-control"
+                           id="weekDate">
+                </div>
+                <input type="hidden" id="weekValue" name="weekValue">
+            </div>
+
+            @*--------- week firefox không hỗ trợ type week------------
+                <div class="col-md-2">
+            <div class="form-check mb-2">
+                <input class="form-check-input search-type" type="radio" name="searchType" value="DK5">
+                <label class="form-check-label"><b>Theo Tuần</b></label>
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><b>Chọn tuần</b></span>
+                </div>
+
+                <input type="week"
+                       class="form-control"
+                       id="weekPicker"
+                       name="weekPicker">
+            </div>
+        </div>*@
+
+        </div>
+
+        <div class="card-body">
+            <button class="btn btn-primary" onclick="btnSearch()" style="width: 120px">
+                <i class="fa fa-search"></i> Tra cứu
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <b>DANH SÁCH </b>
+                    </h3>
+                </div>
+                <div class="card-body pad">
+                    <div class="row">
+                        <div class="col-md-12 table-body table-responsive">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<div id="myModalMAVTTD" class="modal fade modal-wide" style="width: 75%" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmMAVTTD", id = "frmMAVTTD", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header bg-primary">
+                    <div class="modal-title" style="font-size: 17px; text-transform: uppercase; color: mintcream"><strong id="myModalTitleMAVTTD"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div>
+                    <div class="modal-body">
+                        <div id="myModalContentMAVTTD">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">                   
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="width: 120px"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+    </script>
+    <script type="text/javascript">
+        var config_ = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config_) {
+            $(selector).chosen(config_);
+        }
+
+       
+    </script>
+
+    <script type="text/javascript">
+        var $modalMAVTTD = $('#myModalMAVTTD');
+        var $myModalContentMAVTTD = $("#myModalContentMAVTTD");
+        var $myModalTitleMAVTTD = $("#myModalTitleMAVTTD");
+
+
+        function btnSearch() {
+           // GetList();
+            reloadData(false);
+        }
+
+     function reloadData(isDelete) {
+            let weekValue = $("#weekPicker").val();
+            var searchType = $('input[name="searchType"]:checked').val();
+            let urlAction = '@Url.Action("GetList")';
+            if (searchType === "DK5") {
+                urlAction = '@Url.Action("GetList")';
+                 }
+         var currentFilter = {
+             searchType: $('input[name="searchType"]:checked').val(),
+             MAPHIEUPDSearch: $("#MAPHIEUPDSearch").val(),
+             MAVTSearch: $("#MAVTSearch").val(),
+             TUNGAYs: $("#TUNGAYSearch").val(),
+             DENNGAYs: $("#DENNGAYSearch").val(),
+         //    weekValue: $("#weekPicker").val()
+             weekValue: $("#weekValue").val()
+         };
+        try {
+            $.ajax({
+                url: urlAction,
+                timeout: 2000000,
+                type: "POST",
+                data: currentFilter,
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    // Hủy tất cả các DataTable cũ nếu tồn tại
+                    $('.table').each(function () {
+                        if ($.fn.DataTable.isDataTable(this)) {
+                            $(this).DataTable().destroy(); // Phá hủy DataTable cũ
+                        }
+                    });
+
+                    $('.table').each(function (index) {
+                        $(this).attr('id', 'myTable_' + (index + 1)); // Thêm ID động
+                        $(this).DataTable({
+                            //scrollX: true,                 // ✅ BẮT BUỘC
+                            //scrollXInner: "100%",           // ✅ giữ width thật
+                            //scrollCollapse: true,
+                            responsive: false,              // ❌ tắt responsive
+                            autoWidth: false,               // ❌ không cho DataTables tự bóp cột
+                            lengthChange: true,
+                            stateSave: true,
+                            lengthMenu: [5,10,20,30,50,100,200],
+                            buttons: [
+                                 {
+                                     text: '📊 Xuất Excel',
+                                     action: function () {
+                                            let query = $.param(currentFilter);
+                                            window.location ='@Url.Action("ExportTienDoMuaHangExcel")?' + query;
+                                            }
+                                },
+                                {
+                                    extend: 'colvis',
+                                    text: 'Cột ẩn / hiện',
+                                },
+                                {
+                                    text: '📘 Tài liệu',
+                                    action: function () {
+                                        window.location = '@Url.Action("DownloadHuongDanTienDo")';
+                                    }
+                                },
+                            ],
+
+                            initComplete: function (oSettings) {
+                                // Thêm logic nếu cần khi DataTable đã khởi tạo
+                            }
+                        }).buttons().container().appendTo('#myTable_' + (index + 1) + '_wrapper .col-md-6:eq(0)');
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+     }
+
+        // Hàm bỏ dấu tiếng Việt
+        function toNoUnicode(str) {
+            return str.normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/đ/g, "d").replace(/Đ/g, "D")
+                .toLowerCase();
+        }
+
+
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+          //  reloadData(false);
+
+            $("#TUNGAYSearch").datepicker({
+                format: 'dd/mm/yyyy',
+                changeYear: true,
+                changeMonth: true,
+                onClose: function (selectedDate) {
+                    //$("#FromDate").datepicker("option", "minDate", selectedDate);
+                }
+            });
+
+            $("#DENNGAYSearch").datepicker({
+                format: 'dd/mm/yyyy',
+                changeYear: true,
+                changeMonth: true,
+                onClose: function (selectedDate) {
+                    //$("#FromDate").datepicker("option", "minDate", selectedDate);
+                }
+            });
+
+            $("#weekDate").on("change", function () {
+                const date = new Date(this.value);
+                if (!this.value) return;
+
+                $("#weekValue").val(getISOWeek(date));
+            });
+
+        });
+
+        function getISOWeek(date) {
+            const d = new Date(Date.UTC(
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate()
+            ));
+
+            const dayNum = d.getUTCDay() || 7;
+            d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+
+            const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+            const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+
+            return `${d.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
+        }
+
+
+
+        function btMAVTTD(MAPHIEUPD_, MAVT_) {
+            $.ajax({
+               url: '@Url.Action("GetListMAVTTD", "tracuutiendomuahang_cungung")',
+                timeout: 20000,
+                data: {
+                    MAPHIEUPD: MAPHIEUPD_, MAVT: MAVT_
+
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                    success: function (result) {
+                        if (result.status < 0) {
+                            notify(result.text, "error");
+                            $(".divLoading").removeClass("loading");
+                        }
+                        else {
+
+                            $myModalTitleMAVTTD.html("MÃ VẬT TƯ TƯƠNG ĐƯƠNG");
+                            $myModalContentMAVTTD.html(result);
+                            $modalMAVTTD.modal();
+                            $(".divLoading").removeClass("loading");
+                        }
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    </script>
+
+}

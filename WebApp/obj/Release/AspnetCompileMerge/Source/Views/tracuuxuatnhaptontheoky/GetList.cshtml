@@ -1,0 +1,52 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result>;
+    int STT = 1;
+}
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+            <th></th>
+            <th>STT</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>Số lượng tồn</th>
+            <th>Số lượng nhập</th>
+            <th>Số lượng nhập nội bộ</th>
+            <th>Số lượng xuất</th>
+            <th>Số lượng xuất nội bộ</th>
+            <th>Tồn cuối</th>
+            <th>Từ Ngày</th>
+            <th>Đến Ngày</th>
+            <th>ĐVT</th>
+            <th>Mã kho</th>
+            <th>Đơn giá</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List.OrderBy(p => p.MAVT))
+        {
+        <tr>
+            <td></td>
+            <td>@STT</td>
+            <td>@item.MAVT</td>
+            <td>@item.TENVT</td>
+            <td>@(Convert.ToDecimal(item.SOLUONGTON.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.SOLUONGNHAP.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.SOLUONGNHAPNOIBO.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.SOLUONGXUAT.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.SOLUONGXUATNOIBO.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.TONCUOI.Value.ToString("#.0000")))</td>
+            <td>@item.NGAYBATDAU</td>
+            <td>@item.NGAYKETTHUC</td>
+            <td>@item.DVT</td>
+            <td>@item.MAKHO</td>
+            <td>
+                @(decimal.Parse(item.DONGIA.Value.ToString("0.####")))
+            </td>
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

@@ -1,0 +1,37 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.KhoTP2023.TONKHO290224_IAA_InventoryDetail_Result>;
+    ViewBag.Title = "Inventory Details";
+    var Maphieu = ViewBag.MaPhieu;
+    var stt = 1;
+}
+<table id="myTable_IAA_ID" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            <th>STT</th>     
+            <th>REFERENCE_</th>
+            <th>ITEM</th>
+            <th>SERIAL_LOT_NUMBER</th>
+            <th>EXPIRATION_DATE</th>
+            <th>QUANTITY</th>
+         
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+            <tr>
+                <td>@stt</td>
+          
+                <td>@item.REFERENCE_</td>
+                <td>@item.ITEM</td>
+                <td>@item.SERIAL_LOT_NUMBER</td>
+                <td>@item.EXPIRATION_DATE</td>
+                <td>@item.QUANTITY</td>
+         
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>
+

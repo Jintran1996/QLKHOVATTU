@@ -1,0 +1,129 @@
+﻿@{
+    var maKhoXN_ = ViewBag.maKhoXN as List<ToolsApp.EntityFramework.VatTu.DMKHo>;
+    var maNVXN_ = ViewBag.maNVXN as List<ToolsApp.EntityFramework.VatTu.Load_NhanVien_Result>;
+    var kyHieuDVXN_ = ViewBag.kyHieuDVXN as List<ToolsApp.EntityFramework.VatTu.load_kihieukho_Result>;
+    var maKhoSD_ = ViewBag.maKhoSD as List<ToolsApp.EntityFramework.VatTu.DMKHo>;
+    var kyHieuDVSD_ = ViewBag.kyHieuDVSD as List<ToolsApp.EntityFramework.VatTu.load_kihieukho_Result>;
+
+}
+
+
+<div class="row col-md-12 style="display:flex"">
+    <div class="col-md-6" >
+        <div class="card">
+            <div class="card-header" style="border:none">
+                <h5 style="padding-top:10px">
+                    <b>Quyền Xuất Nhập Kho</b>
+                </h5>
+            </div>
+            <div class="card-body pad" style="padding-bottom:0">
+                <div class="form-group row">
+                    <label class="col-md-3">Mã kho: </label>
+                    <div class="col-md-9">
+                        <select class="form-control chosen-select" id="maKhoXN" name="maKhoXN" style="width: 100%; ">
+                            <option value="" disabled selected>--Chọn mã kho--</option>
+                            @foreach (var item in maKhoXN_)
+                            {
+                                <option value="@item.MAKHO">
+                                    @item.MAKHO || @item.TENKHO
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3">Mã nhân viên: </label>
+                    <div class="col-md-9">
+                        <select class="form-control chosen-select" id="maNVXN" name="maNVXN" style="width: 100%; ">
+                            <option value="" disabled selected>--Chọn mã nhân viên--</option>
+                            @foreach (var item in maNVXN_)
+                            {
+                                <option value="@item.MANV">
+                                    @item.MANV || @item.HOTEN
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3">Ký hiệu ĐV: </label>
+                    <div class="col-md-9">
+                        <select class="form-control chosen-select" id="kyHieuDV" name="kyHieuDV" style="width: 100%; ">
+                            <option value="" disabled selected>--Chọn ký hiệu đơn vị--</option>
+                            @foreach (var item in kyHieuDVXN_)
+                            {
+                                <option value="@item.Kihieu">
+                                    @item.Kihieu || @item.TENGOI
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent">
+                <div style="float:right; background-color:none">
+                    <button type="button" onclick="SaveQXN()" class="btn btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header" style="border:none">
+                <h5 style="padding-top:10px">
+                    <b>Đơn Vị Sử Dụng Kho</b>
+                </h5>
+            </div>
+            <div class="card-body pad"  style="padding-bottom:53px">
+                <div class="form-group row">
+                    <label class="col-md-3">Mã kho: </label>
+                    <div class="col-md-9">
+                        <select class="form-control chosen-select" id="maKhoSD" name="maKhoSD" style="width: 100%; ">
+                            <option value="" disabled selected>--Chọn mã kho--</option>
+                            @foreach (var item in maKhoSD_)
+                            {
+                                <option value="@item.MAKHO">
+                                    @item.MAKHO || @item.TENKHO
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3">Ký hiệu ĐV </label>
+                    <div class="col-md-9">
+                        <select class="form-control chosen-select" id="kyHieuDVSD" name="kyHieuDVSD" style="width: 100%; ">
+                            <option value="" disabled selected>--Chọn ký hiệu đơn vị--</option>
+                            @foreach (var item in kyHieuDVSD_)
+                            {
+                                <option value="@item.Kihieu">
+                                    @item.Kihieu || @item.TENGOI
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent">
+                <div style="float:right; background-color:none">
+                    <button type="button" onclick="SaveSD()" class="btn btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+</script>

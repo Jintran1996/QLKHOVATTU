@@ -1,0 +1,949 @@
+﻿@*@model ToolsApp.Models.Franchise_DMPHIEUYCMUAHANGViewmodels*@
+@{
+    ViewBag.Title = "Danh sách phiếu lập";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Lập Phiếu Xuất Kho Đơn Vị </a>
+                            </li>
+                            <li class="nav-item" id="tab-2">
+                                <a class="nav-link" id="custom-tabs-one-profile-tab" style="display:block;" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Lập Phiếu Xuất Kho Gia Công Nhuộm </a>
+                            </li>
+                            <li class="nav-item" id="tab-3">
+                                <a class="nav-link" id="custom-tabs-one-profile-tab-TTKD" style="display:block;" data-toggle="pill" href="#custom-tabs-one-profile-TTKD" role="tab" aria-controls="custom-tabs-one-profile-TTKD" aria-selected="false">Lập Phiếu Yêu Cầu Xuất Của TTKD </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                                <!--data-->
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Thêm mới</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-insert-khoDonVi  table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="text-right">
+                                                    <button type="button" id="btSave" onclick="New_Phieu_DV_Click('');" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>&nbsp;Phiếu mới</button>&nbsp;&nbsp;
+                                                    <button type="button" id="btSave" onclick="Insert_DV();" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
+                                                    <button type="button" id="btSave" onclick="Print_DV();" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>&nbsp;&nbsp;
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <!-- Section search -->
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Tìm kiếm</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad" style="padding-bottom:55px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3 col-sm-3">Số chứng từ</label>
+                                                            <div class="col-md-9 col-sm-9 ten">
+                                                                <input class="form-control form-control-sm" type="text" autocomplete="off" onkeypress="runScript(event)"
+                                                                       id="SOCTSearch_DV" name="SOCTSearch_DV" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="modal-footer">
+                                                        <div class="text-right">
+                                                            <button id="btnSearch_DV" type="button" class="btn bg-gradient-primary" onclick="Search_Phieu_DV_Input();"><i class="fa fa-search"></i> Tìm kiếm</button>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End section search-->
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>@ViewBag.Title </b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-KhoDonVi  table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <!--data-->
+                                </div>
+                            </div>
+                            <div class="tab-pane fade col-md-12" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Thêm mới</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-insert-GiaCongNhuom  table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="text-right">
+                                                    <button type="button" id="btSave" onclick="New_Phieu_GCN_Click('');" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>&nbsp;Phiếu mới</button>&nbsp;&nbsp;
+                                                    <button type="button" id="btSave" onclick="Insert_GCN();" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
+                                                    <button type="button" id="btSave" onclick="Print_GCN();" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>&nbsp;&nbsp;
+
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- Section search -->
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Tìm kiếm</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad" style="padding-bottom:90px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row" style="margin-bottom:5px;">
+                                                            <label class="col-md-3 col-sm-3">Số chứng từ</label>
+                                                            <div class="col-md-9 col-sm-9 ten">
+                                                                <input class="form-control form-control-sm" type="text" autocomplete="off" onkeypress="runKeySearch(event)"
+                                                                       id="SOCTSearch_GCN" name="SOCTSearch_GCN" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="modal-footer">
+                                                        <div class="text-right">
+                                                            <button id="btnSearch_DV" type="button" class="btn bg-gradient-primary" onclick="Search_Phieu_GCN_Input();"><i class="fa fa-search"></i> Tìm kiếm</button>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End section search-->
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class=" col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>@ViewBag.Title </b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-GiaCongNhuom  table-responsive">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade col-md-12" id="custom-tabs-one-profile-TTKD" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab-TTKD">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Thêm mới</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-insert-TrungTamKinhDoanh table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="text-right">
+                                                    <button type="button" id="btSave" onclick="New_Phieu_TTKD_Click('');" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>&nbsp;Phiếu mới</button>&nbsp;&nbsp;
+                                                    <button type="button" id="btSave" onclick="Insert_TTKD();" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
+                                                    <button type="button" id="btSave" onclick="Print_TTKD();" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>&nbsp;&nbsp;
+
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- Section search -->
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Tìm kiếm</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad" style="padding-bottom:90px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row" style="margin-bottom:5px;">
+                                                            <label class="col-md-3 col-sm-3">Số chứng từ</label>
+                                                            <div class="col-md-9 col-sm-9 ten">
+                                                                <input class="form-control form-control-sm" type="text" autocomplete="off" onkeypress="runKeySearch_TTKD(event)"
+                                                                       id="SOCTSearch_TTKD" name="SOCTSearch_TTKD" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="modal-footer">
+                                                        <div class="text-right">
+                                                            <button id="btnSearch_TTKD" onclick="Search_Phieu_TTKD_Input();" type="button" class="btn bg-gradient-primary" ><i class="fa fa-search"></i> Tìm kiếm</button>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End section search-->
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class=" col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>@ViewBag.Title </b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-TrungTamKinhDoanh  table-responsive">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModalDetailReport" class="modal fade modal-wide" role="dialog" style="overflow:auto">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitleDetailReport"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetailReport" class="_print">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContentDetailReport');" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"> <i class="fa fa-close"></i>&nbsp;Đóng</button>&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+    </script>
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+
+    </script>
+    <script>
+        function reloadData(page) {
+            try {
+
+                _insert_khoDonVi();
+                _GetList_khoDonVi("");
+                _GetList_GiaCongNhuom("");
+                _insert_GiaCongNhuom();
+                _GetList_TrungTamKinhDoanh("");
+                _insert_TrungTamKinhDoanh();
+            } catch (e) {
+            }
+        }
+
+        function _GetList_khoDonVi(SOCTXN_DV) {
+             $.ajax({
+                url: '@Url.Action("_GetList_KhoDonVi")',
+                timeout: 20000,
+                 data: {
+                     SOCTXN_DV: SOCTXN_DV
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+             }).done(function (data){
+                 $(".divLoading").removeClass("loading");
+
+                 $('.table-body-KhoDonVi').html(data);
+
+                 $("#myTable_KhoDonVi").DataTable({
+                        destroy: true,
+                        "language": {
+                            "sProcessing": "Đang xử lý...",
+                            "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                            "sZeroRecords": "Không tìm thấy kết quả",
+                            "sEmptyTable": "Không có dữ liệu",
+                            "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Tìm kiếm:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Đang tải...",
+                            "oPaginate": {
+                                "sFirst": "Đầu tiên",
+                                "sLast": "Cuối cùng",
+                                "sNext": "Sau",
+                                "sPrevious": "Trước"
+                            },
+                            "oAria": {
+                                "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                            }
+                        },
+                        "lengthMenu": [5, 10, 25, 50, 75, 100],
+                        "columnDefs": [
+                            {
+                                "targets": [0, ],
+                                orderable: false
+                            },
+                        ],
+                        "info": false,
+                        "processing": false,
+                        "serverSide": false,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+             }).fail(function (data) {
+                  notify(data.text, "error");
+             });
+
+        }
+        function _insert_khoDonVi() {
+            $.ajax({
+                url: '@Url.Action("_insert_khoDonVi")',
+                timeout: 20000,
+                data: {
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-insert-khoDonVi').html(response);
+
+
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        function _GetList_GiaCongNhuom(SOCTXN_GCN) {
+            $.ajax({
+                url: '@Url.Action("_GetList_GiaCongNhuom")',
+                timeout: 20000,
+                data: {
+                    SOCTXN_GCN: SOCTXN_GCN
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+
+                $('.table-body-GiaCongNhuom').html(data);
+
+                $("#myTable_GiaCongNhuom").DataTable({
+                    destroy: true,
+                    "language": {
+                        "sProcessing": "Đang xử lý...",
+                        "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                        "sZeroRecords": "Không tìm thấy kết quả",
+                        "sEmptyTable": "Không có dữ liệu",
+                        "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                        "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                        "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Tìm kiếm:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Đang tải...",
+                        "oPaginate": {
+                            "sFirst": "Đầu tiên",
+                            "sLast": "Cuối cùng",
+                            "sNext": "Sau",
+                            "sPrevious": "Trước"
+                        },
+                        "oAria": {
+                            "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                            "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                        }
+                    },
+                    "lengthMenu": [5, 10, 25, 50, 75, 100],
+                    "columnDefs": [
+                        {
+                            "targets": [0,],
+                            orderable: false
+                        },
+                    ],
+                    "info": false,
+                    "processing": false,
+                    "serverSide": false,
+                    "bFilter": true,
+                    "bPaginate": true,
+                    "bLengthChange": true,
+                    "bInfo": true,
+                    "responsive": true,
+                    "lengthChange": true,
+
+                    "autoWidth": false,
+                    "stateSave": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "initComplete": function (oSettings) {
+
+                    }
+                });
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+        function _insert_GiaCongNhuom() {
+            $.ajax({
+                url: '@Url.Action("_insert_GiaCongNhuom")',
+                timeout: 20000,
+                data: {
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-insert-GiaCongNhuom').html(response);
+
+
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        function _GetList_TrungTamKinhDoanh(SOCTXN_TTKD) {
+            $.ajax({
+                url: '@Url.Action("_GetList_TrungTamKinhDoanh")',
+                timeout: 20000,
+                data: {
+                    SOCTXN_TTKD: SOCTXN_TTKD
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+
+                $('.table-body-TrungTamKinhDoanh').html(data);
+
+                $("#myTable_TrungTamKinhDoanh").DataTable({
+                    destroy: true,
+                    "language": {
+                        "sProcessing": "Đang xử lý...",
+                        "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                        "sZeroRecords": "Không tìm thấy kết quả",
+                        "sEmptyTable": "Không có dữ liệu",
+                        "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                        "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                        "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Tìm kiếm:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Đang tải...",
+                        "oPaginate": {
+                            "sFirst": "Đầu tiên",
+                            "sLast": "Cuối cùng",
+                            "sNext": "Sau",
+                            "sPrevious": "Trước"
+                        },
+                        "oAria": {
+                            "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                            "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                        }
+                    },
+                    "lengthMenu": [5, 10, 25, 50, 75, 100],
+                    "columnDefs": [
+                        {
+                            "targets": [0,],
+                            orderable: false
+                        },
+                    ],
+                    "info": false,
+                    "processing": false,
+                    "serverSide": false,
+                    "bFilter": true,
+                    "bPaginate": true,
+                    "bLengthChange": true,
+                    "bInfo": true,
+                    "responsive": true,
+                    "lengthChange": true,
+
+                    "autoWidth": false,
+                    "stateSave": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "initComplete": function (oSettings) {
+
+                    }
+                });
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+        function _insert_TrungTamKinhDoanh() {
+            $.ajax({
+                url: '@Url.Action("_insert_TrungTamKinhDoanh")',
+                timeout: 20000,
+                data: {
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+                    $('.table-body-insert-TrungTamKinhDoanh').html(response);
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+    </script>
+    <script type="text/javascript">
+        var $myModalDetailReport = $('#myModalDetailReport');
+        var $myModalContentDetailReport = $("#myModalContentDetailReport");
+        var $myModalTitleDetailReport = $("#myModalTitleDetailReport");
+        function isStatus(ischeck) {
+           
+            if (ischeck == true) {
+                $('#custom-tabs-one-profile-tab-TTKD').trigger('click');
+                document.getElementById("tab-1").style.display = 'none';
+                document.getElementById("tab-2").style.display = 'none';
+                document.getElementById("tab-3").style.display = 'block';
+            }
+            else {
+                $('#custom-tabs-one-home-tab').trigger('click');
+                document.getElementById("tab-3").style.display = 'none';
+                document.getElementById("tab-1").style.display = 'block';
+                document.getElementById("tab-2").style.display = 'block';
+            }
+        }
+        $(document).ready(function () {
+            $.ajax({
+                url: '@Url.Action("PhanQuyen")',
+                timeout: 200000,
+                data: {
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                isStatus(data.obj)
+                reloadData(false);
+                $("#myModal").on("hidden.bs.modal", function () {
+                    reloadData(false);
+                });
+                $("#btnSearch").click(function () {
+                    reloadData(true);
+                });
+            }).fail(function (data) {
+                 notify(data.text, "error");
+            });
+            
+           
+        });
+
+
+        //=======================================================================================================================//
+        //-------------Tao Phieu Moi dv Click--------------//
+        function New_Phieu_DV_Click(SOCTXN_DV) {
+            _insert_khoDonVi();
+            _GetList_khoDonVi(SOCTXN_DV);
+        }
+        //-------------search DV Click--------------//
+        function Search_Phieu_DV_Input() {
+            var SOCTXN_DV = $('#SOCTSearch_DV').val();
+            _GetList_khoDonVi(SOCTXN_DV);
+        }
+        //-------------search enter key--------------//
+        function runScript(e) {
+            if ((e.code == "Enter" && (e.code || e.metaKey)) || (e.code == "NumpadEnter" && (e.code || e.metaKey))) {
+                Search_Phieu_DV_Input();
+            }
+        }
+        //------------- Action click DV -----------------//
+        function Insert_DV() {
+            var SOCTXN_DV = $('#SOCTXN_DV').val();
+            var MaKho_DV = $('#MaKho_DV').val();
+            var Soluong_DV = $('#Soluong_DV').val();
+            var LoaiXuatNhap_DV = $('#LoaiXuatNhap_DV').val();
+            var GhiChu_DV = $('#GhiChu_DV').val();
+            var MaVT_DV = $('#MaVT_DV').val();
+            console.log(GhiChu_DV);
+            $.ajax({
+                url: '@Url.Action("Insert_DV_")',
+                type: "POST",
+                data: {
+                    SOCTXN_DV: SOCTXN_DV,
+                    MaKho_DV: MaKho_DV,
+                    Soluong_DV: Soluong_DV,
+                    LoaiXuatNhap_DV: LoaiXuatNhap_DV,
+                    GhiChu_DV: GhiChu_DV,
+                    MaVT_DV: MaVT_DV,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                    _GetList_khoDonVi(SOCTXN_DV);
+                    New_Phieu_GCN_Click("");
+                    New_Phieu_TTKD_Click("");
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+        //------------- Action Print DV------------------//
+        function Print_DV() {
+            $myModalContentDetailReport.html("");
+            $myModalTitleDetailReport.html("Phiếu yêu cầu xuất kho vật tư hàng hoá - đơn vị");
+            var SoChungTu = $('#SOCTXN_DV').val();
+            var makho = $('#MaKho_DV').val();
+
+            $.ajax({
+                url: '@Url.Action("print_Phieu", "LapPhieuYeuCauXuatKhoTuMaPhieuPheDuyet")',
+                timeout: 200000,
+                data: {
+                    SoChungTu: SoChungTu,
+                    makho: makho,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                if (data.status == null) {
+                    $(".divLoading").removeClass("loading");
+                    $myModalContentDetailReport.html(data);
+                    $myModalDetailReport.modal();
+                }
+                else {
+                    $(".divLoading").removeClass("loading");
+                    notify(data.text, "error");
+                }
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+        //========================================================================================================================//
+        //========================================================================================================================//
+        //-------------Tao Phieu Moi GCN Click--------------//
+        function New_Phieu_GCN_Click(SOCTXN_GCN) {
+            _insert_GiaCongNhuom();
+            _GetList_GiaCongNhuom(SOCTXN_GCN);
+
+        }
+        //-------------search DV Click--------------//
+        function Search_Phieu_GCN_Input() {
+            var SOCTSearch_GCN = $('#SOCTSearch_GCN').val();
+            _GetList_GiaCongNhuom(SOCTSearch_GCN);
+        }
+        //-------------search enter key--------------//
+        function runKeySearch(e) {
+            if ((e.code == "Enter" && (e.code || e.metaKey)) || (e.code == "NumpadEnter" && (e.code || e.metaKey))) {
+                Search_Phieu_GCN_Input();
+            }
+        }
+        //------------- Action click GCN -----------------//
+        function Insert_GCN() {
+            var SOCTXN_GCN = $('#SOCTXN_GCN').val();
+            var MaVT_GCN = $('#MaVT_GCN').val();
+            var MaKho_GCN = $('#MaKho_GCN').val();
+            var GhiChu_GCN = $('#GhiChu_GCN').val();
+            var LoaiXuatNhap_GCN = $('#LoaiXuatNhap_GCN').val();
+            var LoaiCapPhat_GCN = $('#LoaiCapPhat_GCN').val();
+            var Soluong_GCN = $('#Soluong_GCN').val();
+            var SL_PheDuyet_GCN = $('#SL_PheDuyet_GCN').val();
+            var SoCTXN_PhieuPD_GCN = $('#SoCTXN_PhieuPD_GCN').val();
+            $.ajax({
+                url: '@Url.Action("Insert_GCN_")',
+                type: "POST",
+                data: {
+                    SOCTXN_GCN: SOCTXN_GCN,
+                    MaVT_GCN: MaVT_GCN,
+                    MaKho_GCN: MaKho_GCN,
+                    GhiChu_GCN: GhiChu_GCN,
+                    LoaiXuatNhap_GCN: LoaiXuatNhap_GCN,
+                    LoaiCapPhat_GCN: LoaiCapPhat_GCN,
+                    Soluong_GCN: Soluong_GCN,
+                    SL_PheDuyet_GCN: SL_PheDuyet_GCN,
+                    SoCTXN_PhieuPD_GCN: SoCTXN_PhieuPD_GCN,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                    _GetList_GiaCongNhuom(SOCTXN_GCN);
+                    New_Phieu_DV_Click("");
+                    New_Phieu_TTKD_Click("");
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+         //------------- Action Print GCN------------------//
+        function Print_GCN() {
+            $myModalContentDetailReport.html("");
+            $myModalTitleDetailReport.html("Phiếu yêu cầu xuất kho vật tư hàng hoá - Gia công nhuộm");
+            var SoChungTu = $('#SOCTXN_GCN').val();
+            var makho = $('#MaKho_GCN').val();
+
+            $.ajax({
+                url: '@Url.Action("print_Phieu", "LapPhieuYeuCauXuatKhoTuMaPhieuPheDuyet")',
+                timeout: 200000,
+                data: {
+                    SoChungTu: SoChungTu,
+                    makho: makho,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                if (data.status == null) {
+                    $(".divLoading").removeClass("loading");
+                    $myModalContentDetailReport.html(data);
+                    $myModalDetailReport.modal();
+                }
+                else {
+                    $(".divLoading").removeClass("loading");
+                    notify(data.text, "error");
+                }
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+        //========================================================================================================================//
+
+        //========================================================================================================================//
+        //-------------Tao Phieu Moi GCN Click--------------//
+        function New_Phieu_TTKD_Click(SOCTXN_TTKD) {
+            _insert_TrungTamKinhDoanh();
+            _GetList_TrungTamKinhDoanh(SOCTXN_TTKD);
+
+        }
+        //-------------search DV Click--------------//
+        function Search_Phieu_TTKD_Input() {
+            var SOCTSearch_TTKD = $('#SOCTSearch_TTKD').val();
+            console.log(SOCTSearch_TTKD);
+            _GetList_TrungTamKinhDoanh(SOCTSearch_TTKD);
+        }
+        //-------------search enter key--------------//
+        function runKeySearch_TTKD(e) {
+            if ((e.code == "Enter" && (e.code || e.metaKey)) || (e.code == "NumpadEnter" && (e.code || e.metaKey))) {
+                Search_Phieu_TTKD_Input();
+            }
+        }
+        //------------- Action click TTKD -----------------//
+        function Insert_TTKD() {
+            var SOCTXN_TTKD = $('#SOCTXN_TTKD').val();
+            var MaVT_TTKD = $('#MaVT_TTKD').val();
+            var MaKho_TTKD = $('#MaKho_TTKD').val();
+            var GhiChu_TTKD = $('#GhiChu_TTKD').val();
+            var LoaiXuatNhap_TTKD = $('#LoaiXuatNhap_TTKD').val();
+            var XuatCho_TTKD = $('#XuatCho_TTKD').val();
+            var Soluong_TTKD = $('#Soluong_TTKD').val();
+            $.ajax({
+              url: '@Url.Action("Insert_TTKD_")',
+                type: "POST",
+                data: {
+                    SOCTXN_TTKD: SOCTXN_TTKD,
+                    MaVT_TTKD: MaVT_TTKD,
+                    MaKho_TTKD: MaKho_TTKD,
+                    GhiChu_TTKD: GhiChu_TTKD,
+                    LoaiXuatNhap_TTKD: LoaiXuatNhap_TTKD,
+                    XuatCho_TTKD: XuatCho_TTKD,
+                    Soluong_TTKD: Soluong_TTKD,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                    _GetList_TrungTamKinhDoanh(SOCTXN_TTKD);
+                    New_Phieu_DV_Click("");
+                    New_Phieu_GCN_Click("")
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+       //------------- Action Print TTKD------------------//
+        function Print_TTKD() {
+            $myModalContentDetailReport.html("");
+            $myModalTitleDetailReport.html("Phiếu yêu cầu xuất kho vật tư hàng hoá - Trung Tâm Kinh Doanh");
+            var SoChungTu = $('#SOCTXN_TTKD').val();
+            var makho = $('#MaKho_TTKD').val();
+            $.ajax({
+              url: '@Url.Action("print_Phieu", "LapPhieuYeuCauXuatKhoTuMaPhieuPheDuyet")',
+                timeout: 200000,
+                data: {
+                    SoChungTu: SoChungTu,
+                    makho: makho,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                if (data.status == null) {
+                    $(".divLoading").removeClass("loading");
+                    $myModalContentDetailReport.html(data);
+                    $myModalDetailReport.modal();
+                }
+                else {
+                    $(".divLoading").removeClass("loading");
+                    notify(data.text, "error");
+                }
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+        //========================================================================================================================//
+
+    </script>
+}

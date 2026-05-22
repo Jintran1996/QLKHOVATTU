@@ -1,0 +1,48 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.SOI2025_SPLOAD_SOCTXN_TANGGIAMKHO_NL_CTXUATNHAP_Result>;
+    ViewBag.Title = "Chi tiết phiếu xuất nhập";
+    var stt = 1;
+}
+
+
+<table id="myTablectview" class="table table-bordered table-striped">
+    <thead>
+        <tr>    
+            <th style="text-align:center">.No</th>
+            <th>Số chứng từ</th>
+            <th>MAVT</th>
+            <th>Hiệu</th>
+            <th>Lô</th>
+            <th>IDMADV</th>
+            <th>Mã Kho nhận</th>
+            <th>Số Lượng TT</th>           
+            <th>Ngày kế toán</th>
+            <th>Mã phiếu PD</th>
+            <th>Ghi chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in list)
+        {
+            <tr>              
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.SOCTXN</td>
+                <td>@item.MAVT</td>
+                <td>@item.HIEU</td>
+                <td>@item.LO</td>
+                <td>@item.IDMADVNHAN</td>
+                <td>@item.MAKHONHAN</td>
+                <td>@item.SOLUONGTT</td>
+                <td>@item.SOHOADON</td>
+                <td>@item.NGAYKETOAN.Value.ToString("dd/MM/yyyy")</td>
+                <td>@item.MAPHIEUPD</td>
+                <td>@item.GHICHU</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

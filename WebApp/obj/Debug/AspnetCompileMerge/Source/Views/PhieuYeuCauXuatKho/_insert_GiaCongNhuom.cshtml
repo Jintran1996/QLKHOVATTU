@@ -1,0 +1,157 @@
+﻿
+@{
+    //Gia Công May
+    var SoCT_GCN = ViewData["data_SoChungTu"];
+    var data_MaKho_GCN = ViewBag.data_MaKho_GCN as List<ToolsApp.EntityFramework.VatTu.SP_KTQKForWebNew_Result>;
+    var data_LoaiCapPhat_GCN = ViewBag.data_LoaiCapPhat_GCN as List<ToolsApp.EntityFramework.VatTu.SP_LOAIXUATNHAP_Result>;
+    var data_LoaiXuatNhap_GCN = ViewBag.data_LoaiXuatNhap_GCN as List<ToolsApp.EntityFramework.VatTu.sp_LoadLoaiXN_GCNhuom_Result>;
+}
+<div class="row">
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Số CT :</label>
+            <div class="col-md-9">
+                <input class="form-control form-control-sm" type="text" autocomplete="off" value="@SoCT_GCN" disabled
+                       id="SOCTXN_GCN" name="SOCTXN_GCN" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Mã kho :</label>
+            <div class="col-md-9">
+                <select class="form-control form-control-sm chosen-select" onchange="Load_MaVT_GCN(this.value);" id="MaKho_GCN" name="MaKho_GCN">
+                    <option selected value="false">--Danh Sách Mã Kho--</option>
+                    @foreach (var item in data_MaKho_GCN)
+                    {
+                        <option value="@item.MAKHO">@item.TenMa</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Mã vật tư :</label>
+            <div class="col-md-9">
+                <select class="form-control form-control-sm chosen-select" id="MaVT_GCN" name="MaVT_GCN" onchange="Load_SoCTXN_PhieuPD_GCN(this.value)">
+                    <option selected value="false">--Danh Sách Mã vật Tư--</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 ">Số CTXN (PhiếuPD):</label>
+            <div class="col-md-9 ">
+                <input class="form-control form-control-sm" type="text" autocomplete="off" value="" 
+                      id="SoCTXN_PhieuPD_GCN" name="SoCTXN_PhieuPD_GCN" disabled />
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">SL XK :</label>
+            <div class="col-md-9 ">
+                <input class="form-control form-control-sm" type="number" min="0" autocomplete="off" value="1"
+                       id="Soluong_GCN" name="Soluong_GCN" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Ghi chú:</label>
+            <div class="col-md-9">
+                <textarea rows="1" id="GhiChu_GCN" name="GhiChu_GCN" class="form-control form-control-sm"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 ">Loại cấp phát:</label>
+
+            <div class="col-md-9 ">
+                <select class="form-control form-control-sm chosen-select" id="LoaiCapPhat_GCN" name="LoaiCapPhat_GCN">
+                    @foreach (var item in data_LoaiCapPhat_GCN)
+                    {
+                        <option value="@item.LOAI">@item.TEN</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 ">Loại XN:</label>
+            <div class="col-md-9 ">
+                <select class="form-control form-control-sm chosen-select" id="LoaiXuatNhap_GCN" name="LoaiXuatNhap_GCN">
+                    @foreach (var item in data_LoaiXuatNhap_GCN)
+                    {
+                        <option value="@item.LOAIXN">@item.HIENTHI</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<input style="display:none;" id="SL_PheDuyet_GCN" name="SL_PheDuyet_GCN"/>
+<script type="text/javascript">
+    function Load_MaVT_GCN(MaKho_GCN) {
+        var MaVT_GCN = $("#MaVT_GCN");
+        MaVT_GCN.empty();
+        $.ajax({
+            url: '@Url.Action("Load_MaVT_GCN")',
+            timeout: 200000,
+            data: {
+                MaKho: MaKho_GCN,
+                MaVT: '',
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            console.log(data.obj);
+            if (data.status < 0) {
+                MaVT_GCN.append($('<option/>', { value: "false" }).html("--Danh Sách Mã vật Tư--"));
+                MaVT_GCN.trigger("chosen:updated");
+            }
+            else {
+                MaVT_GCN.append($('<option/>', { value: "false" }).html("--Danh Sách Mã vật Tư--"));
+                $.each(data.obj, function (i, state) {
+                    MaVT_GCN.append($('<option/>', { value: data.obj[i].MAVT }).html(data.obj[i].TV +"&nbsp;||Tồn&nbsp;"+ data.obj[i].SOLUONGTT));
+                });
+                MaVT_GCN.trigger("chosen:updated");
+            }
+        }).fail(function (data) {
+            notify(data.text, "error");
+        });
+    }
+    function Load_SoCTXN_PhieuPD_GCN(MaVT_GCN) {
+        var MaKho_GCN = $("#MaKho_GCN").val();
+        $.ajax({
+            url: '@Url.Action("Load_SoCTXN_PhieuPD_GCN")',
+            timeout: 200000,
+            data: {
+                MaKho: MaKho_GCN,
+                MaVT: MaVT_GCN,
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            console.log(data.obj);
+            console.log(data.obj.MAPHIEUPD);
+            if (data.status > 0) {
+                $("#SoCTXN_PhieuPD_GCN").val(data.obj.MAPHIEUPD);
+                $("#SL_PheDuyet_GCN").val(data.obj.SOLUONGTT);
+            }
+        }).fail(function (data) {
+            notify(data.text, "error");
+        });
+    }
+</script>

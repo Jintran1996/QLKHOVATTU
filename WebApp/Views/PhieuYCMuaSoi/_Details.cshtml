@@ -1,0 +1,39 @@
+﻿@{
+    var list = ViewBag.ListCT as List<ToolsApp.EntityFramework.KhoSoi.NL_CTPHIEU>;
+    ViewBag.Title = "Danh sách vật tư";
+    var stt = 1;
+}
+<table id="myTableCT" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            <th>Mã số CP</th>
+            <th>Mã VT</th>
+            <th>SL YC</th>
+            <th>Lô</th>
+            <th>Hiệu</th>
+            <th>Tình trạng</th>
+            <th>Đơn vị YC</th>
+            <th>Loại YC</th>
+            <th>Ghi chú</th>
+            <th>Thời điểm SD</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+            <tr>
+                <td>@item.MASOCP</td>
+                <td><h6><small class="badge badge-success">@item.MAVT</small></h6></td>
+                <td style="color:blue; font: bold">@item.SLYCAU</td>
+                <td>@item.LO</td>
+                <td>@item.HIEU</td>
+                <td>@item.TINHTRANG</td>
+                <td>@item.IDMaDV_YCMUA</td>
+                <td>@item.LOAIYEUCAU</td>
+                <td>@item.GHICHU</td>
+                <td>@(item.THOIDIEMSD == null ? "": item.THOIDIEMSD.Value.ToString("dd/MM/yyyy"))</td>
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>

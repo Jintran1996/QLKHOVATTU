@@ -1,0 +1,137 @@
+﻿
+
+@{
+    var STT = 0;
+    var data_DV = ViewBag.data_DV as List<ToolsApp.EntityFramework.VatTu.SP_LOADCTPHIEUYCXUATKHO_DONVI_Result>;
+    
+}
+<div class="control-group">
+    <table id="myTable_KhoDonVi" class="table table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th width="30px">STT</th>
+                <th>SOCTXN</th>
+                <th>Mã kho</th>
+                <th>Mã vật tư</th>
+                <th>Tên vật tư</th>
+                <th>Số lượng yêu cầu</th>
+                <th>Ghi chú</th>
+                <th>Loại XN</th>
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+          
+                @foreach (var item in data_DV)
+                {
+                    <tr>
+                        <td>
+                            <a onclick="Delete('@item.KHOAKEYXN', '@item.SOCTXN')" class="btn" style="font-size:10px">
+                                <i class="far fa-trash-alt">&nbsp;Xóa&nbsp;phiếu</i>
+                            </a>
+                        </td>
+                        <td>@item.STT</td>
+                        <td>  <input type="text" id="data_DV_SOCTXN_@(item.STT)" name="data_DV_SOCTXN_@(item.STT)" value="@item.SOCTXN" style="display:none" /> @item.SOCTXN</td>
+                        <td>  <input type="text" id="data_DV_MAKHO_@(item.STT)" name="data_DV_MAKHO_@(item.STT)" value="@item.MAKHO" style="display:none" /> @item.MAKHO</td>
+                        <td>  <input type="text" id="data_DV_MAVT_@(item.STT)" name="data_DV_MAVT_@(item.STT)" value="@item.MAVT" style="display:none" />@item.MAVT </td>
+                        <td>  <input type="text" id="data_DV_TENVT_@(item.STT)" name="data_DV_TENVT_@(item.STT)" value="@item.TENVT" style="display:none" />@item.TENVT </td>
+                        <td>  <input type="text" id="data_DV_SOLUONGYC_@(item.STT)" onblur="update_DV('@item.KHOAKEYXN', @(item.STT))" name="data_DV_SOLUONGYC_@(item.STT)" value="@item.SOLUONGYC" class="form-control" /> </td>
+                        <td>  <textarea id="data_DV_GHICHU_@(item.STT)" onblur="update_DV('@item.KHOAKEYXN', @(item.STT))" name="data_DV_GHICHU_@(item.STT)" value="@item.GHICHU" class="form-control" rows="1">@item.GHICHU </textarea></td>
+                        <td>  <input type="text" id="data_DV_LOAICAPPHAT_@(item.STT)" name="data_DV_LOAICAPPHAT_@(item.STT)" value="@item.LOAICAPPHAT" style="display:none" />@item.LOAICAPPHAT </td>
+
+                    </tr>
+                    STT++;
+                }
+          
+
+        </tbody>
+    </table>
+</div>
+
+
+<script type="text/javascript">
+    function update_DV(Khoa, Stt) {
+        var Soluong_DV = $('#data_DV_SOLUONGYC_' + Stt).val();
+        var GhiChu_DV = $('#data_DV_GHICHU_' + Stt).val();
+        var SOCTXN_DV = $('#data_DV_SOCTXN_' + Stt).val();
+        var MaKho_DV = $('#data_DV_MAKHO_' + Stt).val();
+        var LoaiXuatNhap_DV = $('#data_DV_LOAICAPPHAT_' + Stt).val();
+        var MaVT_DV = $('#data_DV_MAVT_' + Stt).val();
+        console.log(Soluong_DV);
+        var confirm_ = confirm('Bạn có muốn chỉnh sửa ?');
+        if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("update_DV_")',
+                type: "POST",
+                data: {
+                    KhoaKeyXN_DV: Khoa,
+                    SOCTXN_DV: SOCTXN_DV,
+                    MaKho_DV: MaKho_DV,
+                    Soluong_DV: Soluong_DV,
+                    LoaiXuatNhap_DV: LoaiXuatNhap_DV,
+                    GhiChu_DV: GhiChu_DV,
+                    MaVT_DV: MaVT_DV,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+            return;
+        }
+
+    }
+    function Delete(Khoa, SOCTXN) {
+        console.log(Soluong_DV);
+        var confirm_ = confirm('Bạn có muốn xoá ?');
+        if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("Delete_DV")',
+                type: "POST",
+                data: {
+                    KHOAKEYXN: Khoa,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                    _GetList_khoDonVi(SOCTXN);
+                    New_Phieu_GCN_Click("");
+                    New_Phieu_TTKD_Click("");
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+
+    }
+
+</script>
+
+
+
+
+
+
+
+

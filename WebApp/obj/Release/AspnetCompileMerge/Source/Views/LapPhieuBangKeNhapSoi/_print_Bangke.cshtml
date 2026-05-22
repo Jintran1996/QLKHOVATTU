@@ -1,0 +1,153 @@
+﻿
+@{
+    var bangke = ViewBag.bangke as IEnumerable<ToolsApp.EntityFramework.KhoSoi.VATTU2024_SP_GC_DMPHIEU_BANGKENHAPSOI_BY_SOPHIEU_REPORT_Result>;
+    var ctbangke = ViewBag.ctbangke as IEnumerable<ToolsApp.EntityFramework.KhoSoi.VATTU2024_SP_GC_DMPHIEU_CHITIETPHIEUXUAT_SUB_REPORT_Result>;
+    var congdoan = bangke.FirstOrDefault().CONGDOAN;
+    var imgchuky = bangke.FirstOrDefault().MANV_XX;
+    var STT = 1;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Báo cáo</title>
+    <style>
+        #myTable_bangke, #myTable_bangke th, #myTable_bangke td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="_Print">
+        <div class="row" style=" width:100%">
+            <table id="Tablebangke" width="100%">
+                <thead>
+                    <tr>
+                        <th rowspan="4" style="text-align: center; border-right: none; border-bottom: none;">
+                            <img id="" src="~/Content/images/ThaiTuan.png" width="150" height="70" />
+                        </th>
+                        <th rowspan="4" style="text-align: left; border-left: none; border-bottom: none;">
+                            <h1 style="font-size: 18px; margin-bottom: 20px"><b>CÔNG TY CỔ PHẦN TẬP ĐOÀN THỜI TRANG THÁI TUẤN</b></h1>
+                            <p style="font-size: 12px">1/148 Nguyễn Văn Quá, Phường Đông Hưng Thuận, Quận 12, Tp. Hồ Chí Minh, Việt Nam</p>
+                            <p style="font-size: 12px">Tel: (84-8) 7194612 - 7194613 | Fax: (84-8) 7194609</p>
+                            <p style="font-size: 12px">Email: thaituaninfo@thaituan.com.vn | Website: www.thaituanfashion.com</p>
+                        </th>
+                        <th rowspan="4" style="text-align: left; border-left: none; border-bottom: none;">
+                        </th>
+
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="row" style=" width:100%">
+            <table id="Tablebangke1" class="table table-bordered table-striped" width="100%">
+                <thead>
+                    <tr>
+                        <th>
+
+                            <div style="text-align: left"><b>Đơn vị:&nbsp; @bangke.FirstOrDefault().MADV</b> </div>
+                            <div style="text-align: left"><b>@bangke.FirstOrDefault().ngay</b> </div>
+                            <div style="text-align: left"><b>Số: @bangke.FirstOrDefault().SO</b> </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <h2 style="text-align: center; margin-top: 20px">BẢNG KÊ NHẬP SỢI TP GIA CÔNG QUA CÔNG ĐOẠN @congdoan</h2>
+                            <div style="text-align: left;">Số phiếu yêu cầu: @bangke.FirstOrDefault().SOPHIEU</div>
+                            <div style="text-align: left;">Nhập kho: @bangke.FirstOrDefault().NHAPKHO</div>
+                            <div style="text-align: left; margin-bottom: 20px">Lý do sản xuất: @bangke.FirstOrDefault().LYDOSANXUAT</div>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="row" style=" width:100%">
+            <table id="myTable_bangke" class="table table-bordered table-striped" width="100%">
+                <thead>
+                    <tr>
+                        <th>TT</th>
+                        <th>Mã nguyên liệu</th>
+                        <th>Mã sợi hoàn tất</th>
+                        <th>Mã sợi sau công đoạn chập - tên gọi</th>
+                        <th>Dạng công đoạn</th>
+                        <th>Mã công đoạn</th>
+                        <th>Đơn vị tính</th>
+                        <th>Khối lượng sợi nguyên liệu</th>
+                        <th>Khối lượng sợi thực nhập sau gia công</th>
+                        <th>Ghi chú</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var item in ctbangke)
+                    {
+                        <tr>
+                            <td>@STT</td>
+                            <td>@item.MASOI</td>
+                            <td>@item.MASOIHOANTAT</td>
+                            <td>@item.TENGOISOICHAP</td>
+                            <td>@item.DANGCONGDOAN</td>
+                            <td>@item.MACONGDOAN</td>
+                            <td>@item.DVT</td>
+                            <td>@item.SOLUONGNhap</td>
+                            <td>@item.SOLUONGXuat</td>
+                            <td>@item.GHICHU</td>
+                        </tr>
+                        STT++;
+                    }
+                </tbody>
+                <thead>
+                    <tr style=" text-align: left">
+                        <th colspan="7" style="border: none;"> Tổng số lượng yêu cầu xuất kho:</th>
+                        <th colspan="1" style="border: none;">@ctbangke.Sum(p => p.SOLUONGNhap).Value.ToString("###,###.##") </th>
+                        <th colspan="1" style="border: none;">@ctbangke.Sum(p => p.SOLUONGXuat).Value.ToString("###,###.##") </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </form>
+    <div class="footer" style="margin-top: 20px">
+        <table width="100%">
+            <tr>
+                <td><b>Thủ kho</b></td>
+                <td><b>Trưởng khu vực</b></td>
+                <td><b>Giám đốc đơn vị</b></td>
+            </tr>
+            <tr style="margin-bottom: 20px">
+                <td></td>
+                <td></td>
+                <td>
+                    @if (@imgchuky != "")
+                    {
+                        <img id="" src="~/Content/Chuky/@imgchuky" width="100" height="50" />
+                    }
+                </td>
+
+
+            </tr>
+            <tr>
+                <td><b>@bangke.FirstOrDefault().HOTEN_THUKHO</b></td>
+                <td><b>@bangke.FirstOrDefault().HOTEN_TKV</b></td>
+                <td>
+                    @if (@imgchuky != "")
+                    {
+                        <b>@bangke.FirstOrDefault().HOTEN_XX</b>
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

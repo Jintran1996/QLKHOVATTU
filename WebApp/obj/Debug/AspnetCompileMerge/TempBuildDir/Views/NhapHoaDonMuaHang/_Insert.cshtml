@@ -1,0 +1,148 @@
+﻿@using System.Globalization;
+@model ToolsApp.Models.TABLE_LUUTRU_SOHOADONViewModel
+@{
+    var ListSOCTXN = ViewBag.ListSOCTXN as List<ToolsApp.EntityFramework.VatTu.VATTU2025_LOAD_SOCTXN_VATTU_SOI_HANGMUANGOAI_Result>;
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">SOCTXN:</label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="SOCTXN" name="SOCTXN">
+                    <option disabled selected value="" >-- Chọn SOCTXN --</option>
+                    @foreach (var item in ListSOCTXN)
+                    {
+                        <option value="@item.SOCTXN">@item.SOCTXN </option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Ký hiệu hóa đơn: <span style="color:red">*</span></label>
+            <div class="col-md-9">
+                <input type="text" id="kyhieuhoadon" name="kyhieuhoadon" class="form-control" placeholder="Nhập ký hiệu hóa đơn" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Số hóa đơn: <span style="color:red">*</span></label>
+            <div class="col-md-9">
+                <input type="text" id="sohoadon" name="sohoadon" class="form-control"  placeholder="Nhập số hóa đơn"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Tải tệp tin PDF HĐ: </label>
+            <div class="custom-file col-md-9">
+               <input type="file" class="form-control" id="pdfFile" accept="application/pdf">              
+                <input type="hidden" id="FileDataPDFBase64" name="FileDataPDFBase64" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Tải hình ảnh HĐ: </label>
+            <div class="custom-file col-md-9">
+                <input type="file" enctype="multipart/form-data" class="form-control" id="fileHinhAnh" name="fileHinhAnh" accept="image/*" multiple >
+                
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Đường dẫn HĐ: </label>
+            <div class="col-md-9">
+                <input type="text" id="LinkHD" name="LinkHD" class="form-control" placeholder="Nhập đường dẫn hóa đơn điện tử" value="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Ngày Hóa đơn:</label>
+            <div class="col-md-9">
+                <input type="text" autocomplete="off" id="NGAYHD_" name="NGAYHD_" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Ghi chú:</label>
+            <div class="col-md-9">
+                <textarea rows="1" id="GhiChu" name="GhiChu" class="form-control "></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script type="text/javascript">
+
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': { allow_single_deselect: true },
+            '.chosen-select-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+        $("#NGAYHD_").datepicker({
+            format: 'dd/mm/yyyy',
+            changeYear: true,
+            changeMonth: true,
+            onClose: function (selectedDate) {
+                //$("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+
+     //-----------------Load change----------------//
+
+
+
+    </script>
+    <script>
+        document.getElementById("pdfFile").addEventListener("change", function (e) {
+            var file = e.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                // Bỏ tiền tố 'data:application/pdf;base64,...'
+                var base64 = reader.result.split(',')[1];
+                document.getElementById("FileDataPDFBase64").value = base64;
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+
+        //document.getElementById("fileHinhAnh").addEventListener("change", function (e) {
+        //    var file = e.target.files[0];
+        //    var reader = new FileReader();
+
+        //    reader.onload = function () {
+        //        // Bỏ tiền tố 'data:application/pdf;base64,...'
+        //        var base64 = reader.result.split(',')[1];
+        //        document.getElementById("HinhAnhBase64").value = base64;
+        //    };
+
+        //    reader.readAsDataURL(file);
+        //});
+    </script>

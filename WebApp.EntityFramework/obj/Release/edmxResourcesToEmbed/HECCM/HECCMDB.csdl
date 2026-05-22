@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HECCMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HECCMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="S_Salesman_RoutePlan" EntityType="HECCMModel.S_Salesman_RoutePlan" />
+    <EntitySet Name="SFA_Page" EntityType="HECCMModel.SFA_Page" />
+    <EntitySet Name="SFA_Role" EntityType="HECCMModel.SFA_Role" />
+    <EntitySet Name="SFA_User" EntityType="HECCMModel.SFA_User" />
+    <EntitySet Name="SFA_User_Page" EntityType="HECCMModel.SFA_User_Page" />
+    <EntitySet Name="SFA_User_Role" EntityType="HECCMModel.SFA_User_Role" />
+    <AssociationSet Name="FK_SFA_User_Page_SFA_Page" Association="HECCMModel.FK_SFA_User_Page_SFA_Page">
+      <End Role="SFA_Page" EntitySet="SFA_Page" />
+      <End Role="SFA_User_Page" EntitySet="SFA_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_Role_SFA_Role" Association="HECCMModel.FK_SFA_User_Role_SFA_Role">
+      <End Role="SFA_Role" EntitySet="SFA_Role" />
+      <End Role="SFA_User_Role" EntitySet="SFA_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_Page_SFA_User" Association="HECCMModel.FK_SFA_User_Page_SFA_User">
+      <End Role="SFA_User" EntitySet="SFA_User" />
+      <End Role="SFA_User_Page" EntitySet="SFA_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_Role_SFA_User" Association="HECCMModel.FK_SFA_User_Role_SFA_User">
+      <End Role="SFA_User" EntitySet="SFA_User" />
+      <End Role="SFA_User_Role" EntitySet="SFA_User_Role" />
+    </AssociationSet>
+    <EntitySet Name="S_Salesman_Master" EntityType="HECCMModel.S_Salesman_Master" />
+    <FunctionImport Name="S_Sales_Org_GetList" ReturnType="Collection(HECCMModel.S_Sales_Org_GetList_Result)">
+      <Parameter Name="SalesmanCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="S_Salesman_Master_GetListExceptS1BySalesmanCode" ReturnType="Collection(HECCMModel.S_Salesman_Master_GetListExceptS1BySalesmanCode_Result)">
+      <Parameter Name="SalesmanCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="S_user" EntityType="HECCMModel.S_user" />
+    <FunctionImport Name="S_Salesman_Master_fGetSubTreeWithSort" IsComposable="true" ReturnType="Collection(HECCMModel.S_Salesman_Master_fGetSubTreeWithSort_Result)">
+      <Parameter Name="SalesmanCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="S_Monthly_Target" EntityType="HECCMModel.S_Monthly_Target" />
+    <EntitySet Name="S_Salesman_PrincipalGroup" EntityType="HECCMModel.S_Salesman_PrincipalGroup" />
+    <EntitySet Name="SFA_PrincipalGroup" EntityType="HECCMModel.SFA_PrincipalGroup" />
+    <EntitySet Name="SFA_User_PrincipalGroup" EntityType="HECCMModel.SFA_User_PrincipalGroup" />
+    <AssociationSet Name="FK_SFA_User_PrincipalGroup_SFA_PrincipalGroup" Association="HECCMModel.FK_SFA_User_PrincipalGroup_SFA_PrincipalGroup">
+      <End Role="SFA_PrincipalGroup" EntitySet="SFA_PrincipalGroup" />
+      <End Role="SFA_User_PrincipalGroup" EntitySet="SFA_User_PrincipalGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_PrincipalGroup_SFA_User" Association="HECCMModel.FK_SFA_User_PrincipalGroup_SFA_User">
+      <End Role="SFA_User" EntitySet="SFA_User" />
+      <End Role="SFA_User_PrincipalGroup" EntitySet="SFA_User_PrincipalGroup" />
+    </AssociationSet>
+    <EntitySet Name="S_PrincipalGroup" EntityType="HECCMModel.S_PrincipalGroup" />
+    <EntitySet Name="S_Principal_Mapping" EntityType="HECCMModel.S_Principal_Mapping" />
+    <EntitySet Name="SFA_BU" EntityType="HECCMModel.SFA_BU" />
+    <EntitySet Name="SFA_Exlusion" EntityType="HECCMModel.SFA_Exlusion" />
+    <EntitySet Name="SFA_TemplateUser" EntityType="HECCMModel.SFA_TemplateUser" />
+    <EntitySet Name="SFA_Menu" EntityType="HECCMModel.SFA_Menu" />
+    <AssociationSet Name="FK_SFA_Menu_SFA_Menu" Association="HECCMModel.FK_SFA_Menu_SFA_Menu">
+      <End Role="SFA_Menu" EntitySet="SFA_Menu" />
+      <End Role="SFA_Menu1" EntitySet="SFA_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_Menu_SFA_Page" Association="HECCMModel.FK_SFA_Menu_SFA_Page">
+      <End Role="SFA_Page" EntitySet="SFA_Page" />
+      <End Role="SFA_Menu" EntitySet="SFA_Menu" />
+    </AssociationSet>
+    <EntitySet Name="v_Principal_From_PrincipalGroup" EntityType="HECCMModel.v_Principal_From_PrincipalGroup" />
+  </EntityContainer>
+  <EntityType Name="S_Salesman_RoutePlan">
+    <Key>
+      <PropertyRef Name="SalesmanCode" />
+      <PropertyRef Name="CustCode" />
+      <PropertyRef Name="ContactCode" />
+    </Key>
+    <Property Name="SalesmanCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CustCode" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="ContactCode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ContactType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="W1D1" Type="Boolean" />
+    <Property Name="W1D2" Type="Boolean" />
+    <Property Name="W1D3" Type="Boolean" />
+    <Property Name="W1D4" Type="Boolean" />
+    <Property Name="W1D5" Type="Boolean" />
+    <Property Name="W1D6" Type="Boolean" />
+    <Property Name="W1D7" Type="Boolean" />
+    <Property Name="W2D1" Type="Boolean" />
+    <Property Name="W2D2" Type="Boolean" />
+    <Property Name="W2D3" Type="Boolean" />
+    <Property Name="W2D4" Type="Boolean" />
+    <Property Name="W2D5" Type="Boolean" />
+    <Property Name="W2D6" Type="Boolean" />
+    <Property Name="W2D7" Type="Boolean" />
+    <Property Name="W3D1" Type="Boolean" />
+    <Property Name="W3D2" Type="Boolean" />
+    <Property Name="W3D3" Type="Boolean" />
+    <Property Name="W3D4" Type="Boolean" />
+    <Property Name="W3D5" Type="Boolean" />
+    <Property Name="W3D6" Type="Boolean" />
+    <Property Name="W3D7" Type="Boolean" />
+    <Property Name="W4D1" Type="Boolean" />
+    <Property Name="W4D2" Type="Boolean" />
+    <Property Name="W4D3" Type="Boolean" />
+    <Property Name="W4D4" Type="Boolean" />
+    <Property Name="W4D5" Type="Boolean" />
+    <Property Name="W4D6" Type="Boolean" />
+    <Property Name="W4D7" Type="Boolean" />
+    <Property Name="W5D1" Type="Boolean" />
+    <Property Name="W5D2" Type="Boolean" />
+    <Property Name="W5D3" Type="Boolean" />
+    <Property Name="W5D4" Type="Boolean" />
+    <Property Name="W5D5" Type="Boolean" />
+    <Property Name="W5D6" Type="Boolean" />
+    <Property Name="W5D7" Type="Boolean" />
+    <Property Name="W6D1" Type="Boolean" />
+    <Property Name="W6D2" Type="Boolean" />
+    <Property Name="W6D3" Type="Boolean" />
+    <Property Name="W6D4" Type="Boolean" />
+    <Property Name="W6D5" Type="Boolean" />
+    <Property Name="W6D6" Type="Boolean" />
+    <Property Name="W6D7" Type="Boolean" />
+    <Property Name="W7D1" Type="Boolean" />
+    <Property Name="W7D2" Type="Boolean" />
+    <Property Name="W7D3" Type="Boolean" />
+    <Property Name="W7D4" Type="Boolean" />
+    <Property Name="W7D5" Type="Boolean" />
+    <Property Name="W7D6" Type="Boolean" />
+    <Property Name="W7D7" Type="Boolean" />
+    <Property Name="W8D1" Type="Boolean" />
+    <Property Name="W8D2" Type="Boolean" />
+    <Property Name="W8D3" Type="Boolean" />
+    <Property Name="W8D4" Type="Boolean" />
+    <Property Name="W8D5" Type="Boolean" />
+    <Property Name="W8D6" Type="Boolean" />
+    <Property Name="W8D7" Type="Boolean" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SFA_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Controler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SFA_User_Page" Relationship="HECCMModel.FK_SFA_User_Page_SFA_Page" FromRole="SFA_Page" ToRole="SFA_User_Page" />
+    <NavigationProperty Name="SFA_Menu" Relationship="HECCMModel.FK_SFA_Menu_SFA_Page" FromRole="SFA_Page" ToRole="SFA_Menu" />
+  </EntityType>
+  <EntityType Name="SFA_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SFA_User_Role" Relationship="HECCMModel.FK_SFA_User_Role_SFA_Role" FromRole="SFA_Role" ToRole="SFA_User_Role" />
+  </EntityType>
+  <EntityType Name="SFA_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SalesRepCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fullname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SFA_User_Page" Relationship="HECCMModel.FK_SFA_User_Page_SFA_User" FromRole="SFA_User" ToRole="SFA_User_Page" />
+    <NavigationProperty Name="SFA_User_Role" Relationship="HECCMModel.FK_SFA_User_Role_SFA_User" FromRole="SFA_User" ToRole="SFA_User_Role" />
+    <NavigationProperty Name="SFA_User_PrincipalGroup" Relationship="HECCMModel.FK_SFA_User_PrincipalGroup_SFA_User" FromRole="SFA_User" ToRole="SFA_User_PrincipalGroup" />
+  </EntityType>
+  <EntityType Name="SFA_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="isRoleCreate" Type="Boolean" />
+    <Property Name="isRoleEdit" Type="Boolean" />
+    <Property Name="isRoleExport" Type="Boolean" />
+    <Property Name="isRoleExportAll" Type="Boolean" />
+    <Property Name="isRoleDelete" Type="Boolean" />
+    <NavigationProperty Name="SFA_Page" Relationship="HECCMModel.FK_SFA_User_Page_SFA_Page" FromRole="SFA_User_Page" ToRole="SFA_Page" />
+    <NavigationProperty Name="SFA_User" Relationship="HECCMModel.FK_SFA_User_Page_SFA_User" FromRole="SFA_User_Page" ToRole="SFA_User" />
+  </EntityType>
+  <EntityType Name="SFA_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="UserFullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SFA_Role" Relationship="HECCMModel.FK_SFA_User_Role_SFA_Role" FromRole="SFA_User_Role" ToRole="SFA_Role" />
+    <NavigationProperty Name="SFA_User" Relationship="HECCMModel.FK_SFA_User_Role_SFA_User" FromRole="SFA_User_Role" ToRole="SFA_User" />
+  </EntityType>
+  <Association Name="FK_SFA_User_Page_SFA_Page">
+    <End Type="HECCMModel.SFA_Page" Role="SFA_Page" Multiplicity="0..1" />
+    <End Type="HECCMModel.SFA_User_Page" Role="SFA_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_Role_SFA_Role">
+    <End Type="HECCMModel.SFA_Role" Role="SFA_Role" Multiplicity="0..1" />
+    <End Type="HECCMModel.SFA_User_Role" Role="SFA_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_Page_SFA_User">
+    <End Type="HECCMModel.SFA_User" Role="SFA_User" Multiplicity="0..1" />
+    <End Type="HECCMModel.SFA_User_Page" Role="SFA_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_Role_SFA_User">
+    <End Type="HECCMModel.SFA_User" Role="SFA_User" Multiplicity="0..1" />
+    <End Type="HECCMModel.SFA_User_Role" Role="SFA_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="S_Salesman_Master">
+    <Key>
+      <PropertyRef Name="SalesmanCode" />
+    </Key>
+    <Property Name="SalesmanCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PDACode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HRCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SalesRep" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SalesRep1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Level" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ReportTo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="Boolean" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BelongTo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Team" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Plant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="S_Sales_Org_GetList_Result">
+    <Property Type="String" Name="Level" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="BelongTo" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="Desc" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DescOld" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="S_Salesman_Master_GetListExceptS1BySalesmanCode_Result">
+    <Property Type="String" Name="SalesmanCode" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PDACode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HRCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="SalesRep" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="SalesRep1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Level" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="ReportTo" Nullable="false" MaxLength="255" />
+    <Property Type="Boolean" Name="Gender" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Mobile" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BelongTo" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="Team" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="LastUpdate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdateBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Plant" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="S_user">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SalesmanCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ITR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="S_Salesman_Master_fGetSubTreeWithSort_Result">
+    <Property Type="String" Name="SalesmanCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ForSort" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <EntityType Name="S_Monthly_Target">
+    <Key>
+      <PropertyRef Name="Year" />
+      <PropertyRef Name="Month" />
+    </Key>
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="Actual" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Target" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TargetHos" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TargetPhar" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TargetBS" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="LogData" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdatePhar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdatePhar" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdatePhar" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdateHos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdateHos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdateHos" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="S_Salesman_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="SalesmanCode" />
+      <PropertyRef Name="PrincipalGroupID" />
+    </Key>
+    <Property Name="SalesmanCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PrincipalGroupID" Type="Int16" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="SFA_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="PrincipalGroupName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SFA_User_PrincipalGroup" Relationship="HECCMModel.FK_SFA_User_PrincipalGroup_SFA_PrincipalGroup" FromRole="SFA_PrincipalGroup" ToRole="SFA_User_PrincipalGroup" />
+  </EntityType>
+  <EntityType Name="SFA_User_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="PrincipalGroupId" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SFA_PrincipalGroup" Relationship="HECCMModel.FK_SFA_User_PrincipalGroup_SFA_PrincipalGroup" FromRole="SFA_User_PrincipalGroup" ToRole="SFA_PrincipalGroup" />
+    <NavigationProperty Name="SFA_User" Relationship="HECCMModel.FK_SFA_User_PrincipalGroup_SFA_User" FromRole="SFA_User_PrincipalGroup" ToRole="SFA_User" />
+  </EntityType>
+  <Association Name="FK_SFA_User_PrincipalGroup_SFA_PrincipalGroup">
+    <End Type="HECCMModel.SFA_PrincipalGroup" Role="SFA_PrincipalGroup" Multiplicity="0..1" />
+    <End Type="HECCMModel.SFA_User_PrincipalGroup" Role="SFA_User_PrincipalGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_PrincipalGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_PrincipalGroup">
+        <PropertyRef Name="PrincipalGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_PrincipalGroup_SFA_User">
+    <End Type="HECCMModel.SFA_User" Role="SFA_User" Multiplicity="0..1" />
+    <End Type="HECCMModel.SFA_User_PrincipalGroup" Role="SFA_User_PrincipalGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_PrincipalGroup">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="S_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="PrincipalGroupID" />
+      <PropertyRef Name="PrincipalID" />
+    </Key>
+    <Property Name="PrincipalGroupID" Type="Int16" Nullable="false" />
+    <Property Name="PrincipalGroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrincipalID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PrincipalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ValidCode" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="BelongTo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Team" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ByProduct" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="S_Principal_Mapping">
+    <Key>
+      <PropertyRef Name="Vendor" />
+      <PropertyRef Name="PrincipalGroupID" />
+      <PropertyRef Name="PrincipalID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="Vendor" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="PrincipalGroupID" Type="Int32" Nullable="false" />
+    <Property Name="PrincipalID" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="ProductID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NewCode" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="SFA_BU">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BUCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BUName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SFA_Exlusion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrincipalGroupId" Type="Int32" />
+    <Property Name="PrincipalGroupName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PrincipalId" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="CustomerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrincipalName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SFA_TemplateUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SFA_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SFA_Menu1" Relationship="HECCMModel.FK_SFA_Menu_SFA_Menu" FromRole="SFA_Menu" ToRole="SFA_Menu1" />
+    <NavigationProperty Name="SFA_Menu2" Relationship="HECCMModel.FK_SFA_Menu_SFA_Menu" FromRole="SFA_Menu1" ToRole="SFA_Menu" />
+    <NavigationProperty Name="SFA_Page" Relationship="HECCMModel.FK_SFA_Menu_SFA_Page" FromRole="SFA_Menu" ToRole="SFA_Page" />
+  </EntityType>
+  <Association Name="FK_SFA_Menu_SFA_Menu">
+    <End Type="HECCMModel.SFA_Menu" Role="SFA_Menu" Multiplicity="0..1" />
+    <End Type="HECCMModel.SFA_Menu" Role="SFA_Menu1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_Menu_SFA_Page">
+    <End Type="HECCMModel.SFA_Page" Role="SFA_Page" Multiplicity="0..1" />
+    <End Type="HECCMModel.SFA_Menu" Role="SFA_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="v_Principal_From_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="PrincipalID" />
+    </Key>
+    <Property Name="PrincipalID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PrincipalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

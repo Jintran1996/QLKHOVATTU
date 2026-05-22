@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VN_WINJOBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="App_ResetPassword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="50" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="FromApp" Type="varchar" MaxLength="50" />
+    <Property Name="CodeReset" Type="varchar" MaxLength="10" />
+    <Property Name="DateCreate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="isFinish" Type="bit" />
+    <Property Name="DateFinish" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="DateDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TBL_EMS_MAILLIST">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mail_from" Type="varchar" MaxLength="100" />
+    <Property Name="subject" Type="nvarchar" MaxLength="500" />
+    <Property Name="body" Type="ntext" />
+    <Property Name="atm_id" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="bit" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="sent_date" Type="datetime" />
+    <Property Name="universal_id" Type="varchar" MaxLength="50" />
+    <Property Name="mail_bcc" Type="varchar(max)" />
+    <Property Name="mail_cc" Type="varchar(max)" />
+    <Property Name="mail_to" Type="varchar(max)" />
+    <Property Name="source" Type="varchar" MaxLength="50" />
+    <Property Name="send_fail" Type="tinyint" />
+    <Property Name="source_id" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="fail_reason" Type="nvarchar" MaxLength="500" />
+    <Property Name="isCheck" Type="bit" />
+    <Property Name="NumberCheck" Type="int" />
+    <Property Name="DateCheck" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="VN_WINJOBModelStoreContainer">
+    <EntitySet Name="App_ResetPassword" EntityType="Self.App_ResetPassword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_EMS_MAILLIST" EntityType="Self.TBL_EMS_MAILLIST" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

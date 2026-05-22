@@ -1,0 +1,335 @@
+﻿
+@model ToolsApp.Models.GC_DMPHIEU_BANGKENHAPSOIModels
+@{
+    var Stt = 0;
+    var List = ViewBag.Data as ToolsApp.EntityFramework.KhoSoi.GC_DMPHIEU_BANGKENHAPSOI;
+    var ListCT = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.GC_CTPHIEUXUATGC>;
+    var donvi = ViewBag.donVi as List<ToolsApp.EntityFramework.KhoSoi.SP_LOAD_DMKHO_BY_IDMADV_Result>;
+    var hinhthuc = ViewBag.hinhThuc as List<ToolsApp.EntityFramework.KhoSoi.SP_BANGKENHAPSOI_MAHINHTHUC_LOAD_MAHTHUC_MADV_Result>;
+    var khachhang = ViewBag.khachHang as List<ToolsApp.EntityFramework.KhoSoi.SP_LDD_DMNOIDEN_LOAD_BY_MADV_MANV_Result>;
+    var nguoixx = ViewBag.nguoiXX as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_MACONGTHUC_LOAD_NVXX_BY_MADV_Result>;
+    var khoaDinhMuc = ViewBag.KhoaDinhMuc as List<ToolsApp.EntityFramework.KhoSoi.SP_CTPHIEUXUATGC_LOAD_MACONGTHUC_BY_MADV_MAKH_Result>;
+    var maSoi = ViewBag.MaSoi as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_DMNGUYENLIEU_LOAD_COMBOBOX_Result>;
+    var maDHGCSoi = ViewBag.MADH_GCS as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_LOAD_MADH_GCSOI_Result>;
+    var dvt = ViewBag.DVT as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_DONVITINH_LOAD_Result>;
+    var hieu = ViewBag.Hieu as List<ToolsApp.EntityFramework.KhoSoi.NL_DMNHACCAP>;
+    var maCongDoan = ViewBag.MACONGDOAN as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_DMMACONGDOAN_LOAD_COMBOBOX_Result>;
+    var dangCongDoan = ViewBag.DANGCONGDOAN as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_DMDANGCONGDOAN_LOAD_COMBOBOX_Result>;
+    var STT1 = 1;
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Số Phiếu: </label>
+            <input class="form-control form-control-md" type="text" autocomplete="off" value="@List.SOPHIEU"
+                   id="SOPHIEU" name="SOPHIEU" readonly />
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Hình thức: </label>
+            <select id="NHAPKHO" name="NHAPKHO"
+                    class="form-control chosen-select">
+                @foreach (var item in hinhthuc)
+                {
+                    <option value="@item.MAHTHUC" @(item.MAHTHUC == List.NHAPKHO ? "selected=\"selected\"" : "")>
+                        @item.MAHTHUC || @item.TENHTHUC
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Khách hàng:</label>          
+            <select id="MAKH" name="MAKH"
+                    class="form-control chosen-select">
+                @foreach (var item in khachhang)
+                {
+                    <option value="@item.MAKH" @(item.MAKH == List.MAKH ? "selected=\"selected\"" : "")>
+                        @item.MAKH || @item.NOIDEN
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Mã loại công đoạn: </label>
+            <select id="MALOAICONGDOAN" name="MALOAICONGDOAN" class="form-control form-control-md chosen-select">
+                <option value="SOICHAP" @(List.MALOAICONGDOAN == "SOICHAP" ? "selected=\"selected\"" : "") >Sợi chập</option>
+                <option value="KHONGCHAP" @(List.MALOAICONGDOAN == "KHONGCHAP" ? "selected=\"selected\"" : "")>Không chập</option>
+            </select>
+        </div>
+    </div>    
+</div>
+
+<hr />
+<h5 style="margin-top: 10px; color: #3c8dbc">Chi tiết bảng kê sợi</h5>
+
+<div class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse">
+    <table id="detailsTable" class="table table-bordered table-striped">
+        @if (List != null)
+        {
+            foreach (var _CT in ListCT.ToList())
+            {
+                <tr>
+                    <th style="width:80px">STT</th>
+                    <th>Mã sợi</th>
+                    <th>Khóa định mức</th>
+                    <th>Mã đơn hàng gia công sợi</th>
+                    <th>Mã sợi hoàn tất</th>
+                    <th>Số lượng nhập</th>
+                    <th>Số lượng xuất</th>
+                    <th>Số lượng hao hụt</th>
+                </tr>
+                <tr id="row_@(Stt)">
+                    <td style="width:80px">
+                        <input data-val="true"
+                               id="Detail_@(Stt)_KHOA_ID" name="Detail[@(Stt)].KHOA_ID"
+                               type="hidden" value="@_CT.Khoa_CTphieuGC">
+
+                        <input data-val="true"
+                               id="Detail_@(Stt)_Delete" name="Detail[@(Stt)].Delete"
+                               type="hidden" value="false">
+
+                        @STT1
+                        @*<a onclick="Remove('row_@(Stt)', @(Stt))" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>*@
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true"
+                               id="Detail_@(Stt)_MASOI" name="Detail[@(Stt)].MASOI" type="text" value="@(_CT.MASOI)">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_MASOI"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true"
+                               id="Detail_@(Stt)_KHOACTHUC" name="Detail[@(Stt)].KHOACTHUC" type="text" value="@(_CT.KHOACTHUC)">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_KHOACTHUC"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <select id="Detail_@(Stt)_MADH_GCSOI" name="Detail[@(Stt)].MADH_GCSOI"
+                                class="form-control chosen-select" onchange="LoadMSHoanTat()">
+                            @foreach (var item in maDHGCSoi)
+                            {
+                                <option value="@item.MADH_GCSOI" @(item.MADH_GCSOI == _CT.MADH_GCSOI ? "selected=\"selected\"" : "")>
+                                    @item.MADH_GCSOI 
+                                </option>
+                            }
+
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Detail_@(Stt)_MASOIHOANTAT" name="Detail[@(Stt)].MASOIHOANTAT"
+                                class="form-control chosen-select">
+                        </select>                    
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true"
+                               id="Detail_@(Stt)_SOLUONGNhap" name="Detail[@(Stt)].SOLUONGNhap" type="number" value="@(_CT.SOLUONGNhap)">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_SOLUONGNhap"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true"
+                               id="Detail_@(Stt)_SOLUONGXuat" name="Detail[@(Stt)].SOLUONGXuat" type="number" value="@(_CT.SOLUONGXuat)">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_SOLUONGXuat"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true"
+                               id="Detail_@(Stt)_SLHaoHutDM" name="Detail[@(Stt)].SLHaoHutDM" type="number" value="@(_CT.SLHaoHutDM)">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_SLHaoHutDM"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    </tr>
+                    <tr>
+                        <th>Số trục</th>
+                        <th>Số cạnh</th>
+                        <th>Khổ trục</th>
+                        <th>Chiều dài</th>
+                        <th>Hiệu</th>
+                        <th>Lô</th>
+                        <th>Mã công đoạn</th>
+                        <th>Dạng công đoạn</th>
+                    </tr>
+                    <tr id="row_@(Stt)">
+
+                        <td>
+                            <input class="form-control text-box single-line" data-val="true"
+                                   id="Detail_@(Stt)_SOTRUC" name="Detail[@(Stt)].SOTRUC" type="number" value="@(_CT.SOTRUC)">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_SOTRUC"
+                                  data-valmsg-replace="true"></span>
+                        </td>
+                        <td>
+                            <input class="form-control text-box single-line" data-val="true"
+                                   id="Detail_@(Stt)_SOCANH" name="Detail[@(Stt)].SOCANH" type="number" value="@(_CT.SOCANH)">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_SOCANH"
+                                  data-valmsg-replace="true"></span>
+                        </td>
+                        <td>
+                            <input class="form-control text-box single-line" data-val="true"
+                                   id="Detail_@(Stt)_KHOTRUC" name="Detail[@(Stt)].KHOTRUC" type="number" value="@(_CT.KHOTRUC)">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_KHOTRUC"
+                                  data-valmsg-replace="true"></span>
+                        </td>
+                        <td>
+                            <input class="form-control text-box single-line" data-val="true"
+                                   id="Detail_@(Stt)_CHIEUDAI" name="Detail[@(Stt)].CHIEUDAI" type="number" value="@(_CT.CHIEUDAI)">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_CHIEUDAI"
+                                  data-valmsg-replace="true"></span>
+                        </td>
+                        <td>
+                            <select id="Detail_@(Stt)_HIEU" name="Detail[@(Stt)].HIEU"
+                                    class="form-control chosen-select" onchange="LoadLoCT()">
+                                @foreach (var item in hieu)
+                                {
+                                    <option value="@item.HIEU" @(item.HIEU == _CT.HIEU ? "selected=\"selected\"" : "")>
+                                        @item.HIEU || @item.TENNHACC
+                                    </option>
+                                }
+
+                            </select>
+                        </td>
+                        <td>
+                            <select id="Detail_@(Stt)_LO" name="Detail[@(Stt)].LO"
+                                    class="form-control chosen-select">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="Detail_@(Stt)_MACONGDOAN" name="Detail[@(Stt)].MACONGDOAN"
+                                    class="form-control chosen-select">
+                                @foreach (var item in maCongDoan)
+                                {
+                                    <option value="@item.MACONGDOAN" @(item.MACONGDOAN == _CT.MACONGDOAN ? "selected=\"selected\"" : "")>
+                                        @item.MACONGDOAN
+                                    </option>
+                                }
+
+                            </select>
+                        </td>
+                        <td>
+                            <select id="Detail_@(Stt)_DANGCONGDOAN" name="Detail[@(Stt)].DANGCONGDOAN"
+                                    class="form-control chosen-select">
+                                @foreach (var item in dangCongDoan)
+                                {
+                                    <option value="@item.DANGCONGDOAN" @(item.DANGCONGDOAN == _CT.DANGCONGDOAN ? "selected=\"selected\"" : "")>
+                                        @item.DANGCONGDOAN
+                                    </option>
+                                }
+
+                            </select>
+                        </td>
+                    </tr>
+                STT1++;
+            }
+        }
+    </table>
+</div>
+
+
+<script>
+    var index = @(Stt);
+
+    $(document).ready(function () {
+        //Nút tạo nhiều dòng dữ liệu
+        $("#addMore").click(function (e) {
+            var mau = $('#tblMau').html();
+
+            mau = mau.replace(/{index}/g, index);
+
+            $('#detailCT').append(mau);
+            for (var selector in config_) {
+                $(selector).chosen(config_);
+            }
+
+            index++;
+        });
+    });
+    //function Remove(Id_, Index_) {
+    //    $('#row_' + Index_).attr("style", "display:none");
+
+    //    $('#Detail_' + Index_ + '_Delete').val(true);
+    //}
+
+</script>
+
+
+<script type="text/javascript">
+
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    $("#NGAYKT_").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+    function LoadLoCT() {
+        var HIEU = $("#Detail_@(Stt)_HIEU").val();
+        var LO = $("#Detail_@(Stt)_LO");
+        LO.empty();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("_LoadLo")',
+            data: {
+                HIEU: HIEU,
+            },
+            success: function (result) {
+                $.each(result.obj, function (i, state) {
+                    LO.append($('<option/>', { value: this.LO }).html(this.LO));
+                });
+                LO.trigger("chosen:updated");
+            }
+        });
+    }
+    function LoadMSHoanTat() {
+        var MADH_GCSOI = $("#Detail_@(Stt)_MADH_GCSOI").val();
+        var MASOIHOANTAT = $("#Detail_@(Stt)_MASOIHOANTAT");
+        MASOIHOANTAT.empty();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("_LoadMaSoiHoanTat")',
+            data: {
+                MADH_GCS: MADH_GCSOI,
+            },
+            success: function (result) {
+                $.each(result.obj, function (i, state) {
+                    MASOIHOANTAT.append($('<option/>', { value: this.MASOIHOANTAT }).html(this.MASOIHOANTAT));
+                    console.log(result.obj);
+                });
+                MASOIHOANTAT.trigger("chosen:updated");
+            }
+        });
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+

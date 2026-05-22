@@ -1,0 +1,70 @@
+﻿
+@using System.Globalization;
+@model ToolsApp.Models.NL_CTXUATNHAPViewModels
+
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_CTXUATNHAP>;
+    var APIs = ViewBag.APIs as List<ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEUXN>;
+}
+
+<table id="myTablectview" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="text-align:center; white-space: nowrap;">
+                @if (APIs?.FirstOrDefault()?.GUIAPI != "1" && APIs?.FirstOrDefault()?.DAXUATKHO_ != true)
+                {
+                    <button type="button" onclick="DeletectALL('@Model.SOCTXN')" class="btn btn-danger btn-sm"> &nbsp;Xóa tất cả</button>
+                }
+            </th>
+            <th style="text-align:center">.No</th>
+            <th>Số chứng từ</th>
+            <th>MAVT</th>
+            <th>Hiệu</th>
+            <th>Lô</th>
+            <th>Số Lượng TT</th>
+            <th>Số hóa đơn</th>
+            <th>Ngày kế toán</th>
+            <th>Mã phiếu PD</th>
+            <th>Mã đơn hàng</th>
+            <th>Ghi chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists)
+        {
+            <tr>
+                <td>
+                    @if (APIs.FirstOrDefault().GUIAPI != "1" && item.DAXUATKHO != 1)
+                    {
+                        <a onclick="Deletect('@item.ID_XN')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+
+                        if (APIs.FirstOrDefault().MAHTHUC == "XBAN")
+                        {
+                            <a onclick="EditCt('@item.KHOAKEYXN', '@item.SOCTXN')" class="btn">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
+                        }
+                    }
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.SOCTXN</td>
+                <td>@item.MAVT</td>
+                <td>@item.HIEU</td>
+                <td>@item.LO</td>
+                <td>@item.SOLUONGTT</td>
+                <td>@item.SOHOADON</td>
+                <td>@item.NGAYKETOAN.Value.ToString("dd/MM/yyyy")</td>
+                <td>@item.MAPHIEUPD</td>
+                <td>@item.MADH</td>
+                <td>@item.GHICHU</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

@@ -1,0 +1,125 @@
+﻿
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.VatTu.SpLoad_DMPhieu_Phieumuahang_Result>;
+
+}
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="width: 500px"></th>
+            <th style="text-align:center">.No</th>
+            <th>Mã Phiếu</th>
+            <th>Người Lập Phiếu</th>
+            <th>Ngày YC</th>
+            <th>Xem Xét</th>
+            <th>Người XX</th>
+            <th>Ngày XX</th>
+            <th>Người PD</th>
+            <th>Ngày PD</th>
+            <th>Mã Phiếu PD</th>
+            <th>Phê Duyệt</th>
+            <th>Năm</th>
+            <th>Loại Phiếu</th>
+            <th>Thị Trường</th>
+            <th>Kế Hoạch</th>
+            <th>Loại VT</th>
+            <th>stt</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists.OrderByDescending(p => p.STT))
+        {
+            <tr>
+                <td>
+                    @if (item.XXet == 1)
+                    {
+                        <a onclick="Details('@item.MAPHIEU')" class="btn">
+                            <i class="fas fa-list"></i> Chi Tiết
+                        </a>
+                        <a onclick="openOutlookemailbox('@item.MAPHIEU')" class="btn">
+                            <i class="fa fa-envelope"></i> Email
+                        </a>
+
+                    }
+                    else
+                    {
+                        <a onclick="Details('@item.MAPHIEU', '@item.LoaiVT', '@item.LOAIPHIEU')" class="btn">
+                            <i class="fas fa-list"></i> Chi Tiết
+                        </a>
+                        <a onclick="openOutlookemailbox('@item.MAPHIEU')" class="btn">
+                            <i class="fa fa-envelope"></i> Email
+                        </a>
+                        <a onclick="Delete('@item.MAPHIEU')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+
+                    }
+
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.MAPHIEU</td>
+                <td>@item.NguoiLapPhieu</td>
+                <td>@(item.NgayYC == null ? "" : item.NgayYC.Value.ToString("dd/MM/yyyy"))</td>
+                <td>
+                    @if (item.XXet == null || item.XXet == 0)
+                    {
+                        <small class="badge badge-warning"><i class="far fa-clock"></i> Chưa Xem Xét</small>
+                    }
+                    else
+                    {
+                        <small class="badge badge-primary"><i class="far fa-clock"></i> Đã Xem Xét</small>
+                    }
+
+                </td>
+                <td>@item.NguoiXX</td>
+                <td>@(item.NgayXX == null ? "" : item.NgayXX.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.NguoiPD</td>
+                <td>@(item.NgayPD == null ? "" : item.NgayPD.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.MaPhieuPD</td>
+                <td>
+                    @if (item.PDuyet == null || item.PDuyet == 0)
+                    {
+                        <small class="badge badge-danger"><i class="far fa-clock"></i> Chưa Phê Duyệt</small>
+                    }
+                    else
+                    {
+                        <small class="badge badge-primary"><i class="far fa-clock"></i> Đã Đã Phê Duyệt</small>
+                    }
+
+                </td>
+                <td>@item.Nam</td>
+                <td>@item.LOAIPHIEU</td>
+                <td>
+                    @if (item.ND == null || item.ND == 0)
+                    {
+                        <small class="badge badge-primary"><i class="far fa-clock"></i> Nhập Khẩu</small>
+                    }
+                    else
+                    {
+                        <small class="badge badge-success"><i class="far fa-clock"></i> Nội Địa</small>
+                    }
+                </td>
+                <td>
+                    @if (item.KH == null || item.KH == 0)
+                    {
+                        <small class="badge badge-primary"><i class="far fa-clock"></i> Đột Xuất</small>
+                    }
+                    else
+                    {
+                        <small class="badge badge-success"><i class="far fa-clock"></i> Kế Hoạch</small>
+                    }
+                </td>
+                <td>@item.LoaiVT</td>
+                <td>@item.STT</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+

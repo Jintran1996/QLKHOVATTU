@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBanhangHeThongSR_2017Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Home_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="varchar" MaxLength="250" />
+    <Property Name="Controler" Type="varchar" MaxLength="50" />
+    <Property Name="Action" Type="varchar" MaxLength="50" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLBanhangHeThongSR_2017.dbo.Home_Software' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Home_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Domain" Type="varchar" MaxLength="50" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_SoftwareGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Domain" Type="varchar" MaxLength="50" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="ColorCode" Type="varchar" MaxLength="100" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="SalesRepCode" Type="varchar" MaxLength="50" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="isRoleCreate" Type="bit" />
+    <Property Name="isRoleEdit" Type="bit" />
+    <Property Name="isRoleExport" Type="bit" />
+    <Property Name="isRoleExportAll" Type="bit" />
+    <Property Name="isRoleDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Home_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="UserFullname" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Home_Menu_Home_Menu">
+    <End Role="Home_Menu" Type="Self.Home_Menu" Multiplicity="0..1" />
+    <End Role="Home_Menu1" Type="Self.Home_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_Menu_Home_Page">
+    <End Role="Home_Page" Type="Self.Home_Page" Multiplicity="0..1" />
+    <End Role="Home_Menu" Type="Self.Home_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Home_User">
+    <End Role="Home_User" Type="Self.Home_User" Multiplicity="1" />
+    <End Role="Home_User1" Type="Self.Home_User" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Page_Home_Page">
+    <End Role="Home_Page" Type="Self.Home_Page" Multiplicity="0..1" />
+    <End Role="Home_User_Page" Type="Self.Home_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Page_Home_User">
+    <End Role="Home_User" Type="Self.Home_User" Multiplicity="0..1" />
+    <End Role="Home_User_Page" Type="Self.Home_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Role_Home_Role">
+    <End Role="Home_Role" Type="Self.Home_Role" Multiplicity="0..1" />
+    <End Role="Home_User_Role" Type="Self.Home_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Role_Home_User">
+    <End Role="Home_User" Type="Self.Home_User" Multiplicity="0..1" />
+    <End Role="Home_User_Role" Type="Self.Home_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLBanhangHeThongSR_2017ModelStoreContainer">
+    <EntitySet Name="Home_Menu" EntityType="Self.Home_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_Page" EntityType="Self.Home_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_Role" EntityType="Self.Home_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_SoftwareGroup" EntityType="Self.Home_SoftwareGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_User" EntityType="Self.Home_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_User_Page" EntityType="Self.Home_User_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_User_Role" EntityType="Self.Home_User_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_Software" EntityType="Self.Home_Software" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Home_Software].[Id] AS [Id], 
+    [Home_Software].[GroupId] AS [GroupId], 
+    [Home_Software].[Title] AS [Title], 
+    [Home_Software].[Domain] AS [Domain], 
+    [Home_Software].[Code] AS [Code], 
+    [Home_Software].[Icon] AS [Icon], 
+    [Home_Software].[OrderNo] AS [OrderNo], 
+    [Home_Software].[UserCreate] AS [UserCreate], 
+    [Home_Software].[UserFullnameCreate] AS [UserFullnameCreate], 
+    [Home_Software].[DatetimeCreate] AS [DatetimeCreate], 
+    [Home_Software].[UserUpdate] AS [UserUpdate], 
+    [Home_Software].[UserFullnameUpdate] AS [UserFullnameUpdate], 
+    [Home_Software].[DatetimeUpdate] AS [DatetimeUpdate], 
+    [Home_Software].[isDelete] AS [isDelete], 
+    [Home_Software].[UserDelete] AS [UserDelete], 
+    [Home_Software].[UserFullnameDelete] AS [UserFullnameDelete], 
+    [Home_Software].[DatetimeDelete] AS [DatetimeDelete]
+    FROM [dbo].[Home_Software] AS [Home_Software]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Home_Menu_Home_Menu" Association="Self.FK_Home_Menu_Home_Menu">
+      <End Role="Home_Menu" EntitySet="Home_Menu" />
+      <End Role="Home_Menu1" EntitySet="Home_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_Menu_Home_Page" Association="Self.FK_Home_Menu_Home_Page">
+      <End Role="Home_Page" EntitySet="Home_Page" />
+      <End Role="Home_Menu" EntitySet="Home_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Home_User" Association="Self.FK_Home_User_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User1" EntitySet="Home_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Page_Home_Page" Association="Self.FK_Home_User_Page_Home_Page">
+      <End Role="Home_Page" EntitySet="Home_Page" />
+      <End Role="Home_User_Page" EntitySet="Home_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Page_Home_User" Association="Self.FK_Home_User_Page_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User_Page" EntitySet="Home_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Role_Home_Role" Association="Self.FK_Home_User_Role_Home_Role">
+      <End Role="Home_Role" EntitySet="Home_Role" />
+      <End Role="Home_User_Role" EntitySet="Home_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Role_Home_User" Association="Self.FK_Home_User_Role_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User_Role" EntitySet="Home_User_Role" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

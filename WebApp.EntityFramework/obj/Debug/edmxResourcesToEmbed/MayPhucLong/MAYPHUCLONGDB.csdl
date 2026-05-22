@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUITRINHMAY_PHUCLONGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MayPL_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MayPL_Menu1" Relationship="Self.FK_MayPL_Menu_MayPL_Menu" FromRole="MayPL_Menu" ToRole="MayPL_Menu1" />
+    <NavigationProperty Name="MayPL_Menu2" Relationship="Self.FK_MayPL_Menu_MayPL_Menu" FromRole="MayPL_Menu1" ToRole="MayPL_Menu" />
+    <NavigationProperty Name="MayPL_Page" Relationship="Self.FK_MayPL_Menu_MayPL_Page" FromRole="MayPL_Menu" ToRole="MayPL_Page" />
+  </EntityType>
+  <EntityType Name="MayPL_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Controler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MayPL_Menu" Relationship="Self.FK_MayPL_Menu_MayPL_Page" FromRole="MayPL_Page" ToRole="MayPL_Menu" />
+    <NavigationProperty Name="MayPL_User_Page" Relationship="Self.FK_MayPL_User_Page_MayPL_Page" FromRole="MayPL_Page" ToRole="MayPL_User_Page" />
+  </EntityType>
+  <EntityType Name="MayPL_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MayPL_User_Role" Relationship="Self.FK_MayPL_User_Role_MayPL_Role" FromRole="MayPL_Role" ToRole="MayPL_User_Role" />
+  </EntityType>
+  <EntityType Name="MayPL_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SalesRepCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fullname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MayPL_User_Page" Relationship="Self.FK_MayPL_User_Page_MayPL_User" FromRole="MayPL_User" ToRole="MayPL_User_Page" />
+    <NavigationProperty Name="MayPL_User_Role" Relationship="Self.FK_MayPL_User_Role_MayPL_User" FromRole="MayPL_User" ToRole="MayPL_User_Role" />
+  </EntityType>
+  <EntityType Name="MayPL_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="isRoleCreate" Type="Boolean" />
+    <Property Name="isRoleEdit" Type="Boolean" />
+    <Property Name="isRoleExport" Type="Boolean" />
+    <Property Name="isRoleExportAll" Type="Boolean" />
+    <Property Name="isRoleDelete" Type="Boolean" />
+    <NavigationProperty Name="MayPL_Page" Relationship="Self.FK_MayPL_User_Page_MayPL_Page" FromRole="MayPL_User_Page" ToRole="MayPL_Page" />
+    <NavigationProperty Name="MayPL_User" Relationship="Self.FK_MayPL_User_Page_MayPL_User" FromRole="MayPL_User_Page" ToRole="MayPL_User" />
+  </EntityType>
+  <EntityType Name="MayPL_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="UserFullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MayPL_Role" Relationship="Self.FK_MayPL_User_Role_MayPL_Role" FromRole="MayPL_User_Role" ToRole="MayPL_Role" />
+    <NavigationProperty Name="MayPL_User" Relationship="Self.FK_MayPL_User_Role_MayPL_User" FromRole="MayPL_User_Role" ToRole="MayPL_User" />
+  </EntityType>
+  <Association Name="FK_MayPL_Menu_MayPL_Menu">
+    <End Role="MayPL_Menu" Type="Self.MayPL_Menu" Multiplicity="0..1" />
+    <End Role="MayPL_Menu1" Type="Self.MayPL_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_Menu_MayPL_Page">
+    <End Role="MayPL_Page" Type="Self.MayPL_Page" Multiplicity="0..1" />
+    <End Role="MayPL_Menu" Type="Self.MayPL_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_User_Page_MayPL_Page">
+    <End Role="MayPL_Page" Type="Self.MayPL_Page" Multiplicity="0..1" />
+    <End Role="MayPL_User_Page" Type="Self.MayPL_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_User_Role_MayPL_Role">
+    <End Role="MayPL_Role" Type="Self.MayPL_Role" Multiplicity="0..1" />
+    <End Role="MayPL_User_Role" Type="Self.MayPL_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_User_Page_MayPL_User">
+    <End Role="MayPL_User" Type="Self.MayPL_User" Multiplicity="0..1" />
+    <End Role="MayPL_User_Page" Type="Self.MayPL_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_User_Role_MayPL_User">
+    <End Role="MayPL_User" Type="Self.MayPL_User" Multiplicity="0..1" />
+    <End Role="MayPL_User_Role" Type="Self.MayPL_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUITRINHMAY_PHUCLONGEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MayPL_Menu" EntityType="Self.MayPL_Menu" />
+    <EntitySet Name="MayPL_Page" EntityType="Self.MayPL_Page" />
+    <EntitySet Name="MayPL_Role" EntityType="Self.MayPL_Role" />
+    <EntitySet Name="MayPL_User" EntityType="Self.MayPL_User" />
+    <EntitySet Name="MayPL_User_Page" EntityType="Self.MayPL_User_Page" />
+    <EntitySet Name="MayPL_User_Role" EntityType="Self.MayPL_User_Role" />
+    <AssociationSet Name="FK_MayPL_Menu_MayPL_Menu" Association="Self.FK_MayPL_Menu_MayPL_Menu">
+      <End Role="MayPL_Menu" EntitySet="MayPL_Menu" />
+      <End Role="MayPL_Menu1" EntitySet="MayPL_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_Menu_MayPL_Page" Association="Self.FK_MayPL_Menu_MayPL_Page">
+      <End Role="MayPL_Page" EntitySet="MayPL_Page" />
+      <End Role="MayPL_Menu" EntitySet="MayPL_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_User_Page_MayPL_Page" Association="Self.FK_MayPL_User_Page_MayPL_Page">
+      <End Role="MayPL_Page" EntitySet="MayPL_Page" />
+      <End Role="MayPL_User_Page" EntitySet="MayPL_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_User_Role_MayPL_Role" Association="Self.FK_MayPL_User_Role_MayPL_Role">
+      <End Role="MayPL_Role" EntitySet="MayPL_Role" />
+      <End Role="MayPL_User_Role" EntitySet="MayPL_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_User_Page_MayPL_User" Association="Self.FK_MayPL_User_Page_MayPL_User">
+      <End Role="MayPL_User" EntitySet="MayPL_User" />
+      <End Role="MayPL_User_Page" EntitySet="MayPL_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_User_Role_MayPL_User" Association="Self.FK_MayPL_User_Role_MayPL_User">
+      <End Role="MayPL_User" EntitySet="MayPL_User" />
+      <End Role="MayPL_User_Role" EntitySet="MayPL_User_Role" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,41 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2025_SP_THEODOIPHIEUPD_Result>;
+    int STT = 1;
+}
+
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+            <th></th>
+            <th>STT</th>
+            <th>Mã phiếu phê duyệt</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>ĐVT</th>
+            <th>Số lượng PD</th>
+            <th>Đã nhập</th>
+            <th>Chưa mua</th>
+            <th>Ngày Phê duyệt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List)
+        {           
+            <tr>
+                <td></td>
+                <td>@STT</td>
+                <td>@item.MAPHIEUPD</td>
+                <td>@item.MAVT</td>
+                <td>@item.TENVT</td>
+                <td>@item.DVT</td>
+                <td>@item.SLPD</td>
+                <td>@item.NHAP</td>
+                <td>@item.CHUAMUA</td>
+                <td>@(item.NGAYPD == null ? "" : item.NGAYPD.Value.ToString("dd/MM/yyyy"))</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

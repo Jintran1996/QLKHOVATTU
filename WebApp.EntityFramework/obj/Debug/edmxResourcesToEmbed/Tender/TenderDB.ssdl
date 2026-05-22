@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TenderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="S_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_Area">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="AreaCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AreaName" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_AreaProvince">
+    <Key>
+      <PropertyRef Name="AreaId" />
+      <PropertyRef Name="ProvinceCode" />
+    </Key>
+    <Property Name="AreaId" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ProvinceCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_T_AreaProvince_T_Area">
+    <End Role="T_Area" Type="Self.T_Area" Multiplicity="1" />
+    <End Role="T_AreaProvince" Type="Self.T_AreaProvince" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Area">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="T_AreaProvince">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TenderModelStoreContainer">
+    <EntitySet Name="S_User" EntityType="Self.S_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Area" EntityType="Self.T_Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_AreaProvince" EntityType="Self.T_AreaProvince" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_T_AreaProvince_T_Area" Association="Self.FK_T_AreaProvince_T_Area">
+      <End Role="T_Area" EntitySet="T_Area" />
+      <End Role="T_AreaProvince" EntitySet="T_AreaProvince" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

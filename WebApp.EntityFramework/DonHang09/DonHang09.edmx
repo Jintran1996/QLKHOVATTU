@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QLDonHang09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CN_DONHANG">
+          <Key>
+            <PropertyRef Name="MADH_CN" />
+          </Key>
+          <Property Name="MADH_CN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAKHACHHANG" Type="varchar" MaxLength="50" />
+          <Property Name="SOHOPDONG" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOAIHOPDONG" Type="varchar" MaxLength="50" />
+          <Property Name="THITRUONG" Type="varchar" MaxLength="20" />
+          <Property Name="MANVDATHANG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TSOMETDH" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="PHUONGTHUC" Type="varchar" MaxLength="50" />
+          <Property Name="MADV_SX" Type="varchar" MaxLength="50" />
+          <Property Name="LOAIHINHKINHDOANH" Type="varchar" MaxLength="50" />
+          <Property Name="LOAIDICHVU" Type="varchar" MaxLength="50" />
+          <Property Name="GM_CHOPHEP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="GM_DONHANG" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="BANTGD_DUYET" Type="bit" />
+          <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+          <Property Name="NGAYCN" Type="datetime" />
+          <Property Name="HIEULUC" Type="bit" />
+          <Property Name="GHICHU_DONVIDAT" Type="nvarchar(max)" />
+          <Property Name="MANV_XEMXET" Type="varchar" MaxLength="50" />
+          <Property Name="NGAY_XEMXET" Type="datetime" />
+          <Property Name="HIEULUC_XEMXET" Type="bit" />
+          <Property Name="MANV_TIEPNHAN_CU" Type="varchar" MaxLength="50" />
+          <Property Name="NGAY_TIEPNHAN_CU" Type="datetime" />
+          <Property Name="HIEULUC_TIEPNHAN_CU" Type="bit" />
+          <Property Name="MANV_TIEPNHAN_QA" Type="varchar" MaxLength="50" />
+          <Property Name="NGAY_TIEPNHAN_QA" Type="datetime" />
+          <Property Name="HIEULUC_TIEPNHAN_QA" Type="bit" />
+          <Property Name="MANV_TIEPNHAN_NMN" Type="varchar" MaxLength="50" />
+          <Property Name="NGAY_TIEPNHAN_NMN" Type="datetime" />
+          <Property Name="HIEULUC_TIEPNHAN_NMN" Type="bit" />
+          <Property Name="MANV_TIEPNHAN_NMMAY" Type="varchar" MaxLength="50" />
+          <Property Name="NGAY_TIEPNHAN_NMMAY" Type="datetime" />
+          <Property Name="HIEULUC_TIEPNHAN_NMMAY" Type="bit" />
+        </EntityType>
+        <Function Name="API_DinhmucDet_SOI_CONGDOAN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="thang" Type="char" Mode="In" />
+          <Parameter Name="nam" Type="char" Mode="In" />
+        </Function>
+        <Function Name="GET_SODONHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Load_QuocGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="load_TBLKHACHHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="makhachhang" Type="varchar" Mode="In" />
+          <Parameter Name="quocgia" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="QLDonHang09ModelStoreContainer">
+          <EntitySet Name="CN_DONHANG" EntityType="Self.CN_DONHANG" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLDonHang09Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CN_DONHANG">
+          <Key>
+            <PropertyRef Name="MADH_CN" />
+          </Key>
+          <Property Name="MADH_CN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAKHACHHANG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SOHOPDONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LOAIHOPDONG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="THITRUONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MANVDATHANG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TSOMETDH" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PHUONGTHUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MADV_SX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOAIHINHKINHDOANH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOAIDICHVU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GM_CHOPHEP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GM_DONHANG" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BANTGD_DUYET" Type="Boolean" />
+          <Property Name="MANVCN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NGAYCN" Type="DateTime" Precision="3" />
+          <Property Name="HIEULUC" Type="Boolean" />
+          <Property Name="GHICHU_DONVIDAT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MANV_XEMXET" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NGAY_XEMXET" Type="DateTime" Precision="3" />
+          <Property Name="HIEULUC_XEMXET" Type="Boolean" />
+          <Property Name="MANV_TIEPNHAN_CU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NGAY_TIEPNHAN_CU" Type="DateTime" Precision="3" />
+          <Property Name="HIEULUC_TIEPNHAN_CU" Type="Boolean" />
+          <Property Name="MANV_TIEPNHAN_QA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NGAY_TIEPNHAN_QA" Type="DateTime" Precision="3" />
+          <Property Name="HIEULUC_TIEPNHAN_QA" Type="Boolean" />
+          <Property Name="MANV_TIEPNHAN_NMN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NGAY_TIEPNHAN_NMN" Type="DateTime" Precision="3" />
+          <Property Name="HIEULUC_TIEPNHAN_NMN" Type="Boolean" />
+          <Property Name="MANV_TIEPNHAN_NMMAY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NGAY_TIEPNHAN_NMMAY" Type="DateTime" Precision="3" />
+          <Property Name="HIEULUC_TIEPNHAN_NMMAY" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="QLDonHang09Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CN_DONHANG" EntityType="Self.CN_DONHANG" />
+          <FunctionImport Name="GET_SODONHANG" ReturnType="Collection(QLDonHang09Model.GET_SODONHANG_Result)" />
+          <FunctionImport Name="API_DinhmucDet_SOI_CONGDOAN" ReturnType="Collection(QLDonHang09Model.API_DinhmucDet_SOI_CONGDOAN_Result)">
+            <Parameter Name="thang" Mode="In" Type="String" />
+            <Parameter Name="nam" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Load_QuocGia" ReturnType="Collection(QLDonHang09Model.Load_QuocGia_Result)" />
+          <FunctionImport Name="load_TBLKHACHHANG" ReturnType="Collection(QLDonHang09Model.load_TBLKHACHHANG_Result)">
+            <Parameter Name="makhachhang" Mode="In" Type="String" />
+            <Parameter Name="quocgia" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GET_SODONHANG_Result">
+          <Property Type="String" Name="SoDonHang" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Hoai" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="Ga" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="API_DinhmucDet_SOI_CONGDOAN_Result">
+          <Property Type="String" Name="KeyHH" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DonviTH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="madh" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="mahangsx" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mahangdieudo" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="soluongKDDat" Nullable="true" />
+          <Property Type="Decimal" Name="sldieudo" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="CONGDOAN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Mavatu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tenvattu" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="7" />
+          <Property Type="Decimal" Name="kg_1met" Nullable="true" Precision="37" Scale="8" />
+          <Property Type="Decimal" Name="Khoiluongsudung" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="Load_QuocGia_Result">
+          <Property Type="String" Name="MAQUOCGIA" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenQuocGia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="HienThi" Nullable="true" MaxLength="104" />
+        </ComplexType>
+        <ComplexType Name="load_TBLKHACHHANG_Result">
+          <Property Type="String" Name="MaKH" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenKH" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="MaQuocGia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TenQuocGia" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLDonHang09ModelStoreContainer" CdmEntityContainer="QLDonHang09Entities">
+          <EntitySetMapping Name="CN_DONHANG">
+            <EntityTypeMapping TypeName="QLDonHang09Model.CN_DONHANG">
+              <MappingFragment StoreEntitySet="CN_DONHANG">
+                <ScalarProperty Name="MADH_CN" ColumnName="MADH_CN" />
+                <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+                <ScalarProperty Name="SOHOPDONG" ColumnName="SOHOPDONG" />
+                <ScalarProperty Name="LOAIHOPDONG" ColumnName="LOAIHOPDONG" />
+                <ScalarProperty Name="THITRUONG" ColumnName="THITRUONG" />
+                <ScalarProperty Name="MANVDATHANG" ColumnName="MANVDATHANG" />
+                <ScalarProperty Name="TSOMETDH" ColumnName="TSOMETDH" />
+                <ScalarProperty Name="PHUONGTHUC" ColumnName="PHUONGTHUC" />
+                <ScalarProperty Name="MADV_SX" ColumnName="MADV_SX" />
+                <ScalarProperty Name="LOAIHINHKINHDOANH" ColumnName="LOAIHINHKINHDOANH" />
+                <ScalarProperty Name="LOAIDICHVU" ColumnName="LOAIDICHVU" />
+                <ScalarProperty Name="GM_CHOPHEP" ColumnName="GM_CHOPHEP" />
+                <ScalarProperty Name="GM_DONHANG" ColumnName="GM_DONHANG" />
+                <ScalarProperty Name="BANTGD_DUYET" ColumnName="BANTGD_DUYET" />
+                <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
+                <ScalarProperty Name="NGAYCN" ColumnName="NGAYCN" />
+                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+                <ScalarProperty Name="GHICHU_DONVIDAT" ColumnName="GHICHU_DONVIDAT" />
+                <ScalarProperty Name="MANV_XEMXET" ColumnName="MANV_XEMXET" />
+                <ScalarProperty Name="NGAY_XEMXET" ColumnName="NGAY_XEMXET" />
+                <ScalarProperty Name="HIEULUC_XEMXET" ColumnName="HIEULUC_XEMXET" />
+                <ScalarProperty Name="MANV_TIEPNHAN_CU" ColumnName="MANV_TIEPNHAN_CU" />
+                <ScalarProperty Name="NGAY_TIEPNHAN_CU" ColumnName="NGAY_TIEPNHAN_CU" />
+                <ScalarProperty Name="HIEULUC_TIEPNHAN_CU" ColumnName="HIEULUC_TIEPNHAN_CU" />
+                <ScalarProperty Name="MANV_TIEPNHAN_QA" ColumnName="MANV_TIEPNHAN_QA" />
+                <ScalarProperty Name="NGAY_TIEPNHAN_QA" ColumnName="NGAY_TIEPNHAN_QA" />
+                <ScalarProperty Name="HIEULUC_TIEPNHAN_QA" ColumnName="HIEULUC_TIEPNHAN_QA" />
+                <ScalarProperty Name="MANV_TIEPNHAN_NMN" ColumnName="MANV_TIEPNHAN_NMN" />
+                <ScalarProperty Name="NGAY_TIEPNHAN_NMN" ColumnName="NGAY_TIEPNHAN_NMN" />
+                <ScalarProperty Name="HIEULUC_TIEPNHAN_NMN" ColumnName="HIEULUC_TIEPNHAN_NMN" />
+                <ScalarProperty Name="MANV_TIEPNHAN_NMMAY" ColumnName="MANV_TIEPNHAN_NMMAY" />
+                <ScalarProperty Name="NGAY_TIEPNHAN_NMMAY" ColumnName="NGAY_TIEPNHAN_NMMAY" />
+                <ScalarProperty Name="HIEULUC_TIEPNHAN_NMMAY" ColumnName="HIEULUC_TIEPNHAN_NMMAY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GET_SODONHANG" FunctionName="QLDonHang09Model.Store.GET_SODONHANG">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLDonHang09Model.GET_SODONHANG_Result">
+                <ScalarProperty Name="SoDonHang" ColumnName="SoDonHang" />
+                <ScalarProperty Name="Hoai" ColumnName="Hoai" />
+                <ScalarProperty Name="Ga" ColumnName="Ga" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="API_DinhmucDet_SOI_CONGDOAN" FunctionName="QLDonHang09Model.Store.API_DinhmucDet_SOI_CONGDOAN">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLDonHang09Model.API_DinhmucDet_SOI_CONGDOAN_Result">
+                <ScalarProperty Name="KeyHH" ColumnName="KeyHH" />
+                <ScalarProperty Name="DonviTH" ColumnName="DonviTH" />
+                <ScalarProperty Name="madh" ColumnName="madh" />
+                <ScalarProperty Name="mahangsx" ColumnName="mahangsx" />
+                <ScalarProperty Name="mahangdieudo" ColumnName="mahangdieudo" />
+                <ScalarProperty Name="soluongKDDat" ColumnName="soluongKDDat" />
+                <ScalarProperty Name="sldieudo" ColumnName="sldieudo" />
+                <ScalarProperty Name="CONGDOAN" ColumnName="CONGDOAN" />
+                <ScalarProperty Name="Mavatu" ColumnName="Mavatu" />
+                <ScalarProperty Name="Tenvattu" ColumnName="Tenvattu" />
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+                <ScalarProperty Name="kg_1met" ColumnName="kg/1met" />
+                <ScalarProperty Name="Khoiluongsudung" ColumnName="Khoiluongsudung" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Load_QuocGia" FunctionName="QLDonHang09Model.Store.Load_QuocGia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLDonHang09Model.Load_QuocGia_Result">
+                <ScalarProperty Name="MAQUOCGIA" ColumnName="MAQUOCGIA" />
+                <ScalarProperty Name="TenQuocGia" ColumnName="TenQuocGia" />
+                <ScalarProperty Name="HienThi" ColumnName="HienThi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="load_TBLKHACHHANG" FunctionName="QLDonHang09Model.Store.load_TBLKHACHHANG">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLDonHang09Model.load_TBLKHACHHANG_Result">
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+                <ScalarProperty Name="MaQuocGia" ColumnName="MaQuocGia" />
+                <ScalarProperty Name="TenQuocGia" ColumnName="TenQuocGia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

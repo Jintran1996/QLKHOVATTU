@@ -1,0 +1,84 @@
+﻿
+
+@using System.Globalization;
+@*@model ToolsApp.Models.CTPHIEUViewModels*@
+@{
+    var cMasp = ViewBag.cMasp as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_VATTUYEUCAU_BYDONVI_BYLOAIPHIEU_27062016_Result>;
+    var dmphieu = ViewBag.dmphieu as ToolsApp.EntityFramework.VatTu.DMPHIEU;
+    var ctphieu = ViewBag.ctphieu as ToolsApp.EntityFramework.VatTu.CTPHIEU;
+    var cMachip = ViewBag.cMachiphi as List<ToolsApp.EntityFramework.VatTu.SP_CHIPHI_28062016_Result>;
+}
+
+
+<input id="IDKHOA" name="IDKHOA" value="@ctphieu.IDKHOA" type="hidden">
+
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-2 col-sm-2">Mã Phiếu: </label>
+    <div class="col-md-4 col-sm-4 ten">
+        <input id="MAPHIEU" name="MAPHIEU" class="form-control" value="@dmphieu.MAPHIEU" readonly>
+    </div>
+    <label class="col-md-2 col-sm-2">Thời Điểm Sử Dụng: </label>
+    <div class="col-md-4 col-sm-4 ten">
+        <input value="@(ctphieu.THOIDIEMSD == null ? DateTime.Now.AddMonths(1).ToString("dd/MM/yyyy") : ctphieu.THOIDIEMSD.Value.ToString("dd/MM/yyyy"))"
+               class="form-control" type="text" autocomplete="off"
+               id="THOIDIEMSD" name="THOIDIEMSD" />
+    </div>
+</div>
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-2 col-sm-2">Mã Sản Phẩm: </label>
+    <div class="col-md-4 col-sm-4 ten">
+        <input value="@ctphieu.MAVT" disabled
+               class="form-control" type="text" autocomplete="off"
+               id="MAVT" name="MAVT" />
+    </div>
+
+    <label class="col-md-2 col-sm-2"> Số Lượng: </label>
+    <div class="col-md-4 col-sm-4 ten">
+        <input id="SLYCAU" name="SLYCAU" class="form-control" type="number" value="@ctphieu.SLYCAU" min="0">
+    </div>
+</div>
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-2 col-sm-2"> Đặc Tính Kỹ Thuật: </label>
+    <div class="col-md-4 col-sm-4 ten">
+        <input id="DACTINHKYTHUAT" name="DACTINHKYTHUAT" class="form-control" value="@ctphieu.DACTINHKYTHUAT">
+    </div>
+    <label class="col-md-2 col-sm-2"> Ghi Chú: </label>
+    <div class="col-md-4 col-sm-4 ten inputText">
+        <textarea id="GHICHU" name="GHICHU" class="form-control" value="@ctphieu.GHICHU"></textarea>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+
+</script>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    $("#THOIDIEMSD").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+
+</script>
+
+
+
+

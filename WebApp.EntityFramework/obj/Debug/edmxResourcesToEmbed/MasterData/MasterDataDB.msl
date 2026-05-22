@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MasterData2020ModelStoreContainer" CdmEntityContainer="MasterData2020Entities">
+    <EntitySetMapping Name="Vacxin_DonViCongTac">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_DonViCongTac">
+        <MappingFragment StoreEntitySet="Vacxin_DonViCongTac">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_LyDoKhongChich">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_LyDoKhongChich">
+        <MappingFragment StoreEntitySet="Vacxin_LyDoKhongChich">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_Menu">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_Menu">
+        <MappingFragment StoreEntitySet="Vacxin_Menu">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_Page">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_Page">
+        <MappingFragment StoreEntitySet="Vacxin_Page">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Controler" ColumnName="Controler" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_Role">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_Role">
+        <MappingFragment StoreEntitySet="Vacxin_Role">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_TinhThanh">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_TinhThanh">
+        <MappingFragment StoreEntitySet="Vacxin_TinhThanh">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="MaTinhThanh" ColumnName="MaTinhThanh" />
+          <ScalarProperty Name="TenTinhThanh" ColumnName="TenTinhThanh" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_TinhThanhQH">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_TinhThanhQH">
+        <MappingFragment StoreEntitySet="Vacxin_TinhThanhQH">
+          <ScalarProperty Name="Cap" ColumnName="Cap" />
+          <ScalarProperty Name="MaPhuongXa" ColumnName="MaPhuongXa" />
+          <ScalarProperty Name="TenPhuongXa" ColumnName="TenPhuongXa" />
+          <ScalarProperty Name="MaQuanHuyen" ColumnName="MaQuanHuyen" />
+          <ScalarProperty Name="TenQuanHuyen" ColumnName="TenQuanHuyen" />
+          <ScalarProperty Name="MaTinhThanh" ColumnName="MaTinhThanh" />
+          <ScalarProperty Name="TenTinhThanh" ColumnName="TenTinhThanh" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_TrangThaiDuyet">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_TrangThaiDuyet">
+        <MappingFragment StoreEntitySet="Vacxin_TrangThaiDuyet">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_User">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_User">
+        <MappingFragment StoreEntitySet="Vacxin_User">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="SalesRepCode" ColumnName="SalesRepCode" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_User_Page">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_User_Page">
+        <MappingFragment StoreEntitySet="Vacxin_User_Page">
+          <ScalarProperty Name="isRoleDelete" ColumnName="isRoleDelete" />
+          <ScalarProperty Name="isRoleExportAll" ColumnName="isRoleExportAll" />
+          <ScalarProperty Name="isRoleExport" ColumnName="isRoleExport" />
+          <ScalarProperty Name="isRoleEdit" ColumnName="isRoleEdit" />
+          <ScalarProperty Name="isRoleCreate" ColumnName="isRoleCreate" />
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_User_Role">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_User_Role">
+        <MappingFragment StoreEntitySet="Vacxin_User_Role">
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserFullname" ColumnName="UserFullname" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_NhanVienCapNhat">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_NhanVienCapNhat">
+        <MappingFragment StoreEntitySet="Vacxin_NhanVienCapNhat">
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="LyDoKhongChichId" ColumnName="LyDoKhongChichId" />
+          <ScalarProperty Name="TrangThaiDuyetId" ColumnName="TrangThaiDuyetId" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TenTinhThanh" ColumnName="TenTinhThanh" />
+          <ScalarProperty Name="MaTinhThanh" ColumnName="MaTinhThanh" />
+          <ScalarProperty Name="TenQuanHuyen" ColumnName="TenQuanHuyen" />
+          <ScalarProperty Name="MaQuanHuyen" ColumnName="MaQuanHuyen" />
+          <ScalarProperty Name="TenPhuongXa" ColumnName="TenPhuongXa" />
+          <ScalarProperty Name="MaPhuongXa" ColumnName="MaPhuongXa" />
+          <ScalarProperty Name="TheBHYTe" ColumnName="TheBHYTe" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="MaDonViCongTacId" ColumnName="MaDonViCongTacId" />
+          <ScalarProperty Name="MaNhomDoiTuongUuTienId" ColumnName="MaNhomDoiTuongUuTienId" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="SAPNo" ColumnName="SAPNo" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="GuidNhanVienId" ColumnName="GuidNhanVienId" />
+          <ScalarProperty Name="NhanVienId" ColumnName="NhanVienId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_NhomDoiTuongUuTien">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_NhomDoiTuongUuTien">
+        <MappingFragment StoreEntitySet="Vacxin_NhomDoiTuongUuTien">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacxin_NhanVien">
+      <EntityTypeMapping TypeName="MasterData2020Model.Vacxin_NhanVien">
+        <MappingFragment StoreEntitySet="Vacxin_NhanVien">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Mui3_CoSoTiem" ColumnName="Mui3_CoSoTiem" />
+          <ScalarProperty Name="Mui3_LoVacxin" ColumnName="Mui3_LoVacxin" />
+          <ScalarProperty Name="Mui3_NgayTiem" ColumnName="Mui3_NgayTiem" />
+          <ScalarProperty Name="Mui3_TenVacxin" ColumnName="Mui3_TenVacxin" />
+          <ScalarProperty Name="Mui2_CoSoTiem" ColumnName="Mui2_CoSoTiem" />
+          <ScalarProperty Name="Mui2_LoVacxin" ColumnName="Mui2_LoVacxin" />
+          <ScalarProperty Name="Mui2_NgayTiem" ColumnName="Mui2_NgayTiem" />
+          <ScalarProperty Name="Mui2_TenVacxin" ColumnName="Mui2_TenVacxin" />
+          <ScalarProperty Name="Mui1_CoSoTiem" ColumnName="Mui1_CoSoTiem" />
+          <ScalarProperty Name="Mui1_LoVacxin" ColumnName="Mui1_LoVacxin" />
+          <ScalarProperty Name="Mui1_NgayTiem" ColumnName="Mui1_NgayTiem" />
+          <ScalarProperty Name="Mui1_TenVacxin" ColumnName="Mui1_TenVacxin" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="LyDoKhongChichId" ColumnName="LyDoKhongChichId" />
+          <ScalarProperty Name="isKhongChich" ColumnName="isKhongChich" />
+          <ScalarProperty Name="TrangThaiDuyetId" ColumnName="TrangThaiDuyetId" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TenTinhThanh" ColumnName="TenTinhThanh" />
+          <ScalarProperty Name="MaTinhThanh" ColumnName="MaTinhThanh" />
+          <ScalarProperty Name="TenQuanHuyen" ColumnName="TenQuanHuyen" />
+          <ScalarProperty Name="MaQuanHuyen" ColumnName="MaQuanHuyen" />
+          <ScalarProperty Name="TenPhuongXa" ColumnName="TenPhuongXa" />
+          <ScalarProperty Name="MaPhuongXa" ColumnName="MaPhuongXa" />
+          <ScalarProperty Name="TheBHYTe" ColumnName="TheBHYTe" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="MaDonViCongTacId" ColumnName="MaDonViCongTacId" />
+          <ScalarProperty Name="MaNhomDoiTuongUuTienId" ColumnName="MaNhomDoiTuongUuTienId" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="SAPNo" ColumnName="SAPNo" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="GuidNhanVienId" ColumnName="GuidNhanVienId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,79 @@
+﻿
+@{
+    var data = ViewBag.data as List<ToolsApp.EntityFramework.VatTu.SP_LOADCTPHIEUYCXUATKHO_DONVI_Result>;
+    var STT = 0;
+}
+<div class="control-group">
+    <table id="myTable" class="table table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Stt</th>
+                <th>Mã vật tư</th>
+                <th>Tên vật tư</th>
+                <th>Mã phiếu PD</th>
+                <th>Mã phiếu chuyển</th>
+                <th>Đơn hàng CN</th>
+                <th>Ghi chú</th>
+                <th>Loại cấp phát</th>
+                <th>Số lượng</th>
+              
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in data)
+            {
+                <tr>
+                    <td>
+                        <a onclick="Delete('@item.KHOAKEYXN', '@item.SOCTXN')" class="btn" style="font-size:10px">
+                            <i class="far fa-trash-alt">&nbsp;Xóa&nbsp;phiếu</i>
+                        </a>
+                    </td>
+                    <td>@item.STT</td>
+                    <td>  <input type="text" id="MAVT_@(item.STT)" name="MAVT_@(item.STT)" value="@item.MAVT" style="display:none" />@item.MAVT </td>
+                    <td>  <input type="text" id="TENVT_@(item.STT)" name="TENVT_@(item.STT)" value="@item.TENVT" style="display:none" />@item.TENVT </td>
+                    <td>  <input type="text" id="TENVT_@(item.STT)" name="TENVT_@(item.STT)" value="@item.MAPHIEUPD" style="display:none" />@item.MAPHIEUPD </td>
+                    <td>  <input type="text" id="TENVT_@(item.STT)" name="MaphieuchuyenNB_@(item.STT)" value="@item.MaphieuchuyenNB" style="display:none" />@item.MaphieuchuyenNB </td>
+                    <td>  <input type="text" id="TENVT_@(item.STT)" name="MADH_CN_@(item.STT)" value="@item.MADH_CN" style="display:none" />@item.MADH_CN </td>
+                    <td>  <textarea id="GHICHU_@(item.STT)"ame="GHICHU_@(item.STT)" value="@item.GHICHU" class="form-control" rows="1" style="display:none">@item.GHICHU </textarea> @item.GHICHU </td>
+                    <td>  <input type="text" id="LOAICAPPHAT_@(item.STT)" name="LOAICAPPHAT_@(item.STT)" value="@item.LOAICAPPHAT" style="display:none" />@item.LOAICAPPHAT </td>
+                    <td>  <input type="text" id="SOLUONGYC_@(item.STT)" name="SOLUONGYC_@(item.STT)" value="@item.SOLUONGYC" class="form-control" style="display:none" />@item.SOLUONGYC </td>
+
+                </tr>
+                STT++;
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    function Delete(KHOAKEYXN, SOCTXN) {
+        var confirm_ = confirm('Bạn có muốn xoá ?');
+        if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("Delete_Action")',
+                type: "POST",
+                data: {
+                    KHOAKEYXN: KHOAKEYXN,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                    _GetList(SOCTXN);
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+
+    }
+
+</script>

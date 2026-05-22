@@ -1,0 +1,216 @@
+﻿@using System.Globalization;
+@{
+    var url = ViewData["URL_IMAGE"];
+    var data = ViewBag.inVT as List<ToolsApp.EntityFramework.VatTu.SP_CRCHATLUONG_NEW_Result>;
+    var vchukyGDDV = ViewBag.Base64ImageGDDV;
+    var vchukyThuKho = ViewBag.Base64ImageThuKho;
+    var SOCTPrint = (data.Count > 0 ? data[0].SOCT : "");
+    var STT = 1;
+}
+
+<head>
+<style>
+/* ================== PAGE SETUP ================== */
+@@page {
+    size: A4;
+    margin: 12mm;
+}
+
+/* ================== PRINT BASE ================== */
+@@media print {
+  
+
+    /* ================== FOOTER ================== */
+    .print-footer {
+        page-break-before: always;
+        margin-top: 20mm;
+        text-align: center;
+        page-break-inside: avoid;
+    }
+
+ 
+}
+    </style>
+</head>
+
+<input id="SOCTPrint" hidden value="@SOCTPrint"/>
+<section class="content" style="font-size: 14px; margin-top: 10px; margin-bottom: 10px ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <table style="border: 1px solid; border-collapse: collapse; width: 100%; ">
+                    <thead>
+                    </thead>
+                    <colgroup>
+                        <col style="width:20%" />
+                        <col style="width:30%" />
+                        <col style="width:10%" />
+                        <col style="width:15%" />
+                        <col style="width:25%" />
+                    </colgroup>
+                    <tbody style="border-bottom: 0px solid;">
+                        <tr>
+                            <td style="text-align: center; border: 1px solid;">
+                                <img src="@url/Content/images/ThaiTuan.png" style="width:85%;" />
+                            </td>
+                            <th style="text-align: left; border: 1px solid;" colspan="3" width="600px">
+                                <span> BM02/QI13</span><br />
+                                <h4 style="text-align:center"><b>PHIẾU KIỂM TRA NGUYÊN NHIÊN VẬT LIỆU ĐẦU VÀO</b></h4>
+                            </th>
+                            <th style="width: 250px; border: 1px solid; text-align: left; vertical-align: top; padding: 0.6rem;" colspan="2">
+                                <div style="margin-bottom:0.6rem;">
+                                    <strong>Số CT:</strong> <br />
+                                    <span>@(data.Count > 0 ? data[0].SOCT : "")</span> 
+                                </div>
+                                <div>
+                                    <strong>Số PO:</strong> <br />
+                                    <span>@(data.Count > 0 ? data[0].SOPO : "")</span>
+                                </div>
+                            </th>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="border: 1px solid; border-collapse: collapse; width: 100%; ">
+                    <colgroup>
+                        <col style="width:10%" />
+                        <col style="width:40%" />
+                        <col style="width:15%" />
+                        <col style="width:12%" />
+                        <col style="width:28%" />
+                    </colgroup>
+                    <tbody style="border-bottom: 0px solid;">                   
+                        <tr>
+                            <th style="border:1px solid; text-align:center; font:bold">STT</th>
+                            <th colspan="2" style="border:1px solid; text-align:center; font:bold">Thông tin về sản phẩm</th>
+                            <th style="border:1px solid; text-align:center; font:bold">Số lượng</th>
+                            <th style="border:1px solid; text-align:center; font:bold">Kiểm tra ngoại quan kho</th>
+                            <th style="border:1px solid; text-align:center; font:bold">Phần Đ.Vị kiểm tra chất lượng/Tiêu chuẩn kỹ thuật nhập kho</th>
+                        </tr>
+                        @foreach (var item in data)
+                        {
+                            // xử lý định dạng tiền tệ
+
+                            <tr>
+                                <td rowspan="2" colspan="1" style="text-align: center; border: 1px solid; vertical-align: middle;">@STT</td>
+
+                                <td colspan="2" style="text-align: center; border: 1px solid; vertical-align: middle;">
+                                    <p style="text-align: left; padding: 0.5rem 0rem 0rem 0.5rem">Mã SP: <b>@item.MAVT</b></p>
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Tên SP: @item.TENVT</p>
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">ĐVT: @item.DVT</p>
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Mã phiếu PD: <b>@item.MAPHIEUPD</b></p>
+                                    <p style="text-align: left; padding: 0rem 0rem 0.5rem 0.5rem">Họ tên NLP :: @item.HOTENNLP</p>
+                                </td>
+                                <td colspan="1" style="padding: 0rem 0.5rem 0rem 0rem; text-align: center; vertical-align: middle; border: 1px solid;">@item.THUC</td>
+                                <td colspan="1" style="text-align: left; padding: 0rem 0rem 0rem 0.5rem; border: 1px solid;">Tình trạng: @item.KHOKIEMTRA</td>
+                                <td colspan="1">
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Dạng lỗi:........................................</p>
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Kết quả:.....@item.DANGLOI .....</p>
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Nhận/Loại.....@item.LOAI .....</p>
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">NV kiểm tra:....@item.HOTENNGUOIKT .....</p>
+                                </td>
+                            </tr>
+                            <tr style="border-top:1px dashed #000;">
+                                <!-- CỘT TRÁI -->
+                                @*  <td style="text-align:center"></td>*@
+                                <td style="width: 50%; border: 1px solid;" colspan="2">
+                                    <b>Thông tin NCC:</b><br />
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Tên SP NCC: @item.TENVATTU_NCC</p>
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">ĐVT NCC: @item.DVT_NCC</p>
+
+                                </td>
+                                <td style="border: 1px solid; padding: 0rem 0.5rem 0rem 0rem; text-align: center; vertical-align: middle">@item.SOLUONGNCC</td>
+
+
+                                <!-- CỘT GIỮA -->
+                                <td style="width: 25%; border: 1px solid;" colspan="2">
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem"><b>Số hóa đơn: </b>@item.SOCTKETOAN<br /><br /></p>
+                                    <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem"><b>Ngày:</b> @item.NGAYKETOAN</p>
+                                </td>
+
+                            </tr>
+                            STT++;
+                        }
+                    </tbody>
+                </table>
+                <table style="border:1px solid; border-collapse:collapse; width:100%">
+                    <colgroup>
+                        <col style="width:10%" />
+                        <col style="width:40%" />
+                        <col style="width:15%" />
+                        <col style="width:12%" />
+                        <col style="width:28%" />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+
+                            <td style="border-right: 1px solid; text-align: center" colspan="2">&emsp;Ngày kho kiểm tra:&nbsp;@(data[0].NGAYKHO == null ? "": data[0].NGAYKHO.ToString())</td>
+                            <td style="border-right: 1px solid; text-align: center" colspan="3">
+                                &emsp;Ngày phê duyệt:
+                                @*&nbsp;@(data[0].ngay == null ? "": data[0].NGAYPD.ToString())*@
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td style="border-right: 1px solid; text-align: center" colspan="2">&emsp;Thủ khot:</td>
+                            <td style="border-right: 1px solid; text-align: center" colspan="3">&emsp;Người phê duyệt:</td>
+                            @*<td colspan="4">&emsp;Người phê duyệt:</td>*@
+                        </tr>
+                        
+                        <tr>
+
+                            <td style="border-right: 1px solid; text-align: center; height: 100px;" colspan="2" rowspan="6">
+                                @if (vchukyThuKho != null)
+                                {
+                                    <img src="@vchukyThuKho" style="max-height: 80px;" />
+                                }
+                            </td>
+                            <td style="border-right: 1px solid; text-align: center; height: 100px;" colspan="3" rowspan="6">
+                                @if (vchukyGDDV != null)
+                                {
+                                    <img src="@vchukyGDDV" style="max-height: 80px;" />
+                                }
+                            </td>
+                        </tr>
+
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                            <td style="border-right: 1px solid; text-align: center" colspan="2">
+                                <p>Họ và Tên: <b>@(data.Count <=0 ? "" : data[0].HOTENTHUKHO)</b></p>
+                            </td>
+
+                            <td style="border-right: 1px solid; text-align: center" colspan="3">
+                                <p>Họ và Tên: <b>@(data.Count <=0 ? "" : data[0].GIAMDOC)</b></p>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+

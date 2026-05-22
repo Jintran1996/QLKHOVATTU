@@ -1,0 +1,111 @@
+﻿@model ToolsApp.Models.NL_VATTUXUATCHUYENViewModels
+@{
+
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.HiddenFor(model => model.ID_XUATCHUYEN)
+
+<input type="hidden" value="" id="MaKH" />
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-body pad">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="row" style="margin-bottom:5px">
+                                <label class="col-md-4 col-sm-3">Tháng năm HĐ</label>
+                                <div class="date col-md-8 col-sm-8 ten" data-date-format="mm-yyyy">
+                                    <input id="THANGNAM" name="THANGNAM" onchange="onchange_madh();" class="form-control span2" size="16" type="text" value='@DateTime.Now.ToString("MM/yyyy")'><span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">Mã đơn hàng:</label>
+                                <div class="col-md-8">
+                                    <select class="form-control chosen-select" onchange="onchange_mahangsx();onchange_keyhh()" id="MADH" name="MADH">
+                                       
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">Mã hàng SX:</label>
+                                <div class="col-md-8">
+                                    <select class="form-control chosen-select" onchange="onchange_keyhh();onchange_MaVT()" id="MaHangSX" name="MaHangSX">
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">SL vải mộc SX:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="number" autocomplete="off"
+                                           id="SOLUONGVAIMOCSX" name="SOLUONGVAIMOCSX" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">Key HH:</label>
+                                <div class="col-md-8">
+                                    <select class="form-control chosen-select"
+                                            id="KEYHH" name="KEYHH">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">Mã vật tư:</label>
+                                <div class="col-md-8">
+                                    <select class="form-control chosen-select" onchange="onchange_SLDM()"
+                                            id="MAVATTU" name="MAVATTU">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">SL định mức:</label>
+                                <div class="col-md-8">
+                                    <select class="form-control chosen-select"
+                                            id="SOLUONGDINHMUC" name="SOLUONGDINHMUC">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">SL sợi xuất chuyền:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="number" autocomplete="off"
+                                           id="SOLUONGSOIXUATCHUYEN" name="SOLUONGSOIXUATCHUYEN" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': { allow_single_deselect: true },
+            '.chosen-select-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }       
+        $('#THANGNAM').datepicker({
+            format: 'mm/yyyy',
+            startView: "months",
+            minViewMode: "months",
+            language: 'pt-BR',
+            endDate: "0m",
+            autoclose: true,
+            onclose: function (selecteddate) {
+                //$("#fromdate").datepicker("option", "mindate", selecteddate);
+            }
+        });
+        
+    </script>

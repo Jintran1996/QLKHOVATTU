@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLBanhangHeThongSR_2017ModelStoreContainer" CdmEntityContainer="QLBanhangHeThongSR_2017Entities">
+    <EntitySetMapping Name="Home_Page">
+      <EntityTypeMapping TypeName="QLBanhangHeThongSR_2017Model.Home_Page">
+        <MappingFragment StoreEntitySet="Home_Page">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Controler" ColumnName="Controler" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Home_Role">
+      <EntityTypeMapping TypeName="QLBanhangHeThongSR_2017Model.Home_Role">
+        <MappingFragment StoreEntitySet="Home_Role">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Home_SoftwareGroup">
+      <EntityTypeMapping TypeName="QLBanhangHeThongSR_2017Model.Home_SoftwareGroup">
+        <MappingFragment StoreEntitySet="Home_SoftwareGroup">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Home_User">
+      <EntityTypeMapping TypeName="QLBanhangHeThongSR_2017Model.Home_User">
+        <MappingFragment StoreEntitySet="Home_User">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="SalesRepCode" ColumnName="SalesRepCode" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Home_User_Page">
+      <EntityTypeMapping TypeName="QLBanhangHeThongSR_2017Model.Home_User_Page">
+        <MappingFragment StoreEntitySet="Home_User_Page">
+          <ScalarProperty Name="isRoleDelete" ColumnName="isRoleDelete" />
+          <ScalarProperty Name="isRoleExportAll" ColumnName="isRoleExportAll" />
+          <ScalarProperty Name="isRoleExport" ColumnName="isRoleExport" />
+          <ScalarProperty Name="isRoleEdit" ColumnName="isRoleEdit" />
+          <ScalarProperty Name="isRoleCreate" ColumnName="isRoleCreate" />
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Home_User_Role">
+      <EntityTypeMapping TypeName="QLBanhangHeThongSR_2017Model.Home_User_Role">
+        <MappingFragment StoreEntitySet="Home_User_Role">
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserFullname" ColumnName="UserFullname" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Home_Software">
+      <EntityTypeMapping TypeName="QLBanhangHeThongSR_2017Model.Home_Software">
+        <MappingFragment StoreEntitySet="Home_Software">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Home_Menu">
+      <EntityTypeMapping TypeName="QLBanhangHeThongSR_2017Model.Home_Menu">
+        <MappingFragment StoreEntitySet="Home_Menu">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

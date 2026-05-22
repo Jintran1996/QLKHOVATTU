@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="INHOUSEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="INHOUSEEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="S_user" EntityType="INHOUSEModel.S_user" />
+  </EntityContainer>
+  <EntityType Name="S_user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GroupID" Type="Int16" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CREF01" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CREF02" Type="Int32" />
+    <Property Name="Status" Type="DateTime" Precision="3" />
+    <Property Name="CREF04" Type="Int32" />
+    <Property Name="CREF03" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

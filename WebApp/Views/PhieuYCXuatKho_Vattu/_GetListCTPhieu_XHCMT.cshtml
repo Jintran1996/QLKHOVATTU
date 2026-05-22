@@ -1,0 +1,430 @@
+﻿
+@{
+
+    var SOCTXN = ViewBag.SOCTXN;
+    var DANHMUCMAVT = ViewBag.MAVTHC as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SPLOAD_DANHMUCVATTU_Result>;
+    var MAKHONHAN = ViewBag.MAKHONHAN;
+    var MAKHOXUAT = ViewBag.MAKHOXUAT;
+    var LOAIXN = ViewBag.LOAIXN;
+
+}
+@using System.Globalization;
+@model ToolsApp.Models.XUATNHAPViewModels
+
+
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenSOCTXN_XHCMT" value="@SOCTXN.Trim()" hidden />
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenMAKHONHAN_XHCMT" value="@MAKHONHAN.Trim()" hidden />
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenMAKHOXUAT_XHCMT" value="@MAKHOXUAT.Trim()" hidden />
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenLOAIXN_XHCMT" value="@LOAIXN.Trim()" hidden />
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab-getlist-ctphieu" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home-ct" role="tab" aria-controls="custom-tabs-one-home-ct" aria-selected="true">Danh sách chi tiết phiếu @SOCTXN </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home-ct" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab-getlist-ctphieu">
+                                <!--data-->
+                                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmctphieu_XHCMT", id = "frmctphieu_XHCMT", enctype = "multipart/form-data" }))
+                                {
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row ">
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3">SOCTXN :</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off" value="@SOCTXN" readonly
+                                                                   id="SOCTXN_CT" name="SoCTXN" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Mã kho:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off"
+                                                                   id="MaKho_XHCMT" name="MaKho" value="@MAKHOXUAT.Trim()" readonly />
+                                                            <input class="form-control" type="text" autocomplete="off"
+                                                                   id="LoaiXN_XHCMT" name="LoaiXN" value="@LOAIXN.Trim()" hidden />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Ghi chú:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off" value=""
+                                                                   id="GHICHU_XHCMT" name="GHICHU" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3">Mã VT :</label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control chosen-select" id="MAVT_XHCMT" name="MAVT">
+                                                                <option selected value="">-- Chọn mã VT --</option>
+                                                                @foreach (var item in DANHMUCMAVT)
+                                                                {
+                                                                    <option value="@item.MAVT">
+                                                                        @item.MAVT || @item.TenVT
+                                                                    </option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>   
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 col-sm-3">Số Lượng xuất:</label>
+                                                        <div class="col-md-4 col-sm-4 ten">
+                                                            <input class="form-control" autocomplete="off" oninput="inputChange_Checksluong();"
+                                                                   id="SoLuongTT_XHCMT" name="SoLuongYC" value="" min="0" type="number" />
+
+                                                        </div>
+                                                        <div class="row col-md-5 col-sm-5 ten ">
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">Số Lượng Tồn</span>                                                     
+                                                                </div>                                                           
+                                                                    <input class="form-control" autocomplete="off"
+                                                                           id="xSoluongton" name="Soluongton" readonly />          
+                                                            </div>
+                                                       
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Mã phiếu PD:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off" value=""
+                                                                   id="Maphieupd_XHCMT" name="MAPHIEUPD" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-bottom:20px">
+                                            </div>
+                                            <div>
+                                                @*Row 3*@
+                                                <div class="row">
+                                                </div>
+                                                <div class="row">
+                                                </div>
+                                                <div class="text-center">
+                                                    <button type="button" id="btSavect_XHCMT" onclick="_Insert_ctphieu_XHCMT()" class="btn btn-primary" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                                    &nbsp;
+                                                    @*<button type="button" onclick="OpenUploadExcelXHCMT()" class="btn btn-info" style="width: 130px"><i class="fa fa-save"></i>&nbsp;UploadExcel</button>
+                                                        &nbsp;*@
+                                                    <button onclick="SendMail_XHCMT()" type="button" class="btn btn-warning" style=" width: 100px;"><i class="fa fa-envelope"></i>&nbsp; Email</button>
+                                                    &nbsp;
+                                                </div>
+
+                                            </div>
+                                            <div class="row" style="margin-bottom:20px">
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-view-xhcmt  table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                        <!--data-->
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+<script>
+    const soLuongInput = document.getElementById("SoLuongTT_XHCMT");
+
+    soLuongInput.addEventListener("input", function () {
+        // Loại bỏ ký tự không phải số hoặc dấu chấm
+        let raw = this.value.replace(/[^0-9.]/g, "");
+
+        // Chỉ cho phép duy nhất 1 dấu chấm
+        let parts = raw.split(".");
+        if (parts.length > 2) {
+            raw = parts[0] + "." + parts.slice(1).join("");
+        }
+
+        if (raw.length > 0) {
+            this.value = raw;
+        } else {
+            this.value = "";
+        }
+    });
+
+    // Chặn nhập ký tự không phải số hoặc dấu chấm từ bàn phím
+    soLuongInput.addEventListener("keypress", function (e) {
+        if (!/[0-9.]/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+
+<script>
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+
+    function reloadData_getlist_ctphieu() {
+        var Search_ = $("#hidenSOCTXN_XHCMT").val() ;
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu_View")',
+                timeout: 20000,
+                data: {
+                    SOCTXN_CT: Search_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-view-xhcmt').html(response);
+
+                    $("#myTablectphieuxuat").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+
+    function SendMail_XHCMT() {
+        var SOCTXN_ = $("#hidenSOCTXN_XHCMT").val();
+        var MANVXX_ = $("#MANVXX_XHCMT").val();
+
+        var confirm_ = confirm('Bạn có chắc muốn gửi email yêu cầu xem xét?');
+        if (confirm_) {
+                    $.ajax({
+                        url: '@Url.Action("openOutlookemailbox")',
+                        timeout: 20000,
+                        type: "POST",
+                        data: { SOCTXN: SOCTXN_, MANVXX: MANVXX_  },
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            window.location = result;
+                            $(".divLoading").removeClass("loading");
+                            window.location.reload();
+
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+
+            }
+
+
+    function _Insert_ctphieu_XHCMT() {
+
+        var LOAIXN = $("#hidenLOAIXN_XHCMT").val();
+        var SOCTXN = $("#hidenSOCTXN_XHCMT").val();
+        var MAKHONHAN = $("#hidenMAKHONHAN_XHCMT").val();
+        var MAKHOXUAT = $("#hidenMAKHOXUAT_XHCMT").val();
+        var MAVT_XHCMT = $("#MAVT_XHCMT").val();
+      
+        var SoLuongTT_XHCMT = $("#SoLuongTT_XHCMT").val();
+        var GHICHU_XHCMT = $("#GHICHU_XHCMT").val();
+        var Maphieupd_XHCMT = $("#Maphieupd_XHCMT").val();
+
+        console.log(LOAIXN, SOCTXN, MAKHONHAN);
+        $.ajax({
+            url: '@Url.Action("_InsertFunCTPhieu_XHCMT")',
+            timeout: 2000000,
+            type: "POST",
+            data: { LOAIXN: LOAIXN, SOCTXN: SOCTXN, MAKHOXUAT: MAKHOXUAT, MAVT_XHCMT: MAVT_XHCMT, SoLuongTT_XHCMT: SoLuongTT_XHCMT, GHICHU_XHCMT: GHICHU_XHCMT, Maphieupd_XHCMT: Maphieupd_XHCMT },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                if (result.status >= 1) {
+                    notify(result.text, "success");
+                   // Details(SOCTXN, LOAIXN); // LOAD LẠI FORM DETAILS
+                    Details(SOCTXN, LOAIXN, MAKHONHAN, MAKHOXUAT);
+                }
+                else {
+                    notify(result.text, "error");
+                }
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    };
+
+
+</script>
+
+<script type="text/javascript">
+    $("#NGAYKETOAN").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+
+    $("#MAVT_XHCMT").on("change", function () {
+        OnchangeVT($(this).val());
+    });
+    $(document).ready(function () {
+        reloadData_getlist_ctphieu(false);
+
+
+    })
+</script>
+
+<script>
+    function OnchangeVT(mavt_) {
+        if (!mavt_ || mavt_.trim() === "") {
+            console.log(mavt_)
+            resetSoLuongTon();
+            return;
+        }
+        SoluongTon(mavt_.trim());
+    }
+
+    function resetSoLuongTon() {
+        $("#xSoluongton").val("0.00");
+    }
+
+    function SoluongTon(mavt_) {
+
+        var maphieu_ = $("#hidenSOCTXN_XHCMT").val();
+
+        // disable khi đang load
+        $("#xSoluongton").prop("disabled", true);
+
+        $.ajax({
+            url: '@Url.Action("GetSLTonTheoMAVT")',
+            type: "GET",
+            dataType: "json",
+            timeout: 20000,
+            data: {
+                MAVT: mavt_,
+                maphieu: maphieu_
+            }
+        })
+        .done(function (result) {
+            $(".divLoading").addClass("loading");
+            if (result && result.status === 1) {
+                $(".divLoading").addClass("loading");
+                let xSoluongton = result.obj;
+
+                $("#xSoluongton").val(isNaN(xSoluongton) ? "0" : xSoluongton);
+
+                $(".divLoading").removeClass("loading");
+            } else {
+                resetSoLuongTon();
+            }
+       
+        })
+        .fail(function (xhr, status, error) {
+            console.error("Lỗi lấy tồn kho:", error);
+            resetSoLuongTon();
+            $(".divLoading").removeClass("loading");
+        })
+        .always(function () {
+            $("#xSoluongton").prop("disabled", false);
+            $(".divLoading").removeClass("loading");
+        });
+    }
+
+
+    function inputChange_Checksluong() {
+
+        var datayc = $('#SoLuongTT_XHCMT').val();
+        var dataton = $('#xSoluongton').val();
+        var s1 = parseFloat(datayc);
+        var s2 = parseFloat(dataton);
+        console.log(s1, s2);
+
+        if (s1 > s2) {
+            $('#SoLuongTT_XHCMT').val(s2);
+            notify("Số lượng yêu cầu không được lớn hơn số lượng tồn hiện tại", "error");
+        }
+        return;
+    }
+</script>
+
+
+
+
+
+
+
+
+
+

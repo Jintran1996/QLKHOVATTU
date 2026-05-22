@@ -1,0 +1,523 @@
+﻿
+@{
+    ViewBag.Title = "Invoice";
+    var vattu = ViewBag.VATTU;
+    var inv = ViewBag.INVOICE1;
+    var quocgia = ViewBag.QUOCGIA;
+    var maphieu = ViewBag.MAPHIEU;
+    var sohopdong = ViewBag.SOHOPDONG;
+
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Tìm kiếm</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input class="form-control" type="search"
+                                       list="maphieupdlist" id="maphieupdsearch"
+                                       placeholder="Mã phiếu ">
+                                <datalist id="maphieupdlist">
+                                    @if (maphieu != null)
+                                    {
+                                        foreach (var item in maphieu)
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    }
+                                </datalist>
+                            </div>
+                            <div class="col-md-2">
+                                <input class="form-control" type="search"
+                                       list="sohopdonglist" id="sohopdongsearch"
+                                       placeholder="Số hợp đồng">
+                                <datalist id="sohopdonglist">
+                                    @if (sohopdong != null)
+                                    {
+                                        foreach (var item in sohopdong)
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    }
+                                </datalist>
+                            </div>
+                            <div class="col-md-2">
+                                <input class="form-control" type="search"
+                                       list="vattulist" id="vattusearch"
+                                       placeholder="Vật tư">
+                                <datalist id="vattulist">
+                                    @if (vattu != null)
+                                    {
+                                        foreach (var item in vattu)
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    }
+                                </datalist>
+                            </div>
+                            <div class="col-md-2">
+                                <input class="form-control" type="search"
+                                       list="invoicelist" id="invoicesearch"
+                                       placeholder="Invoice">
+                                <datalist id="invoicelist">
+                                    @if (inv != null)
+                                    {
+                                        foreach (var item in inv)
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    }
+                                </datalist>
+                            </div>
+                            <div class="col-md-2">
+                                <input class="form-control" type="search"
+                                       list="quocgialist" id="quocgiasearch"
+                                       placeholder="Quốc gia">
+                                <datalist id="quocgialist">
+                                    @if (quocgia != null)
+                                    {
+                                        foreach (var item in quocgia)
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    }
+                                </datalist>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <button id="btnSearch" type="button" class="btn btn-outline-primary"><i class="fa fa-search"></i> Tìm</button>
+                                    &nbsp;
+                                    @*<button id="btnDongboMAVT" type="button" class="btn btn-outline-primary"><i class="fa fa-sync"></i> Đồng bộ Invoice</button>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End section search-->
+            </div>
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>@ViewBag.Title </b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-md-4">
+                                <button id="btInsert" type="button" title="Thêm mới" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Thêm mới</button>
+                                &nbsp;
+                                <button id="btnUpload" type="button" class="btn bg-gradient-blue"><i class="fa fa-file-excel" "></i>&nbsp;Nhập Excel</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+
+<!----------------FORM INSERT----------------->
+<div id="myModal" class="modal fade modal-wide" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+            {
+
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContent">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        @*<button type="button" id="btSave" class="btn btn-sm btn-success" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>*@
+
+                        @*<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="width: 100px"><i class="fa fa-close"></i>&nbsp;Đóng</button>*@
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+<!------------------------------------------>
+<!----------------FORM UPDATE----------------->
+<div id="myModalUpdate" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmUpdate", id = "frmUpdate", enctype = "multipart/form-data" }))
+            {
+
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitleUpdate"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentUpdate">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSave" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+<!------------------------------------------>
+<div id="myModalUpload" class="modal fade modal-wide col-md-7 " role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmUpload", id = "frmUpload", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header bg-gradient-blue">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:mintcream"><strong id="myModalTitleUpload"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentUpload">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSaveUpload" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+
+    </script>
+    <script>
+        function reloadData(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+                    maphieupdsearch: $("#maphieupdsearch").val(),
+                    vattusearch: $("#vattusearch").val(),
+                    sohopdongsearch: $("#sohopdongsearch").val(),
+                    invoicesearch: $("#invoicesearch").val(),
+                    quocgiasearch: $("#quocgiasearch").val(),
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+        function rowclick(this_) {
+            $ID_SOCT = $('.' + this_).data("SystemKeyId");
+            console.log($ID_SOCT);
+            createCookie('SystemKey', $ID_SOCT, 10);
+        }
+
+        function Remove(Id_, Index_) {
+            $('#row_' + Index_).attr("style", "display:none");
+
+            $('#Detail_' + Index_ + '_Delete').val(true);
+        }
+    </script>
+
+    <script type="text/javascript">
+        var $ID_SOCT = "";
+
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        var $modalUpload = $('#myModalUpload');
+        var $myModalContentUpload = $("#myModalContentUpload");
+        var $myModalTitleUpload = $("#myModalTitleUpload");
+
+        var $modalUpdate = $('#myModalUpdate');
+        var $myModalContentUpdate = $("#myModalContentUpdate");
+        var $myModalTitleUpdate = $("#myModalTitleUpdate");
+
+        $(document).ready(function () {
+            reloadData(false);
+
+            $("#btSave").click(function () {
+                var confirm_ = confirm('Bạn có chắc muốn lưu ?');
+                if (confirm_) {
+                    form = $("#frmUP");
+                    form.removeData('validator');
+                    form.removeData('unobtrusiveValidation');
+                    $.validator.unobtrusive.parse("#frmUP");
+                    if (form.valid()) {
+                        $.ajax({
+                            url: '@Url.Action("_Update")' ,
+                            type: "POST",
+                            data: $('#frmUP').serialize(),
+                            beforeSend: function (xhr) {
+                                $(".divLoading").addClass("loading");
+                                console.log($('#frmUP').serialize());
+                            },
+                            success: function (result) {
+                                if (result.status >= 1) {
+                                    notify(result.text, "success");
+
+                                }
+                                else {
+                                    notify(result.text, "error");
+                                }
+                                $(".divLoading").removeClass("loading");
+                                reloadData(true);
+                            },
+                            error: function (message) {
+                                $(".divLoading").removeClass("loading");
+                            }
+                        });
+                    }
+                }
+            });
+
+            $("#btInsert").click(function () {
+                var value = $("#khoa_id").val();
+                value = value == null ? '@Guid.NewGuid()' : value;
+                console.log(value);
+                $myModalContent.html("");
+                $myModalTitle.html("Thêm mới");
+                $.ajax({
+                    url: '@Url.Action("_DetailForEdit")',
+                    timeout: 20000,
+                    data: {
+                        khoa_id: value
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status <= 1) {
+                            notify(result.text, "error");
+                        }
+                        else {
+                            $myModalContent.html(result);
+                            $modal.modal();
+                        }
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+
+            $("#myModal").on("hidden.bs.modal", function () {
+                reloadData(false);
+            });
+
+            $("#btnSearch").click(function () {
+                reloadData(true);
+            });
+
+            $("#btnUpload").click(function () {
+                $myModalContentUpload.html("");
+                $myModalTitleUpload.html("Upload");
+                $.ajax({
+                    url: '@Url.Action("_Upload")',
+                    timeout: 20000,
+                    data: {
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContentUpload.html(result);
+                        $modalUpload.modal();
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+        });
+        $("#btnUpload").click(function () {
+                $myModalContentUpload.html("");
+                $myModalTitleUpload.html("Upload");
+                $.ajax({
+                    url: '@Url.Action("_Upload")',
+                    timeout: 20000,
+                    data: {
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContentUpload.html(result);
+                        $modalUpload.modal();
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+
+        function Delete(khoa_id_)
+        {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    timeout: 20000,
+                    type: "POST",
+                    data: { khoa_id: khoa_id_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        console.log(result.text);
+
+                        $(".divLoading").removeClass("loading");
+
+                        reloadData(true);
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+        function Edit(khoa_id_) {
+            $myModalContentUpdate.html("");
+            $myModalTitleUpdate.html("Cập nhật");
+            $.ajax({
+                url: '@Url.Action("_DetailForEdit")',
+                timeout: 20000,
+                data: {
+                    khoa_id: khoa_id_
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $myModalContentUpdate.html(result);
+                    $modalUpdate.modal();
+
+                    $(".divLoading").removeClass("loading");
+                },
+                failure: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+         function UploadTemplate() {
+                form = $("#frmUpload");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse("#frmUpload");
+                if (form.valid()) {
+                    var formdata = new FormData(); //FormData object
+                    var fileInput = document.getElementById('fuInputFile');
+                    formdata.append("fuInputFile", fileInput.files[0]);
+                    $.ajax({
+                        url: "@Url.Action("_FunImport")",
+                        type: "POST",
+                        contentType: false,
+                        processData: false,
+                        data: formdata,
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status == 1) {
+
+                                notify(result.text, "success");
+
+                                $('.close').click();
+
+                                reloadData(false);
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+        }
+    </script>
+}

@@ -1,0 +1,56 @@
+﻿@{
+    var list = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_CTXUATNHAP>;
+}
+<div class="control-group"style="font-size:14px">
+    <table id="myTable_insert" class="table table-bordered table-striped">
+        <thead style="text-align:center">
+            <tr>
+                <th></th>
+                <th width="30px">STT</th>
+                <th>Mã vật tư</th>
+                <th>Hiệu</th>
+                <th>Lô</th>
+                <th>Số lượng</th>
+                <th>Loại đơn hàng</th>
+                <th>Sản xuất cho đơn hàng</th>
+                <th>Ghi chú</th>
+            </tr>
+        </thead>
+            <tbody>
+                @{ var STT = 1; }
+
+                @foreach (var item in list)
+                {
+                    <tr>
+                        <td>
+                            <a onclick="DeleteCT('@item.KHOAKEYXN')" class="btn" style="font-size:10px">
+                                <i class="far fa-trash-alt">&nbsp;Xóa</i>
+                            </a>
+                        </td>
+                        <td>@STT</td>
+                        <td>@item.MAVT</td>
+                        <td>@item.HIEU</td>
+                        <td>@item.LO</td>
+                        <td>@item.SOLUONGYC.ToString("0.00")</td>
+                        <td>@item.LOAIDONHANG</td>
+                        <td>@item.MADH</td>
+                        <td>@item.GHICHU</td>
+                    </tr>
+                    STT++;
+                }
+                
+            </tbody>
+        </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

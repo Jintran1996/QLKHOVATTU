@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HECCMModelStoreContainer" CdmEntityContainer="HECCMEntities">
+    <EntitySetMapping Name="S_Salesman_RoutePlan">
+      <EntityTypeMapping TypeName="HECCMModel.S_Salesman_RoutePlan">
+        <MappingFragment StoreEntitySet="S_Salesman_RoutePlan">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="W8D7" ColumnName="W8D7" />
+          <ScalarProperty Name="W8D6" ColumnName="W8D6" />
+          <ScalarProperty Name="W8D5" ColumnName="W8D5" />
+          <ScalarProperty Name="W8D4" ColumnName="W8D4" />
+          <ScalarProperty Name="W8D3" ColumnName="W8D3" />
+          <ScalarProperty Name="W8D2" ColumnName="W8D2" />
+          <ScalarProperty Name="W8D1" ColumnName="W8D1" />
+          <ScalarProperty Name="W7D7" ColumnName="W7D7" />
+          <ScalarProperty Name="W7D6" ColumnName="W7D6" />
+          <ScalarProperty Name="W7D5" ColumnName="W7D5" />
+          <ScalarProperty Name="W7D4" ColumnName="W7D4" />
+          <ScalarProperty Name="W7D3" ColumnName="W7D3" />
+          <ScalarProperty Name="W7D2" ColumnName="W7D2" />
+          <ScalarProperty Name="W7D1" ColumnName="W7D1" />
+          <ScalarProperty Name="W6D7" ColumnName="W6D7" />
+          <ScalarProperty Name="W6D6" ColumnName="W6D6" />
+          <ScalarProperty Name="W6D5" ColumnName="W6D5" />
+          <ScalarProperty Name="W6D4" ColumnName="W6D4" />
+          <ScalarProperty Name="W6D3" ColumnName="W6D3" />
+          <ScalarProperty Name="W6D2" ColumnName="W6D2" />
+          <ScalarProperty Name="W6D1" ColumnName="W6D1" />
+          <ScalarProperty Name="W5D7" ColumnName="W5D7" />
+          <ScalarProperty Name="W5D6" ColumnName="W5D6" />
+          <ScalarProperty Name="W5D5" ColumnName="W5D5" />
+          <ScalarProperty Name="W5D4" ColumnName="W5D4" />
+          <ScalarProperty Name="W5D3" ColumnName="W5D3" />
+          <ScalarProperty Name="W5D2" ColumnName="W5D2" />
+          <ScalarProperty Name="W5D1" ColumnName="W5D1" />
+          <ScalarProperty Name="W4D7" ColumnName="W4D7" />
+          <ScalarProperty Name="W4D6" ColumnName="W4D6" />
+          <ScalarProperty Name="W4D5" ColumnName="W4D5" />
+          <ScalarProperty Name="W4D4" ColumnName="W4D4" />
+          <ScalarProperty Name="W4D3" ColumnName="W4D3" />
+          <ScalarProperty Name="W4D2" ColumnName="W4D2" />
+          <ScalarProperty Name="W4D1" ColumnName="W4D1" />
+          <ScalarProperty Name="W3D7" ColumnName="W3D7" />
+          <ScalarProperty Name="W3D6" ColumnName="W3D6" />
+          <ScalarProperty Name="W3D5" ColumnName="W3D5" />
+          <ScalarProperty Name="W3D4" ColumnName="W3D4" />
+          <ScalarProperty Name="W3D3" ColumnName="W3D3" />
+          <ScalarProperty Name="W3D2" ColumnName="W3D2" />
+          <ScalarProperty Name="W3D1" ColumnName="W3D1" />
+          <ScalarProperty Name="W2D7" ColumnName="W2D7" />
+          <ScalarProperty Name="W2D6" ColumnName="W2D6" />
+          <ScalarProperty Name="W2D5" ColumnName="W2D5" />
+          <ScalarProperty Name="W2D4" ColumnName="W2D4" />
+          <ScalarProperty Name="W2D3" ColumnName="W2D3" />
+          <ScalarProperty Name="W2D2" ColumnName="W2D2" />
+          <ScalarProperty Name="W2D1" ColumnName="W2D1" />
+          <ScalarProperty Name="W1D7" ColumnName="W1D7" />
+          <ScalarProperty Name="W1D6" ColumnName="W1D6" />
+          <ScalarProperty Name="W1D5" ColumnName="W1D5" />
+          <ScalarProperty Name="W1D4" ColumnName="W1D4" />
+          <ScalarProperty Name="W1D3" ColumnName="W1D3" />
+          <ScalarProperty Name="W1D2" ColumnName="W1D2" />
+          <ScalarProperty Name="W1D1" ColumnName="W1D1" />
+          <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+          <ScalarProperty Name="ContactCode" ColumnName="ContactCode" />
+          <ScalarProperty Name="CustCode" ColumnName="CustCode" />
+          <ScalarProperty Name="SalesmanCode" ColumnName="SalesmanCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_Page">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_Page">
+        <MappingFragment StoreEntitySet="SFA_Page">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Controler" ColumnName="Controler" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_Role">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_Role">
+        <MappingFragment StoreEntitySet="SFA_Role">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_User">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_User">
+        <MappingFragment StoreEntitySet="SFA_User">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="SalesRepCode" ColumnName="SalesRepCode" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_User_Page">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_User_Page">
+        <MappingFragment StoreEntitySet="SFA_User_Page">
+          <ScalarProperty Name="isRoleDelete" ColumnName="isRoleDelete" />
+          <ScalarProperty Name="isRoleExportAll" ColumnName="isRoleExportAll" />
+          <ScalarProperty Name="isRoleExport" ColumnName="isRoleExport" />
+          <ScalarProperty Name="isRoleEdit" ColumnName="isRoleEdit" />
+          <ScalarProperty Name="isRoleCreate" ColumnName="isRoleCreate" />
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_User_Role">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_User_Role">
+        <MappingFragment StoreEntitySet="SFA_User_Role">
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserFullname" ColumnName="UserFullname" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_Salesman_Master">
+      <EntityTypeMapping TypeName="HECCMModel.S_Salesman_Master">
+        <MappingFragment StoreEntitySet="S_Salesman_Master">
+          <ScalarProperty Name="Plant" ColumnName="Plant" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="BelongTo" ColumnName="BelongTo" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="ReportTo" ColumnName="ReportTo" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="SalesRep1" ColumnName="SalesRep1" />
+          <ScalarProperty Name="SalesRep" ColumnName="SalesRep" />
+          <ScalarProperty Name="HRCode" ColumnName="HRCode" />
+          <ScalarProperty Name="PDACode" ColumnName="PDACode" />
+          <ScalarProperty Name="SalesmanCode" ColumnName="SalesmanCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="S_Sales_Org_GetList" FunctionName="HECCMModel.Store.S_Sales_Org_GetList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HECCMModel.S_Sales_Org_GetList_Result">
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="BelongTo" ColumnName="BelongTo" />
+          <ScalarProperty Name="Desc" ColumnName="Desc" />
+          <ScalarProperty Name="DescOld" ColumnName="DescOld" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="S_Salesman_Master_GetListExceptS1BySalesmanCode" FunctionName="HECCMModel.Store.S_Salesman_Master_GetListExceptS1BySalesmanCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HECCMModel.S_Salesman_Master_GetListExceptS1BySalesmanCode_Result">
+          <ScalarProperty Name="SalesmanCode" ColumnName="SalesmanCode" />
+          <ScalarProperty Name="PDACode" ColumnName="PDACode" />
+          <ScalarProperty Name="HRCode" ColumnName="HRCode" />
+          <ScalarProperty Name="SalesRep" ColumnName="SalesRep" />
+          <ScalarProperty Name="SalesRep1" ColumnName="SalesRep1" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="ReportTo" ColumnName="ReportTo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="BelongTo" ColumnName="BelongTo" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="Plant" ColumnName="Plant" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="S_user">
+      <EntityTypeMapping TypeName="HECCMModel.S_user">
+        <MappingFragment StoreEntitySet="S_user">
+          <ScalarProperty Name="ITR" ColumnName="ITR" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="SalesmanCode" ColumnName="SalesmanCode" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="S_Salesman_Master_fGetSubTreeWithSort" FunctionName="HECCMModel.Store.S_Salesman_Master_fGetSubTreeWithSort">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HECCMModel.S_Salesman_Master_fGetSubTreeWithSort_Result">
+          <ScalarProperty Name="SalesmanCode" ColumnName="SalesmanCode" />
+          <ScalarProperty Name="ForSort" ColumnName="ForSort" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="S_Monthly_Target">
+      <EntityTypeMapping TypeName="HECCMModel.S_Monthly_Target">
+        <MappingFragment StoreEntitySet="S_Monthly_Target">
+          <ScalarProperty Name="DatetimeUpdateHos" ColumnName="DatetimeUpdateHos" />
+          <ScalarProperty Name="UserFullnameUpdateHos" ColumnName="UserFullnameUpdateHos" />
+          <ScalarProperty Name="UserUpdateHos" ColumnName="UserUpdateHos" />
+          <ScalarProperty Name="DatetimeUpdatePhar" ColumnName="DatetimeUpdatePhar" />
+          <ScalarProperty Name="UserFullnameUpdatePhar" ColumnName="UserFullnameUpdatePhar" />
+          <ScalarProperty Name="UserUpdatePhar" ColumnName="UserUpdatePhar" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="LogData" ColumnName="LogData" />
+          <ScalarProperty Name="TargetBS" ColumnName="TargetBS" />
+          <ScalarProperty Name="TargetPhar" ColumnName="TargetPhar" />
+          <ScalarProperty Name="TargetHos" ColumnName="TargetHos" />
+          <ScalarProperty Name="Target" ColumnName="Target" />
+          <ScalarProperty Name="Actual" ColumnName="Actual" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_Salesman_PrincipalGroup">
+      <EntityTypeMapping TypeName="HECCMModel.S_Salesman_PrincipalGroup">
+        <MappingFragment StoreEntitySet="S_Salesman_PrincipalGroup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PrincipalGroupID" ColumnName="PrincipalGroupID" />
+          <ScalarProperty Name="SalesmanCode" ColumnName="SalesmanCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_PrincipalGroup">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_PrincipalGroup">
+        <MappingFragment StoreEntitySet="SFA_PrincipalGroup">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="PrincipalGroupName" ColumnName="PrincipalGroupName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_User_PrincipalGroup">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_User_PrincipalGroup">
+        <MappingFragment StoreEntitySet="SFA_User_PrincipalGroup">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="PrincipalGroupId" ColumnName="PrincipalGroupId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_PrincipalGroup">
+      <EntityTypeMapping TypeName="HECCMModel.S_PrincipalGroup">
+        <MappingFragment StoreEntitySet="S_PrincipalGroup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="ByProduct" ColumnName="ByProduct" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="BelongTo" ColumnName="BelongTo" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ValidCode" ColumnName="ValidCode" />
+          <ScalarProperty Name="PrincipalName" ColumnName="PrincipalName" />
+          <ScalarProperty Name="PrincipalID" ColumnName="PrincipalID" />
+          <ScalarProperty Name="PrincipalGroupName" ColumnName="PrincipalGroupName" />
+          <ScalarProperty Name="PrincipalGroupID" ColumnName="PrincipalGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_Principal_Mapping">
+      <EntityTypeMapping TypeName="HECCMModel.S_Principal_Mapping">
+        <MappingFragment StoreEntitySet="S_Principal_Mapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="NewCode" ColumnName="NewCode" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="PrincipalID" ColumnName="PrincipalID" />
+          <ScalarProperty Name="PrincipalGroupID" ColumnName="PrincipalGroupID" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_BU">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_BU">
+        <MappingFragment StoreEntitySet="SFA_BU">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="BUName" ColumnName="BUName" />
+          <ScalarProperty Name="BUCode" ColumnName="BUCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_Exlusion">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_Exlusion">
+        <MappingFragment StoreEntitySet="SFA_Exlusion">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="PrincipalName" ColumnName="PrincipalName" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+          <ScalarProperty Name="PrincipalId" ColumnName="PrincipalId" />
+          <ScalarProperty Name="PrincipalGroupName" ColumnName="PrincipalGroupName" />
+          <ScalarProperty Name="PrincipalGroupId" ColumnName="PrincipalGroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_TemplateUser">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_TemplateUser">
+        <MappingFragment StoreEntitySet="SFA_TemplateUser">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFA_Menu">
+      <EntityTypeMapping TypeName="HECCMModel.SFA_Menu">
+        <MappingFragment StoreEntitySet="SFA_Menu">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Principal_From_PrincipalGroup">
+      <EntityTypeMapping TypeName="HECCMModel.v_Principal_From_PrincipalGroup">
+        <MappingFragment StoreEntitySet="v_Principal_From_PrincipalGroup">
+          <ScalarProperty Name="PrincipalName" ColumnName="PrincipalName" />
+          <ScalarProperty Name="PrincipalID" ColumnName="PrincipalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

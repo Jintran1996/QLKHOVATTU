@@ -1,0 +1,42 @@
+﻿
+
+@{
+    var ListsQuyen = ViewBag.ListQuyen as IEnumerable<ToolsApp.EntityFramework.VatTu.DANHMUCQUYEN>;
+
+}
+<table id="myTable1" class="table table-bordered table-striped ">
+    <thead>
+        <tr style="text-align:center;">
+            <th style="width: 80px"></th>
+            <th style="text-align:center">.No</th>
+            <th>Ký hiệu đơn vị</th>
+            <th>Mã kho</th>
+            <th>Nhân viên</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in ListsQuyen)
+        {
+            <tr>
+                <td>
+                    <a onclick="DeleteQXNKho('@item.MAKHO')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.KIHIEU</td>
+                <td>@item.MAKHO</td>
+                <td>@item.MANV</td>
+            </tr>
+            STT++;
+        }
+    </tbody>
+</table>
+
+
+
+
+

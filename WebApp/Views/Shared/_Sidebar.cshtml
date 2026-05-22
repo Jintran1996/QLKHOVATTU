@@ -1,0 +1,92 @@
+﻿@using ToolsApp.Helper;
+@using ToolsApp.Authentication;
+@using ToolsApp.Utilities;
+@using ToolsApp.EntityFramework.KhoSoi
+
+@{
+    int userId = 0;
+
+    try
+    {
+        userId = (System.Web.HttpContext.Current.User as CustomPrincipal).UserId;
+    }
+    catch (Exception)
+    {
+    }
+
+    var db_ = new wqlkhosoiEntities();
+
+    var User_Pages = new List<QLKhoSoi_User_Page>();
+
+    var Menus = new List<QLKhoSoi_Menu>();
+
+    var User_Menus_Roots = new List<QLKhoSoi_Menu>();
+
+    User_Pages = db_.QLKhoSoi_User_Page.Where(p => p.UserId == userId).ToList();
+
+    Menus = db_.QLKhoSoi_Menu.Where(p => p.isDelete == null || p.isDelete == false).ToList();
+
+    User_Menus_Roots = Menus.Where(p => p.ParentId == null &&
+        p.QLKhoSoi_Menu1.FirstOrDefault(q => User_Pages.FirstOrDefault(x => x.PageId == q.PageId) != null) != null
+    ).ToList();
+
+    var routeData = ViewContext.RouteData;
+
+    var routeAction = routeData.Values["action"].ToString();
+
+    var routeController = routeData.Values["controller"].ToString();
+}
+
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+        with font-awesome or any other icon font library -->
+        <li class="nav-item">
+            <a href="@Url.Action("Index", "Home", new { Area = "" })" class="nav-link
+               @(("Home" == routeController &&
+                    "Index" == routeAction) ? "active" : "")">
+                <i class="nav-icon fas fa-home"></i>
+                <p>
+                    Home
+                </p>
+            </a>
+        </li>
+
+        @if (User_Menus_Roots.Count > 0)
+        {
+            foreach (var root in User_Menus_Roots.OrderBy(p => p.OrderNo))
+            {
+                var menus_users = root.QLKhoSoi_Menu1.Where(p => User_Pages.FirstOrDefault(q => q.PageId == p.PageId) != null)
+                            .OrderBy(p => p.OrderNo).ToList();
+
+                <li class="nav-item
+                    @(menus_users.FirstOrDefault(p => p.QLKhoSoi_Page.Controler == routeController && p.QLKhoSoi_Page.Action == routeAction) != null ? "menu-open" : "")">
+                    <a href="#" class="nav-link
+                        @(menus_users.FirstOrDefault(p => p.QLKhoSoi_Page.Controler == routeController && p.QLKhoSoi_Page.Action == routeAction) != null ? "active" : "")">
+                        @Html.Raw(root.Icon)
+                        <p>
+                            @root.MenuName
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        @{
+                            foreach (var menus_user in menus_users)
+                            {
+                                <li class="nav-item">
+                                    <a href="@Url.Action(menus_user.QLKhoSoi_Page.Action, menus_user.QLKhoSoi_Page.Controler)"
+                                       class="nav-link @((menus_user.QLKhoSoi_Page.Controler == routeController && menus_user.QLKhoSoi_Page.Action == routeAction) ? "active" : "")">
+                                        @Html.Raw(menus_user.Icon)
+                                        <p>
+                                            @menus_user.MenuName
+                                        </p>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </li>
+            }
+        }
+    </ul>
+</nav>

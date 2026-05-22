@@ -1,0 +1,71 @@
+﻿@model List<ToolsApp.EntityFramework.VatTu.SP_CRCHATLUONG_NEW_Result>
+@{ var STT = 1; }
+
+<style>
+    body {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 12pt;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #000;
+        padding: 4px;
+        vertical-align: middle;
+    }
+
+    .dashed-top {
+        border-top: 1px dashed #000;
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th width="40">STT</th>
+            <th colspan="2">Thông tin sản phẩm</th>
+            <th width="70">Số lượng</th>
+            <th width="140">Kho kiểm tra</th>
+            <th>Đơn vị kiểm tra</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td rowspan="2" style="text-align:center">@STT</td>
+    <td colspan="2">
+        <b>Mã:</b> @item.MAVT<br />
+        <b>Tên:</b> @item.TENVT<br />
+        <b>ĐVT:</b> @item.DVT<br />
+        <b>Mã PD:</b> @item.MAPHIEUPD<br />
+        <b>NLP:</b> @item.HOTENNLP
+    </td>
+    <td style="text-align:center">@item.THUC</td>
+    <td>@item.KHOKIEMTRA</td>
+    <td>
+        Dạng lỗi: @item.DANGLOI<br />
+        Kết quả: @item.LOAI<br />
+        NVKT: @item.HOTENNGUOIKT
+    </td>
+</tr>
+
+                <tr class="dashed-top">
+                    <td colspan="2">
+                        <b>NCC:</b> @item.TENVATTU_NCC<br />
+                        <b>ĐVT NCC:</b> @item.DVT_NCC
+                    </td>
+                    <td style="text-align:center">@item.SOLUONGNCC</td>
+                    <td colspan="2">
+                        <b>Hóa đơn:</b> @item.SOCTKETOAN<br />
+                        <b>Ngày:</b> @item.NGAYKETOAN
+                    </td>
+                </tr>STT++;
+                            }
+    </tbody>
+</table>

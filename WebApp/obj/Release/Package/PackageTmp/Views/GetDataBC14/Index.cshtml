@@ -1,0 +1,295 @@
+﻿<section>
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+            <h3 class="card-title">
+                <b>Tìm kiếm phiếu để đồng bộ từ Netsuite</b>
+            </h3>
+        </div>
+        <div class="card-body col-md-12 row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="col-md-3">
+                            <div class="row" style="margin-bottom:5px">
+                                <label class="col-md-3">Từ Ngày:</label>
+                                <div class="col-md-9">
+                                    <input type="text" autocomplete="off" id="FROMDATE" name="FROMDATE" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row" style="margin-bottom:5px">
+                                <label class="col-md-3">Đến Ngày:</label>
+                                <div class="col-md-9">
+                                    <input type="text" autocomplete="off" id="TODATE" name="TODATE" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group-append">
+                                <button class="btn bg-gradient-primary" id="btnSearch" style="width: 120px" onclick="Getdata()"><i class="fas fa-recycle"></i> Lấy dữ liệu</button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group-append">
+                                <button class="btn bg-gradient-primary" id="btnSearch" style="width: 120px" onclick="Updata()"><i class="fas fa-recycle"></i> Update NV</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <script type="text/javascript">
+
+
+
+        $("#FROMDATE").datepicker({
+            format: 'dd/mm/yyyy',
+            changeYear: true,
+            changeMonth: true,
+            onClose: function (selectedDate) {
+                //$("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+        $("#TODATE").datepicker({
+            format: 'dd/mm/yyyy',
+            changeYear: true,
+            changeMonth: true,
+            onClose: function (selectedDate) {
+                //$("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+   // Hàm Getdata
+function Getdata(fromdate, todate) {
+    var fromdate_ = fromdate == null ? $('#FROMDATE').val() : fromdate;
+    var todate_ = todate == null ? $('#TODATE').val() : todate;
+
+    return $.ajax({
+        url: '@Url.Action("Getdata_")',
+        data: {
+            fromdate: fromdate_,
+            todate: todate_
+        },
+        beforeSend: function () {
+            // Hiển thị loading trong khi gửi yêu cầu
+            $(".divLoading").addClass("loading");
+        },
+        success: function (response) {
+            if (response.status < 0) {
+                notify(response.text, "error");
+            } else {
+                notify(response.text, "success");
+            }
+        },
+        error: function (message) {
+            console.error('Lỗi:', message);
+        }
+    }).always(function() {
+        // Gỡ bỏ loading sau khi hoàn tất yêu cầu AJAX
+        $(".divLoading").removeClass("loading");
+    });
+}
+
+function Updata( ) {
+
+    return $.ajax({
+        url: '@Url.Action("Updata_")',
+        data: {
+           
+        },
+        beforeSend: function () {
+            // Hiển thị loading trong khi gửi yêu cầu
+            $(".divLoading").addClass("loading");
+        },
+        success: function (response) {
+            if (response.status < 0) {
+                notify(response.text, "error");
+            } else {
+                notify(response.text, "success");
+            }
+        },
+        error: function (message) {
+            console.error('Lỗi:', message);
+        }
+    }).always(function() {
+        // Gỡ bỏ loading sau khi hoàn tất yêu cầu AJAX
+        $(".divLoading").removeClass("loading");
+    });
+}
+
+
+    </script>
+
+    <script type="text/javascript">
+
+        function GetList() {
+            try {
+            $.ajax({
+                url: '@Url.Action("GetList")',
+                type: "GET",
+                data: {
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                        $(".divLoading").removeClass("loading");
+                    }
+                    else {
+                        $('.table-body').html(result);
+                        $("#myTable").DataTable({
+                            destroy: true,
+                            "language": {
+                                "sProcessing": "Đang xử lý...",
+                                "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                                "sZeroRecords": "Không tìm thấy kết quả",
+                                "sEmptyTable": "Không có dữ liệu",
+                                "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                                "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                                "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Tìm kiếm:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Đang tải...",
+                                "oPaginate": {
+                                    "sFirst": "Đầu tiên",
+                                    "sLast": "Cuối cùng",
+                                    "sNext": "Sau",
+                                    "sPrevious": "Trước"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                    "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                                }
+                            },
+                            "lengthMenu": [25, 50, 75, 100],
+                            "info": false,
+                            "processing": false,
+                            "serverSide": false,
+                            "bFilter": true,
+                            "bPaginate": true,
+                            "bLengthChange": true,
+                            "bInfo": true,
+                            "responsive": true,
+                            "lengthChange": true,
+                            "autoWidth": false,
+                            "stateSave": true,
+                            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                            "initComplete": function (oSettings) {
+
+                            }
+                        });
+                        $(".divLoading").removeClass("loading");
+                    }
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+
+            } catch (e) {
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GetList(false);
+
+        });
+
+
+        window.onload = function () {
+            // Gửi yêu cầu đăng nhập lần đầu
+            const login = () => {
+                $(".divLoading").addClass("loading");
+
+                const loginUrl = 'https://localhost:44338/Login/'; // Địa chỉ URL đăng nhập
+                const credentials = {
+                    username: '2464', // Tên người dùng
+                    password: 'QuanTri101010'    // Mật khẩu
+                };
+
+                return fetch(loginUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(credentials)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Đăng nhập không thành công!');
+                        }
+                        //  return response; // Trả về response nếu đăng nhập thành công
+                    });
+            };
+
+            // Hàm xử lý các tham số từ URL
+            const handleUrlParams = () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const dateValue = urlParams.get('data'); // Lấy giá trị của tham số "data"
+
+                if (dateValue) {
+                    console.log('Giá trị ngày nhận được:', dateValue);
+
+                    const result = getFirstAndLastDateOfMonth(dateValue);
+                    // Gọi Getdata như một hàm bất đồng bộ
+                    return Getdata(result.firstDate, result.lastDate)
+
+                        .then(() => {
+                            console.log(`Ngày đầu tháng: ${result.firstDate}`);
+                            console.log(`Ngày cuối tháng: ${result.lastDate}`);
+                        });
+                } else {
+                    console.log('Không có giá trị "data" trong URL.');
+                }
+            };
+
+            // Thực hiện đăng nhập và sau đó xử lý URL
+            login()
+                .then(() => {
+                    return handleUrlParams(); // Chờ hoàn tất xử lý URL
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                })
+                .finally(() => {
+                    // Luôn luôn xóa loading sau khi mọi thứ hoàn tất
+                    $(".divLoading").removeClass("loading");
+                });
+        };
+
+        function getFirstAndLastDateOfMonth(monthYear) {
+            // Tách tháng và năm từ chuỗi
+
+            const [month, year] = monthYear.split('/').map(Number);
+
+            // Ngày đầu tháng
+            const firstDate = new Date(year, month - 1, 1); // Tháng bắt đầu từ 0
+
+            // Ngày cuối tháng
+            const lastDate = new Date(year, month, 0); // Ngày 0 của tháng sau là ngày cuối của tháng hiện tại
+
+            // Định dạng ngày dưới dạng "dd/mm/yyyy"
+            const formatDate = (d) => {
+                const dd = String(d.getDate()).padStart(2, '0');
+                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                const yyyy = d.getFullYear();
+                return `${dd}/${mm}/${yyyy}`;
+            };
+
+            return {
+                firstDate: formatDate(firstDate),
+                lastDate: formatDate(lastDate)
+            };
+        }
+    </script>
+}

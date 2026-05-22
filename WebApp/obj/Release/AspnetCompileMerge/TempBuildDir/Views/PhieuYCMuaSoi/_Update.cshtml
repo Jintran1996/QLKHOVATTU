@@ -1,0 +1,360 @@
+﻿@using System.Globalization;
+
+@model ToolsApp.Models.PhieuYCMuaHangViewModels
+@{
+    var dmsoi = ViewBag.DMSOI as List<ToolsApp.EntityFramework.KhoSoi.SP_LOAD_DANHMUCSOI_2023_Result>;
+    var kyhieudv = ViewBag.KYHIEUDV;
+    var maphieu = ViewBag.MAPHIEU;
+    var nguoixx = ViewBag.NGUOIXX as List<ToolsApp.EntityFramework.VatTu.SP_LOADXEMXETBYMANV_Result>;
+    var loaidh = ViewBag.LOAIDH as List<ToolsApp.EntityFramework.KhoSoi.sp_Load_NL_DMloaidonhang_2023_Result>;
+    var hieu = ViewBag.HIEU as List<ToolsApp.EntityFramework.KhoSoi.sp_Load_NL_DMNHACCAP_2023_Result>;
+    var donviyc = ViewBag.DONVIYC as List<ToolsApp.EntityFramework.VatTu.SP_DonVi_Result>;
+    var masocp = ViewBag.MASOCHIPHI as List<ToolsApp.EntityFramework.VatTu.SP_NL_LOADMSCP_2023_Result>;
+    var loaiyc = ViewBag.LOAIYC as List<ToolsApp.EntityFramework.KhoSoi.spLoad_NL_DMYEUCAU_ByLoaidonhang_Result>;
+    var phieu = ViewBag.PHIEU;
+}
+
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<input type="hidden" value="@Model.MAPHIEU" id="MaPhieu" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<section class="content" style="font-size: 13px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-one-tabContent">
+                        <div class="tab-pane fade show active" id="custom-tabs-one-chuaduyet" role="tabpanel" aria-labelledby="custom-tabs-one-chuaduyet-tab">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Mã phiếu:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <select id="ud_ct_pyc_maphieu" name="MAPHIEU" class="form-control chosen-select" style="width: 100%;" onchange="reloadCT_UD();LoaiYC_UD()">
+                                                                <option selected disabled value="">&nbsp;</option>
+                                                                @foreach (var item in phieu)
+                                                                {
+                                                                    <option value="@item">@item</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Mã sợi:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <select id="ud_ct_pyc_mavattu" name="MAVT" class="form-control chosen-select" style="width: 100%;">
+                                                                <option selected disabled value="">&nbsp;</option>
+                                                                @foreach (var item in dmsoi)
+                                                                {
+                                                                    <option value="@item.MAVATTU">@item.MAVATTU</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Nhãn hiệu:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <select id="ud_ct_pyc_hieu" name="HIEU" class="form-control chosen-select" style="width: 100%;">
+                                                                <option selected disabled value="">&nbsp;</option>
+                                                                @foreach (var item in hieu)
+                                                                {
+                                                                    <option value="@item.HIEU">@item.HIEU</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Số lượng:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <input id="ud_ct_pyc_soluong" name="SLYCAU" class="form-control"
+                                                                   onclick="this.select();" type="number" step="0.001" min="0" value="0.000" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Tình trạng:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <input id="ud_ct_pyc_tinhtrang" name="TINHTRANG" class="form-control" type="text" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Đơn vị YC mua:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <select id="ud_ct_pyc_donvi" name="IDMaDV_YCMUA" class="form-control chosen-select" style="width: 100%;">
+                                                                <option selected disabled value="">&nbsp;</option>
+                                                                @foreach (var item in donviyc)
+                                                                {
+                                                                    <option value="@item.MaDonVi">@item.MaDonVi: @item.TenDonVi</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Mã số chi phí:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <select id="ct_pyc_donvi" name="MASOCP" class="form-control chosen-select" style="width: 100%;">
+                                                                <option selected disabled value="">&nbsp;</option>
+                                                                @foreach (var item in masocp)
+                                                                {
+                                                                    <option value="@item.MSChiPhi">@item.HienThi</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Thời điểm SD:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <input value="@DateTime.Now.AddDays(3).ToString("dd/MM/yyyy")"
+                                                                   class="form-control" type="text" autocomplete="off"
+                                                                   id="ud_ct_pyc_thoidiemsd" name="THOIDIEMSD_" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Loại yêu cầu:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <select id="ud_ct_pyc_loaiyc" name="LOAIYEUCAU" class="form-control chosen-select" style="width: 100%;">
+                                                                <option selected disabled value="">&nbsp;</option>
+                                                                @foreach (var item in loaiyc)
+                                                                {
+                                                                    <option value="@item.LOAIYEUCAU">@item.TENLOAIIYC</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Ghi chú:</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <textarea class="form-control" id="ud_ct_pyc_ghichu" onclick="this.select();" name="GHICHU" rows="1" cols="50"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="text-align:right">
+                                                    <button type="button" id="btSaveCT" onclick="LuuCT_UD();reloadCT_UD();" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.card -->
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="card card-primary card-outline">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">
+                                                        <b>Danh sách vật tư đã lưu</b>
+                                                    </h3>
+                                                </div>
+                                                <div class="card-body pad">
+                                                    <div class="row">
+                                                        <div class="col-md-12 table-body-updatectphieu table-responsive">
+                                                            <div class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- Main content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+
+</script>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+    $("#ud_ct_pyc_thoidiemsd").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+    $(document).ready(function () {
+        //reloadCT();
+    });
+
+
+    function reloadCT_UD(maphieu_) {
+        try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu")',
+                timeout: 20000,
+                data: {
+                    maphieu: maphieu_ == null ? $("#ud_ct_pyc_maphieu").val() : maphieu_
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-updatectphieu').html(response);
+
+                    $("#myTableCT").DataTable({
+                        destroy: true,
+                        "bFilter": true,
+                        "bPaginate": false,
+                        "bLengthChange": false,
+                        "bInfo": false,
+                        "responsive": true,
+                        "lengthChange": false,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+        catch (e) {
+        }
+    };
+
+    function LuuCT_UD() {
+        form = $("#frmUpdate");
+        form.removeData('validator');
+        form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse("#frmUpdate");
+        if (form.valid()) {
+            $.ajax({
+                url: '@Url.Action("_InsertCTPhieuFun")',
+                type: "POST",
+                data: $('#frmUpdate').serialize(),
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                    console.log($('#frmUpdate').serialize());
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        notify(result.text, "success");
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    reloadCT_UD();
+                    $(".divLoading").removeClass("loading");
+
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    }
+
+    function DeleteCT_AD(khoa_)
+        {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteCTFun")',
+                    timeout: 20000,
+                    type: "POST",
+                    data: { khoathamchieu: khoa_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                        reloadCT_UD();
+
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+    function LoaiYC_UD() {
+        var maphieu_ = $("#ud_ct_pyc_maphieu").val()
+        var loaiycID = $("#ud_ct_pyc_loaiyc");
+        loaiycID.empty();
+        $.ajax({
+            url: '@Url.Action("LoaiYeuCau")',
+            type: "POST",
+            timeout: 10000,
+            data: { maphieu: maphieu_ },
+            success: function(result) {
+                $.each(result.obj, function (i, state) {
+                    loaiycID.append($('<option/>', { value: this.LOAIYEUCAU }).html(this.TENLOAIIYC));
+                });
+                loaiycID.trigger("chosen:updated");
+            },
+        });
+    }
+</script>
+

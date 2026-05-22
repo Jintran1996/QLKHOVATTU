@@ -1,0 +1,30 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2026_SPLOAD_TRACUUNHANH_SOLUONGTON_THEOKHO_Result>;
+    int STT = 1;
+}
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+            <th></th>
+            <th>STT</th>
+            <th>Mã vật tư</th>
+            <th>Số lượng tồn</th>
+            <th>Mã kho</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List.OrderBy(p => p.MAVT))
+        {
+            <tr>
+                <td></td>
+                <td>@STT</td>
+                <td>@item.MAVT</td>
+                <td>@item.SLTONCTY</td>
+                <td>@item.MAKHO</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

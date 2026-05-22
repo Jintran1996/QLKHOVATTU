@@ -1,0 +1,118 @@
+﻿@{
+    var list = ViewBag.data as List<ToolsApp.EntityFramework.VatTu.SP_LOADCL_DONVIKIEMTRA_Result>;
+
+    var Stt = 0;
+}
+
+<table id="myTable" class="table table-bordered">
+    <thead>
+        <tr style="background-color: #00CED1; text-align: center ">
+
+            <th width="150px">Trạng thái</th>
+            <th width="150px">Số chứng từ</th>
+            <th width="250px">Tên vật tư</th>
+            <th width="150px">Mã vật tư</th>
+            <th width="60px">Đơn vị tính</th>
+            <th width="60px">Số lượng</th>
+            <th width="70px">ĐVKT</th>
+            <th width="70px">Nhận/Không</th>
+            <th width="150px">Mã phiếu PD</th>
+        </tr>
+    </thead>
+
+    <tbody id="detailCT">
+        @if (list != null && list[0].SOCT != null && list[0].MAPHIEUPD != null && list[0].MAVT != null)
+        {
+            foreach (var item_chitiet in list)
+            {
+                <tr id="row_@(Stt)">
+
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_DONVIKT" name="Detail[@(Stt)].DONVIKT" type="text" value="@item_chitiet.DONVIKT" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_DONVIKT"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_SOCT" name="Detail[@(Stt)].SOCT" type="text" value="@item_chitiet.SOCT" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_SOCT"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_TENVT" name="Detail[@(Stt)].TENVT" type="text" value="@item_chitiet.TENVT" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_TENVT"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_MAVT" name="Detail[@(Stt)].MAVT" type="text" value="@item_chitiet.MAVT" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_MAVT"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_DVT" name="Detail[@(Stt)].DVT" type="text" value="@item_chitiet.DVT" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_DVT"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_THUC" name="Detail[@(Stt)].THUC" type="number" value="@item_chitiet.THUC" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_THUC"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <select id="Detail_@(Stt)_DANGLOI" name="Detail[@(Stt)].DANGLOI"
+                                class="form-control chosen-select" style="width: 100%;">
+                            <option value="@item_chitiet.DANGLOI" selected>@item_chitiet.DANGLOI</option>
+                            <option value="D">Đạt</option>
+                            <option value="T">Thiếu</option>
+                            <option value="S">Sai</option>
+                            <option value="H">Hỏng</option>
+                        </select>
+
+                    </td>
+                    <td>
+                        <select onchange="Update()" id="Detail_@(Stt)_LOAI" name="Detail[@(Stt)].LOAI"
+                                class="form-control chosen-select" style="width: 100%;">
+                            <option value="@item_chitiet.LOAI" selected>@item_chitiet.LOAI</option>
+                            <option value="N">Nhận</option>
+                            <option value="K">Không</option>
+                        </select>
+
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_MAPHIEUPD" name="Detail[@(Stt)].MAPHIEUPD" type="text" value="@item_chitiet.MAPHIEUPD" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_MAPHIEUPD"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                </tr>
+
+                Stt++;
+            }
+        }
+    </tbody>
+
+</table>
+
+
+<script>
+    var index = @(Stt);
+
+    $(document).ready(function () {
+        //Nút tạo nhiều dòng dữ liệu
+        $("#addMore").click(function (e) {
+            var mau = $('#tblMau').html();
+
+            mau = mau.replace(/{index}/g, index);
+
+            $('#detailCT').append(mau);
+
+            index++;
+        });
+    });
+</script>
+

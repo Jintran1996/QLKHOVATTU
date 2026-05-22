@@ -1,0 +1,437 @@
+﻿@{
+    ViewBag.Title = "USER MANAGEMENT";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>SEARCH</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input class="form-control form-control-sm" type="text" autocomplete="off"
+                                           id="KeywordSearch" name="KeywordSearch" />
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-12">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <button id="btnSearch" type="button" class="btn bg-gradient-primary"><i class="fa fa-search"></i> Search</button>
+                                    &nbsp;
+                                    <button id="btnChangepassword" type="button" class="btn bg-gradient-info"><i class="fa fas fa-redo"></i> Set mật khẩu</button>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>RESULTS</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button id="btnCreate" type="button" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Create</button>
+                                &nbsp;
+                                <button id="btnKeThua" type="button" class="btn bg-gradient-primary"><i class="fa fa-plus"></i>&nbsp;Kế thừa</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div id="myModal" class="modal fade modal-wide" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+            {
+              
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContent">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSave" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Save</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+<div id="myModalKeThua" class="modal fade modal-wide" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmKeThua", id = "frmKeThua", enctype = "multipart/form-data" }))
+            {
+
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitleKeThua"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentKeThua">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSaveKeThua" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Save</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+<div id="myModalChangepassword"class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmChangepassword", id = "frmChangepassword", enctype = "multipart/form-data" }))
+            {
+
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitleChangepassword"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentChangepassword">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSaveChangepassword" class="btn btn-sm btn-success" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Save</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" style="width: 100px" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        var $modalKeThua = $('#myModalKeThua');
+        var $myModalContentKeThua = $("#myModalContentKeThua");
+        var $myModalTitleKeThua = $("#myModalTitleKeThua");
+
+        var $modalChangepassword = $('#myModalChangepassword');
+        var $myModalContentChangepassword = $("#myModalContentChangepassword");
+        var $myModalTitleChangepassword = $("#myModalTitleChangepassword");
+
+        function loadData(isDelete) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 2000000,
+                data: {
+                    KeywordSearch: $("#KeywordSearch").val()
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        "responsive": true,
+                        "lengthChange": false,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+        function Delete(id_) {
+            if (confirm('Do you want to delete this item ?')) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteFun")',
+                    timeout: 2000000,
+                    type: "POST",
+                    data: { Id: id_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status == 1) {
+
+                            notify(result.text, "success");
+
+                            loadData(true);
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+
+        function Edit(id_) {
+            $myModalContent.html("");
+            $myModalTitle.html("Update");
+            $.ajax({
+                url: '@Url.Action("_Edit")',
+                timeout: 2000000,
+                data: {
+                    Id: id_
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $myModalContent.html(result);
+                    $modal.modal();
+                    $(".divLoading").removeClass("loading");
+                },
+                failure: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            loadData(false);
+
+            $("#myModal").on("hidden.bs.modal", function () {
+                loadData(false);
+            });
+
+            $("#btnSearch").click(function () {
+                loadData(true);
+            });
+
+            $("#btSave").click(function () {
+                form = $("#frm");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse("#frm");
+                if (form.valid()) {
+                    var formdata = new FormData(); //FormData object
+
+                    formdata.append("Id", $("#Id").val());
+                    formdata.append("Username", $("#Username").val());
+                    formdata.append("Roles", $("#Roles").val());
+                    formdata.append("Pages", $("#Pages").val());
+
+                    $.ajax({
+                        url: $("#Id").val() == "0" ? '@Url.Action("_InsertFun")' : '@Url.Action("_EditFun")',
+                        type: "POST",
+                        contentType: false,
+                        processData: false,
+                        data: formdata,
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status == 1) {
+
+                                notify(result.text, "success");
+
+                                loadData(true);
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+            });
+
+
+            $("#btSaveKeThua").click(function () {
+                form = $("#frmKeThua");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse("#frmKeThua");
+                if (form.valid()) {
+                    $.ajax({
+                        url: '@Url.Action("_InsertFunKeThua")' ,
+                        type: "POST",
+                        data: $('#frmKeThua').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                loadData(true);
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+            });
+
+            $("#btnKeThua").click(function () {
+                $myModalContentKeThua.html("");
+                $myModalTitleKeThua.html("Kế Thừa ");
+                $.ajax({
+                    url: '@Url.Action("_InsertKeThua")',
+                    timeout: 2000000,
+                    data: {
+                        Id: 0
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContentKeThua.html(result);
+                        $modalKeThua.modal();
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+
+            $("#btnChangepassword").click(function () {
+                $myModalContentChangepassword.html("");
+                $myModalTitleChangepassword.html("Đổi mật khẩu User");
+                $.ajax({
+                    url: '@Url.Action("_InsertChangepassword")',
+                    timeout: 2000000,
+                    data: {
+                        Id: 0
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContentChangepassword.html(result);
+                        $modalChangepassword.modal();
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+
+            $("#btSaveChangepassword").click(function () {
+                form = $("#frmChangepassword");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse("#frmChangepassword");
+                if (form.valid()) {
+                    $.ajax({
+                        url: '@Url.Action("_InsertFunChangepassword")' ,
+                        type: "POST",
+                        data: $('#frmChangepassword').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                loadData(true);
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+            });
+
+            $("#btnCreate").click(function () {
+                $myModalContent.html("");
+                $myModalTitle.html("Create");
+                $.ajax({
+                    url: '@Url.Action("_Insert")',
+                    timeout: 2000000,
+                    data: {
+                        Id: 0
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContent.html(result);
+                        $modal.modal();
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+        });
+    </script>
+}

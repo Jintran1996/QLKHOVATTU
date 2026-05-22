@@ -1,0 +1,419 @@
+﻿@{
+    ViewBag.Title = "DANH SÁCH HÓA ĐƠN MUA HÀNG ĐÃ NHẬP";
+    ViewBag.Phieu = "NHẬP HÓA ĐƠN MUA HÀNG" ;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">@ViewBag.Phieu  </a> 
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                                <!--data-->
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>
+                                                        Thêm mới
+                                                    </b>
+                                                </h3>
+                                            </div>
+                                            @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmInsert", id = "frmInsert", enctype = "multipart/form-data" }))
+                                            {
+                                                <div class="card-body pad">
+                                                    <div class="row">
+                                                        <div class="col-md-12 table-body-insert-nhapkho  ">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                            <div class="modal-footer">
+                                                <div class="text-right">
+                                                    <button type="button" id="btSaveInsert" class="btn bg-gradient-primary" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- Section search -->
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Tìm kiếm</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad" style="padding-bottom:38px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3 col-sm-3">SOCTXN</label>
+                                                            <div class="col-md-9 col-sm-9 ten">
+                                                                <input class="form-control " type="text" autocomplete="off"
+                                                                       id="SOCTXNSearch" name="SOCTXNSearch" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3 col-sm-3">Ký hiệu</label>
+                                                            <div class="col-md-9 col-sm-9 ten">
+                                                                <input class="form-control " type="text" autocomplete="off"
+                                                                       id="KyhieuSearch" name="KyhieuSearch" />
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3 col-sm-3">Số hóa đơn</label>
+                                                            <div class="col-md-9 col-sm-9 ten">
+                                                                <input class="form-control " type="text" autocomplete="off"
+                                                                       id="SohoadonSearch" name="SohoadonSearch" />
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-3 col-sm-3">Tờ Khai</label>
+                                                            <div class="col-md-9 col-sm-9 ten">
+                                                                <input class="form-control " type="text" autocomplete="off"
+                                                                       id="ToKhaiSearch" name="ToKhaiSearch" />
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row" style="margin-bottom:20px">
+                                                            <label class="col-md-3 col-sm-3">MST</label>
+                                                            <div class="col-md-9 col-sm-9 ten">
+                                                                <input class="form-control " type="text" autocomplete="off"
+                                                                       id="MSTSearch" name="MSTSearch" />
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="modal-footer">
+                                                        <div class="text-right">
+                                                            <button id="btnSearch" type="button" class="btn bg-gradient-primary"><i class="fa fa-search"></i> Tìm kiếm</button>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End section search-->
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>@ViewBag.Title </b>
+                                                
+                                                </h3>
+                                            </div>
+
+
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-khoxn  table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <!--data-->
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModalDetailReport" class="modal fade modal-wide" role="dialog" style="overflow:auto">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitleDetailReport"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetailReport" class="_print">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContentDetailReport');" class="btn btn-sm btn-success" style="width: 100px"><i class="fa fa-print"></i>&nbsp;In</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="width: 100px"> <i class="fa fa-close"></i>&nbsp;Đóng</button>&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@section scripts{
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+
+    </script>
+
+    <script>
+        function reloadData(page) {
+            try {
+                _insert_nhapkho();
+                reloadData_getlist();
+
+            } catch (e) {
+            }
+        }
+
+
+        function reloadData_getlist(isDelete) {
+            var SOCTXNSearch_ = $('#SOCTXNSearch').val();
+            var KyhieuSearch_ = $('#KyhieuSearch').val();
+            var SohoadonSearch_ = $('#SohoadonSearch').val();
+            var MSTSearch_ = $('#MSTSearch').val();
+            var ToKhaiSearch_ = $('#ToKhaiSearch').val();
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+                    SOCTXNSearch: SOCTXNSearch_,
+                    KyhieuSearch: KyhieuSearch_,
+                    SohoadonSearch: SohoadonSearch_,
+                    MSTSearch: MSTSearch_,
+                    ToKhaiSearch: ToKhaiSearch_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-khoxn').html(response);
+
+                    $("#myTable").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+
+
+         function _insert_nhapkho() {
+            $.ajax({
+                url: '@Url.Action("_Insert")',
+                timeout: 20000,
+                data: {
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-insert-nhapkho').html(response);
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+
+    </script>
+
+    <script type="text/javascript">
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+
+
+        $(document).ready(function () {
+            reloadData(false);
+
+            $("#myModal").on("hidden.bs.modal", function () {
+                reloadData(false);
+            });
+
+            $("#btnSearch").click(function () {
+                reloadData_getlist(true);
+            });
+
+            $("#btSaveInsert").click(function () {
+                form = $("#frmInsert");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse("#frmInsert");
+                var formSerial = $('#frmInsert').serialize();
+                var formData = new FormData($("#frmInsert")[0]);
+
+                //var imageFiles = $("#fileHinhAnh")[0].files;
+                //for (var i = 0; i < imageFiles.length; i++) {
+                //    formData.append("HinhAnhFiles", imageFiles[i]);
+                //    console.log(i)
+                //}
+
+                if (form.valid()) {
+                    $.ajax({
+                        url: '@Url.Action("_InsertFun")' ,
+                        type: "POST",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                reloadData(true);
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+            });
+            /// End document  //
+        });
+
+        function Delete(SOCTXN_) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa số phiếu này?' + SOCTXN_);
+             if (confirm_) {
+                 $.ajax({
+                     url: '@Url.Action("_DeleteFun")',
+                     timeout: 2000000,
+                     type: "POST",
+                     data: { SOCTXN: SOCTXN_ },
+                     beforeSend: function (xhr) {
+                         $(".divLoading").addClass("loading");
+                     },
+                     success: function (result) {
+
+                         if (result.status >= 1) {
+                             notify(result.text, "success");
+                             reloadData_getlist(false);
+                         }
+                         else {
+                             notify(result.text, "error");
+                         }
+                         $(".divLoading").removeClass("loading");
+                     },
+                     error: function (message) {
+                         $(".divLoading").removeClass("loading");
+                     }
+                 });
+             }
+        }
+
+        function Delete(SOCTXN_)
+        {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteFun")',
+                    timeout: 20000,
+                    type: "POST",
+                    data: { SOCTXN: SOCTXN_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+
+                        reloadData(true);
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+
+
+    </script>
+}

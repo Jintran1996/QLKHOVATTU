@@ -1,0 +1,185 @@
+﻿
+@{
+
+    var dmphieu = ViewBag.dmphieu as ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEUXN;
+    var ctphieu = ViewBag.ctphieu as ToolsApp.EntityFramework.KhoSoi.NL_CTXUATNHAP;
+
+    var maphieupd = ViewBag.maphieupd as List<ToolsApp.EntityFramework.KhoSoi.VATTU2024_LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_LOADMAPHIEUPD_Result>;
+
+}
+
+@*<input class="form-control" type="text" hidden
+    id="eMAKHO" name="eMAKHO" value="@dmphieu.MAKHO" />*@
+<input class="form-control" type="text" hidden
+       id="eKHOAKEYXN" name="eKHOAKEYXN" value="@ctphieu.KHOAKEYXN" />
+<input class="form-control" type="text" hidden
+       id="eMAHTHUC" name="eMAHTHUC" value="@dmphieu.MAHTHUC" />
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group row">
+            <label class="col-md-3">Số CTXN: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" readonly
+                       id="eSOCTXN" name="eSOCTXN" value="@dmphieu.SOCTXN" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">MAVT: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" readonly
+                       id="eMAVT" name="eMAVT" value="@ctphieu.MAVT" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Hiệu: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" readonly
+                       id="eHieu" name="eHieu" value="@ctphieu.HIEU" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Ngày Chứng Từ:</label>
+            <div class="col-md-9">
+                <input type="text" autocomplete="off" id="eNGAYCT" name="NGAYCT_" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Ghi chú: </label>
+            <div class="col-md-9">
+                <textarea rows="1" id="eGHICHU" name="GHICHU" class="form-control">@ctphieu.GHICHU</textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6" style="padding-left:20px">
+        <div class="form-group row">
+            <label class="col-md-3">Cập nhật Mã PD</label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="eMAPHIEUPD_XBAN" name="MAPHIEUPD_XBAN" style="width: 100%;" onchange="Onchange_SLTon(this.value)">
+                    <option disabled selected value="">--Chọn Mã phiếu PD--</option>
+                    @foreach (var item in maphieupd)
+                    {
+                        <option value="@item.KeyKhoa" maphieupd_xban="@item.MAPHIEUPD" hieu_xban="@item.HIEU" lo_xban="@item.LO" sl_xban="@item.SOLUONGTT"> MAPHIEUPD: @item.MAPHIEUPD || Hiệu: @item.HIEU || Lô: @item.LO || SL: @item.SOLUONGTT</option>
+                    }
+                </select>
+                <input class="form-control" type="text" hidden
+                       id="eSoluongTT_mapd" name="eSoluongTT_mapd" value="" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">MÃ PHIẾU PD: </label>
+            <div class="col-md-9">
+                <input id="eMaPhieuPD" name="eMaPhieuPD" class="form-control" type="text"
+                       value="@ctphieu.MAPHIEUPD" readonly>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-3">Lô: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" readonly
+                       id="eLo" name="eLo" value="@ctphieu.LO" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Số lượng TT: </label>
+            <div class="col-md-9">
+                <input id="eSOLUONGTT" name="SOLUONGTT" class="form-control" type="number"
+                       min="0" value="@ctphieu.SOLUONGTT.Value.ToString("0.00")" data-decimal="2" readonly>
+            </div>
+        </div>
+       
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    //Số chữ số thập phân
+    function _CheckNumber(ele) {
+        if ($(ele).data('decimal') != null) {
+            // found valid rule for decimal
+            var decimal = parseInt($(ele).data('decimal')) || 0;
+            var val = $(ele).val();
+            if (decimal > 0) {
+                var splitVal = val.split('.');
+                if (splitVal.length == 2 && splitVal[1].length > decimal) {
+                    // user entered invalid input
+                    $(ele).val(splitVal[0] + '.' + splitVal[1].substr(0, decimal));
+                }
+            } else if (decimal == 0) {
+                // do not allow decimal place
+                var splitVal = val.split('.');
+                if (splitVal.length > 1) {
+                    // user entered invalid input
+                    $(ele).val(splitVal[0]); // always trim everything after '.'
+                }
+            }
+        }
+    }
+
+
+    function Onchange_SLTon(selectedValue) {
+        var selectedOption = document.querySelector('#eMAPHIEUPD_XBAN option[value="' + selectedValue + '"]');
+
+        var eHieu = $("#eHieu");
+        eHieu.empty();
+        var eHieuval = selectedOption.getAttribute('hieu_xban');
+        eHieu.val(eHieuval);
+
+        var eLo = $("#eLo");
+        eLo.empty();
+        var eLoval = selectedOption.getAttribute('lo_xban');
+        eLo.val(eLoval);
+        console.log(eHieuval);
+        var eSoluongTT_mapd = $("#eSoluongTT_mapd");
+        eSoluongTT_mapd.empty();
+        var eSoluongTT_mapdval = selectedOption.getAttribute('sl_xban');
+        eSoluongTT_mapd.val(eSoluongTT_mapdval);
+
+        var eMaPhieuPD = $("#eMaPhieuPD");
+        eMaPhieuPD.empty();
+        var maphieupd_xbanval = selectedOption.getAttribute('maphieupd_xban');
+        eMaPhieuPD.val(maphieupd_xbanval);
+
+        inputChange_Checksluong();
+    };
+    function inputChange_Checksluong() {
+
+        var dataxban = $('#eSOLUONGTT').val();
+        var dataton = $('#eSoluongTT_mapd').val();
+        var s1 = parseFloat(dataxban);
+        var s2 = parseFloat(dataton);
+        console.log(s1, s2);
+
+        if (s1 > s2) {
+            
+            notify("Số lượng xuất bán không được lớn hơn số lượng tồn hiện tại, vui lòng kiểm tra lại", "error");
+        }
+        return;
+    }
+</script>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    $("#eNGAYCT").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+</script>

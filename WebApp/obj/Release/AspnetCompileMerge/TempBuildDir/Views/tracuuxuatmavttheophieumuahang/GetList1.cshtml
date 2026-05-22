@@ -1,0 +1,38 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2026_SPLOAD_XUATNHAP_XBNVH_PHIEUMUAHANG_Result>;
+    int STT = 1;
+}
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">    
+            <th>STT</th>
+            <th>SOCTXN</th>
+            <th>Loại XN</th>
+            <th>Mã Kho</th>
+            <th>MAVT</th>         
+            <th>Số lượng</th>
+            <th>Mã phiếu PD</th>
+            <th>Ngày Kế toán</th>
+            <th>Kế thừa Phiếu mua hàng</th>           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List.OrderBy(p => p.MAVT))
+        {
+            <tr>   
+                <td>@STT</td>
+                <td>@item.SoCTXN</td>
+                <td>@item.LoaiXN</td>
+                <td>@item.MaKho</td>
+                <td>@item.MAVT</td>
+                <td>@item.SoLuongTT</td>
+                <td>@item.MaPhieuPD</td>
+                <td>@item.NgayKeToan</td>
+                <td>@item.KETHUATUSOCT</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

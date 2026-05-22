@@ -1,0 +1,49 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.VATTU2025_SPLOAD_SOCTXN_TANGGIAMKHO_XUATNHAP_Result>;
+    ViewBag.Title = "Chi tiết phiếu xuất nhập";
+    var stt = 1;
+}
+<table id="myTable" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>SOCTXN</th>
+            <th>Ngày</th>
+            <th>Loại Phiếu XN</th>
+            <th>MANV yêu cầu</th>
+            <th>Đơn vị yêu cầu</th>
+            <th>Mã Kho</th>
+            <th>Mã vật tư</th>
+            <th>SL yêu cầu</th>            
+            <th>SL thực tế</th>
+            <th>Mã phiếu pd</th>
+            <th>Ghi chú</th>
+            <th>SOCT kế toán</th>
+            <th>Ngày kế toán</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+        <tr>
+            <td>@stt</td>
+            <td>@item.SoCTXN</td>
+            <td>@(item.Ngay == null ? "": item.Ngay.Value.ToString("dd/MM/yyyy"))</td>
+            <td>@item.LoaiXN</td>
+            <td>@item.MaNVYC</td>
+            <td>@item.DonViYeuCau</td>
+            <td>@item.MaKho</td>
+            <td>@item.MAVT</td>
+            <td>@item.SoLuongYC</td>
+            <td>@item.SoLuongTT</td>            
+            <td>@item.MaPhieuPD</td>
+            <td>@item.GHICHU</td>
+            <td>@item.SoCTKeToan</td>
+            <td>@(item.NgayKeToan == null ? "": item.NgayKeToan.Value.ToString("dd/MM/yyyy"))</td>
+
+        </tr>
+            stt++;
+        }
+    </tbody>
+</table>

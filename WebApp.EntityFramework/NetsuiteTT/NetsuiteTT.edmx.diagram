@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8728fd572b054dc2bba6e800201ca4d2" Name="Diagram1">
+        <EntityTypeShape EntityType="NetsuiteTTModel.BongIn" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.BongNenVai" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.BTM_Serial_No_List" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.CaDet" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Class" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.CongNgheDet" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.DongBoVATTU_SOI__Json_Log" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Donvi_mapping_Department" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.DonViTienTe" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.DSInvoiceXuatKhau" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.DSPhieuUploadN" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.DSPhieuViPhamEntity" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.DSPhieuViPhamQuantityItem" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.DSPhieuViPhamSerialLotNumber" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Expense_Code" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.GhiLog_DMVattu_ErrorAPI_NS" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.KenhPhanPhoi" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Kho" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.KhoanMucChiPhi" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.KhoVai" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.KichCo" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.LoaiGiaBan" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.LoaiKhachHang" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.LoaiMayDet" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.LoaiNhaCungCap" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.LoaiSanPham" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.LoaiSanPhamChiTiet" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.LoaiVatTu" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.LoaiYeuCau" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.LoaiYeuCauSanXuat" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.NguocGoc" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.NguonHangSanXuat" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.NhomHang" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.NhomHoaVanDetIn" Width="1.5" PointX="6.75" PointY="14.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.NhomMucDichSuDung" Width="1.5" PointX="14.75" PointY="7.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.NhomSanPham" Width="1.5" PointX="8.75" PointY="14.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.NhomSanPhamKinhDoanh" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.NhomSoi" Width="1.5" PointX="14.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.NhomTrangPhuc" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.PhanLoaiSPMay" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.PhanNhomSanPham" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.PhuongThucThanhToan" Width="1.5" PointX="16.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.SaleOrder_Viseri" Width="1.5" PointX="16.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.SaleOrder_Viseri_Item" Width="1.5" PointX="12.75" PointY="16.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Table_LoaiPhieuVanChuyenNoiBo" Width="1.5" PointX="16.75" PointY="14.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Table_Mapping_DinhMuc_KeyHH_MOC" Width="1.5" PointX="2.75" PointY="17.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Table_Mapping_MACP_TenVT_Dinhmucdet" Width="1.5" PointX="4.75" PointY="17.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z" Width="1.5" PointX="6.75" PointY="17.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Table_Mapping_MaHangSPM_MaKieuDang" Width="1.5" PointX="14.75" PointY="17.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Table_Mapping_Mavattu_DVT" Width="1.5" PointX="16.75" PointY="17.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Table_TAX_CODE" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.TaiKhoanNhanVien_Netsuite" Width="1.5" PointX="18.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.TBL_Mapping_DoiTuongKhachHang_Customers" Width="1.5" PointX="8.75" PointY="18.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Tbl_Mapping_NguonGocSP_ThuongHieu" Width="1.5" PointX="18.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.TenHopQui" Width="1.5" PointX="18.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.ThiTruongXuatKhau" Width="1.5" PointX="18.75" PointY="16.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Chart_of_Accounts" Width="1.5" PointX="18.75" PointY="19.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Donvi_mapping_Department_bk150424" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.GioiTinh" Width="1.5" PointX="0.75" PointY="20.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.kho_bk_30052024" Width="1.5" PointX="2.75" PointY="20.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.KhuVuc" Width="1.5" PointX="20.75" PointY="4.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.OtherChagreForPurchase" Width="1.5" PointX="4.75" PointY="20.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.Table_Mapping_Mavattu_DVT_BK_23032024" Width="1.5" PointX="20.75" PointY="7.75" />
+        <EntityTypeShape EntityType="NetsuiteTTModel.TBL_Data_BCChiPhiVatTu_BC14" Width="1.5" PointX="15.375" PointY="20.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

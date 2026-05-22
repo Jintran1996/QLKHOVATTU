@@ -1,0 +1,88 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.DMPHIEU>;
+    int STT = 1;
+}
+
+<table id="myTable" class="table table-bordered table-striped ">
+    <thead>
+        <tr style="text-align:center;">
+            <th>STT</th>
+            <th>Mã Phiếu</th>
+            <th>Người Lập Phiếu</th>
+            <th>Ngày YC</th>
+            <th>Xem Xét</th>
+            <th>Người XX</th>
+            <th>Ngày XX</th>
+            <th>Người PD</th>
+            <th>Ngày PD</th>
+            <th>Mã Phiếu PD</th>
+            <th>Phê Duyệt</th>
+            <th>Năm</th>
+            <th>Loại Phiếu</th>
+            <th>Thị Trường</th>
+            <th>Kế Hoạch</th>
+            <th>Loại VT</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List)
+        {
+            <tr>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.MAPHIEU</td>
+                <td>@item.NguoiLapPhieu</td>
+                <td>@(item.NgayYC == null ? "" : item.NgayYC.Value.ToString("dd/MM/yyyy"))</td>
+                <td style="text-align:center; color:forestgreen">
+                    @if (item.XXet == 1)
+                    {<i class="fa fa-check"></i>}
+                </td>
+                <td>@item.NguoiXX</td>
+                <td>@(item.NgayXX == null ? "" : item.NgayXX.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.NguoiPD</td>
+                <td>@(item.NgayPD == null ? "" : item.NgayPD.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.MaPhieuPD</td>
+                <td>
+                    @if ((item.PDuyet == null || item.PDuyet == 0) && (item.FinishCheck == false))
+                    {
+                        <small class="badge badge-primary"><i class="far fa-clock"></i> Chờ Phê Duyệt</small>
+                    }
+                    @if ((item.PDuyet == null || item.PDuyet == 0) && (item.FinishCheck == true))
+                    {
+                        <small class="badge badge-danger"><i class="far fa-clock"></i> Từ Chối Phê Duyệt</small>
+                    }
+                    @if (item.PDuyet == 1)
+                    {
+                        <small class="badge badge-warning"><i class="far fa-clock"></i> Đã Phê Duyệt</small>
+                    }
+                </td>
+                <td>@item.Nam</td>
+                <td>@item.LOAIPHIEU</td>
+                <td>
+                    @if (item.ND == null || item.ND == 0)
+                    {
+                        <small class="badge badge-primary"><i class="far fa-clock"></i> Nhập Khẩu</small>
+                    }
+                    else
+                    {
+                        <small class="badge badge-success"><i class="far fa-clock"></i> Nội Địa</small>
+                    }
+                </td>
+                <td>
+                    @if (item.KH == null || item.KH == 0)
+                    {
+                        <small class="badge badge-primary"><i class="far fa-clock"></i> Đột Xuất</small>
+                    }
+                    else
+                    {
+                        <small class="badge badge-success"><i class="far fa-clock"></i> Kế Hoạch</small>
+                    }
+                </td>
+                <td>@item.LoaiVT</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

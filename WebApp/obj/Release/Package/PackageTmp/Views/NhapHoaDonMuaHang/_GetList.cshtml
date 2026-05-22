@@ -1,0 +1,121 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.TABLE_LUUTRU_SOHOADON>;
+
+    //var fileNames = list.FirstOrDefault().TenHinhAnh.Split(';');
+
+
+    var Username = ViewBag.Username;
+    var STT = 1;
+}
+
+<table id="myTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th width="40px">STT</th>
+            <th>SOCTXN</th>
+            <th>PO</th>
+            <th>Ký hiệu HĐ</th>
+            <th>Số hóa đơn</th>
+            <th>Ngày HĐ</th>
+
+            <th>Hình ảnh QRcode</th>
+            <th>File PDF</th>
+            <th>Link HĐ</th>
+            <th>Ngày khai</th>
+            <th>Tờ Khai</th>
+            <th>MST</th>
+            <th>Xuất xứ</th>
+            <th>Ngoại tệ</th>
+            <th>Tỷ giá</th>
+            <th>Ghi chú</th>
+            <th>MANV cập nhật</th>
+            <th>NGÀY cập nhật</th>
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in list.Take(100))
+        {
+        <tr>
+            <td>
+                <a onclick="Delete('@item.SOCTXN')" class="btn">
+                    <i class="far fa-trash-alt"></i> Xóa
+                </a>
+            </td>
+            <td> @STT </td>
+            <td> @item.SOCTXN </td>
+            <td> @item.PO </td>
+            <td> @item.kyhieuhoadon </td>
+            <td> @item.sohoadon </td>
+            <td>@(item.NGAYHD?.ToString("dd/MM/yyyy"))</td>
+            <td>
+                @if (item != null && !string.IsNullOrEmpty(item.TenHinhAnh))
+                {
+                    var fileNames = item.TenHinhAnh.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var fileName in fileNames)
+                    {
+                        var imagePath = $"{ToolsApp.Utilities.Utils.WebConfigKey.Domain}/Upload/{item.Thumuc}/{fileName}";
+
+                        <a href="@imagePath" target="_blank">
+                            <img src="@imagePath" width="40" style="margin-right:10px; border:1px solid #ccc;" />
+                        </a>
+                    }
+                }
+
+            </td>
+            <td>
+
+                @if (item != null && !string.IsNullOrEmpty(item.FileNamePDF))
+                {
+                    var fileNames = item.FileNamePDF.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var fileName in fileNames)
+                    {
+                        var PDFPath = $"{ToolsApp.Utilities.Utils.WebConfigKey.Domain}/Upload/{item.Thumuc}/{fileName}";
+
+                        <a href="@PDFPath" target="_blank" data-toggle="tooltip" title="@System.IO.Path.GetFileName(PDFPath)">
+                            <img src="~/Content/images/pdf-icon.png" width="40" />
+                        </a>
+                    }
+                }
+            </td>
+            <td>
+
+                @if (item.LinkHD != null || item.LinkHD != "")
+                {
+                    @*<a target="_blank" href="@item.LinkHD">
+                    <i class="fas fa-paper-plane">  Đường dẫn</i>
+                </a>*@
+                    if (item.LinkHD != null && item.LinkHD != "")
+                    {
+                        var fileNames = item.LinkHD.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (var fileName in fileNames)
+                        {
+
+
+                            <a href="@fileName" target="_blank" data-toggle="tooltip" title="@System.IO.Path.GetFileName(fileName)">
+                                <i class="fas fa-link">  Đường dẫn</i>
+                            </a>
+                        }
+                    }
+
+                }
+            </td>
+            <td>@(item.NGAYKHAI?.ToString("dd/MM/yyyy"))</td>
+            <td> @item.TOKHAI </td>
+            <td> @item.MST </td>
+            <td> @item.XUATXU </td>
+            <td> @item.NgoaiTe </td>
+            <td> @item.TyGia_NgoaiTe </td>
+            <td> @item.GhiChu </td>
+            <td> @item.MANVCN </td>
+            <td> @item.NGAYCN </td>
+        </tr>
+            STT++;
+
+
+        }
+    </tbody>
+</table>

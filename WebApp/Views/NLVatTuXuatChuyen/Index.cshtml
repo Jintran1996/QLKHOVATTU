@@ -1,0 +1,458 @@
+﻿
+@{
+    ViewBag.Title = "Nguyên liệu vật tư xuất chuyền";
+
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Tìm kiếm</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="col-md-2 input-group">
+                            <input type="search" id="MaDHSearch" name="MaDHSearch" class="form-control rounded" placeholder="Mã đơn hàng" aria-label="Search" aria-describedby="search-addon" />
+                            <button type="button" id="btnSearch" class="btn btn-outline-primary"><i class="fa fa-search"></i>&nbsp;<b>Tìm Kiếm</b></button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--End section search-->
+            </div>
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>@ViewBag.Title </b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-md-4">
+                                <button id="btInsert" type="button" title="Thêm mới" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Thêm mới</button>
+                                &nbsp;
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+
+<!----------------FORM INSERT----------------->
+<div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+            {
+
+                <div class="modal-header bg-gradient-blue">
+                    <div class="modal-title" style="font-size: 17px; text-transform: uppercase; color: mintcream"><strong id="myModalTitle"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContent">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSave" class="btn btn-sm btn-success" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="width: 100px"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+<!------------------------------------------>
+<!----------------FORM UPDATE----------------->
+<!------------------------------------------>
+
+@section scripts{
+
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+
+    </script>
+    <script>
+        function reloadData(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+                    MaDHSearch: $("#MaDHSearch").val(),
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+        function rowclick(this_) {
+            $ID_SOCT = $('.' + this_).data("SystemKeyId");
+            console.log($ID_SOCT);
+            createCookie('SystemKey', $ID_SOCT, 10);
+        }
+
+        function Remove(Id_, Index_) {
+            $('#row_' + Index_).attr("style", "display:none");
+
+            $('#Detail_' + Index_ + '_Delete').val(true);
+        }
+    </script>
+
+    <script type="text/javascript">
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+
+        $(document).ready(function () {
+            reloadData(false);
+
+            $("#btSave").click(function () {
+                var confirm_ = confirm('Bạn có chắc muốn lưu ?');
+                if (confirm_) {
+                    form = $("#frm");
+                    form.removeData('validator');
+                    form.removeData('unobtrusiveValidation');
+                    $.validator.unobtrusive.parse("#frm");
+                    var thangNamValue = $("#THANGNAM").val();
+                    if (form.valid()) {
+                        var formData = $('#frm').serialize() + '&THANGNAM=' + encodeURIComponent(thangNamValue);
+                        $.ajax({
+                            url: $("#ID_XUATCHUYEN").val() == "@Guid.Empty" ? '@Url.Action("_InsertFun")' : '@Url.Action("_EditFun")',
+                            type: "POST",
+                            data: formData,
+                            beforeSend: function (xhr) {
+                                $(".divLoading").addClass("loading");
+
+                            },
+                            success: function (result) {
+                                if (result.status >= 1) {
+                                    notify(result.text, "success");
+                                    console.log(formData);
+                                }
+                                else {
+                                    notify(result.text, "error");
+                                    console.log(formData);
+                                }
+                                $(".divLoading").removeClass("loading");
+                                reloadData(true);
+
+                            },
+                            error: function (message) {
+                                $(".divLoading").removeClass("loading");
+                            }
+                        });
+                    }
+                }
+            });
+
+            $("#btInsert").click(function () {
+                $myModalContent.html("");
+                $myModalTitle.html("Thêm mới");
+                $.ajax({
+                    url: '@Url.Action("_DetailForEdit")',
+                    timeout: 20000,
+                    data: {
+                        ID_XUATCHUYEN: '@Guid.Empty'
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status <= 1) {
+                            notify(result.text, "error");
+                        }
+                        else {
+                            $myModalContent.html(result);
+                            $modal.modal();
+                        }
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+
+            $("#myModal").on("hidden.bs.modal", function () {
+                reloadData(false);
+            });
+
+            $("#btnSearch").click(function () {
+                reloadData(true);
+            });
+        });
+
+        function Delete(ID_XuatChuyen_)
+        {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteFun")',
+                    timeout: 20000,
+                    type: "POST",
+                    data: { ID_XUATCHUYEN: ID_XuatChuyen_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+
+                        reloadData(true);
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+        function Edit(ID_XuatChuyen_) {
+            $myModalContent.html("");
+            $myModalTitle.html("Cập nhật");
+            $.ajax({
+                url: '@Url.Action("_DetailForEdit")',
+                timeout: 200000,
+                data: {
+                    ID_XUATCHUYEN: ID_XuatChuyen_
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $myModalContent.html(result);
+                    $modal.modal();
+                    $(".divLoading").removeClass("loading");
+                },
+                failure: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        };
+
+        function onchange_madh() {
+            var THANGNAM_ = $('#THANGNAM').val();
+            var MADH = $("#MADH");
+            MADH.empty();
+        $.ajax({
+            url: '@Url.Action("_LoadMADH")',
+            timeout: 20000,
+            data: {
+                THANGNAM: THANGNAM_
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+
+            },
+            success: function (result) {
+                /*MADH.append($('<option/>', { value: "false" }).html("--Danh sách mã đơn hàng--"));*/
+                $.each(result.obj, function (i, state) {
+                    MADH.append($('<option/>', { value: result.obj[i].madh }).html(result.obj[i].madh));
+                    console.log(result.obj[i].madh);
+                });
+
+                MADH.trigger("chosen:updated");
+
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+        }
+
+        function onchange_mahangsx() {
+            var MADH_ = $('#MADH').val();
+            var MaHangSX = $("#MaHangSX");
+            MaHangSX.empty();
+        $.ajax({
+            url: '@Url.Action("_LoadMAHANGSX")',
+            timeout: 20000,
+            data: {
+                MADH: MADH_
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                MaHangSX.append($('<option/>', { value: "false" }).html("--Danh sách mã hàng sx--"));
+                $.each(result.obj, function (i, state) {
+                    MaHangSX.append($('<option/>', { value: this.mhsx }).html(this.mhsx ));
+                    console.log(result.obj);
+                });
+
+                MaHangSX.trigger("chosen:updated");
+
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+        }
+
+        function onchange_keyhh() {
+            var MADH_ = $('#MADH').val();
+            var MaHangSX_ = $("#MaHangSX").val();
+            var KEYHH = $("#KEYHH");
+            KEYHH.empty();
+        $.ajax({
+            url: '@Url.Action("_LoadKEYHH")',
+            timeout: 20000,
+            data: {
+                MADH: MADH_,
+                MaHangSX: MaHangSX_
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                KEYHH.append($('<option/>', { value: "false" }).html("--Danh sách Key HH--"));
+                $.each(result.obj, function (i, state) {
+                    KEYHH.append($('<option/>', { value: result.obj[i].KeyHH }).html(result.obj[i].KeyHH));
+                    console.log(result.obj);
+                });
+
+                KEYHH.trigger("chosen:updated");
+
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+        }
+
+        function onchange_MaVT() {
+            var MADH_ = $('#MADH').val();
+            var MaHangSX_ = $("#MaHangSX").val();
+            var MAVATTU = $("#MAVATTU");
+            MAVATTU.empty();
+        $.ajax({
+            url: '@Url.Action("_LoadMaVT")',
+            timeout: 20000,
+            data: {
+                MADH: MADH_,
+                MaHangSX: MaHangSX_
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                MAVATTU.append($('<option/>', { value: "false" }).html("--Danh sách mã vật tư--"));
+                $.each(result.obj, function (i, state) {
+                    MAVATTU.append($('<option/>', { value: result.obj[i].Mavattu }).html(result.obj[i].Mavattu));
+                    console.log(result.obj);
+                });
+
+                MAVATTU.trigger("chosen:updated");
+
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+        }
+
+        function onchange_SLDM() {
+            var MADH_ = $('#MADH').val();
+            var MaHangSX_ = $("#MaHangSX").val();
+            var MAVATTU_ = $("#MAVATTU").val();
+            var SOLUONGDINHMUC = $("#SOLUONGDINHMUC");
+            SOLUONGDINHMUC.empty();
+        $.ajax({
+            url: '@Url.Action("_LoadSLDMuc")',
+            timeout: 20000,
+            data: {
+                MADH: MADH_,
+                MaHangSX: MaHangSX_,
+                MAVATTU: MAVATTU_
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                SOLUONGDINHMUC.append($('<option/>', { value: "false" }).html("--"));
+                $.each(result.obj, function (i, state) {
+                    SOLUONGDINHMUC.append($('<option/>', { value: result.obj[i].SLDinhMuc }).html(result.obj[i].SLDinhMuc));
+                    console.log(result.obj);
+                });
+
+                SOLUONGDINHMUC.trigger("chosen:updated");
+
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+        }
+    </script>
+}
+
+

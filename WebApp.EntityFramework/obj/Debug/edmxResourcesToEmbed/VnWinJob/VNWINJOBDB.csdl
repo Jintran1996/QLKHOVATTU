@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VN_WINJOBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VN_WINJOBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBL_EMS_MAILLIST" EntityType="VN_WINJOBModel.TBL_EMS_MAILLIST" />
+    <EntitySet Name="App_ResetPassword" EntityType="VN_WINJOBModel.App_ResetPassword" />
+  </EntityContainer>
+  <EntityType Name="TBL_EMS_MAILLIST">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mail_from" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="subject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="atm_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="sent_date" Type="DateTime" Precision="3" />
+    <Property Name="universal_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mail_bcc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="mail_cc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="mail_to" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="send_fail" Type="Byte" />
+    <Property Name="source_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="fail_reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="isCheck" Type="Boolean" />
+    <Property Name="NumberCheck" Type="Int32" />
+    <Property Name="DateCheck" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="App_ResetPassword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="FromApp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodeReset" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isFinish" Type="Boolean" />
+    <Property Name="DateFinish" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="DateDelete" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

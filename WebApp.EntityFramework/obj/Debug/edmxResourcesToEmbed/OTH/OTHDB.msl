@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OTHModelStoreContainer" CdmEntityContainer="OTHEntities">
+    <EntitySetMapping Name="ePV_BU">
+      <EntityTypeMapping TypeName="OTHModel.ePV_BU">
+        <MappingFragment StoreEntitySet="ePV_BU">
+          <ScalarProperty Name="Idx" ColumnName="Idx" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BUCode" ColumnName="BUCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ePV_Category">
+      <EntityTypeMapping TypeName="OTHModel.ePV_Category">
+        <MappingFragment StoreEntitySet="ePV_Category">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+          <ScalarProperty Name="Flags" ColumnName="Flags" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ePV_Entity">
+      <EntityTypeMapping TypeName="OTHModel.ePV_Entity">
+        <MappingFragment StoreEntitySet="ePV_Entity">
+          <ScalarProperty Name="Idx" ColumnName="Idx" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="EntityCode" ColumnName="EntityCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ePV_ApproveName">
+      <EntityTypeMapping TypeName="OTHModel.ePV_ApproveName">
+        <MappingFragment StoreEntitySet="ePV_ApproveName">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameApprove8" ColumnName="NameApprove8" />
+          <ScalarProperty Name="PositionVn8" ColumnName="PositionVn8" />
+          <ScalarProperty Name="PositionEn8" ColumnName="PositionEn8" />
+          <ScalarProperty Name="NameApprove7" ColumnName="NameApprove7" />
+          <ScalarProperty Name="PositionVn7" ColumnName="PositionVn7" />
+          <ScalarProperty Name="PositionEn7" ColumnName="PositionEn7" />
+          <ScalarProperty Name="NameApprove6" ColumnName="NameApprove6" />
+          <ScalarProperty Name="PositionVn6" ColumnName="PositionVn6" />
+          <ScalarProperty Name="PositionEn6" ColumnName="PositionEn6" />
+          <ScalarProperty Name="NameApprove5" ColumnName="NameApprove5" />
+          <ScalarProperty Name="PositionVn5" ColumnName="PositionVn5" />
+          <ScalarProperty Name="PositionEn5" ColumnName="PositionEn5" />
+          <ScalarProperty Name="NameApprove4" ColumnName="NameApprove4" />
+          <ScalarProperty Name="PositionVn4" ColumnName="PositionVn4" />
+          <ScalarProperty Name="PositionEn4" ColumnName="PositionEn4" />
+          <ScalarProperty Name="NameApprove3" ColumnName="NameApprove3" />
+          <ScalarProperty Name="PositionVn3" ColumnName="PositionVn3" />
+          <ScalarProperty Name="PositionEn3" ColumnName="PositionEn3" />
+          <ScalarProperty Name="NameApprove2" ColumnName="NameApprove2" />
+          <ScalarProperty Name="PositionVn2" ColumnName="PositionVn2" />
+          <ScalarProperty Name="PositionEn2" ColumnName="PositionEn2" />
+          <ScalarProperty Name="NameApprove1" ColumnName="NameApprove1" />
+          <ScalarProperty Name="PositionVn1" ColumnName="PositionVn1" />
+          <ScalarProperty Name="PositionEn1" ColumnName="PositionEn1" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="BU" ColumnName="BU" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ePV_Locations">
+      <EntityTypeMapping TypeName="OTHModel.ePV_Locations">
+        <MappingFragment StoreEntitySet="ePV_Locations">
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

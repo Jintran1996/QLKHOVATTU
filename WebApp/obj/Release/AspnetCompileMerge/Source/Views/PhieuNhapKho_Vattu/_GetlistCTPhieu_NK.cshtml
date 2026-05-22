@@ -1,0 +1,89 @@
+﻿@using System.Globalization;
+
+
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.VatTu.XUATNHAP>;
+    var list_Phieu = ViewBag.list_Phieu as ToolsApp.EntityFramework.VatTu.DM_XUATNHAP;
+    var dmvtDict = ViewBag.DMVT_DICT as Dictionary<string, string>;
+
+
+}
+<table id="Detail" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="width: 200px">Tùy chỉnh</th>
+            <th style="text-align:center">STT</th>
+            <th>SOCTXN</th>
+            <th>Loại XN</th>
+            <th>Ngày LP</th>
+            <th>MAVT</th>
+            <th>Tên VT</th>
+            <th>Kho nhận</th>
+            <th>Kho xuất/NCC</th>
+            <th>Số lượng YC</th>
+            <th>Số lượng TT</th>
+            <th>Mã phiếu PD</th>
+            <th>Soct kế toán</th>
+            <th>Ngày kế toán</th>
+            <th>Ghi Chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1;}
+        @foreach (var item in Lists)
+        {
+        <tr>
+            <td>
+                @if (item.LoaiXN != "NHTA" && item.LoaiXN != "NHGA")
+                {
+                    <a onclick="EditCt('@item.KHOAKEYXN', '@item.SoCTXN','@item.LoaiXN')" class="btn">
+                        <i class="fas fa-edit"></i> Sửa
+                    </a>
+                }
+
+
+                @if (list_Phieu.GUIAPI != "1")
+                {
+                    if ((list_Phieu.MANVXUAT == null || list_Phieu.MANVXUAT == "") && item.LoaiXN == "N")
+                    {
+                        <a onclick="DienGiai('@item.SoCTXN', '@item.LoaiXN', '@item.MAVT')" class="btn">
+                            <i class="fas fa-edit"></i> Diễn giải
+                        </a>
+                    }
+                    <a onclick="Deletect('@item.KHOAKEYXN', '@item.SoCTXN','@item.LoaiXN')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                }
+                else
+                {
+                    if ((list_Phieu.MANVXUAT == null || list_Phieu.MANVXUAT == "") && item.LoaiXN == "N")
+                    {
+                        <a onclick="DienGiai('@item.SoCTXN', '@item.LoaiXN', '@item.MAVT')" class="btn">
+                            <i class="fas fa-edit"></i> Diễn giải
+                        </a>
+                    }
+                }
+            </td>
+            <td style="text-align:center">
+                @STT
+            </td>
+            <td>@item.SoCTXN</td>
+            <td>@item.LoaiXN</td>
+            <td>@(item.Ngay == null ? "" : item.Ngay.Value.ToString("dd/MM/yyyy"))</td>
+            <td>@item.MAVT</td>
+            <td> @(dmvtDict != null && dmvtDict.ContainsKey(item.MAVT) ? dmvtDict[item.MAVT] : item.MAVT)</td>
+            <td>@item.MaKho</td>
+            <td>@item.MaKhoXuat</td>
+            <td>@(item.SoLuongYC == null ? "0.0000" : item.SoLuongYC.Value.ToString("0.####"))</td>
+            <td>@(item.SoLuongTT == null ? "0.0000" : item.SoLuongTT.Value.ToString("0.####"))</td>
+            <td>@item.MaPhieuPD</td>
+            <td>@item.SoCTKeToan</td>
+            <td>@(item.NgayKeToan == null ? "" : item.NgayKeToan.Value.ToString("dd/MM/yyyy"))</td>
+            <td>@item.GHICHU</td>
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+

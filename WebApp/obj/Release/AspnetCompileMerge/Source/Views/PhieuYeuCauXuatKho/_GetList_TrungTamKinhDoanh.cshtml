@@ -1,0 +1,100 @@
+﻿
+
+@{
+    var STT = 0;
+    var data_TTKD = ViewBag.data_TTKD as List<ToolsApp.EntityFramework.VatTu.SP_LOADCTPHIEUYCXUATKHO_DONVI_Result>;
+}
+
+<div class="control-group">
+    <table id="myTable_TrungTamKinhDoanh" class="table table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th width="30px">STT</th>
+                <th>SOCTXN</th>
+                <th>Mã kho</th>
+                <th>Mã Vật Tư</th>
+                <th>Tên Vật Tư</th>
+                <th>Số lượng YC</th>
+                <th>Ghi Chú</th>
+                <th>Loại Xuất Nhập</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in data_TTKD)
+            {
+                <tr>
+                    <td>
+                        <a onclick="Delete_TTKD('@item.SOCTXN',@(item.STT))" class="btn" style="font-size:10px">
+                            <i class="far fa-trash-alt">&nbsp;Xóa&nbsp;phiếu</i>
+                        </a>
+                    </td>
+                    <td>@item.STT</td>
+                    <td>  <input type="text" id="data_TTKD_SOCTXN_@(item.STT)" name="data_TTKD_SOCTXN_@(item.STT)" value="@item.SOCTXN" style="display:none" /> @item.SOCTXN</td>
+                    <td>  <input type="text" id="data_TTKD_MAKHO_@(item.STT)" name="data_TTKD_MAKHO_@(item.STT)" value="@item.MAKHO" style="display:none" /> @item.MAKHO</td>
+                    <td>  <input type="text" id="data_TTKD_MAVT_@(item.STT)" name="data_TTKD_MAVT_@(item.STT)" value="@item.MAVT" style="display:none" />@item.MAVT </td>
+                    <td>  <input type="text" id="data_TTKD_TENVT_@(item.STT)" name="data_TTKD_TENVT_@(item.STT)" value="@item.TENVT" style="display:none" />@item.TENVT </td>
+                    <td>  <input type="text" id="data_TTKD_SOLUONGYC_@(item.STT)" name="data_TTKD_SOLUONGYC_@(item.STT)" value="@item.SOLUONGYC" class="form-control" style="display:none" />@item.SOLUONGYC </td>
+                    <td>  <textarea id="data_TTKD_GHICHU_@(item.STT)" name="data_TTKD_GHICHU_@(item.STT)" value="@item.GHICHU" class="form-control" rows="1" style="display:none" >@item.GHICHU </textarea>@item.GHICHU</td>
+                    <td>  <input type="text" id="data_TTKD_LOAICAPPHAT_@(item.STT)" name="data_TTKD_LOAICAPPHAT_@(item.STT)" value="@item.LOAICAPPHAT" style="display:none" />@item.LOAICAPPHAT </td>
+
+                </tr>
+                STT++;
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function Delete_TTKD( SOCTXN,Stt) {
+        var MAKHO_TTKD = $('#data_TTKD_MAKHO_' + Stt).val();
+        var SOCTXN_TTKD = $('#data_TTKD_SOCTXN_' + Stt).val();
+        var MAVT_TTKD = $('#data_TTKD_MAVT_' + Stt).val();
+        var TENVT = $('#data_TTKD_TENVT_' + Stt).val();
+        var GhiChu_TTKD = $('#data_TTKD_GHICHU_' + Stt).val();
+        var SOLUONGYC = $('#data_TTKD_SOLUONGYC_' + Stt).val();
+        var LOAICAPPHAT = $('#data_TTKD_LOAICAPPHAT_' + Stt).val();
+        var confirm_ = confirm('Bạn có muốn xoá ?');
+        if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("Delete_TTKD")',
+                type: "POST",
+                data: {
+                    SOCTXN_TTKD: SOCTXN_TTKD,
+                    MaKho_TTKD: MAKHO_TTKD,
+                    MaVT_TTKD: MAVT_TTKD,
+                    SOCTXN_TTKD: SOCTXN,
+                    TENVT: TENVT,
+                    SOLUONGYC: SOLUONGYC,
+                    LOAICAPPHAT: LOAICAPPHAT,
+                    GhiChu_TTKD: GhiChu_TTKD,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                    _GetList_TrungTamKinhDoanh(SOCTXN);
+                    New_Phieu_DV_Click("");
+                    New_Phieu_GCN_Click("");
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+
+    }
+
+</script>
+
+
+

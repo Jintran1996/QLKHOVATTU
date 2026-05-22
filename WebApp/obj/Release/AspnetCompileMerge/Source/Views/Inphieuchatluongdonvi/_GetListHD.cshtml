@@ -1,0 +1,53 @@
+﻿@{
+    var list = ViewBag.data as List<ToolsApp.EntityFramework.VatTu.VATTU2025_SP_INPHIEUCHATLUONGDONVI_THEOHOADON_LOAD_Result>;
+
+    var Stt = 0;
+}
+
+<table id="myTableHD" class="table table-bordered">
+    <thead>
+        <tr style="background-color: #00CED1; text-align: center ">
+            <th>Số hóa đơn</th>
+            <th>Mã kho</th>
+            <th>Xem và In</th>
+
+        </tr>
+    </thead>
+
+    <tbody id="detailCT">
+        @if (list != null && list[0].SoCTKeToan != null && list[0].SoCTKeToan != null)
+        {
+            foreach (var item_chitiet in list)
+            {
+                <tr id="row_@(Stt)">
+
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_SoCTKeToan" name="Detail[@(Stt)].SoCTKeToan" type="text" value="@item_chitiet.SoCTKeToan" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_SoCTKeToan"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td>
+                        <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                               id="Detail_@(Stt)_MaKho" name="Detail[@(Stt)].MaKho" type="text" value="@item_chitiet.MaKho" readonly>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_MaKho"
+                              data-valmsg-replace="true"></span>
+                    </td>
+                    <td style="text-align: center">
+                        <button type="button"
+                                class="btn btn-sm btn-outline-primary"
+                                onclick="Print_HD('@item_chitiet.SoCTKeToan', '@item_chitiet.MaKho')" style="width: 100px">
+                            <i class="fa fa-print"></i> Xem & In
+                        </button>
+                    </td>
+                </tr>
+                Stt++;
+            }
+        }
+    </tbody>
+
+</table>
+
+
+
+

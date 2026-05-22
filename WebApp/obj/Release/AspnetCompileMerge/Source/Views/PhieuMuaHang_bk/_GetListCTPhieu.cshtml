@@ -1,0 +1,76 @@
+﻿@using System.Globalization;
+
+
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.VatTu.VATTU2024_SPLOAD_CTPHIEU_2024_Result>;
+    var list_Phieu = ViewBag.list_Phieu as ToolsApp.EntityFramework.VatTu.DMPHIEU;
+
+}
+<table id="myTablect" class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 50px"></th>
+            <th style="text-align:center">.No</th>
+            <th>Mã Phiếu</th>         
+            <th>Mã VT</th>
+            <th>Tên VT</th>
+            <th>DVT</th>
+            <th>Loại VT</th>           
+            <th>Số Lượng</th>
+            <th>Số Lượng tồn Dvi</th>
+            <th>Số Lượng tồn Cty</th>
+            <th>Thời Điểm SD</th>
+            <th>Lý do sử dụng</th>
+            <th>Đặc Tính Kỹ Thuật</th>
+            <th>Ghi Chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists)
+        {
+            <tr>
+                <td>
+                    @if (list_Phieu.XXet == 0)
+                    {
+                    
+                        <a onclick="DeleteCTP('@item.IDKHOA', '@item.MAPHIEU')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                    }
+                    else
+                    {
+                        <a onclick="DeleteCTP('@item.IDKHOA', '@item.MAPHIEU')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                    }
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.MAPHIEU</td>               
+                <td>@item.MAVT</td>
+                <td>@item.TenVT</td>
+                <td>@item.DVT</td>
+                <td>@item.LoaiVT</td>                
+                <td>@item.SLYCAU</td>
+                <td>@item.SLTONDVI</td>
+                <td>@item.SLTONCTY</td>
+                <td>@(item.THOIDIEMSD == null ? "" : item.THOIDIEMSD.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.TINHTRANG</td>
+                <td>@item.DACTINHKYTHUAT</td>
+                <td>@item.GHICHU</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2025_SPLOAD_SOLUONGTON_THEOMAVT_Result>;
+    int STT = 1;
+    decimal tongSL = List?.Sum(x => x.SLTONCTY ?? 0) ?? 0;
+}
+
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+            <th></th>
+            <th>STT</th>
+            <th>Mã VT</th>
+            <th>Tên VT</th>
+            <th>SL Tồn</th>
+            <th>Mã phiếu PD</th>
+            <th>Ký hiệu Dvi</th>
+            <th>Mã Kho</th>
+            <th>Tên Kho</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in List)
+        {
+            <tr>
+                <td></td> 
+                <td>@STT</td>
+                <td>@item.MAVT</td>
+                <td>@item.TenVT</td>
+                <td class="text-right">@item.SLTONCTY</td>
+                <td>@item.MAPHIEUPD</td>
+                <td>@item.KYHIEUDONVI</td>
+                <td>@item.MAKHO</td>
+                <td>@item.TENKHO</td>
+            </tr>
+            STT++;
+        }
+    </tbody>
+
+    <tfoot>
+        <tr style="font-weight:bold; background:#f5f5f5;">
+            <td></td>
+            <td colspan="3" class="text-center">Tổng cộng</td>
+            <td class="text-right">@tongSL</td>
+            <td colspan="4"></td>
+        </tr>
+    </tfoot>
+</table>
+
+

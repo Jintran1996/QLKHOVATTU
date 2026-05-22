@@ -1,0 +1,735 @@
+﻿@using System.Globalization;
+
+@{
+    var donvi = ViewBag.donVi as List<ToolsApp.EntityFramework.KhoSoi.SP_LOAD_DMKHO_BY_IDMADV_Result>;
+    var hinhthuc = ViewBag.hinhThuc as List<ToolsApp.EntityFramework.KhoSoi.SP_BANGKENHAPSOI_MAHINHTHUC_LOAD_MAHTHUC_MADV_Result>;
+    var khachhang = ViewBag.khachHang as List<ToolsApp.EntityFramework.KhoSoi.SP_LDD_DMNOIDEN_LOAD_BY_MADV_MANV_Result>;
+    var nguoixx = ViewBag.nguoiXX as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_MACONGTHUC_LOAD_NVXX_BY_MADV_Result>;
+    var khoaDinhMuc = ViewBag.KhoaDinhMuc as List<ToolsApp.EntityFramework.KhoSoi.SP_CTPHIEUXUATGC_LOAD_MACONGTHUC_BY_MADV_MAKH_Result>;
+    var maSoi = ViewBag.MaSoi as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_DMNGUYENLIEU_LOAD_COMBOBOX_Result>;
+    var MaSoiHoantat = ViewBag.MaSoiHoantat as List<ToolsApp.EntityFramework.KhoSoi.VATTU2024_SP_GC_DMNGUYENLIEU_SOIHOANTAT_Result>;
+    var maDHGCSoi = ViewBag.MADH_GCS as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_LOAD_MADH_GCSOI_Result>;
+    var dvt = ViewBag.DVT as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_DONVITINH_LOAD_Result>;
+    var LoaiYCSX = ViewBag.LoaiYCSX as List<ToolsApp.EntityFramework.NetsuiteTT.LoaiYeuCauSanXuat>;
+    var hieu = ViewBag.Hieu as List<ToolsApp.EntityFramework.KhoSoi.NL_DMNHACCAP>;
+    var maCongDoan = ViewBag.MACONGDOAN as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_DMMACONGDOAN_LOAD_COMBOBOX_Result>;
+    var dangCongDoan = ViewBag.DANGCONGDOAN as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_DMDANGCONGDOAN_LOAD_COMBOBOX_Result>;
+    var soPhieu = ViewData["SoPhieu"];
+}
+
+<div class="row">
+    <div class="col-12 col-md-12">
+        <div class="card card-primary card-tabs">
+            <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                    <li class="nav-item" id="tab-1" style="display:block;">
+                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Lập Phiếu Bảng Kê Nhập Sợi </a>
+                    </li>
+                    <li class="nav-item" id="tab-2" style="display:none;">
+                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Chi Tiết Phiếu Bảng Kê Nhập Sợi </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="custom-tabs-one-tabContent">
+                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Mã đơn vị:</label>
+                                    <select id="MADV" name="MADV" class="form-control form-control-md chosen-select">
+                                        @*<option value=" ">----</option>*@
+                                        @foreach (var item in donvi)
+                                        {
+                                            <option value="@item.MAKHO">
+                                                @item.HT
+                                            </option>
+                                        }
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Tháng năm </label>
+                                    <input id="THANGNAM" name="THANGNAM" data-date-format="mm-yyyy" onchange="" class="form-control span2" size="16" type="text" value='@DateTime.Now.ToString("MM/yyyy")'><span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Hình thức:</label>
+                                    <select id="NHAPKHO" name="NHAPKHO" class="form-control form-control-md chosen-select">
+                                        @*<option value=" ">----</option>*@
+                                        @foreach (var item in hinhthuc)
+                                        {
+                                            <option value="@item.MAHTHUC">
+                                                @item.MAHTHUC || @item.TENHTHUC
+                                            </option>
+                                        }
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Khách hàng:</label>
+                                    <select id="MAKH" name="MAKH" class="form-control form-control-md chosen-select">
+                                        @*<option value=" ">----</option>*@
+                                        @foreach (var item in khachhang)
+                                        {
+                                            <option value="@item.MAKH">
+                                                @item.MAKH || @item.NOIDEN
+                                            </option>
+                                        }
+                                    </select>
+
+                                </div>
+                            </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Mã loại công đoạn:</label>
+                                    <select id="MALOAICONGDOAN" name="MALOAICONGDOAN" onchange="Loadquacongdoan()" class="form-control form-control-md chosen-select">
+                                        <option value="SOICHAP">Sợi chập</option>
+                                        <option value="KHONGCHAP">Không chập</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="display:none" id="quacongdoan">
+                                <div class="form-group">
+                                    <label>Qua công đoạn:</label>
+                                    <input class="form-control form-control-md" id="CONGDOAN" name="CONGDOAN" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Xem xét:</label>
+                                    <select id="MANV_XX" name="MANV_XX" class="form-control form-control-md chosen-select">
+                                        @foreach (var item in nguoixx)
+                                        {
+                                            <option value="@item.MANV">
+                                                @item.HT
+                                            </option>
+                                        }
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2" id="input_">
+                                <div class="form-group">
+                                    <label>Loại yêu cầu SX:</label>
+                                    <select id="LoaiYCSX" name="LoaiYCSX"  class="form-control form-control-md chosen-select">
+                                        @foreach (var item in LoaiYCSX)
+                                        {
+                                        <option value="@item.Internalid_LoaiYCSX">
+                                            @item.Internalid_LoaiYCSX ||   @item.Name_Loai
+                                        </option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Lý do SX:</label>
+                                    <input class="form-control form-control-md" id="LYDOSANXUAT" name="LYDOSANXUAT" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <div class="text-right">
+                                <button type="button" id="btNhaptiep" onclick="ChuyenTiep_click();" class="btn btn-md btn-success">&nbsp;&nbsp;Nhập tiếp&nbsp;&nbsp;<i class="fa fa-arrow-alt-circle-right"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade col-md-12" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                        <div class="row">
+                            <div class=" col-md-12">
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border">Bảng kê chi tiết nhập sợi</legend>
+                                    <div class="row">
+                                        <div class="col-md-2" id="input_">
+                                            <div class="form-group">
+                                                <label>Số Phiếu:</label>
+
+                                                <input id="SOPHIEU" name="SOPHIEU" class="form-control" value="@soPhieu" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2" id="input_">
+                                            <div class="form-group">
+                                                <label>Khóa định mức:</label>
+                                                <select id="KHOACTHUC" name="KHOACTHUC" onchange="Loaddinhmuc()" class="form-control form-control-md chosen-select">
+                                                    <option selected disabled value="">--Chọn định mức--</option>
+                                                    @foreach (var item in khoaDinhMuc)
+                                                    {
+                                                        <option value="@item.KHOA">
+                                                            @item.DINHMUC
+                                                        </option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Định mức:</label>
+                                                <input class="form-control form-control-md" type="text" autocomplete="off" readonly
+                                                       id="SLDINHMUC" name="SLDINHMUC" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Số trục:</label>
+                                                <input class="form-control form-control-md" type="number" autocomplete="off" value="0"
+                                                       id="SOTRUC" name="SOTRUC" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Mã sợi:</label>
+                                                <select id="MASOI" name="MASOI" class="form-control form-control-md chosen-select">
+                                                    <option value=" ">-- Mã sợi --</option>
+                                                    @foreach (var item in maSoi)
+                                                    {
+                                                        <option value="@item.MAVATTU">
+                                                            @item.MAVATTU || @item.TENVATTU
+                                                        </option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ĐVT:</label>
+                                                <select id="DVT" name="DVT" class="form-control form-control-md chosen-select">
+                                                    <option value=" ">-- ĐVT --</option>
+                                                    @foreach (var item in dvt)
+                                                    {
+                                                        <option value="@item.DVT">
+                                                            @item.DVT 
+                                                        </option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        @*<div class="col-md-2">
+            <div class="form-group">
+                <label>Mã ĐH GC Sợi:</label>
+                <select id="MADH_GCSOI" name="MADH_GCSOI" onchange="LoadSOIHOANTAT()" class="form-control form-control-md chosen-select">
+                    <option value=" ">-- Nhập mã đơn hàng GC sợi --</option>
+                    @foreach (var item in maDHGCSoi)
+                    {
+                        <option value="@item.MADH_GCSOI">
+                            @item.MADH_GCSOI
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>*@
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Mã sợi hoàn thành:</label>
+                                                <select id="MASOIHOANTAT" name="MASOIHOANTAT" class="form-control form-control-md chosen-select">
+                                                    <option value=" ">-- Nhập mã sợi hoàn tất--</option>
+                                                    @foreach (var item in MaSoiHoantat)
+                                                    {
+                                                        <option value="@item.MAVATTU">
+                                                            @item.VT
+                                                        </option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        @*<div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Mã sợi hoàn thành:</label>
+                                                <select id="MASOIHOANTAT" name="MASOIHOANTAT" class="form-control form-control-md chosen-select">
+                                                </select>
+                                            </div>
+                                        </div>*@
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Hiệu:</label>
+                                                <select id="HIEU" name="HIEU" onchange="LoadLo()" class="form-control form-control-md chosen-select">
+                                                    <option value=" ">-- Nhập hiệu --</option>
+                                                    @foreach (var item in hieu)
+                                                    {
+                                                        <option value="@item.HIEU">
+                                                            @item.HIEU || @item.TENNHACC
+                                                        </option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Lô:</label>
+                                                <select id="LO" name="LO" class="form-control form-control-md chosen-select">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Mã công đoạn:</label>
+                                                <select id="MACONGDOAN" name="MACONGDOAN" class="form-control form-control-md chosen-select">
+                                                    <option value=" ">-- Mã công đoạn --</option>
+                                                    @foreach (var item in maCongDoan)
+                                                    {
+                                                        <option value="@item.MACONGDOAN">
+                                                            @item.MACONGDOAN
+                                                        </option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Dạng công đoạn:</label>
+                                                <select id="DANGCONGDOAN" name="DANGCONGDOAN" class="form-control form-control-md chosen-select">
+                                                    <option value=" ">-- Dạng công đoạn --</option>
+                                                    @foreach (var item in dangCongDoan)
+                                                    {
+                                                        <option value="@item.DANGCONGDOAN">
+                                                            @item.DANGCONGDOAN
+                                                        </option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Chiều dài: </label>
+                                                <input id="CHIEUDAI" type="number" name="CHIEUDAI" class="form-control form-control-md" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Số cạnh: </label>
+                                                <input id="SOCANH" type="number" name="SOCANH" class="form-control form-control-md" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Khổ trục: </label>
+                                                <input id="KHOTRUC" type="number" name="KHOTRUC" class="form-control form-control-md" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Số lượng nhập: </label>
+                                                <input id="SOLUONGNhap" type="number" name="SOLUONGNhap" class="form-control form-control-md"  readonly />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Số lượng xuất: </label>
+                                                <input id="SOLUONGXuat" type="number" name="SOLUONGXuat" class="form-control form-control-md" onchange="_Load_SLNhap_SLHaoHut()"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Số lượng hao hụt: </label>
+                                                <input id="SLHaoHutDM" type="number" name="SLHaoHutDM" class="form-control form-control-md" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Ghi Chú:</label>
+                                            <textarea id="GHICHU" name="GHICHU" class="form-control" style="width: 100%;" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="row" style="margin-top:15px">
+                            </div>
+                            <div class="row " style="margin-top:15px; padding-left:15px">
+                                <button type="button" id="btnLuu" class="btn btn-group-xs btn-success" style="width: 120px" onclick="Luu_click();"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
+                                @*<button type="button" id="btnLuu" class="btn btn-xs btn-warning" style="width: 120px" onclick="openOutlookemailbox();"><i class="fa fa-mail-bulk"></i>&nbsp;Email</button>&nbsp;&nbsp;*@
+                                @*<button type="button" id="btnLuu" class="btn btn-xs btn-info" style="width: 120px" onclick="Export_Excel_Click();"><i class="fa fa-file-excel"></i>&nbsp;Excel</button>&nbsp;&nbsp;*@
+                                <button type="button" id="btnLuu" class="btn btn-xs btn-primary" style="width: 120px" onclick="click_Phieumoi();"><i class="fa fa-newspaper"></i>&nbsp;Phiếu mới</button>&nbsp;&nbsp;
+                                @*<button type="button" id="btnLuu" class="btn btn-xs btn-info" style="width: 180px" onclick="SearchMaHang();"><i class="fa fa-search"></i>&nbsp;Tra Cứu Mã Hàng</button>&nbsp;&nbsp;*@
+                            </div>
+                            <div class="row" style="margin-bottom:15px">
+                            </div>
+
+                            <div class="row col-md-12" style="margin-top:15px">
+                                <div class="col-md-12">
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-12 table-CTHD table-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <div class="row col-md-12" style="margin-bottom:10px">
+                                <div class="col-md-12">
+                                    <div class="modal-footer">
+                                        <div class="text-right">
+                                            <button type="button" class="btn btn-danger btn-sm pull-right" style="width: 120px;" data-dismiss="modal" id="close_"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function toggle(source) {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source)
+                checkboxes[i].checked = source.checked;
+        }
+    }
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+    $('#THANGNAM').datepicker({
+        format: 'mm/yyyy',
+        startView: "months",
+        minViewMode: "months",
+        language: 'pt-BR',
+        endDate: "0m",
+        autoclose: true,
+        onclose: function (selecteddate) {
+            //$("#fromdate").datepicker("option", "mindate", selecteddate);
+        }
+    });   
+</script>
+
+<!--    Load Data   -->
+<script type="text/javascript">
+    var $myModalDetailReport = $('#myModalDetailReport');
+    var $myModalContentDetailReport = $("#myModalContentDetailReport");
+    var $myModalTitleDetailReport = $("#myModalTitleDetailReport");
+
+    $(document).ready(function () {
+        $("#close_").click(function () {
+            Xoa_DonHangKhiDongKhongChiTiet_Click();
+            reloadData(true);
+        });
+    });
+
+    //-------------Xoá đơn hàng khi đóng chưa có chi tiết đơn hàng--------------//
+     function Xoa_DonHangKhiDongKhongChiTiet_Click() {
+         var SOPHIEU = $('#SOPHIEU').val();
+         var confirm_ = confirm('Bạn có chắc muốn đóng chương trình?');
+         if (confirm_) {
+             $.ajax({
+                 type: "POST",
+                 async: false,
+                 url: '@Url.Action("Xoa_DonHangKhiDongKhongChiTiet_Click")',
+                 data: {
+                     SOPHIEU: SOPHIEU,
+                 },
+                 beforeSend: function () {
+                     $(".divLoading").addClass("loading");
+                 },
+             }).done(function (data) {
+                 $(".divLoading").removeClass("loading");
+                 if (data.status > 0) {
+                     notify(data.text, "success");
+                 }
+                 else {
+                     notify(data.text, "error");
+                 }
+
+             }).fail(function (errors) {
+                 console.log(errors);
+             });
+         }
+     }
+
+    //-------------Load view update detail--------------//
+    function UpdateChiTietView_Click(Khoa) {
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: '@Url.Action("UpdateChiTietView_Click")',
+            data: {
+                Khoa: Khoa,
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            $('.table-updateDetail').html(data);
+        }).fail(function (errors) {
+            console.log(errors);
+        });
+
+    }
+</script>
+<!--    Action event  -->
+<script type="text/javascript">
+    function Loadquacongdoan() {
+        if ($('#MALOAICONGDOAN').val() == 'SOICHAP') {
+            document.getElementById("quacongdoan").style.display = 'none';
+        }
+        else {
+            document.getElementById("quacongdoan").style.display = 'block';
+        }
+    }
+    //-----------------Action chuyển tiếp----------------//
+    function ChuyenTiep_click() {
+        var MADV = $('#MADV').val();
+        var THANGNAM = $('#THANGNAM').val();
+        var NHAPKHO = $('#NHAPKHO').val();
+        var MAKH = $('#MAKH').val();
+        var MALOAICONGDOAN = $('#MALOAICONGDOAN').val();
+        var CONGDOAN = $('#CONGDOAN').val();
+        var MANV_XX = $('#MANV_XX').val();
+        var LYDOSANXUAT = $('#LYDOSANXUAT').val();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("ChuyenTiep_click")',
+            data: {
+                MADV: MADV,
+                THANGNAM: THANGNAM,
+                NHAPKHO: NHAPKHO,
+                MAKH: MAKH,
+                MALOAICONGDOAN: MALOAICONGDOAN,
+                CONGDOAN: CONGDOAN,
+                MANV_XX: MANV_XX,
+                LYDOSANXUAT: LYDOSANXUAT,
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            if (data.status > 0) {
+                notify(data.text, "success");
+                $('#custom-tabs-one-profile-tab').trigger('click');
+                //$("#custom-tabs-one-profile-tab").attr('style', 'display:""');
+                //$("#custom-tabs-one-home-tab").attr('style', 'display:none');
+                document.getElementById("tab-1").style.display = 'none';
+                document.getElementById("tab-2").style.display = 'block';
+                load_CTPhieu();
+                $(".divLoading").removeClass("loading");
+            }
+            else {
+                notify(data.text, "error");
+            }
+
+        }).fail(function (errors) {
+            console.log(errors);
+        });
+
+    }
+    // Update SL nhập, SL hao hụt theo Công thức định mức
+    function _Load_SLNhap_SLHaoHut() {
+
+        var dinhmuc = $('#SLDINHMUC').val();
+        var slxuat = $('#SOLUONGXuat').val();
+      
+        var s1 = parseFloat(slxuat);
+        var s2 = parseFloat(dinhmuc);
+        console.log(s1, s2);
+        var slnhap_ = s1 / (1 - s2 + 1 );
+        var slhaohut_ = parseFloat(slnhap_) - s1;
+
+        if (parseFloat(slnhap_) >= s1) {
+            $('#SOLUONGNhap').val(parseFloat(slnhap_));
+            $('#SLHaoHutDM').val(parseFloat(slhaohut_));
+        }
+        return;
+    }
+    
+    //-----------------Lưu chi tiết Đơn hàng----------------//
+    function Luu_click() {
+        var SOPHIEU = $('#SOPHIEU').val();
+        var KHOACTHUC = $('#KHOACTHUC').val();
+        var SOTRUC = $('#SOTRUC').val();
+        var MASOI = $('#MASOI').val();
+        var DVT = $('#DVT').val();
+        var MADH_GCSOI = $('#MADH_GCSOI').val();
+        var MASOIHOANTAT = $('#MASOIHOANTAT').val();
+        var HIEU = $('#HIEU').val();
+        var LO = $('#LO').val();
+        var MACONGDOAN = $('#MACONGDOAN').val();
+        var DANGCONGDOAN = $('#DANGCONGDOAN').val();
+        var CHIEUDAI = $('#CHIEUDAI').val();
+        var SOCANH = $('#SOCANH').val();
+        var KHOTRUC = $('#KHOTRUC').val();
+        var SOLUONGNhap = $('#SOLUONGNhap').val();
+        var SOLUONGXuat = $('#SOLUONGXuat').val();
+        var SLHaoHutDM = $('#SLHaoHutDM').val();
+        var GHICHU = $('#GHICHU').val();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("Luu_click")',
+            data: {
+                SOPHIEU: SOPHIEU,
+                KHOACTHUC: KHOACTHUC,
+                SOTRUC: SOTRUC,
+                MASOI: MASOI,
+                DVT: DVT,
+                MADH_GCSOI: MADH_GCSOI,
+                MASOIHOANTAT: MASOIHOANTAT,
+                HIEU: HIEU,
+                LO: LO,
+                MACONGDOAN: MACONGDOAN,
+                DANGCONGDOAN: DANGCONGDOAN,
+                CHIEUDAI: CHIEUDAI,
+                SOCANH: SOCANH,
+                KHOTRUC: KHOTRUC,
+                SOLUONGNhap: SOLUONGNhap,
+                SOLUONGXuat: SOLUONGXuat,
+                SLHaoHutDM: SLHaoHutDM,
+                GHICHU: GHICHU,
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            if (data.status > 0) {
+                notify(data.text, "success");
+                load_CTPhieu();
+            }
+            else {
+                notify(data.text, "error");
+                $(".divLoading").removeClass("loading");
+            }
+
+        }).fail(function (errors) {
+            console.log(errors);
+        });
+    }
+     //-----------------Action phiếu mới----------------//
+    function click_Phieumoi() {
+        var SOPHIEU = $("#SOPHIEU").val();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("TaoPhieuMoi_Click")',
+            data: {
+                SOPHIEU: SOPHIEU,
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            if (data.status == 1) {
+                $('#custom-tabs-one-home-tab').trigger('click');
+                document.getElementById("tab-2").style.display = 'none';
+                document.getElementById("tab-1").style.display = 'block';
+                $("#SOPHIEU").empty();
+                $("#SOPHIEU").append($('<option/>', { value: " " }).html("--Danh sách phiếu bảng kê sợi --"));
+                $("#SOPHIEU").trigger("chosen:updated");
+            }
+            if (data.status == -1)
+            {
+                notify(data.text, "error");
+                //$('#custom-tabs-one-home-tab').trigger('click');
+                //document.getElementById("tab-2").style.display = 'none';
+                //document.getElementById("tab-1").style.display = 'block';
+                //$("#Sohopdong").empty();
+                //$("#Sohopdong").append($('<option/>', { value: " " }).html("--Danh sách phiếu chuyển thông tin--"));
+                //$("#Sohopdong").trigger("chosen:updated");
+            }
+            else {
+                notify(data.text, "error");
+            }
+
+
+        }).fail(function (errors) {
+            console.log(errors);
+        });
+    }
+    function Loaddinhmuc() {
+        var KHOACTHUC = $("#KHOACTHUC").val();
+        var SLDINHMUC = $("#SLDINHMUC");
+        SLDINHMUC.empty();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("_Loaddinhmuc")',
+            data: {
+                KHOACTHUC: KHOACTHUC,
+            },
+            success: function (result) {
+                $.each(result.obj, function (i, state) {
+                    document.getElementById('SLDINHMUC').value = state.SLPD;
+                    console.log(state.SLPD);
+                });
+                SLDINHMUC.trigger("chosen:updated");
+                _Load_SLNhap_SLHaoHut();
+            }
+        });
+    }
+    function LoadLo() {
+        var HIEU = $("#HIEU").val();
+        var LO = $("#LO");
+        LO.empty();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("_LoadLo")',
+            data: {
+                HIEU: HIEU,
+            },
+            success: function (result) {
+                $.each(result.obj, function (i, state) {
+                    LO.append($('<option/>', { value: this.LO }).html(this.LO));
+                });
+                LO.trigger("chosen:updated");
+            }
+        });
+    }
+    @*function LoadSOIHOANTAT() {
+        var MADH_GCSOI = $("#MADH_GCSOI").val();
+        var MASOIHOANTAT = $("#MASOIHOANTAT");
+        MASOIHOANTAT.empty();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("_LoadMaSoiHoanTat")',
+            data: {
+                MADH_GCS: MADH_GCSOI,
+            },
+            success: function (result) {
+                $.each(result.obj, function (i, state) {
+                    MASOIHOANTAT.append($('<option/>', { value: this.MASOIHOANTAT }).html(this.MASOIHOANTAT));
+                    console.log(result.obj);
+                });
+                MASOIHOANTAT.trigger("chosen:updated");
+            }
+        });
+    }*@
+</script>
+
+

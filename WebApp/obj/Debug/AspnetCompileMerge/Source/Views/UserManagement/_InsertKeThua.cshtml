@@ -1,0 +1,82 @@
+﻿@model ToolsApp.Models.HomeUserViewModel
+
+@{
+    var allUsers = ViewBag.allUsers as List<ToolsApp.EntityFramework.VatTu.DMNHANVIEN>;
+
+    var roles = ViewBag.roles as List<ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_Role>;
+
+    var pages = ViewBag.pages as List<ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_Page>;
+   
+    var QLKhoSoi_User = ViewBag.QLKhoSoi_User as List<ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_User>;
+}
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<input type="hidden" id="Id" name="Id" value="@Model.Id" />
+
+<div class=" card card-primary card-outline">
+    <div class="card-header p-0 pt-1" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong>Nhân viên:</strong></div>
+    <div class="card-body pad">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-1 col-sm-1">Mã nhân viên:</label>
+            <div class="col-md-3 col-sm-3 ten">
+                <select id="Username" name="Username" class="form-control chosen-select" style="width: 100%;">
+                    @foreach (var item in QLKhoSoi_User)
+                    {
+                        <option value="@item.Username">
+                            @item.Username -  @item.Fullname -  @item.Email
+                        </option>
+                    }
+                </select>
+            </div>
+            <label class="col-md-1 col-sm-1">Lựa chọn ALL/sửa data trong SQL</label>
+            <div class="col-md-3 col-sm-3 ten">
+                <select id="LoaiKethua" name="LoaiKethua" class="form-control chosen-select" style="width: 100%;">
+
+                    <option selected value="1">
+                        Kế thừa 1 - 1
+                    </option>
+
+                    <option value="2">
+                        Kế thừa theo list SQL: SP_Load_kethuaquyen_User
+                    </option>
+
+                </select>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<div class=" card card-primary card-outline">
+    <div class="card-header p-0 pt-1" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong>Nhân viên được kế thừa:</strong></div>
+    <div class="card-body pad">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-1 col-sm-1">Mã nhân viên:</label>
+            <div class="col-md-3 col-sm-3 ten">
+                <select id="UserKeThua" name="UserKeThua" class="form-control chosen-select" style="width: 100%;">
+                    <option value=""></option>
+                    @foreach (var item in allUsers)
+                    {
+                        <option value="@item.MANV">
+                            @item.MANV -  @item.HOTEN -  @item.EMail
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+</script>

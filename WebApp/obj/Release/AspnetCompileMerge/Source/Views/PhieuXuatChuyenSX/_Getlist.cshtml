@@ -1,0 +1,62 @@
+﻿
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEUNHAP_CHUYEN>;
+
+}
+
+
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th style="text-align:center">.No</th>
+            <th>SOCT Nhập</th>
+            <th>SOCT Xuất</th>
+            <th>Mã đơn hàng</th>
+            <th>Mã hình thức</th>
+            <th>Kho Nhận</th>
+            <th>Kho Xuất</th>
+            <th>MANV Xuất</th>
+            <th>Ngày Chứng Từ</th>
+            <th>Ghi Chú</th>
+    
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists.Take(1000))
+        {
+        <tr>
+            <td>
+
+                <a onclick="Details('@item.SOCTNHAP')" class="btn">
+                    <i class="fas fa-list"></i> Chi Tiết
+                </a>
+                <a onclick="DeleteALL('@item.SOCTNHAP')" class="btn">
+                    <i class="far fa-trash-alt"></i> Xóa
+                </a>
+
+
+            </td>
+            <td style="text-align:center">
+                @STT
+            </td>
+            <td>@item.SOCTNHAP</td>
+            <td>@item.SOCTXUAT</td>
+            <td>@item.MADH</td>
+            <td>@item.MAHTHUC</td>
+            <td>@item.MAKHONHAN</td>
+            <td>@item.MAKHOXUAT</td>
+            <td>@item.MANVXUAT</td>
+            <td>@(item.NGAYCN == null ? "" : item.NGAYCN.Value.ToString("dd/MM/yyyy"))</td>
+            <td>@item.GHICHU</td>
+
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+

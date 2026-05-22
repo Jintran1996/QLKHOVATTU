@@ -1,0 +1,74 @@
+﻿@using System.Globalization;
+
+
+@{
+    var Lists = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.VATTU2024_LOADXUATNHAP_NEW2024_Result>;
+    var list_Phieu = ViewBag.list_Phieu as List<ToolsApp.EntityFramework.VatTu.DM_XUATNHAP>;
+    var MAKHONHAN = list_Phieu.FirstOrDefault()?.MAKHONHAN ?? "";
+    var MAKHOXUAT = list_Phieu.FirstOrDefault()?.MAKHOXUAT ?? "";
+    var LOAIXN = ViewBag.LOAIXN;
+
+}
+<table id="myTablectphieuxuat" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="width: 200px">Tùy chỉnh</th>
+            <th style="text-align:center">STT</th>
+            <th>SOCTXN</th>
+            <th>Loại XN</th>          
+            <th>MAVT</th>
+            <th style="width: 200px">Tên vật tư</th>
+            <th>Mã BP</th>
+            <th>Kho xuất</th>      
+            <th>Số lượng YC</th>
+            <th>Số lượng TT</th>
+            <th>Mã phiếu PD</th>
+            <th>Mã Đơn hàng</th>
+            <th>Soct kế toán</th>
+            <th>Ngày kế toán</th>
+            <th>Ghi Chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1;}
+        @foreach (var item in Lists)
+        {
+            <tr>
+                <td>
+                    @if (item.DaXuatKho != 1)
+                    {
+                        <a onclick="Deletect('@item.KHOAKEYXN', '@item.MAVT', '@item.SoCTXN', '@MAKHONHAN', '@MAKHOXUAT','@LOAIXN')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                        if (LOAIXN == "XBAN")
+                        {
+                            <a onclick="EditCt('@item.KHOAKEYXN', '@item.SoCTXN','@item.LoaiXN')" class="btn">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
+                        }
+                    }
+
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.SoCTXN</td>
+                <td>@item.LoaiXN</td>               
+                <td>@item.MAVT</td>               
+                <td>@item.TenVT</td>               
+                <td>@item.MaBP</td>
+                <td>@item.MaKho</td>
+                <td>@(item.SoLuongYC == null ? "0.00" : item.SoLuongYC.Value.ToString("#.##"))</td>
+                <td>@(item.SoLuongTT == null ? "0.00" : item.SoLuongYC.Value.ToString("#.##"))</td>
+                <td>@item.MaPhieuPD</td>
+                <td>@item.MADH_CN</td>
+                <td>@item.SoCTKeToan</td>
+                <td>@(item.NgayKeToan == null ? "" : item.NgayKeToan.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.GHICHU</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+

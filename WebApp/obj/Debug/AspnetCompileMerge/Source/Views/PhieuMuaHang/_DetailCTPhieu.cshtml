@@ -1,0 +1,61 @@
+﻿@using System.Globalization;
+
+
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.VatTu.CTPHIEU>;
+    var list_Phieu = ViewBag.list_Phieu as ToolsApp.EntityFramework.VatTu.DMPHIEU;
+
+}
+<table id="Detail" class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 200px"></th>
+            <th style="text-align:center">.No</th>
+            <th>Mã Phiếu</th>
+            <th>Mã Chi Phí</th>
+            <th>Mã Sản Phẩm</th>
+            <th>Số Lượng</th>
+            <th>Thời Điểm SD</th>
+            <th>Đặc Tính Kỹ Thuật</th>
+            <th>Ghi Chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1;}
+        @foreach (var item in Lists)
+        {
+            <tr>
+                <td>
+                    @if (list_Phieu.XXet == 0)
+                    {
+                        <a onclick="EditCt('@item.IDKHOA')" class="btn">
+                            <i class="fas fa-edit"></i> Sửa
+                        </a>
+                        <a onclick="Deletect('@item.IDKHOA')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                    }
+                    else
+                    {
+                        <a onclick="Deletect('@item.IDKHOA')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                    }
+
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.MAPHIEU</td>
+                <td>@item.MASOCP</td>
+                <td>@item.MAVT</td>
+                <td>@item.SLYCAU</td>
+                <td>@(item.THOIDIEMSD == null ? "" : item.THOIDIEMSD.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.DACTINHKYTHUAT</td>
+                <td>@item.GHICHU</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

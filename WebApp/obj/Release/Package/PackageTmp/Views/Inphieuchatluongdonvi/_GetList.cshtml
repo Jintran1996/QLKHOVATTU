@@ -1,0 +1,95 @@
+﻿@{
+    var list = ViewBag.data as List<ToolsApp.EntityFramework.VatTu.SP_INPHIEUCHATLUONG_LOAD_Result>;
+
+    var Stt = 0;
+}
+
+<table id="myTable" class="table table-bordered">
+    <thead>
+        <tr style="background-color: #00CED1; text-align: center ">
+            <th>Số chứng từ</th>
+            <th>Ngày gửi</th>
+            <th>Xem và In</th>
+            <th>Đã in</th>
+            <th>BGĐ xác nhận</th>
+            <th width="70px">ĐVXN</th>
+            <th width="70px">Kho XN</th>
+        </tr>
+    </thead>
+
+    <tbody id="detailCT">
+        @if (list != null && list[0].SOCT != null && list[0].SOCT != null)
+        {
+            foreach (var item_chitiet in list)
+            {
+        <tr id="row_@(Stt)">
+
+            <td>
+                <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                       id="Detail_@(Stt)_SOCT" name="Detail[@(Stt)].SOCT" type="text" value="@item_chitiet.SOCT" readonly>
+                <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_SOCT"
+                      data-valmsg-replace="true"></span>
+            </td>
+            <td>
+                <input class="form-control text-box single-line" data-val="true" style="width: 100%;"
+                       id="Detail_@(Stt)_NGAYGUI" name="Detail[@(Stt)].NGAYGUI" type="text" value="@item_chitiet.NGAYKHO.Value.ToString("dd/MM/yyyy")" readonly>
+                <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_NGAYGUI"
+                      data-valmsg-replace="true"></span>
+            </td>
+            <td style="text-align: center">
+                <button type="button"
+                        class="btn btn-sm btn-outline-primary"
+                        onclick="Print('@item_chitiet.SOCT')" style="width: 100px">
+                    <i class="fa fa-print"></i> In
+                </button>
+            </td>
+            <td style="text-align: center">
+                @if (item_chitiet.DAIN == true)
+                {
+                    <i class="fa fa-check" style="color: springgreen;"></i>
+                }
+            </td>
+
+            <td class="text-center">
+                @if (item_chitiet.DVXN != true)
+                {
+                    <button type="button"
+                            class="btn btn-sm btn-outline-primary"
+                            onclick="btnBGDXacNhan('@item_chitiet.SOCT')" style="width: 100px">
+                        <i class="fa fa-print"></i> Xác nhận
+                    </button>
+                }
+            </td>
+            <td class="text-center">
+                @if (item_chitiet.DVXN == true)
+                {
+                    <span class="badge bg-success">Đã xác nhận</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning">Chờ xác nhận</span>
+                }
+            </td>
+
+            <td class="text-center">
+                @if (item_chitiet.KHOXN == true)
+                {
+                    <span class="badge bg-success">Đã xác nhận</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning">Chờ xác nhận</span>
+                }
+            </td>
+        </tr>
+
+                Stt++;
+            }
+        }
+    </tbody>
+
+</table>
+
+
+
+

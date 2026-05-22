@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93d093c193f84234bb10a656fae6b4aa" Name="Diagram1" ZoomLevel="56" >
+        <EntityTypeShape EntityType="wqlkhosoiModel.QLKhoSoi_Menu" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.QLKhoSoi_Role" Width="1.5" PointX="3.75" PointY="12.375" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.QLKhoSoi_User" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.QLKhoSoi_User_Page" Width="1.5" PointX="6" PointY="6.5" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.QLKhoSoi_User_Role" Width="1.5" PointX="6" PointY="1.125" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_QLKhoSoi_Menu_QLKhoSoi_Menu" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_QLKhoSoi_User_Role_QLKhoSoi_Role" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_QLKhoSoi_User_Page_QLKhoSoi_User" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_QLKhoSoi_User_Role_QLKhoSoi_User" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_CTPHIEU" Width="1.5" PointX="10.625" PointY="1.25" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_DMPHIEU" Width="1.5" PointX="8.375" PointY="1.125" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_NL_CTPHIEU_NL_DMPHIEU" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_DMloaidonhang" Width="2.75" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.Tbl_SoPYCXuatSoi" Width="1.5" PointX="8.375" PointY="7.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.QLKhoSoi_Page" Width="1.5" PointX="0.75" PointY="6.75" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_QLKhoSoi_Menu_QLKhoSoi_Page" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_QLKhoSoi_User_Page_QLKhoSoi_Page" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_DMKHO" Width="1.5" PointX="8" PointY="12.5" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_DMNHACCAP" Width="1.5" PointX="1.375" PointY="12.875" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_NL_CTPHIEU_NL_DMnhaCCap" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_NL_CTPHIEU_NL_DMnhaCCap1" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_CTPHIEUNHAP_CHUYEN" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_DMPHIEUNHAP_CHUYEN" Width="1.5" PointX="15.375" PointY="5.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_DMHINHTHUC" Width="1.5" PointX="6.375" PointY="17" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_CHATLUONGKIEMTRA" Width="1.5" PointX="12.375" PointY="15.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.DONHANGGCSOI" Width="1.5" PointX="12.375" PointY="15.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.DONHANGGCSOI_CT" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.GC_CTPHIEUXUATGC" Width="1.5" PointX="3" PointY="18.125" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.GC_DMPHIEU_BANGKENHAPSOI" Width="1.5" PointX="0.75" PointY="18.75" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_GC_CTPHIEUXUATGC_GC_DMPHIEU_BANGKENHAPSOI" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.AUDIT_NL_DMPHIEU" Width="1.5" PointX="8.375" PointY="16.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_DMNHOMNGLIEU" Width="1.5" PointX="17.375" PointY="4.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_DMPHIEUXN" Width="1.5" PointX="3.375" PointY="25.375" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.TBLDMNGUYENLIEU" Width="1.5" PointX="8.375" PointY="23.875" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_NL_CTPHIEU_TBLDMNGUYENLIEU" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_NL_DMPhieuXN_NL_DMHinhthuc" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.INVOICE" Width="1.5" PointX="10.375" PointY="8.75" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NL_CTXUATNHAP" Width="1.5" PointX="10.625" PointY="20.625" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_NL_CTXuatNhap_NL_DMnhaCCap" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_NL_CTXuatNhap_NL_DMPhieuXN" />
+        <AssociationConnector Association="wqlkhosoiModel.FK_NL_CTXuatNhap_TBLDMNGUYENLIEU" />
+        <EntityTypeShape EntityType="wqlkhosoiModel.NHAPDIENGIAI_SOI" Width="1.5" PointX="12.375" PointY="8.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

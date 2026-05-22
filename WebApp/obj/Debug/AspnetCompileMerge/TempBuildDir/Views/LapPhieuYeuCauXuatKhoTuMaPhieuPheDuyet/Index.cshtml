@@ -1,0 +1,473 @@
+﻿
+
+
+
+@{
+    ViewBag.Title = "Lập phiếu yêu cầu xuất kho từ mã phiếu phê duyệt";
+}
+<link href="~/Content/CssTeamCode/lapPhieuYeuCauXuatVT.css" rel="stylesheet" />
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>@ViewBag.Title</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-12 table-body-insert ">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End section search-->
+            </div>
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Chương Trình </b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+
+                        <div class="row">
+                            <div class="col-md-6 table-body-MaVatTu table-responsive">
+
+                            </div>
+                            <div class="" id="_Center_Button_">
+                                <div class="row">
+                                    <button id="_button_tron" name="_button_tron" onclick="Action_Next_Click();" class=" btn bg-gradient-info"><i class="fa fa-long-arrow-alt-right"></i></button>
+                                </div>
+                                <div class="row" style="padding-top:20px">
+                                    <button id="_button_tron" name="_button_tron" onclick="Action_Back_Click();" class=" btn bg-gradient-info"><i class="fa fa-long-arrow-alt-left"></i></button>
+
+                                </div>
+                            </div>
+                            <div class="col-md-5 table-body-MaVatTu-DaChon table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+<div id="myModalDetailReport" class="modal fade modal-wide" role="dialog" style="overflow:auto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmDetailReport", id = "frmDetailReport", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitleDetailReport"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetailReport" class="_print">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContentDetailReport');" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"> <i class="fa fa-close"></i>&nbsp;Đóng</button>&nbsp;
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+    </script>
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+
+    </script>
+    <!--LoadData-->
+    <script>
+        function reloadData(page) {
+            try {
+                _GetList_MaVatTu('','','');
+                _GetList_MaVatTu_DaChon('');
+
+            } catch (e) {
+            }
+        }
+
+        function _GetList_MaVatTu_DaChon(SoCtXN) {
+             $.ajax({
+                url: '@Url.Action("_GetList_MaVatTu_DaChon")',
+                timeout: 20000,
+                 data: {
+                     SoCtXN: SoCtXN
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-MaVatTu-DaChon').html(response);
+
+                    $("#myTable_MaVatTu_DaChon").DataTable({
+                        destroy: true,
+                        "language": {
+                            "sProcessing": "Đang xử lý...",
+                            "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                            "sZeroRecords": "Không tìm thấy kết quả",
+                            "sEmptyTable": "Không có dữ liệu",
+                            "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Tìm kiếm:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Đang tải...",
+                            "oPaginate": {
+                                "sFirst": "Đầu tiên",
+                                "sLast": "Cuối cùng",
+                                "sNext": "Sau",
+                                "sPrevious": "Trước"
+                            },
+                            "oAria": {
+                                "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                            }
+                        },
+                        "lengthMenu": [5, 10, 25, 50, 75, 100],
+                        "columnDefs": [
+                            {
+                                "targets": [0, 1,],
+                                orderable: false
+                            },
+                        ],
+                        "info": false,
+                        "processing": false,
+                        "serverSide": false,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        function _GetList_MaVatTu( MaPhieuPD, MaKho , SoCtXN) {
+            $.ajax({
+                url: '@Url.Action("_GetList_MaVatTu")',
+                timeout: 20000,
+                data: {
+                    MaPhieuPD: MaPhieuPD
+                    , MaKho: MaKho
+                    , SoCtXN: SoCtXN
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-MaVatTu').html(response);
+
+                    $("#myTable_MaVatTu").DataTable({
+                        destroy: true,
+                        "language": {
+                            "sProcessing": "Đang xử lý...",
+                            "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                            "sZeroRecords": "Không tìm thấy kết quả",
+                            "sEmptyTable": "Không có dữ liệu",
+                            "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Tìm kiếm:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Đang tải...",
+                            "oPaginate": {
+                                "sFirst": "Đầu tiên",
+                                "sLast": "Cuối cùng",
+                                "sNext": "Sau",
+                                "sPrevious": "Trước"
+                            },
+                            "oAria": {
+                                "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                            }
+                        },
+                        "lengthMenu": [5, 10, 25, 50, 75, 100],
+                        "columnDefs": [
+                            {
+                                "targets": [0,1,],
+                                orderable: false
+                            },
+                        ],
+                        "info": false,
+                        "processing": false,
+                        "serverSide": false,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        function _Phieu_Action() {
+            $.ajax({
+                url: '@Url.Action("_Phieu_Action")',
+                timeout: 20000,
+                data: {
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-insert').html(response);
+
+
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    </script>
+    <!--Chuyển Base-->
+    <script type="text/javascript">
+        var $myModalDetailReport = $('#myModalDetailReport');
+        var $myModalContentDetailReport = $("#myModalContentDetailReport");
+        var $myModalTitleDetailReport = $("#myModalTitleDetailReport");
+
+        $(document).ready(function () {
+            _Phieu_Action();
+            reloadData(false);
+
+            $("#myModal").on("hidden.bs.modal", function () {
+                reloadData(false);
+            });
+
+            $("#btnSearch").click(function () {
+                reloadData(true);
+            });
+        });
+
+        //-------------Tao Phieu Moi Click--------------//
+        function New_Phieu_Click() {
+            _Phieu_Action();
+            reloadData(false);
+        }
+
+
+        //-------------Click load mã vật tư--------------//
+        function Load_GetListMaVatTu_Onchange() {
+        var SoChungTu = $("#SoChungTu").val();
+        var MaPhieuPD = $("#MaPhieuPD").val();
+        var MaKho = $("#MaKho").val();
+        _GetList_MaVatTu(MaPhieuPD, MaKho, SoChungTu);
+        }
+
+
+        //-------------Click Next page--------------//
+        function Action_Next_Click() {
+            var index_ = $("#Stt_Tamp").val();
+            var SoChungTu = $("#SoChungTu").val();
+            var MaPhieuPD = $("#MaPhieuPD").val();
+            var MaKho = $("#MaKho").val();
+            var LoaiXuatNhap = $("#LoaiXuatNhap").val();
+            var GhiChu = $("#GhiChu").val();
+            for (var i = 0; i <= index_; i = i + 1) {
+                var tamp_ = $('#check_MaVatTu_' + i);
+                if (tamp_.is(':checked')) {
+                    var tamp_MaVt = $("#data_MAVT_"+i).val();
+                    var tamp_TenVT = $("#data_TenVT_"+i).val();
+                    var tamp_SLTONTHEOMAPHIEUPB = $("#data_SLTONTHEOMAPHIEUPB_"+i).val();
+                    var tamp_SLPD = $("#data_SLPD_"+i).val();
+                    var tamp_SLXK = $("#data_SLXK_" + i).val();
+                    insert_record(tamp_MaVt, tamp_TenVT, MaPhieuPD, tamp_SLTONTHEOMAPHIEUPB, tamp_SLPD, tamp_SLXK, SoChungTu, MaKho, LoaiXuatNhap, GhiChu);
+
+
+                }
+            }
+
+        }
+
+
+
+        function insert_record(tamp_MaVt, tamp_TenVT, MaPhieuPD, tamp_SLTONTHEOMAPHIEUPB, tamp_SLPD, tamp_SLXK, SoChungTu, MaKho, LoaiXuatNhap, GhiChu) {
+            $.ajax({
+                url: '@Url.Action("_btn_Next_Click")',
+                type: "POST",
+                data: {
+                    MaVt: tamp_MaVt
+                    , TenVT: tamp_TenVT
+                    , MaPhieuPD: MaPhieuPD
+                    , SLTONTHEOMAPHIEUPB: tamp_SLTONTHEOMAPHIEUPB
+                    , SLPD: tamp_SLPD
+                    , SLXK: tamp_SLXK
+                    , SoChungTu: SoChungTu
+                    , MaKho: MaKho
+                    , LoaiXuatNhap: LoaiXuatNhap
+                    , GhiChu: GhiChu
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $(".divLoading").removeClass("loading");
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    _GetList_MaVatTu_DaChon(SoChungTu);
+                    _GetList_MaVatTu(MaPhieuPD, MaKho, SoChungTu);
+                },
+                error: function (message) {
+                    console.log(message);
+                }
+            });
+        }
+
+        //-------------Click back page--------------//
+        function Action_Back_Click() {
+            var index_ = $("#Stt_dact_Tamp").val();
+            var SoChungTu = $("#SoChungTu").val();
+            var MaKho = $("#MaKho").val();
+            var MaPhieuPD = $("#MaPhieuPD").val();
+            for (var i = 0; i <= index_; i = i + 1) {
+                var tamp_ = $('#check_MaVatTu_DaChon_' + i);
+                if (tamp_.is(':checked')) {
+                    var tamp_MaVt = $("#data_CT_MAVT_" + i).val();
+                    var tamp_MANVYC = $("#data_CT_MANVYC_" + i).val();
+                    delete_record(SoChungTu, tamp_MaVt, tamp_MANVYC, MaKho, MaPhieuPD);
+                }
+            }
+
+        }
+
+
+        function delete_record(SoChungTu, tamp_MaVt, tamp_MANVYC, MaKho, MaPhieuPD) {
+            $.ajax({
+                url: '@Url.Action("_btn_back_Click")',
+                type: "POST",
+                data: {
+                    MaVt: tamp_MaVt
+                    , SoChungTu: SoChungTu
+                    , MaKho: MaKho
+                    , MANVYC: tamp_MANVYC
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $(".divLoading").removeClass("loading");
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    _GetList_MaVatTu_DaChon(SoChungTu);
+                    _GetList_MaVatTu(MaPhieuPD, MaKho, SoChungTu);
+                },
+                error: function (message) {
+                    console.log(message);
+                }
+            });
+        }
+
+        //-----------------Action print----------------//
+        function printReport() {
+                $myModalContentDetailReport.html("");
+                $myModalTitleDetailReport.html("Phiếu yêu cầu xuất kho vật tư hàng hoá - đơn vị" );
+            var SoChungTu = $('#SoChungTu').val();
+            var makho = $('#MaKho').val();
+
+                $.ajax({
+                    url: '@Url.Action("print_Phieu")',
+                    timeout: 200000,
+                    data: {
+                        SoChungTu: SoChungTu,
+                            makho: makho,
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                }).done(function (data) {
+                    if (data.status == null) {
+                        $(".divLoading").removeClass("loading");
+                        $myModalContentDetailReport.html(data);
+                        $myModalDetailReport.modal();
+                    }
+                    else {
+                        $(".divLoading").removeClass("loading");
+                        notify(data.text, "error");
+                    }
+                }).fail(function (data) {
+                    notify(data.text, "error");
+                });
+        }
+
+
+    </script>
+}
+

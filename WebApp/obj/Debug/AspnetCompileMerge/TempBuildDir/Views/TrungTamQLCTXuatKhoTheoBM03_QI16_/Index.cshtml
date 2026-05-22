@@ -1,0 +1,218 @@
+﻿
+@{
+    ViewBag.Title = "Xuất Kho Theo BM03-QI16";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>@ViewBag.Title</b>
+                        </h3>
+                    </div>
+                    <div class="row">
+                        <div class="card-body pad">
+                            <div class="row">
+                                <div class="col-md-8 table-body-insert ">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Danh sách xuất Kho Theo BM03-QI16</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+@section scripts{
+    <script>
+        function reloadData(page) {
+            try {
+                _GetList("");
+                _Insert();
+            } catch (e) {
+            }
+        }
+        function _Insert() {
+            $.ajax({
+                url: '@Url.Action("_Insert")',
+                timeout: 20000,
+                data: {
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-insert').html(response);
+
+
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+        function _GetList(SOCTXN) {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+                    SOCTXN: SOCTXN,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+
+                $('.table-body').html(data);
+
+                $("#myTable").DataTable({
+                    destroy: true,
+                    "language": {
+                        "sProcessing": "Đang xử lý...",
+                        "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                        "sZeroRecords": "Không tìm thấy kết quả",
+                        "sEmptyTable": "Không có dữ liệu",
+                        "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                        "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                        "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Tìm kiếm:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Đang tải...",
+                        "oPaginate": {
+                            "sFirst": "Đầu tiên",
+                            "sLast": "Cuối cùng",
+                            "sNext": "Sau",
+                            "sPrevious": "Trước"
+                        },
+                        "oAria": {
+                            "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                            "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                        }
+                    },
+                    "lengthMenu": [5, 10, 25, 50, 75, 100],
+                    "columnDefs": [
+                        {
+                            "targets": [0,],
+                            orderable: false
+                        },
+                    ],
+                    "info": false,
+                    "processing": false,
+                    "serverSide": false,
+                    "bFilter": true,
+                    "bPaginate": true,
+                    "bLengthChange": true,
+                    "bInfo": true,
+                    "responsive": true,
+                    "lengthChange": true,
+                    "autoWidth": false,
+                    "stateSave": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "initComplete": function (oSettings) {
+
+                    }
+                });
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: '@Url.Action("PhanQuyen")',
+                timeout: 200000,
+                data: {
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                if (data.status > 0) {
+                    reloadData(false);
+                    $("#myModal").on("hidden.bs.modal", function () {
+                        reloadData(false);
+                    });
+                    $("#btnSearch").click(function () {
+                        reloadData(true);
+                    });
+                }
+                else {
+                    $(".divLoading").removeClass("loading");
+                    notify(data.text, "error");
+                }
+            }).fail(function (data) {
+            });
+
+
+        });
+        function Action_Insert() {
+            var MaKho = $('#MaKho').val();
+            var SOCTXN = $('#SOCTXN').val();
+            var XuatKho = $('#XuatKho').val();
+            var NgayKeToan = $('#NgayKeToan').val();
+            $.ajax({
+                url: '@Url.Action("Action_Insert")',
+                timeout: 200000,
+                data: {
+                    makho: MaKho,
+                    SOCTXN: SOCTXN,
+                    IsXuatKho: XuatKho,
+                    NgayKeToan: NgayKeToan,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                    _GetList(SOCTXN);
+                }
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+        //-------------Tao Phieu Moi dv Click--------------//
+        function New_Phieu_Click(SOCTXN_DV) {
+            _insert_khoDonVi();
+            _GetList_khoDonVi(SOCTXN_DV);
+        }
+    </script>
+}

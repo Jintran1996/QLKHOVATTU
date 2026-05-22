@@ -1,0 +1,56 @@
+﻿.boxStart {
+    float: left;
+    width: 6px;
+    height: 60px;
+    background: url("images/sprite_with_icons.png") no-repeat;
+}
+
+.step {
+    float: left;
+    position: relative;
+    margin-left: -20px;
+    width: 180px;
+    height: 43px;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-top: 18px;
+    background-image: url("images/sprite_with_icons.png");
+    background-repeat: no-repeat;
+    outline: none;
+}
+
+.stepLabel {
+    position: absolute;
+    top: 19px;
+    right: 30px;
+    font-weight: bold;
+}
+
+.stepLabelLast {
+    position: absolute;
+    top: 19px;
+    right: 30px;
+}
+.step-active {
+    background-position: -341px -90px !important;
+}
+.step-default {
+    background-position: -341px -170px !important;
+}
+.step1-active {
+    background-position: -361px -90px !important;
+}
+.boxStart-active {
+    background-position: -10px -90px;
+}
+.boxStart-default {
+    background-position: -10px -170px;
+}
+.step-process .step1 a, .step-process .step1 a:hover {
+    padding-left: 20px;
+}
+.step-process a, .step-process a:hover {
+    color: white;
+    box-sizing: content-box;
+    padding-left: 40px;
+}

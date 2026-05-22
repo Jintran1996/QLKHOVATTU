@@ -1,0 +1,283 @@
+﻿
+@{
+    ViewBag.CTPhieu = "Danh Sách Nhập Kho - Vật Tư - Phiên mã";
+    var kethua_xzzz = ViewBag.kethua_xzzz as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SPLOAD_SOCT_XZZZ_Result>;
+    var SOCTXN_nhap = ViewBag.SOCTXN_nhap;
+    var LOAIXN = ViewBag.LOAIXN;
+}
+@using System.Globalization;
+@model ToolsApp.Models.XUATNHAPViewModels
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab-getlist-ctphieu" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home-ct" role="tab" aria-controls="custom-tabs-one-home-ct" aria-selected="true">Danh sách chi tiết phiếu @SOCTXN_nhap </a>
+                            </li>
+                            <li class="nav-item" id="tab-2">
+                                <a class="nav-link" id="custom-tabs-one-profile-tab" style="display:block;" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Kế thừa phiên mã XZZZ </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home-ct" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab-getlist-ctphieu">
+                                <!--data-->
+                                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmNZZZ", id = "frmNZZZ", enctype = "multipart/form-data" }))
+                                {
+                                    <input class="form-control" type="text" Ưautocomplete="off"
+                                           id="SOCTXN_nzzz" name="SOCTXN_nzzz" value="@SOCTXN_nhap.Trim()" hidden />
+                                    <input class="form-control" type="text" autocomplete="off"
+                                           id="LOAIXN_nzzz" name="LOAIXN" value="@LOAIXN.Trim()" hidden />
+                                    <div class="row">
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-12 table-body-view-ctphieu-nzzz  table-responsive">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                }
+                                <!--data-->
+                            </div>
+                            <div class="tab-pane fade col-md-12 row" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                                <!--data-->
+                                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmkethuaxzzz", id = "frmkethuaxzzz", enctype = "multipart/form-data" }))
+                                {
+                                    <input class="form-control" type="text" autocomplete="off"
+                                           id="SOCTXN_xzzz" name="SOCTXN_xzzz" value="@SOCTXN_nhap.Trim()" hidden />
+                                    <input class="form-control" type="text" autocomplete="off"
+                                           id="LOAIXN_xzzz" name="LOAIXN_xzzz" value="@LOAIXN.Trim()" hidden />
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="row" style="margin-bottom:15px">
+                                                <label class="col-md-3">Kế thừa SOCTXN :</label>
+                                                <div class="col-md-9">
+                                                    <select class="form-control chosen-select" id="SOCTXN_XZZZ" name="SOCTXN_XZZZ" onchange="_Load_CTMahangvai()">
+                                                        <option disabled selected value="">--Kế thừa SOCTXN--</option>
+                                                        @foreach (var item in kethua_xzzz)
+                                                        {
+                                                            <option value="@item.SOCT">@item.SOCT</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="button" id="btSavect" onclick="_Insert_ctphieu_nzzz();" class="btn btn-sm btn-primary" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                    </div>
+                                    <div class="card-body pad">
+                                        <div class="row">
+                                            <div class="col-md-12 table-body-view-ctphieu-xzzz  table-responsive">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card -->
+                                }
+                            </div>
+                            <!--data-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    function reloadData_getlist_ctphieu() {
+        var SOCTXN_ = $("#SOCTXN_nzzz").val();
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu_View")',
+                timeout: 20000,
+                data: {
+                    SOCTXN: SOCTXN_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-view-ctphieu-nzzz').html(response);
+
+                    $("#myTablectview").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+    function _Load_CTMahangvai() {
+        _Insert_MAVT_Phien_XZZZ();
+    }
+
+
+     function _Insert_MAVT_Phien_XZZZ() {
+         var SOCTXN_xzzz_ = $("#SOCTXN_XZZZ").val();
+            try {
+            $.ajax({
+                url: '@Url.Action("_InsertFuN_NZZZ")',
+                timeout: 20000,
+                type: "POST",
+                data: {
+                    SOCTXN_xzzz: SOCTXN_xzzz_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        notify(result.text, "success");
+                        reloadData_getlist_ctphieu_xzzz();
+
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    $(".divLoading").removeClass("loading");
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+     function reloadData_getlist_ctphieu_xzzz() {
+        var SOCTXN_ = $("#SOCTXN_Nhap").val();
+         var SOCTXN_xzzz_ = $("#SOCTXN_XZZZ").val();
+            try {
+            $.ajax({
+                url: '@Url.Action("_Getlist_ctphieu_xzzz")',
+                timeout: 20000,
+                data: {
+                    SOCTXN_xzzz: SOCTXN_xzzz_
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-view-ctphieu-xzzz').html(response);
+
+                    $("#myTablectview-xzzz").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+    function _Insert_ctphieu_nzzz() {
+         var SOCTXN_xzzz_ = $("#SOCTXN_XZZZ").val();
+        var LOAIXN_nzzz_ = $("#LOAIXN_nzzz").val();
+        var SOCTXN_nzzz_ = $("#SOCTXN_nzzz").val();
+            try {
+            $.ajax({
+                url: '@Url.Action("_Insert_ctphieu_nzzz")',
+                timeout: 20000,
+                type: "POST",
+                data: {
+                    SOCTXN_xzzz: SOCTXN_xzzz_, SOCTXN_nzzz: SOCTXN_nzzz_
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        notify(result.text, "success");
+                        Details(SOCTXN_nzzz_, LOAIXN_nzzz_);
+
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    $(".divLoading").removeClass("loading");
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        reloadData_getlist_ctphieu(false);
+        reloadData_getlist_ctphieu_xzzz();
+    })
+</script>
+
+
+
+
+
+
+
+

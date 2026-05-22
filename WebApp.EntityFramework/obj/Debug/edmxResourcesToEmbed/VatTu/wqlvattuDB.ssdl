@@ -1,0 +1,3348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="wqlvattuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CCPN_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CCPN_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="nvarchar" MaxLength="250" />
+    <Property Name="Controler" Type="varchar" MaxLength="50" />
+    <Property Name="Action" Type="varchar" MaxLength="50" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CCPN_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CCPN_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="SalesRepCode" Type="varchar" MaxLength="50" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CCPN_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="isRoleCreate" Type="bit" />
+    <Property Name="isRoleEdit" Type="bit" />
+    <Property Name="isRoleExport" Type="bit" />
+    <Property Name="isRoleExportAll" Type="bit" />
+    <Property Name="isRoleDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="CCPN_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="UserFullname" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="nvarchar" MaxLength="250" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CHATLUONG">
+    <Key>
+      <PropertyRef Name="SOCT" />
+    </Key>
+    <Property Name="SOCT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NGAYKHO" Type="datetime" />
+    <Property Name="NGAYKT" Type="datetime" />
+    <Property Name="THUKHO" Type="varchar" MaxLength="50" />
+    <Property Name="GDDV" Type="varchar" MaxLength="50" />
+    <Property Name="KHOXN" Type="bit" />
+    <Property Name="DVXN" Type="bit" />
+    <Property Name="DaIn" Type="bit" />
+    <Property Name="FlagXoa" Type="tinyint" Nullable="false" />
+    <Property Name="DVKT" Type="bit" />
+  </EntityType>
+  <EntityType Name="Chatluong_NL">
+    <Key>
+      <PropertyRef Name="SoCTXN" />
+    </Key>
+    <Property Name="SoCTXN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NgayKho" Type="datetime" />
+    <Property Name="NgayKT" Type="datetime" />
+    <Property Name="ThuKho" Type="varchar" MaxLength="50" />
+    <Property Name="GDDV" Type="varchar" MaxLength="50" />
+    <Property Name="KhoXN" Type="bit" />
+    <Property Name="DVXN" Type="bit" />
+    <Property Name="DaIn" Type="bit" />
+    <Property Name="FlagXoa" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ChiPhiDV">
+    <Key>
+      <PropertyRef Name="MaDV" />
+      <PropertyRef Name="MaCP" />
+    </Key>
+    <Property Name="MaDV" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaCP" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CHITIETPHIEUCHAOGIA">
+    <Key>
+      <PropertyRef Name="IDChiTiet" />
+    </Key>
+    <Property Name="MAPHIEUCHAOGIA" Type="varchar" MaxLength="50" />
+    <Property Name="DONVICUNGCAP" Type="varchar" MaxLength="50" />
+    <Property Name="STT" Type="int" />
+    <Property Name="NHANHIEU" Type="nvarchar" MaxLength="500" />
+    <Property Name="XUATXU" Type="varchar" MaxLength="50" />
+    <Property Name="THOIHANGIAOHANG" Type="datetime" />
+    <Property Name="QUICACHDONGGOI" Type="nvarchar" MaxLength="500" />
+    <Property Name="THANHTOAN" Type="nvarchar" MaxLength="50" />
+    <Property Name="CHATLUONGHANG" Type="nvarchar" MaxLength="50" />
+    <Property Name="TIEUCHANKYTHUAT" Type="nvarchar" MaxLength="500" />
+    <Property Name="KHAC" Type="nvarchar" MaxLength="500" />
+    <Property Name="IDChiTiet" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DONGIACHAO" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ChuKy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hinh" Type="image" />
+  </EntityType>
+  <EntityType Name="CTPHIEU">
+    <Key>
+      <PropertyRef Name="IDKHOA" />
+    </Key>
+    <Property Name="STT" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="MASOCP" Type="varchar" MaxLength="50" />
+    <Property Name="MAPHIEU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAVT_TUONGDUONG" Type="nvarchar(max)" />
+    <Property Name="SLYCAU" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SLXXET" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SLPD" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SLTONDVI" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SLTONCTY" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TINHTRANG" Type="nvarchar(max)" />
+    <Property Name="THOIDIEMSD" Type="datetime" />
+    <Property Name="GHICHU" Type="nvarchar(max)" />
+    <Property Name="THOIDIEMDAPUNG" Type="datetime" />
+    <Property Name="YKIENLANHDAO" Type="nvarchar(max)" />
+    <Property Name="MaphieuchuyenNB" Type="varchar" MaxLength="50" />
+    <Property Name="MADH" Type="varchar" MaxLength="50" />
+    <Property Name="DACTINHKYTHUAT" Type="nvarchar(max)" />
+    <Property Name="IDKHOA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsLOT" Type="bit" />
+    <Property Name="SoPONetSuite" Type="varchar" MaxLength="50" />
+    <Property Name="InternalIDNetSuite" Type="varchar" MaxLength="50" />
+    <Property Name="Rate" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Currency" Type="varchar" MaxLength="50" />
+    <Property Name="Expected_Receipt_Date" Type="datetime" />
+    <Property Name="TIGIA" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="PHTinhTrangKyThuatCU" Type="nvarchar" MaxLength="150" />
+    <Property Name="TgianNhaMayPHCU" Type="datetime" />
+    <Property Name="PHTinhTrangNCC" Type="varchar" MaxLength="50" />
+    <Property Name="PHTinhTrangThanhtoan" Type="varchar" MaxLength="50" />
+    <Property Name="PHHanThanhToan" Type="datetime" />
+    <Property Name="PHDapUngCU" Type="datetime" />
+    <Property Name="PHTienDoDapUngThucTeCU" Type="datetime" />
+    <Property Name="TinhTrangDapUngCU" Type="nvarchar" MaxLength="50" />
+    <Property Name="LyDoTreHanCU" Type="nvarchar" MaxLength="500" />
+    <Property Name="MANVMuaHang" Type="varchar" MaxLength="50" />
+    <Property Name="GhiChuCUng" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CTPhieu_CDMH">
+    <Key>
+      <PropertyRef Name="Maphieu" />
+      <PropertyRef Name="MAVT" />
+    </Key>
+    <Property Name="Maphieu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MAVT" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="w01_SLYC" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="w02_SLYC" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="nmn_SLYC" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="qua_SLYC" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="rnd_SLYC" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CU_SLCD" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CU_Lydo" Type="nvarchar" MaxLength="200" />
+    <Property Name="BTGD_SLPD" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="BTGD_Ghichu" Type="nvarchar" MaxLength="200" />
+    <Property Name="TonkhokhiKiemTra" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="CU_Static" Type="bit" />
+    <Property Name="BTGD_Static" Type="bit" />
+  </EntityType>
+  <EntityType Name="CTPHIEU05">
+    <Key>
+      <PropertyRef Name="ID_INT" />
+    </Key>
+    <Property Name="STT" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="MASOCP" Type="char" MaxLength="10" />
+    <Property Name="MAPHIEU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SLYCAU" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SLXXet" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SLPD" Type="numeric" Precision="18" Scale="1" />
+    <Property Name="SLTonDVi" Type="numeric" Precision="18" Scale="1" />
+    <Property Name="TinhTrang" Type="nvarchar" MaxLength="200" />
+    <Property Name="ThoiDiemSD" Type="datetime" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+    <Property Name="MaNV" Type="varchar" MaxLength="50" />
+    <Property Name="NhanVienLapPhieu" Type="varchar" MaxLength="50" />
+    <Property Name="MaBP" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYNHAP" Type="datetime" />
+    <Property Name="NGAYXX" Type="datetime" />
+    <Property Name="DACTINHKYTHUAT" Type="nvarchar(max)" />
+    <Property Name="ID_INT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DANHMUCCHIPHI">
+    <Key>
+      <PropertyRef Name="MSChiPhi" />
+    </Key>
+    <Property Name="MSChiPhi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenChiPhi" Type="nvarchar" MaxLength="200" />
+    <Property Name="MaLoai" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DANHMUCDONVITINH">
+    <Key>
+      <PropertyRef Name="FMaDVT" />
+    </Key>
+    <Property Name="FMaDVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenGoi" Type="nvarchar" MaxLength="200" />
+    <Property Name="KiHieu" Type="varchar" MaxLength="50" />
+    <Property Name="CachTinh" Type="nvarchar" MaxLength="200" />
+    <Property Name="KyHieuKho" Type="varchar" MaxLength="50" />
+    <Property Name="CTQDDVKg" Type="nvarchar" MaxLength="200" />
+    <Property Name="CTQDDVMet" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="DanhMucIP">
+    <Key>
+      <PropertyRef Name="IP" />
+    </Key>
+    <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IPDEN" Type="varchar" MaxLength="50" />
+    <Property Name="Diachi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DanhmucLoaiVT">
+    <Key>
+      <PropertyRef Name="LoaiVT" />
+    </Key>
+    <Property Name="LoaiVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="500" />
+    <Property Name="HieuLuc" Type="bit" />
+  </EntityType>
+  <EntityType Name="DANHMUCMANGUYENLIEU">
+    <Key>
+      <PropertyRef Name="MANGL" />
+    </Key>
+    <Property Name="MANGL" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENNGUYENLIEU" Type="nvarchar" MaxLength="250" />
+    <Property Name="KYTUDAUMAVATTU" Type="varchar" MaxLength="10" />
+    <Property Name="HIEULUC" Type="bit" />
+  </EntityType>
+  <EntityType Name="DANHMUCQUYEN">
+    <Key>
+      <PropertyRef Name="KIHIEU" />
+      <PropertyRef Name="MAKHO" />
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="KIHIEU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAKHO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="QuyenLP" Type="tinyint" Nullable="false" />
+    <Property Name="QuyenX" Type="tinyint" Nullable="false" />
+    <Property Name="QuyenN" Type="tinyint" Nullable="false" />
+    <Property Name="MANV" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DANHMUCVATTU">
+    <Key>
+      <PropertyRef Name="MAVT" />
+    </Key>
+    <Property Name="MAVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenVT" Type="nvarchar" MaxLength="200" />
+    <Property Name="DVT" Type="varchar" MaxLength="50" />
+    <Property Name="LoaiVT" Type="varchar" MaxLength="50" />
+    <Property Name="MACP" Type="varchar" MaxLength="20" />
+    <Property Name="DonViSuDungtac" Type="nvarchar" MaxLength="50" />
+    <Property Name="ViTriDe" Type="varchar" MaxLength="50" />
+    <Property Name="DinhMucToiUu" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="HieuLuc" Type="bit" />
+    <Property Name="MaNGL" Type="varchar" MaxLength="50" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="200" />
+    <Property Name="CS1" Type="varchar" MaxLength="50" />
+    <Property Name="CS2" Type="varchar" MaxLength="50" />
+    <Property Name="MA2" Type="varchar" MaxLength="50" />
+    <Property Name="Manhom" Type="varchar" MaxLength="50" />
+    <Property Name="TenVTat" Type="nvarchar" MaxLength="50" />
+    <Property Name="Images" Type="varchar" MaxLength="500" />
+    <Property Name="Images_v2" Type="nvarchar(max)" />
+    <Property Name="HANDAPUNG" Type="int" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="NHOM_GC" Type="varchar" MaxLength="50" />
+    <Property Name="MANVCAPNHAT" Type="varchar" MaxLength="50" />
+    <Property Name="MANVMODIFY" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYMODIFY" Type="datetime" />
+    <Property Name="GuiAPI" Type="varchar" MaxLength="50" />
+    <Property Name="NgayGuiAPI" Type="datetime" />
+    <Property Name="COGS" Type="varchar" MaxLength="50" />
+    <Property Name="ASSET" Type="varchar" MaxLength="50" />
+    <Property Name="INCOME" Type="varchar" MaxLength="50" />
+    <Property Name="TK_ChiPhi_SX" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DM_PHTinhTrangNCC">
+    <Key>
+      <PropertyRef Name="MatinhtrangNCC" />
+    </Key>
+    <Property Name="MatinhtrangNCC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TentinhtrangNCC" Type="nvarchar" MaxLength="150" />
+    <Property Name="Songay" Type="int" />
+    <Property Name="isHieuluc" Type="bit" />
+  </EntityType>
+  <EntityType Name="DM_TinhTrangKyThuatCUGC">
+    <Key>
+      <PropertyRef Name="Ma_tinhtrangkythuat" />
+    </Key>
+    <Property Name="Ma_tinhtrangkythuat" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ten_tinhtrangkythuat" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="DM_Tinhtrangthanhtoan">
+    <Key>
+      <PropertyRef Name="MaThanhToan" />
+    </Key>
+    <Property Name="MaThanhToan" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenThanhToan" Type="nvarchar" MaxLength="250" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="550" />
+  </EntityType>
+  <EntityType Name="DM_XUATNHAP">
+    <Key>
+      <PropertyRef Name="SOCTXN" />
+    </Key>
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SOCTXN" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="MADH" Type="varchar" MaxLength="50" />
+    <Property Name="NGAY" Type="datetime" />
+    <Property Name="LOAIXN" Type="varchar" MaxLength="50" />
+    <Property Name="MaNVYC" Type="varchar" MaxLength="50" />
+    <Property Name="MANVXUAT" Type="varchar" MaxLength="50" />
+    <Property Name="IDMADVNHAN" Type="varchar" MaxLength="50" />
+    <Property Name="MAKHONHAN" Type="varchar" MaxLength="50" />
+    <Property Name="NGUOINHAN" Type="varchar" MaxLength="50" />
+    <Property Name="GHICHU" Type="nvarchar(max)" />
+    <Property Name="IDMADVXUAT" Type="nchar" MaxLength="10" />
+    <Property Name="MAKHOXUAT" Type="nvarchar" MaxLength="500" />
+    <Property Name="NGUOIXUAT" Type="varchar" MaxLength="50" />
+    <Property Name="KETHUATUSOCT" Type="varchar" MaxLength="130" />
+    <Property Name="DAXUATKHO_" Type="bit" />
+    <Property Name="MANVXX" Type="varchar" MaxLength="50" />
+    <Property Name="ISXEMXET" Type="bit" />
+    <Property Name="GUIAPI" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYGUIAPI" Type="datetime" />
+    <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="MANVMODIFY" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYMODIFY" Type="datetime" />
+    <Property Name="NHACUNGCAP" Type="varchar" MaxLength="50" />
+    <Property Name="SOPO" Type="varchar" MaxLength="150" />
+    <Property Name="InternalidPO" Type="varchar" MaxLength="150" />
+    <Property Name="Externalid_IAD" Type="varchar" MaxLength="504" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="kyhieu" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sohoadon" Type="varchar" MaxLength="50" />
+    <Property Name="Duonglink" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Hinhhoadon" Type="image" />
+  </EntityType>
+  <EntityType Name="DMDONVI">
+    <Key>
+      <PropertyRef Name="MaDonVi" />
+    </Key>
+    <Property Name="IDMaDV" Type="varchar" MaxLength="20" />
+    <Property Name="MaDonVi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MADV_NETSUITE" Type="varchar" MaxLength="50" />
+    <Property Name="TenDonVi" Type="nvarchar" MaxLength="200" />
+    <Property Name="KiHieu_New" Type="varchar" MaxLength="50" />
+    <Property Name="KiHieu" Type="varchar" MaxLength="50" />
+    <Property Name="HieuLuc" Type="tinyint" />
+    <Property Name="TenGiaoDich_DV" Type="nvarchar(max)" />
+    <Property Name="DiaChi_DV" Type="nvarchar(max)" />
+    <Property Name="SoDienThoai_DV" Type="nvarchar(max)" />
+    <Property Name="Fax_DV" Type="nvarchar(max)" />
+    <Property Name="Thanhpham_Xuat" Type="bit" />
+    <Property Name="Thanhpham_Nhap" Type="bit" />
+    <Property Name="Moc_Nhap" Type="bit" />
+    <Property Name="Moc_Xuat" Type="bit" />
+    <Property Name="BPDatbong" Type="bit" />
+    <Property Name="DONHANGNHUOM" Type="bit" />
+  </EntityType>
+  <EntityType Name="DMEXCELMAHANGCHAOGIA">
+    <Key>
+      <PropertyRef Name="MAHANG" />
+      <PropertyRef Name="NGUOICN" />
+    </Key>
+    <Property Name="MAHANG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NGUOICN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NGAYCN" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DMGIATRIVATTU">
+    <Key>
+      <PropertyRef Name="NAM" />
+      <PropertyRef Name="THANG" />
+      <PropertyRef Name="MAVT" />
+      <PropertyRef Name="MAKHO" />
+    </Key>
+    <Property Name="NAM" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="THANG" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="MAVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAKHO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DONGIATON" Type="numeric" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="HIEULUC" Type="bit" Nullable="false" />
+    <Property Name="GHICHU" Type="nvarchar" MaxLength="300" />
+    <Property Name="NGAYCN" Type="datetime" Nullable="false" />
+    <Property Name="NGUOINHAP" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYNHAP" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DMGiaVT">
+    <Key>
+      <PropertyRef Name="MaVT" />
+    </Key>
+    <Property Name="MaVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gia" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VAT" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DMKHo">
+    <Key>
+      <PropertyRef Name="MAKHO" />
+    </Key>
+    <Property Name="MAKHO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAKHONETSUITe" Type="varchar" MaxLength="50" />
+    <Property Name="TENKHO" Type="nvarchar" MaxLength="200" />
+    <Property Name="MAKHOKETOAN" Type="varchar" MaxLength="50" />
+    <Property Name="NHOM_OGSTM" Type="nvarchar" MaxLength="250" />
+    <Property Name="DV_OGSTM" Type="nvarchar" MaxLength="200" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="250" />
+    <Property Name="KHONHAN" Type="varchar" MaxLength="50" />
+    <Property Name="XUATNOIBO" Type="bit" />
+    <Property Name="ThuKho" Type="varchar" MaxLength="50" />
+    <Property Name="Loaiphieu" Type="varchar" MaxLength="50" />
+    <Property Name="hieuluc" Type="bit" />
+  </EntityType>
+  <EntityType Name="DMKHONHAN">
+    <Key>
+      <PropertyRef Name="MAKHONHAN" />
+    </Key>
+    <Property Name="MAKHONHAN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENKHONHAN" Type="nvarchar" MaxLength="200" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="250" />
+    <Property Name="LOAIXN" Type="varchar" MaxLength="50" />
+    <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="MANVMODIFY" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYMODIFY" Type="datetime" />
+    <Property Name="hieuluc" Type="bit" />
+    <Property Name="Nguoinhan" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DMLoaiChiPhi">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="200" />
+    <Property Name="HieuLuc" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="DMLOAIPHIEU">
+    <Key>
+      <PropertyRef Name="LOAI" />
+    </Key>
+    <Property Name="LOAI" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENLOAI" Type="nvarchar" MaxLength="100" />
+    <Property Name="MADV" Type="varchar" MaxLength="50" />
+    <Property Name="LPLoad" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DMLOAIVT">
+    <Key>
+      <PropertyRef Name="LoaiVT" />
+      <PropertyRef Name="LoaiPhieu" />
+    </Key>
+    <Property Name="STT" Type="int" />
+    <Property Name="LoaiVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Kytudautien" Type="varchar" MaxLength="50" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="255" />
+    <Property Name="HieuLuc" Type="tinyint" />
+    <Property Name="Donvisd" Type="nvarchar" MaxLength="500" />
+    <Property Name="LoaiPhieu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VanChuyenNB" Type="bit" />
+    <Property Name="LOAIVT_HDDT" Type="varchar" MaxLength="50" />
+    <Property Name="Donvisd04" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DMLOAIXN">
+    <Key>
+      <PropertyRef Name="LOAIXN" />
+    </Key>
+    <Property Name="LOAIXN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TEN" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Giaybong" Type="bit" />
+    <Property Name="Xuat1buoc3buoc" Type="varchar" MaxLength="50" />
+    <Property Name="HieuLuc" Type="bit" />
+    <Property Name="STT" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Account_IAD" Type="varchar" MaxLength="50" />
+    <Property Name="Nguon_goc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DMNAM">
+    <Key>
+      <PropertyRef Name="Nam" />
+    </Key>
+    <Property Name="Nam" Type="int" Nullable="false" />
+    <Property Name="HieuLuc" Type="tinyint" />
+    <Property Name="NgayBD" Type="datetime" />
+    <Property Name="NgayKT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DMNHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="MADV" Type="varchar" MaxLength="50" />
+    <Property Name="EMail" Type="varchar" MaxLength="50" />
+    <Property Name="LapPhieu" Type="tinyint" />
+    <Property Name="TPB_kiemtra" Type="tinyint" />
+    <Property Name="XemXet" Type="tinyint" />
+    <Property Name="PheDuyet" Type="tinyint" />
+    <Property Name="TiepNhan" Type="tinyint" />
+    <Property Name="Passwordid" Type="varchar" MaxLength="50" />
+    <Property Name="HieuLuc" Type="tinyint" />
+    <Property Name="KIEMTRA" Type="tinyint" />
+    <Property Name="MABP" Type="varchar" MaxLength="50" />
+    <Property Name="IDMaDV" Type="varchar" MaxLength="20" />
+    <Property Name="IDMaDV_NETSUITE" Type="varchar" MaxLength="20" />
+    <Property Name="QuanTri" Type="bit" />
+    <Property Name="CMND" Type="varchar" MaxLength="20" />
+    <Property Name="NgayCap" Type="datetime" />
+    <Property Name="NoiCap" Type="nvarchar" MaxLength="50" />
+    <Property Name="quyencpn" Type="int" />
+    <Property Name="Chuki" Type="image" />
+    <Property Name="TinhGTMay" Type="bit" />
+    <Property Name="NgayHieuLucPass" Type="datetime" />
+    <Property Name="ghichu" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DMPHIEU">
+    <Key>
+      <PropertyRef Name="MAPHIEU" />
+    </Key>
+    <Property Name="STT" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="MAPHIEU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NgayYC" Type="datetime" />
+    <Property Name="NguoiPD" Type="varchar" MaxLength="50" />
+    <Property Name="NguoiXX" Type="varchar" MaxLength="50" />
+    <Property Name="NguoiTiepNhan" Type="varchar" MaxLength="50" />
+    <Property Name="NguoiLapPhieu" Type="varchar" MaxLength="50" />
+    <Property Name="LyDoSD" Type="nvarchar" MaxLength="200" />
+    <Property Name="Nam" Type="nvarchar" MaxLength="10" />
+    <Property Name="STTPD" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="MaPhieuPD" Type="varchar" MaxLength="50" />
+    <Property Name="LOAIPHIEU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DX" Type="tinyint" />
+    <Property Name="NK" Type="tinyint" />
+    <Property Name="ND" Type="tinyint" />
+    <Property Name="KH" Type="tinyint" />
+    <Property Name="HieuLuc" Type="tinyint" />
+    <Property Name="KyHieu" Type="varchar" MaxLength="50" />
+    <Property Name="NgayXX" Type="datetime" />
+    <Property Name="NgayPD" Type="datetime" />
+    <Property Name="NgayTN" Type="datetime" />
+    <Property Name="XXet" Type="tinyint" />
+    <Property Name="PDuyet" Type="tinyint" />
+    <Property Name="TNhanYC" Type="tinyint" />
+    <Property Name="KEHOACHTHANG" Type="date" />
+    <Property Name="LoaiVT" Type="varchar" MaxLength="50" />
+    <Property Name="NumberCheck" Type="int" />
+    <Property Name="FinishCheck" Type="bit" />
+    <Property Name="locations" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DMPhieu_CDMH">
+    <Key>
+      <PropertyRef Name="Maphieu" />
+    </Key>
+    <Property Name="Maphieu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Ngaylapphieu" Type="datetime" Nullable="false" />
+    <Property Name="PDuyet" Type="bit" Nullable="false" />
+    <Property Name="Tiepnhan" Type="bit" Nullable="false" />
+    <Property Name="NgayPD" Type="datetime" />
+    <Property Name="NgayTiepNhan" Type="datetime" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="200" />
+    <Property Name="Hieuluc" Type="bit" Nullable="false" />
+    <Property Name="NguoiLP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Kiemtra" Type="bit" Nullable="false" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+    <Property Name="NguoiPD" Type="varchar" MaxLength="50" />
+    <Property Name="NguoiKiemtra" Type="varchar" MaxLength="50" />
+    <Property Name="NgayKiemtra" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DMSites">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sites" Type="varchar" MaxLength="200" />
+    <Property Name="DienGiai" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckIP" Type="bit" />
+  </EntityType>
+  <EntityType Name="DMSitesQLKhoSoi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sites" Type="varchar" MaxLength="50" />
+    <Property Name="DienGiai" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="DMSITESQLVT">
+    <Key>
+      <PropertyRef Name="Sites" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sites" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DienGiai" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="DMTHANG">
+    <Key>
+      <PropertyRef Name="THANG" />
+    </Key>
+    <Property Name="THANG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HieuLuc" Type="bit" />
+  </EntityType>
+  <EntityType Name="DMTINHTRANG">
+    <Key>
+      <PropertyRef Name="MaTinhTrang" />
+    </Key>
+    <Property Name="MaTinhTrang" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenTinhTrang" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DMViTri">
+    <Key>
+      <PropertyRef Name="MaVitri" />
+    </Key>
+    <Property Name="MaVitri" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenViTri" Type="nvarchar" MaxLength="200" />
+    <Property Name="HieuLuc" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="dmVitriKe">
+    <Key>
+      <PropertyRef Name="Khoa1" />
+    </Key>
+    <Property Name="Khoa1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAKE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENKE" Type="nvarchar(max)" />
+    <Property Name="HIEULUC" Type="bit" />
+    <Property Name="Khoa" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DMVITRIKHO">
+    <Key>
+      <PropertyRef Name="MAKHO" />
+      <PropertyRef Name="MASOKE" />
+      <PropertyRef Name="MASOVITRI" />
+    </Key>
+    <Property Name="MAKHO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MASOKE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MASOVITRI" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TEN" Type="nvarchar" MaxLength="50" />
+    <Property Name="GHICHU" Type="nvarchar" MaxLength="300" />
+    <Property Name="HIEULUC" Type="bit" Nullable="false" />
+    <Property Name="KHOA" Type="varchar" MaxLength="150" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dmVitriTang">
+    <Key>
+      <PropertyRef Name="Khoa2" />
+    </Key>
+    <Property Name="Khoa2" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="MATANG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENTANG" Type="nvarchar(max)" />
+    <Property Name="HIEULUC" Type="bit" />
+    <Property Name="Khoa1" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DMVT_Excel">
+    <Key>
+      <PropertyRef Name="MAVT" />
+    </Key>
+    <Property Name="MAVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenVT" Type="nvarchar" MaxLength="200" />
+    <Property Name="LoaiVT" Type="varchar" MaxLength="50" />
+    <Property Name="DVT" Type="varchar" MaxLength="50" />
+    <Property Name="DonViSuDungtac" Type="nvarchar" MaxLength="50" />
+    <Property Name="ViTriDe" Type="varchar" MaxLength="50" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="200" />
+    <Property Name="NHOM_GC" Type="varchar" MaxLength="50" />
+    <Property Name="MACP" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="dtproperties">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="property" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="objectid" Type="int" />
+    <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="value" Type="varchar" MaxLength="255" />
+    <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+    <Property Name="lvalue" Type="image" />
+    <Property Name="version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GHNGAYNHAPKHO">
+    <Key>
+      <PropertyRef Name="NK" />
+      <PropertyRef Name="ND" />
+      <PropertyRef Name="GHansongaynhap" />
+    </Key>
+    <Property Name="NK" Type="tinyint" Nullable="false" />
+    <Property Name="ND" Type="tinyint" Nullable="false" />
+    <Property Name="GHansongaynhap" Type="real" Nullable="false" />
+    <Property Name="Ghichu" Type="varchar(max)" />
+    <Property Name="hieuluc" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="GIAYBONG_XUATNHAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SoCTXN" Type="varchar" MaxLength="250" />
+    <Property Name="Ngay" Type="datetime" />
+    <Property Name="LoaiXN" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="DonViYeuCau" Type="varchar" MaxLength="250" />
+    <Property Name="MaNVYC" Type="varchar" MaxLength="250" />
+    <Property Name="MaKho" Type="varchar" MaxLength="250" />
+    <Property Name="MAVT" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="SoLuong" Type="numeric" Precision="18" Scale="6" />
+    <Property Name="SoLuongTT" Type="numeric" Precision="18" Scale="6" />
+    <Property Name="NhanVienXuat" Type="varchar" MaxLength="250" />
+    <Property Name="NgayXuat" Type="datetime" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="DaXuatKho" Type="tinyint" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModifiedByID" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="varchar" MaxLength="250" />
+    <Property Name="Controler" Type="varchar" MaxLength="50" />
+    <Property Name="Action" Type="varchar" MaxLength="50" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Domain" Type="varchar" MaxLength="50" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_SoftwareGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Domain" Type="varchar" MaxLength="50" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="ColorCode" Type="varchar" MaxLength="100" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="SalesRepCode" Type="varchar" MaxLength="50" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Home_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="isRoleCreate" Type="bit" />
+    <Property Name="isRoleEdit" Type="bit" />
+    <Property Name="isRoleExport" Type="bit" />
+    <Property Name="isRoleExportAll" Type="bit" />
+    <Property Name="isRoleDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Home_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="UserFullname" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InNhan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InNhanID" Type="varchar" MaxLength="100" />
+    <Property Name="Mahang" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SoLanIn" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Nhomhang" Type="varchar" MaxLength="30" />
+    <Property Name="Duoigoc" Type="varchar" MaxLength="30" />
+    <Property Name="Solabong" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Mnmoc" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="mndoc" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Khomacluoc" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="khomoc" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MahangTN" Type="varchar" MaxLength="50" />
+    <Property Name="Manhommay" Type="varchar" MaxLength="10" />
+    <Property Name="Mahang2" Type="varchar" MaxLength="30" />
+    <Property Name="Cohaohutnhuom" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="GTDet" Type="char" MaxLength="1" />
+    <Property Name="GTNhuom" Type="char" MaxLength="1" />
+    <Property Name="MnTP" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="tlgm2" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="dsgm2duong" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="dsgm2am" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="dvtds" Type="varchar" MaxLength="10" />
+    <Property Name="khotp" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="hieulucHC" Type="bit" Nullable="false" />
+    <Property Name="Ngay" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="LoaiDT" Type="varchar" MaxLength="50" />
+    <Property Name="MaKH" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenKH" Type="nvarchar" MaxLength="100" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+    <Property Name="MaSothue" Type="varchar" MaxLength="50" />
+    <Property Name="DienThoai" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Manvcapnhat" Type="varchar" MaxLength="50" />
+    <Property Name="Ngaycapnhat" Type="datetime" />
+    <Property Name="Manvmodify" Type="varchar" MaxLength="50" />
+    <Property Name="Ngaymodify" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KHOSOI_XUATNHAP">
+    <Key>
+      <PropertyRef Name="Khoa" />
+    </Key>
+    <Property Name="Khoa" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mavt" Type="varchar" MaxLength="50" />
+    <Property Name="Lo" Type="varchar" MaxLength="50" />
+    <Property Name="Hieu" Type="varchar" MaxLength="50" />
+    <Property Name="Soluong" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="LanXN" Type="int" />
+    <Property Name="NgayCN" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KYDUYET_PHIEUCHAOGIA">
+    <Key>
+      <PropertyRef Name="KHOA" />
+    </Key>
+    <Property Name="MAPHIEUCHAOGIA" Type="varchar" MaxLength="50" />
+    <Property Name="NOIDUNG" Type="varchar(max)" />
+    <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+    <Property Name="STT" Type="int" />
+    <Property Name="KHOA" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KYHIEU_THITRUONG">
+    <Key>
+      <PropertyRef Name="KYHIEUDONDV" />
+    </Key>
+    <Property Name="KYHIEUDONDV" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="THITRUONG" Type="varchar" MaxLength="50" />
+    <Property Name="HIEULUC" Type="bit" />
+    <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="MANVMODIFY" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYMODIFY" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LDD_CTPHIEU">
+    <Key>
+      <PropertyRef Name="KHOAKEYXN" />
+    </Key>
+    <Property Name="MAPHIEU" Type="varchar" MaxLength="50" />
+    <Property Name="MAVT" Type="varchar" MaxLength="50" />
+    <Property Name="SOLUONGTT" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="SOLUONGXUAT" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="GHICHU" Type="nvarchar" MaxLength="200" />
+    <Property Name="KHOAKEYXN" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LDD_DMDVVANCHUYEN">
+    <Key>
+      <PropertyRef Name="MADV" />
+    </Key>
+    <Property Name="MADV" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENDV" Type="nvarchar" MaxLength="200" />
+    <Property Name="HIEULUC" Type="bit" />
+  </EntityType>
+  <EntityType Name="LDD_DMNOIDEN">
+    <Key>
+      <PropertyRef Name="MAKH" />
+    </Key>
+    <Property Name="MAKH" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NOIDEN" Type="nvarchar" MaxLength="500" />
+    <Property Name="HIEULUC" Type="bit" />
+  </EntityType>
+  <EntityType Name="LDD_DMPHIEU">
+    <Key>
+      <PropertyRef Name="MAPHIEU" />
+    </Key>
+    <Property Name="STT" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAPHIEU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SO" Type="int" />
+    <Property Name="NGAYLAP" Type="datetime" />
+    <Property Name="NGAYDI" Type="datetime" />
+    <Property Name="MANV" Type="varchar" MaxLength="50" />
+    <Property Name="NOIDI" Type="nvarchar" MaxLength="100" />
+    <Property Name="NOIDEN" Type="varchar" MaxLength="50" />
+    <Property Name="DONVIVANCHUYEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="PHUONGTIENVANCHUYEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="TENTAIXE" Type="nvarchar" MaxLength="100" />
+    <Property Name="NOIDUNG" Type="nvarchar" MaxLength="500" />
+    <Property Name="SOCTXN" Type="varchar" MaxLength="50" />
+    <Property Name="MABP" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LDD_DMSOXE">
+    <Key>
+      <PropertyRef Name="MASOXE" />
+    </Key>
+    <Property Name="MASOXE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HIEULUC" Type="bit" />
+    <Property Name="LOAIXE" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="LDD_DMTAIXE">
+    <Key>
+      <PropertyRef Name="MATAIXE" />
+    </Key>
+    <Property Name="MATAIXE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENTAIXE" Type="nvarchar" MaxLength="100" />
+    <Property Name="HIEULUC" Type="bit" />
+  </EntityType>
+  <EntityType Name="MaChaoGia_Bo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaChaoGia" Type="nvarchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NGANG">
+    <Key>
+      <PropertyRef Name="MAHANG" />
+    </Key>
+    <Property Name="MAHANG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENVT" Type="nvarchar" MaxLength="1500" />
+    <Property Name="Trongluong" Type="varchar" MaxLength="1550" />
+    <Property Name="matdo" Type="varchar" MaxLength="50" />
+    <Property Name="khotp" Type="varchar" MaxLength="50" />
+    <Property Name="Mathanhphan" Type="varchar" MaxLength="50" />
+    <Property Name="Manvcapnhat" Type="varchar" MaxLength="50" />
+    <Property Name="Ngaycapnhat" Type="datetime" />
+    <Property Name="Manvmodify" Type="varchar" MaxLength="50" />
+    <Property Name="Ngaymodify" Type="datetime" />
+    <Property Name="Hieuluc" Type="bit" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="NGANG_V2">
+    <Key>
+      <PropertyRef Name="MAHANG" />
+    </Key>
+    <Property Name="MAHANG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENVT" Type="nvarchar" MaxLength="1500" />
+    <Property Name="Trongluong" Type="varchar" MaxLength="1550" />
+    <Property Name="matdo" Type="varchar" MaxLength="50" />
+    <Property Name="khotp" Type="varchar" MaxLength="50" />
+    <Property Name="Mathanhphan" Type="varchar" MaxLength="50" />
+    <Property Name="Manvcapnhat" Type="varchar" MaxLength="50" />
+    <Property Name="Ngaycapnhat" Type="datetime" />
+    <Property Name="Manvmodify" Type="varchar" MaxLength="50" />
+    <Property Name="Ngaymodify" Type="datetime" />
+    <Property Name="Hieuluc" Type="bit" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="NHAPDIENGIAI">
+    <Key>
+      <PropertyRef Name="KEYNHAP" />
+    </Key>
+    <Property Name="KEYNHAP" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="SOCTXN" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="SOCTKETOAN" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="MAVT" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="TENVATTU_NCC" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="SOLUONG_NCC" Type="numeric" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="DVT_NCC" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NGAY_NCC" Type="datetime" />
+    <Property Name="MAPHIEUPD" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="KHOAKEYXN" Type="nvarchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OLD">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="MADV" Type="varchar" MaxLength="50" />
+    <Property Name="EMail" Type="varchar" MaxLength="50" />
+    <Property Name="LapPhieu" Type="tinyint" />
+    <Property Name="TPB_kiemtra" Type="tinyint" />
+    <Property Name="XemXet" Type="tinyint" />
+    <Property Name="PheDuyet" Type="tinyint" />
+    <Property Name="TiepNhan" Type="tinyint" />
+    <Property Name="Passwordid" Type="varchar" MaxLength="50" />
+    <Property Name="HieuLuc" Type="tinyint" />
+    <Property Name="KIEMTRA" Type="tinyint" />
+    <Property Name="MABP" Type="varchar" MaxLength="50" />
+    <Property Name="IDMaDV" Type="varchar" MaxLength="20" />
+    <Property Name="QuanTri" Type="bit" Nullable="false" />
+    <Property Name="CMND" Type="varchar" MaxLength="20" />
+    <Property Name="NgayCap" Type="datetime" />
+    <Property Name="NoiCap" Type="nvarchar" MaxLength="50" />
+    <Property Name="quyencpn" Type="int" Nullable="false" />
+    <Property Name="Chuki" Type="image" />
+    <Property Name="TinhGTMay" Type="bit" />
+  </EntityType>
+  <EntityType Name="PHANLOAI_VTKD">
+    <Key>
+      <PropertyRef Name="MAVT" />
+    </Key>
+    <Property Name="MAVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LOAIPHIEU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="hieuluc" Type="bit" />
+  </EntityType>
+  <EntityType Name="PHANQUYENSITES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MANV" Type="varchar" MaxLength="50" />
+    <Property Name="IDSITES" Type="int" />
+    <Property Name="NoAccess" Type="tinyint" />
+    <Property Name="OnlyRead" Type="tinyint" />
+    <Property Name="AccessAll" Type="tinyint" />
+    <Property Name="NguoiUy" Type="varchar" MaxLength="50" />
+    <Property Name="TruyCapMoiNoi" Type="bit" />
+  </EntityType>
+  <EntityType Name="PhanQuyenSitesQLKhoSoi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNV" Type="varchar" MaxLength="50" />
+    <Property Name="IDSites" Type="int" />
+    <Property Name="NoAccess" Type="tinyint" />
+    <Property Name="OnlyRead" Type="tinyint" />
+    <Property Name="AccessAll" Type="tinyint" />
+    <Property Name="NguoiUy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PHANQUYENSITESQLVT">
+    <Key>
+      <PropertyRef Name="MaNV" />
+      <PropertyRef Name="IDSites" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNV" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDSites" Type="int" Nullable="false" />
+    <Property Name="NoAccess" Type="bit" />
+    <Property Name="OnlyRead" Type="bit" />
+    <Property Name="AccessAll" Type="bit" />
+    <Property Name="NguoiUy" Type="varchar" MaxLength="50" />
+    <Property Name="NgayKetThuc" Type="date" />
+    <Property Name="ISKhongKiemTraIP" Type="bit" />
+    <Property Name="Sites" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="SentMailTTNB">
+    <Key>
+      <PropertyRef Name="Form" />
+    </Key>
+    <Property Name="Form" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MailCC" Type="nvarchar" MaxLength="500" />
+    <Property Name="MailTo" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TABLE_LUUTRU_SOHOADON">
+    <Key>
+      <PropertyRef Name="ID_SOCTXN" />
+    </Key>
+    <Property Name="ID_SOCTXN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SOCTXN" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="PO" Type="varchar" MaxLength="50" />
+    <Property Name="PR" Type="varchar" MaxLength="50" />
+    <Property Name="kyhieuhoadon" Type="varchar" MaxLength="50" />
+    <Property Name="sohoadon" Type="varchar" MaxLength="50" />
+    <Property Name="LinkHD" Type="nvarchar(max)" />
+    <Property Name="TenHinhAnh" Type="nvarchar(max)" />
+    <Property Name="HinhAnh" Type="varbinary(max)" />
+    <Property Name="FileNamePDF" Type="nvarchar(max)" />
+    <Property Name="ContentTypePDF" Type="nvarchar(max)" />
+    <Property Name="FileDataPDF" Type="varbinary(max)" />
+    <Property Name="THANG" Type="int" />
+    <Property Name="NAM" Type="int" />
+    <Property Name="LoaiPhieu" Type="varchar" MaxLength="50" />
+    <Property Name="Thumuc" Type="nvarchar(max)" />
+    <Property Name="NGAYKHAI" Type="datetime" />
+    <Property Name="TOKHAI" Type="nvarchar" MaxLength="150" />
+    <Property Name="MST" Type="varchar" MaxLength="50" />
+    <Property Name="XUATXU" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgoaiTe" Type="varchar" MaxLength="50" />
+    <Property Name="TyGia_NgoaiTe" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="NGAYHD" Type="datetime" />
+    <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYCN" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TBL_DMCHUKY">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="VITRICV" Type="nvarchar" MaxLength="200" />
+    <Property Name="MAQUYEN" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="HIEULUC" Type="bit" />
+    <Property Name="CHUKY" Type="image" />
+  </EntityType>
+  <EntityType Name="TBL_DMLOAIVT_COA">
+    <Key>
+      <PropertyRef Name="ID_INT" />
+    </Key>
+    <Property Name="NVL" Type="varchar" MaxLength="50" />
+    <Property Name="TenNVL" Type="nvarchar" MaxLength="250" />
+    <Property Name="LoaiVT" Type="varchar" MaxLength="50" />
+    <Property Name="TenLoaiVT" Type="nvarchar" MaxLength="250" />
+    <Property Name="ManhomVT" Type="varchar" MaxLength="50" />
+    <Property Name="TenNhomVT" Type="nvarchar" MaxLength="250" />
+    <Property Name="Kytu_theonhom" Type="varchar" MaxLength="50" />
+    <Property Name="Len_kytu" Type="int" StoreGeneratedPattern="Computed" />
+    <Property Name="MACP" Type="varchar" MaxLength="50" />
+    <Property Name="ASSET" Type="varchar" MaxLength="50" />
+    <Property Name="Name_Asset" Type="nvarchar" MaxLength="150" />
+    <Property Name="TK_PhiSX" Type="varchar" MaxLength="50" />
+    <Property Name="Name_TK_PhiSX" Type="nvarchar" MaxLength="150" />
+    <Property Name="COGS" Type="varchar" MaxLength="50" />
+    <Property Name="Name_COGS" Type="nvarchar" MaxLength="150" />
+    <Property Name="INCOME" Type="varchar" MaxLength="50" />
+    <Property Name="Name_INCOME" Type="nvarchar" MaxLength="150" />
+    <Property Name="HIEULUC" Type="bit" />
+    <Property Name="INT" Type="int" Nullable="false" />
+    <Property Name="WIPSTATUS" Type="varchar" MaxLength="50" />
+    <Property Name="CustomForm" Type="varchar" MaxLength="50" />
+    <Property Name="ID_INT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_PHIENMAVT_BYMAHANG">
+    <Key>
+      <PropertyRef Name="ID_PHIEN" />
+    </Key>
+    <Property Name="SOCTXUAT_VAI" Type="varchar" MaxLength="50" />
+    <Property Name="MAHANGVAI" Type="varchar" MaxLength="50" />
+    <Property Name="MACAY" Type="varchar" MaxLength="50" />
+    <Property Name="DVT_VAI" Type="varchar" MaxLength="50" />
+    <Property Name="SOLUONG" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="MAVT" Type="varchar" MaxLength="50" />
+    <Property Name="DVT_MAVT" Type="varchar" MaxLength="50" />
+    <Property Name="SOLUONGTT" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="MANVMODIFY" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYMODIFY" Type="datetime" />
+    <Property Name="ID_PHIEN" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="KEYKHOA" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblDINHMUCVANPHONGPHAM">
+    <Key>
+      <PropertyRef Name="NAM" />
+      <PropertyRef Name="IDMaDV" />
+      <PropertyRef Name="LOAIVT" />
+    </Key>
+    <Property Name="NAM" Type="int" Nullable="false" />
+    <Property Name="IDMaDV" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LOAIVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SOTIEN" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="NGUOICN" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLDMCAPCOSO">
+    <Key>
+      <PropertyRef Name="MADVI" />
+      <PropertyRef Name="MABP" />
+      <PropertyRef Name="STTBP" />
+    </Key>
+    <Property Name="MADVI" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MABP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="STTBP" Type="int" Nullable="false" />
+    <Property Name="MADV_NETSUITE" Type="varchar" MaxLength="50" />
+    <Property Name="MABP_NETSUITE" Type="varchar" MaxLength="50" />
+    <Property Name="TENGOI" Type="nvarchar" MaxLength="1000" />
+    <Property Name="KihieuBP" Type="varchar" MaxLength="50" />
+    <Property Name="hieuluc" Type="bit" />
+    <Property Name="IDMaCS" Type="varchar" MaxLength="20" />
+    <Property Name="IDMaDV" Type="varchar" MaxLength="20" />
+    <Property Name="TengoiCTNS" Type="nvarchar" MaxLength="500" />
+    <Property Name="TenGiaoDich_CS" Type="nvarchar(max)" />
+    <Property Name="DiaChi_CS" Type="nvarchar(max)" />
+    <Property Name="SoDienThoai_CS" Type="nvarchar(max)" />
+    <Property Name="Fax_CS" Type="nvarchar(max)" />
+    <Property Name="Thanhpham_Xuat" Type="bit" />
+    <Property Name="Thanhpham_Nhap" Type="bit" />
+    <Property Name="BPDatbong" Type="bit" />
+    <Property Name="NhomBP" Type="varchar" MaxLength="50" />
+    <Property Name="MANV_XEMXET" Type="varchar" MaxLength="50" />
+    <Property Name="MADHNHUOM" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblDMDVTINH">
+    <Key>
+      <PropertyRef Name="DVTDS" />
+    </Key>
+    <Property Name="DVTDS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TEN" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLDMMAHANG">
+    <Key>
+      <PropertyRef Name="MAHANG" />
+    </Key>
+    <Property Name="MAHANG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NHOMHANG" Type="varchar" MaxLength="30" />
+    <Property Name="DUOIGOC" Type="varchar" MaxLength="30" />
+    <Property Name="SOLABONG" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MNMOC" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="MNDOC" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="KHOMACLUOC" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="KHOMOC" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MAHANGTN" Type="varchar" MaxLength="50" />
+    <Property Name="MANHOMMAY" Type="varchar" MaxLength="10" />
+    <Property Name="MAHANG2" Type="varchar" MaxLength="30" />
+    <Property Name="COHAOHUTNHUOM" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="GTDET" Type="char" MaxLength="1" />
+    <Property Name="GTNHUOM" Type="char" MaxLength="1" />
+    <Property Name="MNTP" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TLGM2" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="DSGM2DUONG" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="DSGM2AM" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="DVTDS" Type="varchar" MaxLength="10" />
+    <Property Name="KHOTP" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="HIEULUCHC" Type="bit" Nullable="false" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="NGUOICN" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblDMNGUYENLIEU">
+    <Key>
+      <PropertyRef Name="Mavattu" />
+    </Key>
+    <Property Name="MAID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mavattu" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Tenvattu" Type="nvarchar" MaxLength="150" />
+    <Property Name="MaNGL" Type="varchar" MaxLength="20" />
+    <Property Name="Ghichu" Type="varchar" MaxLength="100" />
+    <Property Name="CS1" Type="varchar" MaxLength="10" />
+    <Property Name="CS2" Type="varchar" MaxLength="10" />
+    <Property Name="DVT" Type="varchar" MaxLength="6" />
+    <Property Name="isHieuluc" Type="int" />
+    <Property Name="MA2" Type="varchar" MaxLength="20" />
+    <Property Name="Manhomvt" Type="varchar" MaxLength="20" />
+    <Property Name="Dongia" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TenVTat" Type="varchar" MaxLength="150" />
+    <Property Name="Ngaycn" Type="datetime" />
+    <Property Name="MANGL1" Type="varchar" MaxLength="20" />
+    <Property Name="Tile1" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="MANGL2" Type="varchar" MaxLength="20" />
+    <Property Name="Tile2" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="MANGL3" Type="varchar" MaxLength="20" />
+    <Property Name="Tile3" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="MANGL4" Type="varchar" MaxLength="20" />
+    <Property Name="Tile4" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="MANGL5" Type="varchar" MaxLength="20" />
+    <Property Name="Tile5" Type="numeric" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblDMNGUYENLIEUOLD">
+    <Key>
+      <PropertyRef Name="Mavattu" />
+    </Key>
+    <Property Name="MAID" Type="varchar" MaxLength="50" />
+    <Property Name="Mavattu" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Tenvattu" Type="nvarchar" MaxLength="150" />
+    <Property Name="MaNGL" Type="varchar" MaxLength="20" />
+    <Property Name="Ghichu" Type="varchar" MaxLength="100" />
+    <Property Name="CS1" Type="varchar" MaxLength="10" />
+    <Property Name="CS2" Type="varchar" MaxLength="10" />
+    <Property Name="DVT" Type="varchar" MaxLength="6" />
+    <Property Name="isHieuluc" Type="int" />
+    <Property Name="MA2" Type="varchar" MaxLength="20" />
+    <Property Name="Manhomvt" Type="varchar" MaxLength="20" />
+    <Property Name="Dongia" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TenVTat" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tblKiHieuNhapKho">
+    <Key>
+      <PropertyRef Name="MAKHO" />
+      <PropertyRef Name="KIHIEU" />
+    </Key>
+    <Property Name="MAKHO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="KIHIEU" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblKyhieudonvidathang">
+    <Key>
+      <PropertyRef Name="Kyhieudonvidathang" />
+    </Key>
+    <Property Name="MADV" Type="varchar" MaxLength="50" />
+    <Property Name="Kyhieudonvi" Type="varchar" MaxLength="50" />
+    <Property Name="Kihieucoso" Type="varchar" MaxLength="50" />
+    <Property Name="Kyhieudonvidathang" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblNhomVattu">
+    <Key>
+      <PropertyRef Name="Manhom" />
+    </Key>
+    <Property Name="Manhom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tenmanhom" Type="nvarchar" MaxLength="250" />
+    <Property Name="Hieuluc" Type="bit" />
+    <Property Name="Ngaycapnhat" Type="datetime" />
+    <Property Name="Manvcapnhat" Type="varchar" MaxLength="50" />
+    <Property Name="Ngaymodify" Type="datetime" />
+    <Property Name="Manvmodify" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLTHUKYBANTGD">
+    <Key>
+      <PropertyRef Name="KYHIEUDONVI" />
+      <PropertyRef Name="MAPD" />
+    </Key>
+    <Property Name="KYHIEUDONVI" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAPD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MATIEPNHAN" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMAILTHUKY" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TiGia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CurrencyCode" Type="nvarchar" MaxLength="250" />
+    <Property Name="CurrencyName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Buy" Type="float" />
+    <Property Name="Transfer" Type="float" />
+    <Property Name="Sell" Type="float" />
+    <Property Name="DateUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TONDAUKY">
+    <Key>
+      <PropertyRef Name="Khoa" />
+    </Key>
+    <Property Name="Nam" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="MaVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaKho" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SLTonDauKy" Type="numeric" Precision="18" Scale="6" />
+    <Property Name="Ngay" Type="datetime" />
+    <Property Name="MaPhieuPD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Khoa" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoaiVT" Type="varchar" MaxLength="50" />
+    <Property Name="DonviSDung" Type="varchar" MaxLength="50" />
+    <Property Name="Dongia" Type="numeric" Precision="18" Scale="6" />
+    <Property Name="Den170918conton" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="TongCPtheoMH">
+    <Key>
+      <PropertyRef Name="idkhoa" />
+    </Key>
+    <Property Name="idkhoa" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MahangD" Type="varchar" MaxLength="50" />
+    <Property Name="MahangN" Type="varchar" MaxLength="50" />
+    <Property Name="nguongoc" Type="varchar" MaxLength="50" />
+    <Property Name="CPnhuom" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CPDet" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CPLuuthong" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Tigia" Type="numeric" Precision="18" Scale="3" />
+    <Property Name="loinhuan" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="giaban" Type="numeric" Precision="18" Scale="3" />
+    <Property Name="GiaVon" Type="numeric" Precision="18" Scale="3" />
+    <Property Name="Ngaytinh" Type="datetime" />
+    <Property Name="MaPhieuTT" Type="varchar" MaxLength="50" />
+    <Property Name="CPDet_ChuyenLai" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CPLuuthong_ChuyenLai" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="giaban_ChuyenLai" Type="numeric" Precision="18" Scale="3" />
+    <Property Name="GiaVon_ChuyenLai" Type="numeric" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="TongHopTDK">
+    <Key>
+      <PropertyRef Name="MaVT" />
+    </Key>
+    <Property Name="Nam" Type="varchar" MaxLength="5" />
+    <Property Name="MaVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SLTonDauKy" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Ngay" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TTCHIPHICHATLUONG">
+    <Key>
+      <PropertyRef Name="KHOACPCL" />
+    </Key>
+    <Property Name="KHOACPCL" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="THITRUONG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TILE" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="HIEULUC" Type="bit" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="NGUOICAPNHAT" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TTChiphiHoahong">
+    <Key>
+      <PropertyRef Name="KhoaCPHH" />
+    </Key>
+    <Property Name="KhoaCPHH" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TILE" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ngaycn" Type="datetime" />
+    <Property Name="hieuluc" Type="bit" />
+    <Property Name="NguoiCapNhat" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TTCHIPHIVANCHUYEN">
+    <Key>
+      <PropertyRef Name="KHOACPVC" />
+    </Key>
+    <Property Name="KHOACPVC" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="THITRUONG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DonGiaCont" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="SanLuongCont" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="DONGIA" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="DVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="HIEULUC" Type="bit" />
+    <Property Name="NVCAPNHAT" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TTchitietnhanTT">
+    <Key>
+      <PropertyRef Name="MaphieuTT" />
+      <PropertyRef Name="ManvNhan" />
+    </Key>
+    <Property Name="MaphieuTT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManvNhan" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaBP" Type="varchar" MaxLength="50" />
+    <Property Name="Chucvu" Type="varchar" MaxLength="50" />
+    <Property Name="LoaiTT" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TTCTcdoan1">
+    <Key>
+      <PropertyRef Name="Macd1" />
+      <PropertyRef Name="CTMaCD1" />
+    </Key>
+    <Property Name="Macd1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CTMaCD1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="stt" Type="int" />
+  </EntityType>
+  <EntityType Name="TTCTcdoan2">
+    <Key>
+      <PropertyRef Name="Macd2" />
+      <PropertyRef Name="CTMaCD2" />
+    </Key>
+    <Property Name="Macd2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CTMaCD2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="stt" Type="int" />
+  </EntityType>
+  <EntityType Name="TTCTPHIEUMAHANG_EXCEL">
+    <Key>
+      <PropertyRef Name="Mahang" />
+      <PropertyRef Name="NGUOICAPNHAT" />
+    </Key>
+    <Property Name="Mahang" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Capmau" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tone1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tone" Type="int" Nullable="false" />
+    <Property Name="Phuongthuc" Type="varchar" MaxLength="50" />
+    <Property Name="Kho" Type="varchar" MaxLength="3" />
+    <Property Name="Macongnghenhuom" Type="varchar" MaxLength="50" />
+    <Property Name="Uudai" Type="varchar" MaxLength="50" />
+    <Property Name="LoaiHang" Type="varchar" MaxLength="50" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="100" />
+    <Property Name="NGUOICAPNHAT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NGAYCAPNHAT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TTDMBaoBi">
+    <Key>
+      <PropertyRef Name="Ma" />
+    </Key>
+    <Property Name="Ma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="loaihang" Type="nvarchar" MaxLength="200" />
+    <Property Name="Kho" Type="nvarchar" MaxLength="150" />
+    <Property Name="thitrongdongkieu" Type="nvarchar" MaxLength="4000" />
+    <Property Name="dvt" Type="varchar" MaxLength="50" />
+    <Property Name="tien" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ghichu" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Hieuluc" Type="bigint" />
+    <Property Name="Ngaycn" Type="date" />
+    <Property Name="ThiTruong" Type="varchar" MaxLength="50" />
+    <Property Name="manvxk" Type="varchar" MaxLength="50" />
+    <Property Name="manvkt" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TTDMcdoan1">
+    <Key>
+      <PropertyRef Name="Macd1" />
+    </Key>
+    <Property Name="Macd1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tencd1" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TTDMcdoan2">
+    <Key>
+      <PropertyRef Name="macd2" />
+    </Key>
+    <Property Name="macd2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tencd2" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TTDMMAHANG_TRACUUGIATHANH">
+    <Key>
+      <PropertyRef Name="MAHANG" />
+      <PropertyRef Name="NGUOINHAP" />
+    </Key>
+    <Property Name="MAHANG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NGAYNHAP" Type="datetime" />
+    <Property Name="NGUOINHAP" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TTDMPHIEU_TRACUUGIATHANH">
+    <Key>
+      <PropertyRef Name="MAPHIEU" />
+      <PropertyRef Name="NGUOINHAP" />
+    </Key>
+    <Property Name="MAPHIEU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NGAYNHAP" Type="datetime" />
+    <Property Name="NGUOINHAP" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TTDMTONE">
+    <Key>
+      <PropertyRef Name="MATONE" />
+    </Key>
+    <Property Name="MATONE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TEN" Type="nvarchar" MaxLength="50" />
+    <Property Name="GHICHU" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="TTDMTTCT1">
+    <Key>
+      <PropertyRef Name="CTMaCD1" />
+    </Key>
+    <Property Name="CTMaCD1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tengoi" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TTDMTTCT2">
+    <Key>
+      <PropertyRef Name="CTMaCD2" />
+    </Key>
+    <Property Name="CTMaCD2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tengoi" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TTEmail">
+    <Key>
+      <PropertyRef Name="ToCC" />
+      <PropertyRef Name="Site" />
+      <PropertyRef Name="ThiTruong" />
+    </Key>
+    <Property Name="ToCC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Site" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ThiTruong" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="TTG_BASEVN_DEPARTMENT">
+    <Key>
+      <PropertyRef Name="ID_LOG" />
+    </Key>
+    <Property Name="BASE_DEPARTMENT" Type="nvarchar" MaxLength="350" />
+    <Property Name="KIHIEU" Type="varchar" MaxLength="50" />
+    <Property Name="ID_LOG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TTG_BASEVN_LOG_PR">
+    <Key>
+      <PropertyRef Name="ID_LOG" />
+    </Key>
+    <Property Name="MAPHIEUPR" Type="varchar" MaxLength="50" />
+    <Property Name="isSTATUS" Type="bit" />
+    <Property Name="STATUSCODE" Type="nvarchar" MaxLength="250" />
+    <Property Name="Department" Type="nvarchar" MaxLength="550" />
+    <Property Name="ERROR" Type="nvarchar" MaxLength="550" />
+    <Property Name="GHICHU" Type="nvarchar(max)" />
+    <Property Name="ID_LOG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="Root_id" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TTG_BASEVN_TOKEN_API">
+    <Key>
+      <PropertyRef Name="id_log" />
+    </Key>
+    <Property Name="namebase" Type="varchar" MaxLength="50" />
+    <Property Name="access_token" Type="nvarchar" MaxLength="450" />
+    <Property Name="service_id" Type="varchar" MaxLength="50" />
+    <Property Name="block_id" Type="varchar" MaxLength="50" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="url" Type="nvarchar" MaxLength="1550" />
+    <Property Name="id_log" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="isHieuluc" Type="bit" />
+  </EntityType>
+  <EntityType Name="TTLoaiPhieu">
+    <Key>
+      <PropertyRef Name="LoaiTT" />
+    </Key>
+    <Property Name="LoaiTT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tenloai" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TTLuuChiPhiBaoBi">
+    <Key>
+      <PropertyRef Name="idkhoa" />
+      <PropertyRef Name="Ma" />
+    </Key>
+    <Property Name="idkhoa" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Ma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tien" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="thanhtien_baobi" Type="numeric" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="TTLuuChiPhiVanChuyen">
+    <Key>
+      <PropertyRef Name="idkhoa" />
+      <PropertyRef Name="KhoaCPVC" />
+    </Key>
+    <Property Name="idkhoa" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="KhoaCPVC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dongia" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="thanhtien_vanchuyen" Type="numeric" Precision="18" Scale="4" />
+  </EntityType>
+  <EntityType Name="TTPhanhoi">
+    <Key>
+      <PropertyRef Name="idkhoa" />
+    </Key>
+    <Property Name="MaphieuTT" Type="varchar" MaxLength="50" />
+    <Property Name="Macd1" Type="varchar" MaxLength="50" />
+    <Property Name="Macd2" Type="varchar" MaxLength="50" />
+    <Property Name="idkhoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UyQuyen">
+    <Key>
+      <PropertyRef Name="NguoiUyQuyen" />
+      <PropertyRef Name="NguoiDuocUyQuyen" />
+    </Key>
+    <Property Name="NguoiUyQuyen" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NguoiDuocUyQuyen" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ngay" Type="datetime" />
+    <Property Name="HieuLuc" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="VATTU2024_DMKHO">
+    <Key>
+      <PropertyRef Name="MAKHO" />
+    </Key>
+    <Property Name="MAKHO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENKHO" Type="nvarchar" MaxLength="200" />
+    <Property Name="MAKHOKETOAN" Type="varchar" MaxLength="50" />
+    <Property Name="NHOM_OGSTM" Type="nvarchar" MaxLength="250" />
+    <Property Name="DV_OGSTM" Type="nvarchar" MaxLength="200" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="250" />
+    <Property Name="XUATNOIBO" Type="bit" />
+    <Property Name="ThuKho" Type="varchar" MaxLength="50" />
+    <Property Name="Loaiphieu" Type="varchar" MaxLength="50" />
+    <Property Name="hieuluc" Type="bit" />
+    <Property Name="IsNhamay" Type="bit" />
+  </EntityType>
+  <EntityType Name="VATTU2025_DanhSachQuocGia">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENQUOCGIA" Type="nvarchar" MaxLength="250" />
+    <Property Name="MAQUOCGIA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="VATTU2025_NGOAITE">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgoaiTe" Type="varchar" MaxLength="50" />
+    <Property Name="TenNgoaiTe" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="VATTU2026_CTPHIEU_MAVTTUONGDUONG">
+    <Key>
+      <PropertyRef Name="KEYID" />
+    </Key>
+    <Property Name="KEY_CTPHIEU" Type="varchar(max)" />
+    <Property Name="MAPHIEU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAVT_TDUONG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GIANHAPGANNHAT" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="GHICHU" Type="nchar" MaxLength="10" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="KEYID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="XUATNHAP">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="SoCTXN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ngay" Type="datetime" />
+    <Property Name="LoaiXN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaNVYC" Type="varchar" MaxLength="50" />
+    <Property Name="MANVXuat" Type="varchar" MaxLength="50" />
+    <Property Name="DonViYeuCau" Type="varchar" MaxLength="50" />
+    <Property Name="MaBP" Type="varchar" MaxLength="50" />
+    <Property Name="MaKho" Type="varchar" MaxLength="50" />
+    <Property Name="MAVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SoLuongYC" Type="numeric" Precision="18" Scale="6" />
+    <Property Name="SoLuongTT" Type="numeric" Precision="18" Scale="6" />
+    <Property Name="MaPhieuPD" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="GHICHU" Type="nvarchar" MaxLength="200" />
+    <Property Name="LoaiCapPhat" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoCTKeToan" Type="varchar" MaxLength="50" />
+    <Property Name="NgayKeToan" Type="datetime" />
+    <Property Name="MaVTTam" Type="varchar" MaxLength="50" />
+    <Property Name="modified" Type="datetime" />
+    <Property Name="MaTaiSan" Type="varchar" MaxLength="50" />
+    <Property Name="RatePO" Type="numeric" Precision="30" Scale="4" />
+    <Property Name="DVT_TIEN" Type="varchar" MaxLength="50" />
+    <Property Name="TongGia" Type="numeric" Precision="30" Scale="4" />
+    <Property Name="DaXuatKho" Type="tinyint" />
+    <Property Name="KHOAKEYXN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MaTruongDV" Type="nvarchar" MaxLength="50" />
+    <Property Name="XacNhanTDV" Type="tinyint" />
+    <Property Name="NgayXacNhan" Type="datetime" />
+    <Property Name="TenVT_NCC" Type="nvarchar" MaxLength="500" />
+    <Property Name="DVT_NCC" Type="nvarchar" MaxLength="100" />
+    <Property Name="SOLUONGTT_NCC" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="VAT" Type="int" />
+    <Property Name="Ghichugia" Type="nvarchar" MaxLength="500" />
+    <Property Name="MAKH" Type="varchar" MaxLength="50" />
+    <Property Name="MaphieuchuyenNB" Type="varchar" MaxLength="50" />
+    <Property Name="MaKhoXuat" Type="varchar" MaxLength="50" />
+    <Property Name="MADH_CN" Type="varchar" MaxLength="50" />
+    <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="MANVMODIFY" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYMODIFY" Type="datetime" />
+    <Property Name="KHOATHAMCHIEU" Type="nvarchar(max)" />
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__LDD_CTPHI__MAPHI__38A15C1B">
+    <End Role="LDD_DMPHIEU" Type="Self.LDD_DMPHIEU" Multiplicity="0..1" />
+    <End Role="LDD_CTPHIEU" Type="Self.LDD_CTPHIEU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LDD_DMPHIEU">
+        <PropertyRef Name="MAPHIEU" />
+      </Principal>
+      <Dependent Role="LDD_CTPHIEU">
+        <PropertyRef Name="MAPHIEU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LDD_DMPHI__NOIDE__33DCA6FE">
+    <End Role="LDD_DMNOIDEN" Type="Self.LDD_DMNOIDEN" Multiplicity="0..1" />
+    <End Role="LDD_DMPHIEU" Type="Self.LDD_DMPHIEU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LDD_DMNOIDEN">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="LDD_DMPHIEU">
+        <PropertyRef Name="NOIDEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CCPN_Menu_CCPN_Menu">
+    <End Role="CCPN_Menu" Type="Self.CCPN_Menu" Multiplicity="0..1" />
+    <End Role="CCPN_Menu1" Type="Self.CCPN_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CCPN_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CCPN_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CCPN_Menu_CCPN_Page">
+    <End Role="CCPN_Page" Type="Self.CCPN_Page" Multiplicity="0..1" />
+    <End Role="CCPN_Menu" Type="Self.CCPN_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CCPN_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CCPN_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CCPN_User_Page_CCPN_Page">
+    <End Role="CCPN_Page" Type="Self.CCPN_Page" Multiplicity="0..1" />
+    <End Role="CCPN_User_Page" Type="Self.CCPN_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CCPN_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CCPN_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CCPN_User_Page_CCPN_User">
+    <End Role="CCPN_User" Type="Self.CCPN_User" Multiplicity="0..1" />
+    <End Role="CCPN_User_Page" Type="Self.CCPN_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CCPN_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CCPN_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CCPN_User_Role_CCPN_Role">
+    <End Role="CCPN_Role" Type="Self.CCPN_Role" Multiplicity="0..1" />
+    <End Role="CCPN_User_Role" Type="Self.CCPN_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CCPN_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CCPN_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CCPN_User_Role_CCPN_User">
+    <End Role="CCPN_User" Type="Self.CCPN_User" Multiplicity="0..1" />
+    <End Role="CCPN_User_Role" Type="Self.CCPN_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CCPN_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CCPN_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTPHIEU_03022024_DMPHIEU">
+    <End Role="DMPHIEU" Type="Self.DMPHIEU" Multiplicity="1" />
+    <End Role="CTPHIEU" Type="Self.CTPHIEU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMPHIEU">
+        <PropertyRef Name="MAPHIEU" />
+      </Principal>
+      <Dependent Role="CTPHIEU">
+        <PropertyRef Name="MAPHIEU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTPhieu_CDMH_DMPhieu_CDMH">
+    <End Role="DMPhieu_CDMH" Type="Self.DMPhieu_CDMH" Multiplicity="1" />
+    <End Role="CTPhieu_CDMH" Type="Self.CTPhieu_CDMH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMPhieu_CDMH">
+        <PropertyRef Name="Maphieu" />
+      </Principal>
+      <Dependent Role="CTPhieu_CDMH">
+        <PropertyRef Name="Maphieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTPHIEU05_DanhMucVatTu">
+    <End Role="DANHMUCVATTU" Type="Self.DANHMUCVATTU" Multiplicity="1" />
+    <End Role="CTPHIEU05" Type="Self.CTPHIEU05" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANHMUCVATTU">
+        <PropertyRef Name="MAVT" />
+      </Principal>
+      <Dependent Role="CTPHIEU05">
+        <PropertyRef Name="MAVT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTPHIEU05_DMPhieu">
+    <End Role="DMPHIEU" Type="Self.DMPHIEU" Multiplicity="1" />
+    <End Role="CTPHIEU05" Type="Self.CTPHIEU05" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMPHIEU">
+        <PropertyRef Name="MAPHIEU" />
+      </Principal>
+      <Dependent Role="CTPHIEU05">
+        <PropertyRef Name="MAPHIEU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DangMucChiPhi_DMLoaiChiPhi">
+    <End Role="DMLoaiChiPhi" Type="Self.DMLoaiChiPhi" Multiplicity="0..1" />
+    <End Role="DANHMUCCHIPHI" Type="Self.DANHMUCCHIPHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMLoaiChiPhi">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="DANHMUCCHIPHI">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DanhMucVatTu_DanhMucDonVitinh">
+    <End Role="DANHMUCDONVITINH" Type="Self.DANHMUCDONVITINH" Multiplicity="0..1" />
+    <End Role="DANHMUCVATTU" Type="Self.DANHMUCVATTU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANHMUCDONVITINH">
+        <PropertyRef Name="FMaDVT" />
+      </Principal>
+      <Dependent Role="DANHMUCVATTU">
+        <PropertyRef Name="DVT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DanhMucVatTu_DMViTri">
+    <End Role="DMViTri" Type="Self.DMViTri" Multiplicity="0..1" />
+    <End Role="DANHMUCVATTU" Type="Self.DANHMUCVATTU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMViTri">
+        <PropertyRef Name="MaVitri" />
+      </Principal>
+      <Dependent Role="DANHMUCVATTU">
+        <PropertyRef Name="ViTriDe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DMGIATRIVATTU_DANHMUCVATTU">
+    <End Role="DANHMUCVATTU" Type="Self.DANHMUCVATTU" Multiplicity="1" />
+    <End Role="DMGIATRIVATTU" Type="Self.DMGIATRIVATTU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANHMUCVATTU">
+        <PropertyRef Name="MAVT" />
+      </Principal>
+      <Dependent Role="DMGIATRIVATTU">
+        <PropertyRef Name="MAVT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DMGIATRIVATTU_DMKho">
+    <End Role="DMKHo" Type="Self.DMKHo" Multiplicity="1" />
+    <End Role="DMGIATRIVATTU" Type="Self.DMGIATRIVATTU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMKHo">
+        <PropertyRef Name="MAKHO" />
+      </Principal>
+      <Dependent Role="DMGIATRIVATTU">
+        <PropertyRef Name="MAKHO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DMLOAIVT_DanhmucLoaiVT">
+    <End Role="DanhmucLoaiVT" Type="Self.DanhmucLoaiVT" Multiplicity="1" />
+    <End Role="DMLOAIVT" Type="Self.DMLOAIVT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanhmucLoaiVT">
+        <PropertyRef Name="LoaiVT" />
+      </Principal>
+      <Dependent Role="DMLOAIVT">
+        <PropertyRef Name="LoaiVT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DMNhanVien_DMDonVi">
+    <End Role="DMDONVI" Type="Self.DMDONVI" Multiplicity="0..1" />
+    <End Role="OLD" Type="Self.OLD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMDONVI">
+        <PropertyRef Name="MaDonVi" />
+      </Principal>
+      <Dependent Role="OLD">
+        <PropertyRef Name="MADV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DMPhieu_DMLOAIPHIEU">
+    <End Role="DMLOAIPHIEU" Type="Self.DMLOAIPHIEU" Multiplicity="1" />
+    <End Role="DMPHIEU" Type="Self.DMPHIEU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMLOAIPHIEU">
+        <PropertyRef Name="LOAI" />
+      </Principal>
+      <Dependent Role="DMPHIEU">
+        <PropertyRef Name="LOAIPHIEU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DMVITRIKHO_DMKho">
+    <End Role="DMKHo" Type="Self.DMKHo" Multiplicity="1" />
+    <End Role="DMVITRIKHO" Type="Self.DMVITRIKHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMKHo">
+        <PropertyRef Name="MAKHO" />
+      </Principal>
+      <Dependent Role="DMVITRIKHO">
+        <PropertyRef Name="MAKHO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_Menu_Home_Menu">
+    <End Role="Home_Menu" Type="Self.Home_Menu" Multiplicity="0..1" />
+    <End Role="Home_Menu1" Type="Self.Home_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_Menu_Home_Page">
+    <End Role="Home_Page" Type="Self.Home_Page" Multiplicity="0..1" />
+    <End Role="Home_Menu" Type="Self.Home_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_Software_Home_SoftwareGroup">
+    <End Role="Home_SoftwareGroup" Type="Self.Home_SoftwareGroup" Multiplicity="0..1" />
+    <End Role="Home_Software" Type="Self.Home_Software" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_SoftwareGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Software">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Page_Home_Page">
+    <End Role="Home_Page" Type="Self.Home_Page" Multiplicity="0..1" />
+    <End Role="Home_User_Page" Type="Self.Home_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Page_Home_User">
+    <End Role="Home_User" Type="Self.Home_User" Multiplicity="0..1" />
+    <End Role="Home_User_Page" Type="Self.Home_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Role_Home_Role">
+    <End Role="Home_Role" Type="Self.Home_Role" Multiplicity="0..1" />
+    <End Role="Home_User_Role" Type="Self.Home_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Role_Home_User">
+    <End Role="Home_User" Type="Self.Home_User" Multiplicity="0..1" />
+    <End Role="Home_User_Role" Type="Self.Home_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_htk_id_sanpham">
+    <End Role="dmVitriKe" Type="Self.dmVitriKe" Multiplicity="0..1" />
+    <End Role="dmVitriTang" Type="Self.dmVitriTang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dmVitriKe">
+        <PropertyRef Name="Khoa1" />
+      </Principal>
+      <Dependent Role="dmVitriTang">
+        <PropertyRef Name="Khoa1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanQuyenSitesQLKhoSoi_DMSitesQLKhoSoi">
+    <End Role="DMSitesQLKhoSoi" Type="Self.DMSitesQLKhoSoi" Multiplicity="0..1" />
+    <End Role="PhanQuyenSitesQLKhoSoi" Type="Self.PhanQuyenSitesQLKhoSoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMSitesQLKhoSoi">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhanQuyenSitesQLKhoSoi">
+        <PropertyRef Name="IDSites" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDMcapcoso_DMDonVi">
+    <End Role="DMDONVI" Type="Self.DMDONVI" Multiplicity="1" />
+    <End Role="TBLDMCAPCOSO" Type="Self.TBLDMCAPCOSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMDONVI">
+        <PropertyRef Name="MaDonVi" />
+      </Principal>
+      <Dependent Role="TBLDMCAPCOSO">
+        <PropertyRef Name="MADVI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TonDauKy_DanhMucVatTu">
+    <End Role="DANHMUCVATTU" Type="Self.DANHMUCVATTU" Multiplicity="1" />
+    <End Role="TONDAUKY" Type="Self.TONDAUKY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANHMUCVATTU">
+        <PropertyRef Name="MAVT" />
+      </Principal>
+      <Dependent Role="TONDAUKY">
+        <PropertyRef Name="MaVT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TonDauKy_DMKho">
+    <End Role="DMKHo" Type="Self.DMKHo" Multiplicity="1" />
+    <End Role="TONDAUKY" Type="Self.TONDAUKY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DMKHo">
+        <PropertyRef Name="MAKHO" />
+      </Principal>
+      <Dependent Role="TONDAUKY">
+        <PropertyRef Name="MaKho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="A23_LoadChiTietBM05" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maphieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="A23_LoadNguoiTiepNhan_ByMaPhieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="kyhieudonvi" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="BM05_CREATE_MAPHIEU_STT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="thang" Type="varchar" Mode="In" />
+    <Parameter Name="nam" Type="varchar" Mode="In" />
+    <Parameter Name="loaiphieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CTPHIEU05_DELETE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="NHANVIENLAPPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CTPHIEU05_LOADCHITIETPHIEU_XEMXET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CTPHIEU05_LOADMAPHIEUXEMXET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="insert_quyennhapkho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="load_kihieukho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Load_MANVYC_XNKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Load_NhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_2023_LOADPHIEUXX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="FLAT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_ADDCHITIETPHIEUYEUCAU05" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="STT" Type="numeric" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="SLYCAU" Type="numeric" Mode="In" />
+    <Parameter Name="MASOCP" Type="varchar" Mode="In" />
+    <Parameter Name="LYDOSD" Type="nvarchar" Mode="In" />
+    <Parameter Name="THOIDIEMSD" Type="datetime" Mode="In" />
+    <Parameter Name="GHICHU" Type="nvarchar" Mode="In" />
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOLUONGTK" Type="numeric" Mode="In" />
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="MABP" Type="varchar" Mode="In" />
+    <Parameter Name="DACTINHKYTHUAT" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Sp_API_Load_NLDMPhieu_vattu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maphieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_AutoCreate_PhieuXuatBanVatTu_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SHOWROOM" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_AutoCreate_PhieuXuatBanVatTu_INSERT_TRABILL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SHOWROOM" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_BM05TUDONVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MANVYEUCAU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_CHATLUONG_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCT" Type="varchar" Mode="In" />
+    <Parameter Name="NGAYKHO" Type="datetime" Mode="In" />
+    <Parameter Name="NGAYKT" Type="datetime" Mode="In" />
+    <Parameter Name="THUKHO" Type="varchar" Mode="In" />
+    <Parameter Name="GDDV" Type="varchar" Mode="In" />
+    <Parameter Name="KHOXN" Type="bit" Mode="In" />
+    <Parameter Name="DVXN" Type="bit" Mode="In" />
+    <Parameter Name="DAIN" Type="bit" Mode="In" />
+    <Parameter Name="FLAGXOA" Type="tinyint" Mode="In" />
+    <Parameter Name="DVKT" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Sp_CheckMABP_LapPhieuXuatTheoTungDonVi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_CHIPHI_28062016" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_Crchatluong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="soct" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_CRCHATLUONG_NEW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_CRCHATLUONG_THEOHOADON" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTKETOAN" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_DonVi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_DropList_LoaiVT_NQTH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOAIVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_DROPLIST_MAVT_NQTH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DVKTCL_LOADSOCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOCT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GET_CHITIET_DINHMUCVANPHONGPHAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAM" Type="int" Mode="In" />
+    <Parameter Name="IDMADV" Type="nvarchar" Mode="In" />
+    <Parameter Name="LOAIVT" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GET_DANHSACH_DMLOAIVT_THEO_DONVISUDUNG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KEY" Type="nvarchar" Mode="In" />
+    <Parameter Name="DONVISUDUNG" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GET_DANHSACH_VPP_NYP_DASUDUNG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GET_DETAIL_BY_MADH_MAVT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MADH_MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GETINDEX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetUserMaBP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GHIFILELOG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="nvarchar" Mode="In" />
+    <Parameter Name="PCNAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="IPCLIENT" Type="nvarchar" Mode="In" />
+    <Parameter Name="TEXT" Type="nvarchar" Mode="In" />
+    <Parameter Name="TIME" Type="datetime" Mode="In" />
+    <Parameter Name="TENFORM" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GUIAPI_Load_DMVATTU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GUIAPI_Load_DMVATTU_ALLNHUONGQUYEN_PHUKIEN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_INPHIEUCHATLUONG_LOAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOCT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_INPHIEUCHATLUONGDONVI_LOAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOCT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_INPHIEUCHATLUONGDONVI_THEOHOADON_LOAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOCTKeToan" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_KIEMTRA_VTYCXK_DONVI_EXITS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_KIEMTRA_VTYCXK_DONVI_EXITS_VER1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_KIEMTRA_VTYCXK_DONVI_GCNhuom_EXITS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoaiNX" Type="varchar" Mode="In" />
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_KTQKFORWEB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="QUYEN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_KTQKForWebNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="varchar" Mode="In" />
+    <Parameter Name="kihieu" Type="varchar" Mode="In" />
+    <Parameter Name="quyen" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_kyhieudonvi_by_manv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_load_capcoso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LOAD_CTTONKHOTHEOMAPHIEUPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEUDV" Type="varchar" Mode="In" />
+    <Parameter Name="MaphieuPD" Type="varchar" Mode="In" />
+    <Parameter Name="makho" Type="varchar" Mode="In" />
+    <Parameter Name="soctxn" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOAD_DANHMUCVATTU_ByKey_LoaiVt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KEY" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOAD_DMLOAIVT_ByKey_Donvisd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KEY" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Load_kethuaquyen_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LOAD_KIHIEUDV_BY_MANV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOAD_KYTUDAUTIEN_BYLOAIVT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoaiVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOAD_MACP_MAVATTU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="macp" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOAD_MAKHO_PHIEUNHAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LOAD_MANHOMVT_BYLOAIVT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoaiVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOAD_MANVXX_BY_SOCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOAD_MAPHIEUPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEUDV" Type="varchar" Mode="In" />
+    <Parameter Name="makho" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Load_NLKiHieuDV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOAD_VATTUYEUCAU_BYDONVI_BYLOAIPHIEU_27062016" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DONVI" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="nvarchar" Mode="In" />
+    <Parameter Name="LOAIVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADCL_DONVIKIEMTRA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCT" Type="nvarchar" Mode="In" />
+    <Parameter Name="DONVI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LoadCL_KHOXEM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="soctxn" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADCTPHIEUYCXUATKHO_DONVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LoadCTXNforweb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="varchar" Mode="In" />
+    <Parameter Name="soctxn" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LoadDanhMucChiPhi01" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LoadDMPhieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maphieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LoadDMPhieu_2023" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maphieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LoadDVForWeb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LoadKho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LOADKHOQUYENNHAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="FLAT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADKHOQUYENXUAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="FLAT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADKHOQUYENXUAT_VER1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LoadKhoQuyenXuatHanhChanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_LoadLoaiXN_GCNhuom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LOADNGUOIPHEDUYET_BY_KIHIEU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADNGUOIXEMXETFORWEB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LoadPhieuBM05New" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="kihieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADPHIEUYCXUATKHO_DONVI_TRACUU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LoadVTPYCForWeb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LOADVTPYCFORWEB_HANHCHANH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoaiPhieu" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADVTYEUCAUXUATCHOTUNGDV_TBPKD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="MABP" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADVTYEUCAUXUATKHO_DONVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADVTYEUCAUXUATKHO_GCNhuom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LoadXemXetBM03TTKD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOADXEMXETBYMANV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LOAIXUATNHAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LOAIXUATNHAP_KHONGTHU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_NguoiLapPhieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_NL_LOADMSCP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_NL_LOADMSCP_2023" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_PHIEUCHOXUAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUCHOXUAT_GIAYBONG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUYCXK_DONVI_DELETE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="MANVYC" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIXN" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="MABP" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUYCXK_DONVI_DELETE_KHONGMABP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="MANVYC" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIXN" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUYCXK_DONVI_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="MANVYC" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOLUONGYC" Type="numeric" Mode="In" />
+    <Parameter Name="LOAICAPPHAT" Type="varchar" Mode="In" />
+    <Parameter Name="GHICHU" Type="nvarchar" Mode="In" />
+    <Parameter Name="KHOAKEYXN" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUYCXK_DONVI_INSERT_KINHDOANH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="MANVYC" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOLUONGYC" Type="numeric" Mode="In" />
+    <Parameter Name="LOAICAPPHAT" Type="varchar" Mode="In" />
+    <Parameter Name="GHICHU" Type="nvarchar" Mode="In" />
+    <Parameter Name="KHOAKEYXN" Type="nvarchar" Mode="In" />
+    <Parameter Name="MABP" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUYCXK_DONVI_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="MANVYC" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOLUONGYC_OLD" Type="numeric" Mode="In" />
+    <Parameter Name="SOLUONGYC_HIEUCHINH" Type="numeric" Mode="In" />
+    <Parameter Name="LOAICAPPHAT" Type="varchar" Mode="In" />
+    <Parameter Name="GHICHU" Type="nvarchar" Mode="In" />
+    <Parameter Name="KhoaKeyXN" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUYCXK_GCNhuom_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KhoaKeyXN" Type="nvarchar" Mode="In" />
+    <Parameter Name="SoCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUYCXK_GCNhuom_DeleteALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SoCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUYCXK_GCNhuom_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="MANVYC" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOLUONGYC" Type="numeric" Mode="In" />
+    <Parameter Name="LOAICAPPHAT" Type="nvarchar" Mode="In" />
+    <Parameter Name="GHICHU" Type="nvarchar" Mode="In" />
+    <Parameter Name="KHOAKEYXN" Type="nvarchar" Mode="In" />
+    <Parameter Name="MaphieuPD" Type="varchar" Mode="In" />
+    <Parameter Name="LoaiNX" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PHIEUYCXK_GCNhuom_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KhoaKeyXN" Type="nvarchar" Mode="In" />
+    <Parameter Name="SOLUONGYC_HIEUCHINH" Type="numeric" Mode="In" />
+    <Parameter Name="GHICHU" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_REPHIEUMUAHANGTHEOBM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_REPYCXUATKHO_DONVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_SEARCHCTPHIEUBM03" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_SEARCHCTPHIEUBM05" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_SearchLoaiPhieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maphieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_SoLuongTonKhoVT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mavt" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_TAOSCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_TAOSOCHUNGTUXUATNHAP_VATTU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAHINHTHUC" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_TBLKIEMTRACL_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCT" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="THUC" Type="numeric" Mode="In" />
+    <Parameter Name="PL" Type="numeric" Mode="In" />
+    <Parameter Name="KHOKIEMTRA" Type="nvarchar" Mode="In" />
+    <Parameter Name="DANGLOI" Type="nvarchar" Mode="In" />
+    <Parameter Name="KEQUA" Type="tinyint" Mode="In" />
+    <Parameter Name="NGUOIKT" Type="varchar" Mode="In" />
+    <Parameter Name="LOAI" Type="nvarchar" Mode="In" />
+    <Parameter Name="NHACC" Type="nvarchar" Mode="In" />
+    <Parameter Name="MAPHIEUPD" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_THUKHOXUATKHO_GIAYBONG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_THUKHOXUATKHO_LOAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATECTBM05DV_VER2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Upload_SLXX_CTPHIEU05" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maphieu" Type="varchar" Mode="In" />
+    <Parameter Name="mavt" Type="varchar" Mode="In" />
+    <Parameter Name="mabp" Type="varchar" Mode="In" />
+    <Parameter Name="SLXX" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SP_XUATNHAP_BYKHOAKEY_REVEICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KHOAKEYXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_XUATNHAP_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIXN" Type="varchar" Mode="In" />
+    <Parameter Name="MANVYC" Type="varchar" Mode="In" />
+    <Parameter Name="MANVXUAT" Type="varchar" Mode="In" />
+    <Parameter Name="DONVIYEUCAU" Type="varchar" Mode="In" />
+    <Parameter Name="MABP" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="SOLUONGYC" Type="numeric" Mode="In" />
+    <Parameter Name="SOLUONGTT" Type="numeric" Mode="In" />
+    <Parameter Name="MAPHIEUPD" Type="varchar" Mode="In" />
+    <Parameter Name="GHICHU" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LOAICAPPHAT" Type="nvarchar" Mode="In" />
+    <Parameter Name="SOCTKETOAN" Type="varchar" Mode="In" />
+    <Parameter Name="NGAYKETOAN" Type="datetime" Mode="In" />
+    <Parameter Name="MAVTTAM" Type="varchar" Mode="In" />
+    <Parameter Name="MATAISAN" Type="varchar" Mode="In" />
+    <Parameter Name="TONGGIA" Type="numeric" Mode="In" />
+    <Parameter Name="DAXUATKHO" Type="tinyint" Mode="In" />
+    <Parameter Name="KHOAKEYXN" Type="varchar" Mode="In" />
+    <Parameter Name="MATRUONGDV" Type="nvarchar" Mode="In" />
+    <Parameter Name="XACNHANTDV" Type="tinyint" Mode="In" />
+    <Parameter Name="NGAYXACNHAN" Type="datetime" Mode="In" />
+    <Parameter Name="TENVT_NCC" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DVT_NCC" Type="nvarchar" Mode="In" />
+    <Parameter Name="SOLUONGTT_NCC" Type="numeric" Mode="In" />
+    <Parameter Name="VAT" Type="int" Mode="In" />
+    <Parameter Name="GHICHUGIA" Type="nvarchar" Mode="In" />
+    <Parameter Name="MAKH" Type="varchar" Mode="In" />
+    <Parameter Name="MaphieuchuyenNB" Type="varchar" Mode="In" />
+    <Parameter Name="MADH_CN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_XUATNHAP_INSERT_NEW_VER2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIXN" Type="varchar" Mode="In" />
+    <Parameter Name="MANVYC" Type="varchar" Mode="In" />
+    <Parameter Name="MANVXUAT" Type="varchar" Mode="In" />
+    <Parameter Name="DONVIYEUCAU" Type="varchar" Mode="In" />
+    <Parameter Name="MABP" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="SOLUONGYC" Type="numeric" Mode="In" />
+    <Parameter Name="SOLUONGTT" Type="numeric" Mode="In" />
+    <Parameter Name="MAPHIEUPD" Type="varchar" Mode="In" />
+    <Parameter Name="GHICHU" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LOAICAPPHAT" Type="nvarchar" Mode="In" />
+    <Parameter Name="SOCTKETOAN" Type="varchar" Mode="In" />
+    <Parameter Name="NGAYKETOAN" Type="datetime" Mode="In" />
+    <Parameter Name="MAVTTAM" Type="varchar" Mode="In" />
+    <Parameter Name="MATAISAN" Type="varchar" Mode="In" />
+    <Parameter Name="TONGGIA" Type="numeric" Mode="In" />
+    <Parameter Name="DAXUATKHO" Type="tinyint" Mode="In" />
+    <Parameter Name="KHOAKEYXN" Type="varchar" Mode="In" />
+    <Parameter Name="MATRUONGDV" Type="nvarchar" Mode="In" />
+    <Parameter Name="XACNHANTDV" Type="tinyint" Mode="In" />
+    <Parameter Name="NGAYXACNHAN" Type="datetime" Mode="In" />
+    <Parameter Name="TENVT_NCC" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DVT_NCC" Type="nvarchar" Mode="In" />
+    <Parameter Name="SOLUONGTT_NCC" Type="numeric" Mode="In" />
+    <Parameter Name="VAT" Type="int" Mode="In" />
+    <Parameter Name="GHICHUGIA" Type="nvarchar" Mode="In" />
+    <Parameter Name="MAKH" Type="varchar" Mode="In" />
+    <Parameter Name="MaphieuchuyenNB" Type="varchar" Mode="In" />
+    <Parameter Name="MaKhoXuat" Type="varchar" Mode="In" />
+    <Parameter Name="MADH_CN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpLoad_DMPhieu_Phieumuahang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_AUTOCHECK_STATUS_PR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="VATTU2024_CHECK_QUYENMANV_UPLOAD_EXCEL_DANHMUCVATTU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="KEYQ" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_KETHUA_SOCTXN_XUATSX_" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN_XUAT" Type="varchar" Mode="In" />
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO_XUAT" Type="varchar" Mode="In" />
+    <Parameter Name="SOCTXN_KETHUA" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_LOAD_DELETE_PHIENMAVT_XZZZ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTVAI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_LOAD_PRINT_DATA_NHAPDIENGIAI_SOCTXN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_LOAD_SUM_PHIENMAVT_XZZZ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTVAI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_LOADXUATNHAP_NEW2024" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SOCTKETHUA_XUATSX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHONHAN" Type="varchar" Mode="In" />
+    <Parameter Name="KEY" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_GET_DM_XUATNHAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="XN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_GET_NL_DMPHIEUXN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="XN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_LOAD_IDMACS_BY_DMDONVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDMADV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_LOAD_QUYEN_SUDUNG_DMDONVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_LOADDMNAM_P" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="VATTU2024_SP_LOADDMTHANG_P" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="VATTU2024_SP_LOADKHOQUYENNHAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+    <Parameter Name="FLAT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_LOADVTYEUCAUXUATKHO_DONVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="LoaiXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_LOADVTYEUCAUXUATKHO_DONVI_KETHUA_NZZZ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_LOADVTYEUCAUXUATKHO_DONVI_SELECT_MAPHIEUPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_LOADVTYEUCAUXUATKHO_XVCNB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_PHIEUCHOXUAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_TAOSCT_NHAPKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="LOAIXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_THUKHOXUATKHO_LOAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_VATTU_BAOCAOTONGHOPBM05" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DONVIALL" Type="bit" Mode="In" />
+    <Parameter Name="THANGALL" Type="bit" Mode="In" />
+    <Parameter Name="NAM" Type="int" Mode="In" />
+    <Parameter Name="THANG" Type="int" Mode="In" />
+    <Parameter Name="MADV" Type="varchar" Mode="In" />
+    <Parameter Name="MABP" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_VATTU_BAOCAOTONGHOPBM05_ALLTHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DONVIALL" Type="bit" Mode="In" />
+    <Parameter Name="THANGALL" Type="bit" Mode="In" />
+    <Parameter Name="NAM" Type="int" Mode="In" />
+    <Parameter Name="THANG" Type="int" Mode="In" />
+    <Parameter Name="MADV" Type="varchar" Mode="In" />
+    <Parameter Name="MABP" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_VATTU_BAOCAOTONGHOPBM05_THEOTHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DONVIALL" Type="bit" Mode="In" />
+    <Parameter Name="THANGALL" Type="bit" Mode="In" />
+    <Parameter Name="NAM" Type="int" Mode="In" />
+    <Parameter Name="THANG" Type="int" Mode="In" />
+    <Parameter Name="MADV" Type="varchar" Mode="In" />
+    <Parameter Name="MABP" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_CHECK_KYTU_LOAIVT_COA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOAIVT" Type="varchar" Mode="In" />
+    <Parameter Name="MANHOMVT" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SpLoad_ConvertDVT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_CTPHIEU_2024" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="KEY" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_CTPHIEU_SOCT_XZZZ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_DANHMUCBOPHAN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="VATTU2024_SPLOAD_DANHMUCVATTU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KEY" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_DMHINHTHUC_NHAPKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_DMHINHTHUC_XUATKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_KiHieu_DV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="varchar" Mode="In" />
+    <Parameter Name="IDMADV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_LOAIVT_COA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="VATTU2024_SPLOAD_LOAIXN_SHOWFULL_ITEM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOAIXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_MANHOM_BYLOAIVT_COA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOAIVT" Type="varchar" Mode="In" />
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_SOCT_XZZZ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDMADVXUAT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_XUATNHAP2024" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="KEY" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SPLOAD_XVCNB_KETHUA_SOCTXN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="VATTU2024_TRACUUPHIEUMUAHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_UPDATE_STATUS_DM_XUATNHAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="soct_xuat" Type="varchar" Mode="In" />
+    <Parameter Name="soct_nhap" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_LOAD_CTPHIEU_PR_" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_LOAD_SOCTXN_VATTU_SOI_HANGMUANGOAI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_LOADDATA_ITEMLIST_PR_BASEVN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SP_DVKTCL_LOADSOCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOCT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SP_INPHIEUCHATLUONGDONVI_THEOHOADON_LOAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KIHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SOCTKeToan" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SP_LOAD_PHIEUXNKHO_DONGBO_NETSUITE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NGAYBD" Type="datetime" Mode="In" />
+    <Parameter Name="NGAYKT" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SP_REPHIEUMUAHANGTHEOBM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SP_THEODOIPHIEUPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TENVT" Type="nvarchar" Mode="In" />
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAPHIEUPD" Type="varchar" Mode="In" />
+    <Parameter Name="TUNGAY" Type="varchar" Mode="In" />
+    <Parameter Name="DENNGAY" Type="varchar" Mode="In" />
+    <Parameter Name="DK1" Type="tinyint" Mode="In" />
+    <Parameter Name="DK2" Type="tinyint" Mode="In" />
+    <Parameter Name="DK3" Type="tinyint" Mode="In" />
+    <Parameter Name="DK4" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SP_THEODOIPHIEUPD_CUGC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TENVT" Type="nvarchar" Mode="In" />
+    <Parameter Name="MAPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="MAPHIEUPD" Type="varchar" Mode="In" />
+    <Parameter Name="TUNGAY" Type="varchar" Mode="In" />
+    <Parameter Name="DENNGAY" Type="varchar" Mode="In" />
+    <Parameter Name="DK1" Type="tinyint" Mode="In" />
+    <Parameter Name="DK2" Type="tinyint" Mode="In" />
+    <Parameter Name="DK3" Type="tinyint" Mode="In" />
+    <Parameter Name="DK4" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SPLOAD_SOCTXN_TANGGIAMKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SPLOAD_SOCTXN_TANGGIAMKHO_XUATNHAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SPLOAD_SOLUONGTON_THEOMAVT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_SPLOAD_SOLUONGTON_THEOMAVT_DONVI_TOANCTY_PhieuMuaHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="MAPHIEU" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="VATTU2025_Sum_SLDaNhapKho_PO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PO" Type="varchar" Mode="In" />
+    <Parameter Name="PR" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_A23_LoadChiTietBM05" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maphieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_KTRA_LOAIPHIEU_PHIEUMUAHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SHOWROOM" Type="varchar" Mode="In" />
+    <Parameter Name="KEY" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SP_INSERT_CTPHIEU_MAVT_TUONGDUONG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaPhieu" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT_TuongDuong" Type="varchar(max)" Mode="In" />
+    <Parameter Name="USER" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NGAYBATDAU" Type="date" Mode="In" />
+    <Parameter Name="NGAYKETTHUC" Type="date" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SP_RPT_XUATNHAPTON_THEONHIEUKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NGAYBATDAU" Type="date" Mode="In" />
+    <Parameter Name="NGAYKETTHUC" Type="date" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SP_VATTU_LOADVATTUNHAPKHO_THUKHO_DIENGIAI_XUATNHAPKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NGAYKETOAN_TUNGAY" Type="date" Mode="In" />
+    <Parameter Name="NGAYKETOAN_DENNGAY" Type="date" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SPLOAD_MAVTTUONGDUONG_COGIANHAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SPLOAD_TABLEMAPPING_MAKHO_IDMADV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="VATTU2026_SPLOAD_TRACUUNHANH_SOLUONGTON_THEOKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SPLOAD_XBAN_KETHUA_SOCTXN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KHOXUAT" Type="varchar" Mode="In" />
+    <Parameter Name="KHONHAN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SPLOAD_XUATNHAP_X_ASSETACCOUNT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SPLOAD_XUATNHAP_X_ASSETACCOUNT_MAVT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOCTXN" Type="varchar" Mode="In" />
+    <Parameter Name="ASSET" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SPLOAD_XUATNHAP_XBNVH_PHIEUMUAHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SOPHIEU" Type="varchar" Mode="In" />
+    <Parameter Name="SHOWROOM" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="XUATNHAPNOIBO_LOADCHITIETVATTU_XUATKHO_BY_KYHIEUDONVI_MAKHO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KYHIEUDONVI" Type="varchar" Mode="In" />
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+    <Parameter Name="MANV" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="wqlvattuModelStoreContainer">
+    <EntitySet Name="CCPN_Menu" EntityType="Self.CCPN_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CCPN_Page" EntityType="Self.CCPN_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CCPN_Role" EntityType="Self.CCPN_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CCPN_User" EntityType="Self.CCPN_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CCPN_User_Page" EntityType="Self.CCPN_User_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CCPN_User_Role" EntityType="Self.CCPN_User_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHATLUONG" EntityType="Self.CHATLUONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chatluong_NL" EntityType="Self.Chatluong_NL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChiPhiDV" EntityType="Self.ChiPhiDV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETPHIEUCHAOGIA" EntityType="Self.CHITIETPHIEUCHAOGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChuKy" EntityType="Self.ChuKy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTPHIEU" EntityType="Self.CTPHIEU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTPhieu_CDMH" EntityType="Self.CTPhieu_CDMH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTPHIEU05" EntityType="Self.CTPHIEU05" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHMUCCHIPHI" EntityType="Self.DANHMUCCHIPHI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHMUCDONVITINH" EntityType="Self.DANHMUCDONVITINH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanhMucIP" EntityType="Self.DanhMucIP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanhmucLoaiVT" EntityType="Self.DanhmucLoaiVT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHMUCMANGUYENLIEU" EntityType="Self.DANHMUCMANGUYENLIEU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHMUCQUYEN" EntityType="Self.DANHMUCQUYEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHMUCVATTU" EntityType="Self.DANHMUCVATTU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DM_PHTinhTrangNCC" EntityType="Self.DM_PHTinhTrangNCC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DM_TinhTrangKyThuatCUGC" EntityType="Self.DM_TinhTrangKyThuatCUGC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DM_Tinhtrangthanhtoan" EntityType="Self.DM_Tinhtrangthanhtoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DM_XUATNHAP" EntityType="Self.DM_XUATNHAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMDONVI" EntityType="Self.DMDONVI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMEXCELMAHANGCHAOGIA" EntityType="Self.DMEXCELMAHANGCHAOGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMGIATRIVATTU" EntityType="Self.DMGIATRIVATTU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMGiaVT" EntityType="Self.DMGiaVT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMKHo" EntityType="Self.DMKHo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMKHONHAN" EntityType="Self.DMKHONHAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMLoaiChiPhi" EntityType="Self.DMLoaiChiPhi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMLOAIPHIEU" EntityType="Self.DMLOAIPHIEU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMLOAIVT" EntityType="Self.DMLOAIVT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMLOAIXN" EntityType="Self.DMLOAIXN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMNAM" EntityType="Self.DMNAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMNHANVIEN" EntityType="Self.DMNHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMPHIEU" EntityType="Self.DMPHIEU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMPhieu_CDMH" EntityType="Self.DMPhieu_CDMH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMSites" EntityType="Self.DMSites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMSitesQLKhoSoi" EntityType="Self.DMSitesQLKhoSoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMSITESQLVT" EntityType="Self.DMSITESQLVT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMTHANG" EntityType="Self.DMTHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMTINHTRANG" EntityType="Self.DMTINHTRANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMViTri" EntityType="Self.DMViTri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dmVitriKe" EntityType="Self.dmVitriKe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMVITRIKHO" EntityType="Self.DMVITRIKHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dmVitriTang" EntityType="Self.dmVitriTang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DMVT_Excel" EntityType="Self.DMVT_Excel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GHNGAYNHAPKHO" EntityType="Self.GHNGAYNHAPKHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIAYBONG_XUATNHAP" EntityType="Self.GIAYBONG_XUATNHAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_Menu" EntityType="Self.Home_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_Page" EntityType="Self.Home_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_Role" EntityType="Self.Home_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_Software" EntityType="Self.Home_Software" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_SoftwareGroup" EntityType="Self.Home_SoftwareGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_User" EntityType="Self.Home_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_User_Page" EntityType="Self.Home_User_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home_User_Role" EntityType="Self.Home_User_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InNhan" EntityType="Self.InNhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHOSOI_XUATNHAP" EntityType="Self.KHOSOI_XUATNHAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KYDUYET_PHIEUCHAOGIA" EntityType="Self.KYDUYET_PHIEUCHAOGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KYHIEU_THITRUONG" EntityType="Self.KYHIEU_THITRUONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LDD_CTPHIEU" EntityType="Self.LDD_CTPHIEU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LDD_DMDVVANCHUYEN" EntityType="Self.LDD_DMDVVANCHUYEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LDD_DMNOIDEN" EntityType="Self.LDD_DMNOIDEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LDD_DMPHIEU" EntityType="Self.LDD_DMPHIEU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LDD_DMSOXE" EntityType="Self.LDD_DMSOXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LDD_DMTAIXE" EntityType="Self.LDD_DMTAIXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaChaoGia_Bo" EntityType="Self.MaChaoGia_Bo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGANG" EntityType="Self.NGANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGANG_V2" EntityType="Self.NGANG_V2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHAPDIENGIAI" EntityType="Self.NHAPDIENGIAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OLD" EntityType="Self.OLD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHANLOAI_VTKD" EntityType="Self.PHANLOAI_VTKD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHANQUYENSITES" EntityType="Self.PHANQUYENSITES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanQuyenSitesQLKhoSoi" EntityType="Self.PhanQuyenSitesQLKhoSoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHANQUYENSITESQLVT" EntityType="Self.PHANQUYENSITESQLVT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SentMailTTNB" EntityType="Self.SentMailTTNB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TABLE_LUUTRU_SOHOADON" EntityType="Self.TABLE_LUUTRU_SOHOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DMCHUKY" EntityType="Self.TBL_DMCHUKY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DMLOAIVT_COA" EntityType="Self.TBL_DMLOAIVT_COA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_PHIENMAVT_BYMAHANG" EntityType="Self.TBL_PHIENMAVT_BYMAHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDINHMUCVANPHONGPHAM" EntityType="Self.tblDINHMUCVANPHONGPHAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLDMCAPCOSO" EntityType="Self.TBLDMCAPCOSO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDMDVTINH" EntityType="Self.tblDMDVTINH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLDMMAHANG" EntityType="Self.TBLDMMAHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDMNGUYENLIEU" EntityType="Self.tblDMNGUYENLIEU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDMNGUYENLIEUOLD" EntityType="Self.tblDMNGUYENLIEUOLD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKiHieuNhapKho" EntityType="Self.tblKiHieuNhapKho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblKyhieudonvidathang" EntityType="Self.TblKyhieudonvidathang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNhomVattu" EntityType="Self.tblNhomVattu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLTHUKYBANTGD" EntityType="Self.TBLTHUKYBANTGD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiGia" EntityType="Self.TiGia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TONDAUKY" EntityType="Self.TONDAUKY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TongCPtheoMH" EntityType="Self.TongCPtheoMH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TongHopTDK" EntityType="Self.TongHopTDK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTCHIPHICHATLUONG" EntityType="Self.TTCHIPHICHATLUONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTChiphiHoahong" EntityType="Self.TTChiphiHoahong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTCHIPHIVANCHUYEN" EntityType="Self.TTCHIPHIVANCHUYEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTchitietnhanTT" EntityType="Self.TTchitietnhanTT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTCTcdoan1" EntityType="Self.TTCTcdoan1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTCTcdoan2" EntityType="Self.TTCTcdoan2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTCTPHIEUMAHANG_EXCEL" EntityType="Self.TTCTPHIEUMAHANG_EXCEL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTDMBaoBi" EntityType="Self.TTDMBaoBi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTDMcdoan1" EntityType="Self.TTDMcdoan1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTDMcdoan2" EntityType="Self.TTDMcdoan2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTDMMAHANG_TRACUUGIATHANH" EntityType="Self.TTDMMAHANG_TRACUUGIATHANH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTDMPHIEU_TRACUUGIATHANH" EntityType="Self.TTDMPHIEU_TRACUUGIATHANH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTDMTONE" EntityType="Self.TTDMTONE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTDMTTCT1" EntityType="Self.TTDMTTCT1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTDMTTCT2" EntityType="Self.TTDMTTCT2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTEmail" EntityType="Self.TTEmail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTG_BASEVN_DEPARTMENT" EntityType="Self.TTG_BASEVN_DEPARTMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTG_BASEVN_LOG_PR" EntityType="Self.TTG_BASEVN_LOG_PR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTG_BASEVN_TOKEN_API" EntityType="Self.TTG_BASEVN_TOKEN_API" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTLoaiPhieu" EntityType="Self.TTLoaiPhieu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTLuuChiPhiBaoBi" EntityType="Self.TTLuuChiPhiBaoBi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTLuuChiPhiVanChuyen" EntityType="Self.TTLuuChiPhiVanChuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTPhanhoi" EntityType="Self.TTPhanhoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UyQuyen" EntityType="Self.UyQuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VATTU2024_DMKHO" EntityType="Self.VATTU2024_DMKHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VATTU2025_DanhSachQuocGia" EntityType="Self.VATTU2025_DanhSachQuocGia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VATTU2025_NGOAITE" EntityType="Self.VATTU2025_NGOAITE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VATTU2026_CTPHIEU_MAVTTUONGDUONG" EntityType="Self.VATTU2026_CTPHIEU_MAVTTUONGDUONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XUATNHAP" EntityType="Self.XUATNHAP" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__LDD_CTPHI__MAPHI__38A15C1B" Association="Self.FK__LDD_CTPHI__MAPHI__38A15C1B">
+      <End Role="LDD_DMPHIEU" EntitySet="LDD_DMPHIEU" />
+      <End Role="LDD_CTPHIEU" EntitySet="LDD_CTPHIEU" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LDD_DMPHI__NOIDE__33DCA6FE" Association="Self.FK__LDD_DMPHI__NOIDE__33DCA6FE">
+      <End Role="LDD_DMNOIDEN" EntitySet="LDD_DMNOIDEN" />
+      <End Role="LDD_DMPHIEU" EntitySet="LDD_DMPHIEU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CCPN_Menu_CCPN_Menu" Association="Self.FK_CCPN_Menu_CCPN_Menu">
+      <End Role="CCPN_Menu" EntitySet="CCPN_Menu" />
+      <End Role="CCPN_Menu1" EntitySet="CCPN_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CCPN_Menu_CCPN_Page" Association="Self.FK_CCPN_Menu_CCPN_Page">
+      <End Role="CCPN_Page" EntitySet="CCPN_Page" />
+      <End Role="CCPN_Menu" EntitySet="CCPN_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CCPN_User_Page_CCPN_Page" Association="Self.FK_CCPN_User_Page_CCPN_Page">
+      <End Role="CCPN_Page" EntitySet="CCPN_Page" />
+      <End Role="CCPN_User_Page" EntitySet="CCPN_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CCPN_User_Page_CCPN_User" Association="Self.FK_CCPN_User_Page_CCPN_User">
+      <End Role="CCPN_User" EntitySet="CCPN_User" />
+      <End Role="CCPN_User_Page" EntitySet="CCPN_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CCPN_User_Role_CCPN_Role" Association="Self.FK_CCPN_User_Role_CCPN_Role">
+      <End Role="CCPN_Role" EntitySet="CCPN_Role" />
+      <End Role="CCPN_User_Role" EntitySet="CCPN_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CCPN_User_Role_CCPN_User" Association="Self.FK_CCPN_User_Role_CCPN_User">
+      <End Role="CCPN_User" EntitySet="CCPN_User" />
+      <End Role="CCPN_User_Role" EntitySet="CCPN_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTPHIEU_03022024_DMPHIEU" Association="Self.FK_CTPHIEU_03022024_DMPHIEU">
+      <End Role="DMPHIEU" EntitySet="DMPHIEU" />
+      <End Role="CTPHIEU" EntitySet="CTPHIEU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTPhieu_CDMH_DMPhieu_CDMH" Association="Self.FK_CTPhieu_CDMH_DMPhieu_CDMH">
+      <End Role="DMPhieu_CDMH" EntitySet="DMPhieu_CDMH" />
+      <End Role="CTPhieu_CDMH" EntitySet="CTPhieu_CDMH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTPHIEU05_DanhMucVatTu" Association="Self.FK_CTPHIEU05_DanhMucVatTu">
+      <End Role="DANHMUCVATTU" EntitySet="DANHMUCVATTU" />
+      <End Role="CTPHIEU05" EntitySet="CTPHIEU05" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTPHIEU05_DMPhieu" Association="Self.FK_CTPHIEU05_DMPhieu">
+      <End Role="DMPHIEU" EntitySet="DMPHIEU" />
+      <End Role="CTPHIEU05" EntitySet="CTPHIEU05" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DangMucChiPhi_DMLoaiChiPhi" Association="Self.FK_DangMucChiPhi_DMLoaiChiPhi">
+      <End Role="DMLoaiChiPhi" EntitySet="DMLoaiChiPhi" />
+      <End Role="DANHMUCCHIPHI" EntitySet="DANHMUCCHIPHI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DanhMucVatTu_DanhMucDonVitinh" Association="Self.FK_DanhMucVatTu_DanhMucDonVitinh">
+      <End Role="DANHMUCDONVITINH" EntitySet="DANHMUCDONVITINH" />
+      <End Role="DANHMUCVATTU" EntitySet="DANHMUCVATTU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DanhMucVatTu_DMViTri" Association="Self.FK_DanhMucVatTu_DMViTri">
+      <End Role="DMViTri" EntitySet="DMViTri" />
+      <End Role="DANHMUCVATTU" EntitySet="DANHMUCVATTU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DMGIATRIVATTU_DANHMUCVATTU" Association="Self.FK_DMGIATRIVATTU_DANHMUCVATTU">
+      <End Role="DANHMUCVATTU" EntitySet="DANHMUCVATTU" />
+      <End Role="DMGIATRIVATTU" EntitySet="DMGIATRIVATTU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DMGIATRIVATTU_DMKho" Association="Self.FK_DMGIATRIVATTU_DMKho">
+      <End Role="DMKHo" EntitySet="DMKHo" />
+      <End Role="DMGIATRIVATTU" EntitySet="DMGIATRIVATTU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DMLOAIVT_DanhmucLoaiVT" Association="Self.FK_DMLOAIVT_DanhmucLoaiVT">
+      <End Role="DanhmucLoaiVT" EntitySet="DanhmucLoaiVT" />
+      <End Role="DMLOAIVT" EntitySet="DMLOAIVT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DMNhanVien_DMDonVi" Association="Self.FK_DMNhanVien_DMDonVi">
+      <End Role="DMDONVI" EntitySet="DMDONVI" />
+      <End Role="OLD" EntitySet="OLD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DMPhieu_DMLOAIPHIEU" Association="Self.FK_DMPhieu_DMLOAIPHIEU">
+      <End Role="DMLOAIPHIEU" EntitySet="DMLOAIPHIEU" />
+      <End Role="DMPHIEU" EntitySet="DMPHIEU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DMVITRIKHO_DMKho" Association="Self.FK_DMVITRIKHO_DMKho">
+      <End Role="DMKHo" EntitySet="DMKHo" />
+      <End Role="DMVITRIKHO" EntitySet="DMVITRIKHO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_Menu_Home_Menu" Association="Self.FK_Home_Menu_Home_Menu">
+      <End Role="Home_Menu" EntitySet="Home_Menu" />
+      <End Role="Home_Menu1" EntitySet="Home_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_Menu_Home_Page" Association="Self.FK_Home_Menu_Home_Page">
+      <End Role="Home_Page" EntitySet="Home_Page" />
+      <End Role="Home_Menu" EntitySet="Home_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_Software_Home_SoftwareGroup" Association="Self.FK_Home_Software_Home_SoftwareGroup">
+      <End Role="Home_SoftwareGroup" EntitySet="Home_SoftwareGroup" />
+      <End Role="Home_Software" EntitySet="Home_Software" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Page_Home_Page" Association="Self.FK_Home_User_Page_Home_Page">
+      <End Role="Home_Page" EntitySet="Home_Page" />
+      <End Role="Home_User_Page" EntitySet="Home_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Page_Home_User" Association="Self.FK_Home_User_Page_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User_Page" EntitySet="Home_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Role_Home_Role" Association="Self.FK_Home_User_Role_Home_Role">
+      <End Role="Home_Role" EntitySet="Home_Role" />
+      <End Role="Home_User_Role" EntitySet="Home_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Role_Home_User" Association="Self.FK_Home_User_Role_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User_Role" EntitySet="Home_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="fk_htk_id_sanpham" Association="Self.fk_htk_id_sanpham">
+      <End Role="dmVitriKe" EntitySet="dmVitriKe" />
+      <End Role="dmVitriTang" EntitySet="dmVitriTang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanQuyenSitesQLKhoSoi_DMSitesQLKhoSoi" Association="Self.FK_PhanQuyenSitesQLKhoSoi_DMSitesQLKhoSoi">
+      <End Role="DMSitesQLKhoSoi" EntitySet="DMSitesQLKhoSoi" />
+      <End Role="PhanQuyenSitesQLKhoSoi" EntitySet="PhanQuyenSitesQLKhoSoi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDMcapcoso_DMDonVi" Association="Self.FK_tblDMcapcoso_DMDonVi">
+      <End Role="DMDONVI" EntitySet="DMDONVI" />
+      <End Role="TBLDMCAPCOSO" EntitySet="TBLDMCAPCOSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TonDauKy_DanhMucVatTu" Association="Self.FK_TonDauKy_DanhMucVatTu">
+      <End Role="DANHMUCVATTU" EntitySet="DANHMUCVATTU" />
+      <End Role="TONDAUKY" EntitySet="TONDAUKY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TonDauKy_DMKho" Association="Self.FK_TonDauKy_DMKho">
+      <End Role="DMKHo" EntitySet="DMKHo" />
+      <End Role="TONDAUKY" EntitySet="TONDAUKY" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

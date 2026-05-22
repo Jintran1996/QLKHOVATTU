@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OTHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OTHEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ePV_BU" EntityType="OTHModel.ePV_BU" />
+    <EntitySet Name="ePV_Category" EntityType="OTHModel.ePV_Category" />
+    <EntitySet Name="ePV_Entity" EntityType="OTHModel.ePV_Entity" />
+    <EntitySet Name="ePV_ApproveName" EntityType="OTHModel.ePV_ApproveName" />
+    <EntitySet Name="ePV_Locations" EntityType="OTHModel.ePV_Locations" />
+  </EntityContainer>
+  <EntityType Name="ePV_BU">
+    <Key>
+      <PropertyRef Name="BUCode" />
+    </Key>
+    <Property Name="BUCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LongName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Idx" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ePV_Category">
+    <Key>
+      <PropertyRef Name="Flags" />
+      <PropertyRef Name="CategoryCode" />
+    </Key>
+    <Property Name="Flags" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ePV_Entity">
+    <Key>
+      <PropertyRef Name="CompanyCode" />
+    </Key>
+    <Property Name="EntityCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Idx" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ePV_ApproveName">
+    <Key>
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="BU" />
+      <PropertyRef Name="Location" />
+      <PropertyRef Name="CompanyCode" />
+      <PropertyRef Name="Min" />
+    </Key>
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="BU" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="FunctionID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Group" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Min" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Max" Type="Int32" />
+    <Property Name="PositionEn1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionVn1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameApprove1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PositionEn2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionVn2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameApprove2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionEn3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionVn3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameApprove3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionEn4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionVn4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameApprove4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionEn5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionVn5" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameApprove5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionEn6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionVn6" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameApprove6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionEn7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionVn7" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameApprove7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionEn8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PositionVn8" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameApprove8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ePV_Locations">
+    <Key>
+      <PropertyRef Name="LocationCode" />
+    </Key>
+    <Property Name="LocationCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

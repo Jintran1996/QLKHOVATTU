@@ -1,0 +1,59 @@
+﻿
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.VatTu.DMKHo>;
+
+}
+<table id="myTable" class="table table-bordered table-striped ">
+    <thead>
+        <tr style="text-align:center;">
+            <th style="width: 80px"></th>
+            <th style="text-align:center">.No</th>
+            <th>Mã Kho</th>
+            <th>Tên Kho</th>
+            <th>Mã kho kế toán</th>
+            <th>NHOM_OGSTM</th>
+            <th>DV_OGSTM</th>
+            <th>Địa chỉ</th>
+            <th>Kho nhận</th>
+            <th>Thủ kho</th>
+            <th>Xuất NB</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists)
+        {
+            <tr>
+                <td>
+                    <a onclick="Edit('@item.MAKHO')" class="btn">
+                        <i class="fas fa-edit"></i> Sửa
+                    </a>
+                    <a onclick="Delete('@item.MAKHO')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.MAKHO</td>
+                <td>@item.TENKHO</td>
+                <td>@item.MAKHOKETOAN</td>
+                <td>@item.NHOM_OGSTM</td>
+                <td>@item.DV_OGSTM</td>
+                <td>@item.DIACHI</td>
+                <td>@item.KHONHAN</td>
+                <td>@item.ThuKho</td>
+                <td>
+                    @if (item.XUATNOIBO == true)
+                    {<i class="fa fa-check"></i>}
+                </td>
+            </tr>
+            STT++;
+        }
+    </tbody>
+</table>
+
+
+
+
+

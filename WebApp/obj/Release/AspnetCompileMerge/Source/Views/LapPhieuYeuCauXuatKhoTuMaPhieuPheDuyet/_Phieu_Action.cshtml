@@ -1,0 +1,121 @@
+﻿@{ 
+    var data_SoChungTu = ViewData["data_SoChungTu"];
+    var data_MaKho = ViewBag.data_MaKho as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_MAKHO_PHIEUNHAP_Result>;
+    var data_PhieuPD = ViewBag.data_PhieuPD as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_MAPHIEUPD_Result>;
+    var data_LoaiXuatNhap = ViewBag.data_LoaiXuatNhap as List<ToolsApp.EntityFramework.VatTu.SP_LOAIXUATNHAP_KHONGTHU_Result>;
+}
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Số chứng từ:</label>
+            <input class="form-control form-control-xs" type="text" autocomplete="off" value="@data_SoChungTu" disabled
+                   id="SoChungTu" name="SoChungTu" />
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Mã kho:</label>
+            <select class="form-control form-control-xs chosen-select" onchange="Load_MaPhieu_Onchage_MaKho(this.value);" id="MaKho" name="MaKho">
+                <option selected value="false">--Danh Sách Mã Kho--</option>
+                @foreach (var item in data_MaKho)
+                {
+                    <option value="@item.MAKHO">@item.TenMa</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Mã phiếu PD:</label>
+            <select class="form-control form-control-xs chosen-select" onchange="Load_GetListMaVatTu_Onchange();" id="MaPhieuPD" name="MaPhieuPD">
+                <option selected value="false">--Danh Sách Mã Phiếu Phê Duyệt--</option>
+                @foreach (var item in data_PhieuPD)
+                {
+                    <option value="@item.MaPhieuPD">@item.MaPhieuPD</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Loại xuất nhập:</label>
+            <select class="form-control form-control-xs chosen-select" id="LoaiXuatNhap" name="LoaiXuatNhap">
+                @foreach (var item in data_LoaiXuatNhap)
+                {
+                    <option value="@item.LOAI">@item.TENLOAI</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Ghi chú:</label>
+            <textarea rows="1" id="GhiChu" name="GhiChu" class="form-control form-control-xs"></textarea>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-1">
+        <div class="form-group">
+            <label style="padding-bottom:14px"> </label>
+            <button id="new_Phieu" onclick="New_Phieu_Click();" type="button" class="btn bg-gradient-success form-control "><i class="fa fa-save"></i>&nbsp;Phiếu mới</button>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="form-group">
+            <label style="padding-bottom:14px"> </label>
+            <button id="btCopy" type="button" onclick="printReport();" class="btn bg-gradient-info form-control "><i class="fa fa-print"></i>&nbsp;In phiếu</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+</script>
+<script type="text/javascript">
+
+    //---===-------Load mã phiếu onchane mã kho--------===---//
+    function Load_MaPhieu_Onchage_MaKho(MaKho) {
+        var MaPhieuPD = $("#MaPhieuPD");
+        MaPhieuPD.empty();
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: '@Url.Action("Load_MaPhieu_Onchage_MaKho")',
+            data: {
+                MaKho: MaKho,
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            if (data.status < 0) {
+                MaPhieuPD.append($('<option/>', { value: "false" }).html("--Danh Sách Mã Phiếu Phê Duyệt--"));
+                MaPhieuPD.trigger("chosen:updated");
+            }
+            else {
+                MaPhieuPD.append($('<option/>', { value: "false" }).html("--Danh Sách Mã Phiếu Phê Duyệt--"));
+                $.each(data.obj, function (i, state) {
+                    MaPhieuPD.append($('<option/>', { value: data.obj[i].MaPhieuPD }).html(data.obj[i].MaPhieuPD));
+                });
+                MaPhieuPD.trigger("chosen:updated");
+            }
+
+        }).fail(function (errors) {
+            console.log(errors);
+        });
+
+    }
+</script>

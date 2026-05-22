@@ -1,0 +1,393 @@
+﻿
+@{
+
+    var SOCTXN_nhap = ViewBag.SOCTXN_nhap;
+    var DANHMUCMAVT = ViewBag.DANHMUCMAVT as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SPLOAD_DANHMUCVATTU_Result>;
+    var MAKHONHAN = ViewBag.MAKHONHAN;
+    var MAKHOXUAT = ViewBag.MAKHOXUAT;
+    var LOAIXN = ViewBag.LOAIXN;
+
+}
+@using System.Globalization;
+@model ToolsApp.Models.XUATNHAPViewModels
+
+
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenSOCTXN_NDC" value="@SOCTXN_nhap.Trim()" hidden />
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenMAKHONHAN_NDC" value="@MAKHONHAN.Trim()" hidden />
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenMAKHOXUAT_NDC" value="@MAKHOXUAT.Trim()" hidden />
+<input class="form-control" type="text" autocomplete="off"
+       id="hidenLOAIXN_NDC" value="@LOAIXN.Trim()" hidden />
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab-getlist-ctphieu" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home-ct" role="tab" aria-controls="custom-tabs-one-home-ct" aria-selected="true">Danh sách chi tiết phiếu @SOCTXN_nhap </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home-ct" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab-getlist-ctphieu">
+                                <!--data-->
+                                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmctphieu_NDC", id = "frmctphieu_NDC", enctype = "multipart/form-data" }))
+                                {
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row ">
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3">SOCTXN :</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off" value="@SOCTXN_nhap" readonly
+                                                                   id="SOCTXN_CT" name="SoCTXN" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Mã kho:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off"
+                                                                 id="MaKho_NDC"  name="MaKho" value="@MAKHONHAN.Trim()" readonly />
+                                                            <input class="form-control" type="text" autocomplete="off"
+                                                                id="LoaiXN_NDC"   name="LoaiXN" value="@LOAIXN.Trim()" hidden />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3">Ngày kế toán:</label>
+                                                        <div class="col-md-9">
+                                                            <input id="NGAYKETOAN_NDC" name="NgayKeToan" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3">Mã VT :</label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control chosen-select" id="MAVT_NDC" name="MAVT">
+                                                                <option selected value="">-- Chọn mã VT --</option>
+                                                                @foreach (var item in DANHMUCMAVT)
+                                                                {
+                                                                    <option value="@item.MAVT">
+                                                                        @item.MAVT || @item.TenVT
+                                                                    </option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Số lượng:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="number" autocomplete="off"
+                                                                   id="SoLuongTT_NDC" name="SoLuongTT" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Ghi chú:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off" value=""
+                                                                   id="GHICHU_NDC" name="GHICHU" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Mã phiếu PD:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off" value=""
+                                                                   id="Maphieupd_NDC" name="MAPHIEUPD" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-bottom:20px">
+                                            </div>
+                                            <div>
+                                                @*Row 3*@
+                                                <div class="row">
+                                                </div>
+                                                <div class="row">
+                                                </div>
+                                                <div class="text-center">
+                                                    <button type="button" id="btSavect_NDC" onclick="_Insert_ctphieu_NDC()"  class="btn btn-primary" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="row" style="margin-bottom:20px">
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-view-ctphieu-ndc  table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                        <!--data-->
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+<script>
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+
+
+
+    function reloadData_getlist_ctphieu() {
+        var SOCTXN_ = $("#SOCTXN_CT").val();
+
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu_View")',
+                timeout: 20000,
+                data: {
+                    SOCTXN: SOCTXN_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-view-ctphieu-ndc').html(response);
+
+                    $("#myTablectview").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+
+    function _Insert_ctphieu_NDC() {
+
+        var LOAIXN = $("#hidenLOAIXN_NDC").val();
+        var SOCTXN = $("#hidenSOCTXN_NDC").val();
+        var MAKHONHAN = $("#hidenMAKHONHAN_NDC").val();
+        var MAVT_NDC = $("#MAVT_NDC").val();
+        var NGAYKETOAN_NDC = $("#NGAYKETOAN_NDC").val();
+        var SoLuongTT_NDC = $("#SoLuongTT_NDC").val();
+        var GHICHU_NDC = $("#GHICHU_NDC").val();
+        var Maphieupd_NDC = $("#Maphieupd_NDC").val();
+
+        console.log(LOAIXN, SOCTXN, MAKHONHAN);
+
+        $.ajax({
+            url: '@Url.Action("_InsertFunCTPhieu_NDC")',
+            timeout: 2000000,
+            type: "POST",
+            data: { LOAIXN: LOAIXN, SOCTXN: SOCTXN, MAKHONHAN: MAKHONHAN, MAVT_NDC: MAVT_NDC, NGAYKETOAN_NDC: NGAYKETOAN_NDC, SoLuongTT_NDC: SoLuongTT_NDC, GHICHU_NDC: GHICHU_NDC, Maphieupd_NDC: Maphieupd_NDC },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                if (result.status >= 1) {
+                    notify(result.text, "success");
+
+                    console.log("test2");
+                    Details(SOCTXN, LOAIXN); // LOAD LẠI FORM DETAILS
+
+                }
+                else {
+                    notify(result.text, "error");
+                }
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    };
+            
+
+
+
+
+    @*function Deletect(Khoa_) {
+            var hidenMAKHO = $("#hidenMAKHO").val();
+            var hidenMAHTHUC = $("#hidenMAHTHUC").val();
+            var hidenSOCTXN = $("#hidenSOCTXN").val();
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã hàng này?' + Khoa_);
+             if (confirm_) {
+                 $.ajax({
+                     url: '@Url.Action("_DeletectFun")',
+                     timeout: 2000000,
+                     type: "POST",
+                     data: { Khoa: Khoa_ },
+                     beforeSend: function (xhr) {
+                         $(".divLoading").addClass("loading");
+                     },
+                     success: function (result) {
+
+                         if (result.status >= 1) {
+                             notify(result.text, "success");
+                             Details(hidenSOCTXN, "", hidenMAHTHUC, hidenMAKHO); // LOAD LẠI FORM DETAILS
+
+                         }
+                         else {
+                             notify(result.text, "error");
+                         }
+                         $(".divLoading").removeClass("loading");
+                     },
+                     error: function (message) {
+                         $(".divLoading").removeClass("loading");
+                     }
+                 });
+             }
+        }
+
+        function DeletectALL(SOCTXN_) {
+            var hidenMAKHO = $("#hidenMAKHO").val();
+            var hidenMAHTHUC = $("#hidenMAHTHUC").val();
+            var hidenSOCTXN = $("#hidenSOCTXN").val();
+            var confirm_ = confirm('Bạn có chắc muốn xóa tất cả theo số phiếu này?' + SOCTXN_);
+             if (confirm_) {
+                 $.ajax({
+                     url: '@Url.Action("_DeleteALLFun")',
+                     timeout: 2000000,
+                     type: "POST",
+                     data: { SOCTXN: SOCTXN_ },
+                     beforeSend: function (xhr) {
+                         $(".divLoading").addClass("loading");
+                     },
+                     success: function (result) {
+                         if (result.status >= 1) {
+                             notify(result.text, "success");
+                             Details(hidenSOCTXN, "", hidenMAHTHUC, hidenMAKHO); // LOAD LẠI FORM DETAILS
+                         }
+                         else {
+                             notify(result.text, "error");
+                         }
+                         $(".divLoading").removeClass("loading");
+                     },
+                     error: function (message) {
+                         $(".divLoading").removeClass("loading");
+                     }
+                 });
+             }
+        }*@
+
+</script>
+
+<script type="text/javascript">
+    $("#NGAYKETOAN").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+    $(document).ready(function () {
+        reloadData_getlist_ctphieu(false);
+
+
+
+
+        @*$("#btSavect_NDC").click(function () {
+
+            var hidenMAHTHUC = $("#hidenMAHTHUC").val();
+            var hidenSOCTXN = $("#hidenSOCTXN").val();
+            console.log("test1");
+            form = $("#frmctphieu_NDC");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+            $.validator.unobtrusive.parse("#frmctphieu_NDC");
+            
+               
+                    $.ajax({
+                         url: '@Url.Action("_InsertFunCTPhieu_NDC")',
+                        type: "POST",
+                        data: $('#frmctphieu_NDC').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+
+                                console.log("test2");
+                                Details(hidenSOCTXN,hidenMAHTHUC); // LOAD LẠI FORM DETAILS
+
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                
+            });*@
+    })
+</script>
+
+
+
+
+
+
+
+

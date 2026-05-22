@@ -1,0 +1,116 @@
+﻿@{
+    var emahinhthuc_ = ViewBag.maHinhThuc_ as List<ToolsApp.EntityFramework.KhoSoi.SP_LOADMAHINHTHUCYEUCAUXUAT_Result>;
+    var eloaiDH_ = ViewBag.loaiDH_ as List<ToolsApp.EntityFramework.KhoSoi.NL_DMloaidonhang>;
+    var edonHang_ = ViewBag.donHang_ as List<ToolsApp.EntityFramework.DonHang09.GET_SODONHANG_Result>;
+    var dmphieu = ViewBag.dmphieu as ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEUXN;
+    var ctphieu = ViewBag.ctphieu as ToolsApp.EntityFramework.KhoSoi.NL_CTXUATNHAP;
+    var maVT = ViewBag.loadMaVT_ as List<ToolsApp.EntityFramework.KhoSoi.SP_VATTU_YC_XUATSOI_Result>;
+}
+
+<input class="form-control" type="text" hidden
+       id="eMAKHO" name="eMAKHO" value="@dmphieu.MAKHO" />
+<input class="form-control" type="text" hidden
+       id="eKHOAKEYXN" name="eKHOAKEYXN" value="@ctphieu.KHOAKEYXN" />
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group row">
+            <label class="col-md-3">Số CTXN: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" readonly
+                       id="eSOCTXN" name="eSOCTXN" value="@dmphieu.SOCTXN" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Loại đơn hàng: </label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="eLOAIDONHANG" name="eLOAIDONHANG" style="width: 100%;">
+                    <option value="" disabled selected>--Chọn loại đơn hàng--</option>
+                    @foreach (var item in eloaiDH_)
+                    {
+                        <option value="@item.LOAIDONHANG">@item.LOAIDONHANG || @item.Tendonhang</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Sản xuất cho đơn hàng: </label>
+            <div class="col-md-9">
+                <input class="form-control" id="eMADH" name="eMADH" style="width: 100%" value="@ctphieu.MADH" readonly/>
+                @*<select class="form-control chosen-select" id="eMADH" name="eMADH" style="width: 100%;" disabled>
+                    <option value="@ctphieu.MADH" >--Chọn đơn hàng--</option>
+                    @foreach (var item in edonHang_)
+                    {
+                        <option value="@item.SoDonHang">@item.SoDonHang</option>
+                    }
+                </select>*@
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" style="padding-left:20px">
+        <div class="form-group row">
+            <label class="col-md-3">Mã vật tư: </label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="eMAVT" name="eMAVT" style="width: 100%;" title="Mã || Hiệu || Lô || Tồn">
+                    @foreach (var item in maVT)
+                    {
+                        <option value="@item.ID">@item.MAVT || @item.HIEU || @item.LO || @item.SOLUONGTT</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Số lượng: </label>
+            <div class="col-md-9">
+                <input id="eSOLUONGYC" name="eSOLUONGYC" class="form-control" type="number"
+                       step="0.01" min="0" value="@ctphieu.SOLUONGYC.ToString("0.00")" data-decimal="2" oninput="enforceNumberValidation(this)">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Ghi chú: </label>
+            <div class="col-md-9">
+                <textarea rows="2" id="eGHICHU" name="eGHICHU" class="form-control">@ctphieu.GHICHU</textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //Số chữ số thập phân
+    function enforceNumberValidation(ele) {
+        if ($(ele).data('decimal') != null) {
+            // found valid rule for decimal
+            var decimal = parseInt($(ele).data('decimal')) || 0;
+            var val = $(ele).val();
+            if (decimal > 0) {
+                var splitVal = val.split('.');
+                if (splitVal.length == 2 && splitVal[1].length > decimal) {
+                    // user entered invalid input
+                    $(ele).val(splitVal[0] + '.' + splitVal[1].substr(0, decimal));
+                }
+            } else if (decimal == 0) {
+                // do not allow decimal place
+                var splitVal = val.split('.');
+                if (splitVal.length > 1) {
+                    // user entered invalid input
+                    $(ele).val(splitVal[0]); // always trim everything after '.'
+                }
+            }
+        }
+    }
+
+</script>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+</script>

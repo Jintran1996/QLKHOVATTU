@@ -1,0 +1,75 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2025_SP_LOAD_PHIEUXNKHO_DONGBO_NETSUITE_Result>;
+    int STT = 1;
+}
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+            <th></th>
+            <th>STT</th>
+            <th>Mã Phiếu</th>
+            <th>Loại XN</th>
+            <th>IDMADV Nhận</th>
+            <th>Kho Nhận</th>
+            <th>IDMADV Xuất</th>
+            <th>Kho Xuất</th>
+            <th>SOCT KẾ THỪA</th>
+            <th>SOPO</th>
+            <th>IsAPI NS</th>
+            <th>Ngày Gửi IsAPI NS</th>
+            <th>Loại VT</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List)
+        {
+            <tr>
+                <td></td>
+                <td>@STT</td>
+                <td>@item.SOCTXN</td>
+                <td>@item.LOAIXN</td>
+                <td>@item.IDMADVNHAN</td>
+                <td>@item.MAKHONHAN</td>
+                <td>@item.IDMADVXUAT</td>
+                <td>@item.MAKHOXUAT</td>
+                <td>@item.KETHUATUSOCT</td>
+                <td>@item.SOPO</td>
+                <td>
+                    @if (item.GUIAPI == "1")
+                    {
+                        <span class="badge"
+                              style="background:#d4f7e3; color:#0b8f52; padding:6px 12px; border-radius:12px; font-size:13px;">
+                            <i class="fas fa-check-circle" style="margin-right:6px;"></i>
+                            Đã đồng bộ NetSuite
+                        </span>
+                    }
+                    else
+                    {
+                        if (item.LOAIXN == "NNB")
+                        {
+                            <span class="badge"
+                                  style="background:#ffffff; color:#808080; padding:6px 12px; border-radius:12px; font-size:13px;">
+                                <i class="fas fa-exclamation-triangle" style="margin-right:6px;"></i>
+                                Không cần đồng bộ NetSuite
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge"
+                                  style="background:#ffe2e2; color:#d43f3a; padding:6px 12px; border-radius:12px; font-size:13px;">
+                                <i class="far fa-clock" style="margin-right:6px;"></i>
+                                Chưa đồng bộ NetSuite
+                            </span>
+                        }
+                    }
+                </td>
+                <td>@item.NGAYGUIAPI</td>
+                <td>@item.LOAIVT</td>
+
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

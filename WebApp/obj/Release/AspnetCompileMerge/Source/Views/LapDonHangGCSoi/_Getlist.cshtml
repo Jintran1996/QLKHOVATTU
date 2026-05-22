@@ -1,0 +1,80 @@
+﻿@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.SP_GC_DONHANGGCSOI_Result>;
+    var STT = 1;
+}
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>STT</th>
+            <th>Mã đơn hàng</th>
+            <th>Ngày cập nhật</th>
+            <th>Đơn vị yêu cầu</th>
+            <th>Đơn vị thực hiện</th>
+            <th>GD Đơn vị YC</th>
+            <th>Hiệu lực XX</th>
+            <th>GD Đơn vị TH</th>
+            <th>Hiệu lực XN</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Lists)
+        {
+        <tr>
+
+            <td width="150px">
+                <div class="row">
+                    <a onclick="Edit('@item.MADH_GCSOI')" class="btn">
+                        <i class="fas fa-edit"></i> Hiệu Chỉnh Chi Tiết
+                    </a>
+                    @*<a onclick="printReport('@item.MAPHIEUTT')" class="btn">
+                    <i class="fas fa-print"></i> In
+                </a>*@
+                </div>
+                <div class="row">
+                    <a onclick="Details('@item.MADH_GCSOI')" class="btn">
+                        <i class="fas fa-list"></i> Chi Tiết
+                    </a>
+                    <a onclick="Xoa_MaPhieu_Click('@item.MADH_GCSOI')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+
+                </div>
+            </td>
+            <td>@STT</td>
+            <td>@item.MADH_GCSOI</td>
+            <td>
+                @String.Format("{0:MM/dd/yyyy}", item.NGAYCAPNHAT)
+            </td>
+            <td>@item.DVYC</td>
+            <td>@item.DVTH</td>
+            <td>@item.MANV_DONVIYC_XX</td>
+            <td>
+                @if (item.HIEULUCXX == null || item.HIEULUCXX == false)
+                {
+                    <small class="badge badge-danger"><i class="far fa-clock"></i> Vô hiệu</small>
+                }
+                else
+                {
+                    <small class="badge badge-success"><i class="far fa-clock"></i> Có hiệu lực</small>
+                }
+            </td>
+            <td>@item.MANV_DONVITH_XACNHAN</td>
+            <td>
+                @if (item.HIEULUCXACNHAN == null || item.HIEULUCXACNHAN == false)
+                {
+                    <small class="badge badge-danger"><i class="far fa-clock"></i> Vô hiệu</small>
+                }
+                else
+                {
+                    <small class="badge badge-success"><i class="far fa-clock"></i> Có hiệu lực</small>
+                }
+            </td>
+
+            
+        </tr>
+            STT++;
+        }
+    </tbody>
+</table>

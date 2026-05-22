@@ -1,0 +1,369 @@
+﻿@using System.Globalization;
+@model ToolsApp.Models.XUATNHAPViewModels
+@{
+    ViewBag.CTPhieu = "Danh Sách Xuất Kho - Vật Tư";
+    var MAVT = ViewBag.MAVT as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SP_LOADVTYEUCAUXUATKHO_DONVI_Result>;
+    var LOAIXN = ViewBag.LOAIXN;
+    var SOCTXN = ViewBag.SOCTXN;
+    var MAKHONHAN = ViewBag.MAKHONHAN;
+    var MAKHOXUAT = ViewBag.MAKHOXUAT;
+    var idmadv = ViewBag.idmadv;
+    var IDMACS = ViewBag.IDMACS as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SP_LOAD_IDMACS_BY_DMDONVI_Result>;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab-getlist-ctphieu" @*style="display:block;"*@ data-toggle="pill" href="#custom-tabs-one-home-ct" role="tab" aria-controls="custom-tabs-one-home-ct" aria-selected="true">Danh sách chi tiết phiếu  </a>
+                            </li>
+                            @*<li class="nav-item" id="tab-2">
+                                    <a class="nav-link" id="custom-tabs-one-profile-tab-action-ctphieu" style="display:block;" data-toggle="pill" href="#custom-tabs-one-profile-action" role="tab" aria-controls="custom-tabs-one-profile-action" aria-selected="false">Xuất kế thừa phiếu nhập NZZZ </a>
+                                </li>*@
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home-ct" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab-getlist-ctphieu">
+                                <!--data-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-body pad">
+                                                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmctphieuycxuat", id = "frmctphieuycxuat", enctype = "multipart/form-data" }))
+                                                {
+
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <div class="row" style="margin-bottom:5px">
+                                                                <label class="col-md-3 col-sm-3">SOCTXN:</label>
+                                                                <div class="col-md-9 col-sm-9 ten">
+                                                                    <input class="form-control" type="text" autocomplete="off"
+                                                                           id="xSOCTXN_CT" name="SoCTXN" value="@SOCTXN" readonly />
+                                                                    <input class="form-control" type="text" autocomplete="off"
+                                                                           id="xMAKHONHAN" value="@MAKHONHAN" hidden />
+                                                                    <input class="form-control" type="text" autocomplete="off"
+                                                                           id="xMAKHOXUAT" value="@MAKHOXUAT" hidden />
+                                                                    <input class="form-control" type="text" autocomplete="off"
+                                                                           id="xLOAIXN" name="LOAIXN" value="@LOAIXN" hidden />
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row" style="margin-bottom:5px">
+                                                                <label class="col-md-3 col-sm-3">Mã vật tư : </label>
+                                                                <div class="col-md-9 col-sm-9 ten">
+                                                                    <select id="xKeymavt" name="xKeymavt" class="form-control chosen-select " style="width: 100%;" onchange="Onchange_SLTon(this.value)">
+                                                                        <option selected disabled value=""> Mã vật tư </option>
+                                                                        @foreach (var item in MAVT)
+                                                                        {
+                                                                            <option value="@item.Keymavt" tonkhomavt="@item.SOLUONGYCXUATKHO.Value.ToString()" maphieupd="@item.MaPhieuPD" mavt="@item.MAVT">
+                                                                                MAVT: @item.MAVT || TENVT: @item.TENVT || DVT: @item.DVT || TONKHO: @item.SOLUONGYCXUATKHO.Value.ToString("0,0.##") || MAKHOXUAT: @item.MAKHO || MAPHIEUPD: @item.MaPhieuPD
+                                                                            </option>
+                                                                        }
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-bottom:5px">
+                                                                <label class="col-md-3 col-sm-3">Số Lượng xuất:</label>
+                                                                <div class="col-md-4 col-sm-4 ten">
+                                                                    <input class="form-control" autocomplete="off" oninput="inputChange_Checksluong();"
+                                                                           id="xSoLuongYC" name="SoLuongYC" value="" min="0" type="number" />
+                                                                    <input class="form-control" type="text" autocomplete="off"
+                                                                           id="xMaPhieuPD" name="MaPhieuPD" hidden />
+                                                                    <input class="form-control" type="text" autocomplete="off"
+                                                                           id="xMAVT" name="MAVT" hidden />
+                                                                </div>
+                                                                <div class="row col-md-5 col-sm-5 ten">
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text">Số Lượng Tồn</span>
+                                                                        </div>
+                                                                        <input class="form-control" autocomplete="off"
+                                                                               id="xSoluongton" name="Soluongton" readonly />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            @if (idmadv == "30" || idmadv == "92")
+                                                            {
+                                                                <div class="row" style="margin-bottom:5px">
+                                                                    <label class="col-md-3 col-sm-3">MaBP-Cửa hàng : </label>
+                                                                    <div class="col-md-9 col-sm-9 ten">
+                                                                        <select id="xMaBP" name="MaBP" class="form-control chosen-select " style="width: 100%;">
+                                                                            <option selected disabled value=""> MaBP Cửa Hàng </option>
+                                                                            @foreach (var item in IDMACS)
+                                                                            {
+                                                                                <option value="@item.MABP">
+                                                                                    @item.MABP || @item.TENGOI
+                                                                                </option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                            }
+
+                                                            <div class="row" style="margin-bottom:5px">
+                                                                <label class="col-md-3 col-sm-3">Ghi chú: </label>
+                                                                <div class="col-md-9 col-sm-9 ten">
+                                                                    <textarea class="form-control" id="pyc_ghichu" onclick="this.select();" name="Ghichu" rows="3" cols="50"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            @*@if (isdaxuatkho == true)
+                                                {
+
+                                                }
+                                                else*@
+
+                                            <div class="text-left" id="luu-1" style="display:normal">
+                                                <button type="button" id="btSavectycxuat" style="width: 100px" onclick="add_ctphieu();" class="btn btn-sm btn-primary"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
+
+                                            </div>
+
+
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                </div>
+                                <div class=" col-md-12">
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>@ViewBag.CTPhieu </b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-12 table-body-view-ctphieuxuat  table-responsive">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                </div>
+                                <!--data-->
+                            </div>
+
+                            <div class="tab-pane fade col-md-12 row" id="custom-tabs-one-profile-action" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab-action-ctphieu">
+                                <!--data-->
+                                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmkethuaxzzz", id = "frmkethuaxzzz", enctype = "multipart/form-data" }))
+                                {
+                                    <input class="form-control" type="text" autocomplete="off"
+                                           id="SOCTXN_xzzz" name="SOCTXN_xzzz" value="@SOCTXN.Trim()" hidden />
+                                    <input class="form-control" type="text" autocomplete="off"
+                                           id="LOAIXN_xzzz" name="LOAIXN_xzzz" value="@LOAIXN.Trim()" hidden />
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="row" style="margin-bottom:15px">
+                                                <label class="col-md-3">Kế thừa SOCTXN :</label>
+                                                <div class="col-md-9">
+                                                    <select class="form-control" id="SOCTXN_XZZZ" name="SOCTXN_XZZZ" onchange="_Load_CTMahangvai()">
+                                                        <option disabled selected value="">--Kế thừa SOCTXN--</option>
+                                                        @foreach (var item in MAVT)
+                                                        {
+                                                            <option value="@item.MAVT">@item.MAVT</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="button" id="btSavect" onclick="_Insert_ctphieu_nzzz();" class="btn btn-sm btn-primary" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                    </div>
+                                    <div class="card-body pad">
+                                        <div class="row">
+                                            <div class="col-md-12 table-body-view-ctphieu-xzzz  table-responsive">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card -->
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    function reloadData_getlist_ctphieu() {
+        var Search_ = $("#xSOCTXN_CT").val() ;
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu_View")',
+                timeout: 20000,
+                data: {
+                    SOCTXN_CT: Search_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-view-ctphieuxuat').html(response);
+
+                    $("#myTablectphieuxuat").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+
+
+    function add_ctphieu() {
+
+        var xSOCTXN_CT = $("#xSOCTXN_CT").val();
+        var xLOAIXN = $("#xLOAIXN").val();
+        var xMAKHONHAN = $("#xMAKHONHAN").val();
+        var xMAKHOXUAT = $("#xMAKHOXUAT").val();
+        var xMaPhieuPD = $("#xMaPhieuPD").val();
+        form = $("#frmctphieuycxuat");
+        form.removeData('validator');
+        form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse("#frmctphieuycxuat");
+        console.log($('#frmctphieuycxuat').serialize());
+        if (form.valid()) {
+            var confirm_ = confirm('Bạn có chắc muốn xuất kho này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_InsertFunCTPhieu")',
+                    type: "POST",
+                    data: $('#frmctphieuycxuat').serialize(),
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+
+                            document.getElementById("idCloseDetail").addEventListener("click", function () {
+                                $('#myModalDetail').modal('hide');
+                            });
+                            console.log(xSOCTXN_CT, xLOAIXN, xMAKHONHAN, xMAKHOXUAT);
+                            Details(xSOCTXN_CT, xLOAIXN, xMAKHONHAN, xMAKHOXUAT);
+
+                        }
+                        else
+                         {
+                          notify(result.text, "error");
+                         }
+                        $(".divLoading").removeClass("loading");
+
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+            };
+
+    function Onchange_SLTon(selectedValue) {
+        var selectedOption = document.querySelector('#xKeymavt option[value="' + selectedValue + '"]');
+        var Sltonid = $("#xSoluongton");
+        Sltonid.empty();
+        var tonkhomavtValue = parseFloat(selectedOption.getAttribute('tonkhomavt'));
+        Sltonid.val(tonkhomavtValue);
+
+        var maphieupdid = $("#xMaPhieuPD");
+        maphieupdid.empty();
+        var maphieupdValue = selectedOption.getAttribute('maphieupd');
+        maphieupdid.val(maphieupdValue);
+
+        var mavtid = $("#xMAVT");
+        mavtid.empty();
+        var mavtValue = selectedOption.getAttribute('mavt');
+        mavtid.val(mavtValue);
+
+        inputChange_Checksluong();
+    };
+
+    function inputChange_Checksluong() {
+
+        var datayc = $('#xSoLuongYC').val();
+        var dataton = $('#xSoluongton').val();
+        var s1 = parseFloat(datayc);
+        var s2 = parseFloat(dataton);
+        console.log(s1, s2);
+
+        if (s1 > s2) {
+            $('#xSoLuongYC').val(s2);
+            notify("Số lượng yêu cầu không được lớn hơn số lượng tồn hiện tại", "error");
+        }
+        return;
+    }
+
+</script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        reloadData_getlist_ctphieu(false);
+    })
+</script>
+
+
+
+
+
+
+
+

@@ -1,0 +1,458 @@
+﻿@using System.Globalization;
+
+@{
+    var maDV = ViewBag.MaDV as List<ToolsApp.EntityFramework.KhoSoi.SP_LOAD_DMKHO_BY_IDMADV_Result>;
+    var hinhThuc = ViewBag.HinhThuc as List<ToolsApp.EntityFramework.KhoSoi.SP_BANGKENHAPSOI_MAHINHTHUC_LOAD_MAHTHUC_MADV_Result>;
+    var soPhieuXX = ViewBag.SoPhieuXX as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_GC_DMPHIEU_BANGKENHAPSOI_BY_MADV_HLXX_Result>;
+}
+
+
+<div class="row">
+    <div class="col-12 col-md-12">
+        <div class="card card-primary card-tabs">
+            <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                    <li class="nav-item" id="tab-1" style="display:block;">
+                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">XEM XÉT BẢNG KÊ NHẬP SỢI  </a>
+                    </li>
+                    <li class="nav-item" id="tab-2" style="display:block;">
+                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">XEM LẠI XEM XÉT BẢNG KÊ NHẬP SỢI</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="custom-tabs-one-tabContent">
+                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmctphieu", id = "frmctphieu", enctype = "multipart/form-data" }))
+                                {
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>Chọn số phiếu bảng kê sợi</b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Đơn vị: </label>
+                                                        <select class="form-control chosen-select" id="MADV" name="MADV">
+                                                            @foreach (var item in maDV)
+                                                            {
+                                                                <option value="@item.HT">@item.HT</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Xem xét: </label>
+                                                        <select class="form-control chosen-select" id="HIEULUC_XX" name="HIEULUC_XX">
+                                                            <option value="XemXet">Xem xét</option>
+
+                                                        </select>
+                                                    </div>         
+                                                    <div class="custom-button">
+                                                        <label>&nbsp;</label><br />
+                                                        <button style="margin-top: 10px; margin-left: 5px" id="btnLuu" type="button" class="btn btn-outline-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                                        &nbsp;
+                                                        <button style="margin-top: 10px; margin-left: 5px" onclick="openOutlookemailbox()" id="btnMail" type="button" class="btn btn-outline-primary"><i class="fa fa-mail-bulk"></i>&nbsp;Mail</button>
+                                                        &nbsp;
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Công đoạn: </label>
+                                                        <select class="form-control chosen-select" id="MALOAICONGDOAN" name="MALOAICONGDOAN" onchange="LoadSoPhieuXX()">
+                                                            <option value="SOICHAP">Sợi chập</option>
+                                                            <option value="KHONGCHAP">Không chập</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Số phiếu: </label>
+                                                        <select class="form-control chosen-select" id="SOPHIEU" name="SOPHIEU" onchange="reloadData(this.value)">
+                                                            <option value="">--</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Hình thức: </label>
+                                                        <select class="form-control chosen-select" id="MAHINHTHUC" name="MAHINHTHUC" onchange="LoadKTXX()">
+                                                            <option value="">--</option>
+                                                            @foreach(var item in hinhThuc)
+                                                                 {
+                                                                    <option value="@item.MAHTHUC">@item.MAHTHUC || @item.TENHTHUC</option>
+                                                                 }
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>KT xem xét: </label>
+                                                        <select class="form-control chosen-select" id="MANV_KT" name="MANV_KT">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-12">
+                                <div class="card card-primary card-outline">
+                                    <div class="card-body pad">
+                                        <div class="row" style="margin-bottom:10px">
+                                            <div class="card-title">
+                                                <h3>Chi Tiết Bảng Kê Sợi</h3>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 table-body table-responsive">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade col-md-12" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                        <div class="row">
+                            <div class=" col-md-12">
+                                <fieldset class="scheduler-border">
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>Chọn số phiếu bảng kê sợi đã xem xét</b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Mã đơn hàng: </label>
+                                                        <select class="form-control chosen-select" id="SOPHIEU_XX" name="SOPHIEU_XX" onchange="reloadDataXN()">
+                                                            <option value="">--</option>
+                                                            @foreach(var item in soPhieuXX)
+                                                                {
+                                                                    <option value="@item.SOPHIEU">@item.SOPHIEU</option>
+                                                                }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Xác nhận: </label>
+                                                        <select class="form-control chosen-select" id="DVTHXN" name="DVTHXN">
+                                                            <option value="BoXACNHAN">Bỏ Xác nhận</option>
+                                                        </select>
+                                                    </div>
+                                                </div>                               
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <label>&nbsp;</label><br />
+                                                        <button style="margin-top: 28px; margin-left: 5px" id="btnCapNhatXacNhan" type="button" class="btn btn-outline-success form-control"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                                        &nbsp;
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="row col-md-12">
+                                <div class="col-md-12">
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-12 table-DHXN table-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModalDetail" class="modal fade modal-wide " role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmDetail", id = "frmDetail", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header bg-gradient-blue">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:mintcream"><strong id="myModalTitleDetail"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetail">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSave" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+    </script>
+    <script>
+        function reloadData(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+                    SOPHIEU: $("#SOPHIEU").val(),
+                    
+                    page: page
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        destroy : true,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+        function reloadDataXN(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListXX")',
+                timeout: 20000,
+                data: {
+                    SOPHIEU: $("#SOPHIEU_XX").val(),
+                    page: page
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-DHXN').html(response);
+
+                    $("#myTable-XN").DataTable({
+                        destroy : true,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        var $modalDetail = $('#myModalDetail');
+        var $myModalContentDetail = $("#myModalContentDetail");
+        var $myModalTitleDetail = $("#myModalTitleDetail");
+        $(document).ready(function () {
+            reloadData(false);
+        });
+         function LoadKTXX() {
+             var MAHINHTHUC = $("#MAHINHTHUC").val();
+             var MANV_KT = $('#MANV_KT');
+             MANV_KT.empty();
+            $.ajax({
+                url: '@Url.Action("_LoadKTXX")',
+                timeout: 20000,
+                type: "POST",
+                data: {
+                    MAHINHTHUC: MAHINHTHUC,
+                },
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $.each(result.obj, function (i, state) {
+                        MANV_KT.append($('<option/>', { value: this.MANV }).html(this.MANV + '||' + this.HOTEN));
+                        console.log(this.MANV);
+                    });
+                    MANV_KT.trigger("chosen:updated");
+                },
+                error: function () {
+
+                }
+            });
+        }
+        function LoadSoPhieuXX() {
+            var MALOAICONGDOAN = $("#MALOAICONGDOAN").val();
+            var SOPHIEU = $('#SOPHIEU');
+            SOPHIEU.empty();
+            $.ajax({
+                url: '@Url.Action("_LoadSoPhieu")',
+                timeout: 20000,
+                type: "POST",
+                data: { MALOAICONGDOAN: MALOAICONGDOAN },
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $.each(result.obj, function (i, state) {
+                        SOPHIEU.append($('<option/>', { value: this.SOPHIEU }).html(this.SOPHIEU));
+                    });
+                    SOPHIEU.trigger("chosen:updated");
+                },
+                error: function () {
+
+                }
+            });
+        }
+        $("#btnLuu").click(function () {
+            var confirm_ = confirm('Bạn có chắc xem xét bảng kê sợi này');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("Luu_click")',
+                    type: "POST",
+
+                    data: {
+                        SOPHIEU: $("#SOPHIEU").val(),
+                        MANV_KT: $("#MANV_KT").val(),
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        console.log(result.obj);
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        });
+        $("#btnCapNhatXacNhan").click(function () {
+            var confirm_ = confirm('Bạn có chắc bỏ xem xét số phiếu này');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("Luu_click_Xn")',
+                    type: "POST",
+
+                    data: {
+                        SOPHIEU: $("#SOPHIEU_XX").val(),
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        console.log(result.obj);
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        });
+        function openOutlookemailbox() {
+            var SOPHIEU_ = $("#SOPHIEU").val();
+           
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("openOutlookemailbox")',
+                data: {
+                    SOPHIEU: SOPHIEU_,
+                },
+                beforeSend: function () {
+                },
+                success: function (response) {
+                    window.location = response;
+                },
+                error: function (xhr, errorType, exception) {
+                }
+             });
+            }
+    </script>
+}
+
+
+

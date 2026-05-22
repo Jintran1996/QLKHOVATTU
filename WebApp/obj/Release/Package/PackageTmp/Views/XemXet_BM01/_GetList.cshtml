@@ -1,0 +1,67 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.SP_NL_CTPHIEU_LOADBYMAPHIEU_Result>;
+    ViewBag.Title = "Chi tiết phiếu yêu cầu mua sợi";
+    var stt = 1;
+}
+<table id="myTable" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            
+            <th>STT</th>
+            <th>Mã Phiếu</th>
+            <th>Mã sợi</th>
+            <th>Tên sợi</th>
+            <th>Hiệu</th>
+            <th>SL yêu cầu</th>
+            <th>SL xem xét</th>
+            <th>Đơn giá</th>
+            <th>SL tồn </th>
+            <th>Tình trạng</th>
+            <th>Loại ĐH</th>
+            <th>Đơn vị YC</th>
+            <th>Loại YC</th>
+            <th>Ghi chú</th>
+            <th>Mã CP</th>
+            <th>Thời điểm sử dụng</th>
+            <th>Trạng Thái PD</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+        <tr>
+
+            <td>@stt</td>
+            <td>@item.MAPHIEU</td>
+            <td>@item.MAVT</td>
+            <td>@item.TENVATTU</td>
+            <td>@item.HIEU</td>
+            <td>@item.SLYCAU</td>
+            <td style="color:blue; font: bold">@item.SLXXET</td>
+            <td style="color:blue; font: bold">@item.Dongia</td>
+            <td>@item.SOLUONGTONKHO</td>
+            <td>@item.TINHTRANG</td>
+            <td>@item.LOAIDONHANG</td>
+            <td>@item.IDMaDV_YCMUA</td>
+            <td>@item.LOAIYEUCAU</td>
+            <td>@item.GHICHU</td>
+            <td>@item.MASOCP</td>
+            <td>@(item.THOIDIEMSD == null ? "" : item.THOIDIEMSD.Value.ToString("dd/MM/yyyy"))</td>
+            <td>
+                @if (item.PDUYET != 1)
+                {
+                    <small class="badge badge-warning"><i class="far fa-clock"></i> Chưa Duyệt</small>
+                }
+                else
+                {
+                    <small class="badge badge-primary"><i class="far fa-clock"></i> Đã Duyệt</small>
+                }
+
+
+            </td>
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>

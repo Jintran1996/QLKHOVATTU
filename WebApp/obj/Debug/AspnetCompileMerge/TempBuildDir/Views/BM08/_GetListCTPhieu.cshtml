@@ -1,0 +1,48 @@
+﻿@{
+    var list = ViewBag.CTPHIEU05 as List<ToolsApp.EntityFramework.VatTu.SP_SEARCHCTPHIEUBM05_Result>;
+    ViewBag.Title = "Danh sách vật tư";
+    var stt = 1;
+}
+<table id="myTableCT" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Mã số CP</th>
+            <th>Mã VT</th>
+            <th>Tên VT</th>
+            <th>DVT</th>
+            <th>SL YC</th>
+            <th>Tình trạng</th>
+            <th>Nhân viên YC</th>
+            <th>Ghi chú</th>
+            <th>Thời điểm SD</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+
+
+            <tr>
+                <td>
+                    @if (item.NHANVIENLAPPHIEU == User.Identity.Name)
+                    {
+                        <a onclick="DeleteCT('@item.MAPHIEU', '@item.MAVT');" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                    }
+                </td>
+                <td>@item.MASOCP</td>
+                <td><h6><small class="badge badge-success">@item.MAVT</small></h6></td>
+                <td><h6><small class="badge badge-success">@item.TENVT</small></h6></td>
+                <td><h6><small class="badge badge-success">@item.DVT</small></h6></td>
+                <td style="color:blue; font: bold">@item.SLYCAU</td>
+                <td>@item.TINHTRANG</td>
+                <td>@item.NHANVIENLAPPHIEU</td>
+                <td>@item.GHICHU - @item.LYDOSD</td>
+                <td>@(item.THOIDIEMSD == null ? "": item.THOIDIEMSD)</td>
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>

@@ -1,0 +1,55 @@
+﻿@using System.Globalization;
+
+
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_CTXUATNHAP>;
+    var list_Phieu = ViewBag.list_Phieu as ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEUXN;
+
+}
+<table id="Detail" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="width: 200px">Tùy chỉnh</th>
+            <th style="text-align:center">STT</th>
+            <th>Mã vật tư</th>
+            <th>Hiệu</th>
+            <th>Lô</th>
+            <th>Số lượng</th>
+            <th>Loại đơn hàng</th>
+            <th>Sản xuất cho đơn hàng</th>
+            <th>Ghi Chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1;}
+        @foreach (var item in Lists)
+        {
+        <tr>
+            <td>
+                @if (list_Phieu.MANVXUAT == null || list_Phieu.MANVXUAT == "" )
+                {
+                    <a onclick="EditCt('@item.KHOAKEYXN')" class="btn">
+                        <i class="fas fa-edit"></i> Sửa
+                    </a>
+                    <a onclick="Deletect('@item.KHOAKEYXN')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                }
+            </td>
+            <td style="text-align:center">
+                @STT
+            </td>
+            <td>@item.MAVT</td>
+            <td>@item.HIEU</td>
+            <td>@item.LO</td>
+            <td>@item.SOLUONGYC.ToString("0.00")</td>
+            <td>@item.LOAIDONHANG</td>
+            <td>@item.MADH</td>
+            <td>@item.GHICHU</td>
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+

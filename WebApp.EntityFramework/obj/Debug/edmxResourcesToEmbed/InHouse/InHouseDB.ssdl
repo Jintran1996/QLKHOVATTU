@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="INHOUSEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="S_user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="GroupID" Type="smallint" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CREF01" Type="varchar" MaxLength="50" />
+    <Property Name="CREF02" Type="int" />
+    <Property Name="Status" Type="datetime" />
+    <Property Name="CREF04" Type="int" />
+    <Property Name="CREF03" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Note" Type="varchar" MaxLength="150" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="INHOUSEModelStoreContainer">
+    <EntitySet Name="S_user" EntityType="Self.S_user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,57 @@
+﻿@using System.Globalization;
+@{
+    var data = ViewBag.list as ToolsApp.EntityFramework.VatTu.CTPHIEU05_LOADCHITIETPHIEU_XEMXET_Result;
+}
+
+<input id="maphieu" name="maphieu" value="@data.MAPHIEU" hidden />
+<input id="MaBP" name="MaBP" value="@data.MaBP" hidden />
+<div class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse">
+    <div class="row" style="margin-bottom:5px">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="form-group row">
+                        <label class="col-md-4">Mã vật tư</label>
+                        <div class="col-md-8">
+                            <input id="MAVT" name="MAVT" class="form-control" type="text" value="@data.MAVT" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4">Tên vật tư</label>
+                        <div class="col-md-8">
+                            <input id="TenVT" name="TenVT" class="form-control" type="text" value="@data.TenVT" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4">SL xem xét</label>
+                        <div class="col-md-8">
+                            <input id="SLXXET" name="SLXXET" class="form-control" type="number" value="@data.SLXXET" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4">Ghi chú</label>
+                        <div class="col-md-8">
+                            <input id="GhiChu" name="GhiChu" class="form-control" type="text" value="@data.GhiChu" readonly  />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4">Đặc tính KT</label>
+                        <div class="col-md-8">
+                            <input id="DACTINHKYTHUAT" name="DACTINHKYTHUAT" class="form-control" type="text" value="@data.DACTINHKYTHUAT" readonly  />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4">Tình trạng</label>
+                        <div class="col-md-8">
+                            <input id="TinhTrang" name="TinhTrang" class="form-control" type="text" value="@data.TinhTrang"  readonly />
+                        </div>
+                    </div>                   
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

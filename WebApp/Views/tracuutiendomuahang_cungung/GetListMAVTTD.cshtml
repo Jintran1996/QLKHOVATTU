@@ -1,0 +1,66 @@
+﻿@{
+    var MAVTTD = ViewBag.MAVTTD as List<ToolsApp.EntityFramework.VatTu.VATTU2026_CTPHIEU_MAVTTUONGDUONG>;
+    int STT = 1;
+}
+
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">  
+            <th>STT</th>
+            <th>Mã phiếu</th>
+            <th>Mã vật tư</th>
+            <th>Mã vật tư - tương đương</th>
+            <th>Giá nhập gần nhất</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in MAVTTD)
+        {           
+            <tr>     
+                <td>@STT</td>
+                <td>@item.MAPHIEU</td>
+                <td>@item.MAVT</td>
+                <td>@item.MAVT_TDUONG</td>
+                <td>        
+                    <input type="text" class="form-control chosen-select mavttd" data-keyid="@item.KEYID" value="@string.Format("{0:N}", item.GIANHAPGANNHAT)" />
+                </td>
+
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+<script>
+
+    $(document).on('change', '.mavttd', function () {
+
+         let GIANHAPGANNHAT = $(this).val();
+         let keyid = $(this).data('keyid');        
+
+         $.ajax({
+             url: '@Url.Action("UpdateMAVTTD")',
+             type: 'POST',
+             data: {
+                 keyid: keyid,          
+                 GIANHAPGANNHAT: GIANHAPGANNHAT
+             },
+             success: function (res) {
+                 if (!res.success) {
+                     alert("Cập nhật thất bại");
+                 }
+                 else {
+                     notify("Cập nhật thành công", "success");
+                 }
+             },
+             error: function () {
+                 alert("Lỗi server");
+             }
+         });
+     });
+</script>
+
+

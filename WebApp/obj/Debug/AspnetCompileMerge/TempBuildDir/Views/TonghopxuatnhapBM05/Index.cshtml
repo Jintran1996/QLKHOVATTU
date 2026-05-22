@@ -1,0 +1,277 @@
+﻿@{
+    ViewBag.Title = "Xem Xét Phiếu (BM01/BM02/BM08)";
+    var MAKHO = ViewBag.MAKHO as List<ToolsApp.EntityFramework.NetsuiteTT.SPLOAD_TONKHOALL_TP_2024_Result>;
+    var NAM = ViewBag.NAM as List<ToolsApp.EntityFramework.VatTu.DMNAM>;
+    var THANG = ViewBag.THANG as List<ToolsApp.EntityFramework.VatTu.DMTHANG>;
+    var GETYEAR = ViewBag.GETYEAR;
+    var GETMONTH = ViewBag.GETMONTH;
+}
+
+<section class="content" style="font-size: 12px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Tổng hợp BM05</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row" style="margin-bottom:5px">
+                            <label class="col-md-1 col-sm-1">Năm:</label>
+                            <div class="col-md-1 col-sm-1 ten">
+                                <select class="form-control chosen-select"
+                                        id="NAM" name="NAM">
+
+                                    @foreach (var item in NAM)
+                                    {
+                                        <option value="@item.Nam" @(item.Nam == Convert.ToDouble(GETYEAR) ? "selected=\"selected\"" : "")>@item.Nam</option>
+                                    }
+                                </select>
+                            </div>
+                            <label class="col-md-1 col-sm-1">Tháng:</label>
+                            <div class="col-md-1 col-sm-1 ten">
+                                <select class="form-control chosen-select"
+                                        id="THANG" name="THANG">
+                                    <option selected value="ALL">Tất cả</option>
+
+                                    @foreach (var item in THANG)
+                                    {
+                                        <option value="@item.THANG">@item.THANG</option>
+                                    }
+                                </select>
+                            </div>
+
+
+
+                        </div>
+                        <div class="row" style="margin-bottom:20px">
+
+                            <div class="col-md-1 col-sm-1 ten">
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:left">
+                               
+                                <div class="form-group">
+                                    @*<button id="btnSEARCH" onclick="reloadData()" type="button" class="btn bg-gradient-success" style="white-space: nowrap; margin-bottom:5px; width: 150px"><i class="fas fa-save"></i>&nbsp; Tìm</button>*@
+                                    &nbsp; <!--Khoảng trắng-->
+                                    <button id="btnXuatExcel" onclick="EXPORT_EXCEL()" type="button" class="btn bg-gradient-info" style="white-space: nowrap; margin-bottom:5px; width: 150px "><i class="fa fa-file-excel"></i>&nbsp; Export Excel</button>
+                                    &nbsp;
+                                    @*<button id="btnSendEmail" onclick="Print()" type="button" class="btn bg-gradient-success" style="white-space: nowrap; margin-bottom:5px; width: 100px "><i class="fa fa-print"></i>&nbsp; In</button>
+            &nbsp;*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End section search-->
+            </div>
+        </div>
+        <!--Section data table-->
+        <!--<div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Inventory Adjustment</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <!-- /.col -->
+        <!--</div>-->
+        <!--End section data table-->
+    </div>
+    <div id="myModal" class="modal fade modal-wide" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+                {
+
+                    <div class="modal-header">
+                        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="myModalContent">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="text-right">
+                            <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContent');" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                        </div>
+                    </div>}
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+    </script>
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+
+    </script>
+    <script>
+
+
+        function ExportExcel() {
+            EXPORT_EXCEL();
+
+        }
+
+
+        function reloadData() {
+            try {
+                var action = '@Url.Action("_GetList")';
+                $.ajax({
+                    url: action,
+                    timeout: 20000,
+                    data: {
+                         NAM : $("#NAM").val(),
+                         THANG : $("#THANG").val(),
+
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (response) {
+                        $('.table-body-IA').html(response);
+                        $("#myTable").DataTable({
+                            destroy: true,
+                            "language": {
+                                "sProcessing": "Đang xử lý...",
+                                "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                                "sZeroRecords": "Không tìm thấy kết quả",
+                                "sEmptyTable": "Không có dữ liệu",
+                                "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                                "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                                "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Tìm kiếm:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Đang tải...",
+                                "oPaginate": {
+                                    "sFirst": "Đầu tiên",
+                                    "sLast": "Cuối cùng",
+                                    "sNext": "Sau",
+                                    "sPrevious": "Trước"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                    "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                                }
+                            },
+                            "info": false,
+                            "processing": false,
+                            "serverSide": false,
+                            "bFilter": true,
+                            "bPaginate": true,
+                            "bLengthChange": true,
+                            "bInfo": true,
+                            "responsive": true,
+                            "lengthChange": true,
+                            "autoWidth": true,
+                            "stateSave": true,
+                            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                            "initComplete": function (oSettings) {
+                            }
+                        });
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            } catch (e) {
+            }
+        }
+
+
+
+
+        function EXPORT_EXCEL() {
+            console.log($("#THANG").val());
+            $.ajax({
+                url: '@Url.Action("_ExportExcelFun")',
+                timeout: 200000000,
+                type: "POST",
+                data: {
+
+                    NAM: $("#NAM").val(), THANG: $("#THANG").val(),
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        window.location.href = result.obj;
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    $(".divLoading").removeClass("loading");
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        var $ID_SOCT = "";
+
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+        $(document).ready(function () {
+
+
+        });
+
+
+    </script>
+}
+
+

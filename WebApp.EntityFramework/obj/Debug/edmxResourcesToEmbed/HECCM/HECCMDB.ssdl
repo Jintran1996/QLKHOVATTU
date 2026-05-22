@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HECCMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="S_Monthly_Target">
+    <Key>
+      <PropertyRef Name="Year" />
+      <PropertyRef Name="Month" />
+    </Key>
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+    <Property Name="Actual" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Target" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TargetHos" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TargetPhar" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TargetBS" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LogData" Type="varchar" MaxLength="500" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdatePhar" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdatePhar" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdatePhar" Type="datetime" />
+    <Property Name="UserUpdateHos" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdateHos" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdateHos" Type="datetime" />
+  </EntityType>
+  <EntityType Name="S_Principal_Mapping">
+    <Key>
+      <PropertyRef Name="Vendor" />
+      <PropertyRef Name="PrincipalGroupID" />
+      <PropertyRef Name="PrincipalID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="Vendor" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="PrincipalGroupID" Type="int" Nullable="false" />
+    <Property Name="PrincipalID" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="ProductID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NewCode" Type="char" MaxLength="4" />
+    <Property Name="Note" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="S_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="PrincipalGroupID" />
+      <PropertyRef Name="PrincipalID" />
+    </Key>
+    <Property Name="PrincipalGroupID" Type="smallint" Nullable="false" />
+    <Property Name="PrincipalGroupName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrincipalID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PrincipalName" Type="varchar" MaxLength="50" />
+    <Property Name="ValidCode" Type="char" MaxLength="4" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" />
+    <Property Name="BelongTo" Type="nvarchar" MaxLength="20" />
+    <Property Name="Team" Type="varchar" MaxLength="20" />
+    <Property Name="ByProduct" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="S_Salesman_Master">
+    <Key>
+      <PropertyRef Name="SalesmanCode" />
+    </Key>
+    <Property Name="SalesmanCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PDACode" Type="varchar" MaxLength="50" />
+    <Property Name="HRCode" Type="varchar" MaxLength="10" />
+    <Property Name="SalesRep" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SalesRep1" Type="nvarchar" MaxLength="100" />
+    <Property Name="Level" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="ReportTo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="Mobile" Type="varchar" MaxLength="100" />
+    <Property Name="BelongTo" Type="char" MaxLength="2" />
+    <Property Name="Team" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" />
+    <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+    <Property Name="Plant" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="S_Salesman_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="SalesmanCode" />
+      <PropertyRef Name="PrincipalGroupID" />
+    </Key>
+    <Property Name="SalesmanCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="PrincipalGroupID" Type="smallint" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="S_Salesman_RoutePlan">
+    <Key>
+      <PropertyRef Name="SalesmanCode" />
+      <PropertyRef Name="CustCode" />
+      <PropertyRef Name="ContactCode" />
+    </Key>
+    <Property Name="SalesmanCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CustCode" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="ContactCode" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="ContactType" Type="char" MaxLength="1" />
+    <Property Name="W1D1" Type="bit" />
+    <Property Name="W1D2" Type="bit" />
+    <Property Name="W1D3" Type="bit" />
+    <Property Name="W1D4" Type="bit" />
+    <Property Name="W1D5" Type="bit" />
+    <Property Name="W1D6" Type="bit" />
+    <Property Name="W1D7" Type="bit" />
+    <Property Name="W2D1" Type="bit" />
+    <Property Name="W2D2" Type="bit" />
+    <Property Name="W2D3" Type="bit" />
+    <Property Name="W2D4" Type="bit" />
+    <Property Name="W2D5" Type="bit" />
+    <Property Name="W2D6" Type="bit" />
+    <Property Name="W2D7" Type="bit" />
+    <Property Name="W3D1" Type="bit" />
+    <Property Name="W3D2" Type="bit" />
+    <Property Name="W3D3" Type="bit" />
+    <Property Name="W3D4" Type="bit" />
+    <Property Name="W3D5" Type="bit" />
+    <Property Name="W3D6" Type="bit" />
+    <Property Name="W3D7" Type="bit" />
+    <Property Name="W4D1" Type="bit" />
+    <Property Name="W4D2" Type="bit" />
+    <Property Name="W4D3" Type="bit" />
+    <Property Name="W4D4" Type="bit" />
+    <Property Name="W4D5" Type="bit" />
+    <Property Name="W4D6" Type="bit" />
+    <Property Name="W4D7" Type="bit" />
+    <Property Name="W5D1" Type="bit" />
+    <Property Name="W5D2" Type="bit" />
+    <Property Name="W5D3" Type="bit" />
+    <Property Name="W5D4" Type="bit" />
+    <Property Name="W5D5" Type="bit" />
+    <Property Name="W5D6" Type="bit" />
+    <Property Name="W5D7" Type="bit" />
+    <Property Name="W6D1" Type="bit" />
+    <Property Name="W6D2" Type="bit" />
+    <Property Name="W6D3" Type="bit" />
+    <Property Name="W6D4" Type="bit" />
+    <Property Name="W6D5" Type="bit" />
+    <Property Name="W6D6" Type="bit" />
+    <Property Name="W6D7" Type="bit" />
+    <Property Name="W7D1" Type="bit" />
+    <Property Name="W7D2" Type="bit" />
+    <Property Name="W7D3" Type="bit" />
+    <Property Name="W7D4" Type="bit" />
+    <Property Name="W7D5" Type="bit" />
+    <Property Name="W7D6" Type="bit" />
+    <Property Name="W7D7" Type="bit" />
+    <Property Name="W8D1" Type="bit" />
+    <Property Name="W8D2" Type="bit" />
+    <Property Name="W8D3" Type="bit" />
+    <Property Name="W8D4" Type="bit" />
+    <Property Name="W8D5" Type="bit" />
+    <Property Name="W8D6" Type="bit" />
+    <Property Name="W8D7" Type="bit" />
+    <Property Name="LastUpdate" Type="datetime" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="50" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="250" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="S_user">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+    <Property Name="SalesmanCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ITR" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SFA_BU">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BUCode" Type="varchar" MaxLength="20" />
+    <Property Name="BUName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SFA_Exlusion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrincipalGroupId" Type="int" />
+    <Property Name="PrincipalGroupName" Type="varchar" MaxLength="150" />
+    <Property Name="PrincipalId" Type="nchar" MaxLength="4" />
+    <Property Name="CustomerCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrincipalName" Type="nvarchar" MaxLength="550" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SFA_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SFA_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="varchar" MaxLength="250" />
+    <Property Name="Controler" Type="varchar" MaxLength="50" />
+    <Property Name="Action" Type="varchar" MaxLength="50" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SFA_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PrincipalGroupName" Type="varchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SFA_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SFA_TemplateUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Fullname" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SFA_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="SalesRepCode" Type="varchar" MaxLength="50" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SFA_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="isRoleCreate" Type="bit" />
+    <Property Name="isRoleEdit" Type="bit" />
+    <Property Name="isRoleExport" Type="bit" />
+    <Property Name="isRoleExportAll" Type="bit" />
+    <Property Name="isRoleDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="SFA_User_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PrincipalGroupId" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SFA_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="UserFullname" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HECCM.dbo.v_Principal_From_PrincipalGroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Principal_From_PrincipalGroup">
+    <Key>
+      <PropertyRef Name="PrincipalID" />
+    </Key>
+    <Property Name="PrincipalID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PrincipalName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_SFA_Menu_SFA_Menu">
+    <End Role="SFA_Menu" Type="Self.SFA_Menu" Multiplicity="0..1" />
+    <End Role="SFA_Menu1" Type="Self.SFA_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_Menu_SFA_Page">
+    <End Role="SFA_Page" Type="Self.SFA_Page" Multiplicity="0..1" />
+    <End Role="SFA_Menu" Type="Self.SFA_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_Page_SFA_Page">
+    <End Role="SFA_Page" Type="Self.SFA_Page" Multiplicity="0..1" />
+    <End Role="SFA_User_Page" Type="Self.SFA_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_Page_SFA_User">
+    <End Role="SFA_User" Type="Self.SFA_User" Multiplicity="0..1" />
+    <End Role="SFA_User_Page" Type="Self.SFA_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_PrincipalGroup_SFA_PrincipalGroup">
+    <End Role="SFA_PrincipalGroup" Type="Self.SFA_PrincipalGroup" Multiplicity="0..1" />
+    <End Role="SFA_User_PrincipalGroup" Type="Self.SFA_User_PrincipalGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_PrincipalGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_PrincipalGroup">
+        <PropertyRef Name="PrincipalGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_PrincipalGroup_SFA_User">
+    <End Role="SFA_User" Type="Self.SFA_User" Multiplicity="0..1" />
+    <End Role="SFA_User_PrincipalGroup" Type="Self.SFA_User_PrincipalGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_PrincipalGroup">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_Role_SFA_Role">
+    <End Role="SFA_Role" Type="Self.SFA_Role" Multiplicity="0..1" />
+    <End Role="SFA_User_Role" Type="Self.SFA_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFA_User_Role_SFA_User">
+    <End Role="SFA_User" Type="Self.SFA_User" Multiplicity="0..1" />
+    <End Role="SFA_User_Role" Type="Self.SFA_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFA_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SFA_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="S_Sales_Org_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesmanCode" Type="char" Mode="In" />
+  </Function>
+  <Function Name="S_Salesman_Master_fGetSubTreeWithSort" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesmanCode" Type="char" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="SalesmanCode" Type="varchar" MaxLength="10" />
+          <Property Name="ForSort" Type="varchar" MaxLength="255" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="S_Salesman_Master_GetListExceptS1BySalesmanCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesmanCode" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="HECCMModelStoreContainer">
+    <EntitySet Name="S_Monthly_Target" EntityType="Self.S_Monthly_Target" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_Principal_Mapping" EntityType="Self.S_Principal_Mapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_PrincipalGroup" EntityType="Self.S_PrincipalGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_Salesman_Master" EntityType="Self.S_Salesman_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_Salesman_PrincipalGroup" EntityType="Self.S_Salesman_PrincipalGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_Salesman_RoutePlan" EntityType="Self.S_Salesman_RoutePlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_user" EntityType="Self.S_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_BU" EntityType="Self.SFA_BU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_Exlusion" EntityType="Self.SFA_Exlusion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_Menu" EntityType="Self.SFA_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_Page" EntityType="Self.SFA_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_PrincipalGroup" EntityType="Self.SFA_PrincipalGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_Role" EntityType="Self.SFA_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_TemplateUser" EntityType="Self.SFA_TemplateUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_User" EntityType="Self.SFA_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_User_Page" EntityType="Self.SFA_User_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_User_PrincipalGroup" EntityType="Self.SFA_User_PrincipalGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFA_User_Role" EntityType="Self.SFA_User_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="v_Principal_From_PrincipalGroup" EntityType="Self.v_Principal_From_PrincipalGroup" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_Principal_From_PrincipalGroup].[PrincipalID] AS [PrincipalID], 
+    [v_Principal_From_PrincipalGroup].[PrincipalName] AS [PrincipalName]
+    FROM [dbo].[v_Principal_From_PrincipalGroup] AS [v_Principal_From_PrincipalGroup]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_SFA_Menu_SFA_Menu" Association="Self.FK_SFA_Menu_SFA_Menu">
+      <End Role="SFA_Menu" EntitySet="SFA_Menu" />
+      <End Role="SFA_Menu1" EntitySet="SFA_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_Menu_SFA_Page" Association="Self.FK_SFA_Menu_SFA_Page">
+      <End Role="SFA_Page" EntitySet="SFA_Page" />
+      <End Role="SFA_Menu" EntitySet="SFA_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_Page_SFA_Page" Association="Self.FK_SFA_User_Page_SFA_Page">
+      <End Role="SFA_Page" EntitySet="SFA_Page" />
+      <End Role="SFA_User_Page" EntitySet="SFA_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_Page_SFA_User" Association="Self.FK_SFA_User_Page_SFA_User">
+      <End Role="SFA_User" EntitySet="SFA_User" />
+      <End Role="SFA_User_Page" EntitySet="SFA_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_PrincipalGroup_SFA_PrincipalGroup" Association="Self.FK_SFA_User_PrincipalGroup_SFA_PrincipalGroup">
+      <End Role="SFA_PrincipalGroup" EntitySet="SFA_PrincipalGroup" />
+      <End Role="SFA_User_PrincipalGroup" EntitySet="SFA_User_PrincipalGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_PrincipalGroup_SFA_User" Association="Self.FK_SFA_User_PrincipalGroup_SFA_User">
+      <End Role="SFA_User" EntitySet="SFA_User" />
+      <End Role="SFA_User_PrincipalGroup" EntitySet="SFA_User_PrincipalGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_Role_SFA_Role" Association="Self.FK_SFA_User_Role_SFA_Role">
+      <End Role="SFA_Role" EntitySet="SFA_Role" />
+      <End Role="SFA_User_Role" EntitySet="SFA_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFA_User_Role_SFA_User" Association="Self.FK_SFA_User_Role_SFA_User">
+      <End Role="SFA_User" EntitySet="SFA_User" />
+      <End Role="SFA_User_Role" EntitySet="SFA_User_Role" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

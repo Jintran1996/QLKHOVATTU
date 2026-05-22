@@ -1,0 +1,389 @@
+﻿
+@using System.Globalization;
+@model ToolsApp.Models.DMPHIEUViewModels
+@{
+    var loaivt = ViewBag.loaivt as List<ToolsApp.EntityFramework.VatTu.SP_GET_DANHSACH_DMLOAIVT_THEO_DONVISUDUNG_Result>;
+    // var maphieu = ViewBag.maphieu;
+    var nguoixx = ViewBag.nguoixx as List<ToolsApp.EntityFramework.VatTu.SP_LoadXemXetBM03TTKD_Result>;
+    var cMachiphi = ViewBag.cMachiphi as List<ToolsApp.EntityFramework.VatTu.SP_CHIPHI_28062016_Result>;
+    var nguoilp = ViewBag.nguoilp;
+    var mabp = ViewBag.mabp as List<ToolsApp.EntityFramework.VatTu.DMNHANVIEN>;
+    var locations = ViewBag.locations as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SP_LOADKHOQUYENNHAP_Result>;
+    var madv = ViewBag.madv;
+    var cMaVT = ViewBag.cMaVT as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_VATTUYEUCAU_BYDONVI_BYLOAIPHIEU_27062016_Result>;
+    var _maPhieu = ViewData["MaPhieu"];
+
+}
+
+<style>
+    .image-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .parent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .responsive-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #btnCN {
+        font-size: 12px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: #ffffff;
+        border: none;
+        width: 100px;
+        height: 35px;
+        border-color: unset;
+        margin: 2px;
+        text-align: center;
+    }
+
+    /*figure.zoom {
+        background-position: 50% 50%;
+        position: relative;
+        width: 500px;
+        overflow: hidden;
+        cursor: zoom-in;
+    }
+
+        figure.zoom img:hover {
+            opacity: 0;
+        }
+
+        figure.zoom img {
+            transition: opacity .5s;
+            display: block;
+            width: 100%;
+        }*/
+    #customer-image {
+        display: none;
+    }
+</style>
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <div class="card card-primary card-tabs">
+            <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true" style="font-size:18px">Thông Tin Phiếu BM01/QI08 </a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="display: none" class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Thông Tin Chi Tiết Phiếu </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content " id="custom-tabs-one-tabContent">
+                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmdmphieu", id = "frmdmphieu", enctype = "multipart/form-data" }))
+                        {
+                            <div class="row" style="margin-bottom:10px">
+                                <label class="col-md-2 col-sm-2">Mã Phiếu: </label>
+                                <div class="col-md-4 col-sm-4 ten">
+                                    <input id="MaPhieu" name="MaPhieu" class="form-control" value="@_maPhieu" readonly>
+
+                                </div>
+                                <label class="col-md-2 col-sm-2">Thị Trường: </label>
+                                <div class="col-md-4 col-sm-4">
+                                    <input type="radio" name="ND" value="ND" id="pyc_vt_rad_nd" checked>&nbsp;Nội Địa&emsp;&emsp;&emsp;
+                                    <input type="radio" name="ND" value="NK" id="pyc_vt_rad_nk">&nbsp;Nhập Khẩu
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:10px">
+                                <label class="col-md-2 col-sm-2">Ngày Lập Phiếu: </label>
+                                <div class="col-md-4 col-sm-4 ten">
+                                    <input value="@DateTime.Now.ToString("dd/MM/yyyy")"
+                                           class="form-control" type="text" autocomplete="off"
+                                           id="KEHOACHTHANG" name="KEHOACHTHANG" />
+                                </div>
+                                <label style="margin-bottom:5px" class="col-md-2 col-sm-2">Kế Hoạch</label>
+                                <div style="margin-bottom:5px" class="col-md-4 col-sm-4">
+                                    <input type="radio" name="KH" value="KH" id="pyc_vt_rad_kh" checked>&nbsp;Kế Hoạch&emsp;&emsp;
+                                    <input type="radio" name="KH" value="DX" id="pyc_vt_rad_dx">&nbsp;Đột Xuất
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:10px">
+                                <label class="col-md-2 col-sm-2">Người Lập Phiếu: </label>
+                                <div class="col-md-4 col-sm-4 ten">
+                                    <input id="NguoiLP" name="NguoiLP" class="form-control" value="@User.Identity.Name" readonly>
+                                </div>
+                                <label class="col-md-2 col-sm-2">Loại Phiếu: </label>
+                                <div class="col-md-4 col-sm-4 ten">
+                                    <select id="LoaiPhieu" name="LoaiPhieu" onchange="LoaiVT1();" class="form-control chosen-select" style="width: 100%;">
+                                        <option value="">Chọn loại phiếu</option>
+                                        <option value="03">Loại phiếu: 03</option>
+                                        <option value="04">Loại phiếu: 04</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:10px">
+                                <label class="col-md-2 col-sm-2">Người Xem Xét: </label>
+                                <div class="col-md-4 col-sm-4 ten">
+                                    <select id="NguoiXX" name="NguoiXX" class="form-control chosen-select" style="width: 100%;">
+                                        @foreach (var item in nguoixx)
+                                        {
+                                            <option value="@item.MaNV">
+                                                @item.MH
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                                <label class="col-md-2 col-sm-2">Loại VT: </label>
+                                <div class="col-md-4 col-sm-4 ten">
+                                    <select id="LoaiVT" name="LoaiVT" class="form-control chosen-select " style="width: 100%;" onchange="MaVT1(); MASOCP()">
+                                        <option value="" disabled selected>Chọn loại vật tư</option>
+                                        @*@foreach (var item in loaivt)
+                        {
+                            <option value="@item.LoaiVT">
+                                @item.HIENTHI
+                            </option>
+                        }*@
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:15px">
+                                <label class="col-md-2 col-sm-2">Mã Đơn Vị: </label>
+                                <div class="col-md-4 col-sm-4 ten">
+                                    <input id="MaDV" name="MaDV" class="form-control" value="@madv" readonly>
+                                </div>
+                                <label class="col-md-2 col-sm-2">Mã Bộ Phận: </label>
+                                <div class="col-md-4 col-sm-4 ten" style="display:unset">
+                                    <select id="MaBP" name="MaBP" class="form-control chosen-select " value="@mabp" style="width: 100%;" @(madv != "30" ? "disabled" : "")>
+                                        @foreach (var item in mabp)
+                                        {
+                                            <option value="@item.MABP">
+                                                @item.MABP
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:15px">                         
+                                <label class="col-md-2 col-sm-2">Mã kho nhận: </label>
+                                <div class="col-md-4 col-sm-4 ten" style="display:unset">
+                                    <select id="locations" name="locations" class="form-control chosen-select " value="" style="width: 100%;">
+                                        @foreach (var item in locations)
+                                        {
+                                            <option value="@item.MAKHO" >
+                                                @item.MAKHO || @item.TENKHO
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                                <div style="display:flex; justify-content:center; align-items:center; height:40px;">
+                                    <small style="color:red;">
+                                        * Vui lòng chọn kho nhận khi hàng hóa mua về
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px">
+                                <label class="col-md-2 col-sm-2">Ghi Chú:</label>
+                                <div class="col-md-10 col-sm-1 ten">
+                                    <textarea id="LyDoSD" name="LyDoSD" class="form-control" style="width: 100%;" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="row" style=" float:right; padding-top:10px">
+                                <div class="row-md-2 row-sm-2" style="margin-bottom:5px; padding-right:6px">
+                                    <button type="button" id="btSaveDmphieu" class="btn bg-gradient-green" style="width: 100px">&nbsp;Lưu <i class="fas fa-angle-double-right"></i></button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                 
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    $("#btSaveDmphieu").click(function () {
+        form = $("#frmdmphieu");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse("#frmdmphieu");
+                if (form.valid()) {
+                    $.ajax({
+                        url: '@Url.Action("_InsertFun")',
+                        type: "POST",
+                        data: $('#frmdmphieu').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                reloadData(true);
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+    });
+
+    $("#THOIDIEMSD_String").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+</script>
+
+<script>
+    function btLuu() {
+        form = $("#frmctphieu");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse("#frmctphieu");
+                if (form.valid()) {
+                    $.ajax({
+                        url: '@Url.Action("_SaveCTPhieu")',
+                        type: "POST",
+                        data: $('#frmctphieu').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                reloadCTPhieu(true);
+                                $("#myModal").on("hidden.bs.modal", function () {
+                                    reloadData(false);
+                                });
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+    }
+
+
+    function LoaiVT1() {
+        var _loaiphieu = $('#LoaiPhieu').val();
+        var LoaiVT = $("#LoaiVT");
+        LoaiVT.empty();
+        $.ajax({
+            url: '@Url.Action("_LoadLoaiVT")',
+            timeout: 20000,
+            data: {
+                LoaiPhieu: _loaiphieu
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                $.each(result.obj, function (i, state) {
+                    LoaiVT.append($('<option/>', { value: this.LoaiVT }).html(this.LoaiVT));
+                });
+                LoaiVT.trigger("chosen:updated");
+                $(".divLoading").removeClass("loading");
+            }, 
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    }
+
+   
+
+
+
+
+    
+
+    //-----------------Action phiếu mới----------------//
+   
+</script>
+
+
+<script>
+    function MASOCP() {
+            var LoaiVT_ = $("#LoaiVT").val();
+            var MASOCPID = $("#MASOCP");
+            MASOCPID.empty();
+        console.log("test");
+            $.ajax({
+                url: '@Url.Action("_LoadMASOCP")',
+                timeout: 20000,
+                type: "GET",
+                data: { LoaiVT: LoaiVT_ },
+                success: function (result) {
+                    $.each(result.obj, function (i, state) {
+                        MASOCPID.append($('<option/>', { value: this.MSCHIPHI }).html(this.MSCHIPHI + ' || ' + this.TENCHIPHI));
+                        });
+                    MASOCPID.trigger("chosen:updated");
+                }
+            });
+        }
+    function setImage(maVT) {
+        var imgID = $("#myImg");
+        $.ajax({
+            url: '@Url.Action("SetImage")',
+            timeout: 20000,
+            type: "GET",
+            data: {
+                MAVT: maVT
+            },
+        }).done(function (data) {
+            if (maVT != "") {
+                console.log(maVT);
+                document.getElementById("customer-image").style.display = "block";
+            } else {
+
+                document.getElementById("customer-image").style.display = "none";
+            }
+            $("#myImg").attr("src", "https://thaituangarment.com.vn/QLVatTu/" + data.obj[0].Images);
+        }).fail(function (errors) {
+            concole.log(errors);
+        });
+
+    }
+
+
+
+</script>
+
+

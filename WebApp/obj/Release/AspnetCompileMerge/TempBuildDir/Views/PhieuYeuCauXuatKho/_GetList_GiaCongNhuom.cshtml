@@ -1,0 +1,121 @@
+﻿
+
+@{
+    var STT = 0;
+    var data_GCN = ViewBag.data_GCN as List<ToolsApp.EntityFramework.VatTu.SP_LOADCTPHIEUYCXUATKHO_DONVI_Result>;
+}
+
+<div class="control-group">
+    <table id="myTable_GiaCongNhuom" class="table table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th width="30px">STT</th>
+                <th>SOCTXN</th>
+                <th>Mã kho</th>
+                <th>Mã Vật Tư</th>
+                <th>Tên Vật Tư</th>
+                <th>Số lượng YC</th>
+                <th>Ghi Chú</th>
+                <th>Loại Xuất Nhập</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in data_GCN)
+            {
+                <tr>
+                    <td>
+                        <a onclick="Delete_GCN('@item.KHOAKEYXN', '@item.SOCTXN')" class="btn" style="font-size:10px">
+                            <i class="far fa-trash-alt">&nbsp;Xóa&nbsp;phiếu</i>
+                        </a>
+                    </td>
+                    <td>@item.STT</td>
+                    <td>  <input type="text" id="data_GCN_SOCTXN_@(item.STT)" name="data_GCN_SOCTXN_@(item.STT)" value="@item.SOCTXN" style="display:none" /> @item.SOCTXN</td>
+                    <td>  <input type="text" id="data_GCN_MAKHO_@(item.STT)" name="data_GCN_MAKHO_@(item.STT)" value="@item.MAKHO" style="display:none" /> @item.MAKHO</td>
+                    <td>  <input type="text" id="data_GCN_MAVT_@(item.STT)" name="data_GCN_MAVT_@(item.STT)" value="@item.MAVT" style="display:none" />@item.MAVT </td>
+                    <td>  <input type="text" id="data_GCN_TENVT_@(item.STT)" name="data_GCN_TENVT_@(item.STT)" value="@item.TENVT" style="display:none" />@item.TENVT </td>
+                    <td>  <input type="text" id="data_GCN_SOLUONGYC_@(item.STT)" onblur="update_GCN_('@item.KHOAKEYXN', @(item.STT))" name="data_GCN_SOLUONGYC_@(item.STT)" value="@item.SOLUONGYC" class="form-control" /> </td>
+                    <td>  <textarea id="data_GCN_GHICHU_@(item.STT)" onblur="update_GCN_('@item.KHOAKEYXN', @(item.STT))" name="data_GCN_GHICHU_@(item.STT)" value="@item.GHICHU" class="form-control" rows="1">@item.GHICHU </textarea></td>
+                    <td>  <input type="text" id="data_GCN_LOAICAPPHAT_@(item.STT)" name="data_GCN_LOAICAPPHAT_@(item.STT)" value="@item.LOAICAPPHAT" style="display:none" />@item.LOAICAPPHAT </td>
+
+                </tr>
+                STT++;
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function update_GCN_(Khoa, Stt) {
+        var Soluong_GCN = $('#data_GCN_SOLUONGYC_' + Stt).val();
+        var GhiChu_GCN = $('#data_GCN_GHICHU_' + Stt).val();
+        var confirm_ = confirm('Bạn có muốn chỉnh sửa ?');
+        if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("update_GCN_")',
+                type: "POST",
+                data: {
+                    KhoaKeyXN_GCN: Khoa,
+                    Soluong_GCN: Soluong_GCN,
+                    GhiChu_GCN: GhiChu_GCN,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+            return;
+        }
+
+    }
+    function Delete_GCN(Khoa, SOCTXN) {
+        console.log(Soluong_GCN);
+        var confirm_ = confirm('Bạn có muốn xoá ?');
+        if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("Delete_GCN")',
+                type: "POST",
+                data: {
+                    KHOAKEYXN: Khoa,
+                    SOCTXN_GCN: SOCTXN,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                    _GetList_GiaCongNhuom(SOCTXN);
+                    New_Phieu_DV_Click("");
+                    New_Phieu_TTKD_Click("");
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+
+    }
+
+</script>
+
+
+

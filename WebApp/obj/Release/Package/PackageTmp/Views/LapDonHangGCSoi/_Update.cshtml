@@ -1,0 +1,218 @@
+﻿
+@model ToolsApp.Models.DONHANGGCSOIModels
+@{
+    var Stt = 0;
+    var List = ViewBag.Data as ToolsApp.EntityFramework.KhoSoi.DONHANGGCSOI;
+    var ListCT = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.DONHANGGCSOI_CT>;
+    var LoaiDH = ViewBag.LoaiDH as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_DMLoaiDonHang_Result>;
+    var maSoiThanhPham = ViewBag.MaSoiThanhPham as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_MASOITHANHPHAM_Result>;
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Mã đơn hàng GC Sợi: </label>
+            <input class="form-control form-control-md" type="text" autocomplete="off" value="@List.MADH_GCSOI"
+                   id="MADH_GCSOI" name="MADH_GCSOI" readonly />
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Loại gia công: </label>
+            <input class="form-control form-control-md" type="text" autocomplete="off" value="@List.LOAIGIACONG"
+                   id="LOAIGIACONG" name="LOAIGIACONG" readonly />
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Đơn vị yêu cầu:</label>
+            <input class="form-control form-control-md" type="text" autocomplete="off" value="@List.IDMADV_YC"
+                   id="IDMADV_YC" name="IDMADV_YC" readonly />
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>Đơn vị thực hiện: </label>
+            <input class="form-control form-control-md" type="text" autocomplete="off" value="@List.IDMADV_TH"
+                   id="IDMADV_TH" name="IDMADV_TH" readonly />
+
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>GD đơn vị yêu cầu: </label>
+            <input class="form-control form-control-md" type="text" autocomplete="off" value="@List.MANV_DONVIYC_XX"
+                   id="MANV_DONVIYC_XX" name="MANV_DONVIYC_XX" readonly />
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>GD đơn vị thực hiện: </label>
+            <input class="form-control form-control-md" type="text" autocomplete="off" value="@List.MANV_DONVITH_XACNHAN"
+                   id="MANV_DONVITH_XACNHAN" name="MANV_DONVITH_XACNHAN" readonly />
+        </div>
+    </div>
+</div>
+
+<hr />
+<h5 style="margin-top: 10px; color: #3c8dbc">Chi tiết đơn hàng gia công sợi</h5>
+
+<div class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse">
+    <table id="detailsTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th style="width:60px"></th>
+                <th>Loại đơn hàng</th>
+                <th>Mã sợi thành phẩm</th>
+                <th>Số lượng</th>
+                <th>Diễn giải</th>
+            </tr>
+        </thead>
+        <tbody id="detailCT">
+            @if (List != null)
+            {
+                foreach (var _CT in ListCT.ToList())
+                {
+
+            <tr id="row_@(Stt)">
+                <td style="width:60px">
+                    <input data-val="true"
+                           id="Detail_@(Stt)_KHOA_ID" name="Detail[@(Stt)].KHOA_ID"
+                           type="hidden" value="@_CT.KHOA_ID">
+
+                    <input data-val="true"
+                           id="Detail_@(Stt)_Delete" name="Detail[@(Stt)].Delete"
+                           type="hidden" value="false">
+
+
+                    <a onclick="Remove('row_@(Stt)', @(Stt))" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                </td>
+                <td>
+                    <select id="Detail_@(Stt)_Loaidh" name="Detail[@(Stt)].Loaidh"
+                            class="form-control chosen-select">
+                        @foreach (var item in LoaiDH)
+                        {
+                            <option value="@item.LOAIDH" @(item.LOAIDH == _CT.Loaidh ? "selected=\"selected\"" : "")>
+                                @item.LOAIDH || @item.TENGOI
+                            </option>
+                        }
+
+                    </select>
+                </td>
+                <td>
+                    <select id="Detail_@(Stt)_MASOITHANHPHAM" name="Detail[@(Stt)].MASOITHANHPHAM"
+                            class="form-control chosen-select" onchange="LoadDienGiai()">
+                        @foreach (var item in maSoiThanhPham)
+                        {
+                            <option value="@item.MAVATTU" @(item.MAVATTU == _CT.MASOITHANHPHAM ? "selected=\"selected\"" : "")>
+                                @item.MAVATTU || @item.Tenvattu
+                            </option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <input class="form-control text-box single-line" data-val="true"
+                           id="Detail_@(Stt)_SOLUONGYEUCAU" name="Detail[@(Stt)].SOLUONGYEUCAU" type="number" value="@(_CT.SOLUONGYEUCAU)">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_SOLUONGYEUCAU"
+                          data-valmsg-replace="true"></span>
+                </td>
+                <td>
+                    <input class="form-control text-box single-line" data-val="true"
+                           id="Detail_@(Stt)_DIENGIAI" name="Detail[@(Stt)].DIENGIAI" type="text" value="@(_CT.DIENGIAI)">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Detail_@(Stt)_DIENGIAI"
+                          data-valmsg-replace="true"></span>
+                </td>
+            </tr>
+
+                    Stt++;
+                }
+            }
+        </tbody>      
+    </table>
+</div>
+
+
+<script>
+    var index = @(Stt);
+
+    $(document).ready(function () {
+        //Nút tạo nhiều dòng dữ liệu
+        $("#addMore").click(function (e) {
+            var mau = $('#tblMau').html();
+
+            mau = mau.replace(/{index}/g, index);
+
+            $('#detailCT').append(mau);
+            for (var selector in config_) {
+                $(selector).chosen(config_);
+            }
+
+            index++;
+        });
+    });
+    function Remove(Id_, Index_) {
+        $('#row_' + Index_).attr("style", "display:none");
+
+        $('#Detail_' + Index_ + '_Delete').val(true);
+    }
+
+</script>
+
+
+<script type="text/javascript">
+
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    $("#NGAYKT_").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+    function LoadDienGiai() {
+        var MASOITHANHPHAM_ = $("#Detail_@(Stt)_MASOITHANHPHAM").val();
+        var DIENGIAI = $("#Detail_@(Stt)_DIENGIAI");
+        DIENGIAI.empty();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("_LoadDienGiai")',
+            data: {
+                MASOITHANHPHAM: MASOITHANHPHAM_,
+            },
+            success: function (result) {
+                $.each(result.obj, function (i, state) {
+                    document.getElementById('Detail_@(Stt)_DIENGIAI').value = state.DIENGIAI;
+                    console.log(state.DIENGIAI);
+                });
+                DIENGIAI.trigger("chosen:updated");
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,108 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.TBLDMNGUYENLIEU>;
+
+    var STT = 1;
+}
+
+<table id="myTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th width="40px">STT</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>Mã nguyên liệu</th>
+            <th>CS1</th>
+            <th>CS2</th>
+            <th>DVT</th>
+            <th>MANGL1</th>
+            <th>Tỷ lệ 1</th>
+            <th>MANGL2</th>
+            <th>Tỷ lệ 2</th>
+            <th>MANGL3</th>
+            <th>Tỷ lệ 3</th>
+            <th>MANGL4</th>
+            <th>Tỷ lệ 4</th>
+            <th>MANGL5</th>
+            <th>Tỷ lệ 5</th>
+            <th>MA2</th>
+            <th>Mã nhóm</th>
+            <th>Loại Mã Sợi</th>
+            <th>Hiệu lực</th>
+            <th>IsAPI</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in list.Take(100))
+        {
+            <tr>
+                <td width="133px">
+                    @*<a onclick="Edit('@item.MAVATTU')" class="btn">
+                            <i class="fas fa-edit"></i> Sửa
+                        </a>*@
+                    <a onclick="btnDongBo('@item.MAVATTU')" class="btn">
+                        <i class="fas fa-recycle"></i> Đồng bộ
+                    </a>
+                    @if (item.GuiAPI != "1")
+                    {
+                        <a onclick = "Delete('@item.MAVATTU')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                    }
+
+                </td>
+                <td> @STT </td>
+                <td> @item.MAVATTU </td>
+                <td> @item.Tenvattu </td>
+                <td> @item.MaNGL </td>
+                <td> @item.CS1 </td>
+                <td> @item.CS2 </td>
+                <td> @item.DVT </td>
+                <td> @item.MANGL1 </td>
+                <td> @item.Tile1 </td>
+                <td> @item.MANGL2 </td>
+                <td> @item.Tile2 </td>
+                <td> @item.MANGL3 </td>
+                <td> @item.Tile3 </td>
+                <td> @item.MANGL4 </td>
+                <td> @item.Tile4 </td>
+                <td> @item.MANGL5 </td>
+                <td> @item.Tile5 </td>
+                <td> @item.MA2 </td>
+                <td> @item.Manhomvt </td>
+                <td> @item.LoaiSoi </td>
+
+
+                <td style="text-align: center; font-size: 24px;">
+                    @if (@item.isHieuluc == true)
+                    {
+
+                        <i class="fa fa-check" style="color: springgreen;"></i>
+                    }
+                    else
+                    {
+
+                        <i class="fa fa-ban" style="color: red"></i>
+                    }
+                </td>
+                <td style="text-align: center; font-size: 24px;">
+                    @if (item.GuiAPI == "1")
+                    {
+
+                        <i class="fa fa-check" style="color: springgreen;font-size: 24px;"></i>
+                    }
+                    else
+                    {
+
+
+                    }
+                </td>
+
+            </tr>
+            STT++;
+
+
+        }
+    </tbody>
+</table>

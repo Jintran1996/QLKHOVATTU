@@ -1,0 +1,133 @@
+﻿@using ToolsApp.Helper;
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/Content/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/dist/css/adminlte.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="~/Content/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="~/Content/plugins/toastr/toastr.min.css">
+    <!-- TeamCode -->
+    <link rel="stylesheet" href="~/Content/TeamCode.css" />
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-danger">
+            <div class="card-header text-center">
+                <a class="h1">
+                    LOGIN
+                </a>
+            </div>
+            <div class="card-body">
+                <form id="fLogin" name="fLogin" method="post">
+                    @Html.Hidden("ReturnUrl", (string)ViewBag.ReturnUrl)
+                    <div class="input-group mb-3">
+                        <input id="fLogin_tUsername" name="fLogin_tUsername" placeholder="Username, Email..."
+                               data-val="true" data-val-required="This field is required."
+                               type="text" class="form-control" autocomplete="off">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="fLogin_tUsername" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input id="fLogin_pPassword" name="fLogin_pPassword" placeholder="Password"
+                               data-val="true" data-val-required="This field is required."
+                               type="password" class="form-control" autocomplete="off">
+                        <div class="input-group-append">                        
+                            <div class="input-group-text">
+                                <span id="togglePassword" class="fas fa-eye" style="cursor: pointer;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="fLogin_pPassword" data-valmsg-replace="true"></span>
+                    </div>
+                    @*<div class="input-group mb-3">
+                        <div class="col-12">
+                            @Html.reCaptcha()
+                        </div>
+                    </div>*@
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input id="fLogin_cRemember" name="fLogin_cRemember" type="checkbox" value="False">
+                                <label for="fLogin_cRemember">
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button onclick="funfLogin_bLogin('@Url.Action("_FunLogin")')" id="fLogin_bLogin" name="fLogin_bLogin" type="button" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <!-- /.social-auth-links -->
+                <p class="mb-1">
+                    <a href="@Url.Action("Index", "ResetPassword")">I forgot my password</a>
+                </p>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery -->
+    <script src="~/Content/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/dist/js/adminlte.min.js"></script>
+    <!-- Jquery Validate -->
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="~/Content/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/Content/plugins/toastr/toastr.min.js"></script>
+    <!-- TeamCode -->
+    <script src="~/Scripts/TeamCode.js"></script>
+
+    <div class="divLoading"></div>
+</body>
+</html>
+
+<script>
+    document.getElementById("togglePassword").addEventListener("click", function () {
+        var passwordField = document.getElementById("fLogin_pPassword");
+        var toggleIcon = document.getElementById("togglePassword");
+
+        // Toggle between password and text field
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        }
+    });
+</script>

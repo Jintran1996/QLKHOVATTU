@@ -1,0 +1,44 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2026_SP_RPT_XUATNHAPTON_THEONHIEUKHO_Result>;
+    int STT = 1;
+}
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+            <th></th>
+            <th>STT</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>Năm trước</th>
+            <th>Năm nay</th>
+            <th>Tồn cuối năm trước</th>
+            <th>Tồn cuối</th>         
+            <th>ĐVT</th>
+            <th>Mã kho</th>
+            <th>Đơn giá</th>
+            <th>Đơn giá năm trước</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List.OrderBy(p => p.MAVT))
+        {
+        <tr>
+            <td></td>
+            <td>@STT</td>
+            <td>@item.MAVT</td>
+            <td>@item.TENVT</td>
+            <td>@item.NAMTRUOC</td>
+            <td>@item.NAM</td>
+            <td>@(Convert.ToDecimal(item.TONCUOI_NAMTRUOC.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.TONCUOI.Value.ToString("#.0000")))</td>
+            <td>@item.DVT</td>
+            <td>@item.MAKHO</td>
+            <td>@item.DONGIA</td>
+            <td>@item.DONGIA_NAMTRUOC</td>    
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

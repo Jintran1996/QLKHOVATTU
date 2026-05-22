@@ -1,0 +1,54 @@
+﻿@{
+    var list = ViewBag.CTPHIEU05 as List<ToolsApp.EntityFramework.VatTu.SP_BM05TUDONVI_Result>;
+    ViewBag.Title = "TỔNG HỢP PHIẾU MUA HÀNG";
+    var stt = 1;
+}
+<table class="table table-bordered" width="100%" style="font-size: 16px; border-collapse: collapse; ">
+    <thead >
+        <tr>
+            <td width="30%" rowspan="3" style="text-align: center; border:1px solid;">
+                <img src="~/Content/images/ThaiTuan.png" style="width:50%;"/>
+            </td>
+            <td width="70%" colspan="2" style="border: 1px solid;">
+                BM08/QI08/08
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size: 18px; letter-spacing: 0.5px; font-weight:bolder; border:1px solid">BẢNG TỔNG HỢP PHIẾU MUA HÀNG @(list.Count <= 0 ? "\t" : list[0].LYDOSD) TỪ ĐƠN VỊ</td>
+        </tr>
+        <tr>
+            <td colspan="1" style="border: 1px solid;">Kế hoạch tháng: <b>@(list.Count <= 0 ? "\t" : list[0].KEHOACHTHANG)</b></td>
+            <td colspan="1" style="border: 1px solid;">Mã phiếu: <b>@(list.Count <= 0 ? "\t" : list[0].MAPHIEU)</b></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="3" style="border: 1px solid;">Đơn vị: @(list.Count <= 0 ? "\t" : list[0].TENDV)</td>
+        </tr>
+    </tbody>
+</table>
+
+<table id="myTableCT" class="table table-bordered table-striped" width="100%" style="font-size: 16px; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid;">STT</th>
+            <th style="border: 1px solid;">Mã vật tư</th>
+            <th style="border: 1px solid;">Tên vật tư</th>
+            <th style="border: 1px solid;">Số lượng yêu cầu</th>
+            <th style="border: 1px solid;">Mã nhân viên YC </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+            <tr>
+                <td style="border: 1px solid;">@stt</td>
+                <td style="border: 1px solid;">@item.MAVT</td>
+                <td style="border: 1px solid;">@item.TENVT</td>
+                <td style="border: 1px solid;">@item.SLYCAU</td>
+                <td style="border: 1px solid;">@item.MANVYC</td>
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>

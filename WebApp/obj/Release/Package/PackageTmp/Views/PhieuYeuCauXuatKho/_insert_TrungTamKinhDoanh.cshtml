@@ -1,0 +1,124 @@
+﻿@{ 
+    var SoCT_TTKD = ViewData["data_SoChungTu"];
+    var data_MaKho_TTKD = ViewBag.data_MaKho_TTKD as List<ToolsApp.EntityFramework.VatTu.SP_KTQKFORWEB_Result>;
+    var data_LoaiXuatNhap_TTKD = ViewBag.data_LoaiXuatNhap_TTKD as List<ToolsApp.EntityFramework.VatTu.SP_LOAIXUATNHAP_Result>;
+    var data_XuatCho_TTKD = ViewBag.data_XuatCho_TTKD as List<ToolsApp.EntityFramework.VatTu.sp_load_capcoso_Result>;
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Số CT :</label>
+            <div class="col-md-9">
+                <input class="form-control form-control-sm" type="text" autocomplete="off" value="@SoCT_TTKD" disabled
+                       id="SOCTXN_TTKD" name="SOCTXN_TTKD" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Mã kho :</label>
+            <div class="col-md-9">
+                <select class="form-control form-control-sm chosen-select" onchange="Load_MaVT_TTKD(this.value);" id="MaKho_TTKD" name="MaKho_TTKD">
+                    <option selected value="false">--Danh Sách Mã Kho--</option>
+                    @foreach (var item in data_MaKho_TTKD)
+                    {
+                        <option value="@item.MAKHO">@item.TENMA</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Mã vật tư :</label>
+            <div class="col-md-9">
+                <select class="form-control form-control-sm chosen-select" id="MaVT_TTKD" name="MaVT_TTKD" >
+                    <option selected value="false">--Danh Sách Mã vật Tư--</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">SL YC :</label>
+            <div class="col-md-9 ">
+                <input class="form-control form-control-sm" type="number" min="0" autocomplete="off" value="1"
+                       id="Soluong_TTKD" name="Soluong_TTKD" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Lý do:</label>
+            <div class="col-md-9">
+                <textarea rows="1" id="GhiChu_TTKD" name="GhiChu_TTKD" class="form-control form-control-sm"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 ">Loại XN:</label>
+
+            <div class="col-md-9 ">
+                <select class="form-control form-control-sm chosen-select" id="LoaiXuatNhap_TTKD" name="LoaiXuatNhap_TTKD">
+                    <option selected value="false">--Danh Sách Loại Xuất Nhập--</option>
+                    @foreach (var item in data_LoaiXuatNhap_TTKD)
+                    {
+                        <option value="@item.LOAI">@item.TEN</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 ">Xuất Cho:</label>
+            <div class="col-md-9 ">
+                <select class="form-control form-control-sm chosen-select" id="XuatCho_TTKD" name="XuatCho_TTKD">
+                    @foreach (var item in data_XuatCho_TTKD)
+                    {
+                        <option value="@item.MADVI">@item.TENGOI</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+ //-----------------Load Mã vật tư----------------//
+    function Load_MaVT_TTKD(MaKho_TTKD) {
+        var MaVT_TTKD = $("#MaVT_TTKD");
+        MaVT_TTKD.empty();
+        $.ajax({
+            url: '@Url.Action("Load_MaVT_TTKD")',
+            timeout: 200000,
+            data: {
+                MaKho: MaKho_TTKD,
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            console.log(data.obj);
+            if (data.status < 0) {
+                MaVT_TTKD.append($('<option/>', { value: "false" }).html("--Danh Sách Mã vật Tư--"));
+                MaVT_TTKD.trigger("chosen:updated");
+            }
+            else {
+                MaVT_TTKD.append($('<option/>', { value: "false" }).html("--Danh Sách Mã vật Tư--"));
+                $.each(data.obj, function (i, state) {
+                    MaVT_TTKD.append($('<option/>', { value: data.obj[i].MAVT }).html(data.obj[i].VT));
+                });
+                MaVT_TTKD.trigger("chosen:updated");
+            }
+        }).fail(function (data) {
+            notify(data.text, "error");
+        });
+    }
+
+
+</script>

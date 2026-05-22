@@ -1,0 +1,567 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Xuất Kho";
+    var Phieuyc = ViewBag.Phieuyc as IEnumerable<ToolsApp.EntityFramework.KhoSoi.Sp_load_PhieuYCXuatkho_SOI_Result>;
+    var phieudaxuat = ViewBag.phieudaxuat as IEnumerable<ToolsApp.EntityFramework.KhoSoi.Sp_load_PhieuDaXuatkho_SOI_Result>;
+    var makhoxuat = ViewBag.makhoxuat as IEnumerable<ToolsApp.EntityFramework.KhoSoi.SP_MAKHOBYMANV_LOAD_Result>;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a style="width: 150px ;text-align:center" class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">XUẤT KHO </a>
+                            </li>
+                            <li class="nav-item" id="tab-2">
+                                <a style="width: 150px; text-align: center" class="nav-link" id="custom-tabs-one-daxuat-tab" data-toggle="pill" href="#custom-tabs-one-daxuat" role="tab" aria-controls="custom-tabs-one-daxuat" aria-selected="true">ĐÃ XUẤT KHO >> API</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                                <!--data-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- Section search -->
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Xuất Kho</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad" style="padding-bottom:55px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-1 col-sm-1">Mã Kho</label>
+                                                            <div class="col-md-3 col-sm-3 ten">
+                                                                <select class="form-control form-control-sm chosen-select-search" onchange="Load_Phieuyc(this.value);" id="i_Makhoxuat" name="i_Makhoxuat">
+                                                                    <option selected value="">--Tất cả--</option>
+                                                                    @foreach (var item in makhoxuat)
+                                                                    {
+                                                                        <option value="@item.MAKHO">@item.MAKHO || @item.TENKHO</option>
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-1">Số Phiếu YC Xuất :</label>
+                                                            <div class="col-md-3">
+                                                                <select class="form-control form-control-sm chosen-select-search" onchange="reloadData_getlist(this.value);" id="i_Phieuycxuat" name="i_Phieuycxuat">
+                                                                    <option disabled value="">--Phiếu YC Xuất--</option>
+                                                                    @foreach (var item in Phieuyc)
+                                                                    {
+                                                                        <option value="@item.SOCTXN">@item.SOCTXN</option>
+                                                                    }
+
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row" style="margin-bottom:5px">
+                                                            <label class="col-md-1">Ngày kế toán :</label>
+                                                            <div class="col-md-3">
+                                                                <div class="input-group">
+                                                                    <input type="text" id="NgayKeToan" name="NgayKeToan"
+                                                                           value="@DateTime.Now.ToString("dd/MM/yyyy")"
+                                                                           class="form-control form-control-sm" />
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="modal-footer col-md-12" style="text-align:left">
+                                                        <div class="col-md-12">
+                                                            <button style="width: 120px" id="btnXuat" onclick="_Xuatkho();" type="button" class="btn btn-sm btn-primary"><i class="fa fa-step-forward"></i> Xuất</button>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End section search-->
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>@ViewBag.Title </b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-khoxn  table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <!--data-->
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="custom-tabs-one-daxuat" role="tabpanel" aria-labelledby="custom-tabs-one-daxuat-tab">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Phiếu Đã Xuất Kho:</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="row" style="margin-bottom:5px">
+                                                                <label class="col-md-1">Số Phiếu Đã Xuất :</label>
+                                                                <div class="col-md-3">
+                                                                    <select class="form-control form-control-sm chosen-select-search" onchange="reloadData_getlist_tab2(this.value);"
+                                                                            id="i_Phieuycxuat_tab2" name="i_Phieuycxuat_tab2">
+                                                                        <option value="">--Tất cả--</option>
+                                                                        @foreach (var item in phieudaxuat)
+                                                                        {
+                                                                            <option value="@item.SOCTXN">@item.SOCTXN</option>
+                                                                        }
+
+                                                                    </select>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-md-12" style="text-align:left">
+                                                        <button style="width: 120px" type="button" id="btSearchxkho" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>&nbsp;Tìm kiếm</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- Main content -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Danh sách đã xuất kho</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-ctphieudaxuat table-responsive">
+                                                        <div class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModalDetailReport" class="modal fade modal-wide" role="dialog" style="overflow:auto">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitleDetailReport"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetailReport" class="_print">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContentDetailReport');" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"> <i class="fa fa-close"></i>&nbsp;Đóng</button>&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@section scripts{
+    <script type="text/javascript">
+        var _config = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in _config) {
+            $(selector).chosen(_config);
+        }
+
+        $("#NgayKeToan").datepicker({
+            format: 'dd/mm/yyyy',
+            changeYear: true,
+            changeMonth: true,
+            onClose: function (selectedDate) {
+                //$("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+    </script>
+
+    <script>
+        function reloadData(page) {
+            try {
+                Load_Phieuyc();
+                reloadData_getlist();
+
+
+            } catch (e) {
+            }
+        }
+
+
+    function reloadData_getlist(isDelete) {
+        var Search_ = $("#i_Phieuycxuat").val();
+        console.log(Search_);
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+                    SOCTXNSearch: Search_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-khoxn').html(response);
+
+                    $("#myTable").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                    
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+    function reloadData_getlist_tab2(isDelete) {
+              var Search_ = $("#i_Phieuycxuat_tab2").val();
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList_tab2")',
+                timeout: 20000,
+                data: {
+                    SOCTXNSearch: Search_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-ctphieudaxuat').html(response);
+
+                    $("#myTablectphieudaxuat").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+
+                 
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+    function _Xuatkho() {
+            var Sophieu_ = $("#i_Phieuycxuat").val();
+            var NgayKeToan = $("#NgayKeToan").val();
+            console.log(Sophieu_);
+            var confirm_ = confirm('Bạn có chắc muốn xuất số phiếu này?' + Sophieu_);
+            if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("_Xuatkho")',
+                timeout: 20000,
+                type: "POST",
+                data: {
+                    SOCTXN: Sophieu_, NGAYKETOAN: NgayKeToan
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+
+                    if (result.status >= 1) {
+                        notify(result.text, "success");
+
+                      
+                        Load_khoxuat();
+                        _LoadPhieuDaxuat();
+                        
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    
+
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+        }
+
+    function _LoadPhieuDaxuat(i_) {
+        var tab2id = $("#i_Phieuycxuat_tab2");
+        tab2id.empty();
+        $.ajax({
+            url: '@Url.Action("_LoadPhieuDaxuat")',
+            timeout: 20000,
+            type: "POST",
+            data: { },
+            success: function (result) {
+                console.log(result.obj)
+                tab2id.append($('<option/>', { value:"" }).html("Tất Cả"));
+                $.each(result.obj, function (i, state) {
+                    tab2id.append($('<option/>', { value: this.SOCTXN }).html(this.SOCTXN));
+                });
+
+                tab2id.trigger("chosen:updated");
+                reloadData_getlist_tab2($("#i_Phieuycxuat_tab2").val());
+            }
+        });
+    };
+
+
+
+    </script>
+
+    <script type="text/javascript">
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        var $modalUpload = $('#myModalUpload');
+        var $myModalContentUpload = $("#myModalContentUpload");
+        var $myModalTitleUpload = $("#myModalTitleUpload");
+
+        var $modalDetail = $('#myModalDetail');
+        var $myModalContentDetail = $("#myModalContentDetail");
+        var $myModalTitleDetail = $("#myModalTitleDetail");
+
+        var $modalEditct = $('#myModalEditct');
+        var $myModalContentEditct = $("#myModalContentEditct");
+        var $myModalTitleEditct = $("#myModalTitleEditct");
+        $(document).ready(function () {
+            reloadData(false);
+            Load_khoxuat();
+            reloadData_getlist_tab2();
+
+
+            $("#myModal").on("hidden.bs.modal", function () {
+                reloadData(false);
+            });
+
+
+            $("#btSearchxkho").click(function () {
+                reloadData_getlist_tab2();z
+            });
+
+            /// End document  //
+        });
+
+
+        function Load_Phieuyc(i_) {
+
+            var makho_xuatid_ = $("#i_Makhoxuat").val();
+            var maphieuycid = $("#i_Phieuycxuat");
+            maphieuycid.empty();
+
+            $.ajax({
+                url: '@Url.Action("_Change_Phieuyc")',
+                timeout: 20000,
+                type: "POST",
+                data: { makho_xuatid: makho_xuatid_ },
+                success: function (result) {
+
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    else {
+
+                        $.each(result.obj, function (i, state) {
+                            maphieuycid.append($('<option/>', { value: this.SOCTXN }).html(this.SOCTXN));
+                        });
+                    }
+
+                    maphieuycid.trigger("chosen:updated");
+                    reloadData_getlist($("#i_Phieuycxuat").val());
+                   
+                }
+            });
+        }
+
+
+
+        function Load_khoxuat(i_) {
+
+            var makho_xuatid = $("#i_Makhoxuat");
+            var maphieuycid = $("#i_Phieuycxuat");
+
+
+            makho_xuatid.empty();
+
+            $.ajax({
+                url: '@Url.Action("_Change_khoxuat")',
+                timeout: 20000,
+                type: "POST",
+                data: { },
+                success: function (result) {
+
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    else {
+                        makho_xuatid.append($('<option/>', { value:"" }).html("Tất cả"));
+                        $.each(result.obj, function (i, state) {
+                            makho_xuatid.append($('<option/>', { value: this.MAKHO }).html(this.MAKHO + "||" + this.TENKHO));
+                        });
+                    }
+
+                    makho_xuatid.trigger("chosen:updated");
+                    Load_Phieuyc();
+                }
+            });
+        }
+
+        function GuiAPIs_(SOCTXN_) {
+            var confirm_ = confirm('Bạn có chắc chuyển thông tin này đến Netsuite theo số phiếu này?' + SOCTXN_);
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_GuiAPIs")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: {
+                        SOCTXN: SOCTXN_
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        reloadData();
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+            function HuyXuatKho_(i_) {
+                console.log(i_);
+            var confirm_ = confirm('Bạn có chắc muốn Hủy xuất kho số phiếu này?' + i_);
+            if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("_HuyXuatKho")',
+                timeout: 20000,
+                type: "POST",
+                data: {
+                    SOCTXN: i_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+
+                    if (result.status >= 1) {
+                        notify(result.text, "success");
+                        reloadData();
+                        _LoadPhieuDaxuat();
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    }
+
+
+
+    </script>
+}
+
+
+
+
+

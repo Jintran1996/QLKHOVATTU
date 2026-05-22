@@ -1,0 +1,47 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.NL_VATTUXUATCHUYEN>;
+
+    var STT = 1;
+}
+
+<table id="myTable" class="table table-bordered">
+    <thead>
+        <tr style="background-color: aqua; text-align:center">
+            <th width="40px">STT</th>
+            <th></th>
+            <th>Mã đơn hàng</th>
+            <th>Mã hàng SX</th>
+            <th>SL vải mộc SX</th>
+            <th>Key HH</th>
+            <th>Mã vật tư</th>
+            <th>SL định mức</th>
+            <th>SL sợi xuất chuyền</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in list)
+        {
+            <tr>
+                <td style="text-align:center"> @STT </td>
+                <td width="133px">
+                    <a onclick="Edit('@item.ID_XUATCHUYEN')" class="btn">
+                        <i class="fas fa-edit"></i> Sửa
+                    </a>
+                    <a onclick="Delete('@item.ID_XUATCHUYEN')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                </td>
+                <td> @item.MADH </td>
+                <td> @item.MAHANGSX </td>
+                <td> @item.SOLUONGVAIMOCSX </td>
+                <td>@item.KEYHH</td>
+                <td>@item.MAVATTU</td>
+                <td>@item.SOLUONGDINHMUC</td>
+                <td>@item.SOLUONGSOIXUATCHUYEN</td>
+            </tr>
+            STT++;
+        }
+    </tbody>
+</table>
+

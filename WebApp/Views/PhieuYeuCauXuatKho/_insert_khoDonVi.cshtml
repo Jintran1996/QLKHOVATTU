@@ -1,0 +1,110 @@
+﻿@{ 
+    var SoCT_DV = ViewData["data_SoChungTu"];
+    var data_MaKho_DV = ViewBag.data_MaKho_DV as List<ToolsApp.EntityFramework.VatTu.SP_KTQKForWebNew_Result>;
+    var data_LoaiXuatNhap_DV = ViewBag.data_LoaiXuatNhap_DV as List<ToolsApp.EntityFramework.VatTu.SP_LOAIXUATNHAP_Result>;
+
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Số CT :</label>
+            <div class="col-md-9">
+                <input class="form-control form-control-sm" type="text" autocomplete="off" value="@SoCT_DV" disabled
+                       id="SOCTXN_DV" name="SOCTXN_DV" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Mã kho :</label>
+            <div class="col-md-9">
+                <select class="form-control form-control-sm chosen-select" onchange="Load_MaVT_DV(this.value);" id="MaKho_DV" name="MaKho_DV">
+                    <option selected value="false">--Danh Sách Mã Kho--</option>
+                    @foreach (var item in data_MaKho_DV)
+                    {
+                        <option  value="@item.MAKHO">@item.TenMa</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Mã vật tư :</label>
+            <div class="col-md-9">
+                <select class="form-control form-control-sm chosen-select" id="MaVT_DV" name="MaVT_DV">
+                    <option selected value="false">--Danh Sách Mã vật Tư--</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">SL XK :</label>
+            <div class="col-md-9 ">
+                <input class="form-control form-control-sm" type="number" min="0" autocomplete="off" value="1"
+                       id="Soluong_DV" name="Soluong_DV" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 ">Loại XN:</label>
+            <div class="col-md-9 ">
+                <select class="form-control form-control-sm chosen-select" id="LoaiXuatNhap_DV" name="LoaiXuatNhap_DV">
+                    <option selected value="false">--Danh Sách Loại Xuất Nhập--</option>
+                    @foreach (var item in data_LoaiXuatNhap_DV)
+                    {
+                        <option value="@item.LOAI">@item.TEN</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Ghi chú:</label>
+            <div class="col-md-9">
+                <textarea rows="1" id="GhiChu_DV" name="GhiChu_DV" class="form-control form-control-sm"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+ //-----------------Load Mã vật tư----------------//
+    function Load_MaVT_DV(MaKho_Dv) {
+        var MaVT_DV = $("#MaVT_DV");
+        MaVT_DV.empty();
+        $.ajax({
+            url: '@Url.Action("Load_MaVT_DV")',
+            timeout: 200000,
+            data: {
+                MaKho: MaKho_Dv,
+                MaVT: '',
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            if (data.status < 0) {
+                MaVT_DV.append($('<option/>', { value: "false" }).html("--Danh Sách Mã vật Tư--"));
+                MaVT_DV.trigger("chosen:updated");
+            }
+            else {
+                MaVT_DV.append($('<option/>', { value: "false" }).html("--Danh Sách Mã vật Tư--"));
+                $.each(data.obj, function (i, state) {
+                    MaVT_DV.append($('<option/>', { value: data.obj[i].MAVT }).html(data.obj[i].VT));
+                });
+                MaVT_DV.trigger("chosen:updated");
+            }
+        }).fail(function (data) {
+            notify(data.text, "error");
+        });
+    }
+
+
+</script>

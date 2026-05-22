@@ -1,0 +1,81 @@
+﻿@using System.Globalization;
+
+@{
+    var dmKho_ = ViewBag.model as ToolsApp.EntityFramework.VatTu.DMKHo;
+    var khoNhan_ = ViewBag.khoNhan as List<ToolsApp.EntityFramework.VatTu.DMKHONHAN>;
+    var thuKho_ = ViewBag.thuKho as List<ToolsApp.EntityFramework.VatTu.Load_NhanVien_Result>;
+}
+
+
+<div class="row col-md-12">
+    <div class="col-md-6" style="padding-right:20px">
+        <div class="form-group row">
+            <label class="col-md-12">Mã kho: </label>
+            <input class="form-control col-md-12" type="text"
+                   id="maKho_UP" name="maKho_UP" value="@dmKho_.MAKHO" disabled />
+        </div>
+        <div class="form-group row">
+            <label class="col-md-12">Địa chỉ: </label>
+            <input class="form-control col-md-12" type="text"
+                   id="diaChi_UP" name="diaChi_UP" value="@dmKho_.DIACHI" />
+        </div>
+        <div class="form-group row">
+            <label class="col-md-12">Mã kho kế toán: </label>
+            <input class="form-control col-md-12" type="text"
+                   id="maKhoKT_UP" name="maKhoKT_UP" value="@dmKho_.MAKHOKETOAN" />
+        </div>
+        <div class="form-group row">
+            <label class="col-md-12">Xuất nội bộ: </label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="xuatNB_UP" name="xuatNB_UP"  value="@dmKho_.XUATNOIBO" @(dmKho_.XUATNOIBO == true ? "checked=\"checked\"" : "")>
+                <label class="custom-control-label" for="xuatNB_UP"></label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" style="padding-left:20px">
+        <div class="form-group row">
+            <label class="col-md-12">Tên kho: </label>
+            <input class="form-control col-md-12" type="text"
+                   id="tenKho_UP" name="tenKho_UP" value="@dmKho_.TENKHO" />
+        </div>
+        <div class="form-group row">
+            <label class="col-md-12">Kho nhận: </label>
+            <select class="form-control col-md-12 chosen-select" id="khoNhan_UP" name="khoNhan_UP" style="width: 100%; ">
+                <option value="@dmKho_.KHONHAN" selected></option>
+                @foreach (var item in khoNhan_)
+                {
+                    <option value="@item.MAKHONHAN" @(item.MAKHONHAN == dmKho_.KHONHAN ? "selected=\"selected\"" : "")>
+                        @item.TENKHONHAN
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-12">Thủ kho: </label>
+            <select class="form-control chosen-select col-md-12" id="thuKho_UP" name="thuKho_UP" style="width: 100%; ">
+                <option value="@dmKho_.ThuKho" selected></option>
+                @foreach (var item in thuKho_)
+                {
+                    <option value="@item.MANV" @(item.MANV == dmKho_.ThuKho ? "selected=\"selected\"" : "")>
+                        @item.MANV || @item.HOTEN
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+</script>

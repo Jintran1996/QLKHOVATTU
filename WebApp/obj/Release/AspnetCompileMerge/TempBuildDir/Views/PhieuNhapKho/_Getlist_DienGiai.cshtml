@@ -1,0 +1,57 @@
+﻿@using System.Globalization;
+
+
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NHAPDIENGIAI_SOI>;
+
+
+
+
+}
+<table id="myTablediengiai" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="width: 200px">Tùy chỉnh</th>
+            <th style="text-align:center">STT</th>
+            <th>SOCTXN</th>
+            <th>SOCTKETOAN</th>
+            <th>Mã Vật Tư</th>
+            <th>Hiệu</th>
+            <th>Lô</th>
+            <th>Tên Vật Tư NCC</th>
+            <th>Số lượng NCC</th>
+            <th>Ngày NCC</th>
+            <th>Mã phiếu PD</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1;}
+        @foreach (var item in Lists)
+        {
+            <tr>
+                <td>
+                    <a onclick="DeleteDienGiai('@item.KEYNHAP')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.SOCTXN</td>
+                <td>@item.SOCTKETOAN</td>
+                <td>@item.MAVT</td>
+                <td>@item.HIEU</td>
+                <td>@item.LO</td>
+                <td>@item.TENVATTU_NCC</td>
+                <td>@(item.SOLUONG_NCC)</td>
+                <td>@(item.NGAY_NCC == null ? "" : item.NGAY_NCC.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.MAPHIEUPD</td>
+
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+

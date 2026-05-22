@@ -1,0 +1,479 @@
+﻿
+@using System.Globalization;
+@model ToolsApp.Models.DMPHIEUViewModels
+@{
+    var loaivt = ViewBag.loaivt as List<ToolsApp.EntityFramework.VatTu.SP_GET_DANHSACH_DMLOAIVT_THEO_DONVISUDUNG_Result>;
+    // var maphieu = ViewBag.maphieu;
+    var nguoixx = ViewBag.nguoixx as List<ToolsApp.EntityFramework.VatTu.SP_LoadXemXetBM03TTKD_Result>;
+    var cMachiphi = ViewBag.cMachiphi as List<ToolsApp.EntityFramework.VatTu.SP_CHIPHI_28062016_Result>;
+    var nguoilp = ViewBag.nguoilp;
+    var mabp = ViewBag.mabp as List<ToolsApp.EntityFramework.VatTu.DMNHANVIEN>;
+    var madv = ViewBag.madv;
+    var cMaVT = ViewBag.iMAVT as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_VATTUYEUCAU_BYDONVI_BYLOAIPHIEU_27062016_Result>;
+    var _maPhieu = ViewData["MaPhieu"];
+    var loaivt_index = ViewData["loaivt_index"];
+    var LOAIPHIEU = ViewData["LOAIPHIEU"];
+    dynamic item_MAVT = "";
+    switch (LOAIPHIEU)
+    {
+        case "04":
+            item_MAVT = ViewBag.iMAVT as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_DANHMUCVATTU_ByKey_LoaiVt_Result>;
+            break;
+        default:
+            switch (loaivt_index)
+            {
+                case "PT-VT":
+                    item_MAVT = ViewBag.iMAVT as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_VATTUYEUCAU_BYDONVI_BYLOAIPHIEU_27062016_Result>;
+                    break;
+                default:
+                    item_MAVT = ViewBag.iMAVT as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_VATTUYEUCAU_BYDONVI_BYLOAIPHIEU_27062016_Result>;
+                    break;
+            }
+            break;
+    }
+}
+
+
+
+
+
+<style>
+    .image-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .parent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .responsive-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #btnCN {
+        font-size: 12px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: #ffffff;
+        border: none;
+        width: 100px;
+        height: 35px;
+        border-color: unset;
+        margin: 2px;
+        text-align: center;
+    }
+
+    /*figure.zoom {
+            background-position: 50% 50%;
+            position: relative;
+            width: 500px;
+            overflow: hidden;
+            cursor: zoom-in;
+        }
+
+            figure.zoom img:hover {
+                opacity: 0;
+            }
+
+            figure.zoom img {
+                transition: opacity .5s;
+                display: block;
+                width: 100%;
+            }*/
+    #customer-image {
+        display: none;
+    }
+</style>
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <div class="card card-primary card-tabs">
+            <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-selected="true" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile">Thông Tin Chi Tiết Phiếu </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="custom-tabs-one-tabContent">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmctphieu", id = "frmctphieu", enctype = "multipart/form-data" }))
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row" style="margin-bottom:5px">
+                                            <label class="col-md-4">Mã Phiếu: </label>
+                                            <div class="col-md-8">
+                                                <input id="MaPhieu_CT" name="MaPhieu" class="form-control" value="@_maPhieu" readonly>
+                                                <input id="LoaiVT_2" name="LoaiVT_2" class="form-control" value="@loaivt_index" hidden>
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:5px">
+                                            <label class="col-md-4"> Mã Vật Tư: </label>
+                                            <div class="col-md-8">
+
+                                                <select id="MAVT" name="MAVT" onchange="setImage(this.value);" class="form-control chosen-select" style="width: 100%; ">
+                                                    @foreach (var item in item_MAVT)
+                                                    {
+                                                        switch (LOAIPHIEU)
+                                                        {
+                                                            case "04":
+                                                                <option value="@item.MAVT">
+                                                                    @item.MAVT + "||" @item.TENVT
+                                                                </option>
+                                                                break;
+                                                            default:
+                                                                switch (loaivt_index)
+                                                                {
+                                                                    case "PT-VT":
+                                                                        <option value="@item.MAVT">
+                                                                            @item.MAVT || @item.TENVT || @item.TONKHODONVI
+                                                                        </option>
+                                                                        break;
+                                                                    default:
+                                                                        <option value="@item.MAVT">
+                                                                            @item.MAVT || @item.TENVT
+                                                                        </option>
+                                                                        break;
+                                                                }
+                                                                break;
+
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:5px">
+                                            <label class="col-md-4"> Số Lượng: </label>
+                                            <div class="col-md-8">
+                                                <input id="SLYCAU" name="SLYCAU" class="form-control" type="number"
+                                                       onclick="this.select();" step="0.01" min="0" value="0.00">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-md-4"> Ghi Chú: </label>
+                                            <div class="col-md-8 inputtext" row="2">
+                                                <textarea maxlength="250" id="GHICHU" name="GHICHU" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row" style="margin-bottom:5px">
+                                            <label class="col-md-4">Thời Điểm Sử Dụng: </label>
+                                            <div class="col-md-8">
+                                                <input value="@DateTime.Now.AddMonths(1).ToString("dd/MM/yyyy")"
+                                                       class="form-control" type="text" autocomplete="off"
+                                                       id="THOIDIEMSD_String" name="THOIDIEMSD_String" />
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="row" style="margin-bottom:5px">
+                                            <label class="col-md-4"> Lý Do Sử Dụng: </label>
+                                            <div class="col-md-8 inputtext">
+                                                <textarea maxlength="200" id="TINHTRANG" name="TINHTRANG" class="form-control" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<div class="col-md-12">
+                                        <div class="row" style="margin-bottom:5px">
+                                            <label class="col-md-2"> Đặc Tính Kỹ Thuật / Chất Lượng <br /> (Số ký tự < 1000): </label>
+                                            <div class="col-md-10 inputText">
+                                                <textarea maxlength="1000" id="DACTINHKYTHUAT" name="DACTINHKYTHUAT" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-6 row" style="display: flex; align-items: flex-start; text-align: center">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8 row" style="text-align: center; " id="customer-image">
+                                <div class="col-md-12 responsive-image">
+                                    <img id="myImg" style="width: 250px; height: 250px; object-fit: contain;" src="" />
+                                </div>
+                                <div class="col-md-12">
+                                    <p style="color:dodgerblue; "><i>Hình ảnh minh họa</i></p>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:15px">
+                    </div>
+                    <div class="row col-md-6">
+                        <div class="col-md-12 child">
+                            <button type="button" id="btnCN" class="btn bg-gradient-green" onclick="btLuu()"><i class="fa fa-save"></i>&ensp;Lưu</button>
+                            <button type="button" id="btnCN" class="btn bg-gradient-green" onclick="Print('@_maPhieu')"><i class="fas fa-print"></i>&ensp;In</button>
+                        </div>
+                    </div>
+                    <div class="row col-md-6 parent">
+                        <div class="col-md-12 child">
+                            <button type="button" id="btnCN" class="btn bg-gradient-green" onclick="openOutlookemailbox('@_maPhieu')"><i class="far fa-envelope"></i>&ensp;Email</button>
+                            <button type="button" id="btnCN" class="btn bg-gradient-green" onclick="btExcel()"><i class="far fa-file-excel"></i>&ensp;Excel</button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-primary card-outline">
+                                <div class="card-body pad">
+                                    <div class="row">
+                                        <div class="col-md-12 table-ctphieu table-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+    $("#THOIDIEMSD_String").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+</script>
+
+<script>
+    function btLuu() {
+        form = $("#frmctphieu");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse("#frmctphieu");
+                if (form.valid()) {
+                    $.ajax({
+                        url: '@Url.Action("_SaveCTPhieu")',
+                        type: "POST",
+                        data: $('#frmctphieu').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                reloadCTPhieu(true);
+                                $("#myModal").on("hidden.bs.modal", function () {
+                                    reloadData(false);
+                                });
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+    }
+    function btExcel() {
+                $myModalContentUpload.html("");
+                $myModalTitleUpload.html("Tải lên");
+                $.ajax({
+                    url: '@Url.Action("_Upload")',
+                    timeout: 20000,
+                    data: {
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContentUpload.html(result);
+                        $modalUpload.modal();
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+    };
+
+    function reloadCTPhieu(isDelete) {
+        try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu")',
+                timeout: 20000,
+                data: {
+                    iMAPHIEU: $("#MaPhieu_CT").val(),
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-ctphieu').html(response);
+
+                    $("#myTablect").DataTable({
+                        //"responsive": true,
+                        destroy: true,
+                        "language": {
+                            "sProcessing": "Đang xử lý...",
+                            "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                            "sZeroRecords": "Không tìm thấy kết quả",
+                            "sEmptyTable": "Không có dữ liệu",
+                            "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Tìm kiếm:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Đang tải...",
+                            "oPaginate": {
+                                "sFirst": "Đầu tiên",
+                                "sLast": "Cuối cùng",
+                                "sNext": "Sau",
+                                "sPrevious": "Trước"
+                            },
+                            "oAria": {
+                                "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                            }
+                        },
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        } catch (e) {
+        }
+    }
+
+    //function zoom(e) {
+    //    var zoomer = e.currentTarget;
+    //    e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX;
+    //    e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX;
+    //    x = offsetX / zoomer.offsetWidth * 100;
+    //    y = offsetY / zoomer.offsetHeight * 100;
+    //    zoomer.style.backgroundPosition = x + '% ' + y + '%';
+    //}
+
+     function DeleteCTP(IDKHOA_, MAPHIEU) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteCTFun")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: { IDKHOA: IDKHOA_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                            reloadCTPhieu(MAPHIEU);
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+    }
+
+    //-----------------Action phiếu mới----------------//
+
+</script>
+
+<script>
+    function MASOCP() {
+            var LoaiVT_ = $("#LoaiVT").val();
+            var MASOCPID = $("#MASOCP");
+            MASOCPID.empty();
+        console.log("test");
+            $.ajax({
+                url: '@Url.Action("_LoadMASOCP")',
+                timeout: 20000,
+                type: "GET",
+                data: { LoaiVT: LoaiVT_ },
+                success: function (result) {
+                    $.each(result.obj, function (i, state) {
+                        MASOCPID.append($('<option/>', { value: this.MSCHIPHI }).html(this.MSCHIPHI + ' || ' + this.TENCHIPHI));
+                        });
+                    MASOCPID.trigger("chosen:updated");
+                }
+            });
+        }
+    function setImage(maVT) {
+        var imgID = $("#myImg");
+        $.ajax({
+            url: '@Url.Action("SetImage")',
+            timeout: 20000,
+            type: "GET",
+            data: {
+                MAVT: maVT
+            },
+        }).done(function (data) {
+            if (maVT != "") {
+                console.log(maVT);
+                document.getElementById("customer-image").style.display = "block";
+            } else {
+
+                document.getElementById("customer-image").style.display = "none";
+            }
+            $("#myImg").attr("src", "https://thaituangarment.com.vn/QLVatTuKhoSoi/" + data.obj[0].Images);
+        }).fail(function (errors) {
+            concole.log(errors);
+        });
+
+    }
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        reloadCTPhieu(false);
+    });
+</script>

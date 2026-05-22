@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdminModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="S_Sites">
+    <Key>
+      <PropertyRef Name="SiteCode" />
+    </Key>
+    <Property Name="SiteCode" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="SiteName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="S_USer">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varbinary" MaxLength="100" />
+    <Property Name="MenuGID" Type="int" />
+    <Property Name="PrincipalGID" Type="int" />
+    <Property Name="WHSGID" Type="int" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="2500" />
+    <Property Name="Mobile" Type="varchar" MaxLength="20" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="BU" Type="varchar" MaxLength="4" />
+    <Property Name="ExternalUser" Type="bit" />
+    <Property Name="FirstAccess" Type="bit" />
+    <Property Name="LastAccess" Type="datetime" />
+    <Property Name="SupervisorEmail" Type="varchar" MaxLength="50" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="ControlNo" Type="varchar" MaxLength="255" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="TypeID" Type="smallint" />
+    <Property Name="AuthorizedMenu" Type="varchar" MaxLength="4000" />
+    <Property Name="AuthorizedSupplier" Type="varchar" MaxLength="4000" />
+    <Property Name="AuthorizedProfile" Type="varchar" MaxLength="4000" />
+    <Property Name="NeverExpire" Type="bit" />
+    <Property Name="DefaultMenuID" Type="char" MaxLength="4" />
+    <Property Name="Department" Type="varchar" MaxLength="50" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="HRStaffCode" Type="varchar" MaxLength="20" />
+    <Property Name="SAPSalesCode" Type="varchar" MaxLength="20" />
+    <Property Name="Ref1" Type="varchar" MaxLength="50" />
+    <Property Name="Ref2" Type="varchar" MaxLength="50" />
+    <Property Name="Ref3" Type="varchar" MaxLength="50" />
+    <Property Name="Ref4" Type="varchar" MaxLength="50" />
+    <Property Name="Ref5" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="S_User_Site">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteCode" Type="varchar" MaxLength="3" />
+    <Property Name="SiteName" Type="varchar" MaxLength="50" />
+    <Property Name="UserID" Type="varchar" MaxLength="50" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="2500" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_S_User_Site_S_Sites">
+    <End Role="S_Sites" Type="Self.S_Sites" Multiplicity="0..1" />
+    <End Role="S_User_Site" Type="Self.S_User_Site" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="S_Sites">
+        <PropertyRef Name="SiteCode" />
+      </Principal>
+      <Dependent Role="S_User_Site">
+        <PropertyRef Name="SiteCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="S_USer_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="IsExternal" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="AdminModelStoreContainer">
+    <EntitySet Name="S_Sites" EntityType="Self.S_Sites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_USer" EntityType="Self.S_USer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_User_Site" EntityType="Self.S_User_Site" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_S_User_Site_S_Sites" Association="Self.FK_S_User_Site_S_Sites">
+      <End Role="S_Sites" EntitySet="S_Sites" />
+      <End Role="S_User_Site" EntitySet="S_User_Site" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

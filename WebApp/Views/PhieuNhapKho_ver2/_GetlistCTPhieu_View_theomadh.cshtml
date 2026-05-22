@@ -1,0 +1,55 @@
+﻿
+@using System.Globalization;
+@model ToolsApp.Models.tblCTPhieuKhoViewModels
+
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.QuanLyKhoMoc2023.Sp_API_LoadSLCayMoc_TheoDonHang_Result>;
+
+}
+
+<table id="myTablect" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            
+            <th style="text-align:center">.No</th>
+            
+            <th>Mã Hàng</th>
+            <th>Mã Cây</th>
+            <th>Số Lượng</th>
+            <th>Số Lượng Yard</th>
+            <th>Mã Chất Lượng</th>
+            <th>Mã ĐH</th>
+            <th>Thị Trường</th>
+            <th>Lỗi Dầu</th>
+            <th>KeyHH</th>
+
+          
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists)
+        {
+            <tr>
+            
+                <td style="text-align:center">
+                    @STT
+                </td>
+                
+                <td>@item.Mahang</td>
+                <td>@item.Macay</td>
+                <td>@item.Soluong</td>
+                <td>@item.SoLuongYard</td>
+                <td>@item.Machatluong</td>
+                <td>@item.Madh</td>
+                <td>@item.ThiTruong</td>
+                <td>@item.LOIDAU</td>
+                <td>@item.KeyHH</td>
+              
+
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

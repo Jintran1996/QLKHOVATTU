@@ -1,0 +1,142 @@
+﻿@using System.Globalization;
+@{
+    var url = ViewData["URL_IMAGE"];
+    var list = ViewBag.inVT as List<ToolsApp.EntityFramework.VatTu.SP_CRCHATLUONG_THEOHOADON_Result>;
+    var vchukyGDDV = ViewBag.Base64ImageGDDV;
+    var vchukyThuKho = ViewBag.Base64ImageThuKho;
+    var STT = 1;
+}
+<head>
+    <style>
+        .print-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #000;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<div class="row" style="margin-top: 2px">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-body pad" style="font-family: 'Times New Roman', Times, serif;" id="print_socai">
+                <div class="container-fluid">
+                    <!-------------------------------------phần header------------------------------------------>
+                    <div class="row">
+                        <table id="myTable" class="table table-bordered table-striped " style='border-collapse:collapse; width:100%;padding-top:2rem' border='1'>
+                            <thead>
+                                <tr>
+                                    <th width="70px" style="text-align:center" colspan="1">
+                                        <img src="@url/Content/images/ThaiTuan.png" style="width:10rem; " />
+                                    </th>
+                                    <th style="text-align:left" width="750px" colspan="3">
+                                        <span> BM02/QI13</span><br />
+                                        <h4 style="text-align:center"><b>PHIẾU KIỂM TRA NGUYÊN NHIÊN VẬT LIỆU ĐẦU VÀO</b></h4>
+                                    </th>
+                                    <th style="width: 250px; text-align: center; vertical-align: middle; padding: 0.6rem;" colspan="2">
+                                        <div>
+                                            <strong>Mã kho:</strong>
+                                            <span>@(list.Count > 0 ? list[0].MAKHO : "")</span>
+                                        </div>
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+                            <thead>
+                               
+                                <tr>
+                                    <th width="40px">STT</th>
+                                    <th colspan="2" width="250px">Thông tin về sản phẩm</th>
+                                    <th width="60px">Số lượng</th>
+                                    <th width="120px">Kiểm tra ngoại quan kho</th>
+                                    <th width="250px">
+                                        Phần Đ.Vị kiểm tra chất lượng/Tiêu chuẩn kỹ thuật nhập kho
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in list)
+                                {
+                                    <tr>
+                                        <td rowspan="2" style="text-align:center; vertical-align:middle;">@STT</td>
+
+                                        <td colspan="2">
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Mã SP: <b>@item.MAVT</b></p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Tên SP: @item.TENVT</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">ĐVT: @item.DVT</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Mã phiếu PD: <b>@item.MAPHIEUPD</b></p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Họ tên NLP: @item.HOTENNLP</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">SOCTXN: @item.SOCT</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">SOPO: @item.SOPO</p>
+                                        </td>
+                                        <td style="padding: 0rem 0.5rem 0rem 0rem; text-align: center; vertical-align: middle">@item.THUC</td>
+                                        <td style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Tình trạng: @item.KHOKIEMTRA</td>
+                                        <td>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Dạng lỗi:........................................</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Kết quả:.....@item.DANGLOI .....</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Nhận/Loại.....@item.LOAI .....</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">NV kiểm tra:....@item.HOTENNGUOIKT .....</p>
+                                        </td>
+                                    </tr>
+
+                                    <tr style="border-top:1px dashed #000;">
+                                        <!-- CỘT TRÁI -->
+                                        @*  <td style="text-align:center"></td>*@
+                                        <td style="width:50%" colspan="2">
+                                            <b>Thông tin NCC:</b><br />
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Tên SP NCC: @item.TENVATTU_NCC</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">ĐVT NCC: @item.DVT_NCC</p>
+
+                                        </td>
+                                        <td style="padding: 0rem 0.5rem 0rem 0rem; text-align: center; vertical-align: middle">@item.SOLUONGNCC</td>
+
+
+                                        <!-- CỘT GIỮA -->
+                                        <td style="width:25%" colspan="2">
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem"><b>Số hóa đơn: </b>@item.SOCTKETOAN<br /><br /></p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem"><b>Ngày:</b> @item.NGAYKETOAN</p>
+                                        </td>
+
+                                    </tr>
+                                    STT++;
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td style="text-align: center; vertical-align: middle" colspan="3">
+                                        <p>Ngày kho kiểm tra:<b>@(list.Count <= 0 ? "" : list[0].NGAYKHO)</b></p>
+                                        <p style="padding-bottom:10px">Thủ kho: </p>
+                                        <img src="@vchukyThuKho" style="max-height: 80px;" />
+                                        <p>Họ và Tên: <b>@(list.Count <=0 ? "" : list[0].HOTENTHUKHO)</b></p>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle" colspan="3">
+                                        <p>Ngày đơn vị kiểm tra:</p>
+                                        <p style="padding-bottom:10px">Ban GĐ Đơn vị: </p>
+                                        <img src="@vchukyGDDV" style="max-height: 80px;" />
+                                        <p>Họ và Tên: <b>@(list.Count <=0 ? "" : list[0].GIAMDOC)</b></p>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

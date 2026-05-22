@@ -1,0 +1,183 @@
+﻿@using System.Globalization;
+@model ToolsApp.Models.NL_DMPHIEUXNViewModels
+@{
+    var SOCTXN = ViewBag.SOCTXN;
+    //  var donvinhan = ViewBag.donvinhan as List<ToolsApp.EntityFramework.QuanLyKhoMoc2023.spLoad_DonVi_Result>;
+    var loaihinhthuc = ViewBag.loaihinhthuc as List<ToolsApp.EntityFramework.KhoSoi.SP_NL_LOADDMHINHTHUC_NHAPKHOTHUKHO_Result>;
+    var makhoxuat = ViewBag.makhoxuat as List<ToolsApp.EntityFramework.KhoSoi.SP_MAKHOBYMANV_LOAD_Result>;
+    var makhonhan = ViewBag.makhonhan as List<ToolsApp.EntityFramework.KhoSoi.NL_DMKHO>;
+    // var manvxn = ViewBag.manvxn as List<ToolsApp.EntityFramework.QuanLyKhoMoc2023.spLoad_NhanVien_ByIDMADV_Result>;
+
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">SOCTXN :</label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" autocomplete="off" value="@SOCTXN" readonly
+                       id="SOCTXN_" name="SOCTXN" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Mã Kho Nhận :</label>
+                <div class="col-md-9">
+                    <select class="form-control" id="MAKHONHAN" name="MAKHONHAN">
+                        <option disabled selected value="">-- Kho nhận--</option>
+                        @foreach (var item in makhonhan)
+                        {
+                            <option value="@item.MAKHO">@item.MAKHO || @item.TENKHO</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+ 
+
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label  class="col-md-3">Mã Kho Xuất:</label>
+            <div class="col-md-9">
+                <select class="form-control" id="MAKHOXUAT" name="MAKHOXUAT">
+                    <option disabled selected value="">-- Kho Xuất --</option>
+                    @foreach (var item in makhoxuat)
+                    {
+                        <option value="@item.MAKHO">@item.MAKHO || @item.TENKHO</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 ">Loại Hình thức:</label>
+            <div class="col-md-9 ">
+                <select class="form-control" id="MAHTHUC" name="MAHTHUC" onchange="_Load_SOCTXN()">
+                    @foreach (var item in loaihinhthuc)
+                    {
+                        <option value="@item.MAHTHUC">@item.MAHTHUC  ||  @item.TENHTHUC</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Ngày Chứng Từ:</label>
+            <div class="col-md-9">
+                <input type="datetime" id="Ngayct" name="Ngayct" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-1">Ghi chú:</label>
+            <div class="col-md-11">
+                <textarea rows="1" id="GHICHU" name="GHICHU" class="form-control "></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+    $("#Ngayct").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+ //-----------------Load change----------------//
+
+    function _Load_SOCTXN() {
+
+        var MAHTHUCid = $("#MAHTHUC").val();
+        var SOCTXNid = $("#SOCTXN_");
+
+        SOCTXNid.empty();
+
+            $.ajax({
+                url: '@Url.Action("_Change_SOCTXN")',
+                timeout: 20000,
+                type: "POST",
+                data: { MAHTHUCid: MAHTHUCid },
+                success: function (result) {
+                    console.log(result.obj);
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    else
+                    {
+                        SOCTXNid.val(result.obj).trigger("chosen:updated");
+                    }
+                }
+            });
+    }
+
+
+      function Load_Kho_MANV_xuat() {
+        var dvxuat = $("#donvi_xuat").val();
+          var makho_xuatid = $("#makho_xuat");
+          var manv_xuatid = $("#manv_xuat");
+
+          makho_xuatid.empty();
+          manv_xuatid.empty();
+
+            $.ajax({
+                url: '@Url.Action("_Change_kho_manvxuat")',
+                timeout: 20000,
+                type: "POST",
+                data: { dvxuat: dvxuat },
+                success: function (result) {
+
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    else {
+
+                        $.each(result.objkho, function (i, state) {
+                            makho_xuatid.append($('<option/>', { value: this.MAKHO }).html(this.Hienthi));
+                        });
+
+                        makho_xuatid.trigger("chosen:updated");
+
+                        $.each(result.objmanv, function (i, state) {
+                            manv_xuatid.append($('<option/>', { value: this.MaNV }).html(this.hienthi));
+                        });
+                    }
+
+                    manv_xuatid.trigger("chosen:updated");
+                }
+            });
+        }
+
+</script>

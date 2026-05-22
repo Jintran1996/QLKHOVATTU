@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUITRINHMAY_PHUCLONGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MayPL_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MayPL_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="nvarchar" MaxLength="250" />
+    <Property Name="Controler" Type="varchar" MaxLength="50" />
+    <Property Name="Action" Type="varchar" MaxLength="50" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MayPL_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MayPL_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="SalesRepCode" Type="varchar" MaxLength="50" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MayPL_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="isRoleCreate" Type="bit" />
+    <Property Name="isRoleEdit" Type="bit" />
+    <Property Name="isRoleExport" Type="bit" />
+    <Property Name="isRoleExportAll" Type="bit" />
+    <Property Name="isRoleDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="MayPL_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="UserFullname" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_MayPL_Menu_MayPL_Menu">
+    <End Role="MayPL_Menu" Type="Self.MayPL_Menu" Multiplicity="0..1" />
+    <End Role="MayPL_Menu1" Type="Self.MayPL_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_Menu_MayPL_Page">
+    <End Role="MayPL_Page" Type="Self.MayPL_Page" Multiplicity="0..1" />
+    <End Role="MayPL_Menu" Type="Self.MayPL_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_User_Page_MayPL_Page">
+    <End Role="MayPL_Page" Type="Self.MayPL_Page" Multiplicity="0..1" />
+    <End Role="MayPL_User_Page" Type="Self.MayPL_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_User_Page_MayPL_User">
+    <End Role="MayPL_User" Type="Self.MayPL_User" Multiplicity="0..1" />
+    <End Role="MayPL_User_Page" Type="Self.MayPL_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_User_Role_MayPL_Role">
+    <End Role="MayPL_Role" Type="Self.MayPL_Role" Multiplicity="0..1" />
+    <End Role="MayPL_User_Role" Type="Self.MayPL_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MayPL_User_Role_MayPL_User">
+    <End Role="MayPL_User" Type="Self.MayPL_User" Multiplicity="0..1" />
+    <End Role="MayPL_User_Role" Type="Self.MayPL_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayPL_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MayPL_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUITRINHMAY_PHUCLONGModelStoreContainer">
+    <EntitySet Name="MayPL_Menu" EntityType="Self.MayPL_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MayPL_Page" EntityType="Self.MayPL_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MayPL_Role" EntityType="Self.MayPL_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MayPL_User" EntityType="Self.MayPL_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MayPL_User_Page" EntityType="Self.MayPL_User_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MayPL_User_Role" EntityType="Self.MayPL_User_Role" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MayPL_Menu_MayPL_Menu" Association="Self.FK_MayPL_Menu_MayPL_Menu">
+      <End Role="MayPL_Menu" EntitySet="MayPL_Menu" />
+      <End Role="MayPL_Menu1" EntitySet="MayPL_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_Menu_MayPL_Page" Association="Self.FK_MayPL_Menu_MayPL_Page">
+      <End Role="MayPL_Page" EntitySet="MayPL_Page" />
+      <End Role="MayPL_Menu" EntitySet="MayPL_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_User_Page_MayPL_Page" Association="Self.FK_MayPL_User_Page_MayPL_Page">
+      <End Role="MayPL_Page" EntitySet="MayPL_Page" />
+      <End Role="MayPL_User_Page" EntitySet="MayPL_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_User_Page_MayPL_User" Association="Self.FK_MayPL_User_Page_MayPL_User">
+      <End Role="MayPL_User" EntitySet="MayPL_User" />
+      <End Role="MayPL_User_Page" EntitySet="MayPL_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_User_Role_MayPL_Role" Association="Self.FK_MayPL_User_Role_MayPL_Role">
+      <End Role="MayPL_Role" EntitySet="MayPL_Role" />
+      <End Role="MayPL_User_Role" EntitySet="MayPL_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MayPL_User_Role_MayPL_User" Association="Self.FK_MayPL_User_Role_MayPL_User">
+      <End Role="MayPL_User" EntitySet="MayPL_User" />
+      <End Role="MayPL_User_Role" EntitySet="MayPL_User_Role" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

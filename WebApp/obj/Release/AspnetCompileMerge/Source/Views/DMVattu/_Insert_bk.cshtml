@@ -1,0 +1,181 @@
+﻿@using System.Globalization;
+
+@model ToolsApp.Models.DMVATTUViewModels
+@{
+
+    var dmdvt = ViewBag.dmdvt as List<ToolsApp.EntityFramework.VatTu.DANHMUCDONVITINH>;
+    var nhomvt = ViewBag.nhomvt as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_MANHOMVT_BYLOAIVT_Result>;
+    var dmdonvi = ViewBag.dmdonvi as List<ToolsApp.EntityFramework.VatTu.DMDONVI>;
+    var dmloaivt = ViewBag.dmloaivt as List<ToolsApp.EntityFramework.VatTu.DanhmucLoaiVT>;
+    var dmMaChiPhi = ViewBag.maChiPhi as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_MACP_MAVATTU_Result>;
+
+}
+
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<input type="hidden" value="@Model.MAVT" id="MAVT" />
+
+
+<div class="row" style="margin-bottom:5px">
+    <div class="col-md-12 col-sm-4">
+        <!--Loại VT-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Loại VT:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <select class="form-control chosen-select" id="LoaiVT" name="LoaiVT" style="width: 100%;" onchange="_Onchange_NhomVT_ByLoaiVT()">
+                    <option value="" disabled selected>--Danh Sách Loại VT--</option>
+                    @foreach (var item in dmloaivt)
+                    {
+                        <option value="@item.LoaiVT">
+                            @item.LoaiVT || @item.TenLoai
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <!--Nhóm VT-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Nhóm VT:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <select class="form-control chosen-select" id="Manhom" name="Manhom" style="width: 100%; ">
+                    <option value="" disabled selected>--Danh Sách Nhóm VT--</option>
+                    @foreach (var item in nhomvt)
+                    {
+                        <option value="@item.Manhom">
+                            @item.Manhom || @item.Tenmanhom
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <!--Đơn vị tính-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã vật tư:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase()" pattern="[A-Z0-9]{11}" title="Nhập chính xác 11 ký tự." class="form-control" type="text" id="MAVT" name="MAVT" />
+                <small class="form-text text-muted">Nhập chính xác 11 ký tự.</small>
+            </div>
+        </div>
+
+
+        <!--Tên gọi-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Tên vật tư:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <input value="" class="form-control" type="text" id="TenVT" name="TenVT" />
+            </div>
+        </div>
+
+        <!--Đơn vị sử dụng-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Đơn vị sử dụng:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <select class="form-control chosen-select" id="DonViSuDungtac" name="DonViSuDungtac" style="width: 100%; ">
+                    <option value="" disabled selected>--Danh Sách Đơn Vị--</option>
+                    @foreach (var item in dmdonvi)
+                    {
+                        <option value="@item.MaDonVi">
+                            @item.MaDonVi || @item.TenDonVi
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+        <!--Đơn vị tính-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Đơn vị tính:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <select class="form-control chosen-select" id="DVT" name="DVT" style="width: 100%; ">
+                    <option value="" disabled selected>--Danh Sách DVT--</option>
+                    @foreach (var item in dmdvt)
+                    {
+                        <option value="@item.FMaDVT">
+                            @item.FMaDVT || @item.TenGoi
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã chi phí:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <select class="form-control chosen-select" id="MACP" name="MACP" style="width: 100%; ">
+                    <option value="" disabled selected>--Mã chi phí--</option>
+                    @foreach (var item in dmMaChiPhi)
+                    {
+                        <option value="@item.MACP">
+                            @item.HT
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>
+
+<script>
+    var index = 0;
+
+    $(document).ready(function () {
+        $('#HIEULUC').click(function (e) {
+            if ($('#HIEULUC').val() != true) {
+                $('#HIEULUC').val(true);
+            }
+            else {
+                $('#HIEULUC').val(false);
+            }
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+
+    function _Onchange_NhomVT_ByLoaiVT() {
+        var iLoaiVT = $("#LoaiVT").val();
+        var iNhomVT = $("#NhomVT");
+        iNhomVT.empty();
+        $.ajax({
+            url: '@Url.Action("_Onchange_NhomVT_ByLoaiVT")',
+            timeout: 200000,
+            data: {
+                LoaiVT: iLoaiVT,
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            console.log(data.obj);
+            if (data.status > 0) {
+                $.each(data.obj, function (i, state) {
+                    iNhomVT.append($('<option/>', { value: this.Manhom }).html(this.Manhom || this.Tenmanhom));
+                });
+                iNhomVT.trigger("chosen:updated");
+            }
+         
+        }).fail(function (data) {
+            notify(data.text, "error");
+        });
+    }
+
+</script>

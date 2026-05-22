@@ -1,0 +1,106 @@
+﻿@model ToolsApp.Models.NL_VATTUXUATCHUYENViewModels
+@{
+
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.HiddenFor(model => model.ID_XUATCHUYEN)
+
+<input type="hidden" value="" id="MaKH" />
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-body pad">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 col-md-offset-1">
+                            
+                            <div class="form-group row">
+                                <label class="col-md-4">Mã đơn hàng:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.MADH, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.MADH, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">Mã hàng SX:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.MAHANGSX, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.MAHANGSX, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">SL vải mộc SX:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="number" autocomplete="off"
+                                           id="SOLUONGVAIMOCSX" name="SOLUONGVAIMOCSX" value="@(Model.SOLUONGVAIMOCSX)" />
+                                    @Html.ValidationMessageFor(model => model.SOLUONGVAIMOCSX, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">Key HH:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.KEYHH, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.KEYHH, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">Mã vật tư:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.MAVATTU, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.MAVATTU, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">SL định mức:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.SOLUONGDINHMUC, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.SOLUONGDINHMUC, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4">SL sợi xuất chuyền:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="number" autocomplete="off"
+                                           id="SOLUONGSOIXUATCHUYEN" name="SOLUONGSOIXUATCHUYEN" value="@(Model.SOLUONGSOIXUATCHUYEN)" />
+                                    @Html.ValidationMessageFor(model => model.SOLUONGSOIXUATCHUYEN, "", new { @class = "text-danger" })
+                                           
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': { allow_single_deselect: true },
+            '.chosen-select-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+        $('#THANGNAM').datepicker({
+            format: 'mm/yyyy',
+            startView: "months",
+            minViewMode: "months",
+            language: 'pt-BR',
+            endDate: "0m",
+            autoclose: true,
+            onclose: function (selecteddate) {
+                //$("#fromdate").datepicker("option", "mindate", selecteddate);
+            }
+        });
+
+</script>

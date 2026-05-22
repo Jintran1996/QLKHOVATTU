@@ -1,0 +1,81 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEU>;
+    ViewBag.Title = "Danh sách phiếu yêu cầu";
+    var stt = 1;
+}
+<table id="myTable" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th style="height:40px; width:10px; margin:0;"></th>
+            <th>Mã phiếu</th>
+            <th>Ngày yêu cầu</th>
+            <th>Người lập</th>
+            <th>Lý do </th>
+            <th>Người TN</th>
+            <th>Ngày TN</th>
+            <th>Người PD</th>
+            <th>Ngày PD</th>
+            <th>Người XX</th>
+            <th>Ngày XX</th>
+            <th>Mã phiếu PD</th>
+            <th>Loại phiếu</th>
+            <th>ND</th>
+            <th>NK</th>
+            <th>KH</th>
+            <th>DX</th>
+            <th>Loại ĐH</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+            <tr>
+                <td>@stt</td>
+                <td style="white-space: nowrap">
+                    <a onclick="Detail('@item.MAPHIEU')" class="btn" style="font-size:10px">
+                        <i class="far fa-eye">&nbsp;Chi&nbsp;tiết</i>
+                    </a>
+                    @if ((DateTime.Now.Date <= item.NGAYYC.Value.Date) || item.NGUOILAPPHIEU == User.Identity.Name)
+                    {
+                        <a onclick="Delete('@item.MAPHIEU')" class="btn" style="font-size:10px">
+                            <i class="far fa-trash-alt">&nbsp;Xóa&nbsp;phiếu</i>
+                        </a>
+
+                    }
+
+                </td>
+                <td>@item.MAPHIEU </td>
+                <td>@(item.NGAYYC == null ? "": item.NGAYYC.Value.ToString("dd/MM/yyyy HH:mm:ss"))</td>
+                <td>@item.NGUOILAPPHIEU</td>
+                <td>@item.LYDOSD</td>
+                <td>@item.NGUOITIEPNHAN</td>
+                <td>@(item.NGAYTN == null ? "": item.NGAYTN.Value.ToString("dd/MM/yyyy HH:mm:ss"))</td>
+                <td>@item.NGUOIPD</td>
+                <td>@(item.NGAYPD == null ? "": item.NGAYPD.Value.ToString("dd/MM/yyyy HH:mm:ss"))</td>
+                <td>@item.NGUOIXX</td>
+                <td>@(item.NGAYXX == null ? "": item.NGAYXX.Value.ToString("dd/MM/yyyy HH:mm:ss"))</td>
+                <td>@item.MAPHIEUPD</td>
+                <td>@item.LOAIPHIEU</td>
+                <td>
+                    @if (item.ND == 1)
+                    {<i class="fa fa-check"></i>}
+                </td>
+                <td>
+                    @if (item.NK == 1)
+                    {<i class="fa fa-check"></i>}
+                </td>
+                <td>
+                    @if (item.KH == 1)
+                    {<i class="fa fa-check"></i>}
+                </td>
+                <td>
+                    @if (item.DX == 1)
+                    {<i class="fa fa-check"></i>}
+                </td>
+                <td>@item.LOAIDONHANG</td>
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>

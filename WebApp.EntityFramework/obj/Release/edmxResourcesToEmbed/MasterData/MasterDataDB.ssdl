@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MasterData2020Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Vacxin_DonViCongTac">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vacxin_LyDoKhongChich">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Detail" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vacxin_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="150" />
+    <Property Name="OrderNo" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vacxin_NhanVien">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuidNhanVienId" Type="uniqueidentifier" />
+    <Property Name="EmpCode" Type="nvarchar" MaxLength="250" />
+    <Property Name="SAPNo" Type="nvarchar" MaxLength="250" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgaySinh" Type="datetime" />
+    <Property Name="GioiTinh" Type="int" />
+    <Property Name="MaNhomDoiTuongUuTienId" Type="varchar" MaxLength="50" />
+    <Property Name="MaDonViCongTacId" Type="int" />
+    <Property Name="SoDienThoai" Type="nvarchar" MaxLength="250" />
+    <Property Name="CMND" Type="nvarchar" MaxLength="250" />
+    <Property Name="TheBHYTe" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaPhuongXa" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenPhuongXa" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaQuanHuyen" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenQuanHuyen" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaTinhThanh" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenTinhThanh" Type="nvarchar" MaxLength="250" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="250" />
+    <Property Name="TrangThaiDuyetId" Type="int" />
+    <Property Name="isKhongChich" Type="bit" />
+    <Property Name="LyDoKhongChichId" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="DateCreate" Type="datetime" />
+    <Property Name="DateUpdate" Type="datetime" />
+    <Property Name="Mui1_TenVacxin" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui1_NgayTiem" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui1_LoVacxin" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui1_CoSoTiem" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui2_TenVacxin" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui2_NgayTiem" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui2_LoVacxin" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui2_CoSoTiem" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui3_TenVacxin" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui3_NgayTiem" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui3_LoVacxin" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mui3_CoSoTiem" Type="nvarchar" MaxLength="250" />
+    <Property Name="EmployeeID" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Vacxin_NhanVienCapNhat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NhanVienId" Type="int" />
+    <Property Name="GuidNhanVienId" Type="uniqueidentifier" />
+    <Property Name="EmpCode" Type="nvarchar" MaxLength="250" />
+    <Property Name="SAPNo" Type="nvarchar" MaxLength="250" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgaySinh" Type="datetime" />
+    <Property Name="GioiTinh" Type="int" />
+    <Property Name="MaNhomDoiTuongUuTienId" Type="varchar" MaxLength="50" />
+    <Property Name="MaDonViCongTacId" Type="int" />
+    <Property Name="SoDienThoai" Type="nvarchar" MaxLength="250" />
+    <Property Name="CMND" Type="nvarchar" MaxLength="250" />
+    <Property Name="TheBHYTe" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaPhuongXa" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenPhuongXa" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaQuanHuyen" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenQuanHuyen" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaTinhThanh" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenTinhThanh" Type="nvarchar" MaxLength="250" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="250" />
+    <Property Name="TrangThaiDuyetId" Type="int" />
+    <Property Name="LyDoKhongChichId" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="DateCreate" Type="datetime" />
+    <Property Name="DateUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vacxin_NhomDoiTuongUuTien">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="2500" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vacxin_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="nvarchar" MaxLength="250" />
+    <Property Name="Controler" Type="varchar" MaxLength="50" />
+    <Property Name="Action" Type="varchar" MaxLength="50" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vacxin_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vacxin_TinhThanh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTinhThanh" Type="nvarchar" MaxLength="255" />
+    <Property Name="MaTinhThanh" Type="nvarchar" MaxLength="255" />
+    <Property Name="OrderNo" Type="int" />
+  </EntityType>
+  <EntityType Name="Vacxin_TinhThanhQH">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTinhThanh" Type="nvarchar" MaxLength="255" />
+    <Property Name="MaTinhThanh" Type="nvarchar" MaxLength="255" />
+    <Property Name="TenQuanHuyen" Type="nvarchar" MaxLength="255" />
+    <Property Name="MaQuanHuyen" Type="nvarchar" MaxLength="255" />
+    <Property Name="TenPhuongXa" Type="nvarchar" MaxLength="255" />
+    <Property Name="MaPhuongXa" Type="nvarchar" MaxLength="255" />
+    <Property Name="Cap" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Vacxin_TrangThaiDuyet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Detail" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vacxin_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="SalesRepCode" Type="varchar" MaxLength="50" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vacxin_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PageId" Type="int" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+    <Property Name="isRoleCreate" Type="bit" />
+    <Property Name="isRoleEdit" Type="bit" />
+    <Property Name="isRoleExport" Type="bit" />
+    <Property Name="isRoleExportAll" Type="bit" />
+    <Property Name="isRoleDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Vacxin_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="UserFullname" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Vacxin_Menu_Vacxin_Menu">
+    <End Role="Vacxin_Menu" Type="Self.Vacxin_Menu" Multiplicity="0..1" />
+    <End Role="Vacxin_Menu1" Type="Self.Vacxin_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_Menu_Vacxin_Page">
+    <End Role="Vacxin_Page" Type="Self.Vacxin_Page" Multiplicity="0..1" />
+    <End Role="Vacxin_Menu" Type="Self.Vacxin_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_NhanVien_Vacxin_DonViCongTac">
+    <End Role="Vacxin_DonViCongTac" Type="Self.Vacxin_DonViCongTac" Multiplicity="0..1" />
+    <End Role="Vacxin_NhanVien" Type="Self.Vacxin_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_DonViCongTac">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVien">
+        <PropertyRef Name="MaDonViCongTacId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_NhanVien_Vacxin_LyDoKhongChich">
+    <End Role="Vacxin_LyDoKhongChich" Type="Self.Vacxin_LyDoKhongChich" Multiplicity="0..1" />
+    <End Role="Vacxin_NhanVien" Type="Self.Vacxin_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_LyDoKhongChich">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVien">
+        <PropertyRef Name="LyDoKhongChichId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_NhanVien_Vacxin_NhomDoiTuongUuTien">
+    <End Role="Vacxin_NhomDoiTuongUuTien" Type="Self.Vacxin_NhomDoiTuongUuTien" Multiplicity="0..1" />
+    <End Role="Vacxin_NhanVien" Type="Self.Vacxin_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_NhomDoiTuongUuTien">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVien">
+        <PropertyRef Name="MaNhomDoiTuongUuTienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_NhanVien_Vacxin_TrangThaiDuyet">
+    <End Role="Vacxin_TrangThaiDuyet" Type="Self.Vacxin_TrangThaiDuyet" Multiplicity="0..1" />
+    <End Role="Vacxin_NhanVien" Type="Self.Vacxin_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_TrangThaiDuyet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVien">
+        <PropertyRef Name="TrangThaiDuyetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_NhanVienCapNhat_Vacxin_NhanVien">
+    <End Role="Vacxin_NhanVien" Type="Self.Vacxin_NhanVien" Multiplicity="0..1" />
+    <End Role="Vacxin_NhanVienCapNhat" Type="Self.Vacxin_NhanVienCapNhat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_NhanVien">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVienCapNhat">
+        <PropertyRef Name="NhanVienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_User_Page_Vacxin_Page">
+    <End Role="Vacxin_Page" Type="Self.Vacxin_Page" Multiplicity="0..1" />
+    <End Role="Vacxin_User_Page" Type="Self.Vacxin_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_User_Page_Vacxin_User">
+    <End Role="Vacxin_User" Type="Self.Vacxin_User" Multiplicity="0..1" />
+    <End Role="Vacxin_User_Page" Type="Self.Vacxin_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_User_Role_Vacxin_Role">
+    <End Role="Vacxin_Role" Type="Self.Vacxin_Role" Multiplicity="0..1" />
+    <End Role="Vacxin_User_Role" Type="Self.Vacxin_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_User_Role_Vacxin_User">
+    <End Role="Vacxin_User" Type="Self.Vacxin_User" Multiplicity="0..1" />
+    <End Role="Vacxin_User_Role" Type="Self.Vacxin_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MasterData2020ModelStoreContainer">
+    <EntitySet Name="Vacxin_DonViCongTac" EntityType="Self.Vacxin_DonViCongTac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_LyDoKhongChich" EntityType="Self.Vacxin_LyDoKhongChich" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_Menu" EntityType="Self.Vacxin_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_NhanVien" EntityType="Self.Vacxin_NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_NhanVienCapNhat" EntityType="Self.Vacxin_NhanVienCapNhat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_NhomDoiTuongUuTien" EntityType="Self.Vacxin_NhomDoiTuongUuTien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_Page" EntityType="Self.Vacxin_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_Role" EntityType="Self.Vacxin_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_TinhThanh" EntityType="Self.Vacxin_TinhThanh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_TinhThanhQH" EntityType="Self.Vacxin_TinhThanhQH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_TrangThaiDuyet" EntityType="Self.Vacxin_TrangThaiDuyet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_User" EntityType="Self.Vacxin_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_User_Page" EntityType="Self.Vacxin_User_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacxin_User_Role" EntityType="Self.Vacxin_User_Role" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Vacxin_Menu_Vacxin_Menu" Association="Self.FK_Vacxin_Menu_Vacxin_Menu">
+      <End Role="Vacxin_Menu" EntitySet="Vacxin_Menu" />
+      <End Role="Vacxin_Menu1" EntitySet="Vacxin_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_Menu_Vacxin_Page" Association="Self.FK_Vacxin_Menu_Vacxin_Page">
+      <End Role="Vacxin_Page" EntitySet="Vacxin_Page" />
+      <End Role="Vacxin_Menu" EntitySet="Vacxin_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_NhanVien_Vacxin_DonViCongTac" Association="Self.FK_Vacxin_NhanVien_Vacxin_DonViCongTac">
+      <End Role="Vacxin_DonViCongTac" EntitySet="Vacxin_DonViCongTac" />
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_NhanVien_Vacxin_LyDoKhongChich" Association="Self.FK_Vacxin_NhanVien_Vacxin_LyDoKhongChich">
+      <End Role="Vacxin_LyDoKhongChich" EntitySet="Vacxin_LyDoKhongChich" />
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_NhanVien_Vacxin_NhomDoiTuongUuTien" Association="Self.FK_Vacxin_NhanVien_Vacxin_NhomDoiTuongUuTien">
+      <End Role="Vacxin_NhomDoiTuongUuTien" EntitySet="Vacxin_NhomDoiTuongUuTien" />
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_NhanVien_Vacxin_TrangThaiDuyet" Association="Self.FK_Vacxin_NhanVien_Vacxin_TrangThaiDuyet">
+      <End Role="Vacxin_TrangThaiDuyet" EntitySet="Vacxin_TrangThaiDuyet" />
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_NhanVienCapNhat_Vacxin_NhanVien" Association="Self.FK_Vacxin_NhanVienCapNhat_Vacxin_NhanVien">
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+      <End Role="Vacxin_NhanVienCapNhat" EntitySet="Vacxin_NhanVienCapNhat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_User_Page_Vacxin_Page" Association="Self.FK_Vacxin_User_Page_Vacxin_Page">
+      <End Role="Vacxin_Page" EntitySet="Vacxin_Page" />
+      <End Role="Vacxin_User_Page" EntitySet="Vacxin_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_User_Page_Vacxin_User" Association="Self.FK_Vacxin_User_Page_Vacxin_User">
+      <End Role="Vacxin_User" EntitySet="Vacxin_User" />
+      <End Role="Vacxin_User_Page" EntitySet="Vacxin_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_User_Role_Vacxin_Role" Association="Self.FK_Vacxin_User_Role_Vacxin_Role">
+      <End Role="Vacxin_Role" EntitySet="Vacxin_Role" />
+      <End Role="Vacxin_User_Role" EntitySet="Vacxin_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_User_Role_Vacxin_User" Association="Self.FK_Vacxin_User_Role_Vacxin_User">
+      <End Role="Vacxin_User" EntitySet="Vacxin_User" />
+      <End Role="Vacxin_User_Role" EntitySet="Vacxin_User_Role" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

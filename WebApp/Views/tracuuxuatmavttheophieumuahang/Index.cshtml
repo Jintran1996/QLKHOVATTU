@@ -1,0 +1,391 @@
+﻿
+@{ var showrooms = ViewBag.showrooms as List<ToolsApp.EntityFramework.VatTu.VATTU2026_SPLOAD_TABLEMAPPING_MAKHO_IDMADV_Result>; }
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tra Cứu Nhanh Xuất Bán Vật Tư Cửa Hàng</title>
+    <link rel="stylesheet" href="~/Content/bootstraptracuuxnk.min.css" />
+
+    <style>
+        body {
+            background: #f5f7fa;
+        }
+
+        .card {
+            border-radius: 16px;
+        }
+
+        .table thead th {
+            background: #0d6efd;
+            color: white;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-one-tabContent">
+                        <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>Tìm kiếm </b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label">ID Đơn vị</label>
+                                                    <select id="SHOWROOMSEARCH_"
+                                                            name="SHOWROOMSEARCH_"
+                                                            class="form-control select2-kho" multiple>
+                                                        @foreach (var sr in showrooms)
+                                                        {
+                                                            <option value="@sr.IDMADV">@sr.IDMADV || @sr.TENCH</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Số phiếu </label>
+                                                    <input type="text"
+                                                           id="SOPHIEUSEARCH_"
+                                                           class="form-control"
+                                                           placeholder="Nhập số phiếu" />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer" style="padding: 10px">
+                                            <div class="text-right">
+                                                <button class="btn btn-outline-primary" style="width: 120px; text-align:center"
+                                                        id="btnSearch"
+                                                        onclick="btnSearch()">
+                                                    <i class="fa fa-search"></i> Tìm kiếm
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>Cập nhật xuất kho</b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label">ID Đơn vị</label>
+                                                    <select id="SHOWROOMSEARCH"
+                                                            name="SHOWROOMSEARCH"
+                                                            class="form-control select2-kho"
+                                                            >
+                                                        @foreach (var sr in showrooms)
+                                                        {
+                                                            <option value="@sr.IDMADV">@sr.IDMADV || @sr.TENCH</option>
+                                                        }
+                                                    </select>
+                                                </div>
+
+                                                <!-- Mã vật tư -->
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Số phiếu </label>
+                                                    <input type="text"
+                                                           id="SOPHIEUSEARCH"
+                                                           class="form-control"
+                                                           placeholder="Nhập số phiếu" />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer" style="padding: 10px">
+                                            <div class="text-right">
+                                                <button class="btn btn-outline-primary" style="width: 120px; text-align:center"
+                                                        id="btnSearch"
+                                                        onclick="btnNhapTra()">
+                                                    <i class="fa fa-sync"></i> Nhập trả
+                                                </button>
+                                                &nbsp;
+                                                &nbsp;
+                                            </div>
+                                            <div class="text-right">
+                                                <button class="btn btn-outline-primary" style="width: 120px; text-align:center"
+                                                        id="btnSearch"
+                                                        onclick="btnXuatKho()">
+                                                    <i class="fa fa-sync"></i> Xuất kho
+                                                </button>
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <b>Danh sách </b>
+                                    </h3>
+                                </div>
+                                <div class="card-body pad">
+                                    <div class="row">
+                                        <div class="col-md-12 table-body table-responsive">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+    </script>
+    <script type="text/javascript">
+        var config_ = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config_) {
+            $(selector).chosen(config_);
+        }
+
+    </script>
+
+    <script type="text/javascript">
+
+        function btnSearch() {
+           // GetList();
+            reloadData(false);
+        }
+
+        function reloadData(isDelete) {
+            let urlAction = '@Url.Action("GetList1")';
+
+        try {
+            $.ajax({
+                url: urlAction,
+                timeout: 2000000,
+                type: "POST",
+                data: {
+                    SHOWROOMSEARCH_: $("#SHOWROOMSEARCH_").val(),
+                    SOPHIEUSEARCH: $("#SOPHIEUSEARCH_").val(),
+
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    // Hủy tất cả các DataTable cũ nếu tồn tại
+                    $('.table').each(function () {
+                        if ($.fn.DataTable.isDataTable(this)) {
+                            $(this).DataTable().destroy(); // Phá hủy DataTable cũ
+                        }
+                    });
+
+                    $('.table').each(function (index) {
+                        console.log(index);
+                        $(this).attr('id', 'myTable_' + (index + 1)); // Thêm ID động
+                        $(this).DataTable({
+                            responsive: true,
+                            lengthChange: true,
+                            autoWidth: false,
+                            stateSave: true,
+                            buttons: [
+                                {
+                                    extend: 'csvHtml5',
+                                    text: 'CSV',
+                                    title: null, // Không thêm tiêu đề vào file xuất
+                                    exportOptions: {
+                                        columns: ':visible', // Chỉ xuất các cột đang hiển thị
+                                    }
+                                },
+                                {
+                                    extend: 'excelHtml5',
+                                    text: 'Excel',
+                                    title: null, // Không thêm tiêu đề vào file xuất
+                                    exportOptions: {
+                                        columns: ':visible', // Chỉ xuất các cột đang hiển thị
+                                    }
+                                },
+                                {
+                                    extend: 'print',
+                                    text: 'Print',
+                                    title: 'Tra Cứu Tồn Theo Mã Vật Tư', // Không thêm tiêu đề khi in
+                                    exportOptions: {
+                                        columns: ':visible',
+                                    }
+                                },
+                                "colvis"
+
+                            ],
+                            initComplete: function (oSettings) {
+                                // Thêm logic nếu cần khi DataTable đã khởi tạo
+                            }
+                        }).buttons().container().appendTo('#myTable_' + (index + 1) + '_wrapper .col-md-6:eq(0)');
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+
+
+        function btnXuatKho() {
+            var confirm_ = confirm('Bạn có chắc muốn cập nhật');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_FunXuatKho")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: {
+                        SHOWROOMSEARCH: $("#SHOWROOMSEARCH").val(),
+                        SOPHIEUSEARCH: $("#SOPHIEUSEARCH").val(),
+                        KEY: "1"
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        reloadData();
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+        function btnNhapTra() {
+            var confirm_ = confirm('Bạn có chắc muốn cập nhật');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_FunNhapTraBill")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: {
+                        SHOWROOMSEARCH: $("#SHOWROOMSEARCH").val(),
+                        SOPHIEUSEARCH: $("#SOPHIEUSEARCH").val(),
+                        KEY: "1"
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        reloadData();
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+        // Hàm bỏ dấu tiếng Việt
+        function toNoUnicode(str) {
+            return str.normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/đ/g, "d").replace(/Đ/g, "D")
+                .toLowerCase();
+        }
+
+
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            reloadData(false);
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.fn.select2.amd.require(['select2/compat/matcher'], function (oldMatcher) {
+                $(".select2-kho").select2({
+                    width: "100%",
+                    placeholder: "-- Tất cả --",
+                    allowClear: true,
+                    matcher: function (params, data) {
+                        if ($.trim(params.term) === '') return data;
+
+                        let text = (data.text || '').toLowerCase();
+                        let term = params.term.toLowerCase();
+
+                        // tìm không dấu
+                        let textNo = toNoUnicode(text);
+                        let termNo = toNoUnicode(term);
+
+                        if (text.indexOf(term) > -1 || textNo.indexOf(termNo) > -1) {
+                            return data;
+                        }
+
+                        return null;
+                    }
+                });
+
+            });
+        });
+    </script>
+
+
+}

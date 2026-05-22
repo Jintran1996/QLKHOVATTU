@@ -1,0 +1,86 @@
+ body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 13.5px;
+	/*background-color: rgb(197, 197, 197);*/
+	background: url(../img/pt.jpg);
+}
+.header {
+	height: 72px;
+	background-color: white;
+}
+/* menu-left */
+.menu-left .panel-side-menu .panel-body {
+	padding: 0px !important;
+}
+.menu-left .panel {
+	border: none !important;
+}
+.menu-left .side-menu {
+    padding: 0;
+    list-style: none;
+}
+.menu-left .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+.menu-left ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.menu-left .side-menu li.active {
+    color: #000;
+    background-color: #f6f6f6;
+    border-left: 5px solid #0068af;
+}
+.menu-left .side-menu li a:hover {
+ 	background: #f6f6f6;
+}
+.menu-left .side-menu li a {
+    padding: 12px 15px;
+    text-decoration: none;
+    display: block;
+    color: #000;
+}
+
+.menu-left .side-menu li a i.fa {
+	font-size: 16px;
+	color: #666;
+	width: 30px;
+}
+/* menu-left */
+.margin-bot10 {
+	margin-bottom: 10px;
+}
+.thongtin .btn, .thongtin .btn-sm {
+	border-radius: 0px !important;
+}
+.thongtin .btn-primary {
+	background-color: #0b6db1 !important;
+}
+.form-control {
+	border-radius: 0px !important; 
+}
+.linkofClient a.home2 {
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: -2px;
+    background: url(../img/home.png) no-repeat left center;
+}
+#footer {
+    clear: both;
+    float: left;
+    background: #fff;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+.linkofClient {
+    float: left;
+    color: #333;
+}
+.separated {
+    margin: 0 6px;
+}

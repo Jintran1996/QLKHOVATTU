@@ -1,0 +1,316 @@
+﻿@using System.Globalization;
+@model ToolsApp.Models.DM_XUATNHAPViewModels
+@{
+    var SOCTXN = ViewBag.SOCTXN;
+    //  var donvinhan = ViewBag.donvinhan as List<ToolsApp.EntityFramework.QuanLyKhoMoc2023.spLoad_DonVi_Result>;
+    var loaixuatnhap = ViewBag.loaixuatnhap as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SPLOAD_DMHINHTHUC_XUATKHO_Result>;
+
+    var makhonhan = ViewBag.makhonhan as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SP_LOADKHOQUYENNHAP_Result>;
+    var makhoxuat = ViewBag.makhoxuat as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SP_LOADKHOQUYENNHAP_Result>;
+    var NL_DMNHACCAP = ViewBag.NL_DMNHACCAP as List<ToolsApp.EntityFramework.KhoSoi.NL_DMNHACCAP>;
+    // var manvxn = ViewBag.manvxn as List<ToolsApp.EntityFramework.QuanLyKhoMoc2023.spLoad_NhanVien_ByIDMADV_Result>;
+    var DMDONVI = ViewBag.DMDONVI as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SP_LOAD_QUYEN_SUDUNG_DMDONVI_Result>;
+    var manvnhan = ViewBag.manvnhan as List<ToolsApp.EntityFramework.VatTu.DMNHANVIEN>;
+
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">SOCTXN :</label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" autocomplete="off" value="@SOCTXN" readonly
+                       id="SOCTXN_" name="SOCTXN" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">IDMADV Nhận :</label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="IDMADVNHAN" name="IDMADVNHAN" onchange="_Onchange_Location_MANV()">
+                    @foreach (var item in DMDONVI)
+                    {
+                        <option value="@item.IDMaDV">@item.IDMaDV || @item.TenDonVi</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">IDMADV Xuất :</label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="IDMADVXUAT" name="IDMADVXUAT">
+                    @foreach (var item in DMDONVI)
+                    {
+                        <option value="@item.IDMaDV">@item.IDMaDV || @item.TenDonVi</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 ">Loại XN:</label>
+            <div class="col-md-9 ">
+                <select class="form-control chosen-select" id="LOAIXN" name="LOAIXN" onchange="_Load_SOCTXN()">
+                    @foreach (var item in loaixuatnhap)
+                    {
+                        <option value="@item.LOAIXN">@item.LOAIXN  ||  @item.TEN</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Mã Kho Nhận :</label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="MAKHONHAN" name="MAKHONHAN">
+                    <option disabled selected value="">-- Kho nhận--</option>
+                    @foreach (var item in makhonhan)
+                    {
+                        <option value="@item.MAKHO">@item.MAKHO || @item.TENKHO</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Mã Kho Xuất:</label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="MAKHOXUAT" name="MAKHOXUAT">
+
+                    @foreach (var item in makhoxuat)
+                    {
+                        <option value="@item.MAKHO">@item.MAKHO || @item.TENKHO</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Ngày Chứng Từ:</label>
+            <div class="col-md-9">
+                <input type="text" autocomplete="off" id="NGAYCT" name="NGAYCT_" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Người Nhận:</label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="NGUOINHAN" name="NGUOINHAN">
+                    <option disabled selected value="">-- MANV Nhận--</option>
+                    @foreach (var item in manvnhan)
+                    {
+                        <option value="@item.MANV">@item.MANV || @item.HOTEN</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" id="soXBAN" style="display: none">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Số SO:</label>
+            <div class="col-md-9">
+                <input type="text" id="SOPO" name="SOPO" class="form-control" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-1">Ghi chú:</label>
+            <div class="col-md-11">
+                <textarea rows="1" id="GHICHU" name="GHICHU" class="form-control "></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+    $("#NGAYCT").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+ //-----------------Load change----------------//
+
+    function _Load_SOCTXN() {
+
+        var LOAIXNid = $("#LOAIXN").val();
+        var SOCTXNid = $("#SOCTXN_");
+        SOCTXNid.empty();
+
+            $.ajax({
+                url: '@Url.Action("_Change_SOCTXN")',
+                timeout: 20000,
+                type: "POST",
+                data: { LOAIXNid: LOAIXNid },
+                success: function (result) {
+                    console.log(result.obj);
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    else
+                    {
+                        SOCTXNid.val(result.obj).trigger("chosen:updated");
+                    }
+
+                    LoadSO();
+
+                }
+            });
+    }
+        function _Load_NCC_KHOXUAT() {
+
+        var LOAIXNid = $("#LOAIXN").val();
+            var MAKHOXUATID = $("#MAKHOXUAT");
+
+            MAKHOXUATID.empty();
+
+            $.ajax({
+                url: '@Url.Action("_Change_NCC_KHOXUAT")',
+                timeout: 20000,
+                type: "POST",
+                data: { LOAIXNid: LOAIXNid },
+                success: function (result)
+                {
+                    console.log(result);
+                    console.log("9999");
+
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    else
+                    {
+                        if (LOAIXNid == "X" || LOAIXNid == "XBAN") {
+                            $.each(result.obj, function (i, state) {
+                                MAKHOXUATID.append($('<option/>', { value: this.MAKHO }).html(this.MAKHO || this.TENKHO));
+                            });
+                            MAKHOXUATID.trigger("chosen:updated");
+                        }
+                        else
+                        {
+                            if (LOAIXNid == "X" || LOAIXNid == "XBAN") {
+                                $.each(result.obj, function (i, state) {
+                                    MAKHOXUATID.append($('<option/>', { value: this.MAKHO }).html(this.MAKHO || this.TENKHO));
+                                });
+                                MAKHOXUATID.trigger("chosen:updated");
+                            }
+                        }
+                    }
+                }
+            });
+    }
+     function _Onchange_Location_MANV() {
+        var IDMADVNHAN_ = $("#IDMADVNHAN").val();
+        var MAKHONHAN_ = $("#MAKHONHAN_");
+        var MANVNHAN_ = $("#NGUOINHAN");
+   
+        MANVNHAN_.empty();
+            $.ajax({
+                url: '@Url.Action("_Onchange_Location_MANV")',
+                timeout: 20000,
+                type: "POST",
+                data: { IDMADVNHAN: IDMADVNHAN_ },
+                success: function (result) {
+
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    else
+                    {
+                        $.each(result.obj, function (i, state) {
+                            MANVNHAN_.append($('<option/>', { value: this.MANV }).html(this.MANV + "||" + this.HOTEN));
+                        });
+                        MANVNHAN_.trigger("chosen:updated");
+                    }
+                }
+            });
+    }
+
+
+      function Load_Kho_MANV_xuat() {
+        var dvxuat = $("#donvi_xuat").val();
+          var makho_xuatid = $("#makho_xuat");
+          var manv_xuatid = $("#manv_xuat");
+
+          makho_xuatid.empty();
+          manv_xuatid.empty();
+
+            $.ajax({
+                url: '@Url.Action("_Change_kho_manvxuat")',
+                timeout: 20000,
+                type: "POST",
+                data: { dvxuat: dvxuat },
+                success: function (result) {
+
+                    if (result.status < 0) {
+                        notify(result.text, "error");
+                    }
+                    else {
+
+                        $.each(result.objkho, function (i, state) {
+                            makho_xuatid.append($('<option/>', { value: this.MAKHO }).html(this.Hienthi));
+                        });
+
+                        makho_xuatid.trigger("chosen:updated");
+
+                        $.each(result.objmanv, function (i, state) {
+                            manv_xuatid.append($('<option/>', { value: this.MaNV }).html(this.hienthi));
+                        });
+                    }
+
+                    manv_xuatid.trigger("chosen:updated");
+                }
+            });
+    }
+
+    function LoadSO() {
+        if ($('#LOAIXN').val() == 'XBAN') {
+            document.getElementById("soXBAN").style.display = 'block';
+        }
+        else {
+            document.getElementById("soXBAN").style.display = 'none';
+        }
+    }
+
+</script>

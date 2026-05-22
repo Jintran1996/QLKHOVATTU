@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DKSHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DKSHEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="S_User_Login" ReturnType="Collection(String)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="IsExternal" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Encrypt" ReturnType="Collection(DKSHModel.Sp_Encrypt_Result)">
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CopySaleManUserID_Khuyen_ver2">
+      <Parameter Name="olduser" Mode="In" Type="String" />
+      <Parameter Name="newuserID" Mode="In" Type="String" />
+      <Parameter Name="newusername" Mode="In" Type="String" />
+      <Parameter Name="ticket" Mode="In" Type="String" />
+      <Parameter Name="groupid" Mode="In" Type="Int32" />
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Home_Menu" EntityType="DKSHModel.Home_Menu" />
+    <EntitySet Name="Home_Page" EntityType="DKSHModel.Home_Page" />
+    <EntitySet Name="Home_Role" EntityType="DKSHModel.Home_Role" />
+    <EntitySet Name="Home_User" EntityType="DKSHModel.Home_User" />
+    <EntitySet Name="Home_User_Page" EntityType="DKSHModel.Home_User_Page" />
+    <EntitySet Name="Home_User_Role" EntityType="DKSHModel.Home_User_Role" />
+    <AssociationSet Name="FK_Home_Menu_Home_Menu" Association="DKSHModel.FK_Home_Menu_Home_Menu">
+      <End Role="Home_Menu" EntitySet="Home_Menu" />
+      <End Role="Home_Menu1" EntitySet="Home_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_Menu_Home_Page" Association="DKSHModel.FK_Home_Menu_Home_Page">
+      <End Role="Home_Page" EntitySet="Home_Page" />
+      <End Role="Home_Menu" EntitySet="Home_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Page_Home_Page" Association="DKSHModel.FK_Home_User_Page_Home_Page">
+      <End Role="Home_Page" EntitySet="Home_Page" />
+      <End Role="Home_User_Page" EntitySet="Home_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Role_Home_Role" Association="DKSHModel.FK_Home_User_Role_Home_Role">
+      <End Role="Home_Role" EntitySet="Home_Role" />
+      <End Role="Home_User_Role" EntitySet="Home_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Page_Home_User" Association="DKSHModel.FK_Home_User_Page_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User_Page" EntitySet="Home_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Role_Home_User" Association="DKSHModel.FK_Home_User_Role_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User_Role" EntitySet="Home_User_Role" />
+    </AssociationSet>
+    <EntitySet Name="S_User" EntityType="DKSHModel.S_User" />
+    <EntitySet Name="Home_Software" EntityType="DKSHModel.Home_Software" />
+    <EntitySet Name="Home_SoftwareGroup" EntityType="DKSHModel.Home_SoftwareGroup" />
+    <AssociationSet Name="FK_Home_Software_Home_SoftwareGroup" Association="DKSHModel.FK_Home_Software_Home_SoftwareGroup">
+      <End Role="Home_SoftwareGroup" EntitySet="Home_SoftwareGroup" />
+      <End Role="Home_Software" EntitySet="Home_Software" />
+    </AssociationSet>
+    <EntitySet Name="Home_UserBlackList" EntityType="DKSHModel.Home_UserBlackList" />
+    <EntitySet Name="Home_User_Software" EntityType="DKSHModel.Home_User_Software" />
+    <AssociationSet Name="FK_Home_User_Software_Home_Software" Association="DKSHModel.FK_Home_User_Software_Home_Software">
+      <End Role="Home_Software" EntitySet="Home_Software" />
+      <End Role="Home_User_Software" EntitySet="Home_User_Software" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Software_Home_User" Association="DKSHModel.FK_Home_User_Software_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User_Software" EntitySet="Home_User_Software" />
+    </AssociationSet>
+    <EntitySet Name="Home_Software_Site" EntityType="DKSHModel.Home_Software_Site" />
+    <AssociationSet Name="FK_Home_Software_Site_Home_Software" Association="DKSHModel.FK_Home_Software_Site_Home_Software">
+      <End Role="Home_Software" EntitySet="Home_Software" />
+      <End Role="Home_Software_Site" EntitySet="Home_Software_Site" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="Sp_Encrypt_Result">
+    <Property Type="Binary" Name="NewPassword" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="DateCreate" Nullable="false" Precision="23" />
+  </ComplexType>
+  <EntityType Name="Home_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_Menu1" Relationship="DKSHModel.FK_Home_Menu_Home_Menu" FromRole="Home_Menu" ToRole="Home_Menu1" />
+    <NavigationProperty Name="Home_Menu2" Relationship="DKSHModel.FK_Home_Menu_Home_Menu" FromRole="Home_Menu1" ToRole="Home_Menu" />
+    <NavigationProperty Name="Home_Page" Relationship="DKSHModel.FK_Home_Menu_Home_Page" FromRole="Home_Menu" ToRole="Home_Page" />
+  </EntityType>
+  <EntityType Name="Home_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Controler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_Menu" Relationship="DKSHModel.FK_Home_Menu_Home_Page" FromRole="Home_Page" ToRole="Home_Menu" />
+    <NavigationProperty Name="Home_User_Page" Relationship="DKSHModel.FK_Home_User_Page_Home_Page" FromRole="Home_Page" ToRole="Home_User_Page" />
+  </EntityType>
+  <EntityType Name="Home_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_User_Role" Relationship="DKSHModel.FK_Home_User_Role_Home_Role" FromRole="Home_Role" ToRole="Home_User_Role" />
+  </EntityType>
+  <EntityType Name="Home_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SalesRepCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fullname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_User_Page" Relationship="DKSHModel.FK_Home_User_Page_Home_User" FromRole="Home_User" ToRole="Home_User_Page" />
+    <NavigationProperty Name="Home_User_Role" Relationship="DKSHModel.FK_Home_User_Role_Home_User" FromRole="Home_User" ToRole="Home_User_Role" />
+    <NavigationProperty Name="Home_User_Software" Relationship="DKSHModel.FK_Home_User_Software_Home_User" FromRole="Home_User" ToRole="Home_User_Software" />
+  </EntityType>
+  <EntityType Name="Home_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="isRoleCreate" Type="Boolean" />
+    <Property Name="isRoleEdit" Type="Boolean" />
+    <Property Name="isRoleExport" Type="Boolean" />
+    <Property Name="isRoleExportAll" Type="Boolean" />
+    <Property Name="isRoleDelete" Type="Boolean" />
+    <NavigationProperty Name="Home_Page" Relationship="DKSHModel.FK_Home_User_Page_Home_Page" FromRole="Home_User_Page" ToRole="Home_Page" />
+    <NavigationProperty Name="Home_User" Relationship="DKSHModel.FK_Home_User_Page_Home_User" FromRole="Home_User_Page" ToRole="Home_User" />
+  </EntityType>
+  <EntityType Name="Home_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="UserFullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_Role" Relationship="DKSHModel.FK_Home_User_Role_Home_Role" FromRole="Home_User_Role" ToRole="Home_Role" />
+    <NavigationProperty Name="Home_User" Relationship="DKSHModel.FK_Home_User_Role_Home_User" FromRole="Home_User_Role" ToRole="Home_User" />
+  </EntityType>
+  <Association Name="FK_Home_Menu_Home_Menu">
+    <End Type="DKSHModel.Home_Menu" Role="Home_Menu" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_Menu" Role="Home_Menu1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_Menu_Home_Page">
+    <End Type="DKSHModel.Home_Page" Role="Home_Page" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_Menu" Role="Home_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Page_Home_Page">
+    <End Type="DKSHModel.Home_Page" Role="Home_Page" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_User_Page" Role="Home_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Role_Home_Role">
+    <End Type="DKSHModel.Home_Role" Role="Home_Role" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_User_Role" Role="Home_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Page_Home_User">
+    <End Type="DKSHModel.Home_User" Role="Home_User" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_User_Page" Role="Home_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Role_Home_User">
+    <End Type="DKSHModel.Home_User" Role="Home_User" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_User_Role" Role="Home_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="S_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="Binary" MaxLength="100" FixedLength="false" />
+    <Property Name="MenuGID" Type="Int32" />
+    <Property Name="PrincipalGID" Type="Int32" />
+    <Property Name="WHSGID" Type="Int32" />
+    <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="BU" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ExternalUser" Type="Boolean" />
+    <Property Name="FirstAccess" Type="Boolean" />
+    <Property Name="LastAccess" Type="DateTime" Precision="3" />
+    <Property Name="SupervisorEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="ControlNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="TypeID" Type="Int16" />
+    <Property Name="AuthorizedMenu" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="AuthorizedSupplier" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="AuthorizedProfile" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="NeverExpire" Type="Boolean" />
+    <Property Name="DefaultMenuID" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HRStaffCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SAPSalesCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Ref1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ref2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ref3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ref4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ref5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Home_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Domain" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_SoftwareGroup" Relationship="DKSHModel.FK_Home_Software_Home_SoftwareGroup" FromRole="Home_Software" ToRole="Home_SoftwareGroup" />
+    <NavigationProperty Name="Home_User_Software" Relationship="DKSHModel.FK_Home_User_Software_Home_Software" FromRole="Home_Software" ToRole="Home_User_Software" />
+    <NavigationProperty Name="Home_Software_Site" Relationship="DKSHModel.FK_Home_Software_Site_Home_Software" FromRole="Home_Software" ToRole="Home_Software_Site" />
+  </EntityType>
+  <EntityType Name="Home_SoftwareGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Domain" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_Software" Relationship="DKSHModel.FK_Home_Software_Home_SoftwareGroup" FromRole="Home_SoftwareGroup" ToRole="Home_Software" />
+    <Property Name="ColorCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Home_Software_Home_SoftwareGroup">
+    <End Type="DKSHModel.Home_SoftwareGroup" Role="Home_SoftwareGroup" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_Software" Role="Home_Software" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_SoftwareGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Software">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Home_UserBlackList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BlackListUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BlackListFullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PrincipalId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PrincipalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Home_User_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="SoftwareId" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_Software" Relationship="DKSHModel.FK_Home_User_Software_Home_Software" FromRole="Home_User_Software" ToRole="Home_Software" />
+    <NavigationProperty Name="Home_User" Relationship="DKSHModel.FK_Home_User_Software_Home_User" FromRole="Home_User_Software" ToRole="Home_User" />
+  </EntityType>
+  <Association Name="FK_Home_User_Software_Home_Software">
+    <End Type="DKSHModel.Home_Software" Role="Home_Software" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_User_Software" Role="Home_User_Software" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Software">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Software">
+        <PropertyRef Name="SoftwareId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Software_Home_User">
+    <End Type="DKSHModel.Home_User" Role="Home_User" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_User_Software" Role="Home_User_Software" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Software">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Home_Software_Site">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SiteId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SiteName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="SoftwareId" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_Software" Relationship="DKSHModel.FK_Home_Software_Site_Home_Software" FromRole="Home_Software_Site" ToRole="Home_Software" />
+  </EntityType>
+  <Association Name="FK_Home_Software_Site_Home_Software">
+    <End Type="DKSHModel.Home_Software" Role="Home_Software" Multiplicity="0..1" />
+    <End Type="DKSHModel.Home_Software_Site" Role="Home_Software_Site" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Software">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Software_Site">
+        <PropertyRef Name="SoftwareId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

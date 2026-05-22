@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MasterData2020Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MasterData2020Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Vacxin_DonViCongTac" EntityType="MasterData2020Model.Vacxin_DonViCongTac" />
+    <EntitySet Name="Vacxin_LyDoKhongChich" EntityType="MasterData2020Model.Vacxin_LyDoKhongChich" />
+    <EntitySet Name="Vacxin_Menu" EntityType="MasterData2020Model.Vacxin_Menu" />
+    <EntitySet Name="Vacxin_Page" EntityType="MasterData2020Model.Vacxin_Page" />
+    <EntitySet Name="Vacxin_Role" EntityType="MasterData2020Model.Vacxin_Role" />
+    <EntitySet Name="Vacxin_TinhThanh" EntityType="MasterData2020Model.Vacxin_TinhThanh" />
+    <EntitySet Name="Vacxin_TinhThanhQH" EntityType="MasterData2020Model.Vacxin_TinhThanhQH" />
+    <EntitySet Name="Vacxin_TrangThaiDuyet" EntityType="MasterData2020Model.Vacxin_TrangThaiDuyet" />
+    <EntitySet Name="Vacxin_User" EntityType="MasterData2020Model.Vacxin_User" />
+    <EntitySet Name="Vacxin_User_Page" EntityType="MasterData2020Model.Vacxin_User_Page" />
+    <EntitySet Name="Vacxin_User_Role" EntityType="MasterData2020Model.Vacxin_User_Role" />
+    <AssociationSet Name="FK_Vacxin_Menu_Vacxin_Menu" Association="MasterData2020Model.FK_Vacxin_Menu_Vacxin_Menu">
+      <End Role="Vacxin_Menu" EntitySet="Vacxin_Menu" />
+      <End Role="Vacxin_Menu1" EntitySet="Vacxin_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_Menu_Vacxin_Page" Association="MasterData2020Model.FK_Vacxin_Menu_Vacxin_Page">
+      <End Role="Vacxin_Page" EntitySet="Vacxin_Page" />
+      <End Role="Vacxin_Menu" EntitySet="Vacxin_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_User_Page_Vacxin_Page" Association="MasterData2020Model.FK_Vacxin_User_Page_Vacxin_Page">
+      <End Role="Vacxin_Page" EntitySet="Vacxin_Page" />
+      <End Role="Vacxin_User_Page" EntitySet="Vacxin_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_User_Role_Vacxin_Role" Association="MasterData2020Model.FK_Vacxin_User_Role_Vacxin_Role">
+      <End Role="Vacxin_Role" EntitySet="Vacxin_Role" />
+      <End Role="Vacxin_User_Role" EntitySet="Vacxin_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_User_Page_Vacxin_User" Association="MasterData2020Model.FK_Vacxin_User_Page_Vacxin_User">
+      <End Role="Vacxin_User" EntitySet="Vacxin_User" />
+      <End Role="Vacxin_User_Page" EntitySet="Vacxin_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_User_Role_Vacxin_User" Association="MasterData2020Model.FK_Vacxin_User_Role_Vacxin_User">
+      <End Role="Vacxin_User" EntitySet="Vacxin_User" />
+      <End Role="Vacxin_User_Role" EntitySet="Vacxin_User_Role" />
+    </AssociationSet>
+    <EntitySet Name="Vacxin_NhanVienCapNhat" EntityType="MasterData2020Model.Vacxin_NhanVienCapNhat" />
+    <EntitySet Name="Vacxin_NhomDoiTuongUuTien" EntityType="MasterData2020Model.Vacxin_NhomDoiTuongUuTien" />
+    <EntitySet Name="Vacxin_NhanVien" EntityType="MasterData2020Model.Vacxin_NhanVien" />
+    <AssociationSet Name="FK_Vacxin_NhanVien_Vacxin_DonViCongTac" Association="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_DonViCongTac">
+      <End Role="Vacxin_DonViCongTac" EntitySet="Vacxin_DonViCongTac" />
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_NhanVien_Vacxin_LyDoKhongChich" Association="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_LyDoKhongChich">
+      <End Role="Vacxin_LyDoKhongChich" EntitySet="Vacxin_LyDoKhongChich" />
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_NhanVien_Vacxin_NhomDoiTuongUuTien" Association="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_NhomDoiTuongUuTien">
+      <End Role="Vacxin_NhomDoiTuongUuTien" EntitySet="Vacxin_NhomDoiTuongUuTien" />
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_NhanVien_Vacxin_TrangThaiDuyet" Association="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_TrangThaiDuyet">
+      <End Role="Vacxin_TrangThaiDuyet" EntitySet="Vacxin_TrangThaiDuyet" />
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacxin_NhanVienCapNhat_Vacxin_NhanVien" Association="MasterData2020Model.FK_Vacxin_NhanVienCapNhat_Vacxin_NhanVien">
+      <End Role="Vacxin_NhanVien" EntitySet="Vacxin_NhanVien" />
+      <End Role="Vacxin_NhanVienCapNhat" EntitySet="Vacxin_NhanVienCapNhat" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Vacxin_DonViCongTac">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_NhanVien" Relationship="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_DonViCongTac" FromRole="Vacxin_DonViCongTac" ToRole="Vacxin_NhanVien" />
+  </EntityType>
+  <EntityType Name="Vacxin_LyDoKhongChich">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_NhanVien" Relationship="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_LyDoKhongChich" FromRole="Vacxin_LyDoKhongChich" ToRole="Vacxin_NhanVien" />
+  </EntityType>
+  <EntityType Name="Vacxin_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_Menu1" Relationship="MasterData2020Model.FK_Vacxin_Menu_Vacxin_Menu" FromRole="Vacxin_Menu" ToRole="Vacxin_Menu1" />
+    <NavigationProperty Name="Vacxin_Menu2" Relationship="MasterData2020Model.FK_Vacxin_Menu_Vacxin_Menu" FromRole="Vacxin_Menu1" ToRole="Vacxin_Menu" />
+    <NavigationProperty Name="Vacxin_Page" Relationship="MasterData2020Model.FK_Vacxin_Menu_Vacxin_Page" FromRole="Vacxin_Menu" ToRole="Vacxin_Page" />
+  </EntityType>
+  <EntityType Name="Vacxin_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Controler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_Menu" Relationship="MasterData2020Model.FK_Vacxin_Menu_Vacxin_Page" FromRole="Vacxin_Page" ToRole="Vacxin_Menu" />
+    <NavigationProperty Name="Vacxin_User_Page" Relationship="MasterData2020Model.FK_Vacxin_User_Page_Vacxin_Page" FromRole="Vacxin_Page" ToRole="Vacxin_User_Page" />
+  </EntityType>
+  <EntityType Name="Vacxin_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_User_Role" Relationship="MasterData2020Model.FK_Vacxin_User_Role_Vacxin_Role" FromRole="Vacxin_Role" ToRole="Vacxin_User_Role" />
+  </EntityType>
+  <EntityType Name="Vacxin_TinhThanh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTinhThanh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaTinhThanh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Vacxin_TinhThanhQH">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTinhThanh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaTinhThanh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TenQuanHuyen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaQuanHuyen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TenPhuongXa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaPhuongXa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Cap" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Vacxin_TrangThaiDuyet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_NhanVien" Relationship="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_TrangThaiDuyet" FromRole="Vacxin_TrangThaiDuyet" ToRole="Vacxin_NhanVien" />
+  </EntityType>
+  <EntityType Name="Vacxin_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SalesRepCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fullname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_User_Page" Relationship="MasterData2020Model.FK_Vacxin_User_Page_Vacxin_User" FromRole="Vacxin_User" ToRole="Vacxin_User_Page" />
+    <NavigationProperty Name="Vacxin_User_Role" Relationship="MasterData2020Model.FK_Vacxin_User_Role_Vacxin_User" FromRole="Vacxin_User" ToRole="Vacxin_User_Role" />
+  </EntityType>
+  <EntityType Name="Vacxin_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="isRoleCreate" Type="Boolean" />
+    <Property Name="isRoleEdit" Type="Boolean" />
+    <Property Name="isRoleExport" Type="Boolean" />
+    <Property Name="isRoleExportAll" Type="Boolean" />
+    <Property Name="isRoleDelete" Type="Boolean" />
+    <NavigationProperty Name="Vacxin_Page" Relationship="MasterData2020Model.FK_Vacxin_User_Page_Vacxin_Page" FromRole="Vacxin_User_Page" ToRole="Vacxin_Page" />
+    <NavigationProperty Name="Vacxin_User" Relationship="MasterData2020Model.FK_Vacxin_User_Page_Vacxin_User" FromRole="Vacxin_User_Page" ToRole="Vacxin_User" />
+  </EntityType>
+  <EntityType Name="Vacxin_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="UserFullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_Role" Relationship="MasterData2020Model.FK_Vacxin_User_Role_Vacxin_Role" FromRole="Vacxin_User_Role" ToRole="Vacxin_Role" />
+    <NavigationProperty Name="Vacxin_User" Relationship="MasterData2020Model.FK_Vacxin_User_Role_Vacxin_User" FromRole="Vacxin_User_Role" ToRole="Vacxin_User" />
+  </EntityType>
+  <Association Name="FK_Vacxin_Menu_Vacxin_Menu">
+    <End Type="MasterData2020Model.Vacxin_Menu" Role="Vacxin_Menu" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_Menu" Role="Vacxin_Menu1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_Menu_Vacxin_Page">
+    <End Type="MasterData2020Model.Vacxin_Page" Role="Vacxin_Page" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_Menu" Role="Vacxin_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_User_Page_Vacxin_Page">
+    <End Type="MasterData2020Model.Vacxin_Page" Role="Vacxin_Page" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_User_Page" Role="Vacxin_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_User_Role_Vacxin_Role">
+    <End Type="MasterData2020Model.Vacxin_Role" Role="Vacxin_Role" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_User_Role" Role="Vacxin_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_User_Page_Vacxin_User">
+    <End Type="MasterData2020Model.Vacxin_User" Role="Vacxin_User" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_User_Page" Role="Vacxin_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_User_Role_Vacxin_User">
+    <End Type="MasterData2020Model.Vacxin_User" Role="Vacxin_User" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_User_Role" Role="Vacxin_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Vacxin_NhanVienCapNhat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NhanVienId" Type="Int32" />
+    <Property Name="GuidNhanVienId" Type="Guid" />
+    <Property Name="EmpCode" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SAPNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+    <Property Name="GioiTinh" Type="Int32" />
+    <Property Name="MaNhomDoiTuongUuTienId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaDonViCongTacId" Type="Int32" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TheBHYTe" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MaPhuongXa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TenPhuongXa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MaQuanHuyen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TenQuanHuyen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MaTinhThanh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TenTinhThanh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThaiDuyetId" Type="Int32" />
+    <Property Name="LyDoKhongChichId" Type="Int32" />
+    <Property Name="GhiChu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="DateCreate" Type="DateTime" Precision="3" />
+    <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_NhanVien" Relationship="MasterData2020Model.FK_Vacxin_NhanVienCapNhat_Vacxin_NhanVien" FromRole="Vacxin_NhanVienCapNhat" ToRole="Vacxin_NhanVien" />
+  </EntityType>
+  <EntityType Name="Vacxin_NhomDoiTuongUuTien">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Vacxin_NhanVien" Relationship="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_NhomDoiTuongUuTien" FromRole="Vacxin_NhomDoiTuongUuTien" ToRole="Vacxin_NhanVien" />
+  </EntityType>
+  <EntityType Name="Vacxin_NhanVien">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuidNhanVienId" Type="Guid" />
+    <Property Name="EmpCode" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SAPNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+    <Property Name="GioiTinh" Type="Int32" />
+    <Property Name="MaNhomDoiTuongUuTienId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaDonViCongTacId" Type="Int32" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TheBHYTe" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MaPhuongXa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TenPhuongXa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MaQuanHuyen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TenQuanHuyen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MaTinhThanh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TenTinhThanh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThaiDuyetId" Type="Int32" />
+    <Property Name="isKhongChich" Type="Boolean" />
+    <Property Name="LyDoKhongChichId" Type="Int32" />
+    <Property Name="GhiChu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="DateCreate" Type="DateTime" Precision="3" />
+    <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+    <Property Name="Mui1_TenVacxin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui1_NgayTiem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui1_LoVacxin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui1_CoSoTiem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui2_TenVacxin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui2_NgayTiem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui2_LoVacxin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui2_CoSoTiem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui3_TenVacxin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui3_NgayTiem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui3_LoVacxin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Mui3_CoSoTiem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vacxin_DonViCongTac" Relationship="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_DonViCongTac" FromRole="Vacxin_NhanVien" ToRole="Vacxin_DonViCongTac" />
+    <NavigationProperty Name="Vacxin_LyDoKhongChich" Relationship="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_LyDoKhongChich" FromRole="Vacxin_NhanVien" ToRole="Vacxin_LyDoKhongChich" />
+    <NavigationProperty Name="Vacxin_NhomDoiTuongUuTien" Relationship="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_NhomDoiTuongUuTien" FromRole="Vacxin_NhanVien" ToRole="Vacxin_NhomDoiTuongUuTien" />
+    <NavigationProperty Name="Vacxin_TrangThaiDuyet" Relationship="MasterData2020Model.FK_Vacxin_NhanVien_Vacxin_TrangThaiDuyet" FromRole="Vacxin_NhanVien" ToRole="Vacxin_TrangThaiDuyet" />
+    <NavigationProperty Name="Vacxin_NhanVienCapNhat" Relationship="MasterData2020Model.FK_Vacxin_NhanVienCapNhat_Vacxin_NhanVien" FromRole="Vacxin_NhanVien" ToRole="Vacxin_NhanVienCapNhat" />
+  </EntityType>
+  <Association Name="FK_Vacxin_NhanVien_Vacxin_DonViCongTac">
+    <End Type="MasterData2020Model.Vacxin_DonViCongTac" Role="Vacxin_DonViCongTac" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_NhanVien" Role="Vacxin_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_DonViCongTac">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVien">
+        <PropertyRef Name="MaDonViCongTacId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_NhanVien_Vacxin_LyDoKhongChich">
+    <End Type="MasterData2020Model.Vacxin_LyDoKhongChich" Role="Vacxin_LyDoKhongChich" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_NhanVien" Role="Vacxin_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_LyDoKhongChich">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVien">
+        <PropertyRef Name="LyDoKhongChichId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_NhanVien_Vacxin_NhomDoiTuongUuTien">
+    <End Type="MasterData2020Model.Vacxin_NhomDoiTuongUuTien" Role="Vacxin_NhomDoiTuongUuTien" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_NhanVien" Role="Vacxin_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_NhomDoiTuongUuTien">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVien">
+        <PropertyRef Name="MaNhomDoiTuongUuTienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_NhanVien_Vacxin_TrangThaiDuyet">
+    <End Type="MasterData2020Model.Vacxin_TrangThaiDuyet" Role="Vacxin_TrangThaiDuyet" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_NhanVien" Role="Vacxin_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_TrangThaiDuyet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVien">
+        <PropertyRef Name="TrangThaiDuyetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacxin_NhanVienCapNhat_Vacxin_NhanVien">
+    <End Type="MasterData2020Model.Vacxin_NhanVien" Role="Vacxin_NhanVien" Multiplicity="0..1" />
+    <End Type="MasterData2020Model.Vacxin_NhanVienCapNhat" Role="Vacxin_NhanVienCapNhat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacxin_NhanVien">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacxin_NhanVienCapNhat">
+        <PropertyRef Name="NhanVienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

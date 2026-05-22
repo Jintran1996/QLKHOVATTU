@@ -1,0 +1,167 @@
+﻿@using System.Globalization;
+
+@{
+    var invoice = ViewBag.INVOICE as ToolsApp.EntityFramework.KhoSoi.INVOICE;
+
+    var dmquocgia = ViewBag.DMQUOCGIA as List<ToolsApp.EntityFramework.DonHang09.Load_QuocGia_Result>;
+    var khachhang = ViewBag.KHACHHANG as List<ToolsApp.EntityFramework.DonHang09.load_TBLKHACHHANG_Result>;
+}
+
+<form id="frmUP" method="post" enctype="multipart/form-data" name="frmUP">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <input type="hidden" value="@(invoice.khoa_id)" id="khoa_id_up" name="khoa_id" />
+
+
+    <div class="row" style="margin-bottom:5px">
+        <div class="col-md-12 col-sm-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Mã phiếu :</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <input value="@invoice.MAPHIEU" class="form-control" onclick="this.select();" type="search" id="MAPHIEU_UP" name="MAPHIEU" readonly />
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Mã phiếu PD:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <input value="@invoice.MAPHIEUPD" class="form-control" onclick="this.select();" type="search" id="MAPHIEUPD_UP" name="MAPHIEUPD" readonly />
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Số hợp đồng:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <input value="@invoice.SOHOPDONG" class="form-control" onclick="this.select();" type="search" id="SOHOPDONG_UP" name="SOHOPDONG" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Mã vật tư:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <input value="@invoice.MAVATTU" class="form-control" onclick="this.select();" type="search" id="MAVATTU_UP" name="MAVATTU" readonly />
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Invoice:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <input value="@invoice.INVOICE1" class="form-control" onclick="this.select();" type="search" id="INVOICE1_UP" name="INVOICE1" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Tờ khai:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <input value="@invoice.TOKHAI" class="form-control" onclick="this.select();" type="search" id="TOKHAI_UP" name="TOKHAI" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Giá nhập:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <input value="@invoice.GIANHAP" class="form-control" onclick="this.select();" type="number" step="0.01" min="0.01" id="GIANHAP_UP" name="GIANHAP" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Mã SP khách:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <input value="@invoice.MASPKHACH" class="form-control" onclick="this.select();" type="search" id="MASPKHACH_UP" name="MASPKHACH" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Ngày nhập hàng:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <input value="@(invoice.NGAYNHAPHANG == null ? DateTime.Now.ToString("dd/MM/yyyy") :invoice.NGAYNHAPHANG.Value.ToString("dd/MM/yyyy"))"
+                           class="form-control" type="search" autocomplete="off"
+                           id="ngaynhaphang_up" name="NGAYNHAPHANG_" />
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Quốc gia:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <select id="dmquocgia_up" name="QUOCGIA" class="form-control chosen-select" onchange="LoadKhachHang();">
+                        @foreach (var item in dmquocgia)
+                        {
+                            <option value="@item.MAQUOCGIA" @(item.MAQUOCGIA == invoice.QUOCGIA ? "selected=\"selected\"" : "")>@item.HienThi</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3 col-sm-3">Khách hàng:</label>
+                <div class="col-md-9 col-sm-9 ten">
+                    <select id="khachhang_up" name="MAKH" class="form-control chosen-select">
+                        @foreach (var item in khachhang)
+                        {
+                            <option value="@item.MaKH" @(item.MaKH == invoice.MAKH ? "selected=\"selected\"" : "")>@item.TenKH</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+        var startDate = new Date();
+        startDate.setDate(startDate.getDate());
+
+        $("#ngaynhaphang_up").datepicker({
+
+            format: 'dd/mm/yyyy',
+            endDate: new Date(),
+            //startDate: startDate,
+            onClose: function (selectedDate) {
+                $("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+    function LoadKhachHang() {
+        var _quocgia = $("#dmquocgia_up").val();
+        var khachhang = $("#khachhang_up");
+        khachhang.empty();
+        $.ajax({
+            url: '@Url.Action("LoadKhachHang")',
+            type: "POST",
+            timeout: 10000,
+            data: {
+                quocgia: _quocgia
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function(result) {
+                $.each(result.obj, function (i, state) {
+                    khachhang.append($('<option/>', { value: this.MaKH }).html(this.TenKH));
+                });
+                khachhang.val(khachhang.find('option:first').val());
+                khachhang.trigger("chosen:updated");
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    }
+</script>

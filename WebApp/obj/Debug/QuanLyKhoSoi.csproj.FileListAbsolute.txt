@@ -1,0 +1,1014 @@
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.dll.config
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.pdb
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\csc.exe
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\csc.exe.config
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\csc.rsp
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\csi.exe
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\csi.exe.config
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\csi.rsp
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.AppContext.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Collections.Immutable.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Console.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.IO.Compression.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.IO.FileSystem.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Net.Http.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Net.Sockets.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.ValueTuple.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Xml.XPath.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\vbc.exe
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\vbc.exe.config
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\vbc.rsp
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\VBCSCompiler.exe
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\AutoMapper.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\EntityFramework.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\EntityFramework.SqlServer.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\Microsoft.Web.Infrastructure.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\Newtonsoft.Json.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\PagedList.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\PagedList.Mvc.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Drawing.Common.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.IO.Packaging.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Net.Http.Formatting.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Helpers.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Http.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Http.WebHost.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Mvc.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Razor.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Webpages.Deployment.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Webpages.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Webpages.Razor.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.Libs.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.Utilities.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.EntityFramework.pdb
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.EntityFramework.dll.config
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.Libs.pdb
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.Utilities.pdb
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\ToolsApp.Utilities.dll.config
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\AutoMapper.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\EntityFramework.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\EntityFramework.SqlServer.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\PagedList.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\PagedList.Mvc.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.IO.Packaging.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Razor.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Webpages.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Webpages.Deployment.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Webpages.Razor.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Helpers.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Mvc.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\Newtonsoft.Json.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Net.Http.Formatting.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Http.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\System.Web.Http.WebHost.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\obj\Debug\ToolsApp.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp\obj\Debug\ToolsApp.pdb
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.dll.config
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.pdb
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\csc.exe
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\csc.exe.config
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\csc.rsp
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\csi.exe
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\csi.exe.config
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\csi.rsp
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.AppContext.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Collections.Immutable.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Console.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.IO.Compression.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.IO.FileSystem.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Net.Http.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Net.Sockets.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.ValueTuple.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Xml.XPath.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\vbc.exe
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\vbc.exe.config
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\vbc.rsp
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\VBCSCompiler.exe
+D:\Source\QLKhoSoi2023\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\Source\QLKhoSoi2023\WebApp\bin\AutoMapper.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\EntityFramework.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\EntityFramework.SqlServer.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\Newtonsoft.Json.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\PagedList.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\PagedList.Mvc.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Drawing.Common.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.IO.Packaging.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Net.Http.Formatting.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Helpers.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Http.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Http.WebHost.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Mvc.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Razor.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Webpages.Deployment.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Webpages.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Webpages.Razor.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.EntityFramework.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.Libs.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.Utilities.dll
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.EntityFramework.dll.config
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.Utilities.pdb
+D:\Source\QLKhoSoi2023\WebApp\bin\ToolsApp.Utilities.dll.config
+D:\Source\QLKhoSoi2023\WebApp\bin\AutoMapper.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\EntityFramework.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\EntityFramework.SqlServer.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\PagedList.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\PagedList.Mvc.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.IO.Packaging.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Razor.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Webpages.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Webpages.Deployment.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Webpages.Razor.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Helpers.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Mvc.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\Newtonsoft.Json.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Net.Http.Formatting.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Http.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\System.Web.Http.WebHost.xml
+D:\Source\QLKhoSoi2023\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Source\QLKhoSoi2023\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+D:\Source\QLKhoSoi2023\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+D:\Source\QLKhoSoi2023\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+D:\Source\QLKhoSoi2023\WebApp\obj\Debug\ToolsApp.dll
+D:\Source\QLKhoSoi2023\WebApp\obj\Debug\ToolsApp.pdb
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.dll.config
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.pdb
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\csc.exe
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\csc.exe.config
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\csc.rsp
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\csi.exe
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\csi.exe.config
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\csi.rsp
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.AppContext.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Collections.Immutable.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Console.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.IO.Compression.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.IO.FileSystem.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Net.Http.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Net.Sockets.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.ValueTuple.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XPath.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\vbc.exe
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\vbc.exe.config
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\vbc.rsp
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\VBCSCompiler.exe
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\AutoMapper.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\EntityFramework.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\EntityFramework.SqlServer.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\Microsoft.Web.Infrastructure.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\Newtonsoft.Json.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\PagedList.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\PagedList.Mvc.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Drawing.Common.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.IO.Packaging.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Net.Http.Formatting.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Helpers.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Http.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Http.WebHost.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Mvc.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Razor.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Deployment.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Webpages.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Razor.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.Libs.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.pdb
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.dll.config
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.Libs.pdb
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.pdb
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.dll.config
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\AutoMapper.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\EntityFramework.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\EntityFramework.SqlServer.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\PagedList.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\PagedList.Mvc.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.IO.Packaging.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Razor.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Webpages.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Deployment.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Razor.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Helpers.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Mvc.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\Newtonsoft.Json.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Net.Http.Formatting.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Http.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\System.Web.Http.WebHost.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+D:\2.SourceCode\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+D:\2.SourceCode\QLKhoSoi23\WebApp\obj\Debug\ToolsApp.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp\obj\Debug\ToolsApp.pdb
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.dll.config
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.pdb
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\csc.exe
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\csc.exe.config
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\csc.rsp
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\csi.exe
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\csi.exe.config
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\csi.rsp
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.AppContext.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Collections.Immutable.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Console.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.IO.Compression.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.IO.FileSystem.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Net.Http.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Net.Sockets.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.ValueTuple.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XPath.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\vbc.exe
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\vbc.exe.config
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\vbc.rsp
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\VBCSCompiler.exe
+D:\2.Source\QLKhoSoi23\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\2.Source\QLKhoSoi23\WebApp\bin\AutoMapper.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\EntityFramework.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\EntityFramework.SqlServer.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\Microsoft.Web.Infrastructure.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\Newtonsoft.Json.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\PagedList.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\PagedList.Mvc.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Drawing.Common.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.IO.Packaging.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Net.Http.Formatting.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Helpers.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Http.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Http.WebHost.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Mvc.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Razor.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Deployment.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Razor.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.Libs.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.pdb
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.dll.config
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.Libs.pdb
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.pdb
+D:\2.Source\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.dll.config
+D:\2.Source\QLKhoSoi23\WebApp\bin\AutoMapper.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\EntityFramework.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\EntityFramework.SqlServer.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\PagedList.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\PagedList.Mvc.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.IO.Packaging.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Razor.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Deployment.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Razor.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Helpers.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Mvc.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\Newtonsoft.Json.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Net.Http.Formatting.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Http.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\System.Web.Http.WebHost.xml
+D:\2.Source\QLKhoSoi23\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\2.Source\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+D:\2.Source\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+D:\2.Source\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+D:\2.Source\QLKhoSoi23\WebApp\obj\Debug\ToolsApp.dll
+D:\2.Source\QLKhoSoi23\WebApp\obj\Debug\ToolsApp.pdb
+D:\2.Source2023\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+D:\2.Source2023\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLKhoSoi23\WebApp\obj\Debug\ToolsApp.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\obj\Debug\ToolsApp.pdb
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.dll.config
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.pdb
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\csc.exe
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\csc.exe.config
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\csc.rsp
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\csi.exe
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\csi.exe.config
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\csi.rsp
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.AppContext.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Collections.Immutable.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Console.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.IO.Compression.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.IO.FileSystem.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Net.Http.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Net.Sockets.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.ValueTuple.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XPath.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\vbc.exe
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\vbc.exe.config
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\vbc.rsp
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\VBCSCompiler.exe
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\AutoMapper.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\EntityFramework.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\EntityFramework.SqlServer.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\Microsoft.Web.Infrastructure.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\Newtonsoft.Json.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\PagedList.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\PagedList.Mvc.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Drawing.Common.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.IO.Packaging.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Net.Http.Formatting.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Helpers.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Http.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Http.WebHost.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Mvc.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Razor.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Deployment.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Webpages.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Razor.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.Libs.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.dll
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.dll.config
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.Libs.pdb
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.pdb
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.dll.config
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\AutoMapper.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\EntityFramework.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\EntityFramework.SqlServer.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\PagedList.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\PagedList.Mvc.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.IO.Packaging.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Razor.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Webpages.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Deployment.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Razor.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Helpers.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Mvc.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\Newtonsoft.Json.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Net.Http.Formatting.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Http.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\System.Web.Http.WebHost.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\2.Source2023\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+D:\2.Source\QLKhoSoi23\WebApp\bin\SqlServerProvider.dll
+D:\2.Source\QLKhoSoi23\WebApp\bin\ThuVien.dll
+D:\Source\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+D:\Source\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+D:\Source\QLKhoSoi23\WebApp\obj\Debug\ToolsApp.dll
+D:\Source\QLKhoSoi23\WebApp\obj\Debug\ToolsApp.pdb
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.dll.config
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.dll
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.pdb
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\csc.exe
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\csc.exe.config
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\csc.rsp
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\csi.exe
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\csi.exe.config
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\csi.rsp
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.AppContext.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Collections.Immutable.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Console.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.IO.Compression.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.IO.FileSystem.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Net.Http.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Net.Sockets.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.ValueTuple.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XPath.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\vbc.exe
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\vbc.exe.config
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\vbc.rsp
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\VBCSCompiler.exe
+D:\Source\QLKhoSoi23\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\Source\QLKhoSoi23\WebApp\bin\AutoMapper.dll
+D:\Source\QLKhoSoi23\WebApp\bin\EntityFramework.dll
+D:\Source\QLKhoSoi23\WebApp\bin\EntityFramework.SqlServer.dll
+D:\Source\QLKhoSoi23\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Source\QLKhoSoi23\WebApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Source\QLKhoSoi23\WebApp\bin\Newtonsoft.Json.dll
+D:\Source\QLKhoSoi23\WebApp\bin\PagedList.dll
+D:\Source\QLKhoSoi23\WebApp\bin\PagedList.Mvc.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Drawing.Common.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.IO.Packaging.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Net.Http.Formatting.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Helpers.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Http.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Http.WebHost.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Mvc.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Razor.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Deployment.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.dll
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Razor.dll
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.dll
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.Libs.dll
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.dll
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.EntityFramework.dll.config
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.pdb
+D:\Source\QLKhoSoi23\WebApp\bin\ToolsApp.Utilities.dll.config
+D:\Source\QLKhoSoi23\WebApp\bin\AutoMapper.xml
+D:\Source\QLKhoSoi23\WebApp\bin\EntityFramework.xml
+D:\Source\QLKhoSoi23\WebApp\bin\EntityFramework.SqlServer.xml
+D:\Source\QLKhoSoi23\WebApp\bin\PagedList.xml
+D:\Source\QLKhoSoi23\WebApp\bin\PagedList.Mvc.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.IO.Packaging.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Razor.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Deployment.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Webpages.Razor.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Helpers.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Mvc.xml
+D:\Source\QLKhoSoi23\WebApp\bin\Newtonsoft.Json.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.Net.Http.Formatting.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Http.xml
+D:\Source\QLKhoSoi23\WebApp\bin\System.Web.Http.WebHost.xml
+D:\Source\QLKhoSoi23\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Source\QLKhoSoi23\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.dll.config
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.pdb
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\csc.exe
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\csc.exe.config
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\csc.rsp
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\csi.exe
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\csi.exe.config
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\csi.rsp
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.AppContext.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Collections.Immutable.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Console.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.IO.Compression.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.IO.FileSystem.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Net.Http.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Net.Sockets.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.ValueTuple.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Xml.XPath.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\vbc.exe
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\vbc.exe.config
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\vbc.rsp
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\VBCSCompiler.exe
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\AutoMapper.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\EntityFramework.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\EntityFramework.SqlServer.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\Newtonsoft.Json.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\PagedList.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\PagedList.Mvc.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Drawing.Common.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.IO.Packaging.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Net.Http.Formatting.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Helpers.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Http.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Http.WebHost.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Mvc.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Razor.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Webpages.Deployment.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Webpages.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Webpages.Razor.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.EntityFramework.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.Libs.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.Utilities.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.EntityFramework.dll.config
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.Utilities.pdb
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\ToolsApp.Utilities.dll.config
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\AutoMapper.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\EntityFramework.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\EntityFramework.SqlServer.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\PagedList.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\PagedList.Mvc.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.IO.Packaging.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Razor.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Webpages.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Webpages.Deployment.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Webpages.Razor.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Helpers.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Mvc.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\Newtonsoft.Json.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Net.Http.Formatting.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Http.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\System.Web.Http.WebHost.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\obj\Debug\ToolsApp.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp\obj\Debug\ToolsApp.pdb
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.dll.config
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.pdb
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\csc.exe
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\csc.exe.config
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\csc.rsp
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\csi.exe
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\csi.exe.config
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\csi.rsp
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.AppContext.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Collections.Immutable.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Console.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.IO.Compression.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.IO.FileSystem.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Net.Http.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Net.Sockets.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.ValueTuple.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Xml.XPath.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\vbc.exe
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\vbc.exe.config
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\vbc.rsp
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\VBCSCompiler.exe
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\AutoMapper.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\EntityFramework.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\EntityFramework.SqlServer.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\Microsoft.Web.Infrastructure.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\Newtonsoft.Json.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\PagedList.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\PagedList.Mvc.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\SqlServerProvider.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Drawing.Common.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.IO.Packaging.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Net.Http.Formatting.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Helpers.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Http.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Http.WebHost.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Mvc.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Razor.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Webpages.Deployment.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Webpages.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Webpages.Razor.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ThuVien.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.Libs.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.Utilities.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.EntityFramework.dll.config
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.Libs.pdb
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.Utilities.pdb
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\ToolsApp.Utilities.dll.config
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\AutoMapper.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\EntityFramework.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\EntityFramework.SqlServer.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\PagedList.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\PagedList.Mvc.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.IO.Packaging.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Razor.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Webpages.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Webpages.Deployment.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Webpages.Razor.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Helpers.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Mvc.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\Newtonsoft.Json.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Net.Http.Formatting.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Http.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\System.Web.Http.WebHost.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\obj\Debug\ToolsApp.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp\obj\Debug\ToolsApp.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\obj\Debug\ToolsApp.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\obj\Debug\ToolsApp.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.dll.config
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\csc.exe
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\csc.exe.config
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\csc.rsp
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\csi.exe
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\csi.exe.config
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\csi.rsp
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.AppContext.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Collections.Immutable.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Console.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.IO.Compression.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.IO.FileSystem.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Net.Http.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Net.Sockets.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.ValueTuple.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Xml.XPath.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\vbc.exe
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\vbc.exe.config
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\vbc.rsp
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\VBCSCompiler.exe
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\AutoMapper.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\EntityFramework.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\EntityFramework.SqlServer.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\Microsoft.Web.Infrastructure.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\Newtonsoft.Json.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\PagedList.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\PagedList.Mvc.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Drawing.Common.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.IO.Packaging.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Net.Http.Formatting.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Helpers.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Http.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Http.WebHost.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Mvc.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Razor.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Webpages.Deployment.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Webpages.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Webpages.Razor.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.EntityFramework.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.Libs.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.Utilities.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.EntityFramework.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.EntityFramework.dll.config
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.Libs.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.Utilities.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\ToolsApp.Utilities.dll.config
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\AutoMapper.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\EntityFramework.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\EntityFramework.SqlServer.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\PagedList.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\PagedList.Mvc.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.IO.Packaging.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Razor.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Webpages.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Webpages.Deployment.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Webpages.Razor.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Helpers.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Mvc.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\Newtonsoft.Json.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Net.Http.Formatting.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Http.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\System.Web.Http.WebHost.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.dll.config
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.pdb
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\csc.exe
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\csc.exe.config
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\csc.rsp
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\csi.exe
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\csi.exe.config
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\csi.rsp
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.AppContext.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Console.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.IO.Compression.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Net.Http.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.ValueTuple.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\vbc.exe
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\vbc.exe.config
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\vbc.rsp
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\VBCSCompiler.exe
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\AutoMapper.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\EntityFramework.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\EntityFramework.SqlServer.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\Newtonsoft.Json.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\PagedList.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\PagedList.Mvc.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Drawing.Common.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.IO.Packaging.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Net.Http.Formatting.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Helpers.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Http.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Http.WebHost.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Mvc.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Razor.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Webpages.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Webpages.Razor.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.EntityFramework.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.Libs.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.Utilities.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.EntityFramework.pdb
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.EntityFramework.dll.config
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.Libs.pdb
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.Utilities.pdb
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\ToolsApp.Utilities.dll.config
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\AutoMapper.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\EntityFramework.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\EntityFramework.SqlServer.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\PagedList.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\PagedList.Mvc.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.IO.Packaging.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Razor.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Webpages.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Webpages.Razor.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Helpers.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Mvc.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\Newtonsoft.Json.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Net.Http.Formatting.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Http.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\System.Web.Http.WebHost.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp\obj\Debug\QuanLyKhoSoi.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\soi23cu\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\soi23cu\WebApp\obj\Debug\QuanLyKhoSoi.csproj.CopyComplete
+C:\Users\Admin\Downloads\soi23cu\WebApp\obj\Debug\ToolsApp.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp\obj\Debug\ToolsApp.pdb

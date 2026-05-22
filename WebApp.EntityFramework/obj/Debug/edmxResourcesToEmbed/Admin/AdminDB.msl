@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdminModelStoreContainer" CdmEntityContainer="AdminEntities">
+    <EntitySetMapping Name="S_Sites">
+      <EntityTypeMapping TypeName="AdminModel.S_Sites">
+        <MappingFragment StoreEntitySet="S_Sites">
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_USer">
+      <EntityTypeMapping TypeName="AdminModel.S_USer">
+        <MappingFragment StoreEntitySet="S_USer">
+          <ScalarProperty Name="Ref5" ColumnName="Ref5" />
+          <ScalarProperty Name="Ref4" ColumnName="Ref4" />
+          <ScalarProperty Name="Ref3" ColumnName="Ref3" />
+          <ScalarProperty Name="Ref2" ColumnName="Ref2" />
+          <ScalarProperty Name="Ref1" ColumnName="Ref1" />
+          <ScalarProperty Name="SAPSalesCode" ColumnName="SAPSalesCode" />
+          <ScalarProperty Name="HRStaffCode" ColumnName="HRStaffCode" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="DefaultMenuID" ColumnName="DefaultMenuID" />
+          <ScalarProperty Name="NeverExpire" ColumnName="NeverExpire" />
+          <ScalarProperty Name="AuthorizedProfile" ColumnName="AuthorizedProfile" />
+          <ScalarProperty Name="AuthorizedSupplier" ColumnName="AuthorizedSupplier" />
+          <ScalarProperty Name="AuthorizedMenu" ColumnName="AuthorizedMenu" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ControlNo" ColumnName="ControlNo" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="SupervisorEmail" ColumnName="SupervisorEmail" />
+          <ScalarProperty Name="LastAccess" ColumnName="LastAccess" />
+          <ScalarProperty Name="FirstAccess" ColumnName="FirstAccess" />
+          <ScalarProperty Name="ExternalUser" ColumnName="ExternalUser" />
+          <ScalarProperty Name="BU" ColumnName="BU" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="WHSGID" ColumnName="WHSGID" />
+          <ScalarProperty Name="PrincipalGID" ColumnName="PrincipalGID" />
+          <ScalarProperty Name="MenuGID" ColumnName="MenuGID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_User_Site">
+      <EntityTypeMapping TypeName="AdminModel.S_User_Site">
+        <MappingFragment StoreEntitySet="S_User_Site">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="S_USer_Login" FunctionName="AdminModel.Store.S_USer_Login" />
+  </EntityContainerMapping>
+</Mapping>

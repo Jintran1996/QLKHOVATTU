@@ -1,0 +1,282 @@
+﻿@using System.Globalization;
+
+@model ToolsApp.Models.DMSOIViewModels
+@{
+
+    var dmnhomngl = ViewBag.dmnhomngl as List<ToolsApp.EntityFramework.KhoSoi.SP_NL_Load_NL_DMNHOMNGLIEU_Result>;
+    var nhomngl = ViewBag.nhomngl as List<ToolsApp.EntityFramework.KhoSoi.NL_DMNHOMNGLIEU>;
+    //var dmdonvi = ViewBag.dmdonvi as List<ToolsApp.EntityFramework.VatTu.DMDONVI>;
+    //var dmloaivt = ViewBag.dmloaivt as List<ToolsApp.EntityFramework.VatTu.DanhmucLoaiVT>;
+    //var dmMaChiPhi = ViewBag.maChiPhi as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_MACP_MAVATTU_Result>;
+
+}
+
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@*<input type="hidden" value="@Model.MAVATTU" id="MAVT" />*@
+
+
+
+
+<!--Nhóm NVL-->
+<div class="row" style="margin-bottom:5px">
+    <div class="col-md-3 col-sm-3 ten" style="margin-bottom:5px">
+    </div>
+    <div class="col-md-6 col-sm-6 ten" style="margin-bottom:5px">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã nguyên liệu:</label>
+            <div class="col-md-6 col-sm-6 ten">
+                <select class="form-control chosen-select" id="MaNGL" name="MaNGL" style="width: 100%; ">
+                    <option value="" disabled selected>--Danh Sách--</option>
+                    @foreach (var item in nhomngl)
+                    {
+                        <option value="@item.MANGL">
+                            @item.MANGL || @item.TENNHOMNGL
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>   
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Loại nguyên liệu:</label>
+            <div class="col-md-6 col-sm-6 ten">
+                <select class="form-control chosen-select" id="LoaiNguyenLieu" name="LoaiNguyenLieu" style="width: 100%; ">
+                    <option value="MUANGOAI" selected>MUANGOAI || Nguyên liệu mua ngoài</option>
+                    <option value="THANHPHAM">THANHPHAM || Nguyên liệu thành phẩm</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Chỉ số sợi:</label>
+            <div class="col-md-6 col-sm-6 ten">
+                <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase()" pattern="\d{3}" maxlength="3" value="" class="form-control" type="text" id="Chisosoi" name="CS1" />
+            </div>
+            <span class="Note" style="color:blue">* Nhập đủ 3 ký tự (bắt buộc)</span>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Số Filament hoặc Số xơ ngắn</label>
+            <div class="col-md-6 col-sm-6 ten">
+                <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase()" pattern="[A-Z]+" maxlength="3" value="" class="form-control" type="text" id="SoFilament" name="CS2" />
+            </div>
+            <span class="Note" style="color:blue">* Nhập đủ 3 ký tự (bắt buộc)</span>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3"></label>
+            <div class="col-md-9 col-sm-9 ten text-left">
+                <button type="button" id="btnTaoMaSoi" class="btn btn-sm bg-gradient-info" style="width: 120px"><i class="fa fa-recycle"></i>&nbsp;Tạo mã sợi</button>
+                <span class="Note" style="color:blue">* Sau khi nhập đủ thông tin, bấm nút Tạo mã sợi</span>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">STT tự tăng:</label>
+            <div class="col-md-6 col-sm-6 ten">
+                <input type="text" id="STT" name="STT" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã Sợi:</label>
+            <div class="col-md-6 col-sm-6 ten">
+                <input readonly value="" class="form-control" type="text" id="MAVATTU" name="MAVATTU" />
+            </div>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Tên Sợi:</label>
+            <div class="col-md-6 col-sm-6 ten">
+                <input value="" class="form-control" type="text" id="Tenvattu" name="Tenvattu" />
+            </div>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Ghi chú:</label>
+            <div class="col-md-6 col-sm-6 ten">
+                <input value="" class="form-control" type="text" id="Ghichu" name="Ghichu" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-bottom:5px">
+    <div class="col-md-3 col-sm-3 ten" style="margin-bottom:5px">
+    </div>
+    <div class="col-md-6 col-sm-6 ten" style="margin-bottom:5px">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã nguyên liệu 1:</label>
+            <div class="col-md-3 col-sm-3">
+                <select class="form-control chosen-select" id="MANGL1" name="MANGL1" style="width: 100%; ">
+            
+                    @foreach (var item in dmnhomngl)
+                    {
+                        <option value="@item.MaNGL">
+                            @item.MaNGL || @item.TenNhomNGL
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3 ten">
+                <input value="" class="form-control" type="number" id="Tile1" name="Tile1" min="0" max="100"   placeholder="* Tỷ lệ 1" oninput="checkDecimal(this)" />
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã nguyên liệu 2:</label>
+            <div class="col-md-3 col-sm-3">
+                <select class="form-control chosen-select" id="MANGL2" name="MANGL2" style="width: 100%; ">
+             
+                    @foreach (var item in dmnhomngl)
+                    {
+                        <option value="@item.MaNGL">
+                            @item.MaNGL || @item.TenNhomNGL
+                        </option>
+                    }
+                </select>
+            </div> 
+            <div class="col-md-3 col-sm-3 ten">
+                <input value="" class="form-control" type="number" id="Tile2" name="Tile2" min="0.00" max="100" step="0.01"  placeholder="* Tỷ lệ 2" oninput="checkDecimal(this)" />
+            </div>
+        </div>
+      
+
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã nguyên liệu 3:</label>
+            <div class="col-md-3 col-sm-3">
+                <select class="form-control chosen-select" id="MANGL3" name="MANGL3" style="width: 100%; ">                    
+                    @foreach (var item in dmnhomngl)
+                    {
+                        <option value="@item.MaNGL">
+                            @item.MaNGL || @item.TenNhomNGL
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3 ten">
+                <input value="" class="form-control" type="number" id="Tile3" name="Tile3" min="0" max="100" step="0.01" placeholder="* Tỷ lệ 3" oninput="checkDecimal(this)" />
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã nguyên liệu 4:</label>
+            <div class="col-md-3 col-sm-3">
+                <select class="form-control chosen-select" id="MANGL4" name="MANGL4" style="width: 100%; ">                   
+                    @foreach (var item in dmnhomngl)
+                    {
+                        <option value="@item.MaNGL">
+                            @item.MaNGL || @item.TenNhomNGL
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3 ten">
+                <input value="" class="form-control" type="number" id="Tile4" name="Tile4" min="0" max="100" step="0.01" placeholder="* Tỷ lệ 4" oninput="checkDecimal(this)" />
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã nguyên liệu 5:</label>
+            <div class="col-md-3 col-sm-3">
+                <select class="form-control chosen-select" id="MANGL5" name="MANGL5" style="width: 100%; ">                    
+                    @foreach (var item in dmnhomngl)
+                    {
+                        <option value="@item.MaNGL">
+                            @item.MaNGL || @item.TenNhomNGL
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3 ten">
+                <input value="" class="form-control" type="number" id="Tile5" name="Tile5" min="0" max="100" step="0.01" placeholder="* Tỷ lệ 5" oninput="checkDecimal(this)" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>
+
+<script>
+    var index = 0;
+
+    $(document).ready(function () {
+        $('#HIEULUC').click(function (e) {
+            if ($('#HIEULUC').val() != true) {
+                $('#HIEULUC').val(true);
+            }
+            else {
+                $('#HIEULUC').val(false);
+            }
+        });
+
+        $("#btnTaoMaSoi").click(function () {
+            var MaNGL_ = $("#MaNGL").val();
+            var Chisosoi_ = $("#Chisosoi").val();
+            var SoFilament_ = $("#SoFilament").val();
+            var MAVATTU_ = $("#MAVATTU");
+            var STT_ = $("#STT");
+            console.log(111);
+            $.ajax({
+                url: '@Url.Action("_btnTaoMaSoi")',
+                type: "POST",
+                data: {
+                    MaNGL: MaNGL_,
+                    Chisosoi: Chisosoi_,
+                    SoFilament: SoFilament_,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        notify(result.text, "success");
+
+                        STT_.val(result.obj).trigger("chosen:updated");
+                        MAVATTU_.val(result.obj1).trigger("chosen:updated");
+
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    $(".divLoading").removeClass("loading");
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+</script>
+
+<script>
+    function checkDecimal(input) {
+        // Lấy giá trị nhập vào từ trường input
+        var value = input.value;
+
+        // Kiểm tra nếu giá trị không rỗng và không hợp lệ
+        if (value && !(/^\d{1,2}(\.\d{0,2})?$/.test(value))) {
+            // Xóa giá trị không hợp lệ từ trường input
+            input.value = value.slice(0, -1);
+        }
+
+        // Kiểm tra nếu giá trị vượt quá 100
+        if (parseFloat(value) >= 100) {
+            // Đặt giá trị trường input thành 100
+            input.value = "100";
+        }
+    }
+</script>

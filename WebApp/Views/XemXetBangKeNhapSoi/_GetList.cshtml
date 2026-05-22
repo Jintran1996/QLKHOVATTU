@@ -1,0 +1,62 @@
+﻿
+@{
+    var data = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.GC_CTPHIEUXUATGC>;
+    var STT = 1;
+}
+<table id="myTable_cthd" class="table table-bordered table-hover" width="100%">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Mã sợi</th>
+            <th>Khóa định mức</th>
+            <th>Mã đơn hàng gia công sợi</th>
+            <th>Mã sợi hoàn tất</th>
+            <th>Số lượng nhập</th>
+            <th>Số lượng xuất</th>
+            <th>Số lượng hao hụt</th>
+            <th>Số trục</th>
+            <th>Số cạnh</th>
+            <th>Khổ trục</th>
+            <th>Chiều dài</th>
+            <th>Hiệu</th>
+            <th>Lô</th>
+            <th>Mã công đoạn</th>
+            <th>Dạng công đoạn</th>
+            <th>Ghi chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in data)
+        {
+            <tr>
+                <td> @STT </td>
+                <td>@item.MASOI</td>
+                <td>@item.KHOACTHUC</td>
+                <td>@item.MADH_GCSOI</td>
+                <td>@item.MASOIHOANTAT</td>
+                <td>@item.SOLUONGNhap</td>
+                <td>@item.SOLUONGXuat</td>
+                <td>@item.SLHaoHutDM</td>
+                <td>@item.SOTRUC</td>
+                <td>@item.SOCANH</td>
+                <td>@item.KHOTRUC</td>
+                <td>@item.CHIEUDAI</td>
+                <td>@item.HIEU</td>
+                <td>@item.LO</td>
+                <td>@item.MACONGDOAN</td>
+                <td>@item.DANGCONGDOAN</td>
+                <td>@item.GHICHU</td>
+            </tr>
+            STT++;
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+

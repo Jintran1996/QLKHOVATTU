@@ -1,0 +1,81 @@
+﻿@model ToolsApp.Models.HomeMenuViewModel
+
+@{
+    var Roots = ViewBag.Roots as List<ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_Menu>;
+
+    var Pages = ViewBag.Pages as List<ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_Page>;
+}
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.HiddenFor(model => model.Id)
+
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-3 col-sm-3">@Html.LabelFor(p => p.MenuName)</label>
+    <div class="col-md-9 col-sm-9 ten">
+        @Html.EditorFor(model => model.MenuName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.MenuName, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-3 col-sm-3">Menus parent</label>
+    <div class="col-md-9 col-sm-9 ten">
+        <select id="ParentId" name="ParentId" class="form-control chosen-select" style="width: 100%;">
+            <option value="0">
+                --Root--
+            </option>
+            @foreach (var item in Roots)
+            {
+                <option value="@item.Id" @((Model.ParentId != null && Model.ParentId == item.Id) ? "selected=\"selected\"" : "")>
+                    @item.MenuName
+                </option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-3 col-sm-3">Page</label>
+    <div class="col-md-9 col-sm-9 ten">
+        <select id="PageId" name="PageId" class="form-control chosen-select" style="width: 100%;">
+            <option value="0">
+                --Root--
+            </option>
+            @foreach (var item in Pages)
+            {
+                <option value="@item.Id" @((Model.PageId != null && Model.PageId == item.Id) ? "selected=\"selected\"" : "")>
+                    @item.Code - @item.Info - @item.Controler/@item.Action
+                </option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-3 col-sm-3">@Html.LabelFor(p => p.Icon)</label>
+    <div class="col-md-9 col-sm-9 ten">
+        @Html.EditorFor(model => model.Icon, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Icon, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-3 col-sm-3">@Html.LabelFor(p => p.OrderNo)</label>
+    <div class="col-md-9 col-sm-9 ten">
+        @Html.EditorFor(model => model.OrderNo, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.OrderNo, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+</script>

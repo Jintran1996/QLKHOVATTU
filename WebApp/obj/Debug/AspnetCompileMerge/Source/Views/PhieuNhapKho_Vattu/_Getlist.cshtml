@@ -1,0 +1,100 @@
+﻿
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.VatTu.VATTU2024_SP_GET_DM_XUATNHAP_Result>;
+
+}
+
+
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th style="text-align:center">.No</th>
+            <th>SOCTXN</th>
+            <th>Mã hình thức</th>
+            <th>PO</th>           
+            <th>Ngày Chứng Từ</th>
+            <th>IDMADV Nhận</th>
+            <th>Kho Nhận</th>
+            <th>IDMADV Xuất</th>
+            <th>Kho Xuất</th>
+            <th>Người Nhận</th>
+            <th>Người Lập Phiếu</th>
+            <th>Kế thừa SOCT</th>
+            <th>Ghi Chú</th>
+            <th>Trạng thái đồng bộ</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists.Take(100))
+        {
+        <tr>
+            <td>
+                <a onclick="Details('@item.SOCTXN', '@item.LOAIXN')" class="btn">
+                    <i class="fas fa-list"></i> Chi Tiết
+                </a>
+                @if (item.LOAIXN == "NDC")
+                {
+                    <a onclick="Print('@item.SOCTXN', '@item.MAKHONHAN')" class="btn">
+                        <i class="fa fa-print"></i> In
+                    </a>
+                }
+
+                @if (item.LOAIXN != "NNB" && item.LOAIXN != "NHGA" && item.LOAIXN != "NHTA")
+                {
+                    <a onclick="TransAPI('@item.SOCTXN','@item.MAKHONHAN','@item.LOAIXN','@item.MAKHOXUAT')" class="btn">
+                        <i class="fa fa-recycle"></i> Đồng bộ
+                    </a>
+                }
+                @if (item.GUIAPI != "1")
+                {
+                    <a onclick="Delete('@item.SOCTXN')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                }
+                </td>
+            <td style="text-align:center">
+                @STT
+            </td>
+            <td>@item.SOCTXN</td>
+            <td>@item.LOAIXN</td>
+            <td>@item.SOPO</td>                  
+            <td>@(item.NGAY == null ? "" : item.NGAY.Value.ToString("dd/MM/yyyy"))</td>
+            <td>@item.IDMADVNHAN</td>
+            <td>@item.MAKHONHAN</td>
+            <td>@item.IDMADVXUAT</td>
+            <td>@item.MAKHOXUAT</td>
+            <td>@item.NGUOINHAN</td>
+            <td>@item.MaNVYC</td>
+            <td>@item.KETHUATUSOCT</td>
+            <td>@item.GHICHU</td>
+           
+            <td>
+                @if (@item.GUIAPI == "1")
+                {
+
+                    <i class="fa fa-check" style="color: lawngreen;font: 30px" title="Đã đồng bộ Netsuite"></i>
+                }
+                else
+                {
+
+                    if (item.LOAIXN == "NNB")
+                    {
+                        <i class="fa fa-check" style="color: darkgreen;font: 30px" title="NNB không cần đồng bộ Netsuite"></i>
+                    }
+                    else
+                    {
+
+                    }
+                }
+            </td>
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+

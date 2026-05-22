@@ -1,0 +1,117 @@
+﻿@using System.Globalization;
+
+
+@{
+    var Lists = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.TBL_PHIENMAVT_BYMAHANG>;
+  
+
+
+}
+<table id="myTablectview-xzzz" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="width: 200px">Tùy chỉnh</th>
+            <th style="text-align:center">STT</th>           
+            <th>SOCTXUAT_VAI</th>
+            <th>MAMH vải</th>            
+            <th>Mã cây</th>
+            <th>Số lượng</th>
+            <th>Phiên Mã vật tư</th>       
+            <th>Số lượng TT</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1;}
+        @foreach (var item in Lists)
+        {
+        <tr>
+            <td>
+                <a onclick="deletexzzz('@item.ID_PHIEN')" class="btn">
+                    <i class="fas fa-edit"></i> Xóa
+                </a>
+            </td>
+            <td style="text-align:center">
+                @STT
+            </td>
+            <td>@item.SOCTXUAT_VAI</td>
+            <td>@item.MAVT</td>
+            <td>@item.MACAY</td>
+            <td>@(item.SOLUONG == null ? "0.00" : item.SOLUONG.Value.ToString("#.##"))</td>
+            <td>
+                <input id="ID_PHIEN_@STT" value="@item.ID_PHIEN" hidden />
+                <input id="MAVT_PHIEN_@STT" class="form-control" value="@item.MAVT" onchange="_UpdateMAVT_PHIEN(@STT)" />
+            </td>
+            <td>@(item.SOLUONGTT == null ? "0.00" : item.SOLUONGTT.Value.ToString("#.##"))</td>
+
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    function _UpdateMAVT_PHIEN(i_) {
+
+        var mavt_ = $('#MAVT_PHIEN_'+i_).val();
+        var ID_PHIEN_ = $('#ID_PHIEN_' + i_).val();
+
+
+
+            if (confirm('Bạn có muốn cập nhật MAVT ?')) {
+                $.ajax({
+                    url: '@Url.Action("_UpdateMAVT_PHIEN")',
+                    timeout: 2000000,
+                    type: "POST",
+                    data: { ID_PHIEN: ID_PHIEN_, mavt: mavt_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status == 1) {
+                            notify(result.text, "success");
+                            reloadData_getlist_ctphieu_xzzz(true);
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+    }
+
+
+    function deletexzzz(id_phien_) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+             if (confirm_) {
+                 $.ajax({
+                     url: '@Url.Action("_Delete_XZZZ")',
+                     timeout: 2000000,
+                     type: "POST",
+                     data: { id_phien: id_phien_ },
+                     beforeSend: function (xhr) {
+                         $(".divLoading").addClass("loading");
+                     },
+                     success: function (result) {
+
+                         if (result.status >= 1) {
+                             notify(result.text, "success");
+                             reloadData_getlist_ctphieu_xzzz(false);
+                         }
+                         else {
+                             notify(result.text, "error");
+                         }
+                         $(".divLoading").removeClass("loading");
+                     },
+                     error: function (message) {
+                         $(".divLoading").removeClass("loading");
+                     }
+                 });
+             }
+            }
+</script>

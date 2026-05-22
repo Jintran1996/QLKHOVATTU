@@ -1,0 +1,576 @@
+﻿
+<section class="content" style="font-size: 12px">
+
+    <div class="container-fluid">
+        <!--Tìm kiếm-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Tìm kiếm</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input class="form-control input-group-append" type="text" id="MaphieuSearch" placeholder="Nhập số chứng từ xuất nhập" style="flex-grow: 1;">
+                                        <div class="input-group-append">
+                                            <button class="btn bg-gradient-primary" id="btnSearch"><i class="fa fa-search"></i> Tìm kiếm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Get list-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Danh sách phiếu lập</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row" style="margin-bottom:15px">
+                            <div class="col-md-4">
+                                <button id="btInsert" type="button" class="btn bg-gradient-green"><i class="fa fa-plus"></i>&nbsp;Thêm mới</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-body-getlist table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Thêm mới-->
+<div id="myModal" class="modal fade modal-wide " role="dialog">
+    <div class="modal-dialog ">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContent">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="close_" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!--Chi tiết phiếu-->
+<div id="myModalDetail" class="modal fade modal-wide " role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmDetail", id = "frmDetail", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header bg-gradient-blue">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:mintcream"><strong id="myModalTitleDetail"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetail">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+
+<!--Sửa chi tiết phiếu-->
+<div id="myModalEditct" class="modal fade bd-example-modal-lg" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content ">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmEditct", id = "frmEditct", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header bg-gradient-blue">
+                    <div class="modal-title " style="font-size: 17px; text-transform: uppercase; color: mintcream"><strong id="myModalTitleEditct"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentEditct">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+
+                        <button type="button" id="btSavect" class="btn btn-sm bg-gradient-primary"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                        &nbsp;
+                        <button type="button" id="" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+
+<!--In chi tiết phiếu-->
+<div id="myModalPrint" class="modal fade modal-wide" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+            {
+              
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitlePrint"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentPrint">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContentPrint');" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            reloadData(false);
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+
+    </script>
+
+    <script>
+        function reloadData(page) {
+            try {
+                _GetList("");
+            } catch (e) {
+            }
+        }
+
+        function _GetList() {
+             $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                 data: {
+                     MaphieuSearch: $("#MaphieuSearch").val(),
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+             }).done(function (data){
+                 $(".divLoading").removeClass("loading");
+
+                 $('.table-body-getlist').html(data);
+
+                 $("#myTable").DataTable({
+                     destroy: true,
+                        "language": {
+                            "sProcessing": "Đang xử lý...",
+                            "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                            "sZeroRecords": "Không tìm thấy kết quả",
+                            "sEmptyTable": "Không có dữ liệu",
+                            "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Tìm kiếm:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Đang tải...",
+                            "oPaginate": {
+                                "sFirst": "Đầu tiên",
+                                "sLast": "Cuối cùng",
+                                "sNext": "Sau",
+                                "sPrevious": "Trước"
+                            },
+                            "oAria": {
+                                "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                            }
+                        },
+                        "lengthMenu": [5, 10, 25, 50, 75, 100],
+                        "columnDefs": [
+                            {
+                                "targets": [0, ],
+                                orderable: false
+                            },
+                        ],
+                        "info": false,
+                        "processing": false,
+                        "serverSide": false,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+             }).fail(function (data) {
+                  notify(data.text, "error");
+             });
+            $("#btnSearch").click(function () {
+                reloadData(true);
+            });
+        }
+
+    </script>
+
+    <script type="text/javascript">
+
+        // form thêm mới
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        // form sửa chi tiết
+        var $modalEditct = $("#myModalEditct");
+        var $myModalContentEditct = $("#myModalContentEditct");
+        var $myModalTitleEditct = $("#myModalTitleEditct");
+
+        //form chi tiết
+        var $modalDetail = $('#myModalDetail');
+        var $myModalContentDetail = $("#myModalContentDetail");
+        var $myModalTitleDetail = $("#myModalTitleDetail");
+
+        //form in
+        var $modalPrint = $('#myModalPrint');
+        var $myModalContentPrint = $("#myModalContentPrint");
+        var $myModalTitlePrint = $("#myModalTitlePrint");
+        //-------------Xoá đơn hàng khi đóng chưa có chi tiết đơn hàng--------------//
+        $(document).ready(function () {
+            $("#close_").click(function () {
+                Xoa_DonHangKhiDongKhongChiTiet_Click();
+                reloadData(true);
+            });
+        });
+
+        
+        function Xoa_DonHangKhiDongKhongChiTiet_Click() {
+            var SOCTXN = $('#SOCTXN').val();
+            var confirm_ = confirm('Bạn có chắc muốn đóng chương trình?');
+            if (confirm_) {
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: '@Url.Action("Xoa_DonHangKhiDongKhongChiTiet_Click")',
+                    data: {
+                        SOCTXN: SOCTXN,
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                }).done(function (data) {
+                    $(".divLoading").removeClass("loading");
+                    if (data.status > 0) {
+                        notify(data.text, "success");
+                    }
+                    else {
+                        notify(data.text, "error");
+                    }
+
+                }).fail(function (errors) {
+                    console.log(errors);
+                });
+            }
+        };
+
+        //---Load view
+        $(document).ready(function () {
+            reloadData(false);
+            $("#btInsert").click(function () {
+                $myModalContent.html("");
+                $myModalTitle.html("Thêm mới");
+                $.ajax({
+                    url: '@Url.Action("_Insert")',
+                    timeout: 200000,
+                    data: {
+
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContent.html(result);
+                        $modal.modal();
+                        $(".divLoading").removeClass("loading");
+
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+        });
+
+        // Xóa phiếu trong get-list
+        function Delete(SoCT_) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteFun")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: { SOCTXN: SoCT_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                            reloadData();
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+
+
+
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+        //Xem chi tiết phiếu
+        function Details(SOCTXN_) {
+            $myModalContentDetail.html("");
+            $myModalTitleDetail.html("Chi tiết phiếu");
+            $.ajax({
+                url: '@Url.Action("_Detail")',
+                timeout: 20000,
+                data: {
+                    iSOCTXN: SOCTXN_,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $myModalContentDetail.html(result);
+                    $modalDetail.modal();
+                    $(".divLoading").removeClass("loading");
+                },
+                failure: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        //Xóa item chi tiết phiếu
+        function Deletect(KHOAKEYXN_) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteCTFun")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: { KHOAKEYXN: KHOAKEYXN_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                            Details(result.obj);
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+
+
+
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+        //Sửa item chi tiết phiếu
+        function EditCt(KHOAKEYXN_) {
+            $myModalContentEditct.html("");
+            $myModalTitleEditct.html("Hiệu Chỉnh");
+            $.ajax({
+                url: '@Url.Action("_Editview")',
+                timeout: 200000,
+                data: {
+                    KHOAKEYXN: KHOAKEYXN_
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $myModalContentEditct.html(result);
+                    $modalEditct.modal();
+                    $(".divLoading").removeClass("loading");
+                },
+                failure: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        //Lưu sửa item chi tiết phiếu
+        $("#btSavect").click(function () {
+            var emavt = $("#eMAVT").val();
+            var emadh = $("#eMADH").val();
+            var eghichu = $("#eGHICHU").val();
+            var eloaidh = $("#eLOAIDONHANG").val();
+            var eslyc = $("#eSOLUONGYC").val();
+            var ekhoa = $("#eKHOAKEYXN").val();
+            var esoctxn = $("#eSOCTXN").val();
+            var emakho = $("#eMAKHO").val();
+            $.ajax({
+                url: '@Url.Action("_EditFunCT")',
+                type: "POST",
+                data: {
+                    MAKHO: emakho,
+                    KHOAKEYXN: ekhoa,
+                    SOCTXN: esoctxn,
+                    MAVT: emavt,
+                    MADH: emadh,
+                    GHICHU: eghichu,
+                    LOAIDONHANG: eloaidh,
+                    SOLUONGYC: eslyc,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        notify(result.text, "success");
+                        Details(result.obj);
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    $(".divLoading").removeClass("loading");
+                    $('#closectphieuedit').trigger('click');
+
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        });
+
+        //In phiếu
+        function Print(SOCTXN_) {
+             $.ajax({
+                url: '@Url.Action("_ReportPrintCT")',
+                timeout: 20000,
+                type: "GET",
+                 data: {
+                     SOCTXN: SOCTXN_,
+                 },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                 success: function (result) {
+                     if (result.status < 0) {
+                         notify(result.text, "error");
+                     }
+                     else {
+                         $myModalContentPrint.html(result);
+                         $modalPrint.modal();
+
+                     }
+                     $(".divLoading").removeClass("loading");
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        //Phiếu mới
+        function click_Phieumoi() {
+        $.ajax({
+                    url: '@Url.Action("_Insert")',
+                    timeout: 200000,
+                    data: {
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContent.html(result);
+                        $modal.modal();
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+        }
+
+    </script>
+}

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYKHOTP2023Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QUANLYKHOTP2023Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="TONKHO290224_IAA_Adjustments" ReturnType="Collection(QUANLYKHOTP2023Model.TONKHO290224_IAA_Adjustments_Result)">
+      <Parameter Name="LOCATION" Mode="In" Type="String" />
+      <Parameter Name="Key" Mode="In" Type="String" />
+      <Parameter Name="thang" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TONKHO290224_IAA_InventoryDetail" ReturnType="Collection(QUANLYKHOTP2023Model.TONKHO290224_IAA_InventoryDetail_Result)">
+      <Parameter Name="LOCATION" Mode="In" Type="String" />
+      <Parameter Name="Key" Mode="In" Type="String" />
+      <Parameter Name="thang" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TONKHO290224_InventoryAdjustment" ReturnType="Collection(QUANLYKHOTP2023Model.TONKHO290224_InventoryAdjustment_Result)">
+      <Parameter Name="LOCATION" Mode="In" Type="String" />
+      <Parameter Name="Key" Mode="In" Type="String" />
+      <Parameter Name="thang" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="TONKHO290224_IAA_Adjustments_Result">
+    <Property Type="String" Name="External_ID" Nullable="true" MaxLength="66" />
+    <Property Type="String" Name="REFERENCE_" Nullable="true" MaxLength="66" />
+    <Property Type="String" Name="ITEM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LOCATION" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="ADJUST_QTY_BY" Nullable="false" Precision="38" Scale="2" />
+    <Property Type="String" Name="UNIT" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="EST_UNIT_COST" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="CHATLUONG" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="TONKHO290224_IAA_InventoryDetail_Result">
+    <Property Type="String" Name="REFERENCE_" Nullable="true" MaxLength="66" />
+    <Property Type="String" Name="ITEM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SERIAL_LOT_NUMBER" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="EXPIRATION_DATE" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="QUANTITY" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="TONKHO290224_InventoryAdjustment_Result">
+    <Property Type="String" Name="External_ID" Nullable="true" MaxLength="66" />
+    <Property Type="String" Name="REFERENCE" Nullable="true" MaxLength="66" />
+    <Property Type="String" Name="ADJUSTMENT_ACCOUNT" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="EXPIRATION_DATE" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="ADJUSTMENT_LOCATION" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

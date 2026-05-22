@@ -1,0 +1,144 @@
+﻿@{
+    var data = ViewBag.data as List<ToolsApp.EntityFramework.KhoSoi.VATTU2025_LOAD_PRINT_DATA_NHAPDIENGIAI_SOI_SOCTXN_Result>;
+    var sohoadon = data.FirstOrDefault().SOCTKETOAN_A;
+    var SOCTXN = ViewBag.SOCTXN;
+    var soPO = ViewBag.soPO;
+    var ngay = DateTime.Now.ToString("dd/MM/yyyy");
+    var STT = 1;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Kê Nhập Nguyên Nhiên Vật Liệu Đầu Vào</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .header {
+            text-align: center;
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            float: left;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .invoice-number {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+            .footer div {
+                text-align: center;
+            }
+
+        .date {
+            text-align: right;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img id="" src="~/Content/images/ThaiTuan.png" width="150" height="70" />
+            <div class="title">BẢNG KÊ NHẬP NGUYÊN NHIÊN VẬT LIỆU ĐẦU VÀO</div>
+            <div class="invoice-number">Theo số hóa đơn: @sohoadon</div>
+            <div class="invoice-number">Số PO: @soPO</div>
+            <div class="invoice-number">SOCTXN: @SOCTXN</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">STT</th>
+                    <th colspan="4">Công Ty Cổ Phần Tập Đoàn Thái Tuấn</th>
+                    <th colspan="5">Theo nhà cung cấp</th>
+                </tr>
+                <tr>
+                    <th>Mã vật tư công ty</th>
+                    <th>Tên vật tư công ty</th>
+                    <th>ĐVT</th>
+                    <th>Số lượng</th>
+                    <th>Số hóa đơn</th>
+                    <th>Ngày HĐ</th>
+                    <th>Tên vật tư NCC</th>
+                    <th>ĐVT</th>
+                    <th>SL</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in data)
+                {
+                    <tr>
+                        <td>@STT</td>
+                        <td>@item.MAVT_A</td>
+                        <td>@item.TENVT_A</td>
+                        <td>@item.DVT_A</td>
+                        <td>@item.SOLUONG_A</td>
+                        <td>@item.SOCTKETOAN_A</td>
+                        <td>@item.NgayKeToan_A</td>
+                        <td>@item.TENVATTU_NCC</td>
+                        <td>@item.DVT_NCC</td>
+                        <td>@item.SOLUONG_NCC</td>
+                    </tr>
+                    STT++;
+                }
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <div>Lập biểu</div>
+            <div>Thủ kho</div>
+            <div>Ban GĐ P.Cung ứng</div>
+        </div>
+
+        <div class="date" style="margin-top:100px">Ngày in : @ngay</div>
+    </div>
+    </body>
+</html>

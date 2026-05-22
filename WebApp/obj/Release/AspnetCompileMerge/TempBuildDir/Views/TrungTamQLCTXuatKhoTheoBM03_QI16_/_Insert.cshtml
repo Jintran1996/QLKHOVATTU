@@ -1,0 +1,130 @@
+﻿@{
+    var data_MaKho = ViewBag.data_MaKho as List<ToolsApp.EntityFramework.VatTu.SP_LOADKHOQUYENNHAP_Result>;
+}
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Mã kho :</label>
+            <div class="col-md-9">
+                <select class="form-control form-control-sm chosen-select" onchange="Load_SOCTXN(this.value);" id="MaKho" name="MaKho">
+                    <option selected value="false">--Danh Sách Mã Kho--</option>
+                    @foreach (var item in data_MaKho)
+                    {
+                        <option value="@item.MAKHO">@item.TENMA-</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3">Số chứng từ Xuất nhập :</label>
+            <div class="col-md-9">
+                <select class="form-control form-control-sm chosen-select" onchange="_GetList(this.value);" id="SOCTXN" name="SOCTXN">
+                    <option selected value="false">--Danh Sách Chứng Từ Xuất Nhập--</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="row" style="margin-bottom:20px">
+            <label class="col-md-3">Xuất kho :</label>
+            <div class="col-md-9">
+                <select class="form-control form-control-sm chosen-select" id="XuatKho" name="XuatKho">
+                    <option value="0">--Không Xuất Kho--</option>
+                    <option selected value="1">--Xuất Kho--</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <label class="col-md-3">Ngày kế toán:</label>
+            <div class="col-md-9">
+                <input type="datetime" id="NgayKeToan" name="NgayKeToan" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control form-control-sm" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 row">
+        <div class="col-md-12">     
+            <div class="form-check">
+                <input class="form-check-input search-type"
+                       type="radio"
+                       name="searchType"
+                       value="DK1"
+                       checked>
+                <label class="form-check-label">
+                    <b>Không đổi ngày</b>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input search-type"
+                       type="radio"
+                       name="searchType"
+                       value="DK2">
+                <label class="form-check-label">
+                    <b>Thay đổi ngày CT / Ngày Kế toán</b>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-2">
+        <button id="btnCreate" onclick="Action_Insert();" type="button" class="btn bg-gradient-primary" style="width: 100px"><i class="fa fa-recycle"></i>&nbsp;Xuất Kho</button>
+    </div>
+</div>
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+    $("#NgayKeToan").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+    function Load_SOCTXN(MaKho) {
+        var SOCTXN = $("#SOCTXN");
+        SOCTXN.empty();
+        $.ajax({
+            url: '@Url.Action("Load_SOCTXN")',
+            timeout: 200000,
+            data: {
+                makho: MaKho,
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            console.log(data.obj);
+            if (data.status < 0) {
+                SOCTXN.append($('<option/>', { value: "false" }).html("--Danh Sách Chứng Từ Xuất Nhập--"));
+                SOCTXN.trigger("chosen:updated");
+            }
+            else {
+                SOCTXN.append($('<option/>', { value: "false" }).html("--Danh Sách Chứng Từ Xuất Nhập--"));
+                $.each(data.obj, function (i, state) {
+                    SOCTXN.append($('<option/>', { value: data.obj[i].SOCTXN }).html(data.obj[i].TX));
+                });
+                SOCTXN.trigger("chosen:updated");
+            }
+        }).fail(function (data) {
+            notify(data.text, "error");
+        });
+    }
+</script>

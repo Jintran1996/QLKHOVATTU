@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TenderModelStoreContainer" CdmEntityContainer="TenderEntities">
+    <EntitySetMapping Name="T_Area">
+      <EntityTypeMapping TypeName="TenderModel.T_Area">
+        <MappingFragment StoreEntitySet="T_Area">
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_AreaProvince">
+      <EntityTypeMapping TypeName="TenderModel.T_AreaProvince">
+        <MappingFragment StoreEntitySet="T_AreaProvince">
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="ProvinceCode" ColumnName="ProvinceCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_User">
+      <EntityTypeMapping TypeName="TenderModel.S_User">
+        <MappingFragment StoreEntitySet="S_User">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

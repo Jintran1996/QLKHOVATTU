@@ -1,0 +1,54 @@
+﻿@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_User>;
+}
+
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>.No</th>
+            <th>Username</th>
+            <th>Fullname</th>
+            <th>Functions</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists)
+        {
+        <tr onclick="Edit('@item.Id')"> 
+            <td style="width:100px!important">
+                <a onclick="Edit('@item.Id')" class="btn">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+                <a onclick="Delete('@item.Id')" class="btn">
+                    <i class="far fa-trash-alt"></i> Delete
+                </a>
+            </td>
+            <td>
+                @STT
+            </td>
+            <td>@item.Username</td>
+            <td>@item.Fullname</td>            
+            <td>
+                @{
+                    if (item.QLKhoSoi_User_Page != null)
+                    {
+                        <span>
+                            @foreach (var value in item.QLKhoSoi_User_Page)
+                            {
+                                    <small class="badge badge-success"><i class="far fa-clock"></i> @value.QLKhoSoi_Page.Code - @value.QLKhoSoi_Page.Info </small>
+                                
+                            }
+                        </span>
+                    }
+                }
+            </td>            
+            <td>@item.Email</td>
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

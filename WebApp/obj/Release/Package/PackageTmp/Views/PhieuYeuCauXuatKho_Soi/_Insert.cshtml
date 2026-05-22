@@ -1,0 +1,484 @@
+﻿@{
+    var makho_ = ViewBag.maKho as List<ToolsApp.EntityFramework.KhoSoi.SP_PHIEUYEUCAUXUATKHO_LOAD_MAKHO_Result>;
+    var mahinhthuc_ = ViewBag.maHinhThuc as List<ToolsApp.EntityFramework.KhoSoi.SP_LOADMAHINHTHUCYEUCAUXUAT_Result>;
+    var loaiDH_ = ViewBag.loaiDH as List<ToolsApp.EntityFramework.KhoSoi.NL_DMloaidonhang>;
+    var donHang_ = ViewBag.donHang as List<ToolsApp.EntityFramework.DonHang09.GET_SODONHANG_Result>;
+    var maDonHang = ViewBag.maDonHang as List<ToolsApp.EntityFramework.KhoSoi.LOAD_MADONHANG_ND_XK_Result>;
+    var _soCT = ViewData["soCT"];
+}
+
+<!--Bước 1: Tạo phiếu-->
+<div id="step_one" class="row" style="padding:10px; padding-bottom:0">
+    <input id="MaPhieu" name="MaPhieu" class="form-control" value="@_soCT" hidden>
+    <div class="col-md-4">
+        <div class="form-group row">
+            <label class="col-md-3">Mã kho xuất: </label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="maKhoXuat" name="maKhoXuat" style="width: 100%;" onchange="Onchange_MaVT();">
+                    <option value="" disabled selected>--Chọn kho--</option>
+                    @foreach (var item in makho_)
+                    {
+                        <option value="@item.MAKHO">@item.MAKHO</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Nơi đến: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text"
+                       id="noiDen" name="noiDen" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" style="padding-left:20px">
+        <div class="form-group row">
+            <label class="col-md-3">Mã hình thức: </label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" onchange="load_Change(this.value)" id="maHinhThuc" name="maHinhThuc" style="width: 100%;">
+                    <option value="" disabled selected>--Chọn hình thức--</option>
+                    @foreach (var item in mahinhthuc_)
+                    {
+                        <option value="@item.MAHTHUC">@item.MAHTHUC || @item.TENHTHUC</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Ghi chú: </label>
+            <div class="col-md-9">
+                <textarea rows="2" id="ghiChu1" name="ghiChu1" class="form-control"></textarea>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-4" style="padding-left: 20px">
+        <div class="form-group row">
+            <label class="col-md-3">Sản xuất cho đơn hàng: </label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="MADH" name="MADH" style="width: 100%;">
+                    <option value="" disabled selected>--Chọn mã đơn hàng--</option>
+                    @*<option value="" disabled selected>--Chọn đơn hàng--</option>
+        @foreach (var item in donHang_)
+        {
+            <option value="@item.SoDonHang">@item.SoDonHang</option>
+        }*@
+                </select>
+            </div>
+        </div>
+        <div class="row" style=" float:right;">
+            <div class="row-md-2 row-sm-2" style="margin-bottom:5px; padding-right:6px">
+                <button type="button" id="btNhaptiep" class="btn bg-gradient-green">&nbsp;Nhập Tiếp <i class="fas fa-angle-double-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Bước 2: Thêm chi tiết phiếu-->
+<div id="step_two" class="row" style="padding:10px; padding-bottom:0">
+    <div class="col-md-4">
+        <div class="form-group row">
+            <label class="col-md-3">Số CTXN: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text" readonly
+                       id="SOCTXN" name="SOCTXN" value="@_soCT" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Loại đơn hàng: </label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="LOAIDONHANG" name="LOAIDONHANG" style="width: 100%;">
+                    <option value="" disabled selected>--Chọn loại đơn hàng--</option>
+                    @foreach (var item in loaiDH_)
+                    {
+                        <option value="@item.LOAIDONHANG">@item.LOAIDONHANG || @item.Tendonhang</option>
+                    }
+                </select>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-4" style="padding-left:20px">
+        <div class="form-group row">
+            <label class="col-md-3">Mã vật tư: </label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="MAVT" name="MAVT" style="width: 100%;" title="Mã || Hiệu || Lô || Tồn">
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Số lượng: </label>
+            <div class="col-md-9">
+                <input id="SOLUONGYC" name="SOLUONGYC" class="form-control" type="number"
+                       step="0.01" min="0" value="0.00" data-decimal="2" oninput="enforceNumberValidation(this)">
+            </div>
+        </div>
+
+        <div class="row" style=" float:right;">
+            <div class="text-right">
+                <button type="button" onclick="_SaveCT()" class="btn btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
+                <button type="button" onclick="Print('@_soCT')" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;In phiếu</button>&nbsp;&nbsp;
+                <button type="button" onclick="click_Phieumoi()" class="btn btn-info"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;Phiếu mới</button>&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" style="padding-left:20px">
+        <div class="form-group row">
+            <label class="col-md-3">Số lần xuất phiếu: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="number" min="0" step="1" value="1" readonly
+                       id="LANXN" name="LANXN" />
+            </div>
+        </div>
+        @*<div class="form-group row">
+            <label class="col-md-3">Mã đơn hàng</label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="MADHang" name="MADHang" style="width: 100%;">
+                    <option value="" disabled selected>--Chọn mã đơn hàng--</option>
+                    @foreach (var item in maDonHang)
+                    {
+                        <option value="@item.MADH">@item.MADH || @item.NAM</option>
+                    }
+                </select>
+            </div>
+        </div>*@
+        <div class="form-group row">
+            <label class="col-md-3">Ghi chú: </label>
+            <div class="col-md-9">
+                <textarea rows="2" id="GHICHU" name="GHICHU" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 row" style="padding-top:15px">
+        <div class="col-md-12">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <b>Danh sách phiếu lập</b>
+                    </h3>
+                </div>
+                <div class="card-body pad">
+                    <div class="row col-md-12">
+                        <div class="table-body-getlist-insert table-responsive">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        reloadCT(false);
+    });
+</script>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+</script>
+
+
+<script type="text/javascript">
+ //Số chữ số thập phân
+    function enforceNumberValidation(ele) {
+        if ($(ele).data('decimal') != null) {
+            // found valid rule for decimal
+            var decimal = parseInt($(ele).data('decimal')) || 0;
+            var val = $(ele).val();
+            if (decimal > 0) {
+                var splitVal = val.split('.');
+                if (splitVal.length == 2 && splitVal[1].length > decimal) {
+        // user entered invalid input
+        $(ele).val(splitVal[0] + '.' + splitVal[1].substr(0, decimal));
+                }
+            } else if (decimal == 0) {
+                // do not allow decimal place
+                var splitVal = val.split('.');
+                if (splitVal.length > 1) {
+        // user entered invalid input
+        $(ele).val(splitVal[0]); // always trim everything after '.'
+                }
+            }
+        }
+    }
+
+    function reloadCT(isDelete) {
+    try {
+        $.ajax({
+                    url: '@Url.Action("_GetList_Insert")',
+            timeout: 20000,
+            data: {
+                iSOCTXN: $("#SOCTXN").val(),
+                        },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+                        },
+            success: function (response) {
+                $(".divLoading").removeClass("loading");
+
+                $('.table-body-getlist-insert').html(response);
+
+                $("#myTable_insert").DataTable({
+                    //"responsive": true,
+                    destroy: true,
+                    "language": {
+                    "sProcessing": "Đang xử lý...",
+                    "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                    "sZeroRecords": "Không tìm thấy kết quả",
+                    "sEmptyTable": "Không có dữ liệu",
+                    "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                    "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                    "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Tìm kiếm:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Đang tải...",
+                    "oPaginate": {
+                    "sFirst": "Đầu tiên",
+                    "sLast": "Cuối cùng",
+                    "sNext": "Sau",
+                    "sPrevious": "Trước"
+                    },
+                    "oAria": {
+                    "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                    "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                    }
+                    },
+                    "lengthChange": true,
+                    "autoWidth": true,
+                    "stateSave": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "initComplete": function (oSettings) {
+
+            }
+        });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+             });
+        } catch (e) {}
+    }
+</script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#step_two").hide();
+    });
+
+    function Onchange_MaVT() {
+        var _maKho = $('#maKhoXuat').val();
+        var MaVTID = $("#MAVT");
+        MaVTID.empty();
+        $.ajax({
+            url: '@Url.Action("_LoadMaVT")',
+            timeout: 20000,
+            data: {
+                maKho: _maKho
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+
+                //MaVTID.append($('<option/>', { value: "" }).html("Chọn vật tư"));
+                $.each(result.obj, function (i, state) {
+                    MaVTID.append($('<option/>', { value: this.ID }).html(this.MAVT + ' || ' + this.HIEU + ' || ' + this.LO + ' || ' + this.SOLUONGTT));
+
+                });
+
+                MaVTID.trigger("chosen:updated");
+
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    }
+
+    function load_Change(maHinhThuc) {
+        if (maHinhThuc && maHinhThuc.includes("XD")) {
+            ChangeMaDH(maHinhThuc);
+        }
+        else {
+            ChangeMaDHNotXD(maHinhThuc);
+        }
+        
+    };
+    function ChangeMaDH(maHinhThuc) {
+            var MADH = $("#MADH");
+            MADH.empty();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("_LoadMADH_XD")',
+            data: { maHinhThuc: maHinhThuc },
+            success: function (result) {
+            $.each(result.obj, function (i, state) {
+                MADH.append($('<option/>', { value: state.MADH }).html(state.MADH + '||' + state.NAM));
+
+            });
+                MADH.trigger("chosen:updated");
+        }
+        });
+    };
+    function ChangeMaDHNotXD(maHinhThuc) {
+            var MADH = $("#MADH");
+            MADH.empty();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: '@Url.Action("_LoadMADH_No_XD")',
+            data: { maHinhThuc: maHinhThuc },
+            success: function (result) {
+            $.each(result.obj, function (i, state) {
+                MADH.append($('<option/>', { value: state.SoDonHang }).html(state.SoDonHang ));
+
+            });
+                MADH.trigger("chosen:updated");
+        }
+        });
+    };
+
+    $("#btNhaptiep").click(function () {
+        var maKhoXuat = $('#maKhoXuat').val();
+        var maHT = $('#maHinhThuc').val();
+        var noiDen = $('#noiDen').val();
+        var ghiChu1 = $('#ghiChu1').val();
+        var maPhieu = $('#MaPhieu').val();
+        var madh = $('#MADH').val();
+
+        $.ajax({
+            url: '@Url.Action("_InsertFun")',
+            type: "POST",
+            data: {
+                SOCTXN: maPhieu,
+                MAHTHUC: maHT,
+                MAKHO: maKhoXuat,
+                GHICHU: ghiChu1,
+                NOIDEN: noiDen,
+                MADH: madh,
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                console.log(result.obj);
+                if (result.status >= 1) {
+                    notify(result.text, "success");
+                    reloadData();
+                    reloadCT();
+                    $("#step_one").hide();
+                    $("#step_two").show();
+                }
+                else {
+                    notify(result.text, "error");
+                }
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    function _SaveCT() {
+        var _maKhoXuat = $('#maKhoXuat').val();
+        var _SOCTXN = $('#SOCTXN').val();
+        var _LOAIDONHANG = $('#LOAIDONHANG').val();
+        var _MADH = $('#MADH').val();
+        var _MAVT = $('#MAVT').val();
+        var _SOLUONGYC = $('#SOLUONGYC').val();
+        var _LANXN = $('#LANXN').val();
+        var _GHICHU = $('#GHICHU').val();
+        var _maHT = $('#maHinhThuc').val();
+        var _MADHang = $('#MADHang').val();
+        $.ajax({
+            url: '@Url.Action("_SaveCTPhieu")',
+            type: "POST",
+            data: {
+                MAKHO: _maKhoXuat,
+                SOCTXN: _SOCTXN,
+                LOAIDONHANG: _LOAIDONHANG,
+                MADH: _MADH,
+                MAVT: _MAVT,
+                SOLUONGYC: _SOLUONGYC,
+                LANXN: _LANXN,
+                GHICHU: _GHICHU,
+                MAHTHUC: _maHT,
+                MADHang: _MADHang,
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                console.log(result.obj);
+                if (result.status >= 1) {
+                    notify(result.text, "success");
+                    reloadCT(true);
+                }
+                else {
+                    notify(result.text, "error");
+                }
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    }
+
+    function DeleteCT(KHOAKEYXN_) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteCTFun")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: { KHOAKEYXN: KHOAKEYXN_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                            //reloadCT(SOCTXN);
+                            reloadCT();
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+    };
+    
+</script>

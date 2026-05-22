@@ -1,0 +1,76 @@
+﻿
+
+@{
+    var listPhieu = ViewBag.listPhieu as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEUXN>;
+}
+<div class="control-group" style="font-size:14px">
+    <table id="myTable" class="table table-bordered table-striped">
+        <thead style="text-align:center">
+            <tr>
+                <th>Tùy chỉnh</th>
+                <th width="30px">STT</th>
+                <th>Số CTXN</th>
+                <th>Mã kho</th>
+                <th>Mã hình thức</th>
+                <th>Nơi đến</th>
+                <th>Mã bộ phận</th>
+                <th>Ngày tạo</th>
+                <th>Ghi chú</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{ var STT = 1; }
+
+            @foreach (var item in listPhieu)
+            {
+                <tr>
+                    <td>
+                        @if (item.MANVXUAT == null || item.MANVXUAT == "")
+                        {
+                            <a onclick="Details('@item.SOCTXN')" class="btn">
+                                <i class="fas fa-list"></i> Chi Tiết
+                            </a>
+                            <a onclick="Delete('@item.SOCTXN')" class="btn" style="font-size:14px">
+                                <i class="far fa-trash-alt">&nbsp;Xóa</i>
+                            </a>
+                            <a onclick="Print('@item.SOCTXN')" class="btn" style="font-size:14px">
+                                <i class="fas fa-print" aria-hidden="true">&nbsp;In</i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a onclick="Details('@item.SOCTXN')" class="btn">
+                                <i class="fas fa-list"></i> Chi Tiết
+                            </a>
+                            <a onclick="Print('@item.SOCTXN')" class="btn" style="font-size:14px">
+                                <i class="fas fa-print">&nbsp;In</i>
+                            </a>
+                        }
+
+                    </td>
+                    <td>@STT</td>
+                    <td>@item.SOCTXN</td>
+                    <td>@item.MAKHO</td>
+                    <td>@item.MAHTHUC</td>
+                    <td>@item.NOIDEN</td>
+                    <td>@item.MABP</td>
+                    <td>@(item.NGAY == null ? "" : item.NGAY.Value.ToString("dd/MM/yyyy"))</td>
+                    <td>@item.GHICHU</td>
+                </tr>
+                STT++;
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+

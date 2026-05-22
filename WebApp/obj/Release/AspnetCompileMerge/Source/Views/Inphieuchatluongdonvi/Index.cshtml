@@ -1,0 +1,580 @@
+﻿@{
+    ViewBag.Title = "";
+
+}
+
+
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <div class="card card-primary card-tabs">
+            <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true" style="font-size:13px">IN PHIẾU KIỂM TRA CHẤT LƯỢNG (ĐƠN VỊ) </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false" style="font-size:13px">IN PHIẾU KIỂM TRA CHẤT LƯỢNG THEO SỐ HÓA ĐƠN (ĐƠN VỊ)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content " id="custom-tabs-one-tabContent">
+                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmctphieu", id = "frmctphieu", enctype = "multipart/form-data" }))
+                                {
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>Tra cứu số chứng từ</b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>Số chứng từ</label>
+                                                    <div class="col-md-9">
+                                                        <input class="form-control" type="text" autocomplete="off" value=""
+                                                               id="SOCTVT" name="SOCTVT" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="input-group">
+                                                        <label>&nbsp;</label><br />
+                                                        <button style="margin-top: 28px; margin-left: 5px" onclick="btnSearchSoCT()" 
+                                                                type="button" class="btn btn-outline-primary form-control"><i class="fa fa-search"></i>&nbsp;Tra cứu</button>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12 col-12">
+                                <div class="card card-primary card-tabs">
+                                    <div class="card-header p-0 pt-1">
+                                        <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true" style="font-size:15px"> IN PHIẾU KIỂM TRA CHẤT LƯỢNG (ĐƠN VỊ) </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="tab-content " id="custom-tabs-two-tabContent">
+                                            <div class="tab-pane fade show active" id="custom-tabs-two-home" role="tabpanel" aria-labelledby="custom-tabs-two-home-tab">
+                                                <div class="row">
+
+                                                </div>
+                                                <hr />
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+                                                        {
+                                                            <div class="card card-primary card-outline">
+                                                                <div class="card-body pad">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 table-body table-responsive">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </div>
+                    <div class="tab-pane fade col-md-12 row" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmct", id = "frmct", enctype = "multipart/form-data" }))
+                                {
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>Tra cứu theo hóa đơn</b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-3">
+
+                                                    <label>Số Hóa Đơn</label>
+                                                    <div class="col-md-9">
+                                                        <input class="form-control" type="text" autocomplete="off" value=""
+                                                               id="SoHoaDon" name="SoHoaDon" />
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="input-group">
+                                                        <label>&nbsp;</label><br />
+                                                        <button style="margin-top: 28px; margin-left: 5px" onclick="btnSearchSoHD()" type="button" class="btn btn-outline-primary form-control"><i class="fa fa-search"></i>&nbsp;Tra cứu</button>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12 col-12">
+                                <div class="card card-primary card-tabs">
+                                    <div class="card-header p-0 pt-1">
+                                        <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true" style="font-size:15px">IN PHIẾU KIỂM TRA CHẤT LƯỢNG THEO SỐ HÓA ĐƠN (ĐƠN VỊ) </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="tab-content " id="custom-tabs-three-tabContent">
+                                            <div class="tab-pane fade show active" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
+
+                                                <div class="row">
+
+                                                </div>
+                                                <hr />
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmsohd", id = "frmsohd", enctype = "multipart/form-data" }))
+                                                        {
+                                                            <div class="card card-primary card-outline">
+                                                                <div class="card-body pad">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 table-body-sohd table-responsive">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModalPrint" class="modal fade modal-wide" role="dialog" style="overflow:auto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmDetail", id = "frmDetail", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitlePrint"></strong></div>
+                    <div class="btn-group">
+                        <div class="btn-group mt-2">
+                            <button type="button" class="btn btn-danger" onclick="exportPdf()">
+                                <i class="fa fa-file-pdf"></i> PDF
+                            </button>
+
+                            <button type="button" class="btn btn-success" onclick="exportExcel()">
+                                <i class="fa fa-file-excel"></i> Excel
+                            </button>
+
+                            <button type="button" class="btn btn-primary" onclick="exportWord()">
+                                <i class="fa fa-file-word"></i> Word
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentPrint">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button id="btnPrint" onclick="javascript:CallPrint2026('myModalContentPrint');" type="button" title="In báo cáo" class="btn bg-gradient-indigo" style="width: 120px"><i class="fa fa-print"></i>&nbsp;In 26</button>
+                        &nbsp;
+
+                        <button id="btnPrint" onclick="javascript:CallPrint('myModalContentPrint');" type="button" title="In báo cáo" class="btn bg-gradient-indigo" style="width: 120px"><i class="fa fa-print"></i>&nbsp;In</button>
+                        &nbsp;
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="width: 120px"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section scripts{
+
+
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open();
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+            //prtContent.innerHTML = strOldOne;
+        }
+    </script>
+    <script language="javascript" type="text/javascript">
+        function CallPrint2026(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'width=900,height=650');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+            //prtContent.innerHTML = strOldOne;
+        }
+    </script>
+    <script type="text/javascript">
+        function PrintElement(elem) {
+            Popup($(elem).html());
+        }
+        function Popup(data) {
+            var mywindow = window.open('', '', 'height=800,width=900');
+            mywindow.document.write('<html><head><title></title>');
+            /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+            mywindow.document.write('</head><body >');
+            mywindow.document.write(data);
+            mywindow.document.write('</body></html>');
+
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+        }
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': { allow_single_deselect: true },
+            '.chosen-select-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+
+    </script>
+    <script>
+        function reloadData(page) {
+            try {
+                _GetList();
+
+            } catch (e) {
+            }
+        }
+
+        function btnSearchSoCT() {
+            _GetList();
+        }
+
+        function btnSearchSoHD() {
+            _GetListHD();
+        }
+
+
+        function _GetList(_SOCTVT) {
+            var SOCTVT = $('#SOCTVT').val();
+             $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                 data: {
+                     SOCTVT: _SOCTVT == null ? SOCTVT : _SOCTVT
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        destroy: true,
+                        "language": {
+                            "sProcessing": "Đang xử lý...",
+                            "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                            "sZeroRecords": "Không tìm thấy kết quả",
+                            "sEmptyTable": "Không có dữ liệu",
+                            "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Tìm kiếm:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Đang tải...",
+                            "oPaginate": {
+                                "sFirst": "Đầu tiên",
+                                "sLast": "Cuối cùng",
+                                "sNext": "Sau",
+                                "sPrevious": "Trước"
+                            },
+                            "oAria": {
+                                "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                            }
+                        },
+                        "lengthMenu": [5,10, 25, 50, 75, 100],
+                        "info": false,
+                        "processing": false,
+                        "serverSide": false,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        function _GetListHD(_SOHD) {
+                var SoHoaDon = $('#SoHoaDon').val();
+             $.ajax({
+                url: '@Url.Action("_GetListHD")',
+                timeout: 20000,
+                 data: {
+                     SoHoaDon: _SOHD == null ? SoHoaDon : _SOHD
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-sohd').html(response);
+
+                    $("#myTableHD").DataTable({
+                        destroy: true,
+                        "language": {
+                            "sProcessing": "Đang xử lý...",
+                            "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                            "sZeroRecords": "Không tìm thấy kết quả",
+                            "sEmptyTable": "Không có dữ liệu",
+                            "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Tìm kiếm:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Đang tải...",
+                            "oPaginate": {
+                                "sFirst": "Đầu tiên",
+                                "sLast": "Cuối cùng",
+                                "sNext": "Sau",
+                                "sPrevious": "Trước"
+                            },
+                            "oAria": {
+                                "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                            }
+                        },
+                        "lengthMenu": [5,10, 25, 50, 75, 100],
+                        "info": false,
+                        "processing": false,
+                        "serverSide": false,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+    </script>
+    <script>
+        var $modalPrint = $('#myModalPrint');
+        var $myModalContentPrint = $("#myModalContentPrint");
+        var $myModalTitleDT = $("#myModalTitlePrint");
+
+        function Print(SOCTVT_) {
+
+            $.ajax({
+                url: '@Url.Action("_PrintReport")',
+                timeout: 20000,
+                data: {
+                    SOCTVT: SOCTVT_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                    success: function (result) {
+                        if (result.status < 0) {
+                            notify(result.text, "error");
+                            $(".divLoading").removeClass("loading");
+                        }
+                        else {
+                            $myModalContentPrint.html(result);
+                            $modalPrint.modal();
+                            $(".divLoading").removeClass("loading");
+                        }
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        function Print_HD(SOHD_, Makho_) {
+
+            $.ajax({
+                url: '@Url.Action("_PrintReportSoHD")',
+                timeout: 20000,
+                data: {
+                    SOHD: SOHD_, Makho: Makho_
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                    success: function (result) {
+                        if (result.status < 0) {
+                            notify(result.text, "error");
+                            $(".divLoading").removeClass("loading");
+                        }
+                        else {
+                            $myModalContentPrint.html(result);
+                            $modalPrint.modal();
+                            $(".divLoading").removeClass("loading");
+                        }
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        function btnBGDXacNhan(SOCTXN_) {
+            var confirm_ = confirm('Bạn có chắc muốn xác nhận số phiếu này?' + SOCTXN_);
+             if (confirm_) {
+                 $.ajax({
+                     url: '@Url.Action("BGDXacNhanFun")',
+                     timeout: 2000000,
+                     type: "POST",
+                     data: { SOCTXN: SOCTXN_ },
+                     beforeSend: function (xhr) {
+                         $(".divLoading").addClass("loading");
+                     },
+                     success: function (result) {
+
+                         if (result.status >= 1) {
+                             notify(result.text, "success");
+                             reloadData(false);
+                         }
+                         else {
+                             notify(result.text, "error");
+                         }
+                         $(".divLoading").removeClass("loading");
+                     },
+                     error: function (message) {
+                         $(".divLoading").removeClass("loading");
+                     }
+                 });
+             }
+        }
+
+    </script>
+    <script>
+function getSoctvt() {
+    const soctvt = document.getElementById("SOCTPrint").value;
+
+    if (!soctvt) {
+        alert("Vui lòng nhập Số chứng từ");
+        return null;
+    }
+    return encodeURIComponent(soctvt);
+}
+
+    function exportPdf() {
+        const soctvt = getSoctvt();
+        if (!soctvt) return;
+
+        window.location.href =
+            '@Url.Action("ExportPdf", "Inphieuchatluongdonvi")'
+            + '?soctvt=' + soctvt;
+    }
+
+    function exportExcel() {
+        const soctvt = getSoctvt();
+        if (!soctvt) return;
+
+        window.location.href =
+            '@Url.Action("ExportExcel", "Inphieuchatluongdonvi")'
+            + '?soctvt=' + soctvt;
+    }
+
+    function exportWord() {
+        const soctvt = getSoctvt();
+        if (!soctvt) return;
+
+        window.location.href =
+            '@Url.Action("ExportWord", "Inphieuchatluongdonvi")'
+            + '?soctvt=' + soctvt;
+    }
+    </script>
+
+
+}

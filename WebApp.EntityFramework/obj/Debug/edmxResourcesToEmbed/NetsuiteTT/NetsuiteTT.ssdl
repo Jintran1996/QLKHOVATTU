@@ -1,0 +1,850 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NetsuiteTTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BongIn">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BongNenVai">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BTM_Serial_No_List">
+    <Key>
+      <PropertyRef Name="Internal_ID" />
+    </Key>
+    <Property Name="Internal_ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="From_Date" Type="datetime2" Precision="7" />
+    <Property Name="To_Date" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="CaDet">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaCaDet" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'NetsuiteTT.dbo.Chart_of_Accounts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Chart_of_Accounts">
+    <Key>
+      <PropertyRef Name="int" />
+    </Key>
+    <Property Name="InternalID_NS" Type="varchar" MaxLength="50" />
+    <Property Name="Number_TT" Type="varchar" MaxLength="50" />
+    <Property Name="Externalid_NS" Type="varchar" MaxLength="50" />
+    <Property Name="int" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="parent" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tbl_franchise" Type="nvarchar" MaxLength="50" />
+    <Property Name="code_Department" Type="nvarchar" MaxLength="50" />
+    <Property Name="Desciption" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CongNgheDet">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DongBoVATTU_SOI__Json_Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Json" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Source" Type="varchar" MaxLength="250" />
+    <Property Name="JsonNotification" Type="nvarchar(max)" />
+    <Property Name="Error" Type="bit" />
+    <Property Name="Action" Type="nvarchar" MaxLength="500" />
+    <Property Name="PhanLoai" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="50" />
+    <Property Name="MayTinh" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Donvi_mapping_Department">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="internalid" Type="varchar" MaxLength="50" />
+    <Property Name="externalid" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="parent" Type="varchar" MaxLength="50" />
+    <Property Name="idmadv" Type="varchar" MaxLength="50" />
+    <Property Name="madv" Type="varchar" MaxLength="50" />
+    <Property Name="idmacs" Type="varchar" MaxLength="50" />
+    <Property Name="mabp" Type="varchar" MaxLength="50" />
+    <Property Name="Account_Donvi_Xsudung" Type="varchar" MaxLength="50" />
+    <Property Name="donvidathang" Type="varchar" MaxLength="50" />
+    <Property Name="ghichu" Type="nvarchar" MaxLength="500" />
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'NetsuiteTT.dbo.Donvi_mapping_Department_bk150424' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Donvi_mapping_Department_bk150424">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="internalid" Type="varchar" MaxLength="50" />
+    <Property Name="externalid" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="parent" Type="varchar" MaxLength="50" />
+    <Property Name="idmadv" Type="varchar" MaxLength="50" />
+    <Property Name="madv" Type="varchar" MaxLength="50" />
+    <Property Name="idmacs" Type="varchar" MaxLength="50" />
+    <Property Name="mabp" Type="varchar" MaxLength="50" />
+    <Property Name="Account_Donvi_Xsudung" Type="varchar" MaxLength="50" />
+    <Property Name="donvidathang" Type="varchar" MaxLength="50" />
+    <Property Name="ghichu" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DonViTienTe">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="QuocGia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="KyHieu" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DSInvoiceXuatKhau">
+    <Key>
+      <PropertyRef Name="invoice" />
+    </Key>
+    <Property Name="invoice" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="thitruong" Type="char" MaxLength="5" />
+    <Property Name="khuvuc" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="DSPhieuUploadNS">
+    <Key>
+      <PropertyRef Name="SoPhieu" />
+    </Key>
+    <Property Name="SoPhieu" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Showroom" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DSPhieuViPhamEntity">
+    <Key>
+      <PropertyRef Name="Sophieu" />
+    </Key>
+    <Property Name="Sophieu" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Customer" Type="varchar" MaxLength="50" />
+    <Property Name="Showroom" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DSPhieuViPhamQuantityItem">
+    <Key>
+      <PropertyRef Name="Item" />
+    </Key>
+    <Property Name="Sophieu" Type="varchar" MaxLength="50" />
+    <Property Name="Item" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DSPhieuViPhamSerialLotNumber">
+    <Key>
+      <PropertyRef Name="SerialLotNumber" />
+    </Key>
+    <Property Name="Sophieu" Type="varchar" MaxLength="50" />
+    <Property Name="Item" Type="varchar" MaxLength="50" />
+    <Property Name="SerialLotNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Expense_Code">
+    <Key>
+      <PropertyRef Name="stt" />
+    </Key>
+    <Property Name="Internalid_ExpenseCode" Type="varchar" MaxLength="50" />
+    <Property Name="Externalid_ExpenseCode" Type="varchar" MaxLength="50" />
+    <Property Name="Name_code" Type="nvarchar" MaxLength="250" />
+    <Property Name="Expense_code" Type="varchar" MaxLength="50" />
+    <Property Name="CP_NguoiLaoDong" Type="nvarchar" MaxLength="250" />
+    <Property Name="Department" Type="nvarchar" MaxLength="250" />
+    <Property Name="Acount_Chiphi_SX" Type="varchar" MaxLength="50" />
+    <Property Name="stt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GhiLog_DMVattu_ErrorAPI_NS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Internalid" Type="varchar" MaxLength="50" />
+    <Property Name="Externalid" Type="varchar" MaxLength="50" />
+    <Property Name="MAVT" Type="varchar" MaxLength="50" />
+    <Property Name="TenVT" Type="nvarchar" MaxLength="1500" />
+    <Property Name="DVT" Type="varchar" MaxLength="50" />
+    <Property Name="LogNS" Type="nvarchar(max)" />
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="MANV" Type="varchar" MaxLength="50" />
+    <Property Name="Ngaylog" Type="datetime" />
+    <Property Name="HanhDong" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'NetsuiteTT.dbo.GioiTinh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GioiTinh">
+    <Key>
+      <PropertyRef Name="code_sex" />
+      <PropertyRef Name="internalID" />
+    </Key>
+    <Property Name="code_sex" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="decription" Type="nvarchar" MaxLength="50" />
+    <Property Name="internalID" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KenhPhanPhoi">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaKenh" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kho">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="externalid" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+    <Property Name="parent" Type="varchar" MaxLength="100" />
+    <Property Name="makho" Type="varchar" MaxLength="100" />
+    <Property Name="tenkho" Type="nvarchar" MaxLength="200" />
+    <Property Name="loai" Type="varchar" MaxLength="50" />
+    <Property Name="ID_nhamaysx" Type="varchar" MaxLength="50" />
+    <Property Name="IDMADV" Type="varchar" MaxLength="50" />
+    <Property Name="NHAMAY" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'NetsuiteTT.dbo.kho_bk_30052024' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="kho_bk_30052024">
+    <Key>
+      <PropertyRef Name="STT" />
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="externalid" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+    <Property Name="parent" Type="varchar" MaxLength="100" />
+    <Property Name="makho" Type="varchar" MaxLength="100" />
+    <Property Name="tenkho" Type="nvarchar" MaxLength="200" />
+    <Property Name="loai" Type="varchar" MaxLength="50" />
+    <Property Name="ID_nhamaysx" Type="varchar" MaxLength="50" />
+    <Property Name="IDMADV" Type="varchar" MaxLength="50" />
+    <Property Name="NHAMAY" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KhoanMucChiPhi">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KhoVai">
+    <Key>
+      <PropertyRef Name="MaKhoVai" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaKhoVai" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'NetsuiteTT.dbo.KhuVuc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="KhuVuc">
+    <Key>
+      <PropertyRef Name="internalid" />
+    </Key>
+    <Property Name="internalid" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="parent" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KichCo">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Size" Type="varchar" MaxLength="50" />
+    <Property Name="KyTu15" Type="varchar" MaxLength="50" />
+    <Property Name="KyTu11" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoaiGiaBan">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaLoaiGia" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiKhachHang">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiMayDet">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="KyHieu" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiNhaCungCap">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiSanPham">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" />
+    <Property Name="LoaiSanPham" Type="varchar" MaxLength="100" />
+    <Property Name="KyTu1" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoaiSanPhamChiTiet">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="MaLoaiSPCT" Type="varchar" MaxLength="150" />
+    <Property Name="PhanNhomSanPham" Type="nvarchar" MaxLength="150" />
+    <Property Name="Kytu1" Type="varchar" MaxLength="50" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="LoaiVatTu">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoaiVatTu" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiYeuCau">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LoaiYeuCau" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiYeuCauSanXuat">
+    <Key>
+      <PropertyRef Name="Internalid_LoaiYCSX" />
+    </Key>
+    <Property Name="Internalid_LoaiYCSX" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name_Loai" Type="nvarchar" MaxLength="150" />
+    <Property Name="GC_SOI" Type="bit" />
+  </EntityType>
+  <EntityType Name="NguocGoc">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaNguonGoc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ChonHayNhapHang" Type="varchar" MaxLength="10" />
+    <Property Name="ThiTruong" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhienMaDonHangNhuomIn" Type="varchar" MaxLength="10" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NguonHangSanXuat">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NhomHang">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoaiSanPham" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NhomTrangPhuc" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaLoaiSanPham" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaNguonGoc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NhanHang" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NhomVai" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhomHoaVanDetIn">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KyHieu" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhamViBanHang" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhomMucDichSuDung">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="NhomMucDichSD" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="NhomSanPham">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="NhomSanPhamKinhDoanh">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaNhom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhomSoi">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaNhomSoi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="KyHieuThanhPham" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhomTrangPhuc">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaNhom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhamViBanHang" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'NetsuiteTT.dbo.OtherChagreForPurchase' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OtherChagreForPurchase">
+    <Key>
+      <PropertyRef Name="ExternalID" />
+    </Key>
+    <Property Name="ExternalID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ExpenseCogsAccount" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="UsedByBTMMCSuiteApp" Type="bit" />
+    <Property Name="WipStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PhanLoaiSPMay">
+    <Key>
+      <PropertyRef Name="Externalid_NhomSPM" />
+    </Key>
+    <Property Name="Externalid_NhomSPM" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name_NS" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name_TT" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_TT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KyTu1" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhanNhomSanPham">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaLoaiSP" Type="varchar" MaxLength="150" />
+    <Property Name="MaLoaiSP_TT" Type="varchar" MaxLength="50" />
+    <Property Name="LoaiSanPham_NS" Type="nvarchar" MaxLength="150" />
+    <Property Name="NameSP" Type="nvarchar" MaxLength="150" />
+    <Property Name="KyTu" Type="varchar" MaxLength="50" />
+    <Property Name="LoaiVT_TT" Type="varchar" MaxLength="50" />
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hieuluc" Type="bit" />
+  </EntityType>
+  <EntityType Name="PhuongThucThanhToan">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SaleOrder_Viseri">
+    <Key>
+      <PropertyRef Name="SoHD" />
+    </Key>
+    <Property Name="SoHD" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgayHD" Type="datetime" Nullable="false" />
+    <Property Name="MaDonHang" Type="varchar" MaxLength="100" />
+    <Property Name="NgayDonHang" Type="datetime" />
+    <Property Name="LoaiDonHang" Type="varchar" MaxLength="100" />
+    <Property Name="HinhThuGiaCong" Type="nvarchar" MaxLength="100" />
+    <Property Name="LoaiGC" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaDonViNhan" Type="varchar" MaxLength="100" />
+    <Property Name="MaKhoNhan" Type="varchar" MaxLength="100" />
+    <Property Name="KhachHang" Type="varchar(max)" />
+    <Property Name="QuocGia" Type="varchar" MaxLength="100" />
+    <Property Name="ThiTruong" Type="varchar" MaxLength="100" />
+    <Property Name="DonGia" Type="varchar" MaxLength="100" />
+    <Property Name="DonViTinhGia" Type="varchar" MaxLength="100" />
+    <Property Name="TyGia" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MaHangThanhPham" Type="varchar" MaxLength="100" />
+    <Property Name="TongSLKhachGiao" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SLThanhPhamDuKien" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DVT" Type="varchar" MaxLength="100" />
+    <Property Name="DinhMucGM" Type="varchar" MaxLength="100" />
+    <Property Name="TieuHaoVoHinh" Type="varchar" MaxLength="100" />
+    <Property Name="TieuHaoHuuHinh" Type="varchar" MaxLength="100" />
+    <Property Name="DVTTieuHao" Type="varchar" MaxLength="100" />
+    <Property Name="NgayDuKienGiaoHang" Type="datetime" />
+    <Property Name="NguoiCN" Type="varchar" MaxLength="100" />
+    <Property Name="NgayCN" Type="nchar" MaxLength="10" />
+    <Property Name="NguoiDC" Type="varchar" MaxLength="100" />
+    <Property Name="NgayDC" Type="datetime" />
+    <Property Name="KetThucDonHang" Type="bit" />
+    <Property Name="NguoiKTDH" Type="varchar" MaxLength="100" />
+    <Property Name="NgayKTDH" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SaleOrder_Viseri_Item">
+    <Key>
+      <PropertyRef Name="ID_Khoa" />
+    </Key>
+    <Property Name="MaDonHang" Type="varchar" MaxLength="100" />
+    <Property Name="MaVatTuKH" Type="varchar" MaxLength="100" />
+    <Property Name="TenVatTu" Type="nvarchar(max)" />
+    <Property Name="DVT" Type="varchar" MaxLength="50" />
+    <Property Name="SLKhachGiao" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MaCongDoan" Type="varchar" MaxLength="50" />
+    <Property Name="DinhMucGM" Type="varchar" MaxLength="50" />
+    <Property Name="LyDoNhan" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgCapNhat" Type="varchar" MaxLength="50" />
+    <Property Name="NgayCapNhat" Type="datetime" />
+    <Property Name="NgDieuChinh" Type="varchar" MaxLength="50" />
+    <Property Name="NgayDieuChinh" Type="datetime" />
+    <Property Name="ID_Khoa" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table_LoaiPhieuVanChuyenNoiBo">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="InternalID" Type="varchar" MaxLength="50" />
+    <Property Name="ExternalID" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="LoaiPhieu" Type="varchar" MaxLength="50" />
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_DinhMuc_KeyHH_MOC">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="Internalid_BOM_Rev" Type="varchar" MaxLength="50" />
+    <Property Name="KeyHH" Type="varchar" MaxLength="50" />
+    <Property Name="IDChiPhi" Type="varchar" MaxLength="150" />
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Internalid_BOM" Type="varchar" MaxLength="50" />
+    <Property Name="SoLanTinh_KeyHH" Type="varchar" MaxLength="150" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_MACP_TenVT_Dinhmucdet">
+    <Key>
+      <PropertyRef Name="INT" />
+    </Key>
+    <Property Name="MACP" Type="varchar" MaxLength="50" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="500" />
+    <Property Name="MAPPING_KYHIEUCP" Type="varchar" MaxLength="50" />
+    <Property Name="INT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z">
+    <Key>
+      <PropertyRef Name="INT" />
+    </Key>
+    <Property Name="MACP" Type="varchar" MaxLength="50" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="500" />
+    <Property Name="MAPPING_KYHIEUCP" Type="varchar" MaxLength="50" />
+    <Property Name="INT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_MaHangSPM_MaKieuDang">
+    <Key>
+      <PropertyRef Name="ID_TT" />
+      <PropertyRef Name="LOAISP" />
+    </Key>
+    <Property Name="Externalid_MaKieuDang" Type="varchar" MaxLength="50" />
+    <Property Name="ID_TT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="LOAISP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Externalid_NhomMDSD" Type="varchar" MaxLength="50" />
+    <Property Name="Externalid_LoaiSPMay" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_Mapping_Mavattu_DVT">
+    <Key>
+      <PropertyRef Name="stt" />
+    </Key>
+    <Property Name="Internalid" Type="varchar" MaxLength="50" />
+    <Property Name="Externalid" Type="varchar" MaxLength="50" />
+    <Property Name="DVT" Type="varchar" MaxLength="50" />
+    <Property Name="TenDVT" Type="nvarchar" MaxLength="50" />
+    <Property Name="stt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'NetsuiteTT.dbo.Table_Mapping_Mavattu_DVT_BK_23032024' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Table_Mapping_Mavattu_DVT_BK_23032024">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Internalid" Type="varchar" MaxLength="50" />
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DVT" Type="varchar" MaxLength="50" />
+    <Property Name="TenDVT" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_TAX_CODE">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="Internalid_taxcode" Type="varchar" MaxLength="50" />
+    <Property Name="Name_Tax_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Desciption" Type="nvarchar" MaxLength="150" />
+    <Property Name="Rate" Type="varchar" MaxLength="50" />
+    <Property Name="HieuLuc" Type="bit" />
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaiKhoanNhanVien_Netsuite">
+    <Key>
+      <PropertyRef Name="externalid" />
+    </Key>
+    <Property Name="externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="department" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="internalid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBL_Data_BCChiPhiVatTu_BC14">
+    <Key>
+      <PropertyRef Name="ID_" />
+    </Key>
+    <Property Name="Item" Type="varchar" MaxLength="50" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="250" />
+    <Property Name="SoPhieu" Type="varchar" MaxLength="50" />
+    <Property Name="NgayPhieu" Type="date" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="Quantity" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SoTienNo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SoTienCo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Account" Type="varchar" MaxLength="50" />
+    <Property Name="AccountMain" Type="nvarchar" MaxLength="250" />
+    <Property Name="Memo" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgayCN" Type="datetime" />
+    <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+    <Property Name="ID_" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PhongBan" Type="varchar" MaxLength="50" />
+    <Property Name="KeToanKiemTra" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBL_Mapping_DoiTuongKhachHang_Customers">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExternalID_CUSTOMER" Type="varchar" MaxLength="50" />
+    <Property Name="Showroom" Type="varchar" MaxLength="50" />
+    <Property Name="MaLoaiKhachHang" Type="varchar" MaxLength="250" />
+    <Property Name="MaDoiTuongKH" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="DoiTuong" Type="nvarchar" MaxLength="500" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="250" />
+    <Property Name="MST" Type="nvarchar" MaxLength="250" />
+    <Property Name="NguoiDaiDien" Type="nvarchar" MaxLength="250" />
+    <Property Name="SoDienThoai" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgayMuaHangDauTien" Type="datetime" />
+    <Property Name="CMND" Type="varchar" MaxLength="50" />
+    <Property Name="NgayCap" Type="datetime" />
+    <Property Name="NoiCap" Type="nvarchar" MaxLength="250" />
+    <Property Name="SoTaiKhoan" Type="varchar" MaxLength="50" />
+    <Property Name="Nganhang" Type="nvarchar" MaxLength="500" />
+    <Property Name="ThiTruong" Type="varchar" MaxLength="50" />
+    <Property Name="NhanVienQuanLy" Type="varchar" MaxLength="50" />
+    <Property Name="KenhPP" Type="varchar" MaxLength="50" />
+    <Property Name="KhuVuc" Type="varchar" MaxLength="50" />
+    <Property Name="SanPham" Type="varchar" MaxLength="50" />
+    <Property Name="HieuLuc" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModifiedByID" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="DonViPhuTrach" Type="varchar" MaxLength="50" />
+    <Property Name="BH_KT" Type="varchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="datetime" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="250" />
+    <Property Name="GuiAPI" Type="bit" />
+    <Property Name="NgayGuiAPI" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_Mapping_NguonGocSP_ThuongHieu">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Externalid" />
+      <PropertyRef Name="ID_TT" />
+      <PropertyRef Name="LOAISP" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Internalid" Type="varchar" MaxLength="50" />
+    <Property Name="ID_TT" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="LOAISP" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TenHopQui">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThiTruongXuatKhau">
+    <Key>
+      <PropertyRef Name="Externalid" />
+    </Key>
+    <Property Name="Externalid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ThiTruong" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="100" />
+    <Property Name="LoaiThongTin" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="SPLOAD_TONKHOALL_TP_2024" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="VATTU2024_LOAD_LOAISPCHITIET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2024_SP_LOAD_ExpenseCodeList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="NetsuiteTTModelStoreContainer">
+    <EntitySet Name="BongIn" EntityType="Self.BongIn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BongNenVai" EntityType="Self.BongNenVai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BTM_Serial_No_List" EntityType="Self.BTM_Serial_No_List" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaDet" EntityType="Self.CaDet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CongNgheDet" EntityType="Self.CongNgheDet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DongBoVATTU_SOI__Json_Log" EntityType="Self.DongBoVATTU_SOI__Json_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Donvi_mapping_Department" EntityType="Self.Donvi_mapping_Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonViTienTe" EntityType="Self.DonViTienTe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DSInvoiceXuatKhau" EntityType="Self.DSInvoiceXuatKhau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DSPhieuUploadNS" EntityType="Self.DSPhieuUploadNS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DSPhieuViPhamEntity" EntityType="Self.DSPhieuViPhamEntity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DSPhieuViPhamQuantityItem" EntityType="Self.DSPhieuViPhamQuantityItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DSPhieuViPhamSerialLotNumber" EntityType="Self.DSPhieuViPhamSerialLotNumber" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expense_Code" EntityType="Self.Expense_Code" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GhiLog_DMVattu_ErrorAPI_NS" EntityType="Self.GhiLog_DMVattu_ErrorAPI_NS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KenhPhanPhoi" EntityType="Self.KenhPhanPhoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kho" EntityType="Self.Kho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhoanMucChiPhi" EntityType="Self.KhoanMucChiPhi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhoVai" EntityType="Self.KhoVai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KichCo" EntityType="Self.KichCo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiGiaBan" EntityType="Self.LoaiGiaBan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiKhachHang" EntityType="Self.LoaiKhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiMayDet" EntityType="Self.LoaiMayDet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiNhaCungCap" EntityType="Self.LoaiNhaCungCap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiSanPham" EntityType="Self.LoaiSanPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiSanPhamChiTiet" EntityType="Self.LoaiSanPhamChiTiet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiVatTu" EntityType="Self.LoaiVatTu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiYeuCau" EntityType="Self.LoaiYeuCau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiYeuCauSanXuat" EntityType="Self.LoaiYeuCauSanXuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguocGoc" EntityType="Self.NguocGoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguonHangSanXuat" EntityType="Self.NguonHangSanXuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhomHang" EntityType="Self.NhomHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhomHoaVanDetIn" EntityType="Self.NhomHoaVanDetIn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhomMucDichSuDung" EntityType="Self.NhomMucDichSuDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhomSanPham" EntityType="Self.NhomSanPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhomSanPhamKinhDoanh" EntityType="Self.NhomSanPhamKinhDoanh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhomSoi" EntityType="Self.NhomSoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhomTrangPhuc" EntityType="Self.NhomTrangPhuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanLoaiSPMay" EntityType="Self.PhanLoaiSPMay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanNhomSanPham" EntityType="Self.PhanNhomSanPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhuongThucThanhToan" EntityType="Self.PhuongThucThanhToan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleOrder_Viseri" EntityType="Self.SaleOrder_Viseri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleOrder_Viseri_Item" EntityType="Self.SaleOrder_Viseri_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_LoaiPhieuVanChuyenNoiBo" EntityType="Self.Table_LoaiPhieuVanChuyenNoiBo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Mapping_DinhMuc_KeyHH_MOC" EntityType="Self.Table_Mapping_DinhMuc_KeyHH_MOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Mapping_MACP_TenVT_Dinhmucdet" EntityType="Self.Table_Mapping_MACP_TenVT_Dinhmucdet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z" EntityType="Self.Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Mapping_MaHangSPM_MaKieuDang" EntityType="Self.Table_Mapping_MaHangSPM_MaKieuDang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Mapping_Mavattu_DVT" EntityType="Self.Table_Mapping_Mavattu_DVT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_TAX_CODE" EntityType="Self.Table_TAX_CODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoanNhanVien_Netsuite" EntityType="Self.TaiKhoanNhanVien_Netsuite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Data_BCChiPhiVatTu_BC14" EntityType="Self.TBL_Data_BCChiPhiVatTu_BC14" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Mapping_DoiTuongKhachHang_Customers" EntityType="Self.TBL_Mapping_DoiTuongKhachHang_Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Mapping_NguonGocSP_ThuongHieu" EntityType="Self.Tbl_Mapping_NguonGocSP_ThuongHieu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TenHopQui" EntityType="Self.TenHopQui" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThiTruongXuatKhau" EntityType="Self.ThiTruongXuatKhau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chart_of_Accounts" EntityType="Self.Chart_of_Accounts" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Chart_of_Accounts].[InternalID_NS] AS [InternalID_NS], 
+    [Chart_of_Accounts].[Number_TT] AS [Number_TT], 
+    [Chart_of_Accounts].[Externalid_NS] AS [Externalid_NS], 
+    [Chart_of_Accounts].[int] AS [int]
+    FROM [dbo].[Chart_of_Accounts] AS [Chart_of_Accounts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Donvi_mapping_Department_bk150424" EntityType="Self.Donvi_mapping_Department_bk150424" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Donvi_mapping_Department_bk150424].[internalid] AS [internalid], 
+    [Donvi_mapping_Department_bk150424].[externalid] AS [externalid], 
+    [Donvi_mapping_Department_bk150424].[name] AS [name], 
+    [Donvi_mapping_Department_bk150424].[parent] AS [parent], 
+    [Donvi_mapping_Department_bk150424].[idmadv] AS [idmadv], 
+    [Donvi_mapping_Department_bk150424].[madv] AS [madv], 
+    [Donvi_mapping_Department_bk150424].[idmacs] AS [idmacs], 
+    [Donvi_mapping_Department_bk150424].[mabp] AS [mabp], 
+    [Donvi_mapping_Department_bk150424].[Account_Donvi_Xsudung] AS [Account_Donvi_Xsudung], 
+    [Donvi_mapping_Department_bk150424].[donvidathang] AS [donvidathang], 
+    [Donvi_mapping_Department_bk150424].[ghichu] AS [ghichu]
+    FROM [dbo].[Donvi_mapping_Department_bk150424] AS [Donvi_mapping_Department_bk150424]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GioiTinh" EntityType="Self.GioiTinh" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GioiTinh].[code_sex] AS [code_sex], 
+    [GioiTinh].[decription] AS [decription], 
+    [GioiTinh].[internalID] AS [internalID]
+    FROM [dbo].[GioiTinh] AS [GioiTinh]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="kho_bk_30052024" EntityType="Self.kho_bk_30052024" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [kho_bk_30052024].[STT] AS [STT], 
+    [kho_bk_30052024].[externalid] AS [externalid], 
+    [kho_bk_30052024].[name] AS [name], 
+    [kho_bk_30052024].[parent] AS [parent], 
+    [kho_bk_30052024].[makho] AS [makho], 
+    [kho_bk_30052024].[tenkho] AS [tenkho], 
+    [kho_bk_30052024].[loai] AS [loai], 
+    [kho_bk_30052024].[ID_nhamaysx] AS [ID_nhamaysx], 
+    [kho_bk_30052024].[IDMADV] AS [IDMADV], 
+    [kho_bk_30052024].[NHAMAY] AS [NHAMAY]
+    FROM [dbo].[kho_bk_30052024] AS [kho_bk_30052024]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="KhuVuc" EntityType="Self.KhuVuc" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [KhuVuc].[internalid] AS [internalid], 
+    [KhuVuc].[name] AS [name], 
+    [KhuVuc].[parent] AS [parent]
+    FROM [dbo].[KhuVuc] AS [KhuVuc]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OtherChagreForPurchase" EntityType="Self.OtherChagreForPurchase" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OtherChagreForPurchase].[ExternalID] AS [ExternalID], 
+    [OtherChagreForPurchase].[Name] AS [Name], 
+    [OtherChagreForPurchase].[DisplayName] AS [DisplayName], 
+    [OtherChagreForPurchase].[ExpenseCogsAccount] AS [ExpenseCogsAccount], 
+    [OtherChagreForPurchase].[UsedByBTMMCSuiteApp] AS [UsedByBTMMCSuiteApp], 
+    [OtherChagreForPurchase].[WipStatus] AS [WipStatus]
+    FROM [dbo].[OtherChagreForPurchase] AS [OtherChagreForPurchase]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Table_Mapping_Mavattu_DVT_BK_23032024" EntityType="Self.Table_Mapping_Mavattu_DVT_BK_23032024" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Table_Mapping_Mavattu_DVT_BK_23032024].[Internalid] AS [Internalid], 
+    [Table_Mapping_Mavattu_DVT_BK_23032024].[Externalid] AS [Externalid], 
+    [Table_Mapping_Mavattu_DVT_BK_23032024].[DVT] AS [DVT], 
+    [Table_Mapping_Mavattu_DVT_BK_23032024].[TenDVT] AS [TenDVT]
+    FROM [dbo].[Table_Mapping_Mavattu_DVT_BK_23032024] AS [Table_Mapping_Mavattu_DVT_BK_23032024]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

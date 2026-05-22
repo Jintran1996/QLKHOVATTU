@@ -1,0 +1,59 @@
+﻿@using System.Globalization
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.INVOICE>;
+
+}
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="text-align:center">.No</th>
+            <th></th>
+            <th>Mã Phiếu</th>
+            <th>Mã phiếu PD</th>
+            <th>Số hợp đồng</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>Mã sp khách</th>
+            <th>Invoice</th>
+            <th>Giá nhập</th>
+            <th>Ngày nhập hàng</th>
+            <th>Quốc gia</th>
+            <th>Mã khách hàng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists.Take(1000))
+        {
+            <tr>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>
+                    <a onclick="Edit('@item.khoa_id')" class="btn">
+                        <i class="fas fa-edit"></i> Sửa
+                    </a>
+                    <a onclick="Delete('@item.khoa_id')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                </td>
+
+                <td>@item.MAPHIEU</td>
+                <td>@item.MAPHIEUPD</td>
+                <td>@item.SOHOPDONG</td>
+                <td>@item.MAVATTU</td>
+                <td>@item.TENVT</td>
+                <td>@item.MASPKHACH</td>
+                <td>@item.INVOICE1</td>
+                <td>@(item.GIANHAP.Value.ToString("C0", new CultureInfo("vi-VN")).Replace('.', ',').Replace('₫', ' '))</td>
+                <td>@(item.NGAYNHAPHANG == null ? "" : item.NGAYNHAPHANG.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.QUOCGIA</td>
+                <td>@item.MAKH</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+

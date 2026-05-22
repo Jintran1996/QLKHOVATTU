@@ -1,0 +1,111 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.SP_SEARCHCTPHIEUBM03_Result>;
+    ViewBag.Title = "Chi tiết phiếu yêu cầu vật tư";
+    var Maphieu = ViewBag.MaPhieu;
+    var stt = 1;
+    decimal? total = 0;
+}
+<table id="myTable" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Mã phiếu</th>
+            <th>Mã vật tư</th>
+            <th>Mã vật tư tương đương</th>
+            <th>Tên vật tư</th>
+            <th>Đơn vị tính</th>
+            <th>Số lượng</th>
+            <th>Số lượng yêu cầu</th>
+            <th>Số lượng xem xét</th>  
+            <th>Đặc tính kỹ thuật</th>
+            <th>Thời điểm đáp ứng</th>
+            <th>Thời điểm sử dụng</th>
+            <th>Hạn đáp ứng</th>
+            <th>Lý do sử dụng</th>
+            <th>Số lượng tồn công ty</th>
+            <th>Số lượng tồn đơn vị</th>
+            <th style="width: 300px">Ghi chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+
+            <tr>
+                <td>@stt</td>
+                <td>@Maphieu</td>
+                <td>@item.MAVT</td>
+                <td>@item.MAVT_TUONGDUONG</td>
+                <td>@item.TENVT</td>
+                <td>@item.DVT</td>
+                <td>@item.SOLUONG</td>
+                <td>@item.SLYCAU</td>
+                @* <td style="color:blue; font: bold">@item.SLXXET</td>*@
+                <td>
+                    <input id="SLXXET_@stt" min="0" style="color: blue; font-weight: bold;" value="@item.SLXXET" onchange="_UpdateSLXXET(@stt)" />
+                    <input id="MAVT_@stt" value="@item.MAVT" hidden />
+                    <input id="MAPHIEU_@stt" value="@Maphieu" hidden />
+                </td>
+                <td>@item.DACTINHKYTHUAT</td>
+                <td>@(item.THOIDIEMDAPUNG == null ? "": item.THOIDIEMDAPUNG.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@(item.THOIDIEMSD == null ? "": item.THOIDIEMSD.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.HANDAPUNG</td>
+                <td>@item.LYDOSD</td>
+                <td>@string.Format("{0:N}", item.SOLUONGTONCONGTY)</td>
+                <td>@string.Format("{0:N}", item.SOLUONGTONDONVI)</td>
+                <td>
+                    <input id="GHICHU_@stt" style=" width: 100%" value="@item.GHICHU" onchange="_UpdateSLXXET(@stt)" />
+                </td>
+            </tr>
+            total += item.SLXXET;
+            stt++;
+        }
+    </tbody>
+    <tbody>
+        <tr style="font-weight: bold">
+            <td colspan="7"><b style="color:red">Tổng số lượng</b></td>
+            <td style="color: red; font-weight: bold">@list.Sum(p => p.SLYCAU)</td>           
+            <td style="color: red; font-weight: bold">@list.Sum(p => p.SLXXET)</td>           
+            <td colspan="8"></td>      
+        </tr>
+    </tbody>
+
+</table>
+
+<script type="text/javascript">
+    function _UpdateSLXXET(i_) {
+        var slxx_ = $('#SLXXET_' + i_).val();
+        var mavt_ = $('#MAVT_'+i_).val();
+        var maphieu_ = $('#MAPHIEU_' + i_).val();
+        var GHICHU_ = $('#GHICHU_' + i_).val();
+
+        
+            if (confirm('Bạn có muốn cập nhật số lượng xem xét ?')) {
+                $.ajax({
+                    url: '@Url.Action("_UpdateSLXXET")',
+                    timeout: 2000000,
+                  
+                    data: { mavt: mavt_, maphieu: maphieu_, slxx: slxx_, GHICHU: GHICHU_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status == 1) {
+                            notify(result.text, "success");
+                            reloadData(true);
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+    }
+
+
+</script>

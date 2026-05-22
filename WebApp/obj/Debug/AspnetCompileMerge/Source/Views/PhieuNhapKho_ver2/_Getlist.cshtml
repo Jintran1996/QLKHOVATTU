@@ -1,0 +1,81 @@
+﻿
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEUXN>;
+
+}
+
+
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th style="text-align:center">.No</th>
+            <th>SOCTXN</th>
+            <th>Mã hình thức</th>
+            <th>Ngày Chứng Từ</th>
+            <th>Kho Nhận</th>
+            <th>Kho Xuất</th>
+            <th>Người Lập Phiếu</th>
+            <th>Ghi Chú</th>
+            @*<th>IsAPI</th>*@
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists.Take(1000))
+        {
+        <tr>
+            <td>
+                @*@if (@item.GuiAPI == true)
+                {
+                    <a onclick="Details('@item.Sophieu')" class="btn">
+                        <i class="fas fa-list"></i> Chi Tiết
+                    </a>
+                }
+                else
+                {*@
+                    <a onclick="Details('@item.SOCTXN','@item.NOIDEN','@item.MAHTHUC','@item.MAKHO')" class="btn">
+                        <i class="fas fa-list"></i> Chi Tiết
+                    </a>
+                    <a onclick="TransAPI('@item.SOCTXN','@item.NOIDEN','@item.MAHTHUC','@item.MAKHO')" class="btn">
+                        <i class="fa fa-recycle"></i> Gửi API NS
+                    </a>
+                    <a onclick="Delete('@item.SOCTXN')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+               @* }*@
+
+            </td>
+            <td style="text-align:center">
+                @STT
+            </td>
+            <td>@item.SOCTXN</td>
+            <td>@item.MAHTHUC</td>
+            <td>@(item.NGAY == null ? "" : item.NGAY.Value.ToString("dd/MM/yyyy"))</td>
+            <td>@item.NOIDEN</td>
+            <td>@item.MAKHO</td>
+            <td>@item.MaNVYC</td>
+            <td>@item.GHICHU</td>
+           
+            <!--<td>-->
+                @*@if (@item.GuiAPI == true)
+                {
+
+                    <i class="fa fa-check" style="color: lawngreen;font: 30px" title="Đã gửi API đến Netsuite"></i>
+                }
+                else
+                {
+
+                    <i class="fa fa-times" style="color: red;align-content:center" title="Chưa gửi API đến Netsuite"></i>
+                }*@
+            <!--</td>-->
+
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+

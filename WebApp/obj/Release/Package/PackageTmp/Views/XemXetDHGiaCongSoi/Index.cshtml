@@ -1,0 +1,534 @@
+﻿@using System.Globalization;
+
+@{
+    var maDH = ViewBag.MADH as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_MADHGCSOI_DONHANGGCSOI_Result>;
+    var maDHXX = ViewBag.MADHXX as List<ToolsApp.EntityFramework.KhoSoi.SP_GC_MADHGCSOI_DONHANGGCSOI_XNDVYC_Result>;
+}
+
+<div class="row">
+    <div class="col-12 col-md-12">
+        <div class="card card-primary card-tabs">
+            <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                    <li class="nav-item" id="tab-1" style="display:block;">
+                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">ĐƠN VỊ YÊU CẦU XEM XÉT ĐƠN HÀNG GIA CÔNG SỢI  </a>
+                    </li>
+                    <li class="nav-item" id="tab-2" style="display:block;">
+                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">ĐƠN VỊ THỰC HIỆN XÁC NHẬN ĐƠN HÀNG GIA CÔNG SỢI  </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="custom-tabs-one-tabContent">
+                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frmctphieu", id = "frmctphieu", enctype = "multipart/form-data" }))
+                                {
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>Chọn đơn hàng gia công sợi</b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Mã đơn hàng: </label>
+                                                        <select class="form-control chosen-select" id="MADH_GCSOI" name="MADH_GCSOI" onchange="reloadData();LoadNguoiXX()">
+                                                            <option value="">--</option>
+                                                            @foreach (var item in maDH)
+                                                            {
+                                                                <option value="@item.MADH_GCSOI">@item.MADH_GCSOI</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Xem xét: </label>
+                                                        <select class="form-control chosen-select" id="DVYCXX" name="DVYCXX">
+                                                            <option value="XemXet">Xem xét</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Người xem xét: </label>
+                                                        <select class="form-control chosen-select" id="MANVYCXX" name="MANVYCXX">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <label>&nbsp;</label><br />
+                                                        <button style="margin-top: 28px; margin-left: 5px" id="btnCapNhat" type="button" class="btn btn-outline-success form-control"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                                        &nbsp;
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-12">
+                                <div class="card card-primary card-outline">
+                                    <div class="card-body pad">
+                                        <div class="row" style="margin-bottom:10px">
+                                            <div class="card-title">
+                                                <h3>Chi Tiết Đơn Hàng Gia Công Sợi</h3>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 table-body table-responsive">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade col-md-12" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                        <div class="row">
+                            <div class=" col-md-12">
+                                <fieldset class="scheduler-border">                                
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>Chọn đơn hàng gia công sợi đã xem xét</b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Mã đơn hàng: </label>
+                                                        <select class="form-control chosen-select" id="MADH_GCSOI_XN" name="MADH_GCSOI_XN"  onchange="reloadDataXN();LoadNguoiXN()">
+                                                            <option value="">--</option>
+                                                            @foreach (var item in maDHXX)
+                                                            {
+                                                                <option value="@item.MADH_GCSOI">@(item.HIEULUCXACNHAN == true ? (item.MADH_GCSOI + " : Đã xác nhận") : item.MADH_GCSOI)</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Xác nhận: </label>
+                                                        <select class="form-control chosen-select" id="DVTHXN" name="DVTHXN">
+                                                            <option value="XACNHAN">Xác nhận</option>
+                                                            <option value="BoXACNHAN">Bỏ Xác nhận</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Người xác nhận: </label>
+                                                        <select class="form-control chosen-select" id="MANVTHXN" name="MANVTHXN">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <label>&nbsp;</label><br />
+                                                        <button style="margin-top: 28px; margin-left: 5px" id="btnCapNhatXacNhan"  type="button" class="btn btn-outline-success form-control"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                                        &nbsp;
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>                           
+                            <div class="row col-md-12">
+                                <div class="col-md-12">
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-12 table-DHXN table-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                            </div>                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModalDetail" class="modal fade modal-wide " role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmDetail", id = "frmDetail", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header bg-gradient-blue">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:mintcream"><strong id="myModalTitleDetail"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetail">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSave" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+    </script>
+    <script>
+        function reloadData(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+                    MADH_GCSOI: $("#MADH_GCSOI").val(),
+                    page: page
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        destroy : true,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+        function reloadDataXN(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListXN")',
+                timeout: 20000,
+                data: {
+                    MADH_GCSOI: $("#MADH_GCSOI_XN").val(),
+                    page: page
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-DHXN').html(response);
+
+                    $("#myTable-XN").DataTable({
+                        destroy : true,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        var $modalDetail = $('#myModalDetail');
+        var $myModalContentDetail = $("#myModalContentDetail");
+        var $myModalTitleDetail = $("#myModalTitleDetail");
+        $(document).ready(function () {
+            reloadData(false);
+        });
+         function LoadNguoiXX() {
+             var _MADH_GCSOI = $("#MADH_GCSOI").val();
+             var MANVYCXX = $('#MANVYCXX');
+             MANVYCXX.empty();
+            $.ajax({
+                url: '@Url.Action("_LoadNguoiXX")',
+                timeout: 20000,
+                type: "POST",
+                data: { MADH_GCSOI: _MADH_GCSOI },
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $.each(result.obj, function (i, state) {
+                        MANVYCXX.append($('<option/>', { value: this.MANV }).html(this.MANV + '||' + this.HOTEN));
+                    });
+                    MANVYCXX.trigger("chosen:updated");
+                },
+                error: function () {
+
+                }
+            });
+        }
+        function LoadNguoiXN() {
+             var _MADH_GCSOI = $("#MADH_GCSOI_XN").val();
+            var MANVTHXN = $('#MANVTHXN');
+            MANVTHXN.empty();
+            $.ajax({
+                url: '@Url.Action("_LoadNguoiXN")',
+                timeout: 20000,
+                type: "POST",
+                data: { MADH_GCSOI: _MADH_GCSOI },
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $.each(result.obj, function (i, state) {
+                        MANVTHXN.append($('<option/>', { value: this.MANV }).html(this.MANV + '||' + this.HOTEN));
+                    });
+                    MANVTHXN.trigger("chosen:updated");
+                },
+                error: function () {
+
+                }
+            });
+        }
+
+        $("#btnCapNhat").click(function () {
+            var confirm_ = confirm('Bạn có chắc xem xét đơn hàng gia công này');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("Luu_click")',
+                    type: "POST",
+
+                    data: {
+                        MADH_GCSOI: $("#MADH_GCSOI").val(),
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        console.log(result.obj);
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        });
+        $("#btnCapNhatXacNhan").click(function () {
+            if ($("#DVTHXN").val() == 'XACNHAN') {
+                var confirm_ = confirm('Bạn có chắc xác nhận đơn hàng gia công này');
+            }
+            else {
+                var confirm_ = confirm('Bạn có chắc bỏ xác nhận đơn hàng gia công này');
+            }
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("Luu_click_Xn")',
+                    type: "POST",
+
+                    data: {
+                        MADH_GCSOI: $("#MADH_GCSOI_XN").val(),
+                        DVTHXN: $("#DVTHXN").val(),
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        console.log(result.obj);
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        getUpdatedMADH();
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        });
+        function Edit(KHOA_ID) {
+            $myModalContentDetail.html("");
+            $myModalTitleDetail.html("Hiệu chỉnh đơn hàng gia công sợi");
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '@Url.Action("_Edit")',
+                data: {
+                    KHOA_ID: KHOA_ID,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $myModalContentDetail.html(data);
+                $modalDetail.modal();
+                $(".divLoading").removeClass("loading");
+
+            }).fail(function (errors) {
+                console.log(errors);
+            });
+        }
+        $("#btSave").click(function () {
+            form = $("#frmDetail");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse("#frm");
+                if (form.valid()) {
+                    $.ajax({
+                        url: '@Url.Action("_UpdateEdit")',
+                        type: "POST",
+                        data: $('#frmDetail').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+        });
+
+        function _GuiAPI(KHOA_ID_) {
+            var confirm_ = confirm('Bạn có chắc chuyển thông tin này đến Netsuite theo số phiếu này?' + SOCTXN_);
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_GuiAPIs")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: {
+                        KHOA_ID: KHOA_ID_
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        reloadData();
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+        function getUpdatedMADH() {
+            var MADH_GCSOISelect = $("#MADH_GCSOI_XN");
+            MADH_GCSOISelect.empty();
+            $.ajax({
+                url: '@Url.Action("_LoadMADH_GCSOI_XN")',
+                method: 'GET',
+                data: {
+
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $.each(result.obj, function (i, state) {
+                        MADH_GCSOISelect.append($('<option/>', { value: this.MADH_GCSOI }).html(this.HIEULUCXACNHAN == true ? (this.MADH_GCSOI + ' : Đã xác nhận ') : this.MADH_GCSOI));
+                    });
+
+                    MADH_GCSOISelect.trigger("chosen:updated");
+
+                    $(".divLoading").removeClass("loading");
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+
+            });
+        }
+    </script>
+}
+
+

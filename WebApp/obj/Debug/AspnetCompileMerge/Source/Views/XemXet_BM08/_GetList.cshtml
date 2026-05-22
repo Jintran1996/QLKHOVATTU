@@ -1,0 +1,107 @@
+﻿
+@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.CTPHIEU05_LOADCHITIETPHIEU_XEMXET_Result>;
+    var dssudung = ViewBag.dssudung as List<ToolsApp.EntityFramework.VatTu.SP_GET_DANHSACH_VPP_NYP_DASUDUNG_Result>;
+    var stt = 1;
+    decimal soLuongYeuCau = 0;
+    decimal soLuongXemXet = 0;
+    decimal soLuongSuDung = 0;
+    decimal giaTriSuDung = 0;
+    decimal tongTienDaSuDung = 0;
+    var dmvp = ViewBag.dinhmucvp as ToolsApp.EntityFramework.VatTu.SP_GET_CHITIET_DINHMUCVANPHONGPHAM_Result;
+}
+
+@if (list != null)
+{
+    foreach (var row in list)
+    {
+        soLuongYeuCau += decimal.Parse(row.SLYCAU.ToString());
+        soLuongXemXet += decimal.Parse(row.SLXXET.ToString());
+        soLuongSuDung += decimal.Parse(row.SLSUDUNG.ToString());
+        giaTriSuDung += decimal.Parse(row.GIATRISUDUNG.ToString());
+    }
+
+}
+
+@if (dssudung != null)
+{
+    
+        foreach (var row1 in dssudung)
+        {
+
+            tongTienDaSuDung += decimal.Parse(row1.GIATRISUDUNG.ToString());
+
+        }
+    
+        }
+    <table id="myTable" class="table table-bordered table-striped" style="font-size: 12px">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Sửa</th>
+                <th>Mã vật tư</th>
+                <th>Tên vật tư</th>
+                <th>Đặc tính KT</th>
+                <th>SL yêu cầu</th>
+                <th>SL Xem xét</th>
+                <th>Tồn công ty</th>
+                <th>SL sử dụng</th>
+                <th>Giá trị đã SD </th>
+                <th>Ghi chú</th>
+                <th>Tình trạng</th>
+                <th>Mã BP</th>
+                <th>NV lập phiếu</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (list != null)
+            {
+                foreach (var item in list)
+                {
+                    <tr>
+                        <td>@stt</td>
+                        <td>
+                            <a onclick="Edit('@item.MAVT','@item.MaBP','@item.MAPHIEU')" class="btn">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
+                            
+                        </td>
+                        <td>@item.MAVT</td>
+                        <td>@item.TenVT</td>
+                        <td>@item.DACTINHKYTHUAT</td>
+                        <td>@item.SLYCAU.ToString("0")</td>
+                        <td>@item.SLXXET.ToString("0")</td>
+                        <td>@Convert.ToDecimal(item.SOLUONGTONCONGTY).ToString("0")</td>
+                        <td>@item.SLSUDUNG.ToString("0")</td>
+                        <td>@Convert.ToDecimal(item.GIATRISUDUNG).ToString("0")</td>
+                        <td>@item.GhiChu</td>
+                        <td>@item.TinhTrang</td>
+                        <td>@item.MaBP</td>
+                        <td>@item.NhanVienLapPhieu</td>
+                    </tr>
+                    stt++;
+                }
+            }
+            </tbody>
+        <tfoot>
+            <tr>
+               
+                    <th></th>
+                    <th></th>
+                    <th>@(dmvp == null ? "Định mức: 0" : "DM " + dmvp.LOAIVT + ": " + Convert.ToDecimal(dmvp.SOTIEN).ToString("0,000")) </th>
+                    <th>Đã sử dụng: @tongTienDaSuDung.ToString("0,000")</th>
+                    <th></th>
+                    <th>@soLuongYeuCau.ToString("0")</th>
+                    <th>@soLuongXemXet.ToString("0")</th>
+                    <th></th>
+                    <th>@soLuongSuDung.ToString("0")</th>
+                    <th>@giaTriSuDung.ToString("0")</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+              
+                </tr>
+        </tfoot>
+    </table>

@@ -1,0 +1,58 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.A23_LoadChiTietBM05_Result>;
+    ViewBag.Title = "Chi tiết phiếu yêu cầu vật tư";
+    var stt = 1;
+}
+<table id="myTable" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Mã phiếu</th>
+            <th>Mã số chi phí</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>Đơn vị tính</th>
+            <th>Đặc tính kỹ thuật</th>
+            <th>Tình trạng</th>
+            <th>SL yêu cầu</th>
+            <th>SL xem xét</th>
+            <th>SL phê duyệt</th>
+            <th>SL tồn</th>
+            <th>Thời điểm sử dụng</th>
+            <th>Ngày nhập</th>
+            <th>Ngày xem xét</th>
+            <th>Mã NV</th>
+            <th>Mã BP</th>
+            <th>NV lập phiếu</th>
+            <th>Ghi chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+            <tr>
+                <td>@stt</td>
+                <td>@item.MAPHIEU</td>
+                <td>@item.MASOCP</td>
+                <td>@item.MAVT</td>
+                <td>@item.TENVT</td>
+                <td>@item.DVT</td>
+                <td>@item.DACTINHKYTHUAT</td>
+                <td>@item.TinhTrang</td>
+                <td>@item.SLYCAU</td>
+                <td style="color:blue; font: bold">@item.SLXXet</td>
+                <td>@item.SLPD</td>
+                <td>@item.SLTonDVi</td>
+                <td>@(item.ThoiDiemSD == null ? "": item.ThoiDiemSD.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@(item.NGAYNHAP == null ? "": item.NGAYNHAP.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@(item.NGAYXX == null ? "": item.NGAYXX.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.MaNV</td>
+                <td>@item.MaBP</td>
+                <td>@item.NhanVienLapPhieu</td>
+                <td>@item.GhiChu</td>
+                
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>

@@ -1,0 +1,82 @@
+﻿
+@{
+    var Lists = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.SP_GETLIST_NL_DMPHIEU_Result>;
+
+}
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th style="text-align:center">.No</th>
+            <th>SOCTXN</th>
+            <th>Mã hình thức</th>
+            <th>PO</th>
+            <th>Ngày Chứng Từ</th>
+            <th>Kho Nhận</th>
+            <th>Kho Xuất</th>
+            <th>Kế thừa từ ..</th>
+            <th>Người Lập Phiếu</th>
+            <th>Ghi Chú</th>
+            <th>IsAPI</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists.Take(100))
+        {
+            <tr>
+                <td>
+                    <a onclick="Details('@item.SOCTXN','@item.MAHTHUC')" class="btn">
+                        <i class="fas fa-list"></i> Chi Tiết
+                    </a>
+                    @if (item.MAHTHUC != "NKNB" && item.MAHTHUC != "NHGA" && item.MAHTHUC != "NHTA")
+                    {
+                        <a onclick="TransAPI('@item.SOCTXN','@item.MAHTHUC')" class="btn">
+                            <i class="fa fa-recycle"></i> Đồng bộ
+                        </a>
+                    }
+                    <a onclick="Print('@item.SOCTXN')" class="btn">
+                        <i class="fa fa-print"></i> In
+                    </a>
+                    @if (item.GUIAPI != "1")
+                    {
+                        <a onclick="Delete('@item.SOCTXN')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                    }
+
+
+
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.SOCTXN</td>
+                <td>@item.MAHTHUC</td>
+                <td>@item.SOPO</td>
+                <td>@(item.NGAY == null ? "" : item.NGAY.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.MAKHONHAN</td>
+                <td>@item.MAKHOXUAT</td>
+                <td>@item.KETHUA</td>
+                <td>@item.MaNVYC</td>
+                <td>@item.GHICHU</td>
+
+                <td>
+                    @if (item.GUIAPI == "1")
+                    {
+                        <i class="fa fa-check" style="color: lawngreen;font: 30px" title="Đã đồng bộ Netsuite"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-times" style="color: red;align-content:center" title="Chưa đồng bộ Netsuite"></i>
+                    }
+                </td>
+
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,263 @@
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csprojAssemblyReference.cache
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi2023\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\Source\QLKhoSoi23\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\Phi\QLKhoSoi_14092023\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\Phi\QLKhoSoi_VatTu_91223\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\Phi\QLKHOSOI_VATTU23\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\Phi\QLSOI_VATTU_2024\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll.config
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\bin\Debug\ToolsApp.EntityFramework.pdb
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\obj\Debug\Tools.EntityFramework.csproj.CopyComplete
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\obj\Debug\ToolsApp.EntityFramework.pdb

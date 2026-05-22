@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLSANPHAMMAY2023ModelStoreContainer" CdmEntityContainer="QLSANPHAMMAY2023Entities">
+    <FunctionImportMapping FunctionImportName="INSERT_FROM_DANHMUCVATTU_TO_DMMAHANG_SPM2023_HANGMUANGOAI" FunctionName="QLSANPHAMMAY2023Model.Store.INSERT_FROM_DANHMUCVATTU_TO_DMMAHANG_SPM2023_HANGMUANGOAI" />
+  </EntityContainerMapping>
+</Mapping>

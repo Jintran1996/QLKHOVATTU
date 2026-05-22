@@ -1,0 +1,145 @@
+﻿@using System.Globalization;
+@{
+    var data = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.SP_REPHIEUMUAHANGTHEOBM_Result>;
+    var stt = 1;
+    var image = ViewData["ChukyPD"];
+}
+
+<section class="content" style="font-size: 14px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <table style="border: 1px solid; border-collapse: collapse; width: 100%; " >
+                    <thead>
+                        
+                    </thead>
+                    <tbody style="border-bottom: 0px solid;">
+                        <tr>
+                            <th style="border:1px solid; text-align:center" colspan="2" rowspan="3"><img src="~/Content/images/ThaiTuan.png" width="80" height="56" /></th>
+                            <td style="border-bottom:1px solid; text-align: right; font-size: 16px" valign="top" colspan="1" rowspan="3">BM01/QI08: </td>
+                            <th colspan="3" style="text-align:center ;font-size:16px; font-weight:600">PHIẾU ĐỀ NGHỊ MUA HÀNG</th>
+                            <td style="border-left:1px solid;" colspan="3" rowspan="1">&nbsp;Mã Phiếu YC:&ensp;@data[0].MAPHIEU</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <input type="checkbox" id="cbND" name="cbND" value="" @(data[0].ND == 1 ? "checked=\"checked\"" : "") disabled>&nbsp;Nội địa&emsp;&emsp;&ensp;
+                                <input type="checkbox" id="cbKH" name="cbKH" value="" @(data[0].KH == 1 ? "checked=\"checked\"" : "") disabled>&nbsp;Kế hoạch
+                            </td>
+                            <td style="border-left:1px solid" colspan="3">&nbsp;Mã Phiếu PD:&ensp;@data[0].MAPHIEUPD</td>
+                        </tr>
+                        <tr>
+                            <td style="border-bottom:1px solid" colspan="3">
+                                <input type="checkbox" id="cbNK" name="cbNK" value="" @(data[0].NK == 1 ? "checked=\"checked\"" : "") disabled>&nbsp;Nhập khẩu&emsp;
+                                <input type="checkbox" id="cbDX" name="cbDX" value="" @(data[0].DX == 1 ? "checked=\"checked\"" : "") disabled>&nbsp;Đột xuất
+                            </td>
+                            <td style="border-left:1px solid; border-bottom:1px solid" colspan="3">&nbsp;Trang:&ensp;1/1</td>
+                        </tr>
+                        <tr>
+                            <td style="border:0px solid" colspan="5">&emsp;Đơn vị yêu cầu:&ensp;@data[0].TENDONVI</td>
+                            <td style="border:0px solid" colspan="4">&emsp;Người lập phiếu:&ensp;@data[0].NGUOILAPPHIEU</td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid; text-align:center; font:bold">STT</th>
+                            <th style="border:1px solid; text-align:center; font:bold">Tên hàng hóa</th>
+                            <th style="border:1px solid; text-align:center; font:bold">Mã hàng hóa</th>
+                            <th style="border:1px solid; text-align:center; font:bold">ĐVT</th>
+                            <th style="border:1px solid; text-align:center; font:bold">Thời điểm SD<hr width="50" style="margin-top: unset; margin-bottom: unset; border-top: 1px solid #000000 " />TĐ. Đáp ứng</th>
+                            <th style="border:1px solid; text-align:center; font:bold">SL tồn đơn vị<hr width="50" style="margin-top: unset; margin-bottom: unset; border-top: 1px solid #000000 " />Giá mua gần I</th>
+                            <th style="border:1px solid; text-align:center; font:bold">Số lượng phê duyệt</th>
+                            <th style="border:1px solid; text-align:center; font:bold">Tình trạng</th>
+                            <th style="border:1px solid; text-align:center; font:bold">Ghi chú</th>
+                        </tr>
+                        @foreach (var item in data)
+                        {
+                            // xử lý định dạng tiền tệ
+                            string dg = item.DG.ToString("C", CultureInfo.CurrentCulture);
+                            string dgc = dg.Substring(1, dg.Length - 4);
+
+                            // xử lý định dạng SOLUONG
+                            string SLChuan;
+                            if (item.SOLUONG != 0)
+                            {
+                                SLChuan = string.Format("{0:N}", item.SOLUONG).Substring(0, string.Format("{0:N}", item.SOLUONG).Length - 1);
+                            }
+                            else
+                            {
+                                SLChuan = "0";
+                            }
+
+                            // xử lý định dạng SLPD
+                            string SLPDChuan;
+                            if (item.SLPD != 0)
+                            {
+                                SLPDChuan = string.Format("{0:N}", item.SLPD).Substring(0, string.Format("{0:N}", item.SLPD).Length - 1);
+                            }
+                            else
+                            {
+                                SLPDChuan = "0";
+                            }
+
+
+                            <tr>
+                                <td style="border:1px solid; text-align:center">@stt</td>
+                                <td style="border:1px solid; text-align:center">@item.TENVT</td>
+                                <td style="border:1px solid; text-align:center">@item.MAVT<br />(@item.MASOCP)</td>
+                                <td style="border:1px solid; text-align:center">@item.DVT</td>
+                                <td style="border:1px solid; text-align:center">@(item.THOIDIEMSD == null ? "": item.THOIDIEMSD.Value.ToString("dd/MM/yyyy"))<hr width="50" style="margin-top: unset; margin-bottom: unset; border-top: 1px solid #000000 " />@(item.THOIDIEMDAPUNG == null ? "": item.THOIDIEMDAPUNG.Value.ToString("dd/MM/yyyy"))</td>
+                                <td style="border:1px solid; text-align:center">@SLChuan<hr width="50" style="margin-top: unset; margin-bottom: unset; border-top: 1px solid #000000 " />@dgc</td>
+                                <td style="border:1px solid; text-align:center">@SLPDChuan</td>
+                                <td style="border:1px solid; text-align:center">@item.TINHTRANG</td>
+                                <td style="border:1px solid; text-align:center">@item.GHICHULANHDAO</td>
+                            </tr>
+                            stt++;
+                        }
+                    </tbody>
+                </table>
+                <table style="border:1px solid; border-collapse:collapse; width:100%">
+                    <tbody>
+                        <tr>
+                            <td style="border-right:1px solid" colspan="4">&emsp;Ngày yêu cầu:&nbsp;@(data[0].NGAYYC == null ? "": data[0].NGAYYC.Value.ToString("dd/MM/yyyy"))</td>
+                            <td style="border-right:1px solid" colspan="4">&emsp;Ngày xem xét:&nbsp;@(data[0].NGAYXX == null ? "": data[0].NGAYXX.Value.ToString("dd/MM/yyyy"))</td>
+                            <td colspan="4">&emsp;Ngày phê duyệt:&nbsp;@(data[0].NGAYPD== null ? "": data[0].NGAYPD.Value.ToString("dd/MM/yyyy"))</td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:1px solid" colspan="4">&emsp;Người yêu cầu:</td>
+                            <td style="border-right:1px solid" colspan="4">&emsp;Người xem xét:</td>
+                            <td colspan="4">&emsp;Người phê duyệt:</td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:1px solid" colspan="4" rowspan="6"></td>
+                            <td style="border-right:1px solid" colspan="4" rowspan="6"></td>
+                            <td colspan="4" rowspan="6">
+                                &emsp;
+                                @*<img src="@image" />*@
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                            <td style="border-right:1px solid" colspan="4">&emsp;@data[0].NGUOILAPPHIEU</td>
+                            <td style="border-right:1px solid" colspan="4">&emsp;@data[0].NGUOIXEMXET</td>
+                            <td colspan="4">&emsp;@data[0].NGUOIPHEDUYET</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function formatPera(num) {
+        var p = num.toFixed(2).split(".");
+        return "Php " + p[0].split("").reverse().reduce(function (acc, num, i, orig) {
+            return num + (i && !(i % 3) ? "," : "") + acc;
+        }, "") + "." + p[1];
+    }
+</script>
+
+
+

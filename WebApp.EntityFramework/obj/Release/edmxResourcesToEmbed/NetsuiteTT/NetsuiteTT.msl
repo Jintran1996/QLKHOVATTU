@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NetsuiteTTModelStoreContainer" CdmEntityContainer="NetsuiteTTEntities1">
+    <FunctionImportMapping FunctionImportName="VATTU2024_SP_LOAD_ExpenseCodeList" FunctionName="NetsuiteTTModel.Store.VATTU2024_SP_LOAD_ExpenseCodeList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NetsuiteTTModel.VATTU2024_SP_LOAD_ExpenseCodeList_Result">
+          <ScalarProperty Name="ExpenseCode" ColumnName="ExpenseCode" />
+          <ScalarProperty Name="ParentExpenseCode" ColumnName="ParentExpenseCode" />
+          <ScalarProperty Name="ExternalID" ColumnName="ExternalID" />
+          <ScalarProperty Name="MAVATTU" ColumnName="MAVATTU" />
+          <ScalarProperty Name="MAVT_CP_MOC" ColumnName="MAVT_CP_MOC" />
+          <ScalarProperty Name="MACP_SOI" ColumnName="MACP_SOI" />
+          <ScalarProperty Name="Cotonkho" ColumnName="Cotonkho" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPLOAD_TONKHOALL_TP_2024" FunctionName="NetsuiteTTModel.Store.SPLOAD_TONKHOALL_TP_2024">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NetsuiteTTModel.SPLOAD_TONKHOALL_TP_2024_Result">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="makho" ColumnName="makho" />
+          <ScalarProperty Name="tenkho" ColumnName="tenkho" />
+          <ScalarProperty Name="loai" ColumnName="loai" />
+          <ScalarProperty Name="ID_nhamaysx" ColumnName="ID_nhamaysx" />
+          <ScalarProperty Name="IDMADV" ColumnName="IDMADV" />
+          <ScalarProperty Name="NHAMAY" ColumnName="NHAMAY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_LOAD_LOAISPCHITIET" FunctionName="NetsuiteTTModel.Store.VATTU2024_LOAD_LOAISPCHITIET">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NetsuiteTTModel.VATTU2024_LOAD_LOAISPCHITIET_Result">
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MaLoaiSPCT" ColumnName="MaLoaiSPCT" />
+          <ScalarProperty Name="PhanNhomSanPham" ColumnName="PhanNhomSanPham" />
+          <ScalarProperty Name="Kytu1" ColumnName="Kytu1" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="MANHOM" ColumnName="MANHOM" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="BongIns">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.BongIn">
+        <MappingFragment StoreEntitySet="BongIn">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BongNenVais">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.BongNenVai">
+        <MappingFragment StoreEntitySet="BongNenVai">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BTM_Serial_No_List">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.BTM_Serial_No_List">
+        <MappingFragment StoreEntitySet="BTM_Serial_No_List">
+          <ScalarProperty Name="To_Date" ColumnName="To_Date" />
+          <ScalarProperty Name="From_Date" ColumnName="From_Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Internal_ID" ColumnName="Internal_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaDets">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.CaDet">
+        <MappingFragment StoreEntitySet="CaDet">
+          <ScalarProperty Name="MaCaDet" ColumnName="MaCaDet" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Class">
+        <MappingFragment StoreEntitySet="Class">
+          <ScalarProperty Name="Desciption" ColumnName="Desciption" />
+          <ScalarProperty Name="code_Department" ColumnName="code_Department" />
+          <ScalarProperty Name="tbl_franchise" ColumnName="tbl_franchise" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CongNgheDets">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.CongNgheDet">
+        <MappingFragment StoreEntitySet="CongNgheDet">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DongBoVATTU_SOI__Json_Log">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.DongBoVATTU_SOI__Json_Log">
+        <MappingFragment StoreEntitySet="DongBoVATTU_SOI__Json_Log">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="MayTinh" ColumnName="MayTinh" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="PhanLoai" ColumnName="PhanLoai" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="JsonNotification" ColumnName="JsonNotification" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Id_Json" ColumnName="Id_Json" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Donvi_mapping_Department">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Donvi_mapping_Department">
+        <MappingFragment StoreEntitySet="Donvi_mapping_Department">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+          <ScalarProperty Name="donvidathang" ColumnName="donvidathang" />
+          <ScalarProperty Name="Account_Donvi_Xsudung" ColumnName="Account_Donvi_Xsudung" />
+          <ScalarProperty Name="mabp" ColumnName="mabp" />
+          <ScalarProperty Name="idmacs" ColumnName="idmacs" />
+          <ScalarProperty Name="madv" ColumnName="madv" />
+          <ScalarProperty Name="idmadv" ColumnName="idmadv" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+          <ScalarProperty Name="internalid" ColumnName="internalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonViTienTes">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.DonViTienTe">
+        <MappingFragment StoreEntitySet="DonViTienTe">
+          <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
+          <ScalarProperty Name="QuocGia" ColumnName="QuocGia" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DSInvoiceXuatKhaus">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.DSInvoiceXuatKhau">
+        <MappingFragment StoreEntitySet="DSInvoiceXuatKhau">
+          <ScalarProperty Name="khuvuc" ColumnName="khuvuc" />
+          <ScalarProperty Name="thitruong" ColumnName="thitruong" />
+          <ScalarProperty Name="invoice" ColumnName="invoice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DSPhieuUploadNS">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.DSPhieuUploadN">
+        <MappingFragment StoreEntitySet="DSPhieuUploadNS">
+          <ScalarProperty Name="Showroom" ColumnName="Showroom" />
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DSPhieuViPhamEntities">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.DSPhieuViPhamEntity">
+        <MappingFragment StoreEntitySet="DSPhieuViPhamEntity">
+          <ScalarProperty Name="Showroom" ColumnName="Showroom" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="Sophieu" ColumnName="Sophieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DSPhieuViPhamQuantityItems">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.DSPhieuViPhamQuantityItem">
+        <MappingFragment StoreEntitySet="DSPhieuViPhamQuantityItem">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="Sophieu" ColumnName="Sophieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DSPhieuViPhamSerialLotNumbers">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.DSPhieuViPhamSerialLotNumber">
+        <MappingFragment StoreEntitySet="DSPhieuViPhamSerialLotNumber">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="SerialLotNumber" ColumnName="SerialLotNumber" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="Sophieu" ColumnName="Sophieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expense_Code">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Expense_Code">
+        <MappingFragment StoreEntitySet="Expense_Code">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="Acount_Chiphi_SX" ColumnName="Acount_Chiphi_SX" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="CP_NguoiLaoDong" ColumnName="CP_NguoiLaoDong" />
+          <ScalarProperty Name="Expense_code1" ColumnName="Expense_code" />
+          <ScalarProperty Name="Name_code" ColumnName="Name_code" />
+          <ScalarProperty Name="Externalid_ExpenseCode" ColumnName="Externalid_ExpenseCode" />
+          <ScalarProperty Name="Internalid_ExpenseCode" ColumnName="Internalid_ExpenseCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GhiLog_DMVattu_ErrorAPI_NS">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.GhiLog_DMVattu_ErrorAPI_NS">
+        <MappingFragment StoreEntitySet="GhiLog_DMVattu_ErrorAPI_NS">
+          <ScalarProperty Name="HanhDong" ColumnName="HanhDong" />
+          <ScalarProperty Name="Ngaylog" ColumnName="Ngaylog" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="LogNS" ColumnName="LogNS" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="TenVT" ColumnName="TenVT" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+          <ScalarProperty Name="Internalid" ColumnName="Internalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KenhPhanPhois">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.KenhPhanPhoi">
+        <MappingFragment StoreEntitySet="KenhPhanPhoi">
+          <ScalarProperty Name="MaKenh" ColumnName="MaKenh" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Khoes">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Kho">
+        <MappingFragment StoreEntitySet="Kho">
+          <ScalarProperty Name="NHAMAY" ColumnName="NHAMAY" />
+          <ScalarProperty Name="IDMADV" ColumnName="IDMADV" />
+          <ScalarProperty Name="ID_nhamaysx" ColumnName="ID_nhamaysx" />
+          <ScalarProperty Name="loai" ColumnName="loai" />
+          <ScalarProperty Name="tenkho" ColumnName="tenkho" />
+          <ScalarProperty Name="makho" ColumnName="makho" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhoanMucChiPhis">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.KhoanMucChiPhi">
+        <MappingFragment StoreEntitySet="KhoanMucChiPhi">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhoVais">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.KhoVai">
+        <MappingFragment StoreEntitySet="KhoVai">
+          <ScalarProperty Name="MaKhoVai" ColumnName="MaKhoVai" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KichCoes">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.KichCo">
+        <MappingFragment StoreEntitySet="KichCo">
+          <ScalarProperty Name="KyTu11" ColumnName="KyTu11" />
+          <ScalarProperty Name="KyTu15" ColumnName="KyTu15" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiGiaBans">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.LoaiGiaBan">
+        <MappingFragment StoreEntitySet="LoaiGiaBan">
+          <ScalarProperty Name="MaLoaiGia" ColumnName="MaLoaiGia" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiKhachHangs">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.LoaiKhachHang">
+        <MappingFragment StoreEntitySet="LoaiKhachHang">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiMayDets">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.LoaiMayDet">
+        <MappingFragment StoreEntitySet="LoaiMayDet">
+          <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiNhaCungCaps">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.LoaiNhaCungCap">
+        <MappingFragment StoreEntitySet="LoaiNhaCungCap">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiSanPhams">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.LoaiSanPham">
+        <MappingFragment StoreEntitySet="LoaiSanPham">
+          <ScalarProperty Name="KyTu1" ColumnName="KyTu1" />
+          <ScalarProperty Name="LoaiSanPham1" ColumnName="LoaiSanPham" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiSanPhamChiTiets">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.LoaiSanPhamChiTiet">
+        <MappingFragment StoreEntitySet="LoaiSanPhamChiTiet">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="Kytu1" ColumnName="Kytu1" />
+          <ScalarProperty Name="PhanNhomSanPham" ColumnName="PhanNhomSanPham" />
+          <ScalarProperty Name="MaLoaiSPCT" ColumnName="MaLoaiSPCT" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiVatTus">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.LoaiVatTu">
+        <MappingFragment StoreEntitySet="LoaiVatTu">
+          <ScalarProperty Name="LoaiVatTu1" ColumnName="LoaiVatTu" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiYeuCaus">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.LoaiYeuCau">
+        <MappingFragment StoreEntitySet="LoaiYeuCau">
+          <ScalarProperty Name="LoaiYeuCau1" ColumnName="LoaiYeuCau" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiYeuCauSanXuats">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.LoaiYeuCauSanXuat">
+        <MappingFragment StoreEntitySet="LoaiYeuCauSanXuat">
+          <ScalarProperty Name="GC_SOI" ColumnName="GC_SOI" />
+          <ScalarProperty Name="Name_Loai" ColumnName="Name_Loai" />
+          <ScalarProperty Name="Internalid_LoaiYCSX" ColumnName="Internalid_LoaiYCSX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguocGocs">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.NguocGoc">
+        <MappingFragment StoreEntitySet="NguocGoc">
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="PhienMaDonHangNhuomIn" ColumnName="PhienMaDonHangNhuomIn" />
+          <ScalarProperty Name="ThiTruong" ColumnName="ThiTruong" />
+          <ScalarProperty Name="ChonHayNhapHang" ColumnName="ChonHayNhapHang" />
+          <ScalarProperty Name="MaNguonGoc" ColumnName="MaNguonGoc" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguonHangSanXuats">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.NguonHangSanXuat">
+        <MappingFragment StoreEntitySet="NguonHangSanXuat">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhomHangs">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.NhomHang">
+        <MappingFragment StoreEntitySet="NhomHang">
+          <ScalarProperty Name="NhomVai" ColumnName="NhomVai" />
+          <ScalarProperty Name="NhanHang" ColumnName="NhanHang" />
+          <ScalarProperty Name="MaNguonGoc" ColumnName="MaNguonGoc" />
+          <ScalarProperty Name="MaLoaiSanPham" ColumnName="MaLoaiSanPham" />
+          <ScalarProperty Name="NhomTrangPhuc" ColumnName="NhomTrangPhuc" />
+          <ScalarProperty Name="LoaiSanPham" ColumnName="LoaiSanPham" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhomHoaVanDetIns">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.NhomHoaVanDetIn">
+        <MappingFragment StoreEntitySet="NhomHoaVanDetIn">
+          <ScalarProperty Name="PhamViBanHang" ColumnName="PhamViBanHang" />
+          <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhomMucDichSuDungs">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.NhomMucDichSuDung">
+        <MappingFragment StoreEntitySet="NhomMucDichSuDung">
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="NhomMucDichSD" ColumnName="NhomMucDichSD" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhomSanPhams">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.NhomSanPham">
+        <MappingFragment StoreEntitySet="NhomSanPham">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhomSanPhamKinhDoanhs">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.NhomSanPhamKinhDoanh">
+        <MappingFragment StoreEntitySet="NhomSanPhamKinhDoanh">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MaNhom" ColumnName="MaNhom" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhomSois">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.NhomSoi">
+        <MappingFragment StoreEntitySet="NhomSoi">
+          <ScalarProperty Name="KyHieuThanhPham" ColumnName="KyHieuThanhPham" />
+          <ScalarProperty Name="MaNhomSoi" ColumnName="MaNhomSoi" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhomTrangPhucs">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.NhomTrangPhuc">
+        <MappingFragment StoreEntitySet="NhomTrangPhuc">
+          <ScalarProperty Name="PhamViBanHang" ColumnName="PhamViBanHang" />
+          <ScalarProperty Name="MaNhom" ColumnName="MaNhom" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanLoaiSPMays">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.PhanLoaiSPMay">
+        <MappingFragment StoreEntitySet="PhanLoaiSPMay">
+          <ScalarProperty Name="KyTu1" ColumnName="KyTu1" />
+          <ScalarProperty Name="ID_TT" ColumnName="ID_TT" />
+          <ScalarProperty Name="Name_TT" ColumnName="Name_TT" />
+          <ScalarProperty Name="Name_NS" ColumnName="Name_NS" />
+          <ScalarProperty Name="Externalid_NhomSPM" ColumnName="Externalid_NhomSPM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanNhomSanPhams">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.PhanNhomSanPham">
+        <MappingFragment StoreEntitySet="PhanNhomSanPham">
+          <ScalarProperty Name="hieuluc" ColumnName="hieuluc" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="LoaiVT_TT" ColumnName="LoaiVT_TT" />
+          <ScalarProperty Name="KyTu" ColumnName="KyTu" />
+          <ScalarProperty Name="NameSP" ColumnName="NameSP" />
+          <ScalarProperty Name="LoaiSanPham_NS" ColumnName="LoaiSanPham_NS" />
+          <ScalarProperty Name="MaLoaiSP_TT" ColumnName="MaLoaiSP_TT" />
+          <ScalarProperty Name="MaLoaiSP" ColumnName="MaLoaiSP" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhuongThucThanhToans">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.PhuongThucThanhToan">
+        <MappingFragment StoreEntitySet="PhuongThucThanhToan">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleOrder_Viseri">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.SaleOrder_Viseri">
+        <MappingFragment StoreEntitySet="SaleOrder_Viseri">
+          <ScalarProperty Name="NgayKTDH" ColumnName="NgayKTDH" />
+          <ScalarProperty Name="NguoiKTDH" ColumnName="NguoiKTDH" />
+          <ScalarProperty Name="KetThucDonHang" ColumnName="KetThucDonHang" />
+          <ScalarProperty Name="NgayDC" ColumnName="NgayDC" />
+          <ScalarProperty Name="NguoiDC" ColumnName="NguoiDC" />
+          <ScalarProperty Name="NgayCN" ColumnName="NgayCN" />
+          <ScalarProperty Name="NguoiCN" ColumnName="NguoiCN" />
+          <ScalarProperty Name="NgayDuKienGiaoHang" ColumnName="NgayDuKienGiaoHang" />
+          <ScalarProperty Name="DVTTieuHao" ColumnName="DVTTieuHao" />
+          <ScalarProperty Name="TieuHaoHuuHinh" ColumnName="TieuHaoHuuHinh" />
+          <ScalarProperty Name="TieuHaoVoHinh" ColumnName="TieuHaoVoHinh" />
+          <ScalarProperty Name="DinhMucGM" ColumnName="DinhMucGM" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="SLThanhPhamDuKien" ColumnName="SLThanhPhamDuKien" />
+          <ScalarProperty Name="TongSLKhachGiao" ColumnName="TongSLKhachGiao" />
+          <ScalarProperty Name="MaHangThanhPham" ColumnName="MaHangThanhPham" />
+          <ScalarProperty Name="TyGia" ColumnName="TyGia" />
+          <ScalarProperty Name="DonViTinhGia" ColumnName="DonViTinhGia" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="ThiTruong" ColumnName="ThiTruong" />
+          <ScalarProperty Name="QuocGia" ColumnName="QuocGia" />
+          <ScalarProperty Name="KhachHang" ColumnName="KhachHang" />
+          <ScalarProperty Name="MaKhoNhan" ColumnName="MaKhoNhan" />
+          <ScalarProperty Name="MaDonViNhan" ColumnName="MaDonViNhan" />
+          <ScalarProperty Name="LoaiGC" ColumnName="LoaiGC" />
+          <ScalarProperty Name="HinhThuGiaCong" ColumnName="HinhThuGiaCong" />
+          <ScalarProperty Name="LoaiDonHang" ColumnName="LoaiDonHang" />
+          <ScalarProperty Name="NgayDonHang" ColumnName="NgayDonHang" />
+          <ScalarProperty Name="MaDonHang" ColumnName="MaDonHang" />
+          <ScalarProperty Name="NgayHD" ColumnName="NgayHD" />
+          <ScalarProperty Name="SoHD" ColumnName="SoHD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleOrder_Viseri_Item">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.SaleOrder_Viseri_Item">
+        <MappingFragment StoreEntitySet="SaleOrder_Viseri_Item">
+          <ScalarProperty Name="ID_Khoa" ColumnName="ID_Khoa" />
+          <ScalarProperty Name="NgayDieuChinh" ColumnName="NgayDieuChinh" />
+          <ScalarProperty Name="NgDieuChinh" ColumnName="NgDieuChinh" />
+          <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+          <ScalarProperty Name="NgCapNhat" ColumnName="NgCapNhat" />
+          <ScalarProperty Name="LyDoNhan" ColumnName="LyDoNhan" />
+          <ScalarProperty Name="DinhMucGM" ColumnName="DinhMucGM" />
+          <ScalarProperty Name="MaCongDoan" ColumnName="MaCongDoan" />
+          <ScalarProperty Name="SLKhachGiao" ColumnName="SLKhachGiao" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="TenVatTu" ColumnName="TenVatTu" />
+          <ScalarProperty Name="MaVatTuKH" ColumnName="MaVatTuKH" />
+          <ScalarProperty Name="MaDonHang" ColumnName="MaDonHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_LoaiPhieuVanChuyenNoiBo">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Table_LoaiPhieuVanChuyenNoiBo">
+        <MappingFragment StoreEntitySet="Table_LoaiPhieuVanChuyenNoiBo">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="LoaiPhieu" ColumnName="LoaiPhieu" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ExternalID" ColumnName="ExternalID" />
+          <ScalarProperty Name="InternalID" ColumnName="InternalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Mapping_DinhMuc_KeyHH_MOC">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Table_Mapping_DinhMuc_KeyHH_MOC">
+        <MappingFragment StoreEntitySet="Table_Mapping_DinhMuc_KeyHH_MOC">
+          <ScalarProperty Name="SoLanTinh_KeyHH" ColumnName="SoLanTinh_KeyHH" />
+          <ScalarProperty Name="Internalid_BOM" ColumnName="Internalid_BOM" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="IDChiPhi" ColumnName="IDChiPhi" />
+          <ScalarProperty Name="KeyHH" ColumnName="KeyHH" />
+          <ScalarProperty Name="Internalid_BOM_Rev" ColumnName="Internalid_BOM_Rev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Mapping_MACP_TenVT_Dinhmucdet">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Table_Mapping_MACP_TenVT_Dinhmucdet">
+        <MappingFragment StoreEntitySet="Table_Mapping_MACP_TenVT_Dinhmucdet">
+          <ScalarProperty Name="INT" ColumnName="INT" />
+          <ScalarProperty Name="MAPPING_KYHIEUCP" ColumnName="MAPPING_KYHIEUCP" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="MACP" ColumnName="MACP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z">
+        <MappingFragment StoreEntitySet="Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z">
+          <ScalarProperty Name="INT" ColumnName="INT" />
+          <ScalarProperty Name="MAPPING_KYHIEUCP" ColumnName="MAPPING_KYHIEUCP" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="MACP" ColumnName="MACP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Mapping_MaHangSPM_MaKieuDang">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Table_Mapping_MaHangSPM_MaKieuDang">
+        <MappingFragment StoreEntitySet="Table_Mapping_MaHangSPM_MaKieuDang">
+          <ScalarProperty Name="Externalid_LoaiSPMay" ColumnName="Externalid_LoaiSPMay" />
+          <ScalarProperty Name="Externalid_NhomMDSD" ColumnName="Externalid_NhomMDSD" />
+          <ScalarProperty Name="LOAISP" ColumnName="LOAISP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID_TT" ColumnName="ID_TT" />
+          <ScalarProperty Name="Externalid_MaKieuDang" ColumnName="Externalid_MaKieuDang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Mapping_Mavattu_DVT">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Table_Mapping_Mavattu_DVT">
+        <MappingFragment StoreEntitySet="Table_Mapping_Mavattu_DVT">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="TenDVT" ColumnName="TenDVT" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+          <ScalarProperty Name="Internalid" ColumnName="Internalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_TAX_CODE">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Table_TAX_CODE">
+        <MappingFragment StoreEntitySet="Table_TAX_CODE">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="HieuLuc" ColumnName="HieuLuc" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Desciption" ColumnName="Desciption" />
+          <ScalarProperty Name="Name_Tax_code" ColumnName="Name_Tax_code" />
+          <ScalarProperty Name="Internalid_taxcode" ColumnName="Internalid_taxcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoanNhanVien_Netsuite">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.TaiKhoanNhanVien_Netsuite">
+        <MappingFragment StoreEntitySet="TaiKhoanNhanVien_Netsuite">
+          <ScalarProperty Name="internalid" ColumnName="internalid" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Mapping_DoiTuongKhachHang_Customers">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.TBL_Mapping_DoiTuongKhachHang_Customers">
+        <MappingFragment StoreEntitySet="TBL_Mapping_DoiTuongKhachHang_Customers">
+          <ScalarProperty Name="NgayGuiAPI" ColumnName="NgayGuiAPI" />
+          <ScalarProperty Name="GuiAPI" ColumnName="GuiAPI" />
+          <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="BH_KT" ColumnName="BH_KT" />
+          <ScalarProperty Name="DonViPhuTrach" ColumnName="DonViPhuTrach" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="LastModifiedByID" ColumnName="LastModifiedByID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="HieuLuc" ColumnName="HieuLuc" />
+          <ScalarProperty Name="SanPham" ColumnName="SanPham" />
+          <ScalarProperty Name="KhuVuc" ColumnName="KhuVuc" />
+          <ScalarProperty Name="KenhPP" ColumnName="KenhPP" />
+          <ScalarProperty Name="NhanVienQuanLy" ColumnName="NhanVienQuanLy" />
+          <ScalarProperty Name="ThiTruong" ColumnName="ThiTruong" />
+          <ScalarProperty Name="Nganhang" ColumnName="Nganhang" />
+          <ScalarProperty Name="SoTaiKhoan" ColumnName="SoTaiKhoan" />
+          <ScalarProperty Name="NoiCap" ColumnName="NoiCap" />
+          <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="NgayMuaHangDauTien" ColumnName="NgayMuaHangDauTien" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="NguoiDaiDien" ColumnName="NguoiDaiDien" />
+          <ScalarProperty Name="MST" ColumnName="MST" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DoiTuong" ColumnName="DoiTuong" />
+          <ScalarProperty Name="MaDoiTuongKH" ColumnName="MaDoiTuongKH" />
+          <ScalarProperty Name="MaLoaiKhachHang" ColumnName="MaLoaiKhachHang" />
+          <ScalarProperty Name="Showroom" ColumnName="Showroom" />
+          <ScalarProperty Name="ExternalID_CUSTOMER" ColumnName="ExternalID_CUSTOMER" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Mapping_NguonGocSP_ThuongHieu">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Tbl_Mapping_NguonGocSP_ThuongHieu">
+        <MappingFragment StoreEntitySet="Tbl_Mapping_NguonGocSP_ThuongHieu">
+          <ScalarProperty Name="LOAISP" ColumnName="LOAISP" />
+          <ScalarProperty Name="ID_TT" ColumnName="ID_TT" />
+          <ScalarProperty Name="Internalid" ColumnName="Internalid" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TenHopQuis">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.TenHopQui">
+        <MappingFragment StoreEntitySet="TenHopQui">
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThiTruongXuatKhaus">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.ThiTruongXuatKhau">
+        <MappingFragment StoreEntitySet="ThiTruongXuatKhau">
+          <ScalarProperty Name="LoaiThongTin" ColumnName="LoaiThongTin" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="ThiTruong" ColumnName="ThiTruong" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chart_of_Accounts">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Chart_of_Accounts">
+        <MappingFragment StoreEntitySet="Chart_of_Accounts">
+          <ScalarProperty Name="int" ColumnName="int" />
+          <ScalarProperty Name="Externalid_NS" ColumnName="Externalid_NS" />
+          <ScalarProperty Name="Number_TT" ColumnName="Number_TT" />
+          <ScalarProperty Name="InternalID_NS" ColumnName="InternalID_NS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Donvi_mapping_Department_bk150424">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Donvi_mapping_Department_bk150424">
+        <MappingFragment StoreEntitySet="Donvi_mapping_Department_bk150424">
+          <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+          <ScalarProperty Name="donvidathang" ColumnName="donvidathang" />
+          <ScalarProperty Name="Account_Donvi_Xsudung" ColumnName="Account_Donvi_Xsudung" />
+          <ScalarProperty Name="mabp" ColumnName="mabp" />
+          <ScalarProperty Name="idmacs" ColumnName="idmacs" />
+          <ScalarProperty Name="madv" ColumnName="madv" />
+          <ScalarProperty Name="idmadv" ColumnName="idmadv" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+          <ScalarProperty Name="internalid" ColumnName="internalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GioiTinhs">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.GioiTinh">
+        <MappingFragment StoreEntitySet="GioiTinh">
+          <ScalarProperty Name="internalID" ColumnName="internalID" />
+          <ScalarProperty Name="decription" ColumnName="decription" />
+          <ScalarProperty Name="code_sex" ColumnName="code_sex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kho_bk_30052024">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.kho_bk_30052024">
+        <MappingFragment StoreEntitySet="kho_bk_30052024">
+          <ScalarProperty Name="NHAMAY" ColumnName="NHAMAY" />
+          <ScalarProperty Name="IDMADV" ColumnName="IDMADV" />
+          <ScalarProperty Name="ID_nhamaysx" ColumnName="ID_nhamaysx" />
+          <ScalarProperty Name="loai" ColumnName="loai" />
+          <ScalarProperty Name="tenkho" ColumnName="tenkho" />
+          <ScalarProperty Name="makho" ColumnName="makho" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="externalid" ColumnName="externalid" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhuVucs">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.KhuVuc">
+        <MappingFragment StoreEntitySet="KhuVuc">
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="internalid" ColumnName="internalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherChagreForPurchases">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.OtherChagreForPurchase">
+        <MappingFragment StoreEntitySet="OtherChagreForPurchase">
+          <ScalarProperty Name="WipStatus" ColumnName="WipStatus" />
+          <ScalarProperty Name="UsedByBTMMCSuiteApp" ColumnName="UsedByBTMMCSuiteApp" />
+          <ScalarProperty Name="ExpenseCogsAccount" ColumnName="ExpenseCogsAccount" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ExternalID" ColumnName="ExternalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Mapping_Mavattu_DVT_BK_23032024">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.Table_Mapping_Mavattu_DVT_BK_23032024">
+        <MappingFragment StoreEntitySet="Table_Mapping_Mavattu_DVT_BK_23032024">
+          <ScalarProperty Name="TenDVT" ColumnName="TenDVT" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="Externalid" ColumnName="Externalid" />
+          <ScalarProperty Name="Internalid" ColumnName="Internalid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Data_BCChiPhiVatTu_BC14">
+      <EntityTypeMapping TypeName="NetsuiteTTModel.TBL_Data_BCChiPhiVatTu_BC14">
+        <MappingFragment StoreEntitySet="TBL_Data_BCChiPhiVatTu_BC14">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="KeToanKiemTra" ColumnName="KeToanKiemTra" />
+          <ScalarProperty Name="PhongBan" ColumnName="PhongBan" />
+          <ScalarProperty Name="ID_" ColumnName="ID_" />
+          <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
+          <ScalarProperty Name="NgayCN" ColumnName="NgayCN" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="AccountMain" ColumnName="AccountMain" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="SoTienCo" ColumnName="SoTienCo" />
+          <ScalarProperty Name="SoTienNo" ColumnName="SoTienNo" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="NgayPhieu" ColumnName="NgayPhieu" />
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

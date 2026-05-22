@@ -1,0 +1,73 @@
+﻿@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.SP_GC_LOAD_GC_DMPHIEU_BANGKENHAPSOI_Result>;
+    var STT = 1;
+}
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>STT</th>
+            <th>Số phiếu</th>
+            <th>Đơn vị</th>
+            <th>Năm</th>
+            <th>Tháng</th>
+            <th>Nhập kho</th>
+            <th>Hình thức</th>
+            <th>Mã loại công đoạn</th>
+            <th>Khách hàng</th>
+            <th>Hiệu lực</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Lists)
+        {
+            <tr>
+
+                <td width="150px">
+                    <div class="row">
+                        <a onclick="Edit('@item.SOPHIEU')" class="btn">
+                            <i class="fas fa-edit" style="color: blue" title="Hiệu Chỉnh Chi Tiết"></i> 
+                        </a>
+                        <a onclick="printReport('@item.SOPHIEU')" class="btn">
+                            <i class="fas fa-print" style="color: blue" title="In"></i>
+                        </a>
+                        <a onclick="openOutlookemailbox('@item.SOPHIEU')" class="btn">
+                            <i class="fa fa-envelope" style="color: blue" title="Gửi mail"></i>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <a onclick="Details('@item.SOPHIEU')" class="btn">
+                            <i class="fas fa-list" style="color: blue" title="Xem chi tiết"></i> 
+                        </a>
+                        <a onclick="Xoa_MaPhieu_Click('@item.SOPHIEU')" class="btn">
+                            <i class="far fa-trash-alt" style="color: blue" title="Xóa"></i> 
+                        </a>
+                    </div>
+                </td>
+                <td>@STT</td>
+                <td>@item.SOPHIEU</td>
+                <td>@item.MADV</td>
+                <td>@item.NAM</td>
+                <td>@item.THANG</td>
+                <td>@item.NHAPKHO</td>
+                <td>@item.HINHTHUC</td>
+                <td>@item.MALOAICONGDOAN</td>
+                <td>@item.TENKH</td>
+                
+                <td>
+                    @if (item.HIEULUC_XX == null || item.HIEULUC_XX == false)
+                    {
+                        <small class="badge badge-danger"><i class="far fa-clock"></i> Vô hiệu</small>
+                    }
+                    else
+                    {
+                        <small class="badge badge-success"><i class="far fa-clock"></i> Có hiệu lực</small>
+                    }
+                </td>
+                
+            </tr>
+            STT++;
+        }
+    </tbody>
+</table>

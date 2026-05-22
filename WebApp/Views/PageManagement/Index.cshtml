@@ -1,0 +1,296 @@
+﻿@{
+    ViewBag.Title = "PAGE MANAGEMENT";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>SEARCH</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Code</label>
+                                    <input class="form-control form-control-sm" type="text" autocomplete="off"
+                                           id="CodeSearch" name="CodeSearch" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Info</label>
+                                    <input class="form-control form-control-sm" type="text" autocomplete="off"
+                                           id="InfoSearch" name="InfoSearch" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>Action</label>
+                                    <input class="form-control form-control-sm" type="text" autocomplete="off"
+                                           id="ActionSearch" name="ActionSearch" />
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-4">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>Controler</label>
+                                    <input class="form-control form-control-sm" type="text" autocomplete="off"
+                                           id="ControlerSearch" name="ControlerSearch" />
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-12">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <button id="btnSearch" type="button" class="btn bg-gradient-primary"><i class="fa fa-search"></i> Search</button>
+                                    &nbsp;
+                                    <button id="btnExport" type="button" class="btn bg-gradient-info"><i class="fa fa-file-excel"></i> Excel</button>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>RESULTS</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button id="btnCreate" type="button" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Create</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div id="myModal" class="modal fade modal-wide" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+            {
+               
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContent">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSave" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Save</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close</button>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        function loadData(isDelete) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 2000000,
+                data: {
+                    CodeSearch: $("#CodeSearch").val(),
+                    InfoSearch: $("#InfoSearch").val(),
+                    ActionSearch: $("#ActionSearch").val(),
+                    ControlerSearch: $("#ControlerSearch").val()
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        "responsive": true,
+                        "lengthChange": false,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+        function Delete(id_) {
+            if (confirm('Do you want to delete this item ?')) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteFun")',
+                    timeout: 2000000,
+                    type: "POST",
+                    data: { Id: id_ },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status == 1) {
+
+                            notify(result.text, "success");
+
+                            loadData(true);
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+        function Edit(id_) {
+            $myModalContent.html("");
+            $myModalTitle.html("Update");
+            $.ajax({
+                url: '@Url.Action("_Edit")',
+                timeout: 2000000,
+                data: {
+                    Id: id_
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $myModalContent.html(result);
+                    $modal.modal();
+                    $(".divLoading").removeClass("loading");
+                },
+                failure: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            loadData(false);
+
+            $("#myModal").on("hidden.bs.modal", function () {
+                loadData(false);
+            });
+
+            $("#btnSearch").click(function () {
+                loadData(true);
+            });
+
+            $("#btSave").click(function () {
+                form = $("#frm");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse("#frm");
+                if (form.valid()) {
+                    var formdata = new FormData(); //FormData object
+
+                    formdata.append("Id", $("#Id").val());
+                    formdata.append("Controler", $("#Controler").val());
+                    formdata.append("Action", $("#Action").val());
+                    formdata.append("Code", $("#Code").val());
+                    formdata.append("Info", $("#Info").val());
+
+                    $.ajax({
+                        url: $("#Id").val() == "0" ? '@Url.Action("_InsertFun")' : '@Url.Action("_EditFun")',
+                        type: "POST",
+                        contentType: false,
+                        processData: false,
+                        data: formdata,
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status == 1) {
+
+                                notify(result.text, "success");
+
+                                loadData(true);
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+            });
+
+            $("#btnCreate").click(function () {
+                $myModalContent.html("");
+                $myModalTitle.html("Create");
+                $.ajax({
+                    url: '@Url.Action("_Insert")',
+                    timeout: 2000000,
+                    data: {
+                        Id: 0
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContent.html(result);
+                        $modal.modal();
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+        });
+    </script>
+}

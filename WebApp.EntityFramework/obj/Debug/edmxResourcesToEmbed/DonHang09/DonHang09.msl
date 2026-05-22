@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLDonHang09ModelStoreContainer" CdmEntityContainer="QLDonHang09Entities">
+    <EntitySetMapping Name="CN_DONHANG">
+      <EntityTypeMapping TypeName="QLDonHang09Model.CN_DONHANG">
+        <MappingFragment StoreEntitySet="CN_DONHANG">
+          <ScalarProperty Name="MADH_CN" ColumnName="MADH_CN" />
+          <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+          <ScalarProperty Name="SOHOPDONG" ColumnName="SOHOPDONG" />
+          <ScalarProperty Name="LOAIHOPDONG" ColumnName="LOAIHOPDONG" />
+          <ScalarProperty Name="THITRUONG" ColumnName="THITRUONG" />
+          <ScalarProperty Name="MANVDATHANG" ColumnName="MANVDATHANG" />
+          <ScalarProperty Name="TSOMETDH" ColumnName="TSOMETDH" />
+          <ScalarProperty Name="PHUONGTHUC" ColumnName="PHUONGTHUC" />
+          <ScalarProperty Name="MADV_SX" ColumnName="MADV_SX" />
+          <ScalarProperty Name="LOAIHINHKINHDOANH" ColumnName="LOAIHINHKINHDOANH" />
+          <ScalarProperty Name="LOAIDICHVU" ColumnName="LOAIDICHVU" />
+          <ScalarProperty Name="GM_CHOPHEP" ColumnName="GM_CHOPHEP" />
+          <ScalarProperty Name="GM_DONHANG" ColumnName="GM_DONHANG" />
+          <ScalarProperty Name="BANTGD_DUYET" ColumnName="BANTGD_DUYET" />
+          <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
+          <ScalarProperty Name="NGAYCN" ColumnName="NGAYCN" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+          <ScalarProperty Name="GHICHU_DONVIDAT" ColumnName="GHICHU_DONVIDAT" />
+          <ScalarProperty Name="MANV_XEMXET" ColumnName="MANV_XEMXET" />
+          <ScalarProperty Name="NGAY_XEMXET" ColumnName="NGAY_XEMXET" />
+          <ScalarProperty Name="HIEULUC_XEMXET" ColumnName="HIEULUC_XEMXET" />
+          <ScalarProperty Name="MANV_TIEPNHAN_CU" ColumnName="MANV_TIEPNHAN_CU" />
+          <ScalarProperty Name="NGAY_TIEPNHAN_CU" ColumnName="NGAY_TIEPNHAN_CU" />
+          <ScalarProperty Name="HIEULUC_TIEPNHAN_CU" ColumnName="HIEULUC_TIEPNHAN_CU" />
+          <ScalarProperty Name="MANV_TIEPNHAN_QA" ColumnName="MANV_TIEPNHAN_QA" />
+          <ScalarProperty Name="NGAY_TIEPNHAN_QA" ColumnName="NGAY_TIEPNHAN_QA" />
+          <ScalarProperty Name="HIEULUC_TIEPNHAN_QA" ColumnName="HIEULUC_TIEPNHAN_QA" />
+          <ScalarProperty Name="MANV_TIEPNHAN_NMN" ColumnName="MANV_TIEPNHAN_NMN" />
+          <ScalarProperty Name="NGAY_TIEPNHAN_NMN" ColumnName="NGAY_TIEPNHAN_NMN" />
+          <ScalarProperty Name="HIEULUC_TIEPNHAN_NMN" ColumnName="HIEULUC_TIEPNHAN_NMN" />
+          <ScalarProperty Name="MANV_TIEPNHAN_NMMAY" ColumnName="MANV_TIEPNHAN_NMMAY" />
+          <ScalarProperty Name="NGAY_TIEPNHAN_NMMAY" ColumnName="NGAY_TIEPNHAN_NMMAY" />
+          <ScalarProperty Name="HIEULUC_TIEPNHAN_NMMAY" ColumnName="HIEULUC_TIEPNHAN_NMMAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GET_SODONHANG" FunctionName="QLDonHang09Model.Store.GET_SODONHANG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDonHang09Model.GET_SODONHANG_Result">
+          <ScalarProperty Name="SoDonHang" ColumnName="SoDonHang" />
+          <ScalarProperty Name="Hoai" ColumnName="Hoai" />
+          <ScalarProperty Name="Ga" ColumnName="Ga" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="API_DinhmucDet_SOI_CONGDOAN" FunctionName="QLDonHang09Model.Store.API_DinhmucDet_SOI_CONGDOAN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDonHang09Model.API_DinhmucDet_SOI_CONGDOAN_Result">
+          <ScalarProperty Name="KeyHH" ColumnName="KeyHH" />
+          <ScalarProperty Name="DonviTH" ColumnName="DonviTH" />
+          <ScalarProperty Name="madh" ColumnName="madh" />
+          <ScalarProperty Name="mahangsx" ColumnName="mahangsx" />
+          <ScalarProperty Name="mahangdieudo" ColumnName="mahangdieudo" />
+          <ScalarProperty Name="soluongKDDat" ColumnName="soluongKDDat" />
+          <ScalarProperty Name="sldieudo" ColumnName="sldieudo" />
+          <ScalarProperty Name="CONGDOAN" ColumnName="CONGDOAN" />
+          <ScalarProperty Name="Mavatu" ColumnName="Mavatu" />
+          <ScalarProperty Name="Tenvattu" ColumnName="Tenvattu" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+          <ScalarProperty Name="kg_1met" ColumnName="kg/1met" />
+          <ScalarProperty Name="Khoiluongsudung" ColumnName="Khoiluongsudung" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_QuocGia" FunctionName="QLDonHang09Model.Store.Load_QuocGia">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDonHang09Model.Load_QuocGia_Result">
+          <ScalarProperty Name="MAQUOCGIA" ColumnName="MAQUOCGIA" />
+          <ScalarProperty Name="TenQuocGia" ColumnName="TenQuocGia" />
+          <ScalarProperty Name="HienThi" ColumnName="HienThi" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="load_TBLKHACHHANG" FunctionName="QLDonHang09Model.Store.load_TBLKHACHHANG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDonHang09Model.load_TBLKHACHHANG_Result">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+          <ScalarProperty Name="MaQuocGia" ColumnName="MaQuocGia" />
+          <ScalarProperty Name="TenQuocGia" ColumnName="TenQuocGia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

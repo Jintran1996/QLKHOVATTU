@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLDonHang09Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CN_DONHANG">
+    <Key>
+      <PropertyRef Name="MADH_CN" />
+    </Key>
+    <Property Name="MADH_CN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MAKHACHHANG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SOHOPDONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LOAIHOPDONG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="THITRUONG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MANVDATHANG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TSOMETDH" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PHUONGTHUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MADV_SX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LOAIHINHKINHDOANH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LOAIDICHVU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GM_CHOPHEP" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GM_DONHANG" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BANTGD_DUYET" Type="Boolean" />
+    <Property Name="MANVCN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGAYCN" Type="DateTime" Precision="3" />
+    <Property Name="HIEULUC" Type="Boolean" />
+    <Property Name="GHICHU_DONVIDAT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MANV_XEMXET" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGAY_XEMXET" Type="DateTime" Precision="3" />
+    <Property Name="HIEULUC_XEMXET" Type="Boolean" />
+    <Property Name="MANV_TIEPNHAN_CU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGAY_TIEPNHAN_CU" Type="DateTime" Precision="3" />
+    <Property Name="HIEULUC_TIEPNHAN_CU" Type="Boolean" />
+    <Property Name="MANV_TIEPNHAN_QA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGAY_TIEPNHAN_QA" Type="DateTime" Precision="3" />
+    <Property Name="HIEULUC_TIEPNHAN_QA" Type="Boolean" />
+    <Property Name="MANV_TIEPNHAN_NMN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGAY_TIEPNHAN_NMN" Type="DateTime" Precision="3" />
+    <Property Name="HIEULUC_TIEPNHAN_NMN" Type="Boolean" />
+    <Property Name="MANV_TIEPNHAN_NMMAY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGAY_TIEPNHAN_NMMAY" Type="DateTime" Precision="3" />
+    <Property Name="HIEULUC_TIEPNHAN_NMMAY" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="QLDonHang09Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CN_DONHANG" EntityType="Self.CN_DONHANG" />
+    <FunctionImport Name="GET_SODONHANG" ReturnType="Collection(QLDonHang09Model.GET_SODONHANG_Result)" />
+    <FunctionImport Name="API_DinhmucDet_SOI_CONGDOAN" ReturnType="Collection(QLDonHang09Model.API_DinhmucDet_SOI_CONGDOAN_Result)">
+      <Parameter Name="thang" Mode="In" Type="String" />
+      <Parameter Name="nam" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Load_QuocGia" ReturnType="Collection(QLDonHang09Model.Load_QuocGia_Result)" />
+    <FunctionImport Name="load_TBLKHACHHANG" ReturnType="Collection(QLDonHang09Model.load_TBLKHACHHANG_Result)">
+      <Parameter Name="makhachhang" Mode="In" Type="String" />
+      <Parameter Name="quocgia" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GET_SODONHANG_Result">
+    <Property Type="String" Name="SoDonHang" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Hoai" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Ga" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="API_DinhmucDet_SOI_CONGDOAN_Result">
+    <Property Type="String" Name="KeyHH" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DonviTH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="madh" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="mahangsx" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mahangdieudo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="soluongKDDat" Nullable="true" />
+    <Property Type="Decimal" Name="sldieudo" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="CONGDOAN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Mavatu" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Tenvattu" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="7" />
+    <Property Type="Decimal" Name="kg_1met" Nullable="true" Precision="37" Scale="8" />
+    <Property Type="Decimal" Name="Khoiluongsudung" Nullable="true" Precision="38" Scale="6" />
+  </ComplexType>
+  <ComplexType Name="Load_QuocGia_Result">
+    <Property Type="String" Name="MAQUOCGIA" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TenQuocGia" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HienThi" Nullable="true" MaxLength="104" />
+  </ComplexType>
+  <ComplexType Name="load_TBLKHACHHANG_Result">
+    <Property Type="String" Name="MaKH" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TenKH" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MaQuocGia" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TenQuocGia" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

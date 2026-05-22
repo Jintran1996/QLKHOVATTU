@@ -1,0 +1,37 @@
+﻿@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_Role>;
+}
+
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>.No</th>
+            <th>Code</th>
+            <th>Role Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists)
+        {
+            <tr>
+                <td style="max-width:40px!important">
+                    <a onclick="Edit('@item.Id')" class="btn">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a onclick="Delete('@item.Id')" class="btn">
+                        <i class="far fa-trash-alt"></i> Delete
+                    </a>
+                </td>
+                <td>
+                    @STT
+                </td>
+                <td>@item.Code</td>
+                <td>@item.RoleName</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

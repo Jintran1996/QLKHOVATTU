@@ -1,0 +1,68 @@
+﻿@using System.Globalization;
+
+@{
+    var ct = ViewBag.CT as ToolsApp.EntityFramework.KhoSoi.DONHANGGCSOI_CT;
+}
+
+
+<input id="KHOA_ID" name="KHOA_ID" value="@ct.KHOA_ID" type="hidden">
+
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-2 col-sm-2">Mã đơn hàng gia công sợi: </label>
+    <div class="col-md-4 col-sm-4 ten">
+        <input id="MADH_GCSOI" name="MADH_GCSOI" class="form-control" value="@ct.MADH_GCSOI" readonly>
+    </div>
+    <label class="col-md-2 col-sm-2"> Số Lượng: </label>
+    <div class="col-md-4 col-sm-4 ten">
+        <input id="SOLUONGYEUCAU" name="SOLUONGYEUCAU" class="form-control" type="number" value="@ct.SOLUONGYEUCAU" min="0">
+    </div>
+    
+</div>
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-2 col-sm-2">Mã sợi thành phẩm: </label>
+    <div class="col-md-4 col-sm-4 ten">
+        <input value="@ct.MASOITHANHPHAM"
+               class="form-control" type="text" autocomplete="off"
+               id="MASOITHANHPHAM" name="MASOITHANHPHAM" readonly/>
+    </div>
+    <label class="col-md-2 col-sm-2"> Diễn Giải: </label>
+    <div class="col-md-4 col-sm-4 ten">
+        <input id="DIENGIAI" name="DIENGIAI" class="form-control" value="@ct.DIENGIAI" readonly>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+
+</script>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    $("#THOIDIEMSD").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+
+</script>
+
+
+
+

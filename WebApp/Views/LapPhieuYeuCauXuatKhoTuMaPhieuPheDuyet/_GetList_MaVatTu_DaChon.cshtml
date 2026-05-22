@@ -1,0 +1,67 @@
+﻿
+@{
+    var STT = 0;
+    var data = ViewBag.data as List<ToolsApp.EntityFramework.VatTu.SP_LOADCTPHIEUYCXUATKHO_DONVI_Result>;
+}
+<link href="~/Content/CssTeamCode/lapPhieuYeuCauXuatVT.css" rel="stylesheet" />
+<style>
+    #myTable_DinhMuc {
+        background-color: white;
+    }
+</style>
+
+<input id="Stt_dact_Tamp" name="Stt_dact_Tamp" value="@data.Count()" style="display:none;" />
+<fieldset class="scheduler-border">
+    <legend class="scheduler-border">Mã Vật Tư Đã Chọn</legend>
+    <div class="control-group">
+        <table id="myTable_MaVatTu_DaChon" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th width="30px"><input type="checkbox" checked id="check_All_MaVatTu_DaChon" onclick="ClickAll_MaVatTu_DaChon_();" name="check_All_MaVatTu_DaChon" class="form-group " style="text-align:center" />Chọn hết</th>
+                    <th style="max-width:60px">Số CT XN</th>
+                    <th style="max-width:60px">Mã Phiếu</th>
+                    <th style="max-width:60px">Mã Vật Tư</th>
+                    <th style="max-width:60px">Tên Vật Tư</th>
+                    <th style="max-width:60px">SL yêu cầu</th>
+                    <th style="max-width:60px">Mã nhân viên YC</th>
+                    <th style="max-width:60px">Mã Kho</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in data)
+                {
+                    <tr>
+                        <td align="center">
+                            <input type="checkbox" id="check_MaVatTu_DaChon_@(STT)" checked name="check_MaVatTu_DaChon_@(STT)" value="" class="form-group " />
+                        </td>
+                        <td> <input type="text" id="data_CT_SOCTXN_@(STT)" name="data_CT_SOCTXN_@(STT)" value="@item.SOCTXN" style="display:none" />@item.SOCTXN </td>
+                        <td> <input type="text" id="data_CT_MAPHIEUPD_@(STT)" name="data_CT_MAPHIEUPD_@(STT)" value="@item.MAPHIEUPD" style="display:none" />@item.MAPHIEUPD </td>
+                        <td>  <input type="text" id="data_CT_MAVT_@(STT)" name="data_CT_MAVT_@(STT)" value="@item.MAVT" style="display:none" />@item.MAVT </td>
+                        <td>  <input type="text" id="data_CT_TENVT_@(STT)" name="data_CT_TENVT_@(STT)" value="@item.TENVT" style="display:none" />@item.TENVT </td>
+                        <td>  <input type="text" id="data_CT_SOLUONGYC_@(STT)" name="data_CT_SOLUONGYC_@(STT)" value="@item.SOLUONGYC" style="display:none" />@item.SOLUONGYC </td>
+                        <td>  <input type="text" id="data_CT_MANVYC_@(STT)" name="data_CT_MANVYC_@(STT)" value="@item.MANVYC" style="display:none" />@item.MANVYC </td>
+                        <td>  <input type="text" id="data_CT_MAKHO_@(STT)" name="data_CT_MAKHO_@(STT)" value="@item.MAKHO" style="display:none" />@item.MAKHO </td>
+                       
+                    </tr>
+                    STT++;
+                }
+            </tbody>
+        </table>
+    </div>
+</fieldset>
+<script type="text/javascript">
+    function ClickAll_MaVatTu_DaChon_() {
+        var ckbox = $('#check_All_MaVatTu_DaChon');
+        if (ckbox.is(':checked')) {
+            console.log(@STT);
+            for (var index = 0; index <= @STT; index++) {
+                $('#check_MaVatTu_DaChon_' + index).attr('checked', true);
+            }
+        } else {
+            for (var index = 0; index <= @STT; index++) {
+                $('#check_MaVatTu_DaChon_' + index).attr('checked', false);
+            }
+        }
+    }
+</script>

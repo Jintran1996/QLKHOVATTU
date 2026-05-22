@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYKHOTP2023Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="TONKHO290224_IAA_Adjustments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOCATION" Type="varchar" Mode="In" />
+    <Parameter Name="Key" Type="varchar" Mode="In" />
+    <Parameter Name="thang" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="TONKHO290224_IAA_InventoryDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOCATION" Type="varchar" Mode="In" />
+    <Parameter Name="Key" Type="varchar" Mode="In" />
+    <Parameter Name="thang" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="TONKHO290224_InventoryAdjustment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOCATION" Type="varchar" Mode="In" />
+    <Parameter Name="Key" Type="varchar" Mode="In" />
+    <Parameter Name="thang" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="QUANLYKHOTP2023ModelStoreContainer" />
+</Schema>

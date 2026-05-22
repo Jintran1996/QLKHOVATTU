@@ -1,0 +1,85 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2026_SP_VATTU_LOADVATTUNHAPKHO_THUKHO_DIENGIAI_XUATNHAPKHO_Result>;
+    int STT = 1;
+}
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+  
+            <th>STT</th>
+            <th>SOCTXN</th>
+            <th>NGÀY CT</th>
+            <th>SOCT KToan</th>
+            <th>Ngày KToán</th>
+            <th>Loại XN</th>
+            <th>MAVT</th>
+            <th>TENVT</th>
+            <th>DVT</th>
+            <th>Số lượng</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
+            <th>Mã phiếu PD</th>
+            <th>Ghi chú</th>
+            <th>Tên NCC</th>
+            <th>Số lượng NCC</th>
+            <th>DVT NCC</th>
+            <th>Mã Kho</th>
+            <th>Mã Kho nhận</th>
+            <th>Mã Kho xuất</th>
+            <th>Họ và Tên NViên YCầu</th>
+            <th>Is đồng bộ</th>
+            <th>Ngày đồng bộ</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List.OrderBy(p => p.MAVT))
+        {
+        <tr>
+      
+            <td>@STT</td>
+            <td>@item.SoCTXN</td>
+            <td>@item.NGAYCT.Value.ToString("dd/MM/yyyy")</td>
+            <td>@item.SoCTKeToan</td>
+            <td>@item.NgayKeToan.Value.ToString("dd/MM/yyyy")</td>
+            <td>@item.LoaiXN</td>
+            <td>@item.MAVT</td>
+            <td>@item.TenVT</td>
+            <td>@item.DVT</td>
+            <td>@(Convert.ToDecimal(item.SoLuongTT.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.DONGIA.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.THANHTIEN.Value.ToString("#.0000")))</td>
+            <td>@item.MaPhieuPD</td>
+            <td>@item.GHICHU</td>
+            <td>@item.TENVATTU_NCC</td>
+            <td>@(Convert.ToDecimal(item.SOLUONG_NCC.Value.ToString("#.0000")))</td>
+            <td>@item.DVT_NCC</td>
+            <td>@item.MaKho</td>
+            <td>@item.MAKHONHAN</td>
+            <td>@item.MAKHOXUAT</td>
+            <td>@item.HoTenNhanVienYeuCau</td>
+            <td>
+                @if (item.GUIAPI == "1")
+                {
+                    <i class="fa fa-check" style="color: lawngreen; font-size: 25px; align-content: center" value="1" title="Đã đồng bộ Netsuite"></i>
+                }
+                else
+                {
+                    if (item.LoaiXN == "NNB")
+                    {
+                        <i class="fa fa-times" style="color: #a9a72b; font-size: 25px; align-content: center" title="Phiếu NNB không đồng bộ Netsuite"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-times" style="color: red; font-size: 25px; align-content: center" title="Chưa đồng bộ Netsuite"></i>
+                    }                
+                }
+            </td>
+            <td>@item.NGAYGUIAPI</td>
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

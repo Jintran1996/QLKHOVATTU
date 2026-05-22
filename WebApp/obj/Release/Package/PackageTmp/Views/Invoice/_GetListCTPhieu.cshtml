@@ -1,0 +1,153 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.Insert_Invoice_NL_DMPHIEU_Review_Result>;
+    ViewBag.Title = "Danh sách vật tư";
+    var stt = 1;
+}
+<form id="frmdataCT_tbl" method="post" enctype="multipart/form-data" name="frmdataCT_tbl">
+    <table id="myTableCT" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Mã phiếu</th>
+                <th>Số hợp đồng</th>
+                <th>Mã VT</th>
+                <th>Tên VT</th>
+                <th>Invoice</th>
+                <th>Mã SP khách</th>
+                <th>Giá nhập</th>
+                <th>Tờ khai</th>
+                <th>Quốc gia</th>
+                <th>Khách hàng</th>
+                <th>Ngày nhập hàng</th>
+                <th hidden></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in list.ToList())
+            {
+                <tr>
+                    <td>
+                        <a onclick="Save('@item.MAPHIEU','@item.MAVATTU')" class="btn">
+                            <i class="fas fa-save"></i> Lưu
+                        </a>
+                    </td>
+                    <td>@item.MAPHIEU</td>
+                    <td>
+                        <input type="search" id="Detail[@(stt-1)].SOHOPDONG" name="Detail[@(stt-1)].SOHOPDONG" class="form-control" value="@(string.IsNullOrEmpty(item.SOHOPDONG) ? "" : item.SOHOPDONG)"
+                               autocomplete="off" onfocus="this.select();">
+                    </td>
+                    <td>@item.MAVATTU</td>
+                    <td>@item.TENVT</td>
+                    <td>
+                        <input type="search" id="Detail[@(stt-1)].INVOICE1" name="Detail[@(stt-1)].INVOICE1" class="form-control" value="@(string.IsNullOrEmpty(item.INVOICE) ? "" : item.INVOICE)"
+                               autocomplete="off" onfocus="this.select();">
+                    </td>
+                    <td>
+                        <input id="Detail[@(stt-1)].MASPKHACH" name="Detail[@(stt-1)].MASPKHACH" class="form-control" type="search" value="@(string.IsNullOrEmpty(item.MASPKHACH) ? "" : item.MASPKHACH)"
+                               autocomplete="off" onfocus="this.select();" />
+                    </td>
+                    <td style="color:blue; font: bold">
+                        <input id="Detail[@(stt-1)].GIANHAP" name="Detail[@(stt-1)].GIANHAP" class="form-control"
+                               onclick="this.select();" type="number" step="0.01" min="0.01" value="@(item.GIANHAP == 0 ? 0 : item.GIANHAP)" />
+                    </td>
+                    <td>
+                        <input type="search" id="Detail[@(stt-1)].TOKHAI" name="Detail[@(stt-1)].TOKHAI" class="form-control" value="@(string.IsNullOrEmpty(item.TOKHAI) ? "" : item.TOKHAI)"
+                               autocomplete="off" onfocus="this.select();">
+                    </td>
+                    <td>
+                        <input type="search" id="Detail[@(stt-1)].QUOCGIA" name="Detail[@(stt-1)].QUOCGIA" class="form-control" value="@(string.IsNullOrEmpty(item.QUOCGIA) ? "" : item.QUOCGIA)"
+                               autocomplete="off" onfocus="this.select();">
+                    </td>
+                    <td>
+                        <input type="search" id="Detail[@(stt-1)].MAKH" name="Detail[@(stt-1)].MAKH" class="form-control" value="@(string.IsNullOrEmpty(item.MAKH) ? "" : item.MAKH)"
+                               autocomplete="off" onfocus="this.select();">
+                    </td>
+                    <td>@(item.NGAYNHAPHANG == null ? "" : item.NGAYNHAPHANG.Value.ToString("dd/MM/yyyy"))</td>
+                    <td hidden>
+                        <input type="hidden" name="MAPHIEU" value="@item.MAPHIEU" />
+                        <input type="hidden" name="SOHOPDONG" value="@item.SOHOPDONG" />
+                        <input type="hidden" name="QUOCGIA" value="@item.QUOCGIA" />
+                        <input type="hidden" name="MAKH" value="@item.MAKH" />
+                        <input type="hidden" name="INVOICE1" value="@item.INVOICE" />
+                        <input type="hidden" name="TOKHAI" value="@item.TOKHAI" />
+                        <input type="hidden" name="GIANHAP" value="@item.GIANHAP" />
+                        <input type="hidden" name="MASPKHACH" value="@item.MASPKHACH" />
+                        <input type="hidden" name="NGAYNHAPHANG" value="@item.NGAYNHAPHANG" />
+                        <input type="hidden" id="Detail[@(stt-1)].khoa_id" name="Detail[@(stt-1)].khoa_id" value="@(Guid.NewGuid())" />
+                        <input type="hidden" name="Detail[@(stt-1)].MAPHIEU" value="@item.MAPHIEU" />
+                        <input type="hidden" name="Detail[@(stt-1)].MAVATTU" value="@item.MAVATTU" />
+                        <input type="hidden" id="Detail[@(stt-1)].TENVT" name="Detail[@(stt-1)].TENVT" value="@item.TENVT" />
+                        <input type="hidden" name="Detail[@(stt-1)].QUOCGIA" value="@item.QUOCGIA" />
+                        <input type="hidden" name="Detail[@(stt-1)].MAKH" value="@item.MAKH" />
+                        <input type="hidden" id="Detail[@(stt-1)].NGAYNHAPHANG" name="Detail[@(stt-1)].NGAYNHAPHANG" value="@item.NGAYNHAPHANG" />
+                    </td>
+                </tr>
+                stt++;
+            }
+        </tbody>
+    </table>
+    <div class="modal-footer">
+        <div class="text-right">
+            <button type="button" id="tbl_data_btSave" class="btn btn-sm btn-success" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="width: 100px"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $("#tbl_data_btSave").click(function () {
+        var form = $('#frmdataCT_tbl').serialize();
+        $.ajax({
+            url: '@Url.Action("_Insert")',
+            type: "POST",
+            timeout: 20000,
+            data: form,
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                if (result.status < 1) {
+                    notify(result.text, "error");
+                }
+                else {
+                    notify(result.text, "success");
+                }
+                console.log(result.text);
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    });
+
+    function Save(maphieu_,mavt) {
+        console.log(form + '&khoa=' + encodeURIComponent(mavt));
+        var form = $('#frmdataCT_tbl').serialize();
+        $.ajax({
+            url: '@Url.Action("_InsertFun")',
+            type: "POST",
+            timeout: 20000,
+            data: form + '&khoa=' + encodeURIComponent(mavt),
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+            success: function (result) {
+                if (result.status < 1) {
+                    notify(result.text, "error");
+                    
+                }
+                else {
+                    notify(result.text, "success");
+                    reloadCT(maphieu_);
+                }
+                console.log(result.text);
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    };
+</script>

@@ -1,0 +1,92 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.DANHMUCVATTU>;
+    var Username = ViewBag.Username;
+    var STT = 1;
+}
+
+<table id="myTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th width="40px">STT</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>Loại vật tư</th>
+            <th>Mã nhóm</th>
+            <th>Đơn vị tính</th>
+            <th>Đơn vị sử dụng</th>
+            <th>Hiệu lực</th>
+            <th>IsAPI</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in list.Take(100))
+        {
+            <tr>
+                <td width="133px">
+
+
+                    <a onclick="btnDongBo('@item.MAVT')" class="btn">
+                        <i class="fas fa-recycle"></i> Đồng bộ
+                    </a>
+                    @*@if (Username == "2464")
+                    {
+                        <a onclick="Edit('@item.MAVT')" class="btn">
+                            <i class="fas fa-edit"></i> Sửa
+                        </a>                   
+                    }*@
+                    @if (item.GuiAPI == "1")
+                    {
+
+                    }
+                    else
+                    {
+                        <a onclick="Delete('@item.MAVT')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                    }
+
+
+                </td>
+                <td> @STT </td>
+                <td> @item.MAVT </td>
+                <td> @item.TenVT </td>
+                <td> @item.LoaiVT </td>
+                <td> @item.Manhom </td>
+                <td>@item.DVT</td>
+                <td>@item.DonViSuDungtac</td>
+
+                <td style="text-align: center; font-size: 24px;">
+                    @if (@item.HieuLuc == true)
+                    {
+
+                        <i class="fa fa-check" style="color: springgreen;"></i>
+                    }
+                    else
+                    {
+
+                        <i class="fa fa-ban" style="color: red"></i>
+                    }
+                </td>
+                <td style="text-align: center; font-size: 24px;">
+                    @if (item.GuiAPI == "1")
+                    {
+
+                        <i class="fa fa-check" style="color: springgreen;font-size: 24px;"></i>
+                    }
+                    else
+                    {
+
+
+                    }
+                </td>
+
+            </tr>
+            STT++;
+
+
+        }
+    </tbody>
+</table>

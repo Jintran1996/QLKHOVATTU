@@ -1,0 +1,354 @@
+﻿
+@{
+    ViewBag.Title = "Kiểm Tra BM08 (Của Đơn Vị)";
+    var maphieu = ViewBag.maphieu as List<ToolsApp.EntityFramework.VatTu.CTPHIEU05_LOADMAPHIEUXEMXET_Result>;
+    
+}
+
+<section class="content" style="font-size: 12px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Xem xét</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Chọn mã phiếu</label>
+                                    <select class="form-control chosen-select" onchange="reloadData(); LydoSuDung()"
+                                            id="maphieu" name="maphieu">
+                                        <option selected disabled value="">--Chọn mã phiếu--</option>
+                                        @foreach (var item in maphieu)
+                                        {
+                                            <option value="@item.MAPHIEU">@item.MAPHIEU</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Lý do SD</label>
+                                    <select class="form-control chosen-select" id="Lydosd" name="Lydosd">
+                                        
+                                       
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Xem xét</label>
+                                    <select class="form-control chosen-select" id="xemxet" name="xemxet">
+                                        @*<option selected value="0">Chưa xem xét</option>*@
+                                        <option value="1">Xem xét</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button id="btnCapNhat" type="button" class="btn btn-outline-primary"><i class="fa fa-save"></i>&nbsp; Lưu Trạng Thái</button>
+                                    &nbsp;
+                                    <button onclick="OpenMailBox()" type="button" class="btn btn-outline-info"><i class="far fa-paper-plane"></i>&nbsp; Email</button>&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End section search-->
+            </div>
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Chi tiết mã phiếu </b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+<div id="myModal" class="modal fade bd-example-modal-lg " role="dialog">
+    <div class="modal-dialog modal-lg ">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContent">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSavect" onclick="btLuu();" class="btn btn-sm bg-gradient-primary"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                        &nbsp;
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+
+    </script>
+    <script>
+        
+        function reloadData(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+                    maphieu: $("#maphieu").val(),
+                    page: page
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        destroy : true,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        $(document).ready(function () {
+            reloadData(false);
+
+        });
+         function LydoSuDung() {
+             var _MaPhieu = $("#maphieu").val();
+             var Lydosd = $('#Lydosd');
+
+            $.ajax({
+                url: '@Url.Action("LoadLydosd")',
+                timeout: 20000,
+                type: "POST",
+                data: { maphieu: _MaPhieu },
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $.each(result.obj, function (i, state) {
+                        Lydosd.append($('<option/>', { value: this.LyDoSD }).html(this.LyDoSD));
+
+                    });
+                    Lydosd.trigger("chosen:updated");
+                },
+                error: function () {
+
+                }
+            });
+        }
+
+        function SendEmail()
+        {
+            var confirm_ = confirm('Bạn có chắc muốn gửi email yêu cầu phê duyệt?');
+            if (confirm_) {
+                var _maphieu = $("#maphieu").val();
+                var _nguoipd = $("#nguoipd").val();
+                var _xemxet = $("#xemxet").val();
+                if (_xemxet == "1") {
+                    $.ajax({
+                        url: '@Url.Action("_Edit")',
+                        timeout: 20000,
+                        type: "POST",
+                        data: { maphieu: _maphieu },
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            console.log(result.obj);
+                            notify(result.text, "success");
+
+
+                            OpenMailBox(_maphieu);
+
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+                else {
+                    alert("Chưa chọn trạng thái xem xét. Vui lòng kiểm tra lại!");
+                }
+            }
+        }
+
+        $("#btnCapNhat").click(function () {
+            var confirm_ = confirm('Bạn có chắc xem xét mã phiếu này');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("Luu_click")',
+                    type: "POST",
+
+                    data: {
+                        maphieu: $("#maphieu").val(),
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        console.log(result.obj);
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        });
+        function Edit(MAVT_, MaBP_, MAPHIEU_) {
+            $myModalContent.html("");
+            $myModalTitle.html("Hiệu chỉnh số lượng xem xét");
+            $.ajax({
+                url: '@Url.Action("_Upload")',
+                timeout: 200000,
+                data: {
+                    MAVT: MAVT_,
+                    MaBP: MaBP_,
+                    maphieu: MAPHIEU_,
+
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $myModalContent.html(result);
+                    $modal.modal();
+                    $(".divLoading").removeClass("loading");
+                },
+                failure: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+        function btLuu() {
+        form = $("#frm");
+        form.removeData('validator');
+        form.removeData('unobtrusiveValidation');
+            $.validator.unobtrusive.parse("#frm");
+            if (form.valid()) {
+                $.ajax({
+                    url: '@Url.Action("_Edit")',
+                    type: "POST",
+                    data: $('#frm').serialize(),
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                            
+                            $("#myModal").on("hidden.bs.modal", function () {
+                                reloadData(false);
+                            });
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+        function OpenMailBox(_maphieu) {
+            var _maphieu = $("#maphieu").val();
+            $.ajax({
+                url: '@Url.Action("openOutlookemailbox")',
+                timeout: 20000,
+                type: "POST",
+                data: { maphieu: _maphieu },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    window.location = result;
+                    $(".divLoading").removeClass("loading");
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    </script>
+}
+

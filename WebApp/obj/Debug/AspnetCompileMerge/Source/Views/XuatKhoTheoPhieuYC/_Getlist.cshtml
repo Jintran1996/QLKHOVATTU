@@ -1,0 +1,126 @@
+﻿
+
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_CTXUATNHAP>;
+
+}
+
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="text-align:center">.No</th>
+            <th>SOCTXN</th>
+            <th>Mã vật tư</th>
+            <th>Hiệu</th>
+            <th>Lô</th>
+            <th>Mã đơn hàng</th>
+            <th>Mã phiếu PD</th>
+            <th>Số Lượng YC</th>
+            <th>Số Lượng TT</th>
+            <th>Loại đơn hàng</th>
+            <th>Ghi chú</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists)
+        {
+            <tr>
+                <td style="text-align:center">
+                    @STT
+                    <input id="ID_XN_@STT" class="form-control form-control-sm" value="@item.ID_XN" hidden />
+
+                </td>
+                <td>@item.SOCTXN</td>
+                <td>@item.MAVT</td>
+                <td>@item.HIEU</td>
+                <td>@item.LO</td>
+                <td>@item.MADH</td>
+                <td>@item.MAPHIEUPD</td>
+                <td>
+                    <input type="number" id="Soluongyc_@STT" name="SoluongTT" value="@item.SOLUONGYC" class="form-control form-control-sm" hidden />
+                    @item.SOLUONGYC
+                </td>
+                <td>
+                    <input type="number" id="SoluongTT_@STT" name="SoluongTT" value="@item.SOLUONGTT" onchange="_update_soluongtt(@STT);" class="form-control form-control-sm" />
+                    <input hidden type="number" id="hiddenSoluongTT_@STT" name="SoluongTT" value="@item.SOLUONGTT" onchange="_update_soluongtt(@STT);" class="form-control form-control-sm" />
+                </td>
+              
+                <td>@item.LOAIDONHANG</td>
+                <td>@item.GHICHU</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+
+
+    function _update_soluongtt(i_) {
+        var ID_XN_ = $("#ID_XN_" + i_).val();
+        var SoluongTT_ = $("#SoluongTT_" + i_).val();
+        var hiddenSoluongTT_ = $("#hiddenSoluongTT_" + i_).val();
+        var datayc = $("#Soluongyc_"+i_).val();
+
+        var s1 = onkey_Number(SoluongTT_);
+        var s2 = onkey_Number(datayc);
+        console.log(s1, s2);
+
+        if (s1 > s2) {
+            $("#SoluongTT_" + i_).val(hiddenSoluongTT_);
+            notify("Số lượng xuất không được lớn hơn số lượng yêu cầu hiện tại", "error");
+            return;
+        }
+
+
+        console.log(SoluongTT_);
+                    $.ajax({
+                        url: '@Url.Action("_Update_Xuatsoluongtt")' ,
+                        type: "POST",
+                        data: { SoluongTT: SoluongTT_, ID_XN: ID_XN_ },
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                reloadData_getlist(true);
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+
+    };
+
+
+    function padLeftWithBounds(input, padChar, maxLength, min, max) {
+        if (input <= min)
+            return min;
+        if (input >= max)
+            return max;
+        var s = input.toString(10);
+        var padding = "";
+        for (var i = 0; i < maxLength; ++i)
+            padding += padChar;
+        return padding.substring(0, maxLength - s.length) + s;
+    };
+
+    function onkey_Number(value) {
+        if (!value) {
+            return;
+        }
+        return padLeftWithBounds(parseFloat(value).toFixed(2), '0', 10, 2, 9999999999);
+    };
+</script>

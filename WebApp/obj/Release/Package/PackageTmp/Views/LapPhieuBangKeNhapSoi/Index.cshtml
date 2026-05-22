@@ -1,0 +1,584 @@
+﻿
+@{
+    ViewBag.Title = "LẬP PHIẾU BẢNG KÊ NHẬP SỢI";
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Phiếu bảng kê nhập sợi</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>Phiếu nhập sợi: </label>
+                                    <input id="SoPhieuSearch" name="SoPhieuSearch" class="form-control form-control-sm " type="text" />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <button id="btnSearch" type="button" class="btn bg-gradient-primary"><i class="fa fa-search"></i> Tìm Kiếm</button>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-body pad">
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-md-4">
+                                <button id="btInsert" type="button" class="btn bg-gradient-primary"><i class="fa fa-plus"></i>&nbsp;Thêm mới</button>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div id="myModal" class="modal fade modal-wide" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContent">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div><!--Getlist-->
+<div id="myModalDetailReport" class="modal fade modal-wide" role="dialog" style="overflow:auto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmDetailReport", id = "frmDetailReport", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitleDetailReport"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetailReport" class="_print">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                     @*   <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContentDetailReport');" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>*@
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"> <i class="fa fa-close"></i>&nbsp;Đóng</button>&nbsp;
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div id="myModalDetail" class="modal fade modal-wide " role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmDetail", id = "frmDetail", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header bg-gradient-blue">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:mintcream"><strong id="myModalTitleDetail"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetail">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSave" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div id="myModalDetailPrint" class="modal fade modal-wide" role="dialog" style="overflow:auto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmDetailPrint", id = "frmDetailPrint", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitleDetailPrint"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContentDetailPrint" class="_print">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                           <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContentDetailPrint');" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>
+
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"> <i class="fa fa-close"></i>&nbsp;Đóng</button>&nbsp;
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+    </script>
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select-search': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+    </script>
+    <script>
+         function reloadData(isDelete) {
+            try {
+                $.ajax({
+                    url: '@Url.Action("_GetList")',
+                    timeout: 20000,
+                    data: {
+                        SoPhieuSearch: $("#SoPhieuSearch").val(),
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                }).done(function (data) {
+                    $(".divLoading").removeClass("loading");
+                    $('.table-body').html(data);
+                    $("#myTable").DataTable({
+                        destroy: true,
+                        "language": {
+                            "sProcessing": "Đang xử lý...",
+                            "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                            "sZeroRecords": "Không tìm thấy kết quả",
+                            "sEmptyTable": "Không có dữ liệu",
+                            "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Tìm kiếm:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Đang tải...",
+                            "oPaginate": {
+                                "sFirst": "Đầu tiên",
+                                "sLast": "Cuối cùng",
+                                "sNext": "Sau",
+                                "sPrevious": "Trước"
+                            },
+                            "oAria": {
+                                "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                            }
+                        },
+                        "info": false,
+                        "processing": false,
+                        "serverSide": false,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+
+
+                }).fail(function (errors) {
+                    console.log(errors);
+
+                });
+            } catch (e) {
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        var $myModalDetailReport = $('#myModalDetailReport');
+        var $myModalContentDetailReport = $("#myModalContentDetailReport");
+        var $myModalTitleDetailReport = $("#myModalTitleDetailReport");
+
+        var $myModalDetailPrint = $('#myModalDetailPrint');
+        var $myModalContentDetailPrint = $("#myModalContentDetailPrint");
+        var $myModalTitleDetailPrint = $("#myModalTitleDetailPrint");
+
+        var $modalDetail = $('#myModalDetail');
+        var $myModalContentDetail = $("#myModalContentDetail");
+        var $myModalTitleDetail = $("#myModalTitleDetail");
+
+        $(document).ready(function () {
+            reloadData(false);
+            $("#btInsert").click(function () {
+                $myModalContent.html("");
+                $myModalTitle.html("Thêm mới");
+                $.ajax({
+                    url: '@Url.Action("_DetailForEdit")',
+                    timeout: 200000,
+                    data: {
+                        SOPHIEU: ""
+                    },
+                    beforeSend: function (xhr) {
+
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContent.html(result);
+                        $modal.modal();
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            });
+            $("#btnSearch").click(function () {
+                reloadData(true);
+            });
+            $("#close_").click(function () {
+                reloadData(true);
+            });
+        });
+        //-----------------Action xoá đơn hàng----------------//
+        function Xoa_MaPhieu_Click(SOPHIEU) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: '@Url.Action("delete_Click")',
+                    data: {
+                        SOPHIEU: SOPHIEU,
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                }).done(function (data) {
+                    $(".divLoading").removeClass("loading");
+                    if (data.status > 0) {
+                        notify(data.text, "success");
+                        reloadData(true);
+                    }
+                    else {
+                        notify(data.text, "error");
+                    }
+                }).fail(function (errors) {
+                    console.log(errors);
+                });
+            }
+        }
+        function load_CTPhieu() {
+            var SOPHIEU = $("#SOPHIEU").val();
+            $.ajax({
+                type: "GET",
+                async: false,
+                timeout: 200000,
+                url: '@Url.Action("_ChiTietListView")',
+                data: {
+                    SOPHIEU: SOPHIEU
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                $('.table-CTHD').html(data);
+                $("#myTable_cthd").DataTable({
+                    destroy: true,
+                    "language": {
+                        "sProcessing": "Đang xử lý...",
+                        "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                        "sZeroRecords": "Không tìm thấy kết quả",
+                        "sEmptyTable": "Không có dữ liệu",
+                        "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                        "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                        "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Tìm kiếm:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Đang tải...",
+                        "oPaginate": {
+                            "sFirst": "Đầu tiên",
+                            "sLast": "Cuối cùng",
+                            "sNext": "Sau",
+                            "sPrevious": "Trước"
+                        },
+                        "oAria": {
+                            "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                            "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                        }
+                    },
+                    "info": false,
+                    "processing": false,
+                    "serverSide": false,
+                    "bFilter": true,
+                    "bPaginate": true,
+                    "bLengthChange": true,
+                    "bInfo": true,
+                    "responsive": true,
+                    "lengthChange": true,
+                    "autoWidth": true,
+                    "stateSave": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "initComplete": function (oSettings) {
+
+                    }
+                });
+
+            }).fail(function (errors) {
+                console.log(errors);
+            });
+        };
+
+        function printReport(SOPHIEU_) {
+            $myModalContentDetailPrint.html("");
+            $myModalTitleDetailPrint.html("Bảng Kê Sợi");
+            var SOPHIEU = SOPHIEU_;
+
+            $.ajax({
+                url: '@Url.Action("_print_Bangke")',
+                timeout: 200000,
+                data: {
+                    SOPHIEU: SOPHIEU,
+
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                if (data.status == null) {
+                    $(".divLoading").removeClass("loading");
+                    console.log(data);
+                    $myModalContentDetailPrint.html(data);
+                    $myModalDetailPrint.modal();
+                }
+                else {
+                    $(".divLoading").removeClass("loading");
+                    notify(data.text, "error");
+                }
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+
+        //-----------------Action detail tiết đơn hàng----------------//
+        function Details(SOPHIEU_) {
+            $myModalContentDetailReport.html("");
+            $myModalTitleDetailReport.html("Chi tiết");
+            $.ajax({
+                url: '@Url.Action("_ChiTietListViewKhoa")',
+                timeout: 200000,
+                data: {
+                    SOPHIEU: SOPHIEU_,
+                    KEY: "1"
+                },
+            }).done(function (data) {
+                $myModalContentDetailReport.html(data);
+                $myModalDetailReport.modal();
+
+                $("#myTable_cthd").DataTable({
+                    destroy: true,
+                    "language": {
+                        "sProcessing": "Đang xử lý...",
+                        "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                        "sZeroRecords": "Không tìm thấy kết quả",
+                        "sEmptyTable": "Không có dữ liệu",
+                        "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                        "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                        "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Tìm kiếm:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Đang tải...",
+                        "oPaginate": {
+                            "sFirst": "Đầu tiên",
+                            "sLast": "Cuối cùng",
+                            "sNext": "Sau",
+                            "sPrevious": "Trước"
+                        },
+                        "oAria": {
+                            "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                            "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                        }
+                    },
+                    "info": false,
+                    "processing": false,
+                    "serverSide": false,
+                    "bFilter": true,
+                    "bPaginate": true,
+                    "bLengthChange": true,
+                    "bInfo": true,
+                    "responsive": true,
+                    "lengthChange": true,
+                    "autoWidth": true,
+                    "stateSave": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "initComplete": function (oSettings) {
+
+                    }
+                });
+                $(".divLoading").removeClass("loading");
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+
+         //-----------------Action xoá chi tiết đơn hàng----------------//
+        function Xoa_ChiTietLapPhieu_Click(IDKHOA ) {
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '@Url.Action("Xoa_ChiTietLapPhieu_Click")',
+                data: {
+                    IDKHOA: IDKHOA,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+
+                },
+            }).done(function (data) {
+                if (data.status > 0) {
+                    notify(data.text, "success");
+                    load_CTPhieu();
+
+                    $(".divLoading").removeClass("loading");
+                }
+                else {
+                    notify(data.text, "error");
+                    $(".divLoading").removeClass("loading");
+                }
+
+            }).fail(function (errors) {
+                console.log(errors);
+            });
+        }
+
+
+        function openOutlookemailbox(SOPHIEU_) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("openOutlookemailbox")',
+                data: { SOPHIEU: SOPHIEU_ },
+                    beforeSend: function () {
+                    },
+                    success: function (response) {
+                        window.location = response;
+                    },
+                    error: function (xhr, errorType, exception) {
+                    }
+             });
+        }
+        function Edit(SOPHIEU) {
+            $myModalContentDetail.html("");
+            $myModalTitleDetail.html("Hiệu chỉnh phiếu bảng kê sợi");
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: '@Url.Action("_DetailForEdit")',
+                data: {
+                    SOPHIEU: SOPHIEU,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $myModalContentDetail.html(data);
+                $modalDetail.modal();
+                $(".divLoading").removeClass("loading");
+
+            }).fail(function (errors) {
+                console.log(errors);
+            });
+        }
+        $("#btSave").click(function () {
+            form = $("#frmDetail");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse("#frm");
+                if (form.valid()) {
+                    $.ajax({
+                        url: $("#KHOA_ID").val() == '@(string.Empty)' ? '@Url.Action("Luu_click")' : '@Url.Action("update_Detail_Click")',
+                        type: "POST",
+                        data: $('#frmDetail').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+        });
+    </script>
+}

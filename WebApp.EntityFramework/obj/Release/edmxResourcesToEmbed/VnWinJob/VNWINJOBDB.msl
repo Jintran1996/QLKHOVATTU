@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VN_WINJOBModelStoreContainer" CdmEntityContainer="VN_WINJOBEntities">
+    <EntitySetMapping Name="TBL_EMS_MAILLIST">
+      <EntityTypeMapping TypeName="VN_WINJOBModel.TBL_EMS_MAILLIST">
+        <MappingFragment StoreEntitySet="TBL_EMS_MAILLIST">
+          <ScalarProperty Name="DateCheck" ColumnName="DateCheck" />
+          <ScalarProperty Name="NumberCheck" ColumnName="NumberCheck" />
+          <ScalarProperty Name="isCheck" ColumnName="isCheck" />
+          <ScalarProperty Name="fail_reason" ColumnName="fail_reason" />
+          <ScalarProperty Name="source_id" ColumnName="source_id" />
+          <ScalarProperty Name="send_fail" ColumnName="send_fail" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="mail_to" ColumnName="mail_to" />
+          <ScalarProperty Name="mail_cc" ColumnName="mail_cc" />
+          <ScalarProperty Name="mail_bcc" ColumnName="mail_bcc" />
+          <ScalarProperty Name="universal_id" ColumnName="universal_id" />
+          <ScalarProperty Name="sent_date" ColumnName="sent_date" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="atm_id" ColumnName="atm_id" />
+          <ScalarProperty Name="body" ColumnName="body" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="mail_from" ColumnName="mail_from" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App_ResetPassword">
+      <EntityTypeMapping TypeName="VN_WINJOBModel.App_ResetPassword">
+        <MappingFragment StoreEntitySet="App_ResetPassword">
+          <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DateFinish" ColumnName="DateFinish" />
+          <ScalarProperty Name="isFinish" ColumnName="isFinish" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="CodeReset" ColumnName="CodeReset" />
+          <ScalarProperty Name="FromApp" ColumnName="FromApp" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,190 @@
+﻿@{
+
+    var SoCT = ViewData["data_SoChungTu"];
+    var data_Kho = ViewBag.data_Kho as List<ToolsApp.EntityFramework.VatTu.SP_KTQKFORWEB_Result>;
+    var data_loaixn = ViewBag.data_loaixn as List<ToolsApp.EntityFramework.VatTu.DMLOAIXN>;
+    var data_KhoNhan = ViewBag.data_KhoNhan as List<ToolsApp.EntityFramework.VatTu.DMKHONHAN>;
+    var data_NVYCXN = ViewBag.data_NVYCXN as List<ToolsApp.EntityFramework.VatTu.Load_MANVYC_XNKHO_Result>;
+    var data_CN_DONHANG = ViewBag.data_CN_DONHANG as List<ToolsApp.EntityFramework.DonHang09.CN_DONHANG>;
+}
+<div class="card-body pad">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Số chứng từ:</label>
+                <div class="col-md-7">
+                    <input class="form-control form-control-sm " id="SOCTXN" name="SOCTXN" value="@SoCT" disabled />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Mã kho:</label>
+                <div class="col-md-7">
+                    <select class="form-control form-control-sm chosen-select" onchange="Load_MaVT(this.value);" id="MaKho" name="MaKho">
+                        <option selected value="false">--Danh Sách Mã Kho--</option>
+                        @foreach (var item in data_Kho)
+                        {
+                            <option value="@item.MAKHO">@item.TENMA</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Mã vật tư:</label>
+                <div class="col-md-7">
+                    <select class="form-control form-control-sm chosen-select" id="MaVT" name="MaVT">
+                        <option selected value="false">--Danh Sách Mã Vật Tư--</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Số CTKT:</label>
+                <div class="col-md-7">
+                    <input class="form-control form-control-sm " id="SOCTKT" name="SOCTKT" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Số lượng xuất:</label>
+                <div class="col-md-7">
+                    <input class="form-control form-control-sm " type="number" value="1" min="0" id="SoLuongXuat" name="SoLuongXuat" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Kho nhận:</label>
+                <div class="col-md-7">
+                    <select class="form-control form-control-sm chosen-select" id="KhoNhan" name="KhoNhan">
+                        <option selected value="false">--Danh Sách Kho Nhận--</option>
+                        @foreach (var item in data_KhoNhan)
+                        {
+                            <option value="@item.MAKHONHAN">@item.TENKHONHAN || @item.MAKHONHAN</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Loại XN:</label>
+                <div class="col-md-7">
+                    <select class="form-control form-control-sm chosen-select" id="LoaiXuatNhap" name="LoaiXuatNhap">
+                        <option selected value="false">--Danh Sách Kho Nhận--</option>
+                        @foreach (var item in data_loaixn)
+                        {
+                            <option value="@item.LOAIXN">@item.LOAIXN || @item.TEN</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Mã NV yêu cầu:</label>
+                <div class="col-md-7">
+                    <select class="form-control form-control-sm chosen-select" id="MaNVYC" name="MaNVYC">
+                        <option selected value="false">--Chọn Nhân Viên Yêu Cầu--</option>
+                        @foreach (var item in data_NVYCXN)
+                        {
+                            <option value="@item.MANV">@item.HOTEN||@item.MANV</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-3">Đơn hàng CN:</label>
+                <div class="col-md-7">
+                    <select class="form-control form-control-sm chosen-select" id="DonHangCongNghiep" name="DonHangCongNghiep" disabled>
+                        <option selected value="false">--Chọn đơn hàng công nghiệp--</option>
+                        @foreach (var item in data_CN_DONHANG)
+                        {
+                            <option value="@item.MADH_CN">@item.MADH_CN</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row" style="margin-bottom:5px">
+                <label class="col-md-1">Ghi chú:</label>
+                <div class="col-md-10">
+                    <textarea rows="1" class="form-control form-control-md " id="GhiChu" name="GhiChu"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="text-right">
+        <button type="button" id="btSave" onclick="New_Phieu_Click('');" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>&nbsp;Phiếu mới</button>&nbsp;&nbsp;
+        <button type="button" id="btSave" onclick="Insert();" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
+        <button type="button" id="btSave" onclick="Print_();" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>&nbsp;&nbsp;
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "100%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+</script>
+
+<script type="text/javascript">
+ //-----------------Load Mã vật tư----------------//
+    function Load_MaVT(MaKho) {
+        var MaVT = $("#MaVT");
+        MaVT.empty();
+        $.ajax({
+            url: '@Url.Action("Load_MaVT")',
+            timeout: 200000,
+            data: {
+                MaKho: MaKho,
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            console.log(data.obj);
+            if (data.status < 0) {
+                MaVT.append($('<option/>', { value: "false" }).html("--Danh Sách Mã vật Tư--"));
+                MaVT.trigger("chosen:updated");
+            }
+            else {
+                MaVT.append($('<option/>', { value: "false" }).html("--Danh Sách Mã vật Tư--"));
+                $.each(data.obj, function (i, state) {
+                    MaVT.append($('<option/>', { value: data.obj[i].MAVT }).html(data.obj[i].VT));
+                });
+                MaVT.trigger("chosen:updated");
+            }
+        }).fail(function (data) {
+            notify(data.text, "error");
+        });
+    }
+   
+</script>

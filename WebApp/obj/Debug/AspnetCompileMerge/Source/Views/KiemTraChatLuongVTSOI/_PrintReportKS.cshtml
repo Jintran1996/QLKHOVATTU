@@ -1,0 +1,114 @@
+﻿@using System.Globalization;
+@{
+    var url = ViewData["URL_IMAGE"];
+    var list = ViewBag.inVT as List<ToolsApp.EntityFramework.KhoSoi.SP_RPT_INPHIEUKIEMTRACHATLUONG_SOI_Result>;
+    var chuky = ViewBag.chuKy as List<ToolsApp.EntityFramework.VatTu.TBL_DMCHUKY>;
+    var chukyGD = ViewBag.chuKyGD as List<ToolsApp.EntityFramework.VatTu.TBL_DMCHUKY>;
+    var STT = 1;
+}
+<head>
+    <style>
+        .print-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #000;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<div class="row" style="margin-top: 2px">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-body pad" style="font-family: 'Times New Roman', Times, serif;" id="print_socai">
+                <div class="container-fluid">
+                    <!-------------------------------------phần header------------------------------------------>
+                    <div class="row">
+                        <table id="myTable" class="table table-bordered table-striped " style='border-collapse:collapse; width:100%;padding-top:2rem' border='1'>
+                            <thead>
+                                <tr>
+                                    <th width="70px" style="text-align:center" colspan="2">
+                                        <img src="@url/Content/images/ThaiTuan.png" style="width:10rem; " />
+                                    </th>
+                                    <th style="text-align:left" colspan="3" width="750px">
+                                        <span> BM02/QI13</span><br />
+                                        <h4 style="text-align:center"><b>PHIẾU KIỂM TRA NGUYÊN NHIÊN VẬT LIỆU ĐẦU VÀO</b></h4>
+                                    </th>
+                                    <th width="250px" style="text-align:left">
+                                        <p style="padding-top:1.2rem; padding-left: 0.4rem">Số CT: @(list.Count <= 0 ? "" : list[0].SOCTXN)</p>
+                                        <span style="padding-bottom: 1.5rem; padding-left: 0.4rem; margin-bottom: 1rem">In ngày: @(list.Count <= 0 ? "" : list[0].NGAYIN)</span>
+                                    </th>
+
+                                </tr>
+                                <tr>
+                                    <th width="40px">STT</th>
+                                    <th colspan="2" width="250px">Thông tin về sản phẩm</th>
+                                    <th width="60px">Số lượng</th>
+                                    <th width="120px">Kiểm tra ngoại quan kho</th>
+                                    <th width="250px">
+                                        Phần Đ.Vị kiểm tra chất lượng/Tiêu chuẩn kỹ thuật nhập kho
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in list)
+                                {
+                                    <tr>
+                                        <td style="text-align:center">@STT</td>
+                                        <td colspan="2">
+                                            <p style="text-align: left; padding: 0.5rem 0rem 0rem 0.5rem">Mã Sợi: <b>@item.MAVT</b></p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Tên SP: @item.TENVATTU</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Hiệu: @item.HIEU</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Lô: @item.LO</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">ĐVT: KG</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Mã phiếu PD: <b>@item.MAPHIEUPD</b></p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0.5rem 0.5rem">Nguồn CC: @item.NHACC</p>
+                                        </td>
+                                        <td style="padding: 0rem 0.5rem 0rem 0rem; text-align: right">@item.THUC</td>
+                                        <td style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Tình trạng: @item.KHOKIEMTRA</td>
+                                        <td>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Dạng lỗi:......@item.DANGLOI...........</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Kết quả:.....@item.DONVIKIEMTRA .....</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">Nhận/Loại.....@item.LOAI .....</p>
+                                            <p style="text-align: left; padding: 0rem 0rem 0rem 0.5rem">NV kiểm tra:....@item.HOTEN_DONVIKIEMTRA .....</p>
+                                        </td>
+                                    </tr>
+                                    STT++;
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4">
+                                        <p style="text-align: left; padding: 0rem 0rem 0rem 0.2rem">Ngày kho kiểm tra: <b>@(list.Count <= 0 ? "" : list[0].NGAYKHO)</b></p>
+                                        <p style="text-align: left; padding-bottom: 50px; padding-left:0.2rem">Thủ kho: </p>
+                                        <p style="text-align: left; padding: 0rem 0rem 0rem 0.2rem">Họ và Tên: <b>@(list.Count <=0 ? "" : list[0].HOTEN_THUKHO)</b></p>
+                                    </td>
+                                    <td colspan="2">
+                                        <p style="text-align: left; padding: 0rem 0rem 0rem 0.2rem">Ngày đơn vị kiểm tra:</p>
+                                        <p style="text-align: left; padding-bottom: 50px; padding-left:0.2rem">Ban GĐ Đơn vị: </p>
+                                        <p style="text-align: left; padding: 0rem 0rem 0rem 0.2rem">Họ và Tên: <b>@(list.Count <=0 ? "" : list[0].HOTEN_GDDV)</b></p>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

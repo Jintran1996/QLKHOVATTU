@@ -1,0 +1,229 @@
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\obj\Debug\Tools.Libs.csprojAssemblyReference.cache
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\ToolsMayPhucLong\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\Tools.Libs.csprojAssemblyReference.cache
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2. Source\ThaiTuanProjectTemplate\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2. Source\ThaiTuanProject\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2. Source\ThaiTuanProject\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2. Source\ThaiTuanProject\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2. Source\ThaiTuanProject\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2. Source\ThaiTuanProject\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2. Source\ThaiTuanProject\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2. Source\ThaiTuanProject\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2. Source\ThaiTuanProject\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2. Source\ThaiTuanProject\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2. Source\ThaiTuanProject\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\QuanLyKhoSoi2023\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi2023\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\Source\QLKhoSoi2023\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi2023\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\Source\QLKhoSoi2023\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\Source\QLKhoSoi2023\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\Source\QLKhoSoi2023\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\Source\QLKhoSoi2023\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\Source\QLKhoSoi2023\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\Source\QLKhoSoi2023\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi2023\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.SourceCode\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.Source\QLKhoSoi23\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.Source\QLKhoSoi23\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.Source\QLKhoSoi23\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.Source\QLKhoSoi23\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.Source\QLKhoSoi23\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.Source\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.Source\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.Source\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.Source\QLKhoSoi23\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.Source\QLKhoSoi23\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLKhoSoi23\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi23\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\Source\QLKhoSoi23\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi23\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\Source\QLKhoSoi23\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\Source\QLKhoSoi23\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\Source\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\Source\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\Source\QLKhoSoi23\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\Source\QLKhoSoi23\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\Source\QLKhoSoi23\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\Source\QLKhoSoi23-upPYCXS\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLKhoSoi160623_v1\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\5. Source Code 2023\QLKhoSoi23_031123\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+C:\Users\Admin\Downloads\soi23cu\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.SourceCode\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\5. Source Code 2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\Phi\QLSOI_VATTU_2024\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy (4)\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_040924\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\072025Source\QLVATTUSOI2025\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\072025Source\QLVATTUSOI2025\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\072025Source\QLVATTUSOI2025\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\072025Source\QLVATTUSOI2025\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb

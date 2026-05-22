@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBanhangHeThongSR_2017Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLBanhangHeThongSR_2017Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Home_Page" EntityType="QLBanhangHeThongSR_2017Model.Home_Page" />
+    <EntitySet Name="Home_Role" EntityType="QLBanhangHeThongSR_2017Model.Home_Role" />
+    <EntitySet Name="Home_SoftwareGroup" EntityType="QLBanhangHeThongSR_2017Model.Home_SoftwareGroup" />
+    <EntitySet Name="Home_User" EntityType="QLBanhangHeThongSR_2017Model.Home_User" />
+    <EntitySet Name="Home_User_Page" EntityType="QLBanhangHeThongSR_2017Model.Home_User_Page" />
+    <EntitySet Name="Home_User_Role" EntityType="QLBanhangHeThongSR_2017Model.Home_User_Role" />
+    <EntitySet Name="Home_Software" EntityType="QLBanhangHeThongSR_2017Model.Home_Software" />
+    <AssociationSet Name="FK_Home_User_Page_Home_Page" Association="QLBanhangHeThongSR_2017Model.FK_Home_User_Page_Home_Page">
+      <End Role="Home_Page" EntitySet="Home_Page" />
+      <End Role="Home_User_Page" EntitySet="Home_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Role_Home_Role" Association="QLBanhangHeThongSR_2017Model.FK_Home_User_Role_Home_Role">
+      <End Role="Home_Role" EntitySet="Home_Role" />
+      <End Role="Home_User_Role" EntitySet="Home_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Home_User" Association="QLBanhangHeThongSR_2017Model.FK_Home_User_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User1" EntitySet="Home_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Page_Home_User" Association="QLBanhangHeThongSR_2017Model.FK_Home_User_Page_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User_Page" EntitySet="Home_User_Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_User_Role_Home_User" Association="QLBanhangHeThongSR_2017Model.FK_Home_User_Role_Home_User">
+      <End Role="Home_User" EntitySet="Home_User" />
+      <End Role="Home_User_Role" EntitySet="Home_User_Role" />
+    </AssociationSet>
+    <EntitySet Name="Home_Menu" EntityType="QLBanhangHeThongSR_2017Model.Home_Menu" />
+    <AssociationSet Name="FK_Home_Menu_Home_Menu" Association="QLBanhangHeThongSR_2017Model.FK_Home_Menu_Home_Menu">
+      <End Role="Home_Menu" EntitySet="Home_Menu" />
+      <End Role="Home_Menu1" EntitySet="Home_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Home_Menu_Home_Page" Association="QLBanhangHeThongSR_2017Model.FK_Home_Menu_Home_Page">
+      <End Role="Home_Page" EntitySet="Home_Page" />
+      <End Role="Home_Menu" EntitySet="Home_Menu" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Home_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Controler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_User_Page" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Page_Home_Page" FromRole="Home_Page" ToRole="Home_User_Page" />
+    <NavigationProperty Name="Home_Menu" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_Menu_Home_Page" FromRole="Home_Page" ToRole="Home_Menu" />
+  </EntityType>
+  <EntityType Name="Home_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_User_Role" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Role_Home_Role" FromRole="Home_Role" ToRole="Home_User_Role" />
+  </EntityType>
+  <EntityType Name="Home_SoftwareGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Domain" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ColorCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Home_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SalesRepCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fullname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_User1" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Home_User" FromRole="Home_User" ToRole="Home_User1" />
+    <NavigationProperty Name="Home_User2" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Home_User" FromRole="Home_User1" ToRole="Home_User" />
+    <NavigationProperty Name="Home_User_Page" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Page_Home_User" FromRole="Home_User" ToRole="Home_User_Page" />
+    <NavigationProperty Name="Home_User_Role" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Role_Home_User" FromRole="Home_User" ToRole="Home_User_Role" />
+  </EntityType>
+  <EntityType Name="Home_User_Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <Property Name="isRoleCreate" Type="Boolean" />
+    <Property Name="isRoleEdit" Type="Boolean" />
+    <Property Name="isRoleExport" Type="Boolean" />
+    <Property Name="isRoleExportAll" Type="Boolean" />
+    <Property Name="isRoleDelete" Type="Boolean" />
+    <NavigationProperty Name="Home_Page" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Page_Home_Page" FromRole="Home_User_Page" ToRole="Home_Page" />
+    <NavigationProperty Name="Home_User" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Page_Home_User" FromRole="Home_User_Page" ToRole="Home_User" />
+  </EntityType>
+  <EntityType Name="Home_User_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="UserFullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_Role" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Role_Home_Role" FromRole="Home_User_Role" ToRole="Home_Role" />
+    <NavigationProperty Name="Home_User" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_User_Role_Home_User" FromRole="Home_User_Role" ToRole="Home_User" />
+  </EntityType>
+  <EntityType Name="Home_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Domain" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_Home_User_Page_Home_Page">
+    <End Type="QLBanhangHeThongSR_2017Model.Home_Page" Role="Home_Page" Multiplicity="0..1" />
+    <End Type="QLBanhangHeThongSR_2017Model.Home_User_Page" Role="Home_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Page">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Role_Home_Role">
+    <End Type="QLBanhangHeThongSR_2017Model.Home_Role" Role="Home_Role" Multiplicity="0..1" />
+    <End Type="QLBanhangHeThongSR_2017Model.Home_User_Role" Role="Home_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Home_User">
+    <End Type="QLBanhangHeThongSR_2017Model.Home_User" Role="Home_User" Multiplicity="1" />
+    <End Type="QLBanhangHeThongSR_2017Model.Home_User" Role="Home_User1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Page_Home_User">
+    <End Type="QLBanhangHeThongSR_2017Model.Home_User" Role="Home_User" Multiplicity="0..1" />
+    <End Type="QLBanhangHeThongSR_2017Model.Home_User_Page" Role="Home_User_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Page">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_User_Role_Home_User">
+    <End Type="QLBanhangHeThongSR_2017Model.Home_User" Role="Home_User" Multiplicity="0..1" />
+    <End Type="QLBanhangHeThongSR_2017Model.Home_User_Role" Role="Home_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_User_Role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Home_Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="MenuName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="Icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="UserCreate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeCreate" Type="DateTime" Precision="3" />
+    <Property Name="UserUpdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameUpdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeUpdate" Type="DateTime" Precision="3" />
+    <Property Name="isDelete" Type="Boolean" />
+    <Property Name="UserDelete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullnameDelete" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DatetimeDelete" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Home_Menu1" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_Menu_Home_Menu" FromRole="Home_Menu" ToRole="Home_Menu1" />
+    <NavigationProperty Name="Home_Menu2" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_Menu_Home_Menu" FromRole="Home_Menu1" ToRole="Home_Menu" />
+    <NavigationProperty Name="Home_Page" Relationship="QLBanhangHeThongSR_2017Model.FK_Home_Menu_Home_Page" FromRole="Home_Menu" ToRole="Home_Page" />
+  </EntityType>
+  <Association Name="FK_Home_Menu_Home_Menu">
+    <End Type="QLBanhangHeThongSR_2017Model.Home_Menu" Role="Home_Menu" Multiplicity="0..1" />
+    <End Type="QLBanhangHeThongSR_2017Model.Home_Menu" Role="Home_Menu1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Home_Menu_Home_Page">
+    <End Type="QLBanhangHeThongSR_2017Model.Home_Page" Role="Home_Page" Multiplicity="0..1" />
+    <End Type="QLBanhangHeThongSR_2017Model.Home_Menu" Role="Home_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home_Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Home_Menu">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

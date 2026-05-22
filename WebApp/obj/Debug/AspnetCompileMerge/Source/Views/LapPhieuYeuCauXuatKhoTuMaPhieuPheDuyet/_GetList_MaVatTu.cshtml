@@ -1,0 +1,71 @@
+﻿
+@{
+    var STT = 0;
+    var data = ViewBag.data as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_CTTONKHOTHEOMAPHIEUPD_Result>;
+    
+}
+<link href="~/Content/CssTeamCode/lapPhieuYeuCauXuatVT.css" rel="stylesheet" />
+<input id="Stt_Tamp" name="Stt_Tamp" value="@data.Count()" style="display:none;" />
+<style>
+    #myTable_MaVatTu {
+        background-color: white;
+    }
+</style>
+<fieldset class="scheduler-border">
+    <legend class="scheduler-border">Mã vật tư</legend>
+    <div class="control-group">
+        <table id="myTable_MaVatTu" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th width="30px"><input type="checkbox" id="check_All"  onclick="ClickAll();" name="check_All" class="form-group " style="text-align:center" />Chọn hết</th>
+                    <th style="max-width:60px">Mã Vật Tư</th>
+                    <th style="max-width:60px">Tên Vật Tư</th>
+                    <th style="max-width:60px">Mã Phiếu PD</th>
+                    <th style="max-width:60px">SL Tồn</th>
+                    <th style="max-width:60px">SL Phê Duyệt</th>
+                    <th style="max-width:60px">SL Xuất Kho</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in data)
+                {
+                <tr>
+                    <td align="center">
+                        <input type="checkbox" id="check_MaVatTu_@(STT)"  name="check_SanPham_@(STT)" value="" class="form-group " />
+                    </td>
+                    <td>  <input type="text" id="data_MAVT_@(STT)" name="data_MAVT_@(STT)" value="@item.MAVT" style="display:none" />@item.MAVT</td>
+                    <td>  <input type="text" id="data_TenVT_@(STT)" name="data_TenVT_@(STT)" value="@item.TenVT" style="display:none" />@item.TenVT</td>
+                    <td>  <input type="text" id="data_MaPhieuPD_@(STT)" name="data_MaPhieuPD_@(STT)" value="@item.MaPhieuPD" style="display:none" />@item.MaPhieuPD</td>
+                    <td>  <input type="text" id="data_SLTONTHEOMAPHIEUPB_@(STT)" name="data_SLTONTHEOMAPHIEUPB_@(STT)" value="@item.SLTONTHEOMAPHIEUPB" style="display:none" />@item.SLTONTHEOMAPHIEUPB</td>
+                    <td>  <input type="text" id="data_SLPD_@(STT)" name="data_SLPD_@(STT)" value="@item.SLPD" style="display:none" />@item.SLPD</td>
+                    <td >  <input type="number" min="0" id="data_SLXK_@(STT)" name="data_SLXK_@(STT)" value="1.00" class="form-group " style="width:60px"                                     /></td>
+
+                </tr>
+                    STT++;
+                }
+            </tbody>
+        </table>
+    </div>
+</fieldset>
+<script type="text/javascript">
+    function ClickAll() {
+        var ckbox = $('#check_All');
+        if (ckbox.is(':checked')) {
+            for (var index = 0; index <= @STT; index++) {
+                $('#check_MaVatTu_' + index).attr('checked', true);
+            }
+            
+        } else {
+            for (var index = 0; index <= @STT; index++) {
+                $('#check_MaVatTu_' + index).attr('checked', false);
+            }
+        }
+    }
+
+</script>
+
+
+
+
+

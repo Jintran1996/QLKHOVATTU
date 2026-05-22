@@ -1,0 +1,38 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.KhoTP2023.TONKHO290224_IAA_Adjustments_Result>;
+    ViewBag.Title = "Inventory Adjustment - Adjustments";
+    var Maphieu = ViewBag.MaPhieu;
+    var stt = 1;
+}
+<table id="myTable_IAA" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>External_ID</th>
+            <th>REFERENCE_</th>
+            <th>ITEM</th>
+            <th>EXPIRATION_DATE</th>
+            <th>ADJUST_QTY_BY</th>
+            <th>UNIT</th>
+            <th>EST_UNIT_COST</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+            <tr>
+                <td>@stt</td>
+                <td>@item.External_ID</td>
+                <td>@item.REFERENCE_</td>
+                <td>@item.ITEM</td>
+                <td>@item.LOCATION</td>
+                <td>@item.ADJUST_QTY_BY</td>
+                <td>@item.UNIT</td>
+                <td>@item.EST_UNIT_COST</td>
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>
+

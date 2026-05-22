@@ -1,0 +1,49 @@
+﻿@{
+    var List = ViewBag.List as List<ToolsApp.EntityFramework.VatTu.VATTU2025_LOAD_CTPHIEU_PR__Result>;
+    int STT = 1;
+}
+
+<table id="myTable" class="table table-bordered table-striped ">
+    <thead>
+        <tr style="text-align:center;">       
+            <th>STT</th>
+            <th>Mã Phiếu</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>DVT</th>
+            <th>SLPD</th>
+            <th>SLTonDvi</th>
+            <th>SLTonCty</th>
+            <th>Ý kiến BLĐ</th>
+            <th>Ghi chú</th>
+            <th>Tình trạng</th>
+            <th>Thời điểm SD</th>
+            <th>LÔ</th>
+            <th>Hiệu</th>     
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List)
+        {
+        <tr>
+            <td style="text-align:center">
+                @STT
+            </td>
+            <td style="text-align:center">@item.MAPHIEU</td>
+            <td style="text-align:center">@item.MAVT</td>
+            <td style="text-align:center">@item.TenVT</td>
+            <td style="text-align:center">@item.DVT</td>
+            <td style="text-align:center">@item.SLPD</td>
+            <td style="text-align:center">@item.SLTONDVI</td>
+            <td style="text-align:center">@item.SLTONCTY</td>
+            <td style="text-align:center">@item.YKIENLANHDAO</td>
+            <td style="text-align:center">@item.GHICHU</td>
+            <td style="text-align:center">@item.TINHTRANG</td>
+            <td style="text-align:center">@item.THOIDIEMSD</td>
+            <td style="text-align:center">@item.LO</td>
+            <td style="text-align:center">@item.HIEU</td>
+        </tr>
+            STT++;
+        }
+    </tbody>
+</table>

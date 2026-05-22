@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OTHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ePV_ApproveName">
+    <Key>
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="BU" />
+      <PropertyRef Name="Location" />
+      <PropertyRef Name="CompanyCode" />
+      <PropertyRef Name="Min" />
+    </Key>
+    <Property Name="Category" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="BU" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CompanyCode" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="FunctionID" Type="varchar" MaxLength="2" />
+    <Property Name="Group" Type="varchar" MaxLength="10" />
+    <Property Name="Min" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Max" Type="int" />
+    <Property Name="PositionEn1" Type="varchar" MaxLength="50" />
+    <Property Name="PositionVn1" Type="nvarchar" MaxLength="100" />
+    <Property Name="NameApprove1" Type="varchar" MaxLength="100" />
+    <Property Name="PositionEn2" Type="varchar" MaxLength="50" />
+    <Property Name="PositionVn2" Type="nvarchar" MaxLength="100" />
+    <Property Name="NameApprove2" Type="varchar" MaxLength="50" />
+    <Property Name="PositionEn3" Type="varchar" MaxLength="50" />
+    <Property Name="PositionVn3" Type="nvarchar" MaxLength="100" />
+    <Property Name="NameApprove3" Type="varchar" MaxLength="50" />
+    <Property Name="PositionEn4" Type="varchar" MaxLength="50" />
+    <Property Name="PositionVn4" Type="nvarchar" MaxLength="100" />
+    <Property Name="NameApprove4" Type="varchar" MaxLength="50" />
+    <Property Name="PositionEn5" Type="varchar" MaxLength="50" />
+    <Property Name="PositionVn5" Type="nvarchar" MaxLength="100" />
+    <Property Name="NameApprove5" Type="varchar" MaxLength="50" />
+    <Property Name="PositionEn6" Type="varchar" MaxLength="50" />
+    <Property Name="PositionVn6" Type="nvarchar" MaxLength="100" />
+    <Property Name="NameApprove6" Type="varchar" MaxLength="50" />
+    <Property Name="PositionEn7" Type="varchar" MaxLength="50" />
+    <Property Name="PositionVn7" Type="nvarchar" MaxLength="100" />
+    <Property Name="NameApprove7" Type="varchar" MaxLength="50" />
+    <Property Name="PositionEn8" Type="varchar" MaxLength="50" />
+    <Property Name="PositionVn8" Type="nvarchar" MaxLength="100" />
+    <Property Name="NameApprove8" Type="varchar" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserCreate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameCreate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeCreate" Type="datetime" />
+    <Property Name="UserUpdate" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameUpdate" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeUpdate" Type="datetime" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="UserDelete" Type="varchar" MaxLength="50" />
+    <Property Name="UserFullnameDelete" Type="varchar" MaxLength="100" />
+    <Property Name="DatetimeDelete" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ePV_BU">
+    <Key>
+      <PropertyRef Name="BUCode" />
+    </Key>
+    <Property Name="BUCode" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="LongName" Type="varchar" MaxLength="100" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <EntityType Name="ePV_Category">
+    <Key>
+      <PropertyRef Name="Flags" />
+      <PropertyRef Name="CategoryCode" />
+    </Key>
+    <Property Name="Flags" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="CategoryCode" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ePV_Entity">
+    <Key>
+      <PropertyRef Name="CompanyCode" />
+    </Key>
+    <Property Name="EntityCode" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="CompanyCode" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <EntityType Name="ePV_Locations">
+    <Key>
+      <PropertyRef Name="LocationCode" />
+    </Key>
+    <Property Name="LocationCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="50" />
+    <Property Name="Region" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="OTHModelStoreContainer">
+    <EntitySet Name="ePV_ApproveName" EntityType="Self.ePV_ApproveName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ePV_BU" EntityType="Self.ePV_BU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ePV_Category" EntityType="Self.ePV_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ePV_Entity" EntityType="Self.ePV_Entity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ePV_Locations" EntityType="Self.ePV_Locations" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,524 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2025_SP_THEODOIPHIEUPD_CUGC_Result>;
+    var DMTinhTrangNCC = ViewBag.DMTinhTrangNCC as List<ToolsApp.EntityFramework.VatTu.DM_PHTinhTrangNCC>;
+    var DMTTKythuat = ViewBag.DMTTKythuat as List<ToolsApp.EntityFramework.VatTu.DM_TinhTrangKyThuatCUGC>;
+    var DMTTTToan = ViewBag.DMTTTToan as List<ToolsApp.EntityFramework.VatTu.DM_Tinhtrangthanhtoan>; 
+    var DK5 = ViewBag.DK5;
+    int STT = 1;
+}
+
+<style>
+    .table-striped > tbody > tr.row-green > td {
+        background-color: #e9f7ef !important;
+    }
+
+    .table-striped > tbody > tr.row-red > td {
+        background-color: #fdecea !important;
+    }
+</style>
+
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+            <th></th>
+            <th>STT</th>
+            <th>Mã phiếu phê duyệt</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>ĐVT</th>
+            <th>Số lượng PD</th>
+            <th>Đã nhập</th>
+            <th>Chưa mua</th>
+            <th>Ngày Phê duyệt</th>
+            <th>Tiến độ đáp ứng (QT)</th>
+            <th style="background-color:goldenrod; color: black">PH tình trạng kỹ thuật (P.CU)</th>
+            <th style="background-color:goldenrod; color: black">Nhà máy PH Thông tin (P.CU)</th>
+            <th style="background-color:goldenrod; color: black">Tình trạng NCC(P.CU)</th>
+            <th style="background-color:goldenrod; color: black">Tình trạng thanh toán(P.CU)</th>
+            <th style="background-color:goldenrod; color: black">Hạn thanh toán(P.CU)</th>
+            <th style="background-color:goldenrod; color: black">Phản hồi đáp ứng (P.CU)</th>
+            <th style="background-color:goldenrod; color: black">Tiến độ thực tế (P.CU)</th>
+            <th style="background-color:goldenrod; color: black">Tình trạng đáp ứng (P.CU)</th>
+            <th style="background-color:goldenrod; color: black">Nguyên nhân trễ (P.CU)</th>
+            <th style="background-color:goldenrod; color: black">MANV Muahang (P.CU)</th>
+            <th style="background-color:goldenrod; color: black">Ghi chú (P.CU)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List)
+        {
+            var rowClass = "";
+            if (DK5 == 1)
+            {
+                 rowClass = STT <= 200 ? "row-green" : "row-red";
+            }
+            <tr class="@rowClass">
+                <td></td>
+                <td>@STT</td>
+                <td>@item.MAPHIEUPD</td>
+                @*<td>@item.MAVT</td>*@
+            <td>
+                <b>
+                    <a href="javascript:void(0);"
+                       class="asset-link"
+                       onclick="btMAVTTD('@item.MAPHIEUPD','@item.MAVT')">
+                        @item.MAVT
+                    </a>
+                </b>
+            </td>
+                <td>@item.TENVT</td>
+                <td>@item.DVT</td>
+                <td>@item.SLPD</td>
+                <td>@item.NHAP</td>
+                <td>@item.CHUAMUA</td>  
+     
+            <td>
+                <div class="input-group">
+                    <input type="text" class="form-control form-control datepicker tg-ngaypd" data-maphieu="@item.MAPHIEUPD" data-vattu="@item.MAVT" value="@(item.NGAYPD?.ToString("dd/MM/yyyy"))" readonly/>
+                </div>
+            </td>
+
+            <td>
+                <input type="text"
+                       class="form-control tg-ngaycugc"
+                       readonly
+                       value="@(item.NGAYCUGC?.ToString("dd/MM/yyyy"))" />
+            </td>
+                <td>
+                    <select class="form-control chosen-select tinhtrang-kythuat"
+                            data-maphieu="@item.MAPHIEUPD"
+                            data-vattu="@item.MAVT"
+                            style="width:100%;">
+                        @foreach (var ttkythuat in DMTTKythuat)
+                        {
+                            <option value="@ttkythuat.Ma_tinhtrangkythuat"
+                                    @(ttkythuat.Ma_tinhtrangkythuat == item.PHTinhTrangKyThuatCU ? "selected" : "")>
+                                @ttkythuat.Ten_tinhtrangkythuat
+                            </option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control datepicker tg-nhamay" data-maphieu="@item.MAPHIEUPD" data-vattu="@item.MAVT" value="@(item.TgNhaMayPHCU?.ToString("dd/MM/yyyy"))" />
+                    </div>
+
+                </td>
+                <td>
+                    <select class="form-control chosen-select tinhtrang-ncc"
+                            data-maphieu="@item.MAPHIEUPD"
+                            data-vattu="@item.MAVT"                           
+                            data-ngaypd="@(item.NGAYPD?.ToString("dd/MM/yyyy"))"
+                            data-ngaydapungcugc="@(item.PHDapUngCU?.ToString("dd/MM/yyyy"))"
+                            
+                            style="width:100%;">
+                        @foreach (var ttncc in DMTinhTrangNCC)
+                        {
+                            <option value="@ttncc.MatinhtrangNCC"  data-songay="@ttncc.Songay"
+                                    @(ttncc.MatinhtrangNCC == item.PHTinhTrangNCC ? "selected" : "")>
+                                @ttncc.TentinhtrangNCC
+                            </option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control chosen-select tinhtrang-thanhtoan"
+                            data-maphieu="@item.MAPHIEUPD"
+                            data-vattu="@item.MAVT"
+                            style="width:100%;">
+                        @foreach (var ttoan in DMTTTToan)
+                        {
+                            <option value="@ttoan.MaThanhToan"
+                                    @(ttoan.MaThanhToan == item.PHTinhTrangThanhtoan ? "selected" : "")>
+                                @ttoan.TenThanhToan
+                            </option>
+                        }
+                    </select>
+                </td>
+                @*Hạn thanh toán*@
+                <td>
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control datepicker tg-hanthanhtoan" data-maphieu="@item.MAPHIEUPD" data-vattu="@item.MAVT" value="@(item.PHHanThanhToan?.ToString("dd/MM/yyyy"))" />
+                    </div>
+                </td>
+                @*Phản hồi CUGC*@
+                <td>
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control datepicker tg-phanhoidapung" data-maphieu="@item.MAPHIEUPD" data-vattu="@item.MAVT" value="@(item.PHDapUngCU?.ToString("dd/MM/yyyy"))" />
+                    </div>
+                </td>
+                @*Tiến độ dáp ứng*@
+                <td>
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control datepicker tg-tiendothucte" data-maphieu="@item.MAPHIEUPD" data-vattu="@item.MAVT" value="@(item.PHTienDoDapUngTTCU?.ToString("dd/MM/yyyy"))" />
+                    </div>
+                </td>
+                <td >
+                    <input type="text" class="form-control chosen-select tinhtrang-dapung-cugc" value="@item.TinhTrangDapUngCU" readonly />
+                </td>
+                <td>
+                    <input type="text" class="form-control chosen-select lydotrePCU" data-maphieu="@item.MAPHIEUPD" data-vattu="@item.MAVT" value="@item.LyDoTreHanCU" />
+                </td>
+                <td>
+                    <input type="text" class="form-control chosen-select manv-muahangPCU" data-maphieu="@item.MAPHIEUPD" data-vattu="@item.MAVT" value="@item.MANVMuaHang" />
+                </td>
+                <td>
+                    <input type="text" class="form-control chosen-select ghichuPCU" data-maphieu="@item.MAPHIEUPD" data-vattu="@item.MAVT" value="@item.GhiChuCUng" />
+                </td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+
+<script>
+    function addDays(dateStr, days) {
+        if (!dateStr) return '';
+
+        let p = dateStr.split('/');
+        let d = new Date(p[2], p[1] - 1, p[0]);
+
+        d.setDate(d.getDate() + days);
+
+        return ('0' + d.getDate()).slice(-2) + '/'
+            + ('0' + (d.getMonth() + 1)).slice(-2) + '/'
+            + d.getFullYear();
+    }
+
+    function parseDateSafe(dateStr) {
+        if (!dateStr) return null;
+
+        dateStr = dateStr.trim();
+
+        let parts = dateStr.split('/');
+        if (parts.length !== 3) return null;
+
+        let day = parseInt(parts[0], 10);
+        let month = parseInt(parts[1], 10) - 1;
+        let year = parseInt(parts[2], 10);
+
+        let d = new Date(year, month, day);
+        return isNaN(d.getTime()) ? null : d;
+    }
+
+    function capNhatTinhTrangDapUng($row) {
+        let phanHoi = $row.find('.tg-phanhoidapung').val();
+        let ngayCUGC = $row.find('.tg-ngaycugc').val();
+        let $tt = $row.find('.tinhtrang-dapung-cugc');
+        let dPhanHoi = parseDateSafe(phanHoi);
+        let dCUGC = parseDateSafe(ngayCUGC);
+
+        if (!dPhanHoi) {
+            $tt.val('Chưa đáp ứng')      
+            return false;
+        }
+
+        if (!dCUGC) {
+            $tt.val('')      
+            return false;
+        }
+        let trangThai = dPhanHoi > dCUGC ? 'Trễ hạn' : 'Đúng hạn';
+        $tt.val(trangThai)
+        return true;
+    }
+
+
+    $(document).ready(function () {
+
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            todayHighlight: true,
+            language: 'vi'
+        });
+
+        $(document).on('change', '.tg-nhamay', function () {
+            let ngay = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+
+            $.ajax({
+                url: '@Url.Action("UpdateTgNhaMay")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    tgNhaMayStr: ngay
+                },
+                success: function (res) {
+                    if (!res.success) {
+                        alert("Cập nhật thất bại");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+        $(document).on('change', '.tinhtrang-kythuat', function () {
+
+            let tinhTrangkythuat = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+
+            $.ajax({
+                url: '@Url.Action("UpdateTinhTrangKyThuat")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    tinhTrangkythuat: tinhTrangkythuat
+                },
+                success: function (res) {
+                    if (!res.success) {
+                        alert("Cập nhật tình trạng kỹ thuật thất bại");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+        $(document).on('change', '.tinhtrang-ncc', function () {
+
+            let $select = $(this);
+            let $row = $select.closest('tr');
+            let tinhTrangNCC = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+            let ngayPD = $(this).data('ngaypd');
+            let songay = $select.find(':selected').data('songay');
+            let soNgayTinh = (songay == null || songay === '') ? 7 : parseInt(songay);
+            let ngayCUGC = addDays(ngayPD, soNgayTinh);  
+
+            $.ajax({
+                url: '@Url.Action("UpdateTinhTrangNCC")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    tinhTrangNCC: tinhTrangNCC,
+                },
+                success: function (res) {
+                    if (!res.success) {
+                        alert("Cập nhật tình trạng kỹ thuật thất bại");
+                    }
+                    else {
+
+                        // cập nhật UI
+                        $row.find('.tg-ngaycugc').val(ngayCUGC);
+
+                        // gọi function dùng chung
+                        capNhatTinhTrangDapUng($row);
+
+                        notify("Cập nhật thành công", "success");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+        $(document).on('change', '.tinhtrang-thanhtoan', function () {
+
+            let tinhTrangTtoan = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+
+            $.ajax({
+                url: '@Url.Action("UpdateTinhTrangThanhToan")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    tinhTrangTtoan: tinhTrangTtoan
+                },
+                success: function (res) {
+                    if (!res.success) {
+                        alert("Cập nhật tình trạng kỹ thuật thất bại");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+        $(document).on('change', '.tg-hanthanhtoan', function () {
+
+            let hanthanhtoan = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+
+            $.ajax({
+                url: '@Url.Action("UpdateHanthanhtoan")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    hanthanhtoan: hanthanhtoan
+                },
+                success: function (res) {
+                    if (!res.success) {
+                        alert("Cập nhật tình trạng kỹ thuật thất bại");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+        $(document).on('change', '.tg-phanhoidapung', function () {
+            let $select = $(this);
+            let $row = $select.closest('tr');
+            let ngay = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+
+            $.ajax({
+                url: '@Url.Action("UpdatePhanHoiDapUng")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    ngay: ngay
+                },
+                success: function (res) {
+                    if (!res.success) {
+
+                        notify("Cập nhật tình trạng kỹ thuật thất bại", "danger");
+                    }
+                    else {
+                        // gọi function dùng chung
+                        capNhatTinhTrangDapUng($row);
+
+                       // notify("Cập nhật thành công", "success");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+        $(document).on('change', '.tg-tiendothucte', function () {
+
+            let ngay = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+
+            $.ajax({
+                url: '@Url.Action("UpdateTiendoDapUngThucte")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    ngay: ngay
+                },
+                success: function (res) {
+                    if (!res.success) {
+                        alert("Cập nhật tình trạng kỹ thuật thất bại");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+        $(document).on('change', '.lydotrePCU', function () {
+
+            let lydotrePCU = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+
+            $.ajax({
+                url: '@Url.Action("UpdateLydoTre")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    lydotrePCU: lydotrePCU
+                },
+                success: function (res) {
+                    if (!res.success) {
+                        alert("Cập nhật tình trạng kỹ thuật thất bại");
+                    }
+                    else {
+                        notify("Cập nhật thành công", "success");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+        $(document).on('change', '.manv-muahangPCU', function () {
+
+            let manvmuahangPCU = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+
+            $.ajax({
+                url: '@Url.Action("UpdateMANVMuahang")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    manvmuahangPCU: manvmuahangPCU
+                },
+                success: function (res) {
+                    if (!res.success) {
+                        alert("Cập nhật tình trạng kỹ thuật thất bại");
+                    }
+                    else {
+                        notify("Cập nhật thành công", "success");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+        $(document).on('change', '.ghichuPCU', function () {
+
+            let ghichuPCU = $(this).val();
+            let maPhieu = $(this).data('maphieu');
+            let maVattu = $(this).data('vattu');
+
+            $.ajax({
+                url: '@Url.Action("UpdateGhichuPCU")',
+                type: 'POST',
+                data: {
+                    maPhieu: maPhieu,
+                    maVattu: maVattu,
+                    ghichuPCU: ghichuPCU
+                },
+                success: function (res) {
+                    if (!res.success) {
+                        alert("Cập nhật tình trạng kỹ thuật thất bại");
+                    }
+                    else {
+                        notify("Cập nhật thành công", "success");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi server");
+                }
+            });
+        });
+
+
+
+    });
+</script>

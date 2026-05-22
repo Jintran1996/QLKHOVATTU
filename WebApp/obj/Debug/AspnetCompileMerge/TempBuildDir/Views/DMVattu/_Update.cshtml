@@ -1,0 +1,140 @@
+﻿@using System.Globalization;
+
+@model ToolsApp.Models.DMVATTUViewModels
+@{
+
+    var dmdvt = ViewBag.dmdvt as List<ToolsApp.EntityFramework.VatTu.DANHMUCDONVITINH>;
+    var dmdonvi = ViewBag.dmdonvi as List<ToolsApp.EntityFramework.VatTu.DMDONVI>;
+    var dmloaivt = ViewBag.dmloaivt as List<ToolsApp.EntityFramework.VatTu.DanhmucLoaiVT>;
+    var dmMaChiPhi = ViewBag.maChiPhi as List<ToolsApp.EntityFramework.VatTu.SP_LOAD_MACP_MAVATTU_Result>;
+}
+
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<input type="hidden" value="@Model.MAVT" id="MAVT" />
+
+
+<div class="row" style="margin-bottom:5px">
+    <div class="col-md-12 col-sm-4">
+        <!--Đơn vị tính-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã vật tư:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <input value="@Model.MAVT" class="form-control" type="text" id="MAVT" name="MAVT" readonly />
+            </div>
+        </div>
+
+
+        <!--Tên gọi-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Tên vật tư:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <input value="@Model.TenVT" class="form-control" type="text" id="TenVT" name="TenVT" />
+            </div>
+        </div>
+        <!--Loại VT-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Loại VT:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <select class="form-control chosen-select" id="LoaiVT" name="LoaiVT" style="width: 100%; ">
+                    <option value="" disabled selected>--Danh Sách Loại VT--</option>
+                    @foreach (var item in dmloaivt)
+                    {
+                        <option value="@item.LoaiVT" @(item.LoaiVT == Model.LoaiVT ? "selected=\"selected\"" : "")>
+                            @item.LoaiVT || @item.TenLoai
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <!--Đơn vị sử dụng-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Đơn vị sử dụng:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <select class="form-control chosen-select" id="DonViSuDungtac" name="DonViSuDungtac" style="width: 100%; ">
+                    <option value="" disabled selected>--Danh Sách Đơn Vị--</option>
+                    @foreach (var item in dmdonvi)
+                    {
+                        <option value="@item.MaDonVi" @(item.MaDonVi == Model.DonViSuDungtac ? "selected=\"selected\"" : "")>
+                            @item.MaDonVi || @item.TenDonVi
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+        <!--Đơn vị tính-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Đơn vị tính:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <select class="form-control chosen-select" id="DVT" name="DVT" style="width: 100%; ">
+                    <option value="" disabled selected>--Danh Sách DVT--</option>
+                    @foreach (var item in dmdvt)
+                    {
+                        <option value="@item.FMaDVT" @(item.FMaDVT == Model.DVT ? "selected=\"selected\"" : "")>
+                            @item.FMaDVT || @item.TenGoi
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Mã chi phí:</label>
+            <div class="col-md-9 col-sm-9 ten">
+                <select class="form-control chosen-select" id="MACP" name="MACP" style="width: 100%; ">
+                    <option value="" disabled selected>--Mã chi phí--</option>
+                    @foreach (var item in dmMaChiPhi)
+                    {
+                        <option value="@item.MACP" @(item.MACP == Model.MACP ? "selected=\"selected\"" : "")>
+                            @item.HT
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <!--Đơn vị tính-->
+        <div class="row" style="margin-bottom:5px">
+            <label class="col-md-3 col-sm-3">Hiệu lực:</label>
+            <div class="col-md-1 col-sm-1">
+                <input value="@Model.HieuLuc" class="form-control custom-checkbox" type="checkbox" id="HieuLuc" name="HieuLuc" @(Model.HieuLuc == true ? "checked=\"checked\"" : "") />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>
+
+<script>
+    var index = 0;
+
+    $(document).ready(function () {
+        $('#HieuLuc').click(function (e) {
+            if ($('#HieuLuc').val() != true) {
+                $('#HieuLuc').val(true);
+            }
+            else {
+                $('#HieuLuc').val(false);
+            }
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+</script>

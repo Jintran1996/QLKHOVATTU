@@ -1,0 +1,281 @@
+﻿
+@{
+    ViewBag.Title = "Xem xét phiếu yêu cầu mua sợi";
+    var maphieu = ViewBag.maphieu;
+    var nguoipd = ViewBag.nguoipd as List<ToolsApp.EntityFramework.VatTu.SP_LOADNGUOIPHEDUYET_BY_KIHIEU_Result>;
+}
+
+<section class="content" style="font-size: 12px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Xem xét</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Chọn mã phiếu</label>
+                                    <select class="form-control chosen-select" onchange="reloadData()"
+                                            id="maphieu" name="maphieu">
+                                        <option selected disabled value="">--Chọn mã phiếu--</option>
+                                        @foreach (var item in maphieu)
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Xem xét</label>
+                                    <select class="form-control chosen-select" id="xemxet" name="xemxet">
+                                        <option value="0">Chưa xem xét</option>
+                                        <option selected value="1">Xem xét</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Người xem xét</label>
+                                    <select class="form-control chosen-select" id="nguoipd" name="nguoipd">
+                                        @foreach (var item in nguoipd)
+                                        {
+                                            <option value="@item.MANV">@item.VT</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="row " style="margin-bottom:5px">
+                                    <button id="btnXemXetSoi" onclick="_SaveXemxet()" type="button" class="btn btn-primary" style="width: 100px">&nbsp; Xem Xét</button>
+                                    &nbsp;
+                                    <button id="btnCapNhatPD" type="button" class="btn bg-gradient-success" style="width: 150px">&nbsp; Cập nhật Trạng Thái</button>
+                                    &nbsp;
+                                    <button id="btnSendEmail" onclick="SendEmail()" type="button" class="btn btn-info" style="width: 100px; pointer-events:none"><i class="fa fa-envelope"></i>&nbsp; Email</button>
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End section search-->
+            </div>
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Chi tiết phiếu yêu cầu mua sợi </b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+
+
+@section scripts{
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+
+    </script>
+    <script>
+        function reloadData(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+                    maphieu: $("#maphieu").val(),
+                    page: page
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        destroy : true,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        var $ID_SOCT = "";
+
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        $(document).ready(function () {
+            reloadData(false);
+
+        });
+
+        function SendEmail()
+        {
+                var _maphieu = $("#maphieu").val();
+                var _nguoipd = $("#nguoipd").val();
+                var _xemxet = $("#xemxet").val();
+                if (_xemxet == "1") {
+                    $.ajax({
+                        url: '@Url.Action("openOutlookemailbox")',
+                        timeout: 20000,
+                        type: "POST",
+                        data: { maphieu: _maphieu, nguoipd: _nguoipd },
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            console.log(result.obj);
+                            window.location = result;
+                            notify(result.text, "success");
+
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+                else {
+                    alert("Chưa chọn trạng thái xem xét. Vui lòng kiểm tra lại!");
+                }
+        }
+
+        function _SaveXemxet()
+        {
+            var confirm_ = confirm('Bạn có chắc muốn xem xét yêu cầu này?');
+            if (confirm_) {
+                var _maphieu = $("#maphieu").val();
+                var _nguoipd = $("#nguoipd").val();
+                var _xemxet = $("#xemxet").val();
+                if (_xemxet == "1") {
+                    $.ajax({
+                        url: '@Url.Action("_SaveXemxet")',
+                        timeout: 20000,
+                        type: "POST",
+                        data: { maphieu: _maphieu, nguoipd: _nguoipd },
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            console.log(result.obj);
+                            notify(result.text, "success");
+                            document.getElementById("btnSendEmail").style.pointerEvents = 'auto';
+                            //OpenMailBox(_maphieu, _nguoipd);
+
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+                else {
+                    alert("Chưa chọn trạng thái xem xét. Vui lòng kiểm tra lại!");
+                }
+            }
+        }
+
+        $("#btnCapNhatPD").click(function () {
+
+                    $.ajax({
+                        url: '@Url.Action("_CapNhatPD")',
+                        type: "POST",
+
+                        data: {
+                            maphieu: $("#maphieu").val(),
+                        },
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            console.log(result.obj);
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+
+            });
+
+        function OpenMailBox(_maphieu, _nguoipd) {
+            $.ajax({
+                url: '@Url.Action("openOutlookemailbox")',
+                timeout: 20000,
+                type: "POST",
+                data: { maphieu: _maphieu, nguoipd: _nguoipd },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    window.location = result;
+                    $(".divLoading").removeClass("loading");
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    </script>
+}

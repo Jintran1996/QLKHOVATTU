@@ -1,0 +1,528 @@
+﻿
+@{
+    ViewBag.Title = "Danh Mục Kho";
+
+}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-primary card-tabs">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-DanhMucKho-tab" data-toggle="pill" href="#custom-tabs-one-DanhMucKho" role="tab" aria-controls="custom-tabs-one-DanhMucKho" aria-selected="true"><b>Danh Mục Kho</b></a>
+                            </li>
+                            <li class="nav-item" id="tab-2">
+                                <a class="nav-link" id="custom-tabs-one-QuyenXNKho-tab" data-toggle="pill" href="#custom-tabs-one-QuyenXNKho" role="tab" aria-controls="custom-tabs-one-QuyenXNKho" aria-selected="false"><b>Quyền Xuất Nhập Kho</b></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content row" id="custom-tabs-one-tabContent">
+
+                            <!---DANH MỤC KHO-->
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-DanhMucKho" role="tabpanel" aria-labelledby="custom-tabs-one-DanhMucKho-tab">
+                                <!--data-->
+                                <div class="col-md-12">
+                                    <div class="card-body pad">
+                                        <div class="row">
+                                            <div class="col-md-12 table-body-insert">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 row ">
+                                </div>
+                                <div class="col-md-12 card-primary card-outline">
+                                    <div class="table-responsive row">
+                                        <div class="" style="align-items:center">
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-GetList table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                            </div>
+
+                            <!---QUYỀN XUẤT NHẬP KHO-->
+                            <div class="tab-pane fade col-md-12" id="custom-tabs-one-QuyenXNKho" role="tabpanel" aria-labelledby="custom-tabs-one-QuyenXNKho-tab">
+                                <div class="col-md-12">
+                                    <div class="card-body pad">
+                                        <div class="row">
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-8 table-body-insert-QuyenXNKho"></div>
+                                            <div class="col-md-2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 card-primary card-outline" style="margin-top:20px;">
+                                    <div class="table-responsive row">
+                                        <div class="" style="align-items:center">
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-GetList-QuyenXNKho table-responsive">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hiệu chỉnh Kho -->
+    <div id="myModalEditct" class="modal fade bd-example-modal-lg" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content ">
+                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmEditct", id = "frmEditct", enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header bg-gradient-blue">
+                        <div class="modal-title " style="font-size: 17px; text-transform: uppercase; color: mintcream"><strong id="myModalTitleEditct"></strong></div>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="myModalContentEditct"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="text-right">
+                            <button type="button" id="btSavect" class="btn btn-sm bg-gradient-primary"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                            &nbsp;
+                            <button type="button" id="" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    @section scripts{
+        <script>
+        function reloadData(isDelete) {
+            Load_insert();
+            Load_GetList();
+            Load_InsertQXNKho();
+            Load_GetListQXNKho();
+        }
+
+        function Load_insert() {
+            $.ajax({
+                url: '@Url.Action("_Insert")',
+                timeout: 200000,
+                data: {
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+
+                $('.table-body-insert').html(data);
+            }).fail(function (data) {
+                $(".divLoading").removeClass("loading");
+            });
+        }
+
+        function Load_InsertQXNKho() {
+            $.ajax({
+                url: '@Url.Action("_InsertQXNKho")',
+                timeout: 200000,
+                data: {
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+
+                $('.table-body-insert-QuyenXNKho').html(data);
+            }).fail(function (data) {
+                $(".divLoading").removeClass("loading");
+            });
+        }
+
+        function Load_GetList() {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 20000,
+                data: {
+
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+
+                $('.table-body-GetList').html(data);
+
+                $("#myTable").DataTable({
+                    //"responsive": true,
+                    destroy: true,
+                    "language": {
+                        "sProcessing": "Đang xử lý...",
+                        "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                        "sZeroRecords": "Không tìm thấy kết quả",
+                        "sEmptyTable": "Không có dữ liệu",
+                        "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                        "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                        "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Tìm kiếm:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Đang tải...",
+                        "oPaginate": {
+                            "sFirst": "Đầu tiên",
+                            "sLast": "Cuối cùng",
+                            "sNext": "Sau",
+                            "sPrevious": "Trước"
+                        },
+                        "oAria": {
+                            "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                            "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                        }
+                    },
+                    "searching": true,
+                    "info": false,
+                    "processing": false,
+                    "serverSide": false,
+                    "bFilter": true,
+                    "bPaginate": true,
+                    "bLengthChange": true,
+                    "bInfo": true,
+                    "responsive": true,
+                    "lengthChange": true,
+                    "autoWidth": false,
+                    "stateSave": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "initComplete": function (oSettings) {
+
+                    }
+                });
+
+            }).fail(function (data) {
+                $(".divLoading").removeClass("loading");
+
+            });
+        }
+
+        function Load_GetListQXNKho() {
+            $.ajax({
+                url: '@Url.Action("_GetListQXNKho")',
+                timeout: 20000,
+                data: {
+
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+
+                $('.table-body-GetList-QuyenXNKho').html(data);
+
+                $("#myTable1").DataTable({
+                    //"responsive": true,
+                    destroy: true,
+                    "language": {
+                        "sProcessing": "Đang xử lý...",
+                        "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                        "sZeroRecords": "Không tìm thấy kết quả",
+                        "sEmptyTable": "Không có dữ liệu",
+                        "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                        "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                        "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Tìm kiếm:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Đang tải...",
+                        "oPaginate": {
+                            "sFirst": "Đầu tiên",
+                            "sLast": "Cuối cùng",
+                            "sNext": "Sau",
+                            "sPrevious": "Trước"
+                        },
+                        "oAria": {
+                            "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                            "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                        }
+                    },
+                    "searching": true,
+                    "info": false,
+                    "processing": false,
+                    "serverSide": false,
+                    "bFilter": true,
+                    "bPaginate": true,
+                    "bLengthChange": true,
+                    "bInfo": true,
+                    "responsive": true,
+                    "lengthChange": true,
+                    "autoWidth": false,
+                    "stateSave": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "initComplete": function (oSettings) {
+
+                    }
+                });
+
+            }).fail(function (data) {
+                $(".divLoading").removeClass("loading");
+
+            });
+        }
+        </script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                reloadData(false);
+            });
+        </script>
+
+        <script type="text/javascript">
+        var $modalEditct = $("#myModalEditct");
+        var $myModalContentEditct = $("#myModalContentEditct");
+        var $myModalTitleEditct = $("#myModalTitleEditct");
+
+        function InsertKho() {
+        var _maKho = $('#maKho').val();
+        var _diaChi = $('#diaChi').val();
+        var _maKhoKT = $('#maKhoKT').val();
+        var _tenKho = $('#tenKho').val();
+        var _khoNhan = $('#khoNhan').val();
+        var _thuKho = $('#thuKho').val();
+        var check = $('#customSwitches');
+        $.ajax({
+            url: '@Url.Action("_SaveFun")',
+            type: "POST",
+            data: {
+                maKho: _maKho,
+                tenKho: _tenKho,
+                maKhoKT: _maKhoKT,
+                diaChi: _diaChi,
+                khoNhan: _khoNhan,
+                thuKho: _thuKho,
+                xuatNB: check.is(":checked") ?  true :  false,
+            },
+            beforeSend: function (xhr) {
+                $(".divLoading").addClass("loading");
+            },
+        }).done(function (data) {
+            $(".divLoading").removeClass("loading");
+            if (data.status < 0) {
+                notify(data.text, "error");
+            }
+            else {
+                notify(data.text, "success");
+                reloadData();
+            }
+
+        }).fail(function (data) {
+            notify(data.text, "error");
+        });
+    }
+
+    function Delete(_maKho) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteFun")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: { MAKHO: _maKho },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                            reloadData();
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+    }
+
+    function Edit(_maKho) {
+            $myModalContentEditct.html("");
+            $myModalTitleEditct.html("Hiệu Chỉnh");
+            $.ajax({
+                url: '@Url.Action("_Editview")',
+                timeout: 200000,
+                data: {
+                    MAKHO: _maKho
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    $(".divLoading").removeClass("loading");
+                    $myModalContentEditct.html(result);
+                    $modalEditct.modal();
+
+                },
+                failure: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+        </script>
+
+        <script>
+        $("#btSavect").click(function () {
+            var _maKho = $('#maKho_UP').val();
+            var _diaChi = $('#diaChi_UP').val();
+            var _maKhoKT = $('#maKhoKT_UP').val();
+            var _tenKho = $('#tenKho_UP').val();
+            var _khoNhan = $('#khoNhan_UP').val();
+            var _thuKho = $('#thuKho_UP').val();
+            var check = $('#xuatNB_UP');
+            $.ajax({
+                url: '@Url.Action("_EditFunCT")',
+                type: "POST",
+                data: {
+                    maKho: _maKho,
+                    tenKho: _tenKho,
+                    maKhoKT: _maKhoKT,
+                    diaChi: _diaChi,
+                    khoNhan: _khoNhan,
+                    thuKho: _thuKho,
+                    xuatNB: check.is(":checked") ? true : false,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        notify(result.text, "success");
+                        reloadData();
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    $(".divLoading").removeClass("loading");
+                    $('#closectphieuedit').trigger('click');
+
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        });
+
+        </script>
+
+        <script type="text/javascript">
+        function SaveQXN() {
+            var _maKhoXN = $('#maKhoXN').val();
+            var _maNVXN = $('#maNVXN').val();
+            var _kyHieuDV = $('#kyHieuDV').val();
+            $.ajax({
+                url: '@Url.Action("_SaveXNFun")',
+                type: "POST",
+                data: {
+                    maKho: _maKhoXN,
+                    maNV: _maNVXN,
+                    kyHieuDV: _kyHieuDV,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                    Load_GetListQXNKho();
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+
+        function SaveSD() {
+            var _maKhoSD = $('#maKhoSD').val();
+            var _kyHieuDVSD = $('#kyHieuDVSD').val();
+            $.ajax({
+                url: '@Url.Action("_SaveSDFun")',
+                type: "POST",
+                data: {
+                    maKho: _maKhoSD,
+                    kyHieuDV: _kyHieuDVSD,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+        }
+
+        function DeleteQXNKho(_maKhoXN) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+            if (confirm_) {
+                $.ajax({
+                    url: '@Url.Action("_DeleteXNFun")',
+                    timeout: 200000,
+                    type: "POST",
+                    data: { MAKHO: _maKhoXN },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+                            Load_GetListQXNKho();
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
+        </script>
+
+    }

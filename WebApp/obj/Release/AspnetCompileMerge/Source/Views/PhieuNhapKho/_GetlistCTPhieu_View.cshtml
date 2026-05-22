@@ -1,0 +1,87 @@
+﻿
+@using System.Globalization;
+@model ToolsApp.Models.NL_CTXUATNHAPViewModels
+
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_CTXUATNHAP>;
+    var dmphieu = ViewBag.dmphieu as List<ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEUXN>;
+    //var MAHTHUC = ViewBag.MAHTHUC;
+    var MAHTHUC = dmphieu?.FirstOrDefault().MAHTHUC;
+    var GUIAPI = dmphieu?.FirstOrDefault().GUIAPI;
+    var dmvtDict = ViewBag.DMVT_DICT as Dictionary<string, string>;
+
+}
+
+<table id="myTablectview" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="text-align:center" white-space: nowrap>
+                @if (GUIAPI != "1")
+                {
+                    <button type="button" onclick="DeletectALL('@Model.SOCTXN','@MAHTHUC')" class="btn btn-danger btn-sm"> &nbsp;Xóa tất cả</button>
+                }
+            </th>
+            <th style="text-align:center">.No</th>
+            <th>Số chứng từ</th>
+            <th>MAVT</th>
+            <th>Tên VT</th>
+            <th>Hiệu</th>
+            <th>Lô</th>
+            <th>Số Lượng TT</th>
+            <th>Số hóa đơn</th>
+            <th>Ngày kế toán</th>
+            <th>Mã phiếu PD</th>
+            <th>Ghi chú</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists)
+        {
+        <tr>
+            <td>
+
+                @if (MAHTHUC == "NK")
+                {
+                    <a onclick="EditCt('@item.ID_XN', '@item.SOCTXN')" class="btn">
+                        <i class="fas fa-edit"></i> Sửa
+                    </a>
+                    <a onclick="DienGiai('@item.SOCTXN', '@item.KHOAKEYXN', '@item.MAVT')" class="btn">
+                        <i class="fas fa-edit"></i> Diễn giải
+                    </a>
+
+                }
+                @if (dmphieu.FirstOrDefault().GUIAPI != "1")
+                {
+
+                    if (MAHTHUC == "NK" || MAHTHUC == "HK")
+                    {
+
+                        <a onclick="Deletect('@item.ID_XN', '@item.SOCTXN','@MAHTHUC')" class="btn">
+                            <i class="far fa-trash-alt"></i> Xóa
+                        </a>
+                    }
+                }
+
+            </td>
+            <td style="text-align:center">
+                @STT
+            </td>
+            <td>@item.SOCTXN</td>
+            <td>@item.MAVT</td>
+            <td> @(dmvtDict != null && dmvtDict.ContainsKey(item.MAVT) ? dmvtDict[item.MAVT] : item.MAVT)</td>
+            <td>@item.HIEU</td>
+            <td>@item.LO</td>
+            <td>@item.SOLUONGTT</td>
+            <td>@item.SOHOADON</td>
+            <td>@item.NGAYKETOAN.Value.ToString("dd/MM/yyyy")</td>
+            <td>@item.MAPHIEUPD</td>
+            <td>@item.GHICHU</td>
+
+
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

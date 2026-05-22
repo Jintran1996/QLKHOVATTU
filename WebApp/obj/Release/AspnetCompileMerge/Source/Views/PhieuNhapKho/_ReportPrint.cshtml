@@ -1,0 +1,122 @@
+﻿@using System.Globalization;
+@{
+    var data = ViewBag.List as List<ToolsApp.EntityFramework.KhoSoi.SP_RPT_NL_PYC_XUATVT_Result>;
+    var stt = 1;
+    var ngay = DateTime.Now;
+}
+
+<section class="content" style="font-size: 14px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <table style="border: 1px solid;border-bottom:none; border-collapse: collapse; width: 100%; ">
+                    <thead></thead>
+                    <tbody style="border-bottom: 0px solid;">
+                        <tr>
+                            <td style="border:1px solid; text-align:center; padding-top: 5px;padding-bottom:5px" colspan="1" rowspan="3"><img src="~/Content/images/ThaiTuan.png" width="80" height="56" /></td>
+                            <td style="border-bottom:1px solid; text-align: center; font-size: 16px;" valign="top" colspan="1" rowspan="3">BM03/QI16:&nbsp;</td>
+                            <th style="text-align: center; font-size: 16px" colspan="9" rowspan="1" valign="top">PHIẾU TỔNG HỢP NHẬP SỢI</th>
+                            <td style="border:1px solid; text-align:left" colspan="1" rowspan="3" valign="top">&nbsp;Số chứng từ:&ensp;<br />&nbsp;@data[0].SOCTXN</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" rowspan="2" style="border-bottom: 1px solid;">
+                                <input type="checkbox" value="" disabled>&nbsp;Vải mộc<br />
+                                <input type="checkbox" value="" disabled checked>&nbsp;Vật tư
+                            </td>
+                            <td colspan="3" rowspan="2" style="border-bottom: 1px solid;">
+                                <input type="checkbox" value="" disabled>&nbsp;Vải TP<br />
+                                <input type="checkbox" value="" disabled>&nbsp;Mỹ phẩm
+                            </td>
+                            <td colspan="3" rowspan="2" style="border-bottom: 1px solid;">
+                                <input type="checkbox" value="" disabled>&nbsp;SP may<br />
+                                <input type="checkbox" value="" disabled>&nbsp;Khác
+                            </td>
+                        </tr>
+                        <tr></tr>
+
+                    </tbody>
+                </table>
+                <table style=" border-collapse:collapse; width:100%">
+                    <tbody>
+                        <tr style="border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid; text-align:left">
+                            <th colspan="2" style="border-right: 1px solid; ">&nbsp;Đơn vị sử dụng:</th>
+                            <td colspan="10">&nbsp;@data[0].MADV</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid; text-align: left">
+                            <th colspan="2" style="border-right:1px solid">&nbsp;Lý do sử dụng:</th>
+                            <td colspan="10">&nbsp;Phục vụ sản xuất</td>
+                        </tr>
+                        <tr style="text-align: left; border-left: 1px solid; border-right: 1px solid">
+                            <th colspan="2" style="border-right:1px solid">&nbsp;Người được ủy nhiệm nhận hàng:</th>
+                            <td colspan="10">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid; text-align:center;" colspan="1" width="2%">STT</th>
+                            <th style="border:1px solid; text-align:center;" colspan="3" width="33%">Tên hàng hóa</th>
+                            <th style="border:1px solid; text-align:center;" colspan="1" width="10%">Mã hàng hóa</th>
+                            <th style="border:1px solid; text-align:center;" colspan="1" width="5%">ĐVT</th>
+                            <th style="border:1px solid; text-align:center;" colspan="2" width="5%">Số lượng</th>
+                            <th style="border:1px solid; text-align:center;" colspan="2" width="10%">Đơn hàng</th>
+                            <th style="border:1px solid; text-align:center;" colspan="1" width="10%">Hiệu<hr width="50" style="margin-top: unset; margin-bottom: unset; border-top: 1px solid #000000 " />Lô</th>
+                            <th style="border:1px solid; text-align:center;" colspan="1" width="5%">Thời điểm sử dụng</th>
+                            <th style="border:1px solid; text-align:center;" colspan="1" width="10%">Ghi chú</th>
+                        </tr>
+
+                        @foreach (var item in data)
+                        {
+                            <tr>
+                                <td style="border:1px solid; text-align:center" colspan="1">@stt</td>
+                                <td style="border:1px solid; text-align:left" colspan="3">&nbsp;@item.TENVATTU</td>
+                                <td style="border:1px solid; text-align:left" colspan="1">&nbsp;@item.MAVT</td>
+                                <td style="border:1px solid; text-align:center" colspan="1">@item.DVT</td>
+                                <td style="border:1px solid; text-align:center" colspan="1">@item.SOLUONGYC.Value.ToString("0.000")</td>
+                                <td style="border: 1px solid; text-align: center" colspan="3">@item.MADH</td>
+                                <td style="border:1px solid; text-align:center" colspan="1">@item.HIEU<hr width="50" style="margin-top: unset; margin-bottom: unset; border-top: 1px solid #000000 " />@item.LO</td>
+                                <td style="border: 1px solid; text-align: center">@item.NGAYKETOAN.Value.ToString("dd/MM/yyyy")</td>
+                                <td style="border:1px solid; text-align:left">&nbsp;@item.GHICHU</td>
+
+                            </tr>
+                            stt++;
+                        }
+                        <tr style="text-align: left; border-left: 1px solid; border-right: 1px solid ">
+                            <th colspan="6">&nbsp;TỔNG CỘNG:</th>
+                            <th colspan="6">&nbsp;@data.Sum(c => c.SOLUONGYC).Value.ToString("0.000")</th>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <table style="border:1px solid; border-collapse:collapse; width:100%">
+                    <tbody>
+                        <tr style="border-top:1px solid; text-align:left;">
+                            <td style="border-right: 1px solid;" colspan="4" rowspan="1">&nbsp;Ngày&emsp;&emsp;Tháng&emsp;&emsp;Năm</td>
+                            <td style="border-right:1px solid" colspan="4" rowspan="1">&nbsp;Ngày&emsp;&emsp;Tháng&emsp;&emsp;Năm</td>
+                            <td style="border-right:1px solid" colspan="4" rowspan="1">&nbsp;Ngày&emsp;&emsp;Tháng&emsp;&emsp;Năm</td>
+                        </tr>
+                        <tr style=" text-align:left">
+                            <td style="border-right: 1px solid; padding-bottom: 50px" colspan="4" rowspan="1">&nbsp;Người yêu cầu</td>
+                            <td style="border-right: 1px solid; padding-bottom: 50px" colspan="4" rowspan="1">&nbsp;Người kiểm tra</td>
+                            <td style="border-right: 1px solid; padding-bottom: 50px" colspan="4" rowspan="1">&nbsp;Xét duyệt</td>
+                        </tr>
+                        <tr style=" text-align:left">
+                            <td style="border-right:1px solid" colspan="4" rowspan="1">&nbsp;Họ và tên: @data[0].HOTEN</td>
+                            <td style="border-right:1px solid" colspan="4" rowspan="1">&nbsp;Họ và tên:</td>
+                            <td style="border-right:1px solid" colspan="4" rowspan="1">&nbsp;Họ và tên:</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>&nbsp;Đã nhận đủ</div>
+                <div style="padding:20px"></div>
+                <div>&nbsp;@data[0].HOTEN</div>
+                <div>
+                    In ngày @ngay.ToString("dd/MM/yyyy HH:mm:ss") ( Số Phiếu:&nbsp;@data[0].SOCTXN)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+

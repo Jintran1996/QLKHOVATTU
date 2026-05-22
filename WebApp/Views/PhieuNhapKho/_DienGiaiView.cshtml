@@ -1,0 +1,328 @@
+﻿@using System.Globalization;
+
+
+@{
+    ViewBag.Title = "Nhập diễn giải";
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_CTXUATNHAP>;
+    var diengiai = ViewBag.diengiai as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NHAPDIENGIAI_SOI>;
+    var dvt = ViewBag.dvt as List<ToolsApp.EntityFramework.VatTu.tblDMDVTINH>;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="card-body">
+            <!--data-->
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmDienGiai_", id = "frmDienGiai_", enctype = "multipart/form-data" }))
+                    {
+                        <div class="row" style="margin-top:10px">
+                            <div class="col-md-3">
+                                <div class="row" style="margin-bottom:5px">
+                                    <label class="col-md-3">SOCTXN :</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" autocomplete="off" value="@Lists.FirstOrDefault().SOCTXN" readonly
+                                               id="SOCTXN_DG" name="SOCTXN" />
+
+                                        <input class="form-control" type="text" autocomplete="off" value="@Lists.FirstOrDefault().KHOAKEYXN" readonly hidden
+                                               id="KHOAKEYXN_DG" name="KHOAKEYXN" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row" style="margin-bottom:5px">
+                                    <label class="col-md-3">Số hóa đơn :</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" autocomplete="off" value="@Lists.FirstOrDefault().SOHOADON" readonly
+                                               id="SOCTKETOAN_DG" name="SOCTKETOAN" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row" style="margin-bottom:5px">
+                                    <label class="col-md-3">MAVT :</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" autocomplete="off" value="@Lists.FirstOrDefault().MAVT" readonly
+                                               id="MAVT_DG" name="MAVT" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row" style="margin-bottom:5px">
+                                    <label class="col-md-3">Mã phiếu PD :</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" autocomplete="off" value="@Lists.FirstOrDefault().MAPHIEUPD" readonly
+                                               id="MAPHIEUPD_DG" name="MAPHIEUPD" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="row" style="margin-bottom:5px">
+                                    <label class="col-md-3">Tên NCC: </label>
+                                    <div class="col-md-9">
+                                        <input type="text" id="TenVT_NCC_DG" name="TENVATTU_NCC" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row" style="margin-bottom:5px">
+                                    <label class="col-md-3">Số lượng (NCC): </label>
+                                    <div class="col-md-9">
+                                        <input id="SOLUONG_NCC_DG" name="SOLUONG_NCC" class="form-control" type="number"
+                                               step="0.01" min="0" value="0" data-decimal="2" oninput="_CheckNumber_DG(this)">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row" style="margin-bottom:5px">
+                                    <label class="col-md-3">Ngày Chứng Từ:</label>
+                                    <div class="col-md-9">
+                                        <input type="text" autocomplete="off" id="NGAY_NCC_DG" name="NGAYNCC_" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div div class="col-md-3">
+                                <div class="row" style="margin-bottom:5px">
+                                    <label class="col-md-3">ĐVT: </label>
+                                    <div class="col-md-9">
+                                        <select class="form-control chosen-select" id="DVT_NCC_DG" name="DVT_NCC">
+                                            @foreach (var item in dvt)
+                                            {
+                                                <option value="@item.DVTDS">@item.DVTDS  ||  @item.TEN</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                    <div class="text-center" style="margin-top:20px">
+                        <button type="button" id="btSaveInsert_DIENGIAI" class="btn bg-gradient-primary" style="width: 120px"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
+                        <button type="button" onclick="Print_Diengiai()" class="btn bg-gradient-primary" style="width: 120px"><i class="fa fa-print"></i>&nbsp;In</button>&nbsp;&nbsp;
+                    </div>
+                </div>
+
+            </div>
+            <div class="row" style="margin-top:20px">
+                <div class="col-md-12">
+                    <div class="card card-primary card-outline">
+                        <div class="card-body pad">
+                            <div class="row">
+                                <div class="col-md-12 table-body-diengiai  table-responsive">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <!--data-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    $("#NGAY_NCC_DG").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+    function _CheckNumber_DG(ele) {
+        if ($(ele).data('decimal') != null) {
+            // found valid rule for decimal
+            var decimal = parseInt($(ele).data('decimal')) || 0;
+            var val = $(ele).val();
+            if (decimal > 0) {
+                var splitVal = val.split('.');
+                if (splitVal.length == 2 && splitVal[1].length > decimal) {
+                    // user entered invalid input
+                    $(ele).val(splitVal[0] + '.' + splitVal[1].substr(0, decimal));
+                }
+            } else if (decimal == 0) {
+                // do not allow decimal place
+                var splitVal = val.split('.');
+                if (splitVal.length > 1) {
+                    // user entered invalid input
+                    $(ele).val(splitVal[0]); // always trim everything after '.'
+                }
+            }
+        }
+    }
+
+
+        function reloadData_getlistDienGiai(isDelete) {
+            var SOCTXN_DG_ = $('#SOCTXN_DG').val();
+            var MAVT_DG_ = $('#MAVT_DG').val();
+            var KHOAKEYXN_DG_ = $('#KHOAKEYXN_DG').val();
+
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList_DienGiai")',
+                timeout: 20000,
+                data: {
+                    SOCTXN_DG: SOCTXN_DG_, MAVT_DG: MAVT_DG_, KHOAKEYXN_DG: KHOAKEYXN_DG_
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-diengiai').html(response);
+
+                    $("#myTablediengiai").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+
+        function DeleteDienGiai(KEYNHAP_) {
+            var confirm_ = confirm('Bạn có chắc muốn xóa mã này không?' );
+             if (confirm_) {
+                 $.ajax({
+                     url: '@Url.Action("_DeleteDienGiaiFun")',
+                     timeout: 2000000,
+                     type: "POST",
+                     data: { KEYNHAP: KEYNHAP_ },
+                     beforeSend: function (xhr) {
+                         $(".divLoading").addClass("loading");
+                     },
+                     success: function (result) {
+
+                         if (result.status >= 1) {
+                             notify(result.text, "success");
+                             reloadData_getlistDienGiai(true);
+                         }
+                         else {
+                             notify(result.text, "error");
+                         }
+                         $(".divLoading").removeClass("loading");
+                     },
+                     error: function (message) {
+                         $(".divLoading").removeClass("loading");
+                     }
+                 });
+             }
+        }
+
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("999");
+        reloadData_getlistDienGiai(false);
+
+         $("#btSaveInsert_DIENGIAI").click(function () {
+             form = $("#frmDienGiai_");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+             $.validator.unobtrusive.parse("#frmDienGiai_");
+             console.log($('#frmDienGiai_').serialize());
+                if (form.valid()) {
+                    $.ajax({
+                        url: '@Url.Action("_InsertDienGiaiFun")' ,
+                        type: "POST",
+                        data: $('#frmDienGiai_').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                reloadData_getlistDienGiai(true);
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+            });
+    });
+
+
+
+    function Print_Diengiai() {
+        var SOCTXN_ = $("#SOCTXN_DG").val();
+             $.ajax({
+                url: '@Url.Action("_ReportPrint_Diengiai")',
+                timeout: 20000,
+                type: "GET",
+                 data: {
+                     SOCTXN: SOCTXN_
+                 },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                 success: function (result) {
+                     if (result.status < 0) {
+                         notify(result.text, "error");
+                     }
+                     else {
+                         console.log(result);
+                         $myModalContentPrint_Diengiai.html(result);
+                         $modalPrint_Diengiai.modal();
+                     }
+                     $(".divLoading").removeClass("loading");
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+</script>
+
+
+
+

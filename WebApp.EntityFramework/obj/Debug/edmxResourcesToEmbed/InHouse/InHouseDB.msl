@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="INHOUSEModelStoreContainer" CdmEntityContainer="INHOUSEEntities">
+    <EntitySetMapping Name="S_user">
+      <EntityTypeMapping TypeName="INHOUSEModel.S_user">
+        <MappingFragment StoreEntitySet="S_user">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CREF03" ColumnName="CREF03" />
+          <ScalarProperty Name="CREF04" ColumnName="CREF04" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CREF02" ColumnName="CREF02" />
+          <ScalarProperty Name="CREF01" ColumnName="CREF01" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

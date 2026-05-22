@@ -1,0 +1,44 @@
+﻿@using ToolsApp.Authentication;
+
+@{
+    var userName = "";
+    var userFullname = "";
+
+    try
+    {
+        userName = (System.Web.HttpContext.Current.User as CustomPrincipal).UserName;
+    }
+    catch (Exception)
+    {
+    }
+
+    try
+    {
+        userFullname = (System.Web.HttpContext.Current.User as CustomPrincipal).FullName;
+    }
+    catch (Exception)
+    {
+    }
+}
+
+<div class="navbar-custom-menu">
+    <ul class="nav navbar-nav">
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu center-block">
+            <a href="#" class="dropdown-toggle username-header" data-toggle="dropdown" aria-expanded="false">
+                <div style="float:left">@userName</div> <div style="float:left" class="d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-none d-xl-block"> - @userFullname</div>
+            </a>
+            <ul class="dropdown-menu fix-dropdown">
+                <li>
+                    <div style="padding:5px;">
+                        <a href="@Url.Action("LogOut", "Login", new { Area = "" })" style="margin-left:15px;color:black"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <!-- Control Sidebar Toggle Button -->
+        <li style="display:none">
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+        </li>
+    </ul>
+</div>

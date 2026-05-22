@@ -1,0 +1,508 @@
+﻿
+@{
+    ViewBag.CTPhieu = "Danh Sách Nhập Kho";
+
+    //  var madh = ViewBag.madh as List<ToolsApp.EntityFramework.QuanLyKhoMoc2023.Sp_API_LoadDonHang_CoKeyHH_Result>;
+    // var APIs = ViewBag.APIs as IEnumerable<ToolsApp.EntityFramework.QuanLyKhoMoc2023.tblphieukho>;
+    var masoi = ViewBag.masoi as List<ToolsApp.EntityFramework.KhoSoi.LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC_v1_Result>;
+    var MAHTHUC = ViewBag.MAHTHUC;
+    dynamic NK = "";
+    switch (MAHTHUC)
+    {
+        case "NK":
+            NK = ViewBag.NK as List<ToolsApp.EntityFramework.KhoSoi.SP_NHAPKHOTHEOPHIEUPHEDUYET_MAVT_Result>;
+            break;
+        case "NKNB":
+            NK = ViewBag.NK as List<ToolsApp.EntityFramework.KhoSoi.LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC_v1_Result>;
+            break;
+        case "HKGC":
+            NK = ViewBag.NK as List<ToolsApp.EntityFramework.KhoSoi.SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_V2_Result>;
+            break;
+    }
+    var DMLO = ViewBag.DMLO as List<ToolsApp.EntityFramework.KhoSoi.SP_LOAD_NL_DMLO_BY_HIEU_Result>;
+    var NL_DMNHACCAP = ViewBag.NL_DMNHACCAP as List<ToolsApp.EntityFramework.KhoSoi.NL_DMNHACCAP>;
+    var masocp = ViewBag.masocp as List<ToolsApp.EntityFramework.VatTu.SP_NL_LOADMSCP_Result>;
+    
+
+}
+@using System.Globalization;
+@model ToolsApp.Models.NL_CTXUATNHAPViewModels
+
+
+<input class="form-control" type="text" autocomplete="off"
+       id="SophieuN_CT" name="SophieuN_CT" value="@Model.SOCTXN.Trim()" hidden />
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab-getlist-ctphieu" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home-ct" role="tab" aria-controls="custom-tabs-one-home-ct" aria-selected="true">Danh sách chi tiết phiếu @Model.SOCTXN </a>
+                            </li>
+                            @*<li class="nav-item" id="tab-2">
+                                    <a class="nav-link" id="custom-tabs-one-profile-tab-action-ctphieu" style="display:block;" data-toggle="pill" href="#custom-tabs-one-profile-action" role="tab" aria-controls="custom-tabs-one-profile-action" aria-selected="false">Nhập sản lượng theo đơn hàng </a>
+                                </li>*@
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home-ct" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab-getlist-ctphieu">
+                                <!--data-->
+                                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmctphieuXN", id = "frmctphieuXN", enctype = "multipart/form-data" }))
+                                {
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row ">
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3">SOCTXN :</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off" value="@Model.SOCTXN" readonly
+                                                                   id="SOCTXN_CT" name="SOCTXN" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Số hóa đơn	:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off" value=""
+                                                                   id="SOHOADON" name="SOHOADON" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3">Ngày kế toán:</label>
+                                                        <div class="col-md-9">
+                                                            <input id="NGAYKETOAN" name="NGAYKETOAN_" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3">Mã sợi :</label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control chosen-select" id="MAVT" name="MAVT" onchange="_Load_DMLO()">
+                                                                <option selected value="">-- Chọn mã vật tư --</option>
+                                                                @foreach (var item in NK)
+                                                                {
+                                                                    <option value="@item.MAVT" data-maphieupd="@item.MAPHIEUPD">MAVT: @item.MAVT ||Hiệu: @item.HIEU || LÔ: @item.LO ||  SOLUONGTT: @item.SOLUONGTT || MAPHIEUPD: @item.MAPHIEUPD</option>
+                                                                }
+                                                            </select>
+                                                            <input hidden type="text" class="form-control" id="MAPHIEUPD" name="MAPHIEUPD" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3">Hiệu:</label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control chosen-select" id="HIEU" name="HIEU" onchange="_Load_DMLO()">
+                                                                <option selected value="">-- Chọn hiệu --</option>
+                                                                @foreach (var item in NL_DMNHACCAP)
+                                                                {
+                                                                    <option value="@item.HIEU"> @item.HIEU</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">LÔ: </label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control" id="LO" name="LO">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            @*Row 3*@
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Số lượng:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="number" autocomplete="off" value="0.00" min="0"
+                                                                   id="SOLUONGTT" name="SOLUONGTT" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+
+                                                        <label class="col-md-3 ">Đơn giá: </label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="number" autocomplete="off"
+                                                                   id="DonGia" name="DonGia" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Mã số chi phí: </label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control chosen-select" id="MASOCP" name="MASOCP">
+                                                                <option selected value="">-- Chọn mã chi phí --</option>
+                                                                @foreach (var item in masocp)
+                                                                {
+                                                                    <option value="@item.MSChiPhi"> @item.MSChiPhi</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Ghi chú:</label>
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="text" autocomplete="off" value=""
+                                                                   id="GHICHU" name="GHICHU" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <label class="col-md-3 ">Mã định mức: </label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control chosen-select" id="MADINHMUC" name="MADINHMUC">
+                                                                <option selected value="">-- Chọn mã định mức --</option>
+                                                            
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="text-center">
+
+                                                <button type="button" id="btSavect" onclick="Insert_ctphieu();" class="btn btn-sm btn-primary" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-12 table-body-view-ctphieu  table-responsive">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+
+                                    </div>
+                                }
+                                <!--data-->
+                            </div>
+
+                            <!--<div class="tab-pane fade col-md-12" id="custom-tabs-one-profile-action" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab-action-ctphieu">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card card-primary card-outline">
+
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <label class="col-md-3 col-sm-3">Mã phiếu phê duyệt</label>
+                                                    <div class="col-md-9 col-sm-9 ten">
+
+                                                        <select id="MAPHIEUPD" name="MAPHIEUPD" class="form-control chosen-select " style="width: 100%;" onchange="reloadData_getlist_ctphieu_theomadh(this.value)">
+                                                            <option selected disabled value=""> Mã Đơn Hàng </option>-->
+                            @*@foreach (var item in NK.Distinct().Select(p => p.MAPHIEUPD))
+                                {
+                                    <option value="@item">
+                                        @item
+                                    </option>
+                                }*@
+                            <!--</select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="text-left">-->
+                            @*@if (APIs.FirstOrDefault().GuiAPI == true)
+                                {
+
+                                }
+                                else
+                                {*@
+                            <!--<button type="button" id="btSave" onclick="Insert_ctphieutheomadh();" class="btn btn-sm btn-primary"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+
+
+
+
+                                </div>
+                            </div>-->
+                            <!-- /.card -->
+                            <!--</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-md-12">
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <b>Chi Tiết Đơn Hàng Đã Kiểm Tra Sản Lượng </b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-12 table-body-ctphieu_theomadh  table-responsive">
+                                                </div>
+                                            </div>
+                                        </div>-->
+                            <!-- /.card -->
+                            <!--</div>
+                                    </div>
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+<script>
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+
+
+
+    function reloadData_getlist_ctphieu() {
+        var SOCTXN_ = $("#SOCTXN_CT").val();
+
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu_View")',
+                timeout: 20000,
+                data: {
+                    SOCTXN: SOCTXN_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-view-ctphieu').html(response);
+
+                    $("#myTablectview").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+    function reloadData_getlist_ctphieu_theomadh(MAPHIEUPD_) {
+        var Search_ = MAPHIEUPD_ == null ? $('#MAPHIEUPD').val() : MAPHIEUPD_ ;
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu_theomadh")',
+                timeout: 20000,
+                data: {
+                    Sophieu: Search_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-ctphieu_theomadh').html(response);
+
+                    $("#myTablect").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+    function Insert_ctphieu() {
+        var madh = $("#Madh").val();
+        var sophieu = $("#SophieuN_CT").val();
+        var confirm_ = confirm('Bạn có chắc muốn nhập kho theo đơn hàng này?');
+        if (confirm_) {
+
+                $.ajax({
+                    url: '@Url.Action("_InsertFunCTTheoDH")',
+                    type: "POST",
+                    data: {
+                        madh: madh, Sophieu: sophieu
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                        reloadData_getlist_ctphieu();
+                        //reloadData_getlist_ctphieu_theomadh();
+                        OnchangeMADH();
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+        }
+    };
+
+    function _Load_DMLO() {
+
+        var HIEUid = $("#HIEU").val();
+        var MAVTid = $("#MAVT").val();
+        var LOid = $("#LO");
+        var MADINHMUCID = $("#MADINHMUC");
+        LOid.empty();
+        MADINHMUCID.empty();
+
+            $.ajax({
+                url: '@Url.Action("_Load_DMLO")',
+                timeout: 20000,
+                type: "POST",
+                data: {
+                    HIEUid: HIEUid, MAVTid: MAVTid
+                },
+                success: function (result) {
+            
+                    $.each(result.obj, function (i, state) {
+                        LOid.append($('<option/>', { value: this.LO }).html(this.LO));
+                    });
+                    LOid.trigger("chosen:updated");
+                    $.each(result.objdm, function (i, state) {
+                        MADINHMUCID.append($('<option/>', { value: state }).html(state));
+                       
+                    });
+                    
+                    MADINHMUCID.trigger("chosen:updated");
+
+
+                    updateInputValue();
+
+                }
+            });
+    }
+    function updateInputValue() {
+        var selectBox = document.getElementById("MAVT");
+       // var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+        var selectedData = selectBox.options[selectBox.selectedIndex].getAttribute('data-maphieupd');
+        document.getElementById("MAPHIEUPD").value = selectedData;
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    $("#NGAYKETOAN").datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+        onClose: function (selectedDate) {
+            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+        }
+    });
+    $(document).ready(function () {
+        reloadData_getlist_ctphieu(false);
+
+
+
+        $("#btSavect").click(function () {
+            form = $("#frmctphieuXN");
+                form.removeData('validator');
+                form.removeData('unobtrusiveValidation');
+            $.validator.unobtrusive.parse("#frmctphieuXN");
+                if (form.valid()) {
+                    $.ajax({
+                         url: '@Url.Action("_InsertFunCTPhieuXN")',
+                        type: "POST",
+                        data: $('#frmctphieuXN').serialize(),
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status >= 1) {
+                                notify(result.text, "success");
+                                reloadData_getlist_ctphieu();
+                            }
+                            else {
+                                notify(result.text, "error");
+                            }
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+            });
+    })
+</script>
+
+
+
+
+
+
+
+

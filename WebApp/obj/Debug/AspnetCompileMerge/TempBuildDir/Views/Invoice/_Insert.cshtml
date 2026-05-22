@@ -1,0 +1,314 @@
+﻿@using System.Globalization;
+@{
+    var dsphieu = ViewBag.DMPHIEU;
+    var dmquocgia = ViewBag.DMQUOCGIA as List<ToolsApp.EntityFramework.DonHang09.Load_QuocGia_Result>;
+    var khachhang = ViewBag.KHACHHANG as List<ToolsApp.EntityFramework.DonHang09.load_TBLKHACHHANG_Result>;
+}
+<input type="hidden" id="khoa_id" name="khoa_id" value="@Guid.NewGuid()" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class=" card card-primary card-tabs">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            @*<li class="nav-item">
+                                    <a class="nav-link active" id="head-tabs-one" data-toggle="pill" href="#content-tabs-one" role="tab" aria-controls="content-tabs-one" aria-selected="true">Phiếu YC VPP/NYP</a>
+                                </li>*@
+                            <li class="nav-item" @*style="pointer-events: none;"*@>
+                                <a class="nav-link active" id="head-tabs-two" data-toggle="pill" href="#content-tabs-two" role="tab" aria-controls="content-tabs-two" aria-selected="true">Chi tiết phiếu</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane " id="content-tabs-one" role="tabpanel" aria-labelledby="head-tabs-one">
+                                
+                            </div>
+                            <div class="tab-pane fade show active" id="content-tabs-two" role="tabpanel" aria-labelledby="head-tabs-two">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Chi tiết phiếu đề nghị mua hàng:</b>
+                                                </h3>
+                                            </div>
+
+                                            <form id="frmCT" method="post" enctype="multipart/form-data" name="frmCT">
+
+                                                <div class="card-body pad">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Mã phiếu: </label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="search" list="dsphieu" id="maphieupd" name="MAPHIEU" class="form-control" onfocus="this.select();"
+                                                                           aria-describedby="basic-addon2" autocomplete="off" onchange="reloadCT()">
+                                                                    <datalist id="dsphieu">
+                                                                        @foreach (var item in dsphieu)
+                                                                        {
+                                                                            <option value="@item">@item</option>
+                                                                        }
+                                                                    </datalist>
+                                                                </div>
+                                                            </div>
+
+                                                            
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Ngày nhập hàng:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input value="@DateTime.Now.ToString("dd/MM/yyyy")" onchange="reloadCT()"
+                                                                           class="form-control"
+                                                                           type="text" autocomplete="off"
+                                                                           id="ngaynhaphang" name="NGAYNHAPHANG_" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6" style="text-align: center; align-self:center;" id="btnAddThongTinInv">
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn btn-outline-success"
+                                                                        style="width: 100px" onclick="addThongTinInv()">
+                                                                    <i class="fa fa-plus"></i>&nbsp;
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6" id="thongtininvoicedungchung" style="display:none">
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Số hợp đồng:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="search" id="sohopdong" name="SOHOPDONG" class="form-control" onchange="reloadCT()"
+                                                                           autocomplete="off" onfocus="this.select();">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Invoice:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="search" id="invoice" name="INVOICE1" class="form-control" onchange="reloadCT()"
+                                                                           autocomplete="off" onfocus="this.select();">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Mã sản phẩm khách:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input id="maspkhach" name="MASPKHACH" class="form-control" type="search" onchange="reloadCT()" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Giá nhập:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input id="gianhap" name="GIANHAP" class="form-control" onchange="reloadCT()"
+                                                                           onclick="this.select();" type="number" step="0.01" min="0.01" value="0.00" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Quốc gia:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <select id="dmquocgia" name="QUOCGIA" class="form-control chosen-select" onchange="LoadKhachHang();reloadCT()">
+                                                                        <option></option>
+                                                                        @foreach (var item in dmquocgia)
+                                                                        {
+
+                                                                            <option value="@item.MAQUOCGIA">@item.HienThi</option>
+
+                                                                        }
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Khách hàng:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <select id="khachhang" name="MAKH" class="form-control chosen-select" onchange="reloadCT()">
+                                                                        <option></option>
+                                                                        @foreach (var item in khachhang)
+                                                                        {
+                                                                            <option value="@item.MaKH">@item.TenKH</option>
+
+                                                                        }
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Tờ khai hải quan:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="search" id="tokhai" name="TOKHAI" class="form-control" onchange="reloadCT()"
+                                                                           autocomplete="off" onfocus="this.select();">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- Main content -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Danh sách vật tư đã lưu</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-ctphieu table-responsive">
+                                                        <div class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var startDate = new Date();
+        startDate.setDate(startDate.getDate());
+
+        $("#ngaynhaphang").datepicker({
+
+            format: 'dd/mm/yyyy',
+            endDate: new Date(),
+            //startDate: startDate,
+            onClose: function (selectedDate) {
+                $("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+        reloadCT();
+    });
+</script>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    function addThongTinInv() {
+        $("#thongtininvoicedungchung").show();
+        $("#btnAddThongTinInv").hide();
+    }
+
+    function reloadCT(maphieu_) {
+        try {
+            form = $("#frmCT");
+            form.removeData('validator');
+            form.removeData('unobtrusiveValidation');
+            $.validator.unobtrusive.parse("#frmCT");
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu")',
+                timeout: 20000,
+                data: $('#frmCT').serialize(),
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-ctphieu').html(response);
+
+                    $("#myTableCT").DataTable({
+                        destroy: true,
+                        "bFilter": true,
+                        "bPaginate": false,
+                        "bLengthChange": false,
+                        "bInfo": false,
+                        "responsive": true,
+                        "lengthChange": false,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+        catch (e) {
+        }
+    };
+
+    function LoadKhachHang() {
+        var _quocgia = $("#dmquocgia").val();
+        var khachhang = $("#khachhang");
+        khachhang.empty();
+        $.ajax({
+            url: '@Url.Action("LoadKhachHang")',
+            type: "POST",
+            timeout: 10000,
+            data: {
+                quocgia: _quocgia
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function(result) {
+                $.each(result.obj, function (i, state) {
+                    khachhang.append($('<option/>', { value: this.MaKH }).html(this.TenKH));
+                });
+                khachhang.val(khachhang.find('option:first').val());
+                khachhang.trigger("chosen:updated");
+                reloadCT();
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    }
+</script>

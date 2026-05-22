@@ -1,0 +1,409 @@
+﻿@{
+    ViewBag.Title = "Xem Xét Phiếu (BM01/BM02/BM08)";
+    var MaPhieu = ViewBag.MaPhieu as List<ToolsApp.EntityFramework.VatTu.SP_2023_LOADPHIEUXX_Result>;
+    var NguoiPD = ViewBag.NguoiPD as List<ToolsApp.EntityFramework.VatTu.SP_LOADNGUOIPHEDUYET_BY_KIHIEU_Result>;
+    var NguoiTN = ViewBag.NguoiTN as List<ToolsApp.EntityFramework.VatTu.A23_LoadNguoiTiepNhan_ByMaPhieu_Result>;
+}
+
+<section class="content" style="font-size: 12px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Xem xét</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Mã phiếu</label>
+                                        <select class="form-control chosen-select" onchange="NguoiLapPhieu(); LoaiPhieu();"
+                                                id="MaPhieu" name="MaPhieu">
+                                            <option selected disabled value="">--Chọn mã phiếu--</option>
+                                      
+                                            @foreach (var item in MaPhieu)
+                                            {
+                                                <option value="@item.MAPHIEU">@item.MAPHIEU</option>
+                                            }
+                                        </select>
+                                        <label style="padding-top:8px">Người tiếp nhận</label>
+                                        <select class="form-control chosen-select" id="NguoiTN" name="NguoiTN">
+                                            @foreach (var item in NguoiTN)
+                                            {
+                                                <option value="@item.MATIEPNHAN">@item.HienThi</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Loại phiếu</label>
+                                        <input class="form-control" id="LoaiPhieu" name="LoaiPhieu" type="text" disabled />
+                                        <label style="padding-top:8px">Người phê duyệt</label>
+                                        <select class="form-control chosen-select" id="NguoiPD" name="NguoiPD">
+                                            @foreach (var item in NguoiPD)
+                                            {
+                                                <option value="@item.MANV">@item.VT</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Người lập phiếu</label>
+                                        <select class="form-control chosen-select" id="NguoiLP" name="NguoiLP"></select>
+                                        <label style="padding-top:8px">Xem xét</label>
+                                        <select class="form-control chosen-select" id="xemxet" name="xemxet">
+                                            <option selected value="0">Chưa xem xét</option>
+                                            <option value="1">Xem xét</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                @*<div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Ghi chú</label>
+                                        <textarea class="form-control" rows="4" ></textarea>
+                                    </div>
+                                </div>*@
+                            <div class="col-md-12" style="text-align:left">
+                                <div class="form-group">
+                                    <button id="btnLuu" onclick="Save()" type="button" class="btn bg-gradient-success" style="white-space: nowrap; margin-bottom:5px; width: 100px"><i class="fas fa-save"></i>&nbsp; Lưu</button>
+                                    &nbsp; <!--Khoảng trắng-->
+                                    <button id="btnSendEmail" onclick="SendMail()" type="button" class="btn bg-gradient-success" style="white-space: nowrap; margin-bottom:5px; width: 100px; pointer-events:none"><i class="fa fa-envelope"></i>&nbsp; Email</button>
+                                    &nbsp;
+                                    <button id="btnIn" onclick="Print()" type="button" class="btn bg-gradient-success" style="white-space: nowrap; margin-bottom:5px; width: 100px "><i class="fa fa-print"></i>&nbsp; In</button>
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End section search-->
+            </div>
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Chi tiết phiếu yêu cầu mua vật tư</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+    <div id="myModal" class="modal fade modal-wide" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+                {
+                 
+                    <div class="modal-header">
+                        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="myModalContent">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="text-right">
+                            <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContent');" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                        </div>
+                    </div>}
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+    </script>
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+
+    </script>
+    <script>
+        function reloadData(page) {
+            try {
+                var action = '';
+                if ($("#LoaiPhieu").val() == "05") {
+                    action = '@Url.Action("_GetList05")';
+                }
+                else {
+                    action = '@Url.Action("_GetList03")';
+                }
+                $.ajax({
+                    url: action,
+                    timeout: 20000,
+                    data: {
+                        MaPhieu: $("#MaPhieu").val(),
+                        page: page
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (response) {
+
+                        $('.table-body').html(response);
+
+                        $("#myTable").DataTable({
+                            destroy: true,
+                            "language": {
+                                "sProcessing": "Đang xử lý...",
+                                "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                                "sZeroRecords": "Không tìm thấy kết quả",
+                                "sEmptyTable": "Không có dữ liệu",
+                                "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                                "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                                "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Tìm kiếm:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Đang tải...",
+                                "oPaginate": {
+                                    "sFirst": "Đầu tiên",
+                                    "sLast": "Cuối cùng",
+                                    "sNext": "Sau",
+                                    "sPrevious": "Trước"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                    "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                                }
+                            },
+                            "searching": true,
+                            "info": false,
+                            "processing": false,
+                            "serverSide": false,
+                            "bFilter": true,
+                            "bPaginate": true,
+                            "bLengthChange": true,
+                            "bInfo": true,
+                            "responsive": true,
+                            "lengthChange": true,
+                            "autoWidth": false,
+                            "stateSave": true,
+                            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                            "initComplete": function (oSettings) {
+
+                            }
+                        });
+
+                        $(".divLoading").removeClass("loading");
+
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            } catch (e) {
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        var $ID_SOCT = "";
+
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        $(document).ready(function () {
+
+        });
+
+        function NguoiLapPhieu() {
+            var _MaPhieu = $("#MaPhieu").val();
+            var NguoiLPid = $('#NguoiLP');
+
+            $.ajax({
+                url: '@Url.Action("NguoiLapPhieu")',
+                timeout: 20000,
+                type: "POST",
+                data: { MaPhieu: _MaPhieu },
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $.each(result.obj, function (i, state) {
+                        NguoiLPid.append($('<option/>', { value: this.NGUOILAPPHIEU }).html(this.NGUOILAPPHIEU + ' - ' + this.HOTEN));
+                        console.log(this.NGUOILAPPHIEU);
+                        console.log(this.HOTEN);
+
+                    });
+                    NguoiLPid.trigger("chosen:updated");
+                },
+                error: function () {
+
+                }
+            });
+        }
+
+
+        function LoaiPhieu() {
+            var _MaPhieu = $("#MaPhieu").val();// lấy giá trị từ field = #id field
+            var LoaiPhieuid = $('#LoaiPhieu');
+            $.ajax({
+                url: '@Url.Action("LoaiPhieu")', // action ("tên") = tên trong Controller
+                timeout: 20000,
+                type: "POST",
+                data: { MaPhieu: _MaPhieu },
+                beforeSend: function () {
+                },
+                success: function (result) {
+                    var LPid = document.getElementById('LoaiPhieu');
+                    LPid.value = result.obj;
+                    LoaiPhieuid.trigger("chosen:updated");
+                    reloadData();
+                },
+                error: function () {
+                }
+            });
+        }
+
+        function Save()
+        {
+            var confirm_ = confirm('Bạn có chắc muốn xem xét phiếu này ?');
+            if (confirm_) {
+                var _maphieu = $("#MaPhieu").val();
+                var _nguoipd = $("#NguoiPD").val();
+                var _xemxet = $("#xemxet").val();
+                var _NguoiTN = $("#NguoiTN").val();
+                if (_xemxet == "1") {
+                    $.ajax({
+                        url: '@Url.Action("_Save")',
+
+                        type: "POST",
+                        data: { maphieu: _maphieu, NguoiPD: _nguoipd, NguoiTN: _NguoiTN},
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status > 0) {
+                                notify(result.text, "success");
+                                document.getElementById("btnSendEmail").style.pointerEvents = 'auto';
+                            }
+                            else
+                            {
+                                notify(result.text, "error");
+                            }
+                            
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+                else {
+                    alert("Chưa chọn trạng thái xem xét. Vui lòng kiểm tra lại!");
+                }
+            }
+        }
+
+        function SendMail(_maphieu, _nguoipd) {
+            var confirm_ = confirm('Bạn có chắc muốn gửi email yêu cầu phê duyệt?');
+            if (confirm_) {
+                var _maphieu = $("#MaPhieu").val();
+                var _nguoipd = $("#NguoiPD").val();
+                var _xemxet = $("#xemxet").val();
+                var _loaiphieu = $("#LoaiPhieu").val();
+                if (_xemxet == "1") {
+                    $.ajax({
+                        url: '@Url.Action("openOutlookemailbox")',
+                        timeout: 20000,
+                        type: "POST",
+                        data: { MaPhieu: _maphieu, NguoiPD: _nguoipd, LoaiPhieu: _loaiphieu },
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            window.location = result;
+                            $(".divLoading").removeClass("loading");
+                            window.location.reload();
+
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+                else {
+                    alert("Chưa chọn trạng thái xem xét. Vui lòng kiểm tra lại!");
+                }
+            }
+        }
+
+        function Print() {
+             $.ajax({
+                url: '@Url.Action("ReportPrint")',
+                timeout: 20000,
+                type: "GET",
+                 data: {
+                     MaPhieu: $("#MaPhieu").val(),
+                 },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                 success: function (result) {
+                     if (result.status < 0) {
+                         notify(result.text, "error");
+                     }
+                     else {
+                         $myModalContent.html(result);
+                         $modal.modal();
+                         $(".divLoading").removeClass("loading");
+                     }
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    </script>
+}
+
+

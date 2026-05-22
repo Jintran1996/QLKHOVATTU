@@ -1,0 +1,569 @@
+﻿@using System.Globalization;
+
+@{
+    var nguoixx = ViewBag.NGUOIXX as List<ToolsApp.EntityFramework.VatTu.SP_LOADNGUOIXEMXETFORWEB_Result>;
+    var loaivt = ViewBag.LOAIVT as List<ToolsApp.EntityFramework.VatTu.DMLOAIVT>;
+    var stt = ViewBag.STT;
+    var maphieu = ViewBag.MAPHIEU;
+    var dsphieu = ViewBag.DSPHIEU as List<ToolsApp.EntityFramework.VatTu.SP_LoadPhieuBM05New_Result>;
+    var dsvattu = ViewBag.VATTU as List<ToolsApp.EntityFramework.VatTu.SP_LOADVTPYCFORWEB_HANHCHANH_Result>;
+    var chiphi = ViewBag.CHIPHI as List<ToolsApp.EntityFramework.VatTu.SP_LoadDanhMucChiPhi01_Result>;
+
+}
+
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class=" card card-primary card-tabs">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="head-tabs-one" data-toggle="pill" href="#content-tabs-one" role="tab" aria-controls="content-tabs-one" aria-selected="true">Phiếu YC VPP/NYP</a>
+                            </li>
+                            <li class="nav-item" @*style="pointer-events: none;"*@>
+                                <a class="nav-link" id="head-tabs-two" data-toggle="pill" href="#content-tabs-two" role="tab" aria-controls="content-tabs-two" aria-selected="false">Chi tiết phiếu</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade show active" id="content-tabs-one" role="tabpanel" aria-labelledby="head-tabs-one">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-3"><label>Mã kho</label></div>
+                                                            <div class="col-md-9"><input id="bm08_makho" class="form-control" name="MAKHO" value="KHOHC" /></div>
+
+
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-md-3"><label>Kế hoạch: </label></div>
+                                                            <div class="col-md-4"><input type="text" class="form-control" id="bm08_thang" oninput="this.value = this.value.trim()" value="@DateTime.Now.AddMonths(1).Month" /></div>
+                                                            <div class="col-md-5"><input type="text" class="form-control" id="bm08_nam" oninput="this.value = this.value.trim()" name="NAM" value="@DateTime.Now.Year" /></div>
+                                                            <input name="KEHOACHTHANG" type="hidden" value="@DateTime.Now.AddMonths(1)" />
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-md-3"><label>STT phiếu: </label></div>
+                                                            <div class="col-md-9"><input id="bm08_sttphieu" name="STT" class="form-control" value="@stt" readonly /></div>
+
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-md-3"><label>Mã phiếu: </label></div>
+                                                            <div class="col-md-9"><input id="bm08_maphieu" name="MAPHIEU" class="form-control" value="@maphieu" readonly /></div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-3"><label>Loại phiếu: </label></div>
+                                                            <div class="col-md-9">
+                                                                <select id="bm08_loaiphieu" name="LOAIPHIEU" class="form-control chosen-select" style="width: 100%;">
+                                                                    <option value="VPP">VPP: Văn phòng phẩm</option>
+                                                                    <option value="NYP">NYP: Nhu yếu phẩm</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <div class="col-md-3"><label>Người xem xét: </label></div>
+                                                            <div class="col-md-9">
+                                                                <select id="bm08_nguoixx" name="NGUOIXX" class="form-control chosen-select" style="width: 100%;">
+                                                                    @foreach (var item in nguoixx)
+                                                                    {
+                                                                        <option value="@item.MANV">@item.MANV: @item.HOTEN</option>
+                                                                    }
+                                                                </select>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-md-3"><label>Loại VT: </label></div>
+                                                            <div class="col-md-9">
+                                                                <select id="bm08_loaivt" name="LoaiVT" class="form-control chosen-select" style="width: 100%;">
+                                                                    @foreach (var item in loaivt)
+                                                                    {
+                                                                        <option value="@item.LoaiVT">@item.LoaiVT: @item.TenLoai</option>
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align:right">
+                                                            <button type="button" class="btn btn-sm btn-success" onclick="NhapTiep();">Lưu phiếu  <i class="fa fa-save" aria-hidden="true"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- Main content -->
+                            </div>
+                            <div class="tab-pane fade" id="content-tabs-two" role="tabpanel" aria-labelledby="head-tabs-two">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Chi tiết phiếu đề nghị mua hàng:</b>
+                                                </h3>
+                                            </div>
+
+                                            <form id="frmCT" method="post" enctype="multipart/form-data" name="frmCT">
+
+                                                <div class="card-body pad">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3"><label>Mã phiếu: </label></div>
+                                                                <div class="col-md-9">
+                                                                    <div class="input-group">
+                                                                        <input type="search" list="dsphieu" id="bm08_maphieu_ct" name="MAPHIEU" class="form-control" aria-describedby="basic-addon2" autocomplete="off" onchange="LoadCTPhieu()">
+                                                                        <datalist id="dsphieu">
+                                                                            @foreach (var item in dsphieu)
+                                                                            {
+                                                                                <option value="@item.MaPhieu" title="@item.VT">@item.MaPhieu</option>
+                                                                            }
+                                                                        </datalist>
+                                                                        <div class="input-group-append">
+                                                                            <span class="input-group-text" id="basic-addon2">05</span>
+                                                                        </div>
+                                                                        <div class="input-group-append">
+                                                                            <span class="input-group-text" id="changedloaiyc">VPP</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input hidden id="bm08_STT_ct" name="STT" value=""/>
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Mã vật tư:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="search" list="dsvattu" id="bm08_mavt_ct" name="MAVT" class="form-control" autocomplete="off" onfocus="this.select();" oninput="LoadMaVatTu()">
+                                                                    <datalist id="dsvattu">
+                                                                        @foreach (var item in dsvattu)
+                                                                        {
+                                                                            <option value="@item.MAVT">@item.VT</option>
+                                                                        }
+                                                                    </datalist>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Số lượng:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input id="bm08_soluong_ct" name="SLYCAU" class="form-control"
+                                                                           onclick="this.select();" type="number" step="0.001" min="0.001" value="1.000" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Đặc tính kỹ thuật / chất lượng <br /> (Số ký tự < 1000):</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <textarea class="form-control" id="bm08_kythuat_ct" onclick="this.select();" name="DACTINHKYTHUAT" rows="3" cols="50"></textarea>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Mã số chi phí:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <select list="dschiphi" id="bm08_MASOCP_ct" name="MASOCP" class="form-control chosen-select" disabled>
+                                                                        @foreach (var item in chiphi)
+                                                                        {
+                                                                            <option value="@item.MSChiPhi" @(item.MSChiPhi == "S003" ? "selected=\"selected\"" : "")>@item.TenChiPhi</option>
+                                                                        }
+                                                                    </select>
+                                                                    <input type="hidden" name="MASOCP" value="S003" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Thời điểm SD:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input value="@DateTime.Now.AddDays(3).ToString("dd/MM/yyyy")"
+                                                                           class="form-control"
+                                                                           type="text" autocomplete="off" 
+                                                                           id="bm08_thoidiemsd_ct" name="THOIDIEMSD_" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Tình trạng:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input id="bm08_tinhtrang_ct" name="TINHTRANG" class="form-control" type="text" />
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-3">
+                                                                    <label>Ghi chú:</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <textarea class="form-control" id="bm08_ghichu_ct" onclick="this.select();" name="GHICHU" rows="3" cols="50"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12" style="text-align:right">
+                                                            <button type="button" id="btSaveCT" onclick="LuuCT();reloadCT();" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- Main content -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-header">
+                                                <h3 class="card-title">
+                                                    <b>Danh sách vật tư đã lưu</b>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pad">
+                                                <div class="row">
+                                                    <div class="col-md-12 table-body-ctphieu table-responsive">
+                                                        <div class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var startDate = new Date();
+        startDate.setDate(startDate.getDate() + 3);
+
+        $("#bm08_thoidiemsd_ct").datepicker({
+            
+            format: 'dd/mm/yyyy',
+            //endDate: '0d',
+            startDate: startDate,
+            onClose: function (selectedDate) {
+                $("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+        ChangeLoaiYC();
+        reloadCT();
+    });
+</script>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+    
+
+    function ChangeLoaiYC() {
+        let input = document.getElementById("bm08_maphieu_ct");
+        var maphieu = $("#bm08_maphieu_ct").val();
+        console.log(maphieu);
+
+        var sttctphieu = maphieu.substring(maphieu.length - 3);
+        $('#bm08_STT_ct').val(sttctphieu);
+        console.log($('#bm08_STT_ct').val());
+
+        if (maphieu.trim().length !== 0) {
+            let selectedOption = document.querySelector("#dsphieu option[value='" + input.value + "']");
+            let value = selectedOption.getAttribute("title");
+            var loaiyc = value.substring(value.toString().length - 3);
+            document.getElementById("changedloaiyc").innerHTML = loaiyc;
+            LoadMaVatTu();
+        } else {
+            $("#bm08_mavt_ct").val("");
+        }
+    }
+
+    function LoadMaVatTu() {
+        var _loaiyc = document.getElementById("changedloaiyc").innerHTML;
+        var _mavattu = $("#bm08_mavt_ct").val();
+        var MAVATTUID = $("#dsvattu");
+        MAVATTUID.empty();
+        $.ajax({
+            url: '@Url.Action("LoadMaVatTu")',
+            type: "POST",
+            timeout: 10000,
+            data: {
+                loaiyc: _loaiyc,
+                mavt: _mavattu
+            },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function(result) {
+                $.each(result.obj, function (i, state) {
+                    MAVATTUID.append($('<option/>', { value: this.MAVT }).html(this.VT));
+                });
+                MAVATTUID.trigger("chosen:updated");
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    }
+
+    function LoadDSMaPhieu() {
+        var MAPHIEUID = $("#dsphieu");
+        MAPHIEUID.empty();
+        $.ajax({
+            url: '@Url.Action("LoadDSMaPhieu")',
+            type: "POST",
+            timeout: 10000,
+            data: { },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function(result) {
+                $.each(result.obj, function (i, state) {
+                    MAPHIEUID.append($('<option/>', { value: this.MaPhieu, title: this.VT }).html(this.MaPhieu));
+                    console.log(this.MaPhieu + "_" + this.VT);
+                });
+                MAPHIEUID.trigger("chosen:updated");
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    }
+
+    function LoadCTPhieu() {
+        ChangeLoaiYC();
+        reloadCT();
+    }
+
+    function reloadCT(maphieu_) {
+        try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu")',
+                timeout: 20000,
+                data: {
+                    maphieu: maphieu_ == null ? $("#bm08_maphieu_ct").val() : maphieu_
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-ctphieu').html(response);
+
+                    $("#myTableCT").DataTable({
+                        destroy: true,
+                        "bFilter": true,
+                        "bPaginate": false,
+                        "bLengthChange": false,
+                        "bInfo": false,
+                        "responsive": true,
+                        "lengthChange": false,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+        catch (e) {
+        }
+    };
+
+    function CreateSTT_MAPHIEU() {
+        $.ajax({
+            url: '@Url.Action("CreateSTT_MAPHIEU")',
+            type: "POST",
+            timeout: 10000,
+            data: { },
+            beforeSend: function () {
+                $(".divLoading").addClass("loading");
+            },
+            success: function(result) {
+                $("#bm08_sttphieu").val(result.objSTT);
+                $("#bm08_maphieu").val(result.objMAPHIEU);
+                $(".divLoading").removeClass("loading");
+            },
+            error: function (message) {
+                $(".divLoading").removeClass("loading");
+            }
+        });
+    }
+
+    function ClickSecondTab() {
+        //var maphieu = $('#bm08_maphieu').val();
+        //$('#bm08_maphieu_ct').val(maphieu);
+
+        //var sttphieu = $('#bm08_sttphieu').val();
+        //$('#bm08_stt_ct').val(sttphieu);
+
+        ChangeLoaiYC();
+        reloadCT(maphieu);
+        //$('[href="#content-tabs-two"]').tab('show'); // hiển thị tab thứ 2
+    }
+
+    function NhapTiep() {
+        form = $("#frm");
+        form.removeData('validator');
+        form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse("#frm");
+        if (form.valid()) {
+            $.ajax({
+                url: '@Url.Action("_InsertFun")',
+                type: "POST",
+                data: $('#frm').serialize(),
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                    //console.log($('#frm').serialize());
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        if (result.status == 1) {
+                            notify(result.text, "success");
+                        }
+                        if (result.status == 2) {
+                            notify(result.text, "info");
+                        }
+                        reloadData();
+                        CreateSTT_MAPHIEU();
+                        LoadDSMaPhieu();
+                        ClickSecondTab();
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    $(".divLoading").removeClass("loading");
+                    console.log(result.text);
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    }
+
+    function LuuCT() {
+        form = $("#frmCT");
+        form.removeData('validator');
+        form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse("#frmCT");
+        if (form.valid()) {
+            $.ajax({
+                url: '@Url.Action("_InsertCTPhieuFun")',
+                type: "POST",
+                data: $('#frmCT').serialize(),
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                    //console.log($('#frmCT').serialize());
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        if (result.status == 2) {
+                            notify(result.text, "info");
+                        }
+                        else {
+                            notify(result.text, "success");
+                        }
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    reloadCT();
+                    $(".divLoading").removeClass("loading");
+
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    }
+
+    function DeleteCT(maphieu_, mavt_)
+    {
+        var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
+        if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("_DeleteCTFun")',
+                timeout: 20000,
+                type: "POST",
+                data: {
+                    maphieu: maphieu_,
+                    mavt: mavt_
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    if (result.status >= 1) {
+                        notify(result.text, "success");
+                    }
+                    else {
+                        notify(result.text, "error");
+                    }
+                    $(".divLoading").removeClass("loading");
+                    reloadCT();
+
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    }
+
+</script>
+

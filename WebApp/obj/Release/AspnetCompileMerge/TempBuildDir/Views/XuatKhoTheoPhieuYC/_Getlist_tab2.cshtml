@@ -1,0 +1,102 @@
+﻿
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.NL_DMPHIEUXN>;
+
+
+}
+<table id="myTablectphieudaxuat" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th style="text-align:center">.No</th>
+            <th>SOCTXN</th>
+            <th>Mã đơn hàng</th>
+            <th>Ngày chứng từ</th>
+            <th>Mã hình thức</th>
+            <th>Kho Nhận</th>
+            <th>Người Lập Phiếu</th>
+            <th>Kho Xuất</th>
+            <th>Người Xuất</th>
+            <th>Đã Xuất Kho</th>
+            <th>Gửi API</th>
+            <th>Ngày Gửi API</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ var STT = 1; }
+        @foreach (var item in Lists)
+        {
+            <tr>
+                <td>
+                    @if (item.GUIAPI == "1")
+                    {
+
+                    }
+                    else
+                    {
+                    <div class="form-group">
+                        <button style="white-space: nowrap; margin-bottom:5px; width: 100px " type="button" onclick="HuyXuatKho_('@item.SOCTXN')" class="btn btn-danger btn-sm " data-dismiss="modal"> <i class="fa fa-close"></i>&nbsp; Hủy Xuất Kho</button>
+                        
+                        <button style="width: 100px; margin-bottom: 5px " type="button" onclick="GuiAPIs_('@item.SOCTXN')" class="btn btn-info btn-sm " data-dismiss="modal"> <i class="fa fa-recycle"></i>&nbsp; Gửi API</button>
+                    </div>
+                    }
+
+                </td>
+                <td style="text-align:center">
+                    @STT
+                </td>
+                <td>@item.SOCTXN</td>
+                <td>@item.MADH</td>
+                <td>@(item.NGAY == null ? "" : item.NGAY.Value.ToString("dd/MM/yyyy"))</td>
+                <td>@item.MAHTHUC</td>
+                <td>@item.NOIDEN</td>
+                <td>@item.MaNVYC</td>
+                <td>@item.MAKHO</td>
+                <td>@item.MANVXUAT</td>
+
+                <td>
+                    @if (item.DAXUATKHO_ == null || item.DAXUATKHO_ == false)
+                    {
+
+                        <small class="badge badge-warning">
+                            <i class="far fa-clock"></i>
+                            Chưa xuất kho
+                        </small>
+                    }
+                    else
+                    {
+                        <small class="badge badge-success">
+                            <i class="far fa-clock"></i>
+                            Đã xuất kho
+                        </small>
+                    }
+                </td>
+                <td>
+                    @if (item.GUIAPI == null || item.GUIAPI == "0")
+                    {
+
+                        <small class="badge badge-warning">
+                            <i class="far fa-clock"></i>
+                            Chưa Gửi API
+                        </small>
+                    }
+                    else
+                    {
+                        <small class="badge badge-success">
+                            <i class="far fa-clock"></i>
+                            Đã Gửi API
+                        </small>
+                    }
+                </td>
+                <td>@item.NGAYGUIAPI</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>
+
+
+

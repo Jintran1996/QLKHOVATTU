@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLDonHang09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CN_DONHANG">
+    <Key>
+      <PropertyRef Name="MADH_CN" />
+    </Key>
+    <Property Name="MADH_CN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAKHACHHANG" Type="varchar" MaxLength="50" />
+    <Property Name="SOHOPDONG" Type="nvarchar" MaxLength="50" />
+    <Property Name="LOAIHOPDONG" Type="varchar" MaxLength="50" />
+    <Property Name="THITRUONG" Type="varchar" MaxLength="20" />
+    <Property Name="MANVDATHANG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TSOMETDH" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="PHUONGTHUC" Type="varchar" MaxLength="50" />
+    <Property Name="MADV_SX" Type="varchar" MaxLength="50" />
+    <Property Name="LOAIHINHKINHDOANH" Type="varchar" MaxLength="50" />
+    <Property Name="LOAIDICHVU" Type="varchar" MaxLength="50" />
+    <Property Name="GM_CHOPHEP" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="GM_DONHANG" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="BANTGD_DUYET" Type="bit" />
+    <Property Name="MANVCN" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYCN" Type="datetime" />
+    <Property Name="HIEULUC" Type="bit" />
+    <Property Name="GHICHU_DONVIDAT" Type="nvarchar(max)" />
+    <Property Name="MANV_XEMXET" Type="varchar" MaxLength="50" />
+    <Property Name="NGAY_XEMXET" Type="datetime" />
+    <Property Name="HIEULUC_XEMXET" Type="bit" />
+    <Property Name="MANV_TIEPNHAN_CU" Type="varchar" MaxLength="50" />
+    <Property Name="NGAY_TIEPNHAN_CU" Type="datetime" />
+    <Property Name="HIEULUC_TIEPNHAN_CU" Type="bit" />
+    <Property Name="MANV_TIEPNHAN_QA" Type="varchar" MaxLength="50" />
+    <Property Name="NGAY_TIEPNHAN_QA" Type="datetime" />
+    <Property Name="HIEULUC_TIEPNHAN_QA" Type="bit" />
+    <Property Name="MANV_TIEPNHAN_NMN" Type="varchar" MaxLength="50" />
+    <Property Name="NGAY_TIEPNHAN_NMN" Type="datetime" />
+    <Property Name="HIEULUC_TIEPNHAN_NMN" Type="bit" />
+    <Property Name="MANV_TIEPNHAN_NMMAY" Type="varchar" MaxLength="50" />
+    <Property Name="NGAY_TIEPNHAN_NMMAY" Type="datetime" />
+    <Property Name="HIEULUC_TIEPNHAN_NMMAY" Type="bit" />
+  </EntityType>
+  <Function Name="API_DinhmucDet_SOI_CONGDOAN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="thang" Type="char" Mode="In" />
+    <Parameter Name="nam" Type="char" Mode="In" />
+  </Function>
+  <Function Name="GET_SODONHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Load_QuocGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="load_TBLKHACHHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="makhachhang" Type="varchar" Mode="In" />
+    <Parameter Name="quocgia" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="QLDonHang09ModelStoreContainer">
+    <EntitySet Name="CN_DONHANG" EntityType="Self.CN_DONHANG" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

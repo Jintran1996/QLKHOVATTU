@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUANLYKHOTP2023ModelStoreContainer" CdmEntityContainer="QUANLYKHOTP2023Entities">
+    <FunctionImportMapping FunctionImportName="TONKHO290224_IAA_Adjustments" FunctionName="QUANLYKHOTP2023Model.Store.TONKHO290224_IAA_Adjustments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYKHOTP2023Model.TONKHO290224_IAA_Adjustments_Result">
+          <ScalarProperty Name="External_ID" ColumnName="External_ID" />
+          <ScalarProperty Name="REFERENCE_" ColumnName="REFERENCE#" />
+          <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+          <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+          <ScalarProperty Name="ADJUST_QTY_BY" ColumnName="ADJUST_QTY_BY" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="EST_UNIT_COST" ColumnName="EST_UNIT_COST" />
+          <ScalarProperty Name="CHATLUONG" ColumnName="CHATLUONG" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TONKHO290224_IAA_InventoryDetail" FunctionName="QUANLYKHOTP2023Model.Store.TONKHO290224_IAA_InventoryDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYKHOTP2023Model.TONKHO290224_IAA_InventoryDetail_Result">
+          <ScalarProperty Name="REFERENCE_" ColumnName="REFERENCE#" />
+          <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+          <ScalarProperty Name="SERIAL_LOT_NUMBER" ColumnName="SERIAL_LOT_NUMBER" />
+          <ScalarProperty Name="EXPIRATION_DATE" ColumnName="EXPIRATION_DATE" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TONKHO290224_InventoryAdjustment" FunctionName="QUANLYKHOTP2023Model.Store.TONKHO290224_InventoryAdjustment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYKHOTP2023Model.TONKHO290224_InventoryAdjustment_Result">
+          <ScalarProperty Name="External_ID" ColumnName="External_ID" />
+          <ScalarProperty Name="REFERENCE" ColumnName="REFERENCE" />
+          <ScalarProperty Name="ADJUSTMENT_ACCOUNT" ColumnName="ADJUSTMENT_ACCOUNT" />
+          <ScalarProperty Name="EXPIRATION_DATE" ColumnName="EXPIRATION_DATE" />
+          <ScalarProperty Name="ADJUSTMENT_LOCATION" ColumnName="ADJUSTMENT_LOCATION" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

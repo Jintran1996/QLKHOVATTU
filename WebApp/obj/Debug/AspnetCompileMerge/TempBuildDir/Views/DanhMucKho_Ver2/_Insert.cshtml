@@ -1,0 +1,98 @@
+﻿
+@{
+    var khoNhan_ = ViewBag.khoNhan as List<ToolsApp.EntityFramework.VatTu.DMKHONHAN>;
+    var thuKho_ = ViewBag.thuKho as List<ToolsApp.EntityFramework.VatTu.Load_NhanVien_Result>;
+}
+
+<div class="row col-md-9">
+    <div class="col-md-6">
+        <div class="form-group row">
+            <label class="col-md-3">Mã kho: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text"
+                       id="maKho" name="maKho" />
+            </div>
+            </div>
+        <div class="form-group row">
+            <label class="col-md-3">Địa chỉ: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text"
+                       id="diaChi" name="diaChi" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Mã kho kế toán: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text"
+                       id="maKhoKT" name="maKhoKT" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Xuất nội bộ: </label>
+            <div class="col-md-9">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitches" name="xuatNB" checked="checked" value="true">
+                    <label class="custom-control-label" for="customSwitches"></label>
+                </div>
+            </div>
+        </div>
+        </div>
+    <div class="col-md-6" >
+        <div class="form-group row">
+            <label class="col-md-3">Tên kho: </label>
+            <div class="col-md-9">
+                <input class="form-control" type="text"
+                       id="tenKho" name="tenKho" />
+            </div>
+            
+        </div>
+        <div class="form-group row" >
+            <label class="col-md-3">Kho nhận: </label>
+            <div class=" col-md-9">
+                <select class="form-control chosen-select" id="khoNhan" name="khoNhan" style="width: 100%; ">
+                    <option value="" disabled selected>--Danh Sách Kho Nhận--</option>
+                    @foreach (var item in khoNhan_)
+                    {
+                        <option value="@item.MAKHONHAN">
+                            @item.TENKHONHAN
+                        </option>
+                    }
+                </select>
+            </div>
+            </div>
+        <div class="form-group row">
+            <label class="col-md-3">Thủ kho: </label>
+            <div class=" col-md-9">
+                <select class="form-control chosen-select" id="thuKho" name="thuKho" style="width: 100%; ">
+                    <option value="" disabled selected>--Chọn Thủ Kho--</option>
+                    @foreach (var item in thuKho_)
+                    {
+                        <option value="@item.MANV">
+                            @item.MANV || @item.HOTEN
+                        </option>
+                    }
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group row" style="float:right">
+            <button type="button" onclick="InsertKho()" class="btn btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+</script>

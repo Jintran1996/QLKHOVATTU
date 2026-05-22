@@ -1,0 +1,220 @@
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.dll.config
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.pdb
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\EntityFramework.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\EntityFramework.SqlServer.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.Helpers.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.Mvc.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.Razor.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Razor.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.pdb
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.dll.config
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\EntityFramework.xml
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\EntityFramework.SqlServer.xml
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.Helpers.xml
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.Mvc.xml
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.Razor.xml
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.xml
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.xml
+D:\2.Source\Tools\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Razor.xml
+D:\2.Source\Tools\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csprojAssemblyReference.cache
+D:\2.Source\Tools\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csproj.CoreCompileInputs.cache
+D:\2.Source\Tools\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csproj.CopyComplete
+D:\2.Source\Tools\DKSHWebApp.Utilities\obj\Release\ToolsApp.Utilities.dll
+D:\2.Source\Tools\DKSHWebApp.Utilities\obj\Release\ToolsApp.Utilities.pdb
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.dll.config
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.pdb
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\EntityFramework.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\EntityFramework.SqlServer.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.Helpers.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.Mvc.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.Razor.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Razor.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.pdb
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.dll.config
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\EntityFramework.xml
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\EntityFramework.SqlServer.xml
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.Helpers.xml
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.Mvc.xml
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.Razor.xml
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.xml
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.xml
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Razor.xml
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csprojAssemblyReference.cache
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csproj.CoreCompileInputs.cache
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csproj.CopyComplete
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\obj\Release\ToolsApp.Utilities.dll
+D:\2.Source\ToolsSFA\DKSHWebApp.Utilities\obj\Release\ToolsApp.Utilities.pdb
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.dll.config
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.pdb
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\EntityFramework.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\EntityFramework.SqlServer.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.Helpers.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.Mvc.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.Razor.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Razor.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.pdb
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.dll.config
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\EntityFramework.xml
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\EntityFramework.SqlServer.xml
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.Helpers.xml
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.Mvc.xml
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.Razor.xml
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.xml
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.xml
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Razor.xml
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csprojAssemblyReference.cache
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csproj.CoreCompileInputs.cache
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csproj.CopyComplete
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\obj\Release\ToolsApp.Utilities.dll
+D:\2.Source\ToolsHome\DKSHWebApp.Utilities\obj\Release\ToolsApp.Utilities.pdb
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.dll.config
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\ToolsApp.Utilities.pdb
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\EntityFramework.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\EntityFramework.SqlServer.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.Helpers.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.Mvc.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.Razor.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Razor.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.pdb
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\ToolsApp.EntityFramework.dll.config
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\EntityFramework.xml
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\EntityFramework.SqlServer.xml
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.Helpers.xml
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.Mvc.xml
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.Razor.xml
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.xml
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.xml
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\bin\Release\System.Web.WebPages.Razor.xml
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csprojAssemblyReference.cache
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csproj.CoreCompileInputs.cache
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\obj\Release\Tools.Utilities.csproj.CopyComplete
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\obj\Release\ToolsApp.Utilities.dll
+D:\2.Source\ToolsVacxin\DKSHWebApp.Utilities\obj\Release\ToolsApp.Utilities.pdb
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\ToolsApp.Utilities.dll.config
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\ToolsApp.Utilities.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\ToolsApp.Utilities.pdb
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\EntityFramework.SqlServer.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\NLog.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.Helpers.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.Mvc.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.Razor.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.Razor.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\EntityFramework.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\EntityFramework.SqlServer.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\NLog.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.Helpers.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.Mvc.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.Razor.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.Razor.xml
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\obj\Release\ToolsApp.Utilities.dll
+D:\2.Source2023\QLVATTU_KHOSOI\WebApp.Utilities\obj\Release\ToolsApp.Utilities.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\ToolsApp.Utilities.dll.config
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\ToolsApp.Utilities.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\ToolsApp.Utilities.pdb
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\EntityFramework.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\EntityFramework.SqlServer.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\NLog.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.Helpers.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.Mvc.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.Razor.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.WebPages.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.WebPages.Razor.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\EntityFramework.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\EntityFramework.SqlServer.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\NLog.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.Helpers.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.Mvc.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.Razor.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.WebPages.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\bin\Release\System.Web.WebPages.Razor.xml
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.AssemblyReference.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.CoreCompileInputs.cache
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.CopyComplete
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\obj\Release\ToolsApp.Utilities.dll
+D:\2.Source2023\QLVATTU_KHOSOI_250124 - Copy\WebApp.Utilities\obj\Release\ToolsApp.Utilities.pdb
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\ToolsApp.Utilities.dll.config
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\ToolsApp.Utilities.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\ToolsApp.Utilities.pdb
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\EntityFramework.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\EntityFramework.SqlServer.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\NLog.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.Helpers.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.Mvc.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.Razor.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.WebPages.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.WebPages.Razor.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\EntityFramework.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\EntityFramework.SqlServer.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\NLog.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.Helpers.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.Mvc.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.Razor.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.WebPages.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\bin\Release\System.Web.WebPages.Razor.xml
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.AssemblyReference.cache
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.CoreCompileInputs.cache
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.CopyComplete
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\obj\Release\ToolsApp.Utilities.dll
+D:\072025Source\QLVATTUSOI2025\WebApp.Utilities\obj\Release\ToolsApp.Utilities.pdb
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\ToolsApp.Utilities.dll.config
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\ToolsApp.Utilities.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\ToolsApp.Utilities.pdb
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\EntityFramework.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\EntityFramework.SqlServer.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\NLog.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.Helpers.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.Mvc.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.Razor.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.Razor.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\EntityFramework.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\EntityFramework.SqlServer.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\NLog.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.Helpers.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.Mvc.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.Razor.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.Deployment.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\bin\Release\System.Web.WebPages.Razor.xml
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.AssemblyReference.cache
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\obj\Release\Tools.Utilities.csproj.CoreCompileInputs.cache
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\obj\Release\Tools.Ut.287FA0F0.Up2Date
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\obj\Release\ToolsApp.Utilities.dll
+D:\26_Source\QLVATTUKHOSOI\WebApp.Utilities\obj\Release\ToolsApp.Utilities.pdb

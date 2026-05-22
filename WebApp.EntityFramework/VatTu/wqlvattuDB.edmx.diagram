@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2cae2a5b12234ed2ba51cf15d6c25fe6" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="wqlvattuModel.CCPN_Menu" Width="1.5" PointX="21" PointY="15.5" />
+        <EntityTypeShape EntityType="wqlvattuModel.CCPN_Page" Width="1.5" PointX="18.75" PointY="15.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.CCPN_Role" Width="1.5" PointX="26.75" PointY="17" />
+        <EntityTypeShape EntityType="wqlvattuModel.CCPN_User" Width="1.5" PointX="21.75" PointY="21.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.CCPN_User_Page" Width="1.5" PointX="24" PointY="15.5" />
+        <EntityTypeShape EntityType="wqlvattuModel.CCPN_User_Role" Width="1.5" PointX="29" PointY="22.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.CHATLUONG" Width="1.5" PointX="2.75" PointY="7.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.Chatluong_NL" Width="1.5" PointX="0.75" PointY="12.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.ChiPhiDV" Width="1.5" PointX="12.75" PointY="3.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.CHITIETPHIEUCHAOGIA" Width="1.5" PointX="0.75" PointY="16.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.ChuKy" Width="1.5" PointX="2.75" PointY="16.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.CTPhieu_CDMH" Width="1.5" PointX="31" PointY="14.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.DANHMUCCHIPHI" Width="1.5" PointX="31" PointY="19.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.DANHMUCDONVITINH" Width="1.5" PointX="3.75" PointY="18.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.DanhMucIP" Width="1.5" PointX="14.75" PointY="3.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DanhmucLoaiVT" Width="1.5" PointX="0.75" PointY="23.5" />
+        <EntityTypeShape EntityType="wqlvattuModel.DANHMUCMANGUYENLIEU" Width="1.5" PointX="14.75" PointY="16.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DANHMUCQUYEN" Width="1.5" PointX="19.75" PointY="12.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DM_XUATNHAP" Width="1.5" PointX="0.75" PointY="27.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMDONVI" Width="1.5" PointX="23.75" PointY="25.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMEXCELMAHANGCHAOGIA" Width="1.5" PointX="19.75" PointY="27.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMGIATRIVATTU" Width="1.5" PointX="11.25" PointY="17.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMGiaVT" Width="1.5" PointX="13.75" PointY="30.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMKHo" Width="1.5" PointX="9" PointY="10.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMKHONHAN" Width="1.5" PointX="28.75" PointY="27.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMLoaiChiPhi" Width="1.5" PointX="28.75" PointY="19.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMLOAIPHIEU" Width="1.5" PointX="3.75" PointY="12.5" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMLOAIVT" Width="1.5" PointX="3" PointY="22.875" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMLOAIXN" Width="1.5" PointX="12" PointY="14.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMNAM" Width="1.5" PointX="28.75" PointY="31.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMNHANVIEN" Width="1.5" PointX="2.75" PointY="32.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMPhieu_CDMH" Width="1.5" PointX="28.75" PointY="14.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMSite" Width="1.5" PointX="29.75" PointY="3.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMSitesQLKhoSoi" Width="1.5" PointX="22.75" PointY="9.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMSITESQLVT" Width="1.5" PointX="15.75" PointY="32.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMTINHTRANG" Width="1.5" PointX="21.75" PointY="13.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMViTri" Width="1.5" PointX="3.75" PointY="29.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.dmVitriKe" Width="1.5" PointX="14.75" PointY="12.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMVITRIKHO" Width="1.5" PointX="11.25" PointY="10.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.dmVitriTang" Width="1.5" PointX="17" PointY="12.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMVT_Excel" Width="1.5" PointX="17.75" PointY="32.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.dtproperty" Width="1.5" PointX="10.75" PointY="33.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.GHNGAYNHAPKHO" Width="1.5" PointX="12.75" PointY="33.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.GIAYBONG_XUATNHAP" Width="1.5" PointX="30.75" PointY="27.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.Home_Menu" Width="1.5" PointX="17" PointY="6.5" />
+        <EntityTypeShape EntityType="wqlvattuModel.Home_Page" Width="1.5" PointX="14.75" PointY="6.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.Home_Role" Width="1.5" PointX="17.75" PointY="27.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.Home_Software" Width="1.5" PointX="30" PointY="8.5" />
+        <EntityTypeShape EntityType="wqlvattuModel.Home_SoftwareGroup" Width="1.5" PointX="27.75" PointY="8.5" />
+        <EntityTypeShape EntityType="wqlvattuModel.Home_User" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.Home_User_Page" Width="1.5" PointX="20" PointY="6.5" />
+        <EntityTypeShape EntityType="wqlvattuModel.Home_User_Role" Width="1.5" PointX="20" PointY="1.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.InNhan" Width="1.5" PointX="30.75" PointY="33.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.KhachHang" Width="1.5" PointX="31.75" PointY="3.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.KHOSOI_XUATNHAP" Width="1.5" PointX="31.75" PointY="22.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.KYDUYET_PHIEUCHAOGIA" Width="1.5" PointX="24.75" PointY="34.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.KYHIEU_THITRUONG" Width="1.5" PointX="26.75" PointY="34.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.LDD_CTPHIEU" Width="1.5" PointX="27.25" PointY="4.25" />
+        <EntityTypeShape EntityType="wqlvattuModel.LDD_DMDVVANCHUYEN" Width="1.5" PointX="32.75" PointY="7.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.LDD_DMNOIDEN" Width="1.5" PointX="22.75" PointY="4.625" />
+        <EntityTypeShape EntityType="wqlvattuModel.LDD_DMPHIEU" Width="1.5" PointX="25" PointY="3.5" />
+        <EntityTypeShape EntityType="wqlvattuModel.LDD_DMSOXE" Width="1.5" PointX="32.75" PointY="10.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.LDD_DMTAIXE" Width="1.5" PointX="14.75" PointY="35.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.MaChaoGia_Bo" Width="1.5" PointX="32.75" PointY="26.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.NGANG" Width="1.5" PointX="32.75" PointY="29.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.NGANG_V2" Width="1.5" PointX="32.75" PointY="34.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.NHAPDIENGIAI" Width="1.5" PointX="16.5" PointY="22.875" />
+        <EntityTypeShape EntityType="wqlvattuModel.OLD" Width="1.5" PointX="26" PointY="27.625" />
+        <EntityTypeShape EntityType="wqlvattuModel.PHANLOAI_VTKD" Width="1.5" PointX="16.75" PointY="36.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.PHANQUYENSITE" Width="1.5" PointX="33.75" PointY="22.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.PhanQuyenSitesQLKhoSoi" Width="1.5" PointX="25" PointY="9.375" />
+        <EntityTypeShape EntityType="wqlvattuModel.PHANQUYENSITESQLVT" Width="1.5" PointX="34.75" PointY="6.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.SentMailTTNB" Width="1.5" PointX="34.75" PointY="10.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.sysdiagram" Width="1.5" PointX="10.75" PointY="37.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TBL_DMCHUKY" Width="1.5" PointX="34.75" PointY="26.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.tblDINHMUCVANPHONGPHAM" Width="1.5" PointX="34.75" PointY="29.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TBLDMCAPCOSO" Width="1.5" PointX="26" PointY="21.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.tblDMDVTINH" Width="1.5" PointX="3.75" PointY="27" />
+        <EntityTypeShape EntityType="wqlvattuModel.TBLDMMAHANG" Width="1.5" PointX="34.75" PointY="32.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.tblDMNGUYENLIEU" Width="1.5" PointX="35.75" PointY="13.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.tblDMNGUYENLIEUOLD" Width="1.5" PointX="12.75" PointY="38.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.tblKiHieuNhapKho" Width="1.5" PointX="23.75" PointY="13.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TblKyhieudonvidathang" Width="1.5" PointX="35.75" PointY="3.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.tblNhomVattu" Width="1.5" PointX="35.75" PointY="20.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TBLTHUKYBANTGD" Width="1.5" PointX="26.75" PointY="38.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TiGia" Width="1.5" PointX="0.75" PointY="39.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TONDAUKY" Width="1.5" PointX="11.25" PointY="22.625" />
+        <EntityTypeShape EntityType="wqlvattuModel.TongCPtheoMH" Width="1.5" PointX="2.75" PointY="39.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TongHopTDK" Width="1.5" PointX="36.75" PointY="6.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTCHIPHICHATLUONG" Width="1.5" PointX="4.75" PointY="39.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTChiphiHoahong" Width="1.5" PointX="36.75" PointY="9.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTCHIPHIVANCHUYEN" Width="1.5" PointX="14.75" PointY="39.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTchitietnhanTT" Width="1.5" PointX="16.75" PointY="39.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTCTcdoan1" Width="1.5" PointX="36.75" PointY="24.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTCTcdoan2" Width="1.5" PointX="36.75" PointY="27.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTCTPHIEUMAHANG_EXCEL" Width="1.5" PointX="36.75" PointY="30.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTDMBaoBi" Width="1.5" PointX="32.75" PointY="39.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTDMcdoan1" Width="1.5" PointX="34.75" PointY="39.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTDMcdoan2" Width="1.5" PointX="36.75" PointY="39.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTDMMAHANG_TRACUUGIATHANH" Width="1.5" PointX="37.75" PointY="3.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTDMPHIEU_TRACUUGIATHANH" Width="1.5" PointX="37.75" PointY="12.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTDMTONE" Width="1.5" PointX="37.75" PointY="15.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTDMTTCT1" Width="1.5" PointX="37.75" PointY="18.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTDMTTCT2" Width="1.5" PointX="37.75" PointY="21.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTEmail" Width="1.5" PointX="28.75" PointY="40.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTLoaiPhieu" Width="1.5" PointX="38.75" PointY="6.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTLuuChiPhiBaoBi" Width="1.5" PointX="38.75" PointY="9.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTLuuChiPhiVanChuyen" Width="1.5" PointX="38.75" PointY="24.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTPhanhoi" Width="1.5" PointX="38.75" PointY="27.125" />
+        <EntityTypeShape EntityType="wqlvattuModel.UyQuyen" Width="1.5" PointX="38.75" PointY="30.125" />
+        <AssociationConnector Association="wqlvattuModel.FK_CCPN_Menu_CCPN_Menu" />
+        <AssociationConnector Association="wqlvattuModel.FK_CCPN_Menu_CCPN_Page" />
+        <AssociationConnector Association="wqlvattuModel.FK_CCPN_User_Page_CCPN_Page" />
+        <AssociationConnector Association="wqlvattuModel.FK_CCPN_User_Role_CCPN_Role" />
+        <AssociationConnector Association="wqlvattuModel.FK_CCPN_User_Page_CCPN_User" />
+        <AssociationConnector Association="wqlvattuModel.FK_CCPN_User_Role_CCPN_User" />
+        <AssociationConnector Association="wqlvattuModel.FK_CTPhieu_CDMH_DMPhieu_CDMH" />
+        <AssociationConnector Association="wqlvattuModel.FK_DangMucChiPhi_DMLoaiChiPhi" />
+        <AssociationConnector Association="wqlvattuModel.FK_DMLOAIVT_DanhmucLoaiVT" />
+        <AssociationConnector Association="wqlvattuModel.FK_DMNhanVien_DMDonVi" />
+        <AssociationConnector Association="wqlvattuModel.FK_tblDMcapcoso_DMDonVi" />
+        <AssociationConnector Association="wqlvattuModel.FK_DMGIATRIVATTU_DMKho" />
+        <AssociationConnector Association="wqlvattuModel.FK_DMVITRIKHO_DMKho" />
+        <AssociationConnector Association="wqlvattuModel.FK_TonDauKy_DMKho" />
+        <AssociationConnector Association="wqlvattuModel.FK_PhanQuyenSitesQLKhoSoi_DMSitesQLKhoSoi" />
+        <AssociationConnector Association="wqlvattuModel.fk_htk_id_sanpham" />
+        <AssociationConnector Association="wqlvattuModel.FK_Home_Menu_Home_Menu" />
+        <AssociationConnector Association="wqlvattuModel.FK_Home_Menu_Home_Page" />
+        <AssociationConnector Association="wqlvattuModel.FK_Home_User_Page_Home_Page" />
+        <AssociationConnector Association="wqlvattuModel.FK_Home_User_Role_Home_Role" />
+        <AssociationConnector Association="wqlvattuModel.FK_Home_Software_Home_SoftwareGroup" />
+        <AssociationConnector Association="wqlvattuModel.FK_Home_User_Page_Home_User" />
+        <AssociationConnector Association="wqlvattuModel.FK_Home_User_Role_Home_User" />
+        <AssociationConnector Association="wqlvattuModel.FK__LDD_CTPHI__MAPHI__38A15C1B" />
+        <AssociationConnector Association="wqlvattuModel.FK__LDD_DMPHI__NOIDE__33DCA6FE" />
+        <EntityTypeShape EntityType="wqlvattuModel.TBL_PHIENMAVT_BYMAHANG" Width="1.5" PointX="51.375" PointY="29.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMTHANG" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTG_BASEVN_DEPARTMENT" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTG_BASEVN_LOG_PR" Width="1.5" PointX="10.375" PointY="5.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.TTG_BASEVN_TOKEN_API" Width="1.5" PointX="15.375" PointY="18.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.VATTU2024_DMKHO" Width="1.5" PointX="13.375" PointY="22.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.VATTU2025_DanhSachQuocGia" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.VATTU2025_NGOAITE" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.TABLE_LUUTRU_SOHOADON" Width="1.5" PointX="41.375" PointY="0.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.DANHMUCVATTU" Width="1.5" PointX="6" PointY="20" />
+        <AssociationConnector Association="wqlvattuModel.FK_DanhMucVatTu_DanhMucDonVitinh" />
+        <AssociationConnector Association="wqlvattuModel.FK_DanhMucVatTu_DMViTri" />
+        <AssociationConnector Association="wqlvattuModel.FK_DMGIATRIVATTU_DANHMUCVATTU" />
+        <AssociationConnector Association="wqlvattuModel.FK_TonDauKy_DanhMucVatTu" />
+        <EntityTypeShape EntityType="wqlvattuModel.XUATNHAP" Width="1.5" PointX="35.375" PointY="41.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.CTPHIEU05" Width="1.5" PointX="11.25" PointY="27.5" />
+        <AssociationConnector Association="wqlvattuModel.FK_CTPHIEU05_DanhMucVatTu" />
+        <EntityTypeShape EntityType="wqlvattuModel.TBL_DMLOAIVT_COA" Width="1.5" PointX="8.375" PointY="21.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.DM_PHTinhTrangNCC" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.DM_TinhTrangKyThuatCUGC" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.DM_Tinhtrangthanhtoan" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.VATTU2026_CTPHIEU_MAVTTUONGDUONG" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="wqlvattuModel.CTPHIEU" Width="1.5" PointX="8.25" PointY="28.25" />
+        <EntityTypeShape EntityType="wqlvattuModel.DMPHIEU" Width="1.5" PointX="6" PointY="9.875" />
+        <AssociationConnector Association="wqlvattuModel.FK_CTPHIEU_03022024_DMPHIEU" />
+        <AssociationConnector Association="wqlvattuModel.FK_CTPHIEU05_DMPhieu" />
+        <AssociationConnector Association="wqlvattuModel.FK_DMPhieu_DMLOAIPHIEU" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

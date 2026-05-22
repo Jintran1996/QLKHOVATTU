@@ -1,0 +1,74 @@
+﻿@{
+    var List = ViewBag.Lists as List<ToolsApp.EntityFramework.KhoSoi.VATTU2026_SP_RPT_BAOCAO_LICHSUXUATNHAP_NVLSOI_Result>;
+    int STT = 1;
+}
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+            <th></th>
+            <th>STT</th>
+            <th>SOCTXN</th>
+            <th>Ngày kế toán</th>
+            <th>Số hóa đơn</th>
+            <th>Mã kho nhận</th>
+            <th>Mã kho xuất</th>
+            <th>Mã sợi</th>
+            <th>Tên tên</th>
+            <th>Hiệu</th>
+            <th>Lô</th>
+            <th>SL nhập kho</th>
+            <th>SL hồi kho</th>
+            <th>SL Xuất kho trong KH</th>
+            <th>SL Xuất kho ngoài KH</th>
+            <th>Kế thừa</th>
+            <th>SOPO</th>
+            <th>Is Đồng bộ</th>
+            <th>Ngày Đồng bộ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List)
+        {
+        <tr>
+            <td></td>
+            <td>@STT</td>
+            <td>@item.SOCTXN</td>
+            <td>@item.NGAYKETOAN</td>
+            <td>@item.SOHOADON</td>
+            <td>@item.MAKHONHAN</td>
+            <td>@item.MAKHOXUAT</td>
+            <td>@item.MAVT</td>
+            <td>@item.TENVATTU</td>
+            <td>@item.HIEU</td>
+            <td>@item.LO</td>
+            <td>@(Convert.ToDecimal(item.SLNHAPKHO.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.SLHOIKHO.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.SLXUATKHOINKH.Value.ToString("#.0000")))</td>
+            <td>@(Convert.ToDecimal(item.SLXUATKHOOUTKH.Value.ToString("#.0000")))</td>
+            <td>@item.KETHUA</td>
+            <td>@item.SOPO</td>
+            <td>
+                @if (item.GUIAPI == "1")
+                {
+                    <i class="fa fa-check" style="color: lawngreen; font-size: 25px; align-content: center" value="1" title="Đã đồng bộ Netsuite"><b hidden>1</b></i>
+                }
+                else
+                {
+                    if (item.MAHTHUC == "NKNB")
+                    {
+                        <i class="fa fa-times" style="color: #a9a72b; font-size: 25px; align-content: center" title="Phiếu NKNB không đồng bộ Netsuite"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-times" style="color: red; font-size: 25px; align-content: center" title="Chưa đồng bộ Netsuite"></i>
+                    }
+                }
+            </td>
+            <td>@item.NGAYGUIAPI</td>
+        </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

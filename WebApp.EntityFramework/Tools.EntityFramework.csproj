@@ -1,0 +1,1690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{09FB5F94-F36B-4EAB-8559-596D15D88473}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ToolsApp.EntityFramework</RootNamespace>
+    <AssemblyName>ToolsApp.EntityFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DonHang09\API_DinhmucDet_SOI_CONGDOAN_Result.cs">
+      <DependentUpon>DonHang09.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang09\CN_DONHANG.cs">
+      <DependentUpon>DonHang09.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang09\DonHang09.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonHang09.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang09\DonHang09.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonHang09.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang09\DonHang09.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonHang09.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang09\GET_SODONHANG_Result.cs">
+      <DependentUpon>DonHang09.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang09\Load_QuocGia_Result.cs">
+      <DependentUpon>DonHang09.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang09\load_TBLKHACHHANG_Result.cs">
+      <DependentUpon>DonHang09.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\AUDIT_NL_DMPHIEU.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\DANHMUC_KHO_NOIDEN_XUATKHO_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\DINHMUC_SOIGC_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\DONHANGGCSOI.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\DONHANGGCSOI_CT.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\GC_CTPHIEUXUATGC.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\GC_DMPHIEU_BANGKENHAPSOI.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\Insert_Invoice_NL_DMPHIEU_Review_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\INVOICE.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC_v1_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\LOAD_DATA_MASOI_XUATKHO_THEO_XBAN_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\LOAD_DATA_MASOI_XUATKHO_THEO_XGC_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_v2_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\LOAD_MADONHANG_ND_XK_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\Load_MANVYC_XNKHO_SOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NHAPDIENGIAI_SOI.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_CHATLUONGKIEMTRA.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_CTPHIEU.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_CTPHIEUNHAP_CHUYEN.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_CTXUATNHAP.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_DMHINHTHUC.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_DMKHO.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_DMloaidonhang.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_DMNHACCAP.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_DMNHOMNGLIEU.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_DMPHIEU.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_DMPHIEUNHAP_CHUYEN.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\NL_DMPHIEUXN.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\QLKhoSoi.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhoSoi.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\QLKhoSoi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\QLKhoSoi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhoSoi.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\QLKhoSoi_Menu.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\QLKhoSoi_Page.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\QLKhoSoi_Role.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\QLKhoSoi_User.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\QLKhoSoi_User_Page.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\QLKhoSoi_User_Role.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SOI2024_SPLOAD_XVCNB_KETHUA_SOCTXN_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SOI2025_SPLOAD_SOCTXN_TANGGIAMKHO_NL_CTXUATNHAP_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\spLoad_NL_DMYEUCAU_ByLoaidonhang_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\Sp_API_Load_NLDMPhieu_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_BANGKENHAPSOI_MAHINHTHUC_LOAD_MAHTHUC_MADV_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_COMBOBOX_LOAD_SOCTXN_CHATLUONG_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_CTPHIEUXUATGC_LOAD_MACONGTHUC_BY_MADV_MAKH_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_BANGKENHAPSOI_XEMXET_LOAD_MANVKETOAN_BY_MAHINHTHUC_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_CHITIETCONGTHUC_LOAD_SLPD_BY_KHOA_211223_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_DMDANGCONGDOAN_LOAD_COMBOBOX_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_DMLoaiDonHang_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_DMMACONGDOAN_LOAD_COMBOBOX_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_DMNGUYENLIEU_LOAD_COMBOBOX_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_DONHANGGCSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_DONVITINH_LOAD_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_GC_DMPHIEU_BANGKENHAPSOI_BY_MADV_HLXX_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_GC_DMPHIEU_BANGKENHAPSOI_BY_MADV_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_LOAD_DONHANGGCSOI_CT_BYMADH_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_LOAD_DONVITH_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_LOAD_DONVIYC_ByMANV_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_LOAD_GC_DMPHIEU_BANGKENHAPSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_LOAD_LOAIGIACONG_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_LOAD_MADH_GCSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_LOAD_MANVDONVITH_ByMADV_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_LOAD_MANVDONVIYC_ByMANV_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_LOAD_MASOITHANHPHAM_BY_MADHGCSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_MACONGTHUC_LOAD_NVXX_BY_MADV_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_MADHGCSOI_DONHANGGCSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_MADHGCSOI_DONHANGGCSOI_XNDVYC_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GC_MASOITHANHPHAM_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_GETLIST_NL_DMPHIEU_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LDD_DMNOIDEN_LOAD_BY_MADV_MANV_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOADCHITIET_KIEMTRACHATLUONG_DONVI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOADMAHINHTHUCYEUCAUXUAT_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_DANHMUCSOI_2023_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_DATA_MASOI_XD_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_V2_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_DMKHO_BY_IDMADV_gc___Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_DMKHO_BY_IDMADV_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_HINHTHUC_XUATKHO_THUKHO_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_MADINHMUC_TUBANGKEGCSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_MAHINHTHUC_XUATKHO_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_MAHTHUC_PHIEUYEUCAUXUATKHO_XD_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_Load_MaPhieuYCXuatSoi_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\sp_Load_NL_DMloaidonhang_2023_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_NL_DMLO_BY_HIEU_GC_CTPHIEUXUATNHAP_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_LOAD_NL_DMLO_BY_HIEU_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\sp_Load_NL_DMNHACCAP_2023_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\Sp_load_PhieuDaXuatkho_SOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\Sp_load_PhieuYCXuatkho_SOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\Sp_Load_SOCTXN_XD1_XD2_CTXuatChuyenSX_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\Sp_Load_SOCTXN_XD1_XD2_XuatChuyenSX_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_MAKHOBYMANV_LOAD_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_NHAPKHOTHEOPHIEUPHEDUYET_MAVT_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_NL_CTPHIEU_LOADBYMAPHIEU_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_NL_LOADDMHINHTHUC_NHAPKHOTHUKHO_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_NL_Load_NL_DMNHOMNGLIEU_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\sp_Nl_TaoMaVT_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_PHIEUYEUCAUXUATKHO_LOAD_MAKHO_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_RPT_INPHIEUKIEMTRACHATLUONG_SOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_RPT_NL_PYC_XUATVT_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_TAOMAPHIEUYEUCAUMUAHANG_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\SP_VATTU_YC_XUATSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\TBLDMNGUYENLIEU.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\Tbl_SoPYCXuatSoi.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_DINHMUC_SOIGC_TONGSLVATTUCAN_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_LOADMAPHIEUPD_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SPLOAD_DMNGUYENLIEUSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SPLOAD_DONHANGGCSOI_PHIEUYCXUATKHO_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SPLOAD_GC_CTPHIEUXUATGC_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SPLOAD_GC_CTPHIEUXUATGC_SUMSOLUONG_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SPLOAD_GC_DMPHIEU_BANGKENHAPSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SPLOAD_MADONHANG_ND_XK_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SP_GC_DMNGUYENLIEU_SOIHOANTAT_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SP_GC_DMPHIEU_BANGKENHAPSOI_BY_SOPHIEU_REPORT_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SP_GC_DMPHIEU_CHITIETPHIEUXUAT_SUB_REPORT_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2024_SP_LOAD_SOPHIEU_SOIGIACONG_CHUAHOIKHO_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2025_LOADTONKHO_THEOMAVT_SOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2025_LOAD_PRINT_DATA_NHAPDIENGIAI_SOI_SOCTXN_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2025_SPLOAD_KHOATHAMCHIEU_BANGKE_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2025_SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_GIAYBONG_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2025_SP_RPT_PHIEUDENGHIMUAHANG_PRINT_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2026_SP_RPT_BAOCAO_LICHSUXUATNHAP_NVLSOI_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoSoi\VATTU2026_UPDATE_STATUS_NL_DMPHIEUXN_Result.cs">
+      <DependentUpon>QLKhoSoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoTP2023\KhoTP2023Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KhoTP2023Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoTP2023\KhoTP2023Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KhoTP2023Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoTP2023\KhoTP2023Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KhoTP2023Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="KhoTP2023\TONKHO290224_IAA_Adjustments_Result.cs">
+      <DependentUpon>KhoTP2023Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoTP2023\TONKHO290224_IAA_InventoryDetail_Result.cs">
+      <DependentUpon>KhoTP2023Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoTP2023\TONKHO290224_InventoryAdjustment_Result.cs">
+      <DependentUpon>KhoTP2023Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\BongIn.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\BongNenVai.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\BTM_Serial_No_List.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\CaDet.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Chart_of_Accounts.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Class.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\CongNgheDet.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\DongBoVATTU_SOI__Json_Log.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\DonViTienTe.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Donvi_mapping_Department.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Donvi_mapping_Department_bk150424.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\DSInvoiceXuatKhau.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\DSPhieuUploadN.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\DSPhieuViPhamEntity.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\DSPhieuViPhamQuantityItem.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\DSPhieuViPhamSerialLotNumber.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Expense_Code.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\GhiLog_DMVattu_ErrorAPI_NS.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\GioiTinh.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\KenhPhanPhoi.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Kho.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\KhoanMucChiPhi.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\KhoVai.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\kho_bk_30052024.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\KhuVuc.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\KichCo.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\LoaiGiaBan.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\LoaiKhachHang.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\LoaiMayDet.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\LoaiNhaCungCap.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\LoaiSanPham.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\LoaiSanPhamChiTiet.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\LoaiVatTu.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\LoaiYeuCau.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\LoaiYeuCauSanXuat.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NetsuiteTT.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetsuiteTT.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NetsuiteTT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NetsuiteTT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetsuiteTT.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NguocGoc.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NguonHangSanXuat.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NhomHang.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NhomHoaVanDetIn.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NhomMucDichSuDung.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NhomSanPham.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NhomSanPhamKinhDoanh.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NhomSoi.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\NhomTrangPhuc.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\OtherChagreForPurchase.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\PhanLoaiSPMay.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\PhanNhomSanPham.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\PhuongThucThanhToan.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\SaleOrder_Viseri.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\SaleOrder_Viseri_Item.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\SPLOAD_TONKHOALL_TP_2024_Result.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Table_LoaiPhieuVanChuyenNoiBo.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Table_Mapping_DinhMuc_KeyHH_MOC.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Table_Mapping_MACP_TenVT_Dinhmucdet.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Table_Mapping_MACP_TenVT_DinhmuctheuddaA_Z.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Table_Mapping_MaHangSPM_MaKieuDang.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Table_Mapping_Mavattu_DVT.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Table_Mapping_Mavattu_DVT_BK_23032024.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Table_TAX_CODE.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\TaiKhoanNhanVien_Netsuite.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\TBL_Data_BCChiPhiVatTu_BC14.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\TBL_Mapping_DoiTuongKhachHang_Customers.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\Tbl_Mapping_NguonGocSP_ThuongHieu.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\TenHopQui.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\ThiTruongXuatKhau.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\VATTU2024_LOAD_LOAISPCHITIET_Result.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetsuiteTT\VATTU2024_SP_LOAD_ExpenseCodeList_Result.cs">
+      <DependentUpon>NetsuiteTT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SPMAY\SPMAY.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPMAY.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SPMAY\SPMAY.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPMAY.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SPMAY\SPMAY.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPMAY.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\A23_LoadChiTietBM05_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\A23_LoadNguoiTiepNhan_ByMaPhieu_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\BM05_CREATE_MAPHIEU_STT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CCPN_Menu.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CCPN_Page.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CCPN_Role.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CCPN_User.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CCPN_User_Page.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CCPN_User_Role.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CHATLUONG.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Chatluong_NL.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\ChiPhiDV.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CHITIETPHIEUCHAOGIA.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\ChuKy.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CTPHIEU.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CTPHIEU05.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CTPHIEU05_LOADCHITIETPHIEU_XEMXET_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CTPHIEU05_LOADMAPHIEUXEMXET_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\CTPhieu_CDMH.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DANHMUCCHIPHI.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DANHMUCDONVITINH.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DanhMucIP.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DanhmucLoaiVT.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DANHMUCMANGUYENLIEU.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DANHMUCQUYEN.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DANHMUCVATTU.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMDONVI.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMEXCELMAHANGCHAOGIA.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMGIATRIVATTU.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMGiaVT.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMKHo.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMKHONHAN.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMLoaiChiPhi.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMLOAIPHIEU.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMLOAIVT.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMLOAIXN.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMNAM.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMNHANVIEN.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMPHIEU.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMPhieu_CDMH.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMSite.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMSitesQLKhoSoi.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMSITESQLVT.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMTHANG.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMTINHTRANG.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMViTri.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\dmVitriKe.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMVITRIKHO.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\dmVitriTang.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DMVT_Excel.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DM_PHTinhTrangNCC.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DM_TinhTrangKyThuatCUGC.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DM_Tinhtrangthanhtoan.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\DM_XUATNHAP.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\dtproperty.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\GHNGAYNHAPKHO.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\GIAYBONG_XUATNHAP.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Home_Menu.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Home_Page.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Home_Role.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Home_Software.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Home_SoftwareGroup.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Home_User.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Home_User_Page.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Home_User_Role.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\InNhan.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\KhachHang.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\KHOSOI_XUATNHAP.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\KYDUYET_PHIEUCHAOGIA.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\KYHIEU_THITRUONG.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\LDD_CTPHIEU.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\LDD_DMDVVANCHUYEN.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\LDD_DMNOIDEN.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\LDD_DMPHIEU.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\LDD_DMSOXE.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\LDD_DMTAIXE.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\load_kihieukho_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Load_MANVYC_XNKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Load_NhanVien_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\MaChaoGia_Bo.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\NGANG.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\NGANG_V2.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\NHAPDIENGIAI.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\OLD.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\PHANLOAI_VTKD.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\PHANQUYENSITE.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\PhanQuyenSitesQLKhoSoi.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\PHANQUYENSITESQLVT.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SentMailTTNB.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SpLoad_DMPhieu_Phieumuahang_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_2023_LOADPHIEUXX_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Sp_API_Load_NLDMPhieu_vattu_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_BM05TUDONVI_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_CHIPHI_28062016_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_CRCHATLUONG_NEW_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Sp_Crchatluong_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_CRCHATLUONG_THEOHOADON_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_DonVi_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Sp_DropList_LoaiVT_NQTH_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_DROPLIST_MAVT_NQTH_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_DVKTCL_LOADSOCT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\sp_GetUserMaBP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_GET_CHITIET_DINHMUCVANPHONGPHAM_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_GET_DANHSACH_DMLOAIVT_THEO_DONVISUDUNG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_GET_DANHSACH_VPP_NYP_DASUDUNG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_GET_DETAIL_BY_MADH_MAVT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_GUIAPI_Load_DMVATTU_ALLNHUONGQUYEN_PHUKIEN_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_GUIAPI_Load_DMVATTU_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_INPHIEUCHATLUONGDONVI_THEOHOADON_LOAD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_INPHIEUCHATLUONG_LOAD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_KIEMTRA_VTYCXK_DONVI_EXITS_VER1_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_KTQKForWebNew_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_KTQKFORWEB_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\sp_kyhieudonvi_by_manv_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADCL_DONVIKIEMTRA_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadCL_KHOXEM_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADCTPHIEUYCXUATKHO_DONVI_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadCTXNforweb_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadDanhMucChiPhi01_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadDMPhieu_2023_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadDMPhieu_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadDVForWeb_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADKHOQUYENNHAP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADKHOQUYENXUAT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADKHOQUYENXUAT_VER1_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadKho_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\sp_LoadLoaiXN_GCNhuom_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADNGUOIPHEDUYET_BY_KIHIEU_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADNGUOIXEMXETFORWEB_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadPhieuBM05New_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADVTPYCFORWEB_HANHCHANH_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadVTPYCForWeb_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADVTYEUCAUXUATCHOTUNGDV_TBPKD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADVTYEUCAUXUATKHO_DONVI_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADVTYEUCAUXUATKHO_GCNhuom_ByKey_Result.cs" />
+    <Compile Include="VatTu\SP_LOADVTYEUCAUXUATKHO_GCNhuom_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LoadXemXetBM03TTKD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOADXEMXETBYMANV_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\sp_load_capcoso_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_CTTONKHOTHEOMAPHIEUPD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_DANHMUCVATTU_ByKey_LoaiVt_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_DMLOAIVT_ByKey_Donvisd_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_Load_kethuaquyen_User_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_KIHIEUDV_BY_MANV_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_KYTUDAUTIEN_BYLOAIVT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_MACP_MAVATTU_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_MAKHO_PHIEUNHAP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_MANHOMVT_BYLOAIVT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_MANVXX_BY_SOCT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAD_MAPHIEUPD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\Sp_Load_NguoiXX_PhieuMuahang_Result.cs" />
+    <Compile Include="VatTu\SP_LOAD_VATTUYEUCAU_BYDONVI_BYLOAIPHIEU_13062023_Vtest_Result.cs" />
+    <Compile Include="VatTu\SP_LOAD_VATTUYEUCAU_BYDONVI_BYLOAIPHIEU_27062016_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAIXUATNHAP_KHONGTHU_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_LOAIXUATNHAP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_NguoiLapPhieu_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_NguoiXX_Result.cs" />
+    <Compile Include="VatTu\SP_NL_LOADMSCP_2023_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_NL_LOADMSCP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_PHIEUCHOXUAT_GIAYBONG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_PHIEUCHOXUAT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_PHIEUYCXK_DONVI_INSERT_KINHDOANH_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_PHIEUYCXK_DONVI_UPDATE_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_REPHIEUMUAHANGTHEOBM_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_REPYCXUATKHO_DONVI_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_SEARCHCTPHIEUBM03_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_SEARCHCTPHIEUBM05_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_SearchLoaiPhieu_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_THUKHOXUATKHO_GIAYBONG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_THUKHOXUATKHO_LOAD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_UPDATECTBM05DV_VER2_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\SP_XUATNHAP_BYKHOAKEY_REVEICE_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\sysdiagram.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TABLE_LUUTRU_SOHOADON.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\tblDINHMUCVANPHONGPHAM.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TBLDMCAPCOSO.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\tblDMDVTINH.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TBLDMMAHANG.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\tblDMNGUYENLIEU.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\tblDMNGUYENLIEUOLD.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\tblKiHieuNhapKho.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TblKyhieudonvidathang.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\tblNhomVattu.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TBLTHUKYBANTGD.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TBL_DMCHUKY.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TBL_DMLOAIVT_COA.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TBL_PHIENMAVT_BYMAHANG.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TiGia.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TONDAUKY.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TongCPtheoMH.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TongHopTDK.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTCHIPHICHATLUONG.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTChiphiHoahong.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTCHIPHIVANCHUYEN.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTchitietnhanTT.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTCTcdoan1.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTCTcdoan2.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTCTPHIEUMAHANG_EXCEL.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTDMBaoBi.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTDMcdoan1.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTDMcdoan2.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTDMMAHANG_TRACUUGIATHANH.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTDMPHIEU_TRACUUGIATHANH.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTDMTONE.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTDMTTCT1.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTDMTTCT2.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTEmail.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTG_BASEVN_DEPARTMENT.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTG_BASEVN_LOG_PR.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTG_BASEVN_TOKEN_API.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTLoaiPhieu.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTLuuChiPhiBaoBi.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTLuuChiPhiVanChuyen.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\TTPhanhoi.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\UyQuyen.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_AUTOCHECK_STATUS_PR_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_CHECK_QUYENMANV_UPLOAD_EXCEL_DANHMUCVATTU_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_DMKHO.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_LOADXUATNHAP_NEW2024_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_LOAD_PRINT_DATA_NHAPDIENGIAI_SOCTXN_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_LOAD_SUM_PHIENMAVT_XZZZ_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SOCTKETHUA_XUATSX_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_CHECK_KYTU_LOAIVT_COA_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SpLoad_ConvertDVT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_CTPHIEU_2024_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_CTPHIEU_SOCT_XZZZ_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_DANHMUCBOPHAN_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_DANHMUCVATTU_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_DMHINHTHUC_NHAPKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_DMHINHTHUC_XUATKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_LOAIVT_COA_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_LOAIXN_SHOWFULL_ITEM_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_MANHOM_BYLOAIVT_COA_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_SOCT_XZZZ_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_XUATNHAP2024_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SPLOAD_XVCNB_KETHUA_SOCTXN_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_GET_DM_XUATNHAP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_GET_NL_DMPHIEUXN_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_LOADKHOQUYENNHAP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_LOADVTYEUCAUXUATKHO_DONVI_KETHUA_NZZZ_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_LOADVTYEUCAUXUATKHO_DONVI_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_LOADVTYEUCAUXUATKHO_DONVI_SELECT_MAPHIEUPD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_LOADVTYEUCAUXUATKHO_XVCNB_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_LOAD_IDMACS_BY_DMDONVI_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_LOAD_QUYEN_SUDUNG_DMDONVI_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_PHIEUCHOXUAT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_TAOSCT_NHAPKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_THUKHOXUATKHO_LOAD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_VATTU_BAOCAOTONGHOPBM05_ALLTHANG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_VATTU_BAOCAOTONGHOPBM05_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_SP_VATTU_BAOCAOTONGHOPBM05_THEOTHANG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_TRACUUPHIEUMUAHANG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2024_UPDATE_STATUS_DM_XUATNHAP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_DanhSachQuocGia.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_LOADDATA_ITEMLIST_PR_BASEVN_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_LOAD_CTPHIEU_PR__Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_LOAD_SOCTXN_VATTU_SOI_HANGMUANGOAI_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_NGOAITE.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SPLOAD_SOCTXN_TANGGIAMKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SPLOAD_SOCTXN_TANGGIAMKHO_XUATNHAP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SPLOAD_SOLUONGTON_THEOMAVT_DONVI_TOANCTY_PhieuMuaHang_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SPLOAD_SOLUONGTON_THEOMAVT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SP_DVKTCL_LOADSOCT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SP_INPHIEUCHATLUONGDONVI_THEOHOADON_LOAD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SP_LOAD_PHIEUXNKHO_DONGBO_NETSUITE_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SP_REPHIEUMUAHANGTHEOBM_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SP_THEODOIPHIEUPD_CUGC_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_SP_THEODOIPHIEUPD_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2025_Sum_SLDaNhapKho_PO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_A23_LoadChiTietBM05_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_CTPHIEU_MAVTTUONGDUONG.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_KTRA_LOAIPHIEU_PHIEUMUAHANG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SPLOAD_MAVTTUONGDUONG_COGIANHAP_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SPLOAD_TABLEMAPPING_MAKHO_IDMADV_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SPLOAD_TRACUUNHANH_SOLUONGTON_THEOKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SPLOAD_XBAN_KETHUA_SOCTXN_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SPLOAD_XUATNHAP_XBNVH_PHIEUMUAHANG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SPLOAD_XUATNHAP_X_ASSETACCOUNT_MAVT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SPLOAD_XUATNHAP_X_ASSETACCOUNT_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SP_RPT_XUATNHAPTON_THEONHIEUKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\VATTU2026_SP_VATTU_LOADVATTUNHAPKHO_THUKHO_DIENGIAI_XUATNHAPKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\wqlvattuDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wqlvattuDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\wqlvattuDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\wqlvattuDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wqlvattuDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\XUATNHAP.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VatTu\XUATNHAPNOIBO_LOADCHITIETVATTU_XUATKHO_BY_KYHIEUDONVI_MAKHO_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="KhoSoi\QLKhoSoi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLKhoSoi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DonHang09\DonHang09.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DonHang09.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DonHang09\DonHang09.edmx.diagram">
+      <DependentUpon>DonHang09.edmx</DependentUpon>
+    </None>
+    <None Include="KhoSoi\QLKhoSoi.edmx.diagram">
+      <DependentUpon>QLKhoSoi.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="NetsuiteTT\NetsuiteTT.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NetsuiteTT.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="KhoTP2023\KhoTP2023Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KhoTP2023Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="KhoTP2023\KhoTP2023Model1.edmx.diagram">
+      <DependentUpon>KhoTP2023Model1.edmx</DependentUpon>
+    </None>
+    <None Include="NetsuiteTT\NetsuiteTT.edmx.diagram">
+      <DependentUpon>NetsuiteTT.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <EntityDeploy Include="VatTu\wqlvattuDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>wqlvattuDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="SPMAY\SPMAY.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SPMAY.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SPMAY\SPMAY.edmx.diagram">
+      <DependentUpon>SPMAY.edmx</DependentUpon>
+    </None>
+    <None Include="VatTu\wqlvattuDB.edmx.diagram">
+      <DependentUpon>wqlvattuDB.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DonHang09\DonHang09.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DonHang09.edmx</DependentUpon>
+      <LastGenOutput>DonHang09.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DonHang09\DonHang09.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DonHang09.edmx</DependentUpon>
+      <LastGenOutput>DonHang09.cs</LastGenOutput>
+    </Content>
+    <Content Include="KhoSoi\QLKhoSoi.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLKhoSoi.edmx</DependentUpon>
+      <LastGenOutput>QLKhoSoi.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KhoSoi\QLKhoSoi.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLKhoSoi.edmx</DependentUpon>
+      <LastGenOutput>QLKhoSoi.cs</LastGenOutput>
+    </Content>
+    <Content Include="KhoTP2023\KhoTP2023Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KhoTP2023Model1.edmx</DependentUpon>
+      <LastGenOutput>KhoTP2023Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KhoTP2023\KhoTP2023Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KhoTP2023Model1.edmx</DependentUpon>
+      <LastGenOutput>KhoTP2023Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="NetsuiteTT\NetsuiteTT.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NetsuiteTT.edmx</DependentUpon>
+      <LastGenOutput>NetsuiteTT.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="NetsuiteTT\NetsuiteTT.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NetsuiteTT.edmx</DependentUpon>
+      <LastGenOutput>NetsuiteTT.cs</LastGenOutput>
+    </Content>
+    <Content Include="SPMAY\SPMAY.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SPMAY.edmx</DependentUpon>
+      <LastGenOutput>SPMAY.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SPMAY\SPMAY.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SPMAY.edmx</DependentUpon>
+      <LastGenOutput>SPMAY.cs</LastGenOutput>
+    </Content>
+    <Content Include="VatTu\wqlvattuDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>wqlvattuDB.edmx</DependentUpon>
+      <LastGenOutput>wqlvattuDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="VatTu\wqlvattuDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>wqlvattuDB.edmx</DependentUpon>
+      <LastGenOutput>wqlvattuDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

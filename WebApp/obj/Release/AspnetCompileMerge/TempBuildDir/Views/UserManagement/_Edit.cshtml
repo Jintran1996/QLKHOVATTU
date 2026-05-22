@@ -1,0 +1,55 @@
+﻿@model ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_User
+
+@{
+    var roles = ViewBag.roles as List<ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_Role>;
+
+    var pages = ViewBag.pages as List<ToolsApp.EntityFramework.KhoSoi.QLKhoSoi_Page>;
+}
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<input type="hidden" id="Id" name="Id" value="@Model.Id"/>
+@Html.HiddenFor(model => model.Username)
+
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-3 col-sm-3">Roles</label>
+    <div class="col-md-9 col-sm-9 ten">
+        <select id="Roles" name="Roles" multiple="multiple" class="form-control chosen-select" style="width: 100%;">
+            @foreach (var item in roles)
+            {
+                <option value="@item.Id"
+                        @(Model.QLKhoSoi_User_Role != null && Model.QLKhoSoi_User_Role.FirstOrDefault(p => p.RoleId == item.Id) != null ? "selected=\"selected\"" : "")>
+                    @item.Code. @item.RoleName
+                </option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="row" style="margin-bottom:5px">
+    <label class="col-md-3 col-sm-3">Pages</label>
+    <div class="col-md-9 col-sm-9 ten">
+        <select id="Pages" name="Pages" multiple="multiple" class="form-control chosen-select" style="width: 100%;">
+            @foreach (var item in pages)
+            {
+                <option value="@item.Id"
+                        @(Model.QLKhoSoi_User_Page != null && Model.QLKhoSoi_User_Page.FirstOrDefault(p => p.PageId == item.Id) != null ? "selected=\"selected\"" : "")>
+                    @item.Code. @item.Action/@item.Controler
+                </option>
+            }
+        </select>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+</script>

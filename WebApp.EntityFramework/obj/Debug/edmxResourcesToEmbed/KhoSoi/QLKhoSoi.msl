@@ -1,0 +1,1913 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="wqlkhosoiModelStoreContainer" CdmEntityContainer="wqlkhosoiEntities">
+    <EntitySetMapping Name="QLKhoSoi_Menu">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.QLKhoSoi_Menu">
+        <MappingFragment StoreEntitySet="QLKhoSoi_Menu">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QLKhoSoi_Role">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.QLKhoSoi_Role">
+        <MappingFragment StoreEntitySet="QLKhoSoi_Role">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QLKhoSoi_User">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.QLKhoSoi_User">
+        <MappingFragment StoreEntitySet="QLKhoSoi_User">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="SalesRepCode" ColumnName="SalesRepCode" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QLKhoSoi_User_Page">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.QLKhoSoi_User_Page">
+        <MappingFragment StoreEntitySet="QLKhoSoi_User_Page">
+          <ScalarProperty Name="isRoleDelete" ColumnName="isRoleDelete" />
+          <ScalarProperty Name="isRoleExportAll" ColumnName="isRoleExportAll" />
+          <ScalarProperty Name="isRoleExport" ColumnName="isRoleExport" />
+          <ScalarProperty Name="isRoleEdit" ColumnName="isRoleEdit" />
+          <ScalarProperty Name="isRoleCreate" ColumnName="isRoleCreate" />
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QLKhoSoi_User_Role">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.QLKhoSoi_User_Role">
+        <MappingFragment StoreEntitySet="QLKhoSoi_User_Role">
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserFullname" ColumnName="UserFullname" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_NL_CTPHIEU_LOADBYMAPHIEU" FunctionName="wqlkhosoiModel.Store.SP_NL_CTPHIEU_LOADBYMAPHIEU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_NL_CTPHIEU_LOADBYMAPHIEU_Result">
+          <ScalarProperty Name="MASOCP" ColumnName="MASOCP" />
+          <ScalarProperty Name="MAPHIEU" ColumnName="MAPHIEU" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="TENVATTU" ColumnName="TENVATTU" />
+          <ScalarProperty Name="SLYCAU" ColumnName="SLYCAU" />
+          <ScalarProperty Name="SLXXET" ColumnName="SLXXET" />
+          <ScalarProperty Name="SLPD" ColumnName="SLPD" />
+          <ScalarProperty Name="Dongia" ColumnName="Dongia" />
+          <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+          <ScalarProperty Name="THOIDIEMSD" ColumnName="THOIDIEMSD" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="NGAYDAPUNG" ColumnName="NGAYDAPUNG" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+          <ScalarProperty Name="IDMaDV_YCMUA" ColumnName="IDMaDV_YCMUA" />
+          <ScalarProperty Name="LOAIYEUCAU" ColumnName="LOAIYEUCAU" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="LOAIDONHANG" ColumnName="LOAIDONHANG" />
+          <ScalarProperty Name="XXET" ColumnName="XXET" />
+          <ScalarProperty Name="PDUYET" ColumnName="PDUYET" />
+          <ScalarProperty Name="SOLUONGTONKHO" ColumnName="SOLUONGTONKHO" />
+          <ScalarProperty Name="NGAYXX" ColumnName="NGAYXX" />
+          <ScalarProperty Name="NGAYPD" ColumnName="NGAYPD" />
+          <ScalarProperty Name="GhiChucuaLanhDao" ColumnName="GhiChucuaLanhDao" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_MAPHIEU_YEUCAU_HIEUCHINH" FunctionName="wqlkhosoiModel.Store.SP_LOAD_MAPHIEU_YEUCAU_HIEUCHINH" />
+    <FunctionImportMapping FunctionImportName="SP_LOAD_MAPHIEU_YEUCAU_PHEDUYET" FunctionName="wqlkhosoiModel.Store.SP_LOAD_MAPHIEU_YEUCAU_PHEDUYET" />
+    <FunctionImportMapping FunctionImportName="SP_LOAD_MAPHIEU_YEUCAU_XEMXET" FunctionName="wqlkhosoiModel.Store.SP_LOAD_MAPHIEU_YEUCAU_XEMXET" />
+    <FunctionImportMapping FunctionImportName="SP_LOAD_DANHMUCSOI_2023" FunctionName="wqlkhosoiModel.Store.SP_LOAD_DANHMUCSOI_2023">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_DANHMUCSOI_2023_Result">
+          <ScalarProperty Name="MAVATTU" ColumnName="MAVATTU" />
+          <ScalarProperty Name="TENVATTU" ColumnName="TENVATTU" />
+          <ScalarProperty Name="Hienthi" ColumnName="Hienthi" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_TAOMAPHIEUYEUCAUMUAHANG" FunctionName="wqlkhosoiModel.Store.SP_TAOMAPHIEUYEUCAUMUAHANG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_TAOMAPHIEUYEUCAUMUAHANG_Result">
+          <ScalarProperty Name="MAPHIEU" ColumnName="MAPHIEU" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Load_NL_DMloaidonhang_2023" FunctionName="wqlkhosoiModel.Store.sp_Load_NL_DMloaidonhang_2023">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.sp_Load_NL_DMloaidonhang_2023_Result">
+          <ScalarProperty Name="LOAIDONHANG" ColumnName="LOAIDONHANG" />
+          <ScalarProperty Name="Tendonhang" ColumnName="Tendonhang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Load_NL_DMNHACCAP_2023" FunctionName="wqlkhosoiModel.Store.sp_Load_NL_DMNHACCAP_2023">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.sp_Load_NL_DMNHACCAP_2023_Result">
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="MANHACC" ColumnName="MANHACC" />
+          <ScalarProperty Name="TENNHACC" ColumnName="TENNHACC" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spLoad_NL_DMYEUCAU_ByLoaidonhang" FunctionName="wqlkhosoiModel.Store.spLoad_NL_DMYEUCAU_ByLoaidonhang">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.spLoad_NL_DMYEUCAU_ByLoaidonhang_Result">
+          <ScalarProperty Name="LOAIYEUCAU" ColumnName="LOAIYEUCAU" />
+          <ScalarProperty Name="TENLOAIIYC" ColumnName="TENLOAIIYC" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+          <ScalarProperty Name="NGAYCN" ColumnName="NGAYCN" />
+          <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
+          <ScalarProperty Name="NgayModify" ColumnName="NgayModify" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_API_Load_NLDMPhieu" FunctionName="wqlkhosoiModel.Store.Sp_API_Load_NLDMPhieu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.Sp_API_Load_NLDMPhieu_Result">
+          <ScalarProperty Name="MAPHIEU" ColumnName="MAPHIEU" />
+          <ScalarProperty Name="NGAYYC" ColumnName="NGAYYC" />
+          <ScalarProperty Name="NGUOIPD" ColumnName="NGUOIPD" />
+          <ScalarProperty Name="NGUOIXX" ColumnName="NGUOIXX" />
+          <ScalarProperty Name="NGUOITIEPNHAN" ColumnName="NGUOITIEPNHAN" />
+          <ScalarProperty Name="NGUOILAPPHIEU" ColumnName="NGUOILAPPHIEU" />
+          <ScalarProperty Name="LYDOSD" ColumnName="LYDOSD" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="LOAIPHIEU" ColumnName="LOAIPHIEU" />
+          <ScalarProperty Name="DX" ColumnName="DX" />
+          <ScalarProperty Name="NK" ColumnName="NK" />
+          <ScalarProperty Name="ND" ColumnName="ND" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="NGAYXX" ColumnName="NGAYXX" />
+          <ScalarProperty Name="NGAYPD" ColumnName="NGAYPD" />
+          <ScalarProperty Name="NGAYTN" ColumnName="NGAYTN" />
+          <ScalarProperty Name="XXET" ColumnName="XXET" />
+          <ScalarProperty Name="PDUYET" ColumnName="PDUYET" />
+          <ScalarProperty Name="TNHANYC" ColumnName="TNHANYC" />
+          <ScalarProperty Name="LOAIDONHANG" ColumnName="LOAIDONHANG" />
+          <ScalarProperty Name="KiHieu" ColumnName="KiHieu" />
+          <ScalarProperty Name="IDMaDV" ColumnName="IDMaDV" />
+          <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+          <ScalarProperty Name="EMAILTHUKY" ColumnName="EMAILTHUKY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NL_CTPHIEU">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_CTPHIEU">
+        <MappingFragment StoreEntitySet="NL_CTPHIEU">
+          <ScalarProperty Name="SLTONCTY" ColumnName="SLTONCTY" />
+          <ScalarProperty Name="Nam" ColumnName="Nam" />
+          <ScalarProperty Name="Thang" ColumnName="Thang" />
+          <ScalarProperty Name="DonviTH" ColumnName="DonviTH" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="GhiChucuaLanhDao" ColumnName="GhiChucuaLanhDao" />
+          <ScalarProperty Name="LOAIYEUCAU" ColumnName="LOAIYEUCAU" />
+          <ScalarProperty Name="IDMaDV_YCMUA" ColumnName="IDMaDV_YCMUA" />
+          <ScalarProperty Name="NK_STATIC" ColumnName="NK_STATIC" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+          <ScalarProperty Name="NGAYDAPUNG" ColumnName="NGAYDAPUNG" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="THOIDIEMSD" ColumnName="THOIDIEMSD" />
+          <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+          <ScalarProperty Name="SLTONDVI" ColumnName="SLTONDVI" />
+          <ScalarProperty Name="SLPD" ColumnName="SLPD" />
+          <ScalarProperty Name="SLXXET" ColumnName="SLXXET" />
+          <ScalarProperty Name="SLYCAU" ColumnName="SLYCAU" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="MAPHIEU" ColumnName="MAPHIEU" />
+          <ScalarProperty Name="MASOCP" ColumnName="MASOCP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NL_DMPHIEU">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_DMPHIEU">
+        <MappingFragment StoreEntitySet="NL_DMPHIEU">
+          <ScalarProperty Name="FinishCheck" ColumnName="FinishCheck" />
+          <ScalarProperty Name="NumberCheck" ColumnName="NumberCheck" />
+          <ScalarProperty Name="NgayGuiAPI" ColumnName="NgayGuiAPI" />
+          <ScalarProperty Name="GuiAPI" ColumnName="GuiAPI" />
+          <ScalarProperty Name="LOAIDONHANG" ColumnName="LOAIDONHANG" />
+          <ScalarProperty Name="TNHANYC" ColumnName="TNHANYC" />
+          <ScalarProperty Name="PDUYET" ColumnName="PDUYET" />
+          <ScalarProperty Name="XXET" ColumnName="XXET" />
+          <ScalarProperty Name="NGAYTN" ColumnName="NGAYTN" />
+          <ScalarProperty Name="NGAYPD" ColumnName="NGAYPD" />
+          <ScalarProperty Name="NGAYXX" ColumnName="NGAYXX" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="ND" ColumnName="ND" />
+          <ScalarProperty Name="NK" ColumnName="NK" />
+          <ScalarProperty Name="DX" ColumnName="DX" />
+          <ScalarProperty Name="LOAIPHIEU" ColumnName="LOAIPHIEU" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="LYDOSD" ColumnName="LYDOSD" />
+          <ScalarProperty Name="NGUOILAPPHIEU" ColumnName="NGUOILAPPHIEU" />
+          <ScalarProperty Name="NGUOITIEPNHAN" ColumnName="NGUOITIEPNHAN" />
+          <ScalarProperty Name="NGUOIXX" ColumnName="NGUOIXX" />
+          <ScalarProperty Name="NGUOIPD" ColumnName="NGUOIPD" />
+          <ScalarProperty Name="NGAYYC" ColumnName="NGAYYC" />
+          <ScalarProperty Name="MAPHIEU" ColumnName="MAPHIEU" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_PHIEUYEUCAUXUATKHO_LOAD_MAKHO" FunctionName="wqlkhosoiModel.Store.SP_PHIEUYEUCAUXUATKHO_LOAD_MAKHO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_PHIEUYEUCAUXUATKHO_LOAD_MAKHO_Result">
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="TENKHO" ColumnName="TENKHO" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+          <ScalarProperty Name="NOIDEN" ColumnName="NOIDEN" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="Hieuluc" ColumnName="Hieuluc" />
+          <ScalarProperty Name="Nguoinhan" ColumnName="Nguoinhan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOADMAHINHTHUCYEUCAUXUAT" FunctionName="wqlkhosoiModel.Store.SP_LOADMAHINHTHUCYEUCAUXUAT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOADMAHINHTHUCYEUCAUXUAT_Result">
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="TENHTHUC" ColumnName="TENHTHUC" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+          <ScalarProperty Name="GCSOI" ColumnName="GCSOI" />
+          <ScalarProperty Name="GCDUCBONG" ColumnName="GCDUCBONG" />
+          <ScalarProperty Name="KIEMTRACHATLUONG" ColumnName="KIEMTRACHATLUONG" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NL_DMloaidonhang">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_DMloaidonhang">
+        <MappingFragment StoreEntitySet="NL_DMloaidonhang">
+          <ScalarProperty Name="Tendonhang" ColumnName="Tendonhang" />
+          <ScalarProperty Name="LOAIDONHANG" ColumnName="LOAIDONHANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_DATA_MASOI_XD" FunctionName="wqlkhosoiModel.Store.SP_LOAD_DATA_MASOI_XD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_DATA_MASOI_XD_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Tbl_SoPYCXuatSoi">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.Tbl_SoPYCXuatSoi">
+        <MappingFragment StoreEntitySet="Tbl_SoPYCXuatSoi">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Sophieu" ColumnName="Sophieu" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="NgayHT" ColumnName="NgayHT" />
+          <ScalarProperty Name="Kihieu" ColumnName="Kihieu" />
+          <ScalarProperty Name="LoaiXN" ColumnName="LoaiXN" />
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_MAHTHUC_PHIEUYEUCAUXUATKHO_XD" FunctionName="wqlkhosoiModel.Store.SP_LOAD_MAHTHUC_PHIEUYEUCAUXUATKHO_XD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_MAHTHUC_PHIEUYEUCAUXUATKHO_XD_Result">
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="TENHTHUC" ColumnName="TENHTHUC" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="VT" ColumnName="VT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Load_MaPhieuYCXuatSoi" FunctionName="wqlkhosoiModel.Store.SP_Load_MaPhieuYCXuatSoi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_Load_MaPhieuYCXuatSoi_Result">
+          <ScalarProperty Name="Kihieu" ColumnName="Kihieu" />
+          <ScalarProperty Name="NgayHT" ColumnName="NgayHT" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="Sophieu" ColumnName="Sophieu" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_VATTU_YC_XUATSOI" FunctionName="wqlkhosoiModel.Store.SP_VATTU_YC_XUATSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_VATTU_YC_XUATSOI_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_RPT_NL_PHIEUYCXUATVT" FunctionName="wqlkhosoiModel.Store.SP_RPT_NL_PHIEUYCXUATVT" />
+    <FunctionImportMapping FunctionImportName="SP_RPT_NL_PYC_XUATVT" FunctionName="wqlkhosoiModel.Store.SP_RPT_NL_PYC_XUATVT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_RPT_NL_PYC_XUATVT_Result">
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="NGAYKETOAN" ColumnName="NGAYKETOAN" />
+          <ScalarProperty Name="TENVATTU" ColumnName="TENVATTU" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="SOLUONGYC" ColumnName="SOLUONGYC" />
+          <ScalarProperty Name="VATTU" ColumnName="VATTU" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LOAD_MADONHANG_ND_XK" FunctionName="wqlkhosoiModel.Store.LOAD_MADONHANG_ND_XK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.LOAD_MADONHANG_ND_XK_Result">
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="QLKhoSoi_Page">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.QLKhoSoi_Page">
+        <MappingFragment StoreEntitySet="QLKhoSoi_Page">
+          <ScalarProperty Name="DatetimeDelete" ColumnName="DatetimeDelete" />
+          <ScalarProperty Name="UserFullnameDelete" ColumnName="UserFullnameDelete" />
+          <ScalarProperty Name="UserDelete" ColumnName="UserDelete" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="DatetimeUpdate" ColumnName="DatetimeUpdate" />
+          <ScalarProperty Name="UserFullnameUpdate" ColumnName="UserFullnameUpdate" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="DatetimeCreate" ColumnName="DatetimeCreate" />
+          <ScalarProperty Name="UserFullnameCreate" ColumnName="UserFullnameCreate" />
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Controler" ColumnName="Controler" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_NL_LOADDMHINHTHUC_NHAPKHOTHUKHO" FunctionName="wqlkhosoiModel.Store.SP_NL_LOADDMHINHTHUC_NHAPKHOTHUKHO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_NL_LOADDMHINHTHUC_NHAPKHOTHUKHO_Result">
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="TENHTHUC" ColumnName="TENHTHUC" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_NL_TAOSOCHUNGTU" FunctionName="wqlkhosoiModel.Store.SP_NL_TAOSOCHUNGTU" />
+    <FunctionImportMapping FunctionImportName="SP_MAKHOBYMANV_LOAD" FunctionName="wqlkhosoiModel.Store.SP_MAKHOBYMANV_LOAD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_MAKHOBYMANV_LOAD_Result">
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="TENKHO" ColumnName="TENKHO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NL_DMKHO">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_DMKHO">
+        <MappingFragment StoreEntitySet="NL_DMKHO">
+          <ScalarProperty Name="Nguoinhan" ColumnName="Nguoinhan" />
+          <ScalarProperty Name="Hieuluc" ColumnName="Hieuluc" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="NOIDEN" ColumnName="NOIDEN" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="TENKHO" ColumnName="TENKHO" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_NL_DELETE_KHONGCHITIET_XUATNHAP" FunctionName="wqlkhosoiModel.Store.SP_NL_DELETE_KHONGCHITIET_XUATNHAP" />
+    <FunctionImportMapping FunctionImportName="LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC" FunctionName="wqlkhosoiModel.Store.LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC" />
+    <FunctionImportMapping FunctionImportName="LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC_v1" FunctionName="wqlkhosoiModel.Store.LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC_v1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC_v1_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_NHAPKHOTHEOPHIEUPHEDUYET_MAVT" FunctionName="wqlkhosoiModel.Store.SP_NHAPKHOTHEOPHIEUPHEDUYET_MAVT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_NHAPKHOTHEOPHIEUPHEDUYET_MAVT_Result">
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_NL_DMLO_BY_HIEU" FunctionName="wqlkhosoiModel.Store.SP_LOAD_NL_DMLO_BY_HIEU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_NL_DMLO_BY_HIEU_Result">
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="TENGOI" ColumnName="TENGOI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_NL_DMLO_BY_HIEU_GC_CTPHIEUXUATNHAP" FunctionName="wqlkhosoiModel.Store.SP_LOAD_NL_DMLO_BY_HIEU_GC_CTPHIEUXUATNHAP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_NL_DMLO_BY_HIEU_GC_CTPHIEUXUATNHAP_Result">
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NL_DMNHACCAP">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_DMNHACCAP">
+        <MappingFragment StoreEntitySet="NL_DMNHACCAP">
+          <ScalarProperty Name="XUATXU" ColumnName="XUATXU" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="TENNHACC" ColumnName="TENNHACC" />
+          <ScalarProperty Name="MANHACC" ColumnName="MANHACC" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_HINHTHUC_XUATKHO_THUKHO" FunctionName="wqlkhosoiModel.Store.SP_LOAD_HINHTHUC_XUATKHO_THUKHO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_HINHTHUC_XUATKHO_THUKHO_Result">
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="TENHTHUC" ColumnName="TENHTHUC" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+          <ScalarProperty Name="GCSOI" ColumnName="GCSOI" />
+          <ScalarProperty Name="GCDUCBONG" ColumnName="GCDUCBONG" />
+          <ScalarProperty Name="KIEMTRACHATLUONG" ColumnName="KIEMTRACHATLUONG" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Load_SOCTXN_XD1_XD2_XuatChuyenSX" FunctionName="wqlkhosoiModel.Store.Sp_Load_SOCTXN_XD1_XD2_XuatChuyenSX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.Sp_Load_SOCTXN_XD1_XD2_XuatChuyenSX_Result">
+          <ScalarProperty Name="SOCTNHAP" ColumnName="SOCTNHAP" />
+          <ScalarProperty Name="SOCTXUAT" ColumnName="SOCTXUAT" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="MAKHOXUAT" ColumnName="MAKHOXUAT" />
+          <ScalarProperty Name="MAKHONHAN" ColumnName="MAKHONHAN" />
+          <ScalarProperty Name="MANVXUAT" ColumnName="MANVXUAT" />
+          <ScalarProperty Name="MABP" ColumnName="MABP" />
+          <ScalarProperty Name="NOIDEN" ColumnName="NOIDEN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="Ngaycn" ColumnName="Ngaycn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NL_CTPHIEUNHAP_CHUYEN">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_CTPHIEUNHAP_CHUYEN">
+        <MappingFragment StoreEntitySet="NL_CTPHIEUNHAP_CHUYEN">
+          <ScalarProperty Name="id_kHOA" ColumnName="id_kHOA" />
+          <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
+          <ScalarProperty Name="NGAYCN" ColumnName="NGAYCN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="SOLUONGXUAT" ColumnName="SOLUONGXUAT" />
+          <ScalarProperty Name="LANXN" ColumnName="LANXN" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="SOCTNHAP" ColumnName="SOCTNHAP" />
+          <ScalarProperty Name="SOCTXUAT" ColumnName="SOCTXUAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NL_DMPHIEUNHAP_CHUYEN">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_DMPHIEUNHAP_CHUYEN">
+        <MappingFragment StoreEntitySet="NL_DMPHIEUNHAP_CHUYEN">
+          <ScalarProperty Name="NGAYCN" ColumnName="NGAYCN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="NOIDEN" ColumnName="NOIDEN" />
+          <ScalarProperty Name="NOINHAN" ColumnName="NOINHAN" />
+          <ScalarProperty Name="MANVNHAN" ColumnName="MANVNHAN" />
+          <ScalarProperty Name="MANVXUAT" ColumnName="MANVXUAT" />
+          <ScalarProperty Name="MAKHONHAN" ColumnName="MAKHONHAN" />
+          <ScalarProperty Name="MAKHOXUAT" ColumnName="MAKHOXUAT" />
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="SOCTXUAT" ColumnName="SOCTXUAT" />
+          <ScalarProperty Name="SOCTNHAP" ColumnName="SOCTNHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_GUIAPI_TBLDMNGUYENLIEU" FunctionName="wqlkhosoiModel.Store.SP_UPDATE_GUIAPI_TBLDMNGUYENLIEU" />
+    <FunctionImportMapping FunctionImportName="Sp_Load_SOCTXN_XD1_XD2_CTXuatChuyenSX" FunctionName="wqlkhosoiModel.Store.Sp_Load_SOCTXN_XD1_XD2_CTXuatChuyenSX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.Sp_Load_SOCTXN_XD1_XD2_CTXuatChuyenSX_Result">
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="LANXN" ColumnName="LANXN" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+          <ScalarProperty Name="ID_XN" ColumnName="ID_XN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NL_DMHINHTHUC">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_DMHINHTHUC">
+        <MappingFragment StoreEntitySet="NL_DMHINHTHUC">
+          <ScalarProperty Name="Account_KT" ColumnName="Account_KT" />
+          <ScalarProperty Name="XUAT3BUOC" ColumnName="XUAT3BUOC" />
+          <ScalarProperty Name="KIEMTRACHATLUONG" ColumnName="KIEMTRACHATLUONG" />
+          <ScalarProperty Name="GCDUCBONG" ColumnName="GCDUCBONG" />
+          <ScalarProperty Name="GCSOI" ColumnName="GCSOI" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="TENHTHUC" ColumnName="TENHTHUC" />
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ADD_MASOI_NHAPKHO_SANXUAT" FunctionName="wqlkhosoiModel.Store.ADD_MASOI_NHAPKHO_SANXUAT" />
+    <FunctionImportMapping FunctionImportName="Delete_MASOI_NHAPKHO_SANXUAT" FunctionName="wqlkhosoiModel.Store.Delete_MASOI_NHAPKHO_SANXUAT" />
+    <FunctionImportMapping FunctionImportName="DANHMUC_KHO_NOIDEN_XUATKHO" FunctionName="wqlkhosoiModel.Store.DANHMUC_KHO_NOIDEN_XUATKHO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.DANHMUC_KHO_NOIDEN_XUATKHO_Result">
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="TENKHO" ColumnName="TENKHO" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+          <ScalarProperty Name="NOIDEN" ColumnName="NOIDEN" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="Hieuluc" ColumnName="Hieuluc" />
+          <ScalarProperty Name="Nguoinhan" ColumnName="Nguoinhan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_MAHINHTHUC_XUATKHO" FunctionName="wqlkhosoiModel.Store.SP_LOAD_MAHINHTHUC_XUATKHO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_MAHINHTHUC_XUATKHO_Result">
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="TENHTHUC" ColumnName="TENHTHUC" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+          <ScalarProperty Name="GCSOI" ColumnName="GCSOI" />
+          <ScalarProperty Name="GCDUCBONG" ColumnName="GCDUCBONG" />
+          <ScalarProperty Name="KIEMTRACHATLUONG" ColumnName="KIEMTRACHATLUONG" />
+          <ScalarProperty Name="XUAT3BUOC" ColumnName="XUAT3BUOC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_MANVYC_XNKHO_SOI" FunctionName="wqlkhosoiModel.Store.Load_MANVYC_XNKHO_SOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.Load_MANVYC_XNKHO_SOI_Result">
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_DMKHO_BY_IDMADV_gc__" FunctionName="wqlkhosoiModel.Store.SP_LOAD_DMKHO_BY_IDMADV_gc__">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_DMKHO_BY_IDMADV_gc___Result">
+          <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+          <ScalarProperty Name="TENKHO" ColumnName="TENKHO" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LOAD_DATA_MASOI_NHAPKHO_NKNB" FunctionName="wqlkhosoiModel.Store.LOAD_DATA_MASOI_NHAPKHO_NKNB" />
+    <FunctionImportMapping FunctionImportName="LOAD_DATA_MASOI_XUATKHO_THEO_XBAN" FunctionName="wqlkhosoiModel.Store.LOAD_DATA_MASOI_XUATKHO_THEO_XBAN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.LOAD_DATA_MASOI_XUATKHO_THEO_XBAN_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LOAD_DATA_MASOI_XUATKHO_THEO_XGC" FunctionName="wqlkhosoiModel.Store.LOAD_DATA_MASOI_XUATKHO_THEO_XGC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.LOAD_DATA_MASOI_XUATKHO_THEO_XGC_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LOAD_DATA_MASOI_XUATKHO_THEO_XKNB" FunctionName="wqlkhosoiModel.Store.LOAD_DATA_MASOI_XUATKHO_THEO_XKNB">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_v2" FunctionName="wqlkhosoiModel.Store.LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_v2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_v2_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_load_PhieuYCXuatkho_SOI" FunctionName="wqlkhosoiModel.Store.Sp_load_PhieuYCXuatkho_SOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.Sp_load_PhieuYCXuatkho_SOI_Result">
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="Nokey" ColumnName="Nokey" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_load_PhieuDaXuatkho_SOI" FunctionName="wqlkhosoiModel.Store.Sp_load_PhieuDaXuatkho_SOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.Sp_load_PhieuDaXuatkho_SOI_Result">
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="GUIAPI" ColumnName="GUIAPI" />
+          <ScalarProperty Name="Nokey" ColumnName="Nokey" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_V2" FunctionName="wqlkhosoiModel.Store.SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_V2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_V2_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+          <ScalarProperty Name="VT" ColumnName="VT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="DONHANGGCSOIs">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.DONHANGGCSOI">
+        <MappingFragment StoreEntitySet="DONHANGGCSOI">
+          <ScalarProperty Name="HIEULUCXACNHAN" ColumnName="HIEULUCXACNHAN" />
+          <ScalarProperty Name="NGAYXACNHAN" ColumnName="NGAYXACNHAN" />
+          <ScalarProperty Name="MANV_DONVITH_XACNHAN" ColumnName="MANV_DONVITH_XACNHAN" />
+          <ScalarProperty Name="HIEULUCXX" ColumnName="HIEULUCXX" />
+          <ScalarProperty Name="NGAYXEMXET" ColumnName="NGAYXEMXET" />
+          <ScalarProperty Name="MANV_DONVIYC_XX" ColumnName="MANV_DONVIYC_XX" />
+          <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
+          <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
+          <ScalarProperty Name="IDMADV_TH" ColumnName="IDMADV_TH" />
+          <ScalarProperty Name="IDMADV_YC" ColumnName="IDMADV_YC" />
+          <ScalarProperty Name="LOAIGIACONG" ColumnName="LOAIGIACONG" />
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONHANGGCSOI_CT">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.DONHANGGCSOI_CT">
+        <MappingFragment StoreEntitySet="DONHANGGCSOI_CT">
+          <ScalarProperty Name="KHOA_ID" ColumnName="KHOA_ID" />
+          <ScalarProperty Name="MASOITHANHPHAM" ColumnName="MASOITHANHPHAM" />
+          <ScalarProperty Name="SOLUONGYEUCAU" ColumnName="SOLUONGYEUCAU" />
+          <ScalarProperty Name="DIENGIAI" ColumnName="DIENGIAI" />
+          <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
+          <ScalarProperty Name="NGAYYCAU" ColumnName="NGAYYCAU" />
+          <ScalarProperty Name="Loaidh" ColumnName="Loaidh" />
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_COMBOBOX_LOAD_SOCTXN_CHATLUONG" FunctionName="wqlkhosoiModel.Store.SP_COMBOBOX_LOAD_SOCTXN_CHATLUONG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_COMBOBOX_LOAD_SOCTXN_CHATLUONG_Result">
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="NGAYKHO" ColumnName="NGAYKHO" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOADCHITIET_KIEMTRACHATLUONG_DONVI" FunctionName="wqlkhosoiModel.Store.SP_LOADCHITIET_KIEMTRACHATLUONG_DONVI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOADCHITIET_KIEMTRACHATLUONG_DONVI_Result">
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="NGAYKHO" ColumnName="NGAYKHO" />
+          <ScalarProperty Name="NGAYKT" ColumnName="NGAYKT" />
+          <ScalarProperty Name="THUKHO" ColumnName="THUKHO" />
+          <ScalarProperty Name="GDDV" ColumnName="GDDV" />
+          <ScalarProperty Name="KHOXN" ColumnName="KHOXN" />
+          <ScalarProperty Name="DVXN" ColumnName="DVXN" />
+          <ScalarProperty Name="DAIN" ColumnName="DAIN" />
+          <ScalarProperty Name="FLAGXOA" ColumnName="FLAGXOA" />
+          <ScalarProperty Name="DVKT" ColumnName="DVKT" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="THUC" ColumnName="THUC" />
+          <ScalarProperty Name="KHOKIEMTRA" ColumnName="KHOKIEMTRA" />
+          <ScalarProperty Name="DONVIKIEMTRA" ColumnName="DONVIKIEMTRA" />
+          <ScalarProperty Name="MANVKHO" ColumnName="MANVKHO" />
+          <ScalarProperty Name="MANVDONVI" ColumnName="MANVDONVI" />
+          <ScalarProperty Name="LOAI" ColumnName="LOAI" />
+          <ScalarProperty Name="NHACC" ColumnName="NHACC" />
+          <ScalarProperty Name="DANGLOI" ColumnName="DANGLOI" />
+          <ScalarProperty Name="MANHACC" ColumnName="MANHACC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_KIEMTRACHATLUONG_UPDATE_DONVI" FunctionName="wqlkhosoiModel.Store.SP_KIEMTRACHATLUONG_UPDATE_DONVI" />
+    <FunctionImportMapping FunctionImportName="SP_KIEMTRACHATLUONG_FLAGXOA_UPDATE_FLAGXOA" FunctionName="wqlkhosoiModel.Store.SP_KIEMTRACHATLUONG_FLAGXOA_UPDATE_FLAGXOA" />
+    <EntitySetMapping Name="NL_CHATLUONGKIEMTRA">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_CHATLUONGKIEMTRA">
+        <MappingFragment StoreEntitySet="NL_CHATLUONGKIEMTRA">
+          <ScalarProperty Name="MANHACC" ColumnName="MANHACC" />
+          <ScalarProperty Name="DANGLOI" ColumnName="DANGLOI" />
+          <ScalarProperty Name="NHACC" ColumnName="NHACC" />
+          <ScalarProperty Name="LOAI" ColumnName="LOAI" />
+          <ScalarProperty Name="MANVDONVI" ColumnName="MANVDONVI" />
+          <ScalarProperty Name="MANVKHO" ColumnName="MANVKHO" />
+          <ScalarProperty Name="DONVIKIEMTRA" ColumnName="DONVIKIEMTRA" />
+          <ScalarProperty Name="KHOKIEMTRA" ColumnName="KHOKIEMTRA" />
+          <ScalarProperty Name="THUC" ColumnName="THUC" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_RPT_INPHIEUKIEMTRACHATLUONG_SOI" FunctionName="wqlkhosoiModel.Store.SP_RPT_INPHIEUKIEMTRACHATLUONG_SOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_RPT_INPHIEUKIEMTRACHATLUONG_SOI_Result">
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="NGAYKHO" ColumnName="NGAYKHO" />
+          <ScalarProperty Name="NGAYKT" ColumnName="NGAYKT" />
+          <ScalarProperty Name="GDDV" ColumnName="GDDV" />
+          <ScalarProperty Name="THUKHO" ColumnName="THUKHO" />
+          <ScalarProperty Name="CKTHUKHO" ColumnName="CKTHUKHO" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="TENVATTU" ColumnName="TENVATTU" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="LOAI" ColumnName="LOAI" />
+          <ScalarProperty Name="MANVDONVI" ColumnName="MANVDONVI" />
+          <ScalarProperty Name="MANVKHO" ColumnName="MANVKHO" />
+          <ScalarProperty Name="THUC" ColumnName="THUC" />
+          <ScalarProperty Name="NHACC" ColumnName="NHACC" />
+          <ScalarProperty Name="KHOKIEMTRA" ColumnName="KHOKIEMTRA" />
+          <ScalarProperty Name="DONVIKIEMTRA" ColumnName="DONVIKIEMTRA" />
+          <ScalarProperty Name="DANGLOI" ColumnName="DANGLOI" />
+          <ScalarProperty Name="HOTEN_DONVIKIEMTRA" ColumnName="HOTEN_DONVIKIEMTRA" />
+          <ScalarProperty Name="HOTEN_THUKHO" ColumnName="HOTEN_THUKHO" />
+          <ScalarProperty Name="HOTEN_GDDV" ColumnName="HOTEN_GDDV" />
+          <ScalarProperty Name="NGAYIN" ColumnName="NGAYIN" />
+          <ScalarProperty Name="CHUKY" ColumnName="CHUKY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_DONHANGGCSOI" FunctionName="wqlkhosoiModel.Store.SP_GC_DONHANGGCSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_DONHANGGCSOI_Result">
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="LOAIGIACONG" ColumnName="LOAIGIACONG" />
+          <ScalarProperty Name="DVYC" ColumnName="DVYC" />
+          <ScalarProperty Name="DVTH" ColumnName="DVTH" />
+          <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
+          <ScalarProperty Name="MANV_DONVIYC_XX" ColumnName="MANV_DONVIYC_XX" />
+          <ScalarProperty Name="HIEULUCXX" ColumnName="HIEULUCXX" />
+          <ScalarProperty Name="MANV_DONVITH_XACNHAN" ColumnName="MANV_DONVITH_XACNHAN" />
+          <ScalarProperty Name="HIEULUCXACNHAN" ColumnName="HIEULUCXACNHAN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_LOAD_DONVITH" FunctionName="wqlkhosoiModel.Store.SP_GC_LOAD_DONVITH">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_LOAD_DONVITH_Result">
+          <ScalarProperty Name="IDMaDV" ColumnName="IDMaDV" />
+          <ScalarProperty Name="TenDonVi" ColumnName="TenDonVi" />
+          <ScalarProperty Name="HT" ColumnName="HT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_LOAD_DONVIYC_ByMANV" FunctionName="wqlkhosoiModel.Store.SP_GC_LOAD_DONVIYC_ByMANV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_LOAD_DONVIYC_ByMANV_Result">
+          <ScalarProperty Name="IDMaDV" ColumnName="IDMaDV" />
+          <ScalarProperty Name="TenDonVi" ColumnName="TenDonVi" />
+          <ScalarProperty Name="HT" ColumnName="HT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_LOAD_LOAIGIACONG" FunctionName="wqlkhosoiModel.Store.SP_GC_LOAD_LOAIGIACONG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_LOAD_LOAIGIACONG_Result">
+          <ScalarProperty Name="LOAIGIACONG" ColumnName="LOAIGIACONG" />
+          <ScalarProperty Name="TENGOI" ColumnName="TENGOI" />
+          <ScalarProperty Name="HT" ColumnName="HT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_LOAD_MANVDONVITH_ByMADV" FunctionName="wqlkhosoiModel.Store.SP_GC_LOAD_MANVDONVITH_ByMADV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_LOAD_MANVDONVITH_ByMADV_Result">
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="HT" ColumnName="HT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_LOAD_MANVDONVIYC_ByMANV" FunctionName="wqlkhosoiModel.Store.SP_GC_LOAD_MANVDONVIYC_ByMANV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_LOAD_MANVDONVIYC_ByMANV_Result">
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="HT" ColumnName="HT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_INSERT_DONHANGGCSOI" FunctionName="wqlkhosoiModel.Store.SP_GC_INSERT_DONHANGGCSOI" />
+    <FunctionImportMapping FunctionImportName="SP_GC_DMLoaiDonHang" FunctionName="wqlkhosoiModel.Store.SP_GC_DMLoaiDonHang">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_DMLoaiDonHang_Result">
+          <ScalarProperty Name="LOAIDH" ColumnName="LOAIDH" />
+          <ScalarProperty Name="TENGOI" ColumnName="TENGOI" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_MASOITHANHPHAM" FunctionName="wqlkhosoiModel.Store.SP_GC_MASOITHANHPHAM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_MASOITHANHPHAM_Result">
+          <ScalarProperty Name="MAVATTU" ColumnName="MAVATTU" />
+          <ScalarProperty Name="Tenvattu" ColumnName="Tenvattu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_DONHANGGCSOI_TAODONHANG" FunctionName="wqlkhosoiModel.Store.SP_GC_DONHANGGCSOI_TAODONHANG" />
+    <FunctionImportMapping FunctionImportName="SP_GC_DELETE_DONHANGGCSOI" FunctionName="wqlkhosoiModel.Store.SP_GC_DELETE_DONHANGGCSOI" />
+    <FunctionImportMapping FunctionImportName="SP_GC_DELETE_DONHANGGCSOI_CT" FunctionName="wqlkhosoiModel.Store.SP_GC_DELETE_DONHANGGCSOI_CT" />
+    <FunctionImportMapping FunctionImportName="SP_GC_MADHGCSOI_DONHANGGCSOI" FunctionName="wqlkhosoiModel.Store.SP_GC_MADHGCSOI_DONHANGGCSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_MADHGCSOI_DONHANGGCSOI_Result">
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="MANV_DONVIYC_XX" ColumnName="MANV_DONVIYC_XX" />
+          <ScalarProperty Name="MANV_DONVITH_XACNHAN" ColumnName="MANV_DONVITH_XACNHAN" />
+          <ScalarProperty Name="HIEULUCXX" ColumnName="HIEULUCXX" />
+          <ScalarProperty Name="HIEULUCXACNHAN" ColumnName="HIEULUCXACNHAN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_LOAD_DONHANGGCSOI_CT_BYMADH" FunctionName="wqlkhosoiModel.Store.SP_GC_LOAD_DONHANGGCSOI_CT_BYMADH">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_LOAD_DONHANGGCSOI_CT_BYMADH_Result">
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="Loaidh" ColumnName="Loaidh" />
+          <ScalarProperty Name="NGAYYCAU" ColumnName="NGAYYCAU" />
+          <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
+          <ScalarProperty Name="DIENGIAI" ColumnName="DIENGIAI" />
+          <ScalarProperty Name="SOLUONGYEUCAU" ColumnName="SOLUONGYEUCAU" />
+          <ScalarProperty Name="MASOITHANHPHAM" ColumnName="MASOITHANHPHAM" />
+          <ScalarProperty Name="KHOA_ID" ColumnName="KHOA_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_UPDATE_DONHANGGCSOI_XX" FunctionName="wqlkhosoiModel.Store.SP_GC_UPDATE_DONHANGGCSOI_XX" />
+    <FunctionImportMapping FunctionImportName="SP_GC_MADHGCSOI_DONHANGGCSOI_XNDVYC" FunctionName="wqlkhosoiModel.Store.SP_GC_MADHGCSOI_DONHANGGCSOI_XNDVYC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_MADHGCSOI_DONHANGGCSOI_XNDVYC_Result">
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="MANV_DONVIYC_XX" ColumnName="MANV_DONVIYC_XX" />
+          <ScalarProperty Name="MANV_DONVITH_XACNHAN" ColumnName="MANV_DONVITH_XACNHAN" />
+          <ScalarProperty Name="HIEULUCXX" ColumnName="HIEULUCXX" />
+          <ScalarProperty Name="HIEULUCXACNHAN" ColumnName="HIEULUCXACNHAN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_UPDATE_DONHANGGCSOI_XN" FunctionName="wqlkhosoiModel.Store.SP_GC_UPDATE_DONHANGGCSOI_XN" />
+    <FunctionImportMapping FunctionImportName="SP_GC_LOAD_GC_DMPHIEU_BANGKENHAPSOI" FunctionName="wqlkhosoiModel.Store.SP_GC_LOAD_GC_DMPHIEU_BANGKENHAPSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_LOAD_GC_DMPHIEU_BANGKENHAPSOI_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+          <ScalarProperty Name="KIHIEUDV" ColumnName="KIHIEUDV" />
+          <ScalarProperty Name="MANV_XX" ColumnName="MANV_XX" />
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+          <ScalarProperty Name="THANG" ColumnName="THANG" />
+          <ScalarProperty Name="NHAPKHO" ColumnName="NHAPKHO" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="HINHTHUC" ColumnName="HINHTHUC" />
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="LYDOSANXUAT" ColumnName="LYDOSANXUAT" />
+          <ScalarProperty Name="MALOAICONGDOAN" ColumnName="MALOAICONGDOAN" />
+          <ScalarProperty Name="CONGDOAN" ColumnName="CONGDOAN" />
+          <ScalarProperty Name="HIEULUC_XX" ColumnName="HIEULUC_XX" />
+          <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LOAD_DMKHO_BY_IDMADV" FunctionName="wqlkhosoiModel.Store.SP_LOAD_DMKHO_BY_IDMADV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_DMKHO_BY_IDMADV_Result">
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="TENKHO" ColumnName="TENKHO" />
+          <ScalarProperty Name="HT" ColumnName="HT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_BANGKENHAPSOI_MAHINHTHUC_LOAD_MAHTHUC_MADV" FunctionName="wqlkhosoiModel.Store.SP_BANGKENHAPSOI_MAHINHTHUC_LOAD_MAHTHUC_MADV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_BANGKENHAPSOI_MAHINHTHUC_LOAD_MAHTHUC_MADV_Result">
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="TENHTHUC" ColumnName="TENHTHUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LDD_DMNOIDEN_LOAD_BY_MADV_MANV" FunctionName="wqlkhosoiModel.Store.SP_LDD_DMNOIDEN_LOAD_BY_MADV_MANV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LDD_DMNOIDEN_LOAD_BY_MADV_MANV_Result">
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="NOIDEN" ColumnName="NOIDEN" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_MACONGTHUC_LOAD_NVXX_BY_MADV" FunctionName="wqlkhosoiModel.Store.SP_GC_MACONGTHUC_LOAD_NVXX_BY_MADV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_MACONGTHUC_LOAD_NVXX_BY_MADV_Result">
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="HT" ColumnName="HT" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="GC_CTPHIEUXUATGC">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.GC_CTPHIEUXUATGC">
+        <MappingFragment StoreEntitySet="GC_CTPHIEUXUATGC">
+          <ScalarProperty Name="Khoa_CTphieuGC" ColumnName="Khoa_CTphieuGC" />
+          <ScalarProperty Name="DANGCONGDOAN" ColumnName="DANGCONGDOAN" />
+          <ScalarProperty Name="MACONGDOAN" ColumnName="MACONGDOAN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="GIATRI" ColumnName="GIATRI" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="CHIEUDAI" ColumnName="CHIEUDAI" />
+          <ScalarProperty Name="KHOTRUC" ColumnName="KHOTRUC" />
+          <ScalarProperty Name="SOCANH" ColumnName="SOCANH" />
+          <ScalarProperty Name="SOTRUC" ColumnName="SOTRUC" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="SLHaoHutDM" ColumnName="SLHaoHutDM" />
+          <ScalarProperty Name="SOLUONGXuat" ColumnName="SOLUONGXuat" />
+          <ScalarProperty Name="SOLUONGNhap" ColumnName="SOLUONGNhap" />
+          <ScalarProperty Name="MASOICHAP" ColumnName="MASOICHAP" />
+          <ScalarProperty Name="MASOIHOANTAT" ColumnName="MASOIHOANTAT" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="MASOI" ColumnName="MASOI" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="KHOACTHUC" ColumnName="KHOACTHUC" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GC_DMPHIEU_BANGKENHAPSOI">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.GC_DMPHIEU_BANGKENHAPSOI">
+        <MappingFragment StoreEntitySet="GC_DMPHIEU_BANGKENHAPSOI">
+          <ScalarProperty Name="LoaiYCSX" ColumnName="LoaiYCSX" />
+          <ScalarProperty Name="NGAY_KT" ColumnName="NGAY_KT" />
+          <ScalarProperty Name="HIEULUC_KT" ColumnName="HIEULUC_KT" />
+          <ScalarProperty Name="MANV_KT" ColumnName="MANV_KT" />
+          <ScalarProperty Name="NGAY_XX" ColumnName="NGAY_XX" />
+          <ScalarProperty Name="HIEULUC_XX" ColumnName="HIEULUC_XX" />
+          <ScalarProperty Name="MANV_XX" ColumnName="MANV_XX" />
+          <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="CONGDOAN" ColumnName="CONGDOAN" />
+          <ScalarProperty Name="MALOAICONGDOAN" ColumnName="MALOAICONGDOAN" />
+          <ScalarProperty Name="LYDOSANXUAT" ColumnName="LYDOSANXUAT" />
+          <ScalarProperty Name="NHAPKHO" ColumnName="NHAPKHO" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="THANG" ColumnName="THANG" />
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+          <ScalarProperty Name="SO" ColumnName="SO" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_TAOPHIEUBANGKE_GC_DMPHIEU_BANGKENHAPSOI" FunctionName="wqlkhosoiModel.Store.SP_GC_TAOPHIEUBANGKE_GC_DMPHIEU_BANGKENHAPSOI" />
+    <FunctionImportMapping FunctionImportName="SP_CTPHIEUXUATGC_LOAD_MACONGTHUC_BY_MADV_MAKH" FunctionName="wqlkhosoiModel.Store.SP_CTPHIEUXUATGC_LOAD_MACONGTHUC_BY_MADV_MAKH">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_CTPHIEUXUATGC_LOAD_MACONGTHUC_BY_MADV_MAKH_Result">
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+          <ScalarProperty Name="KHOA" ColumnName="KHOA" />
+          <ScalarProperty Name="MaVT" ColumnName="MaVT" />
+          <ScalarProperty Name="SLPD" ColumnName="SLPD" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="DINHMUC" ColumnName="DINHMUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_CHITIETCONGTHUC_LOAD_SLPD_BY_KHOA" FunctionName="wqlkhosoiModel.Store.SP_GC_CHITIETCONGTHUC_LOAD_SLPD_BY_KHOA" />
+    <FunctionImportMapping FunctionImportName="SP_GC_CHITIETCONGTHUC_LOAD_SLPD_BY_KHOA_211223" FunctionName="wqlkhosoiModel.Store.SP_GC_CHITIETCONGTHUC_LOAD_SLPD_BY_KHOA_211223">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_CHITIETCONGTHUC_LOAD_SLPD_BY_KHOA_211223_Result">
+          <ScalarProperty Name="SLPD" ColumnName="SLPD" />
+          <ScalarProperty Name="Khoa" ColumnName="Khoa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_DMNGUYENLIEU_LOAD_COMBOBOX" FunctionName="wqlkhosoiModel.Store.SP_GC_DMNGUYENLIEU_LOAD_COMBOBOX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_DMNGUYENLIEU_LOAD_COMBOBOX_Result">
+          <ScalarProperty Name="MAVATTU" ColumnName="MAVATTU" />
+          <ScalarProperty Name="TENVATTU" ColumnName="TENVATTU" />
+          <ScalarProperty Name="VT" ColumnName="VT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_DMDANGCONGDOAN_LOAD_COMBOBOX" FunctionName="wqlkhosoiModel.Store.SP_GC_DMDANGCONGDOAN_LOAD_COMBOBOX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_DMDANGCONGDOAN_LOAD_COMBOBOX_Result">
+          <ScalarProperty Name="MACONGDOAN" ColumnName="MACONGDOAN" />
+          <ScalarProperty Name="DANGCONGDOAN" ColumnName="DANGCONGDOAN" />
+          <ScalarProperty Name="HT" ColumnName="HT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_LOAD_MADH_GCSOI" FunctionName="wqlkhosoiModel.Store.SP_GC_LOAD_MADH_GCSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_LOAD_MADH_GCSOI_Result">
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_DONVITINH_LOAD" FunctionName="wqlkhosoiModel.Store.SP_GC_DONVITINH_LOAD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_DONVITINH_LOAD_Result">
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_DMMACONGDOAN_LOAD_COMBOBOX" FunctionName="wqlkhosoiModel.Store.SP_GC_DMMACONGDOAN_LOAD_COMBOBOX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_DMMACONGDOAN_LOAD_COMBOBOX_Result">
+          <ScalarProperty Name="MACONGDOAN" ColumnName="MACONGDOAN" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_LOAD_MASOITHANHPHAM_BY_MADHGCSOI" FunctionName="wqlkhosoiModel.Store.SP_GC_LOAD_MASOITHANHPHAM_BY_MADHGCSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_LOAD_MASOITHANHPHAM_BY_MADHGCSOI_Result">
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="MASOIHOANTAT" ColumnName="MASOIHOANTAT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_CTPHIEUXUATGIACONG_INSERT_130415" FunctionName="wqlkhosoiModel.Store.SP_GC_CTPHIEUXUATGIACONG_INSERT_130415" />
+    <FunctionImportMapping FunctionImportName="SP_GC_CTPHIEUXUATGIACONG_INSERT_22122023" FunctionName="wqlkhosoiModel.Store.SP_GC_CTPHIEUXUATGIACONG_INSERT_22122023" />
+    <FunctionImportMapping FunctionImportName="SP_GC_CTPHIEUXUATGIACONG_BK_DELETE" FunctionName="wqlkhosoiModel.Store.SP_GC_CTPHIEUXUATGIACONG_BK_DELETE" />
+    <FunctionImportMapping FunctionImportName="SP_GC_DELETE_CTPHIEUXUATGIACONG_BYKHOA" FunctionName="wqlkhosoiModel.Store.SP_GC_DELETE_CTPHIEUXUATGIACONG_BYKHOA" />
+    <FunctionImportMapping FunctionImportName="SP_GC_UPDATE_DONHANGGCSOI_BOXN" FunctionName="wqlkhosoiModel.Store.SP_GC_UPDATE_DONHANGGCSOI_BOXN" />
+    <FunctionImportMapping FunctionImportName="SP_LOAD_MADINHMUC_TUBANGKEGCSOI" FunctionName="wqlkhosoiModel.Store.SP_LOAD_MADINHMUC_TUBANGKEGCSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_LOAD_MADINHMUC_TUBANGKEGCSOI_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+          <ScalarProperty Name="SO" ColumnName="SO" />
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+          <ScalarProperty Name="THANG" ColumnName="THANG" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="NHAPKHO" ColumnName="NHAPKHO" />
+          <ScalarProperty Name="LYDOSANXUAT" ColumnName="LYDOSANXUAT" />
+          <ScalarProperty Name="MALOAICONGDOAN" ColumnName="MALOAICONGDOAN" />
+          <ScalarProperty Name="CONGDOAN" ColumnName="CONGDOAN" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+          <ScalarProperty Name="MANV_XX" ColumnName="MANV_XX" />
+          <ScalarProperty Name="HIEULUC_XX" ColumnName="HIEULUC_XX" />
+          <ScalarProperty Name="NGAY_XX" ColumnName="NGAY_XX" />
+          <ScalarProperty Name="MANV_KT" ColumnName="MANV_KT" />
+          <ScalarProperty Name="HIEULUC_KT" ColumnName="HIEULUC_KT" />
+          <ScalarProperty Name="NGAY_KT" ColumnName="NGAY_KT" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="KHOACTHUC" ColumnName="KHOACTHUC" />
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="MASOI" ColumnName="MASOI" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MASOIHOANTAT" ColumnName="MASOIHOANTAT" />
+          <ScalarProperty Name="MASOICHAP" ColumnName="MASOICHAP" />
+          <ScalarProperty Name="SOLUONGNhap" ColumnName="SOLUONGNhap" />
+          <ScalarProperty Name="SOLUONGXuat" ColumnName="SOLUONGXuat" />
+          <ScalarProperty Name="SLHaoHutDM" ColumnName="SLHaoHutDM" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="SOTRUC" ColumnName="SOTRUC" />
+          <ScalarProperty Name="SOCANH" ColumnName="SOCANH" />
+          <ScalarProperty Name="KHOTRUC" ColumnName="KHOTRUC" />
+          <ScalarProperty Name="CHIEUDAI" ColumnName="CHIEUDAI" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="GIATRI" ColumnName="GIATRI" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="MACONGDOAN" ColumnName="MACONGDOAN" />
+          <ScalarProperty Name="DANGCONGDOAN" ColumnName="DANGCONGDOAN" />
+          <ScalarProperty Name="Khoa_CTphieuGC" ColumnName="Khoa_CTphieuGC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_GC_DMPHIEU_BANGKENHAPSOI_BY_MADV_HLXX" FunctionName="wqlkhosoiModel.Store.SP_GC_GC_DMPHIEU_BANGKENHAPSOI_BY_MADV_HLXX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_GC_DMPHIEU_BANGKENHAPSOI_BY_MADV_HLXX_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="NHAPKHO" ColumnName="NHAPKHO" />
+          <ScalarProperty Name="MALOAICONGDOAN" ColumnName="MALOAICONGDOAN" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="MANV_XX" ColumnName="MANV_XX" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_GC_DMPHIEU_BANGKENHAPSOI_BY_MADV" FunctionName="wqlkhosoiModel.Store.SP_GC_GC_DMPHIEU_BANGKENHAPSOI_BY_MADV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_GC_DMPHIEU_BANGKENHAPSOI_BY_MADV_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="NHAPKHO" ColumnName="NHAPKHO" />
+          <ScalarProperty Name="MALOAICONGDOAN" ColumnName="MALOAICONGDOAN" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="MANV_XX" ColumnName="MANV_XX" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_BANGKENHAPSOI_XEMXET_LOAD_MANVKETOAN_BY_MAHINHTHUC" FunctionName="wqlkhosoiModel.Store.SP_GC_BANGKENHAPSOI_XEMXET_LOAD_MANVKETOAN_BY_MAHINHTHUC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GC_BANGKENHAPSOI_XEMXET_LOAD_MANVKETOAN_BY_MAHINHTHUC_Result">
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="HT" ColumnName="HT" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GC_GC_DMPHIEU_BANGKENHAPSOI_DVXX_BySOPHIEU" FunctionName="wqlkhosoiModel.Store.SP_GC_GC_DMPHIEU_BANGKENHAPSOI_DVXX_BySOPHIEU" />
+    <FunctionImportMapping FunctionImportName="SP_GC_UPDATE_BOXX_DMPHIEU_BANGKENHAPSOI" FunctionName="wqlkhosoiModel.Store.SP_GC_UPDATE_BOXX_DMPHIEU_BANGKENHAPSOI" />
+    <FunctionImportMapping FunctionImportName="Sp_KethuaQuyenUser_KhoVT_Soi2023" FunctionName="wqlkhosoiModel.Store.Sp_KethuaQuyenUser_KhoVT_Soi2023" />
+    <FunctionImportMapping FunctionImportName="INSERT_INVOICE_NL_DMPHIEU" FunctionName="wqlkhosoiModel.Store.INSERT_INVOICE_NL_DMPHIEU" />
+    <EntitySetMapping Name="AUDIT_NL_DMPHIEU">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.AUDIT_NL_DMPHIEU">
+        <MappingFragment StoreEntitySet="AUDIT_NL_DMPHIEU">
+          <ScalarProperty Name="NGAYSUA" ColumnName="NGAYSUA" />
+          <ScalarProperty Name="HOSTNAME" ColumnName="HOSTNAME" />
+          <ScalarProperty Name="HANHDONG" ColumnName="HANHDONG" />
+          <ScalarProperty Name="TNHANYC" ColumnName="TNHANYC" />
+          <ScalarProperty Name="PDUYET" ColumnName="PDUYET" />
+          <ScalarProperty Name="XXET" ColumnName="XXET" />
+          <ScalarProperty Name="NGAYTN" ColumnName="NGAYTN" />
+          <ScalarProperty Name="NGAYPD" ColumnName="NGAYPD" />
+          <ScalarProperty Name="NGAYXX" ColumnName="NGAYXX" />
+          <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="ND" ColumnName="ND" />
+          <ScalarProperty Name="NK" ColumnName="NK" />
+          <ScalarProperty Name="DX" ColumnName="DX" />
+          <ScalarProperty Name="LOAIPHIEU" ColumnName="LOAIPHIEU" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="LYDOSD" ColumnName="LYDOSD" />
+          <ScalarProperty Name="NGUOILAPPHIEU" ColumnName="NGUOILAPPHIEU" />
+          <ScalarProperty Name="NGUOITIEPNHAN" ColumnName="NGUOITIEPNHAN" />
+          <ScalarProperty Name="NGUOIXX" ColumnName="NGUOIXX" />
+          <ScalarProperty Name="NGUOIPD" ColumnName="NGUOIPD" />
+          <ScalarProperty Name="NGAYYC" ColumnName="NGAYYC" />
+          <ScalarProperty Name="MAPHIEU" ColumnName="MAPHIEU" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SOI2024_LOAD_DATA_MASOI_NHAPKHO_NKNB_BYSOCTXN" FunctionName="wqlkhosoiModel.Store.SOI2024_LOAD_DATA_MASOI_NHAPKHO_NKNB_BYSOCTXN" />
+    <FunctionImportMapping FunctionImportName="SOI2024_LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC_v1" FunctionName="wqlkhosoiModel.Store.SOI2024_LOAD_DATA_MASOI_NHAPKHO_NKNB_XBAN_XGC_v1" />
+    <EntitySetMapping Name="NL_DMNHOMNGLIEU">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_DMNHOMNGLIEU">
+        <MappingFragment StoreEntitySet="NL_DMNHOMNGLIEU">
+          <ScalarProperty Name="TENNHOMCHITIET" ColumnName="TENNHOMCHITIET" />
+          <ScalarProperty Name="KyhieuThanhPhan" ColumnName="KyhieuThanhPhan" />
+          <ScalarProperty Name="MATC" ColumnName="MATC" />
+          <ScalarProperty Name="MANHOMSOI" ColumnName="MANHOMSOI" />
+          <ScalarProperty Name="MANHOMVT" ColumnName="MANHOMVT" />
+          <ScalarProperty Name="TENNHOMNGL" ColumnName="TENNHOMNGL" />
+          <ScalarProperty Name="MANHOMNGL" ColumnName="MANHOMNGL" />
+          <ScalarProperty Name="MANGL" ColumnName="MANGL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_NL_Load_NL_DMNHOMNGLIEU" FunctionName="wqlkhosoiModel.Store.SP_NL_Load_NL_DMNHOMNGLIEU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_NL_Load_NL_DMNHOMNGLIEU_Result">
+          <ScalarProperty Name="MaNGL" ColumnName="MaNGL" />
+          <ScalarProperty Name="Manhom" ColumnName="Manhom" />
+          <ScalarProperty Name="TenNhomNGL" ColumnName="TenNhomNGL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Nl_TaoMaVT" FunctionName="wqlkhosoiModel.Store.sp_Nl_TaoMaVT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.sp_Nl_TaoMaVT_Result">
+          <ScalarProperty Name="Sothutu" ColumnName="Sothutu" />
+          <ScalarProperty Name="mavt" ColumnName="mavt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO" FunctionName="wqlkhosoiModel.Store.VATTU2024_SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+          <ScalarProperty Name="VT" ColumnName="VT" />
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SP_LOAD_SOPHIEU_SOIGIACONG_CHUAHOIKHO" FunctionName="wqlkhosoiModel.Store.VATTU2024_SP_LOAD_SOPHIEU_SOIGIACONG_CHUAHOIKHO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SP_LOAD_SOPHIEU_SOIGIACONG_CHUAHOIKHO_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GETLIST_NL_DMPHIEU" FunctionName="wqlkhosoiModel.Store.SP_GETLIST_NL_DMPHIEU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SP_GETLIST_NL_DMPHIEU_Result">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="MaNVYC" ColumnName="MaNVYC" />
+          <ScalarProperty Name="MANVXUAT" ColumnName="MANVXUAT" />
+          <ScalarProperty Name="IDMADV" ColumnName="IDMADV" />
+          <ScalarProperty Name="MABP" ColumnName="MABP" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="IDMADVNHAN" ColumnName="IDMADVNHAN" />
+          <ScalarProperty Name="MAKHONHAN" ColumnName="MAKHONHAN" />
+          <ScalarProperty Name="MANVNHAN" ColumnName="MANVNHAN" />
+          <ScalarProperty Name="IDMADVXUAT" ColumnName="IDMADVXUAT" />
+          <ScalarProperty Name="MAKHOXUAT" ColumnName="MAKHOXUAT" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="NOIDEN" ColumnName="NOIDEN" />
+          <ScalarProperty Name="KETHUA" ColumnName="KETHUA" />
+          <ScalarProperty Name="DAXUATKHO_" ColumnName="DAXUATKHO_" />
+          <ScalarProperty Name="GUIAPI" ColumnName="GUIAPI" />
+          <ScalarProperty Name="NGAYGUIAPI" ColumnName="NGAYGUIAPI" />
+          <ScalarProperty Name="SOPO" ColumnName="SOPO" />
+          <ScalarProperty Name="InternalidPO" ColumnName="InternalidPO" />
+          <ScalarProperty Name="Externalid_IAD" ColumnName="Externalid_IAD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SPLOAD_DONHANGGCSOI_PHIEUYCXUATKHO" FunctionName="wqlkhosoiModel.Store.VATTU2024_SPLOAD_DONHANGGCSOI_PHIEUYCXUATKHO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SPLOAD_DONHANGGCSOI_PHIEUYCXUATKHO_Result">
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="LOAIGIACONG" ColumnName="LOAIGIACONG" />
+          <ScalarProperty Name="IDMADV_YC" ColumnName="IDMADV_YC" />
+          <ScalarProperty Name="IDMADV_TH" ColumnName="IDMADV_TH" />
+          <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
+          <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
+          <ScalarProperty Name="MANV_DONVIYC_XX" ColumnName="MANV_DONVIYC_XX" />
+          <ScalarProperty Name="NGAYXEMXET" ColumnName="NGAYXEMXET" />
+          <ScalarProperty Name="HIEULUCXX" ColumnName="HIEULUCXX" />
+          <ScalarProperty Name="MANV_DONVITH_XACNHAN" ColumnName="MANV_DONVITH_XACNHAN" />
+          <ScalarProperty Name="NGAYXACNHAN" ColumnName="NGAYXACNHAN" />
+          <ScalarProperty Name="HIEULUCXACNHAN" ColumnName="HIEULUCXACNHAN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SP_GC_DMNGUYENLIEU_SOIHOANTAT" FunctionName="wqlkhosoiModel.Store.VATTU2024_SP_GC_DMNGUYENLIEU_SOIHOANTAT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SP_GC_DMNGUYENLIEU_SOIHOANTAT_Result">
+          <ScalarProperty Name="MAVATTU" ColumnName="MAVATTU" />
+          <ScalarProperty Name="TENVATTU" ColumnName="TENVATTU" />
+          <ScalarProperty Name="VT" ColumnName="VT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SPLOAD_MADONHANG_ND_XK" FunctionName="wqlkhosoiModel.Store.VATTU2024_SPLOAD_MADONHANG_ND_XK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SPLOAD_MADONHANG_ND_XK_Result">
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DINHMUC_SOIGC" FunctionName="wqlkhosoiModel.Store.DINHMUC_SOIGC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.DINHMUC_SOIGC_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="Masoi" ColumnName="Masoi" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="dinhmuc" ColumnName="dinhmuc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SPLOAD_GC_CTPHIEUXUATGC" FunctionName="wqlkhosoiModel.Store.VATTU2024_SPLOAD_GC_CTPHIEUXUATGC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SPLOAD_GC_CTPHIEUXUATGC_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="KHOACTHUC" ColumnName="KHOACTHUC" />
+          <ScalarProperty Name="MADH_GCSOI" ColumnName="MADH_GCSOI" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="MASOI" ColumnName="MASOI" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MASOIHOANTAT" ColumnName="MASOIHOANTAT" />
+          <ScalarProperty Name="MASOICHAP" ColumnName="MASOICHAP" />
+          <ScalarProperty Name="SOLUONGNhap" ColumnName="SOLUONGNhap" />
+          <ScalarProperty Name="SOLUONGXuat" ColumnName="SOLUONGXuat" />
+          <ScalarProperty Name="SLHaoHutDM" ColumnName="SLHaoHutDM" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="SOTRUC" ColumnName="SOTRUC" />
+          <ScalarProperty Name="SOCANH" ColumnName="SOCANH" />
+          <ScalarProperty Name="KHOTRUC" ColumnName="KHOTRUC" />
+          <ScalarProperty Name="CHIEUDAI" ColumnName="CHIEUDAI" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="GIATRI" ColumnName="GIATRI" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="MACONGDOAN" ColumnName="MACONGDOAN" />
+          <ScalarProperty Name="DANGCONGDOAN" ColumnName="DANGCONGDOAN" />
+          <ScalarProperty Name="Khoa_CTphieuGC" ColumnName="Khoa_CTphieuGC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_DMPHIEU_BANGKENHAPSOI_INSERT_211223" FunctionName="wqlkhosoiModel.Store.SP_DMPHIEU_BANGKENHAPSOI_INSERT_211223" />
+    <FunctionImportMapping FunctionImportName="VATTU2024_SPLOAD_GC_DMPHIEU_BANGKENHAPSOI" FunctionName="wqlkhosoiModel.Store.VATTU2024_SPLOAD_GC_DMPHIEU_BANGKENHAPSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SPLOAD_GC_DMPHIEU_BANGKENHAPSOI_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+          <ScalarProperty Name="SO" ColumnName="SO" />
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+          <ScalarProperty Name="THANG" ColumnName="THANG" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="NHAPKHO" ColumnName="NHAPKHO" />
+          <ScalarProperty Name="LYDOSANXUAT" ColumnName="LYDOSANXUAT" />
+          <ScalarProperty Name="MALOAICONGDOAN" ColumnName="MALOAICONGDOAN" />
+          <ScalarProperty Name="CONGDOAN" ColumnName="CONGDOAN" />
+          <ScalarProperty Name="LoaiYCSX" ColumnName="LoaiYCSX" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+          <ScalarProperty Name="MANV_XX" ColumnName="MANV_XX" />
+          <ScalarProperty Name="HIEULUC_XX" ColumnName="HIEULUC_XX" />
+          <ScalarProperty Name="NGAY_XX" ColumnName="NGAY_XX" />
+          <ScalarProperty Name="MANV_KT" ColumnName="MANV_KT" />
+          <ScalarProperty Name="HIEULUC_KT" ColumnName="HIEULUC_KT" />
+          <ScalarProperty Name="NGAY_KT" ColumnName="NGAY_KT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SPLOAD_GC_CTPHIEUXUATGC_SUMSOLUONG" FunctionName="wqlkhosoiModel.Store.VATTU2024_SPLOAD_GC_CTPHIEUXUATGC_SUMSOLUONG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SPLOAD_GC_CTPHIEUXUATGC_SUMSOLUONG_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="SOLUONGNhap" ColumnName="SOLUONGNhap" />
+          <ScalarProperty Name="SOLUONGXuat" ColumnName="SOLUONGXuat" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SPLOAD_DMNGUYENLIEUSOI" FunctionName="wqlkhosoiModel.Store.VATTU2024_SPLOAD_DMNGUYENLIEUSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SPLOAD_DMNGUYENLIEUSOI_Result">
+          <ScalarProperty Name="MAVATTU" ColumnName="MAVATTU" />
+          <ScalarProperty Name="Tenvattu" ColumnName="Tenvattu" />
+          <ScalarProperty Name="nOTE" ColumnName="nOTE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NL_DMPHIEUXN">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_DMPHIEUXN">
+        <MappingFragment StoreEntitySet="NL_DMPHIEUXN">
+          <ScalarProperty Name="Externalid_IAD" ColumnName="Externalid_IAD" />
+          <ScalarProperty Name="InternalidPO" ColumnName="InternalidPO" />
+          <ScalarProperty Name="SOPO" ColumnName="SOPO" />
+          <ScalarProperty Name="NGAYGUIAPI" ColumnName="NGAYGUIAPI" />
+          <ScalarProperty Name="GUIAPI" ColumnName="GUIAPI" />
+          <ScalarProperty Name="DAXUATKHO_" ColumnName="DAXUATKHO_" />
+          <ScalarProperty Name="KETHUA" ColumnName="KETHUA" />
+          <ScalarProperty Name="NOIDEN" ColumnName="NOIDEN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="MAKHOXUAT" ColumnName="MAKHOXUAT" />
+          <ScalarProperty Name="IDMADVXUAT" ColumnName="IDMADVXUAT" />
+          <ScalarProperty Name="MANVNHAN" ColumnName="MANVNHAN" />
+          <ScalarProperty Name="MAKHONHAN" ColumnName="MAKHONHAN" />
+          <ScalarProperty Name="IDMADVNHAN" ColumnName="IDMADVNHAN" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="MABP" ColumnName="MABP" />
+          <ScalarProperty Name="IDMADV" ColumnName="IDMADV" />
+          <ScalarProperty Name="MANVXUAT" ColumnName="MANVXUAT" />
+          <ScalarProperty Name="MaNVYC" ColumnName="MaNVYC" />
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLDMNGUYENLIEUx">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.TBLDMNGUYENLIEU">
+        <MappingFragment StoreEntitySet="TBLDMNGUYENLIEU">
+          <ScalarProperty Name="LoaiSoi" ColumnName="LoaiSoi" />
+          <ScalarProperty Name="MACP" ColumnName="MACP" />
+          <ScalarProperty Name="INCOME" ColumnName="INCOME" />
+          <ScalarProperty Name="COGS" ColumnName="COGS" />
+          <ScalarProperty Name="ASSET" ColumnName="ASSET" />
+          <ScalarProperty Name="NGAYMODIFY" ColumnName="NGAYMODIFY" />
+          <ScalarProperty Name="MANVMODIFY" ColumnName="MANVMODIFY" />
+          <ScalarProperty Name="NGAYCN" ColumnName="NGAYCN" />
+          <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
+          <ScalarProperty Name="NgayGuiAPI" ColumnName="NgayGuiAPI" />
+          <ScalarProperty Name="GuiAPI" ColumnName="GuiAPI" />
+          <ScalarProperty Name="Tenvattu_CUGC" ColumnName="Tenvattu_CUGC" />
+          <ScalarProperty Name="Tile5" ColumnName="Tile5" />
+          <ScalarProperty Name="MANGL5" ColumnName="MANGL5" />
+          <ScalarProperty Name="Tile4" ColumnName="Tile4" />
+          <ScalarProperty Name="MANGL4" ColumnName="MANGL4" />
+          <ScalarProperty Name="Tile3" ColumnName="Tile3" />
+          <ScalarProperty Name="MANGL3" ColumnName="MANGL3" />
+          <ScalarProperty Name="Tile2" ColumnName="Tile2" />
+          <ScalarProperty Name="MANGL2" ColumnName="MANGL2" />
+          <ScalarProperty Name="Tile1" ColumnName="Tile1" />
+          <ScalarProperty Name="MANGL1" ColumnName="MANGL1" />
+          <ScalarProperty Name="TenVTat" ColumnName="TenVTat" />
+          <ScalarProperty Name="Dongia" ColumnName="Dongia" />
+          <ScalarProperty Name="Manhomvt" ColumnName="Manhomvt" />
+          <ScalarProperty Name="MA2" ColumnName="MA2" />
+          <ScalarProperty Name="isHieuluc" ColumnName="isHieuluc" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="CS2" ColumnName="CS2" />
+          <ScalarProperty Name="CS1" ColumnName="CS1" />
+          <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+          <ScalarProperty Name="MaNGL" ColumnName="MaNGL" />
+          <ScalarProperty Name="Tenvattu" ColumnName="Tenvattu" />
+          <ScalarProperty Name="MAVATTU" ColumnName="MAVATTU" />
+          <ScalarProperty Name="MAID" ColumnName="MAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_LOADMAPHIEUPD" FunctionName="wqlkhosoiModel.Store.VATTU2024_LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_LOADMAPHIEUPD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_LOAD_DATA_MASOI_XUATKHO_THEO_XKNB_LOADMAPHIEUPD_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="KeyKhoa" ColumnName="KeyKhoa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_DINHMUC_SOIGC_TONGSLVATTUCAN" FunctionName="wqlkhosoiModel.Store.VATTU2024_DINHMUC_SOIGC_TONGSLVATTUCAN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_DINHMUC_SOIGC_TONGSLVATTUCAN_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="Masoi" ColumnName="Masoi" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="NVL" ColumnName="NVL" />
+          <ScalarProperty Name="TONGSLNVLCAN" ColumnName="TONGSLNVLCAN" />
+          <ScalarProperty Name="dinhmuc" ColumnName="dinhmuc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SP_GC_DMPHIEU_CHITIETPHIEUXUAT_SUB_REPORT" FunctionName="wqlkhosoiModel.Store.VATTU2024_SP_GC_DMPHIEU_CHITIETPHIEUXUAT_SUB_REPORT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SP_GC_DMPHIEU_CHITIETPHIEUXUAT_SUB_REPORT_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="KHOACTHUC" ColumnName="KHOACTHUC" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="MASOI" ColumnName="MASOI" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MASOICHAP" ColumnName="MASOICHAP" />
+          <ScalarProperty Name="MASOIHOANTAT" ColumnName="MASOIHOANTAT" />
+          <ScalarProperty Name="SOLUONGNhap" ColumnName="SOLUONGNhap" />
+          <ScalarProperty Name="SOLUONGXuat" ColumnName="SOLUONGXuat" />
+          <ScalarProperty Name="SLHaoHutDM" ColumnName="SLHaoHutDM" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="SOTRUC" ColumnName="SOTRUC" />
+          <ScalarProperty Name="SOCANH" ColumnName="SOCANH" />
+          <ScalarProperty Name="KHOTRUC" ColumnName="KHOTRUC" />
+          <ScalarProperty Name="CHIEUDAI" ColumnName="CHIEUDAI" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="GIATRI" ColumnName="GIATRI" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="MACONGDOAN" ColumnName="MACONGDOAN" />
+          <ScalarProperty Name="DANGCONGDOAN" ColumnName="DANGCONGDOAN" />
+          <ScalarProperty Name="Khoa_CTphieuGC" ColumnName="Khoa_CTphieuGC" />
+          <ScalarProperty Name="TENCONGDOAN" ColumnName="TENCONGDOAN" />
+          <ScalarProperty Name="TENGOI" ColumnName="TENGOI" />
+          <ScalarProperty Name="TENGOISOICHAP" ColumnName="TENGOISOICHAP" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2024_SP_GC_DMPHIEU_BANGKENHAPSOI_BY_SOPHIEU_REPORT" FunctionName="wqlkhosoiModel.Store.VATTU2024_SP_GC_DMPHIEU_BANGKENHAPSOI_BY_SOPHIEU_REPORT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2024_SP_GC_DMPHIEU_BANGKENHAPSOI_BY_SOPHIEU_REPORT_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+          <ScalarProperty Name="MADV" ColumnName="MADV" />
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+          <ScalarProperty Name="THANG" ColumnName="THANG" />
+          <ScalarProperty Name="SO" ColumnName="SO" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="HOTEN_TKV" ColumnName="HOTEN_TKV" />
+          <ScalarProperty Name="HOTEN_THUKHO" ColumnName="HOTEN_THUKHO" />
+          <ScalarProperty Name="NHAPKHO" ColumnName="NHAPKHO" />
+          <ScalarProperty Name="LYDOSANXUAT" ColumnName="LYDOSANXUAT" />
+          <ScalarProperty Name="MALOAICONGDOAN" ColumnName="MALOAICONGDOAN" />
+          <ScalarProperty Name="CONGDOAN" ColumnName="CONGDOAN" />
+          <ScalarProperty Name="HIEULUC_XX" ColumnName="HIEULUC_XX" />
+          <ScalarProperty Name="MANV_XX" ColumnName="MANV_XX" />
+          <ScalarProperty Name="HOTEN_XX" ColumnName="HOTEN_XX" />
+          <ScalarProperty Name="CHUKY_XX" ColumnName="CHUKY_XX" />
+          <ScalarProperty Name="ngay" ColumnName="ngay" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Insert_Invoice_NL_DMPHIEU_Review" FunctionName="wqlkhosoiModel.Store.Insert_Invoice_NL_DMPHIEU_Review">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.Insert_Invoice_NL_DMPHIEU_Review_Result">
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="MAVATTU" ColumnName="MAVATTU" />
+          <ScalarProperty Name="TENVT" ColumnName="TENVT" />
+          <ScalarProperty Name="SOHOPDONG" ColumnName="SOHOPDONG" />
+          <ScalarProperty Name="INVOICE" ColumnName="INVOICE" />
+          <ScalarProperty Name="TOKHAI" ColumnName="TOKHAI" />
+          <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
+          <ScalarProperty Name="QUOCGIA" ColumnName="QUOCGIA" />
+          <ScalarProperty Name="NGAYNHAPHANG" ColumnName="NGAYNHAPHANG" />
+          <ScalarProperty Name="MASPKHACH" ColumnName="MASPKHACH" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MANVCAPNHAT" ColumnName="MANVCAPNHAT" />
+          <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
+          <ScalarProperty Name="MANVMODIFY" ColumnName="MANVMODIFY" />
+          <ScalarProperty Name="NGAYMODIFY" ColumnName="NGAYMODIFY" />
+          <ScalarProperty Name="khoa_id" ColumnName="khoa_id" />
+          <ScalarProperty Name="MAPHIEU" ColumnName="MAPHIEU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="INVOICEs">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.INVOICE">
+        <MappingFragment StoreEntitySet="INVOICE">
+          <ScalarProperty Name="khoa_id" ColumnName="khoa_id" />
+          <ScalarProperty Name="NGAYMODIFY" ColumnName="NGAYMODIFY" />
+          <ScalarProperty Name="MANVMODIFY" ColumnName="MANVMODIFY" />
+          <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
+          <ScalarProperty Name="MANVCAPNHAT" ColumnName="MANVCAPNHAT" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MASPKHACH" ColumnName="MASPKHACH" />
+          <ScalarProperty Name="NGAYNHAPHANG" ColumnName="NGAYNHAPHANG" />
+          <ScalarProperty Name="QUOCGIA" ColumnName="QUOCGIA" />
+          <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
+          <ScalarProperty Name="TOKHAI" ColumnName="TOKHAI" />
+          <ScalarProperty Name="INVOICE1" ColumnName="INVOICE" />
+          <ScalarProperty Name="TENVT" ColumnName="TENVT" />
+          <ScalarProperty Name="MAVATTU" ColumnName="MAVATTU" />
+          <ScalarProperty Name="SOHOPDONG" ColumnName="SOHOPDONG" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="MAPHIEU" ColumnName="MAPHIEU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SOI2024_SPLOAD_XVCNB_KETHUA_SOCTXN" FunctionName="wqlkhosoiModel.Store.SOI2024_SPLOAD_XVCNB_KETHUA_SOCTXN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SOI2024_SPLOAD_XVCNB_KETHUA_SOCTXN_Result">
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="MAKHONHAN" ColumnName="MAKHONHAN" />
+          <ScalarProperty Name="MAKHOXUAT" ColumnName="MAKHOXUAT" />
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2025_SPLOAD_KHOATHAMCHIEU_BANGKE" FunctionName="wqlkhosoiModel.Store.VATTU2025_SPLOAD_KHOATHAMCHIEU_BANGKE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2025_SPLOAD_KHOATHAMCHIEU_BANGKE_Result">
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+          <ScalarProperty Name="IsKey" ColumnName="IsKey" />
+          <ScalarProperty Name="NGAYCN" ColumnName="NGAYCN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2025_SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_GIAYBONG" FunctionName="wqlkhosoiModel.Store.VATTU2025_SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_GIAYBONG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2025_SP_LOAD_DATA_SOIGIACONG_CHUAHOIKHO_GIAYBONG_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+          <ScalarProperty Name="VT" ColumnName="VT" />
+          <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SOI2025_SPLOAD_SOCTXN_TANGGIAMKHO_NL_CTXUATNHAP" FunctionName="wqlkhosoiModel.Store.SOI2025_SPLOAD_SOCTXN_TANGGIAMKHO_NL_CTXUATNHAP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.SOI2025_SPLOAD_SOCTXN_TANGGIAMKHO_NL_CTXUATNHAP_Result">
+          <ScalarProperty Name="MAKHONHAN" ColumnName="MAKHONHAN" />
+          <ScalarProperty Name="IDMADVNHAN" ColumnName="IDMADVNHAN" />
+          <ScalarProperty Name="KHOAKEYXN" ColumnName="KHOAKEYXN" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="LANXN" ColumnName="LANXN" />
+          <ScalarProperty Name="SOLUONGYC" ColumnName="SOLUONGYC" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="LOAICAPPHAT" ColumnName="LOAICAPPHAT" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="NGAYKETOAN" ColumnName="NGAYKETOAN" />
+          <ScalarProperty Name="MAVTTAM" ColumnName="MAVTTAM" />
+          <ScalarProperty Name="MaTaiSan" ColumnName="MaTaiSan" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="DAXUATKHO" ColumnName="DAXUATKHO" />
+          <ScalarProperty Name="MANVXUATKHO" ColumnName="MANVXUATKHO" />
+          <ScalarProperty Name="NGAYXUATKHO" ColumnName="NGAYXUATKHO" />
+          <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+          <ScalarProperty Name="SOHOADON" ColumnName="SOHOADON" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+          <ScalarProperty Name="NK_STATIC" ColumnName="NK_STATIC" />
+          <ScalarProperty Name="LOAIDONHANG" ColumnName="LOAIDONHANG" />
+          <ScalarProperty Name="ID_XN" ColumnName="ID_XN" />
+          <ScalarProperty Name="GUIAPI" ColumnName="GUIAPI" />
+          <ScalarProperty Name="NGAYGUIAPI" ColumnName="NGAYGUIAPI" />
+          <ScalarProperty Name="MADINHMUC" ColumnName="MADINHMUC" />
+          <ScalarProperty Name="MANVMODIFY" ColumnName="MANVMODIFY" />
+          <ScalarProperty Name="NGAYMODIFY" ColumnName="NGAYMODIFY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NL_CTXUATNHAP">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NL_CTXUATNHAP">
+        <MappingFragment StoreEntitySet="NL_CTXUATNHAP">
+          <ScalarProperty Name="DVT_TIEN" ColumnName="DVT_TIEN" />
+          <ScalarProperty Name="RatePO" ColumnName="RatePO" />
+          <ScalarProperty Name="NGAYMODIFY" ColumnName="NGAYMODIFY" />
+          <ScalarProperty Name="MANVMODIFY" ColumnName="MANVMODIFY" />
+          <ScalarProperty Name="MADINHMUC" ColumnName="MADINHMUC" />
+          <ScalarProperty Name="NGAYGUIAPI" ColumnName="NGAYGUIAPI" />
+          <ScalarProperty Name="GUIAPI" ColumnName="GUIAPI" />
+          <ScalarProperty Name="ID_XN" ColumnName="ID_XN" />
+          <ScalarProperty Name="LOAIDONHANG" ColumnName="LOAIDONHANG" />
+          <ScalarProperty Name="NK_STATIC" ColumnName="NK_STATIC" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+          <ScalarProperty Name="SOHOADON" ColumnName="SOHOADON" />
+          <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+          <ScalarProperty Name="NGAYXUATKHO" ColumnName="NGAYXUATKHO" />
+          <ScalarProperty Name="MANVXUATKHO" ColumnName="MANVXUATKHO" />
+          <ScalarProperty Name="DAXUATKHO" ColumnName="DAXUATKHO" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="MaTaiSan" ColumnName="MaTaiSan" />
+          <ScalarProperty Name="MAVTTAM" ColumnName="MAVTTAM" />
+          <ScalarProperty Name="NGAYKETOAN" ColumnName="NGAYKETOAN" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="LOAICAPPHAT" ColumnName="LOAICAPPHAT" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="SOLUONGTT" ColumnName="SOLUONGTT" />
+          <ScalarProperty Name="SOLUONGYC" ColumnName="SOLUONGYC" />
+          <ScalarProperty Name="LANXN" ColumnName="LANXN" />
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="KHOAKEYXN" ColumnName="KHOAKEYXN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHAPDIENGIAI_SOI">
+      <EntityTypeMapping TypeName="wqlkhosoiModel.NHAPDIENGIAI_SOI">
+        <MappingFragment StoreEntitySet="NHAPDIENGIAI_SOI">
+          <ScalarProperty Name="KHOAKEYXN" ColumnName="KHOAKEYXN" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="NGAY_NCC" ColumnName="NGAY_NCC" />
+          <ScalarProperty Name="DVT_NCC" ColumnName="DVT_NCC" />
+          <ScalarProperty Name="SOLUONG_NCC" ColumnName="SOLUONG_NCC" />
+          <ScalarProperty Name="TENVATTU_NCC" ColumnName="TENVATTU_NCC" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="SOCTKETOAN" ColumnName="SOCTKETOAN" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="KEYNHAP" ColumnName="KEYNHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2025_LOAD_PRINT_DATA_NHAPDIENGIAI_SOI_SOCTXN" FunctionName="wqlkhosoiModel.Store.VATTU2025_LOAD_PRINT_DATA_NHAPDIENGIAI_SOI_SOCTXN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2025_LOAD_PRINT_DATA_NHAPDIENGIAI_SOI_SOCTXN_Result">
+          <ScalarProperty Name="SOCTXN_A" ColumnName="SOCTXN_A" />
+          <ScalarProperty Name="MAVT_A" ColumnName="MAVT_A" />
+          <ScalarProperty Name="TENVT_A" ColumnName="TENVT_A" />
+          <ScalarProperty Name="DVT_A" ColumnName="DVT_A" />
+          <ScalarProperty Name="SOLUONG_A" ColumnName="SOLUONG_A" />
+          <ScalarProperty Name="SOCTKETOAN_A" ColumnName="SOCTKETOAN_A" />
+          <ScalarProperty Name="NgayKeToan_A" ColumnName="NgayKeToan_A" />
+          <ScalarProperty Name="TENVATTU_NCC" ColumnName="TENVATTU_NCC" />
+          <ScalarProperty Name="DVT_NCC" ColumnName="DVT_NCC" />
+          <ScalarProperty Name="SOLUONG_NCC" ColumnName="SOLUONG_NCC" />
+          <ScalarProperty Name="SOCTKETOAN_NCC" ColumnName="SOCTKETOAN_NCC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2025_SP_RPT_PHIEUDENGHIMUAHANG_PRINT" FunctionName="wqlkhosoiModel.Store.VATTU2025_SP_RPT_PHIEUDENGHIMUAHANG_PRINT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2025_SP_RPT_PHIEUDENGHIMUAHANG_PRINT_Result">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="MAPHIEU" ColumnName="MAPHIEU" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="XXET" ColumnName="XXET" />
+          <ScalarProperty Name="PDUYET" ColumnName="PDUYET" />
+          <ScalarProperty Name="DX" ColumnName="DX" />
+          <ScalarProperty Name="ND" ColumnName="ND" />
+          <ScalarProperty Name="NK" ColumnName="NK" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="NGAYYC" ColumnName="NGAYYC" />
+          <ScalarProperty Name="NGAYXX" ColumnName="NGAYXX" />
+          <ScalarProperty Name="NGAYPD" ColumnName="NGAYPD" />
+          <ScalarProperty Name="NguoiLapPhieu" ColumnName="NguoiLapPhieu" />
+          <ScalarProperty Name="NguoiXX" ColumnName="NguoiXX" />
+          <ScalarProperty Name="NguoiPD" ColumnName="NguoiPD" />
+          <ScalarProperty Name="Dongia" ColumnName="Dongia" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="TENVT" ColumnName="TENVT" />
+          <ScalarProperty Name="THOIDIEMSD" ColumnName="THOIDIEMSD" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="SLYCau" ColumnName="SLYCau" />
+          <ScalarProperty Name="SLXXet" ColumnName="SLXXet" />
+          <ScalarProperty Name="SLPD" ColumnName="SLPD" />
+          <ScalarProperty Name="SLTonDVi" ColumnName="SLTonDVi" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+          <ScalarProperty Name="HOTEN_NLP" ColumnName="HOTEN_NLP" />
+          <ScalarProperty Name="HOTEN_NGUOIXX" ColumnName="HOTEN_NGUOIXX" />
+          <ScalarProperty Name="HOTEN_NGUOIPD" ColumnName="HOTEN_NGUOIPD" />
+          <ScalarProperty Name="CHUKY_NGUOIXX" ColumnName="CHUKY_NGUOIXX" />
+          <ScalarProperty Name="CHUKY_NGUOIPD" ColumnName="CHUKY_NGUOIPD" />
+          <ScalarProperty Name="DONVIYEUCAU" ColumnName="DONVIYEUCAU" />
+          <ScalarProperty Name="TENDONHANG" ColumnName="TENDONHANG" />
+          <ScalarProperty Name="TENLOAIIYC" ColumnName="TENLOAIIYC" />
+          <ScalarProperty Name="DONVIYCMUA" ColumnName="DONVIYCMUA" />
+          <ScalarProperty Name="NGAYIN" ColumnName="NGAYIN" />
+          <ScalarProperty Name="GhiChucuaLanhDao" ColumnName="GhiChucuaLanhDao" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2025_LOADTONKHO_THEOMAVT_SOI" FunctionName="wqlkhosoiModel.Store.VATTU2025_LOADTONKHO_THEOMAVT_SOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2025_LOADTONKHO_THEOMAVT_SOI_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="SLTON" ColumnName="SLTON" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2026_UPDATE_STATUS_NL_DMPHIEUXN" FunctionName="wqlkhosoiModel.Store.VATTU2026_UPDATE_STATUS_NL_DMPHIEUXN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2026_UPDATE_STATUS_NL_DMPHIEUXN_Result">
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="kq" ColumnName="kq" />
+          <ScalarProperty Name="ngay" ColumnName="ngay" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2026_SP_RPT_BAOCAO_LICHSUXUATNHAP_NVLSOI" FunctionName="wqlkhosoiModel.Store.VATTU2026_SP_RPT_BAOCAO_LICHSUXUATNHAP_NVLSOI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlkhosoiModel.VATTU2026_SP_RPT_BAOCAO_LICHSUXUATNHAP_NVLSOI_Result">
+          <ScalarProperty Name="NGAYKETOAN" ColumnName="NGAYKETOAN" />
+          <ScalarProperty Name="SOHOADON" ColumnName="SOHOADON" />
+          <ScalarProperty Name="MAKHONHAN" ColumnName="MAKHONHAN" />
+          <ScalarProperty Name="MAKHOXUAT" ColumnName="MAKHOXUAT" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="TENVATTU" ColumnName="TENVATTU" />
+          <ScalarProperty Name="HIEU" ColumnName="HIEU" />
+          <ScalarProperty Name="LO" ColumnName="LO" />
+          <ScalarProperty Name="SOCTXN" ColumnName="SOCTXN" />
+          <ScalarProperty Name="SLNHAPKHO" ColumnName="SLNHAPKHO" />
+          <ScalarProperty Name="SLHOIKHO" ColumnName="SLHOIKHO" />
+          <ScalarProperty Name="SLXUATKHOINKH" ColumnName="SLXUATKHOINKH" />
+          <ScalarProperty Name="SLXUATKHOOUTKH" ColumnName="SLXUATKHOOUTKH" />
+          <ScalarProperty Name="KETHUA" ColumnName="KETHUA" />
+          <ScalarProperty Name="MAHTHUC" ColumnName="MAHTHUC" />
+          <ScalarProperty Name="SOPO" ColumnName="SOPO" />
+          <ScalarProperty Name="GUIAPI" ColumnName="GUIAPI" />
+          <ScalarProperty Name="NGAYGUIAPI" ColumnName="NGAYGUIAPI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

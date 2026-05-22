@@ -1,0 +1,77 @@
+﻿@{ 
+    var data = ViewBag.data as List<ToolsApp.EntityFramework.VatTu.VATTU2024_SP_THUKHOXUATKHO_LOAD_Result>;
+    var STT = 0;
+}
+<div class="control-group">
+    <table id="myTable" class="table table-bordered">
+        <thead>
+            <tr>
+                <th width="30px">STT</th>
+                <th>Mã vật tư</th>
+                <th>Tên vật tư</th>
+                <th>Mã phê duyệt</th>
+                <th>Đơn vị</th>
+                <th>MABP</th>
+                <th>Loại cấp phát</th>
+                <th>Số lượng yêu cầu</th>
+                <th>Đã xuất</th>
+                <th>Còn lại</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in data)
+            {
+                <tr>
+                    <td>@item.STT</td>
+                    <td><input style="display:none" type="text" id="data_MAVT_@(item.STT)" name="data_MAVT_@(item.STT)" value="@item.MAVT" class="form-control" />@item.MAVT</td>
+                    <td><input style="display:none" type="text" id="data_TENVT_@(item.STT)" name="data_TENVT_@(item.STT)" value="@item.TENVT" class="form-control" />@item.TENVT</td>
+                    <td><input style="display:none" type="text" id="data_MAPHIEUPD_@(item.STT)" name="data_MAPHIEUPD_@(item.STT)" value="@item.MAPHIEUPD" class="form-control" />@item.MAPHIEUPD</td>
+                    <td><input style="display:none" type="text" id="data_DonViYeuCau_@(item.STT)" name="data_DonViYeuCau_@(item.STT)" value="@item.DonViYeuCau" class="form-control" />@item.DonViYeuCau</td>
+                    <td><input style="display:none" type="text" id="data_MaBP_@(item.STT)" name="data_MaBP_@(item.STT)" value="@item.MaBP" class="form-control" />@item.MaBP</td>
+                    <td><input style="display:none" type="text" id="data_LOAICAPPHAT_@(item.STT)" name="data_LOAICAPPHAT_@(item.STT)" value="@item.LOAICAPPHAT" class="form-control" />@item.LOAICAPPHAT</td>
+                    <td><input style="display:none" type="text" id="data_SOLUONGYC_@(item.STT)" name="data_SOLUONGYC_@(item.STT)" value="@item.SOLUONGYC" class="form-control" />@item.SOLUONGYC</td>
+                    <td><input style="display:none" type="text" id="data_SOLUONGDAXUAT_@(item.STT)" name="data_SOLUONGDAXUAT_@(item.STT)" value="@item.SOLUONGDAXUAT" class="form-control" />@item.SOLUONGDAXUAT</td>
+                    <td><input type="number" min="0" onblur="update('@item.KHOAKEYXN', @(item.STT))" id="data_XUATKHOCONLAI_@(item.STT)" name="data_XUATKHOCONLAI_@(item.STT)" value="@item.XUATKHOCONLAI" class="form-control" /></td>
+                </tr>
+                STT++;
+            }
+
+
+        </tbody>
+    </table>
+</div>
+<script>
+    function update(Khoa, Stt) {
+          //string SOCTXN,string Khoa ,string SoLuongConLai
+        var XUATKHOCONLAI = $('#data_XUATKHOCONLAI_' + Stt).val();
+        var confirm_ = confirm('Bạn có muốn chỉnh sửa ?');
+        if (confirm_) {
+            $.ajax({
+                url: '@Url.Action("Action_Update")',
+                type: "POST",
+                data: {
+                    Khoa: Khoa,
+                    SoLuongConLai: XUATKHOCONLAI,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+            }).done(function (data) {
+                $(".divLoading").removeClass("loading");
+                if (data.status < 0) {
+                    notify(data.text, "error");
+                }
+                else {
+                    notify(data.text, "success");
+                }
+
+            }).fail(function (data) {
+                notify(data.text, "error");
+            });
+            return;
+        }
+
+    }
+</script>

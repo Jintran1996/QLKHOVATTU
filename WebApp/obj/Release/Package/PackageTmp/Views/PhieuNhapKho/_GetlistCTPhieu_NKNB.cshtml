@@ -1,0 +1,191 @@
+﻿
+@{
+    ViewBag.CTPhieu = "Danh Sách Nhập Kho Nội Bộ - Sợi";
+    var kethua_soctxn = ViewBag.kethua_soctxn as List<ToolsApp.EntityFramework.KhoSoi.SOI2024_SPLOAD_XVCNB_KETHUA_SOCTXN_Result>;
+    var SOCTXN_nhap = ViewBag.SOCTXN_nhap;
+    var MAHTHUC = ViewBag.MAHTHUC;
+}
+@using System.Globalization;
+@model ToolsApp.Models.NL_CTXUATNHAPViewModels
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card card-info card-tabs" id="myTap">
+                    <div class="card-header p-0 pt-1">
+                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                            <li class="nav-item" id="tab-1">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab-getlist-ctphieu" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home-ct" role="tab" aria-controls="custom-tabs-one-home-ct" aria-selected="true">Danh sách chi tiết phiếu @SOCTXN_nhap </a>
+                            </li>
+                            @*<li class="nav-item" id="tab-2">
+                                    <a class="nav-link" id="custom-tabs-one-profile-tab-action-ctphieu" style="display:block;" data-toggle="pill" href="#custom-tabs-one-profile-action" role="tab" aria-controls="custom-tabs-one-profile-action" aria-selected="false">Nhập sản lượng theo đơn hàng </a>
+                                </li>*@
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="custom-tabs-one-tabContent">
+                            <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home-ct" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab-getlist-ctphieu">
+                                <!--data-->
+                                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmctphieuXN", id = "frmctphieuXN", enctype = "multipart/form-data" }))
+                                {
+                                    <input class="form-control" type="text" autocomplete="off"
+                                           id="SOCTXN_Nhap" name="SOCTXN_Nhap" value="@SOCTXN_nhap.Trim()" hidden />
+                                    <input class="form-control" type="text" autocomplete="off"
+                                           id="nnbMAHTHUC" name="MAHTHUC" value="@MAHTHUC.Trim()" hidden />
+                                    <div class="row">
+                                        <div class="col-md-8">  
+                                            <div class="row" style="margin-bottom:15px">
+                                                <label class="col-md-3">Kế thừa SOCTXN :</label>
+                                                <div class="col-md-9">
+                                                    <select class="form-control chosen-select" id="SOCTXN_Xuat" name="SOCTXN_Xuat">
+                                                        <option disabled selected value="">--Kế thừa SOCTXN--</option>  
+                                                        @foreach (var item in kethua_soctxn) 
+                                                        {
+                                                            <option value="@item.SOCTXN">@item.SOCTXN || @item.MAKHOXUAT</option>   
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="button" id="btSavect" onclick="Insert_ctphieu_nnb();" class="btn btn-sm btn-primary" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-12 table-body-view-ctphieu-nknb  table-responsive">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                }
+                                <!--data-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+<script>
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" },
+        'search_contains': true
+    }
+    for (var selector in config) {
+        $(selector).chosen(config);
+    }
+
+    function reloadData_getlist_ctphieu_NKNB() {
+        var SOCTXN_ = $("#SOCTXN_Nhap").val();
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetListCTPhieu_View")',
+                timeout: 20000,
+                data: {
+                    SOCTXN: SOCTXN_,
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-view-ctphieu-nknb').html(response);
+
+                    $("#myTablectview").DataTable({
+                        //"responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": true,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+    }
+
+
+    function Insert_ctphieu_nnb() {
+        var madh = $("#Madh").val();
+        var SOCTXN_Xuat = $("#SOCTXN_Xuat").val();
+        var SOCTXN_Nhap = $("#SOCTXN_Nhap").val();
+        var nnbMAHTHUC = $("#nnbMAHTHUC").val();
+        var confirm_ = confirm('Bạn có chắc muốn nhập kế thừa từ SOCTXN xuất này?');
+        if (confirm_) {
+
+                $.ajax({
+                    url: '@Url.Action("_InsertFunCTTheoSOCTXuat")',
+                    type: "POST",
+                    data: {
+                        SOCTXN_Xuat: SOCTXN_Xuat, SOCTXN_Nhap: SOCTXN_Nhap, nnbMAHTHUC: nnbMAHTHUC
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status >= 1) {
+                            notify(result.text, "success");
+
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+                        $(".divLoading").removeClass("loading");
+                        document.getElementById("idCloseDetail").addEventListener("click", function () {
+                            $('#myModalDetail').modal('hide');
+                        });
+                        Details(SOCTXN_Nhap, nnbMAHTHUC);
+
+
+                       // reloadData_getlist_ctphieu();
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+        }
+    };
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        reloadData_getlist_ctphieu_NKNB();
+    })
+</script>
+
+
+
+
+
+
+
+

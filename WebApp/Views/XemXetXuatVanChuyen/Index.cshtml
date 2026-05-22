@@ -1,0 +1,339 @@
+﻿@{
+    ViewBag.Title = "Xem Xét Phiếu Vận Chuyển Xuất Kho (BM01/BM02/BM08)";
+    var SOCTXN = ViewBag.SOCTXN as List<ToolsApp.EntityFramework.VatTu.VATTU2025_SPLOAD_SOCTXN_TANGGIAMKHO_Result>;
+
+}
+
+<section class="content" style="font-size: 12px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Xem xét</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>SOCTXN </label>
+                                    <input class="form-control" type="text" autocomplete="off"
+                                           id="xLoaiphieu" hidden />
+                                    <select class="form-control chosen-select" onchange="Load_Get()"
+                                            id="SOCTXN" name="SOCTXN">
+                                        <option selected disabled value="">--Chọn Số chứng từ--</option>
+                                        @foreach (var item in SOCTXN)
+                                        {
+                                            <option value="@item.SOCTXN" loaiphieux="@item.LoaiPhieu">@item.SOCTXN || @item.LoaiPhieu</option>
+
+                                        }
+
+                                    </select>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="text-align:left">
+                                <div class="form-group">
+                                    <button id="btnLuu" onclick="Save()" type="button" class="btn bg-gradient-success" style="white-space: nowrap; margin-bottom:5px; width: 100px"><i class="fas fa-save"></i>&nbsp; Xem xét</button>
+                                    &nbsp; <!--Khoảng trắng-->
+                                    <button id="btnLuu" onclick="SendMail()" type="button" class="btn bg-gradient-info" style="white-space: nowrap; margin-bottom:5px; width: 100px"><i class="fas fa-print"></i>&nbsp; Gửi Mail</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End section search-->
+            </div>
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Chi tiết phiếu tăng/giảm kho</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+    <div id="myModal" class="modal fade modal-wide" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm", enctype = "multipart/form-data" }))
+                {
+
+                    <div class="modal-header">
+                        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="myModalContent">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="text-right">
+                            <button type="button" id="btPrint" onclick="javascript:CallPrint('myModalContent');" class="btn btn-sm btn-success"><i class="fa fa-print"></i>&nbsp;In</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                        </div>
+                    </div>}
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+    </script>
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+
+    </script>
+    <script>
+
+
+        function Load_Get() {
+            var selectedOption = $("#SOCTXN").find(":selected");
+
+            // Lấy attribute 'loaiphieux'
+            var loaiphieuValue = selectedOption.attr("loaiphieux");
+
+            // Gán vào input hidden
+            $("#xLoaiphieu").val(loaiphieuValue);
+
+
+            reloadData();
+        }
+
+
+        function reloadData(page) {
+            try {
+
+                var xLoaiphieu = $("#xLoaiphieu").val();
+                console.log(xLoaiphieu)
+                console.log("44")
+                var action = '';
+
+                if (xLoaiphieu == "VATTU") {
+                    action = '@Url.Action("_GetList_Vattu")';
+                }
+                else
+                {
+                    action = '@Url.Action("_GetList_Soi")';
+                }
+                $.ajax({
+                    url: action,
+                    timeout: 20000,
+                    data: {
+                        SOCTXN: $("#SOCTXN").val(),
+                        page: page
+                    },
+                    beforeSend: function () {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (response) {
+
+                        $('.table-body').html(response);
+
+                        $("#myTable").DataTable({
+                            destroy: true,
+                            "language": {
+                                "sProcessing": "Đang xử lý...",
+                                "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                                "sZeroRecords": "Không tìm thấy kết quả",
+                                "sEmptyTable": "Không có dữ liệu",
+                                "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                                "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                                "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Tìm kiếm:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Đang tải...",
+                                "oPaginate": {
+                                    "sFirst": "Đầu tiên",
+                                    "sLast": "Cuối cùng",
+                                    "sNext": "Sau",
+                                    "sPrevious": "Trước"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                    "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                                }
+                            },
+                            "searching": true,
+                            "info": false,
+                            "processing": false,
+                            "serverSide": false,
+                            "bFilter": true,
+                            "bPaginate": true,
+                            "bLengthChange": true,
+                            "bInfo": true,
+                            "responsive": true,
+                            "lengthChange": true,
+                            "autoWidth": false,
+                            "stateSave": true,
+                            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                            "initComplete": function (oSettings) {
+
+                            }
+                        });
+
+                        $(".divLoading").removeClass("loading");
+
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            } catch (e) {
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        var $ID_SOCT = "";
+
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        $(document).ready(function () {
+
+        });
+
+
+
+        function Save()
+        {
+            var confirm_ = confirm('Bạn có chắc muốn xem xét phiếu này ?');
+            if (confirm_) {
+                var SOCTXN_ = $("#SOCTXN").val();
+                var xLoaiphieu = $("#xLoaiphieu").val();
+                var _xemxet = "1";
+                if (_xemxet == "1") {
+                    $.ajax({
+                        url: '@Url.Action("_Save")',
+
+                        type: "POST",
+                        data: { SOCTXN: SOCTXN_, Loaiphieu: xLoaiphieu},
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            if (result.status > 0) {
+                                notify(result.text, "success");
+
+                                SendMail();
+                                location.reload();
+                            }
+                            else
+                            {
+                                notify(result.text, "error");
+                            }
+
+                            $(".divLoading").removeClass("loading");
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+                else {
+                    alert("Chưa chọn trạng thái xem xét. Vui lòng kiểm tra lại!");
+                }
+            }
+        }
+
+        function SendMail() {            
+                var SOCTXN_ = $("#SOCTXN").val();       
+                    $.ajax({
+                        url: '@Url.Action("openOutlookemailbox")',
+                        timeout: 20000,
+                        type: "POST",
+                        data: { SOCTXN: SOCTXN_ },
+                        beforeSend: function (xhr) {
+                            $(".divLoading").addClass("loading");
+                        },
+                        success: function (result) {
+                            window.location = result;
+                            $(".divLoading").removeClass("loading");
+                            window.location.reload();
+
+                        },
+                        error: function (message) {
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+        }
+
+        function Print() {
+             $.ajax({
+                url: '@Url.Action("ReportPrint")',
+                timeout: 20000,
+                type: "GET",
+                 data: {
+                     MaPhieu: $("#MaPhieu").val(),
+                 },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                 success: function (result) {
+                     if (result.status < 0) {
+                         notify(result.text, "error");
+                     }
+                     else {
+                         $myModalContent.html(result);
+                         $modal.modal();
+                         $(".divLoading").removeClass("loading");
+                     }
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+    </script>
+}
+
+

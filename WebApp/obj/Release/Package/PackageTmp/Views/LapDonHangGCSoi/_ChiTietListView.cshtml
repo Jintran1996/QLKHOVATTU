@@ -1,0 +1,50 @@
+﻿
+@{
+    var data = ViewBag.List as IEnumerable<ToolsApp.EntityFramework.KhoSoi.DONHANGGCSOI_CT>;
+    var STT = 1;
+}
+<table id="myTable_cthd" class="table table-bordered table-hover" width="100%">
+    <thead>
+        <tr>
+            <th></th>
+            <th>STT</th>
+            <th>Mã đơn hàng GC</th>
+            <th>Loại đơn hàng</th>
+            <th>Diễn giải</th>
+            <th>Số lượng</th>
+            <th>Mã sợi thành phẩm</th>
+            <th>Ngày yêu cầu</th>
+            <th>Ngày kết thúc</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in data)
+        {
+            <tr>
+                <td width="30px">
+                    <a id="hideXoa" onclick="Xoa_ChiTietLapPhieu_Click('@item.KHOA_ID')" class="btn">
+                        <i class="far fa-trash-alt"></i> Xóa
+                    </a>
+                </td>
+                <td> @STT </td>
+                <td>@item.MADH_GCSOI</td>
+                <td>@item.Loaidh</td>
+                <td>@item.DIENGIAI</td>
+                <td>@item.SOLUONGYEUCAU</td>
+                <td>@item.MASOITHANHPHAM</td>
+                <td>@item.NGAYYCAU</td>
+                <td>@item.NGAYKETTHUC</td>
+            </tr>
+            STT++;
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
