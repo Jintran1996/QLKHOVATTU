@@ -227,3 +227,13 @@ D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileIn
 D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
 D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
 D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Debug\ToolsApp.Libs.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Debug\ToolsApp.Libs.pdb
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Debug\System.Drawing.Common.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Debug\System.IO.Packaging.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Debug\System.IO.Packaging.xml
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Debug\Tools.Libs.csproj.AssemblyReference.cache
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Debug\Tools.Libs.csproj.CopyComplete
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Debug\ToolsApp.Libs.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Debug\ToolsApp.Libs.pdb

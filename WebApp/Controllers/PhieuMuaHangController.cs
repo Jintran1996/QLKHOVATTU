@@ -491,6 +491,7 @@ namespace ToolsApp.Controllers
                 }
             }
             #endregion
+
             try
             {
                 var item = vt_.CTPHIEUx.FirstOrDefault(p => p.IDKHOA == model.IDKHOA && p.MAPHIEU == model.MAPHIEU);

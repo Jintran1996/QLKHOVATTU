@@ -511,7 +511,7 @@ namespace ToolsApp.Controllers
                                             db_.Entry(dmvt).State = EntityState.Modified;
                                             db_.SaveChanges();
 
-                                            if (dmvt.LoaiVT == "QUANAO" || dmvt.LoaiVT == "PHUTRANG" || dmvt.LoaiVT == "SPMAYKHAC" || dmvt.LoaiVT == "PHUKIEN" || dmvt.LoaiVT == "NHUONGQUYEN")
+                                            if (dmvt.LoaiVT == "QUANAO" || dmvt.LoaiVT == "PHUTRANG" || dmvt.LoaiVT == "QUANAO_GC" || dmvt.LoaiVT == "PHUTRANG_GC"   || dmvt.LoaiVT == "SPMAYKHAC" || dmvt.LoaiVT == "PHUKIEN" || dmvt.LoaiVT == "NHUONGQUYEN")
                                             {
                                                 SPMAY.INSERT_FROM_DANHMUCVATTU_TO_DMMAHANG_SPM2023_HANGMUANGOAI(items.MAVT);
                                             }
@@ -633,7 +633,7 @@ namespace ToolsApp.Controllers
                                     var int_form = db_.TBL_DMLOAIVT_COA.FirstOrDefault(p => p.LoaiVT == items.LoaiVT).CustomForm;
 
                                     if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO" || items.LoaiVT == "VAI_TT_DI_GC" || items.LoaiVT == "MOC_TT_DI_GC"
-                                        || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
+                                        || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "QUANAO_GC" || items.LoaiVT == "PHUTRANG_GC" || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
                                     {
                                         item = new LotNumberedInventoryItem();
                                     }
@@ -730,7 +730,8 @@ namespace ToolsApp.Controllers
                                     a[4] = cust_phamvi;
 
                                     if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO" || items.LoaiVT == "VAI_TT_DI_GC" || items.LoaiVT == "MOC_TT_DI_GC"
-                                    || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
+                                    || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "QUANAO_GC" || items.LoaiVT == "PHUTRANG_GC"
+                                    || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
                                     {
                                         StringCustomFieldRef cust_dichdanhLOT = new StringCustomFieldRef();
                                         cust_dichdanhLOT.scriptId = "custitem_btm_mc_dich_danh_lot";
@@ -753,7 +754,7 @@ namespace ToolsApp.Controllers
                                         dmvt.NgayGuiAPI = DateTime.Now;
                                         db_.Entry(dmvt).State = EntityState.Modified;
                                         db_.SaveChanges();
-                                        if (dmvt.LoaiVT == "QUANAO" || dmvt.LoaiVT == "PHUTRANG" || dmvt.LoaiVT == "SPMAYKHAC" || dmvt.LoaiVT == "PHUKIEN" || dmvt.LoaiVT == "NHUONGQUYEN")
+                                        if (dmvt.LoaiVT == "QUANAO" || dmvt.LoaiVT == "PHUTRANG" || dmvt.LoaiVT == "QUANAO_GC" || dmvt.LoaiVT == "PHUTRANG_GC" || dmvt.LoaiVT == "SPMAYKHAC" || dmvt.LoaiVT == "PHUKIEN" || dmvt.LoaiVT == "NHUONGQUYEN")
                                         {
                                             SPMAY.INSERT_FROM_DANHMUCVATTU_TO_DMMAHANG_SPM2023_HANGMUANGOAI(items.MAVT);
                                         }
@@ -888,7 +889,8 @@ namespace ToolsApp.Controllers
                                     var int_form = db_.TBL_DMLOAIVT_COA.FirstOrDefault(p => p.LoaiVT == items.LoaiVT).CustomForm;
 
                                     if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO" || items.LoaiVT == "VAI_TT_DI_GC" || items.LoaiVT == "MOC_TT_DI_GC"
-                                        || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
+                                        || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "QUANAO_GC" || items.LoaiVT == "PHUTRANG_GC"
+                                        || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
                                     {
                                         item = new LotNumberedInventoryItem();
                                     }
@@ -973,7 +975,8 @@ namespace ToolsApp.Controllers
                                     a[3] = cust_statuswip;
 
                                     if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO" || items.LoaiVT == "VAI_TT_DI_GC" || items.LoaiVT == "MOC_TT_DI_GC"
-                               || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
+                               || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "QUANAO_GC" || items.LoaiVT == "PHUTRANG_GC"
+                               || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
                                     {
                                         StringCustomFieldRef cust_dichdanhLOT = new StringCustomFieldRef();
                                         cust_dichdanhLOT.scriptId = "custitem_btm_mc_dich_danh_lot";
@@ -997,7 +1000,7 @@ namespace ToolsApp.Controllers
                                         db_.Entry(dmvt).State = EntityState.Modified;
                                         db_.SaveChanges();
 
-                                        if (dmvt.LoaiVT == "QUANAO" || dmvt.LoaiVT == "PHUTRANG" || dmvt.LoaiVT == "SPMAYKHAC" || dmvt.LoaiVT == "PHUKIEN" || dmvt.LoaiVT == "NHUONGQUYEN")
+                                        if (dmvt.LoaiVT == "QUANAO" || dmvt.LoaiVT == "PHUTRANG" ||  dmvt.LoaiVT == "QUANAO_GC" || dmvt.LoaiVT == "PHUTRANG_GC" || dmvt.LoaiVT == "SPMAYKHAC" || dmvt.LoaiVT == "PHUKIEN" || dmvt.LoaiVT == "NHUONGQUYEN")
                                         {
                                             SPMAY.INSERT_FROM_DANHMUCVATTU_TO_DMMAHANG_SPM2023_HANGMUANGOAI(items.MAVT);
                                         }
@@ -1356,6 +1359,7 @@ namespace ToolsApp.Controllers
                         imagePaths.Add(fileName);
                         }
                     }
+
                     model.Images = string.Join(";", imagePaths);
                     var HINHANHs = model.Images;
                     #endregion
@@ -1439,8 +1443,10 @@ namespace ToolsApp.Controllers
                         // dynamic int_form = "67"; // customform - 67 = TT vật tư / inventory
                         var int_form = db_.TBL_DMLOAIVT_COA.FirstOrDefault(p => p.LoaiVT == items.LoaiVT).CustomForm;
 
-                        if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO" || items.LoaiVT == "VAI_TT_DI_GC" || items.LoaiVT == "MOC_TT_DI_GC"
-                            || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
+                        if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO"
+                            || items.LoaiVT == "QUANAO_GC"  || items.LoaiVT == "VAI_TT_DI_GC" || items.LoaiVT == "MOC_TT_DI_GC"
+                            || items.LoaiVT == "PHUTRANG"  
+                            || items.LoaiVT == "PHUTRANG_GC"  || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
                         {
                             item = new LotNumberedInventoryItem();
                         }
@@ -1451,7 +1457,7 @@ namespace ToolsApp.Controllers
 
 
                     
-                        var LOAISPCT = nstt_.VATTU2024_LOAD_LOAISPCHITIET(items.MAVT).ToList();
+                        var LOAISPCT =  nstt_.VATTU2024_LOAD_LOAISPCHITIET(items.MAVT).ToList();
                         var f_LOAISPCT = LOAISPCT.Count < 1 ? "" : LOAISPCT.FirstOrDefault().externalid;
 
                         //   InventoryItem itemsa = new InventoryItem();
@@ -1537,7 +1543,8 @@ namespace ToolsApp.Controllers
                         a[4] = cust_phamvi;
 
                         if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO" || items.LoaiVT == "VAI_TT_DI_GC" || items.LoaiVT == "MOC_TT_DI_GC"
-                        || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
+                        || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "QUANAO_GC" || items.LoaiVT == "PHUTRANG_GC"
+                        || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
                         {
                             StringCustomFieldRef cust_dichdanhLOT = new StringCustomFieldRef();
                             cust_dichdanhLOT.scriptId = "custitem_btm_mc_dich_danh_lot";
@@ -1560,7 +1567,7 @@ namespace ToolsApp.Controllers
                             dmvt.NgayGuiAPI = DateTime.Now;
                             db_.Entry(dmvt).State = EntityState.Modified;
                             db_.SaveChanges();
-                            if (dmvt.LoaiVT == "QUANAO" || dmvt.LoaiVT == "PHUTRANG" || dmvt.LoaiVT == "SPMAYKHAC" || dmvt.LoaiVT == "PHUKIEN" || dmvt.LoaiVT == "NHUONGQUYEN")
+                            if (dmvt.LoaiVT == "QUANAO" || dmvt.LoaiVT == "PHUTRANG" || dmvt.LoaiVT == "QUANAO_GC" || dmvt.LoaiVT == "PHUTRANG_GC" ||  dmvt.LoaiVT == "SPMAYKHAC" || dmvt.LoaiVT == "PHUKIEN" || dmvt.LoaiVT == "NHUONGQUYEN")
                             {
                                 SPMAY.INSERT_FROM_DANHMUCVATTU_TO_DMMAHANG_SPM2023_HANGMUANGOAI(items.MAVT);
                             }
