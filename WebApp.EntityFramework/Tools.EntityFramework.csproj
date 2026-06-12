@@ -80,6 +80,24 @@
     <Compile Include="DonHang09\load_TBLKHACHHANG_Result.cs">
       <DependentUpon>DonHang09.tt</DependentUpon>
     </Compile>
+    <Compile Include="GiaThanhSPM\GET_MAMH_TAO_PR_SPM_Result.cs">
+      <DependentUpon>GiaThanhSPMModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GiaThanhSPM\GiaThanhSPMModel1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiaThanhSPMModel1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GiaThanhSPM\GiaThanhSPMModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiaThanhSPMModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GiaThanhSPM\GiaThanhSPMModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiaThanhSPMModel1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="KhoSoi\AUDIT_NL_DMPHIEU.cs">
       <DependentUpon>QLKhoSoi.tt</DependentUpon>
     </Compile>
@@ -1584,6 +1602,13 @@
     <None Include="DonHang09\DonHang09.edmx.diagram">
       <DependentUpon>DonHang09.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="GiaThanhSPM\GiaThanhSPMModel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GiaThanhSPMModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="GiaThanhSPM\GiaThanhSPMModel1.edmx.diagram">
+      <DependentUpon>GiaThanhSPMModel1.edmx</DependentUpon>
+    </None>
     <None Include="KhoSoi\QLKhoSoi.edmx.diagram">
       <DependentUpon>QLKhoSoi.edmx</DependentUpon>
     </None>
@@ -1630,6 +1655,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DonHang09.edmx</DependentUpon>
       <LastGenOutput>DonHang09.cs</LastGenOutput>
+    </Content>
+    <Content Include="GiaThanhSPM\GiaThanhSPMModel1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GiaThanhSPMModel1.edmx</DependentUpon>
+      <LastGenOutput>GiaThanhSPMModel1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GiaThanhSPM\GiaThanhSPMModel1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GiaThanhSPMModel1.edmx</DependentUpon>
+      <LastGenOutput>GiaThanhSPMModel1.cs</LastGenOutput>
     </Content>
     <Content Include="KhoSoi\QLKhoSoi.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

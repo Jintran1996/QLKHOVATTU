@@ -126,6 +126,7 @@
                                         <option value="">Chọn loại phiếu</option>
                                         <option value="03">Loại phiếu: 03</option>
                                         <option value="04">Loại phiếu: 04</option>
+                                        <option value="08">Loại phiếu: 08: kế thừa đơn đặt hàng SPM</option>
                                     </select>
                                 </div>
                             </div>
@@ -171,10 +172,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row" style="margin-bottom:15px">                         
+                            <div class="row" style="margin-bottom:15px" hidden>                         
                                 <label class="col-md-2 col-sm-2">Mã kho nhận: </label>
                                 <div class="col-md-4 col-sm-4 ten" style="display:unset">
-                                    <select id="locations" name="locations" class="form-control chosen-select " value="" style="width: 100%;">
+                                    <select id="locations" name="locations" class="form-control chosen-select " value="" style="width: 100%;" >
                                         @foreach (var item in locations)
                                         {
                                             <option value="@item.MAKHO" >

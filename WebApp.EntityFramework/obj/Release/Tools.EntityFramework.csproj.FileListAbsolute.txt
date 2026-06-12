@@ -34,3 +34,15 @@ D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\obj\Release\Tools.EntityFramew
 D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\obj\Release\ToolsApp.EntityFramework.dll
 D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\obj\Release\ToolsApp.EntityFramework.pdb
 D:\26_Source\QLVATTUKHOSOI\WebApp.EntityFramework\obj\Release\Tools.EntityFramework.csproj.CopyComplete
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\bin\Release\ToolsApp.EntityFramework.dll.config
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\bin\Release\ToolsApp.EntityFramework.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\bin\Release\ToolsApp.EntityFramework.pdb
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\bin\Release\EntityFramework.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\bin\Release\EntityFramework.SqlServer.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\bin\Release\EntityFramework.xml
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\bin\Release\EntityFramework.SqlServer.xml
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\obj\Release\Tools.EntityFramework.csproj.AssemblyReference.cache
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\obj\Release\Tools.EntityFramework.csproj.CoreCompileInputs.cache
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\obj\Release\Tools.EntityFramework.csproj.CopyComplete
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\obj\Release\ToolsApp.EntityFramework.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.EntityFramework\obj\Release\ToolsApp.EntityFramework.pdb

@@ -1230,8 +1230,6 @@ namespace ToolsApp.Controllers
                 (LoaiVTSearch == null || LoaiVTSearch == "" || p.LoaiVT.Contains(LoaiVTSearch))
                 )).OrderByDescending(d => d.NGAYCN).ToList();
 
-
-
             if (models.Count > 0)
             {
                 #region xóa file export cũ
@@ -1274,20 +1272,21 @@ namespace ToolsApp.Controllers
                     sl.SetCellValue("A" + row.ToString(), stt);
                     sl.SetCellValue("B" + row.ToString(), item.MAVT);
                     sl.SetCellValue("C" + row.ToString(), item.TenVT);
-                    sl.SetCellValue("D" + row.ToString(), item.LoaiVT);
-                    sl.SetCellValue("E" + row.ToString(), item.Manhom);
-                    sl.SetCellValue("F" + row.ToString(), item.DonViSuDungtac);
-                    sl.SetCellValue("G" + row.ToString(), item.ASSET);
-                    sl.SetCellValue("H" + row.ToString(), item.COGS);
-                    sl.SetCellValue("I" + row.ToString(), item.INCOME);
-                    sl.SetCellValue("J" + row.ToString(), item.TK_ChiPhi_SX);
-                    sl.SetCellValue("K" + row.ToString(), (item.HieuLuc == true) ? "1" : "0");
-                    sl.SetCellValue("L" + row.ToString(), item.GuiAPI == "1" ? "1" : "0");
+                    sl.SetCellValue("D" + row.ToString(), item.DVT);
+                    sl.SetCellValue("E" + row.ToString(), item.LoaiVT);
+                    sl.SetCellValue("F" + row.ToString(), item.Manhom);
+                    sl.SetCellValue("G" + row.ToString(), item.DonViSuDungtac);
+                    sl.SetCellValue("H" + row.ToString(), item.ASSET);
+                    sl.SetCellValue("I" + row.ToString(), item.COGS);
+                    sl.SetCellValue("J" + row.ToString(), item.INCOME);
+                    sl.SetCellValue("K" + row.ToString(), item.TK_ChiPhi_SX);
+                    sl.SetCellValue("L" + row.ToString(), (item.HieuLuc == true) ? "1" : "0");
+                    sl.SetCellValue("M" + row.ToString(), item.GuiAPI == "1" ? "1" : "0");
                     row++;
                     stt++;
                 }
 
-                sl.SetCellStyle("A2", "L" + (row - 1), style);
+                sl.SetCellStyle("A2", "M" + (row - 1), style);
 
                 sl.SaveAs(Request.PhysicalApplicationPath + @"UserFiles\Download\" + fileOutName);
 
@@ -1444,9 +1443,11 @@ namespace ToolsApp.Controllers
                         var int_form = db_.TBL_DMLOAIVT_COA.FirstOrDefault(p => p.LoaiVT == items.LoaiVT).CustomForm;
 
                         if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO"
-                            || items.LoaiVT == "QUANAO_GC"  || items.LoaiVT == "VAI_TT_DI_GC" || items.LoaiVT == "MOC_TT_DI_GC"
+                            || items.LoaiVT == "QUANAO_GC"  || items.LoaiVT == "VAI_TT_DI_GC" 
+                            || items.LoaiVT == "MOC_TT_DI_GC"
                             || items.LoaiVT == "PHUTRANG"  
-                            || items.LoaiVT == "PHUTRANG_GC"  || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
+                            || items.LoaiVT == "PHUTRANG_GC"  || items.LoaiVT == "PHUKIEN" 
+                            || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
                         {
                             item = new LotNumberedInventoryItem();
                         }

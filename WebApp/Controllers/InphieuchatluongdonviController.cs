@@ -42,7 +42,7 @@ namespace ToolsApp.Controllers
         {
             try
             {             
-               var kihieu = vt_.SP_LOAD_KIHIEUDV_BY_MANV(User.UserName).FirstOrDefault(p => p.KiHieu != "pur").KiHieu;
+               var kihieu = vt_.SP_LOAD_KIHIEUDV_BY_MANV(User.UserName).FirstOrDefault().KiHieu;
                var data = vt_.SP_INPHIEUCHATLUONG_LOAD(kihieu, SOCTVT).ToList();
                ViewBag.data = data;
                return PartialView();
@@ -58,7 +58,7 @@ namespace ToolsApp.Controllers
         {
             try
             {
-                var kihieu = vt_.SP_LOAD_KIHIEUDV_BY_MANV(User.UserName).FirstOrDefault(p => p.KiHieu != "pur").KiHieu;
+                var kihieu = vt_.SP_LOAD_KIHIEUDV_BY_MANV(User.UserName).FirstOrDefault().KiHieu;
                 var data = vt_.VATTU2025_SP_INPHIEUCHATLUONGDONVI_THEOHOADON_LOAD(kihieu, SoHoaDon).ToList();
                 ViewBag.data = data;
                 
@@ -333,7 +333,7 @@ namespace ToolsApp.Controllers
                     sl.SetCellValue(row, 8, item.LOAI);
                     sl.SetCellValue(row, 9, item.HOTENNGUOIKT);
                     sl.SetCellValue(row, 10, item.TENVATTU_NCC);
-                    sl.SetCellValue(row, 11, (decimal)item.SOLUONGNCC);
+                    sl.SetCellValue(row, 11, item.SOLUONGNCC == null ? 0 :(decimal)item.SOLUONGNCC);
                     row++;
                 }
 

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GiaThanh_SPMModelStoreContainer" CdmEntityContainer="GiaThanh_SPMEntities">
+    <FunctionImportMapping FunctionImportName="GET_MAMH_TAO_PR_SPM" FunctionName="GiaThanh_SPMModel.Store.GET_MAMH_TAO_PR_SPM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GiaThanh_SPMModel.GET_MAMH_TAO_PR_SPM_Result">
+          <ScalarProperty Name="MAMH" ColumnName="MAMH" />
+          <ScalarProperty Name="LOAIVT" ColumnName="LOAIVT" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="kytu11" ColumnName="kytu11" />
+          <ScalarProperty Name="kytu15" ColumnName="kytu15" />
+          <ScalarProperty Name="madh" ColumnName="madh" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="TENHANG" ColumnName="TENHANG" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -8,12 +8,19 @@ using System.Linq;
 using System.Web.Mvc;
 using ToolsApp.App_Start;
 using ToolsApp.Authentication;
+using ToolsApp.EntityFramework.GiaThanhSPM;
 using ToolsApp.EntityFramework.VatTu;
+using ToolsApp.EntityFramework.SPMAY;
+using ToolsApp.EntityFramework.NetsuiteTT;
 using ToolsApp.Models;
 using System.Net.Mail;
 using System.Web.Script.Serialization;
 using System.Globalization;
 using ToolsApp.Helper;
+using System.Net;
+using NSClient;
+using ToolsApp.com.netsuite.webservices;
+using Newtonsoft.Json;
 
 namespace ToolsApp.Controllers
 {
@@ -23,6 +30,9 @@ namespace ToolsApp.Controllers
     {
 
         private wqlvattuEntities vt_ = new wqlvattuEntities();
+        private GiaThanh_SPMEntities giathanh_spm = new GiaThanh_SPMEntities();
+        private NetsuiteTTEntities1 nstt_ = new NetsuiteTTEntities1();
+        private QLSANPHAMMAY2023Entities SPMAY = new QLSANPHAMMAY2023Entities();
 
         // GET:PhieuMuaHangController
         public ActionResult Index()
@@ -161,7 +171,8 @@ namespace ToolsApp.Controllers
             if (LOAIPHIEU == "04")
             {
                 var item = vt_.SP_LOAD_DANHMUCVATTU_ByKey_LoaiVt(LoaiVT).ToList();
-                ViewBag.iMAVT = item;
+                ViewBag.iMAVT = item;             
+                  
             }
             else
             {
@@ -173,8 +184,16 @@ namespace ToolsApp.Controllers
                 ViewBag.iMAVT = item;
                 ViewBag.MAVTtd = vt_.VATTU2026_SPLOAD_MAVTTUONGDUONG_COGIANHAP("").ToList();
             }
+            if(LOAIPHIEU == "08")
+            {
+                return PartialView("_InsertCTPhieu_08");
+            }   
+            else
+            {
+                return PartialView("_InsertCTPhieu");
+            }    
             #endregion
-            return PartialView("_InsertCTPhieu");
+          
         }
         #endregion
 
@@ -457,6 +476,130 @@ namespace ToolsApp.Controllers
                     vt_.SaveChanges();
                     return Json(new { status = 1, title = "", text = "Cập nhật thành công.", obj = "" }, JsonRequestBehavior.AllowGet);
                 }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = -1, title = "", text = ex.Message, obj = "" }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        #endregion
+
+        #region _SaveCTPhieu 08
+        [ValidateInput(false)]
+        [HttpPost]
+        public JsonResult _SaveCTPhieu_08(CTPHIEUViewModels model)
+        {
+            #region Xử lý ngày
+            CultureInfo cul = CultureInfo.GetCultureInfo("en-GB");
+            var THOIDIEMSD_ = new DateTime();
+            if (!string.IsNullOrEmpty(model.THOIDIEMSD_String))
+            {
+                try
+                {
+                    THOIDIEMSD_ = DateTime.ParseExact(model.THOIDIEMSD_String, "dd/MM/yyyy", cul);
+                    if (THOIDIEMSD_ < DateTime.Now)
+                    {
+                        return Json(new { status = -1, title = "", text = "Thời điểm sử dụng phải lớn hơn ngày lập phiếu.", obj = "" }, JsonRequestBehavior.AllowGet);
+                    }
+                    model.THOIDIEMSD = new DateTime(THOIDIEMSD_.Year,
+                        THOIDIEMSD_.Month, THOIDIEMSD_.Day, 0, 0, 0);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+            #endregion
+
+            try
+            {
+                if(model.MADH == null || model.MADH == "")
+                {
+                    return Json(new { status = -1, title = "", text = "Đơn hàng kế thùa không được để trống.", obj = "" }, JsonRequestBehavior.AllowGet);
+                }    
+             
+                var kethuamavt = giathanh_spm.GET_MAMH_TAO_PR_SPM(model.MADH.Trim()).ToList();
+       
+                foreach( var item in kethuamavt)
+                {
+                    if(item.MAMH == null)
+                        return Json(new { status = -1, title = "", text = "Lỗi load mã hàng bị null, kiểm tra lại đơn đặt hàng.", obj = "" }, JsonRequestBehavior.AllowGet);
+
+                    var listcoa = vt_.TBL_DMLOAIVT_COA.FirstOrDefault(p => p.LoaiVT == item.LOAIVT);
+                    if ((vt_.DANHMUCVATTUs.Where(p => p.MAVT == item.MAMH).FirstOrDefault()) == null)
+                    {
+                     
+                        var model_danhmucvattu = new DANHMUCVATTU();
+                        model_danhmucvattu.MAVT = item.MAMH;
+                        model_danhmucvattu.TenVT = item.TENHANG;
+                        model_danhmucvattu.LoaiVT = item.LOAIVT;
+                        model_danhmucvattu.DVT = "CAI";
+                        model_danhmucvattu.DonViSuDungtac = "MAY";
+                        model_danhmucvattu.HieuLuc = true;
+                        model_danhmucvattu.Ghichu = "thêm mới tự động khi nhập ở phiếu mua hàng";
+                        model_danhmucvattu.Manhom = item.LOAIVT;
+                        model_danhmucvattu.ASSET = listcoa.ASSET;
+                        model_danhmucvattu.COGS = listcoa.COGS;
+                        model_danhmucvattu.INCOME = listcoa.INCOME;
+                        model_danhmucvattu.TK_ChiPhi_SX = listcoa.TK_PhiSX;
+                        model_danhmucvattu.MANVCAPNHAT = User.UserName;
+                        model_danhmucvattu.NGAYCN = DateTime.Now;
+                        vt_.DANHMUCVATTUs.Add(model_danhmucvattu);
+                        vt_.SaveChanges();
+
+                    }
+
+                    var result = _IsDongBo(item.MAMH);
+                    var json = JsonConvert.SerializeObject(result.Data);
+                    var resultData = JsonConvert.DeserializeObject<SOAPResultViewModel>(json);
+                    if (resultData.status < 1)
+                    {
+                        return Json(new { status = -1, title = "", text = resultData.text, obj = "" }, JsonRequestBehavior.AllowGet);
+                    }
+
+                    var status_xxem = vt_.DMPHIEUx.Where(p => p.MAPHIEU == model.MAPHIEU.Trim() && p.XXet == 1).ToList();
+                    if (status_xxem.Count > 0)
+                    {
+                        return Json(new { status = -1, title = "", text = "Phiếu đã xem xét , vui lòng tạo phiếu khác.", obj = "" }, JsonRequestBehavior.AllowGet);
+                    }
+                    var tb = vt_.CTPHIEUx.Where(a => a.MAPHIEU == model.MAPHIEU && a.MAVT == item.MAMH).FirstOrDefault();
+                    DateTime dataDate = DateTime.Now;
+                    if (tb == null)
+                    {
+
+                        #region Add CTPHIEU
+                        var model_copy = new CTPHIEU();
+                        model_copy.MAPHIEU = model.MAPHIEU.Trim();
+                        model_copy.MASOCP = model.MASOCP == null ? "" : model.MASOCP.Trim();
+                        model_copy.MAVT = item.MAMH.Trim();
+                        model_copy.MAVT_TUONGDUONG = "";
+                        model_copy.SLYCAU = item.SOLUONG;
+                        model_copy.THOIDIEMSD = model.THOIDIEMSD;
+                        model_copy.DACTINHKYTHUAT = model.DACTINHKYTHUAT;
+                        model_copy.GHICHU = model.GHICHU;
+                        model_copy.SLXXET = item.SOLUONG;
+                        model_copy.SLPD = item.SOLUONG;
+                        model_copy.SLTONDVI = 0;
+                        model_copy.SLTONCTY = 0;
+                        model_copy.TINHTRANG = model.TINHTRANG;
+                        model_copy.MADH = model.MADH;
+                        model_copy.THOIDIEMDAPUNG = model.THOIDIEMDAPUNG;
+                        vt_.CTPHIEUx.Add(model_copy);            
+                        #endregion                    
+                    }
+                    else
+                    {
+                        tb.SLYCAU = tb.SLYCAU + model.SLYCAU;
+                        tb.THOIDIEMSD = model.THOIDIEMSD;
+                        tb.DACTINHKYTHUAT = model.DACTINHKYTHUAT;
+                        tb.GHICHU = model.GHICHU;
+                        vt_.Entry(tb).State = EntityState.Modified;              
+                    }
+                }
+
+                vt_.SaveChanges();
+                return Json(new { status = 1, title = "", text = "Cập nhật thành công.", obj = "" }, JsonRequestBehavior.AllowGet);
+
             }
             catch (Exception ex)
             {
@@ -912,6 +1055,232 @@ namespace ToolsApp.Controllers
         }
 
         #endregion
+
+
+        private JsonResult _IsDongBo(string MAVT)
+        {
+            if (!ModelState.IsValid)
+                return Json(new { status = -2, text = "Lưu không thành công." }, JsonRequestBehavior.AllowGet);
+
+            try
+            {
+                var listVT = vt_.DANHMUCVATTUs
+                                .Where(x => x.MAVT == MAVT && x.GuiAPI != "1")
+                                .ToList();
+
+
+                // ===== Init NetSuite =====
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                ServicePointManager.ServerCertificateValidationCallback += (a, b, c, d) => true;
+
+                var ns = new NSClient.NSClient();
+                NSBase.Client = ns;
+
+                // ===== Cache data (TRÁNH query trong loop) =====
+                var loaiSPs = nstt_.LoaiSanPhams.ToList();
+                var phanNhomSPs = nstt_.PhanNhomSanPhams.ToList();
+                var loaiSPCTs = nstt_.LoaiSanPhamChiTiets.ToList();
+                var coaList = nstt_.Chart_of_Accounts.ToList();
+                var taxcode = nstt_.Table_TAX_CODE.FirstOrDefault(x => x.HieuLuc == true)?.Internalid_taxcode;
+
+                foreach (var items in listVT)
+                {
+                    try
+                    {
+
+                        var LOAIVTs = vt_.DANHMUCVATTUs.Where(p => p.MAVT == items.MAVT).FirstOrDefault().LoaiVT;
+                        var LoaiSanPhams = nstt_.LoaiSanPhams.ToList();
+                        var PhanNhomSanPhams = nstt_.PhanNhomSanPhams.ToList();
+                        var LoaiSanPhamChiTiets = nstt_.LoaiSanPhamChiTiets.ToList();
+                        var item_PhanNhomSanPhams = PhanNhomSanPhams.Where(p => p.LoaiVT_TT == LOAIVTs.ToString()).ToList();
+                        if (LOAIVTs == "PT-VT")
+                        {
+                            item_PhanNhomSanPhams = PhanNhomSanPhams.Where(p => p.LoaiVT_TT == LOAIVTs.ToString() && items.MAVT[0].ToString() == p.KyTu).ToList();
+                        }
+                        var item_LoaiSanPhams = LoaiSanPhams.Where(p => p.externalid == (item_PhanNhomSanPhams.Count < 1 ? "VATTU"
+                                                              : item_PhanNhomSanPhams.FirstOrDefault().MaLoaiSP_TT))
+                                                              .FirstOrDefault().externalid;
+                        if (items.LoaiVT == "PTMUANGOAI")
+                        {
+                            item_LoaiSanPhams = LoaiSanPhams.Where(p => p.externalid == "MAY").FirstOrDefault().externalid;
+                        }
+                        if (items.LoaiVT == "VAI" || items.LoaiVT == "VAI_TT_DI_GC")
+                        {
+                            item_LoaiSanPhams = LoaiSanPhams.Where(p => p.externalid == "VAITHANHPHAM").FirstOrDefault().externalid;
+                        }
+
+                        var item_LoaiSanPhamChiTiets = LoaiSanPhamChiTiets.Where(p => p.Kytu1 == items.MAVT[0].ToString()
+                                                                              && p.MaLoaiSPCT == items.MAVT[1].ToString()).ToList();
+                        var dvt = vt_.VATTU2024_SpLoad_ConvertDVT(items.MAVT).FirstOrDefault().DVT_Convert;
+                        var exiddvt = nstt_.Table_Mapping_Mavattu_DVT.Where(c => c.DVT == dvt).FirstOrDefault().Internalid;
+                        dynamic item = "";
+                        // dynamic int_form = "67"; // customform - 67 = TT vật tư / inventory
+                        var int_form = vt_.TBL_DMLOAIVT_COA.FirstOrDefault(p => p.LoaiVT == items.LoaiVT).CustomForm;
+
+                        if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO"
+                            || items.LoaiVT == "QUANAO_GC" || items.LoaiVT == "VAI_TT_DI_GC"
+                            || items.LoaiVT == "MOC_TT_DI_GC"
+                            || items.LoaiVT == "PHUTRANG"
+                            || items.LoaiVT == "PHUTRANG_GC" || items.LoaiVT == "PHUKIEN"
+                            || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
+                        {
+                            item = new LotNumberedInventoryItem();
+                        }
+                        else
+                        {
+                            item = new InventoryItem();
+                        }
+
+
+
+                        var LOAISPCT = nstt_.VATTU2024_LOAD_LOAISPCHITIET(items.MAVT).ToList();
+                        var f_LOAISPCT = LOAISPCT.Count < 1 ? "" : LOAISPCT.FirstOrDefault().externalid;
+
+                        //   InventoryItem itemsa = new InventoryItem();
+
+                        RecordRef form = new RecordRef();
+                        form.internalId = int_form;
+                        item.customForm = form;
+                        item.pricesIncludeTax = true;
+                        item.pricesIncludeTaxSpecified = true;
+
+                        RecordRef purchaseTaxCode = new RecordRef();
+                        purchaseTaxCode.internalId = taxcode;
+                        item.purchaseTaxCode = purchaseTaxCode;
+
+                        RecordRef salesTax = new RecordRef();
+                        salesTax.internalId = taxcode;
+                        item.salesTaxCode = salesTax;
+
+
+                        RecordRef unittype = new RecordRef();
+                        unittype.internalId = exiddvt;
+                        item.unitsType = unittype;
+
+
+                        item.externalId = items.MAVT;
+                        item.itemId = items.MAVT;
+                        item.upcCode = items.MAVT;
+                        item.displayName = items.TenVT == null ? "" : items.TenVT;
+                        item.salesDescription = (items.TenVT == null ? "" : (items.MAVT + "_" + items.TenVT));
+
+                        var f_coa_mavt = vt_.DANHMUCVATTUs.FirstOrDefault(p => p.MAVT == items.MAVT);
+                        var tt_asset = f_coa_mavt.ASSET;
+                        var tt_cogs = f_coa_mavt.COGS;
+                        var tt_income = f_coa_mavt.INCOME;
+                        var COA = nstt_.Chart_of_Accounts.ToList();
+                        var intid_asset = tt_asset == "" ? "" : COA.FirstOrDefault(p => p.Number_TT == tt_asset).InternalID_NS;
+                        var intid_cogs = tt_cogs == "" ? "" : COA.FirstOrDefault(p => p.Number_TT == tt_cogs).InternalID_NS;
+                        var intid_income = tt_income == "" ? "" : COA.FirstOrDefault(p => p.Number_TT == tt_income).InternalID_NS;
+
+                        RecordRef asset = new RecordRef();
+                        asset.internalId = intid_asset;
+                        item.assetAccount = asset;
+
+                        RecordRef cogs = new RecordRef();
+                        cogs.internalId = intid_cogs;
+                        item.cogsAccount = cogs;
+
+                        RecordRef income = new RecordRef();
+                        income.internalId = intid_income;
+                        item.incomeAccount = income;
+
+                        CustomFieldRef[] a = new CustomFieldRef[99];
+
+                        SelectCustomFieldRef cust_loaisp = new SelectCustomFieldRef();
+                        ListOrRecordRef List_loaisp = new ListOrRecordRef();
+                        List_loaisp.externalId = item_LoaiSanPhams;
+                        cust_loaisp.scriptId = "custitem_btm_tt_loai_san_pham";
+                        cust_loaisp.value = List_loaisp;
+                        a[1] = cust_loaisp;
+
+                        SelectCustomFieldRef cust_phannhomsp = new SelectCustomFieldRef();
+                        ListOrRecordRef List_phannhomsp = new ListOrRecordRef();
+                        List_phannhomsp.externalId = item_PhanNhomSanPhams.Count < 1 ? "" : item_PhanNhomSanPhams.FirstOrDefault().externalid;
+                        cust_phannhomsp.scriptId = "custitem_btm_tt_nhom_sp_may";
+                        cust_phannhomsp.value = List_phannhomsp;
+                        a[2] = cust_phannhomsp;
+
+                        var LIST_WIPSTATUS = vt_.TBL_DMLOAIVT_COA.Where(p => p.LoaiVT == LOAIVTs).ToList();
+                        var WIPSTATUS = LIST_WIPSTATUS.Count < 1 ? "2" : LIST_WIPSTATUS.FirstOrDefault().WIPSTATUS == "WIP" ? "1" : "2";
+
+                        SelectCustomFieldRef cust_statuswip = new SelectCustomFieldRef();
+                        ListOrRecordRef List_statuswip = new ListOrRecordRef();
+                        List_statuswip.internalId = WIPSTATUS;
+                        cust_statuswip.scriptId = "custitem_btm_mc_wip_status";
+                        cust_statuswip.value = List_statuswip;
+                        a[3] = cust_statuswip;
+
+                        SelectCustomFieldRef cust_phamvi = new SelectCustomFieldRef();
+                        ListOrRecordRef List_phamvi = new ListOrRecordRef();
+                        List_phamvi.internalId = "2";
+                        cust_phamvi.scriptId = "cseg_btm_tt_pv_bh";
+                        cust_phamvi.value = List_phamvi;
+                        a[4] = cust_phamvi;
+
+                        if (items.LoaiVT == "MOC" || items.LoaiVT == "VAI" || items.LoaiVT == "QUANAO" || items.LoaiVT == "VAI_TT_DI_GC" || items.LoaiVT == "MOC_TT_DI_GC"
+                        || items.LoaiVT == "PHUTRANG" || items.LoaiVT == "QUANAO_GC" || items.LoaiVT == "PHUTRANG_GC"
+                        || items.LoaiVT == "PHUKIEN" || items.LoaiVT == "SPMAYKHAC" || items.LoaiVT == "NHUONGQUYEN")
+                        {
+                            StringCustomFieldRef cust_dichdanhLOT = new StringCustomFieldRef();
+                            cust_dichdanhLOT.scriptId = "custitem_btm_mc_dich_danh_lot";
+                            cust_dichdanhLOT.value = "T";
+                            a[5] = cust_dichdanhLOT;
+                        }
+
+                        item.customFieldList = a;
+                        WriteResponse addmahang = ns.Service.upsert(item);
+                        var messerror = ((ToolsApp.com.netsuite.webservices.Status)addmahang.status).statusDetail;
+                        var messdetail = messerror.FirstOrDefault().message;
+                        var check = ((ToolsApp.com.netsuite.webservices.RecordRef)addmahang.baseRef).internalId;
+                        var status = addmahang.status.isSuccess;
+                        if (status == true)
+                        {
+
+                            var dmvt = vt_.DANHMUCVATTUs.Where(p => p.MAVT == items.MAVT).FirstOrDefault();
+                            dmvt.GuiAPI = "1";
+                            dmvt.HieuLuc = true;
+                            dmvt.NgayGuiAPI = DateTime.Now;
+                            vt_.Entry(dmvt).State = EntityState.Modified;
+                            vt_.SaveChanges();
+                            if (dmvt.LoaiVT == "QUANAO" || dmvt.LoaiVT == "PHUTRANG" || dmvt.LoaiVT == "QUANAO_GC" || dmvt.LoaiVT == "PHUTRANG_GC" || dmvt.LoaiVT == "SPMAYKHAC" || dmvt.LoaiVT == "PHUKIEN" || dmvt.LoaiVT == "NHUONGQUYEN")
+                            {
+                                SPMAY.INSERT_FROM_DANHMUCVATTU_TO_DMMAHANG_SPM2023_HANGMUANGOAI(items.MAVT);
+                            }
+                        }
+                        else
+                        {
+                            GhiLog_DMVattu_ErrorAPI_NS log = new GhiLog_DMVattu_ErrorAPI_NS();
+                            log.HanhDong = "btnDongboMAVT DANHMUC VATTU _ " + items.LoaiVT;
+                            log.id = Guid.NewGuid();
+                            log.Externalid = items.MAVT;
+                            log.Internalid = check;
+                            log.MAVT = items.MAVT;
+                            log.TenVT = items.TenVT;
+                            log.DVT = items.DVT;
+                            log.LogNS = messdetail == null ? "" : messdetail.ToString();
+                            log.MANV = User.UserName;
+                            log.Ngaylog = DateTime.Now;
+                            nstt_.GhiLog_DMVattu_ErrorAPI_NS.Add(log);
+                            nstt_.SaveChanges();
+
+                            return Json(new { status = -1, text = "Thêm không thành công" }, JsonRequestBehavior.AllowGet);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        // log từng item để không crash cả batch
+                        continue;
+                    }
+                }
+
+                return Json(new { status = 1, text = "Đồng bộ thành công" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = 0, text = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         #region Dispose , clean
         protected override void Dispose(bool disposing)

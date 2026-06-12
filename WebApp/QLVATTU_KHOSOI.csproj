@@ -3738,6 +3738,7 @@
     <Content Include="Views\tracuuxuatnhaptontheoky_soi\GetList2.cshtml" />
     <Content Include="Views\tracuuxuatnhaptontheoky_soi\GetList3.cshtml" />
     <Content Include="Views\tracuuxuatnhaptontheoky_soi\Index.cshtml" />
+    <Content Include="Views\PhieuMuaHang\_InsertCTPhieu_08.cshtml" />
     <None Include="Web References\com.netsuite.webservices\accounting.xsd">
       <SubType>Designer</SubType>
     </None>

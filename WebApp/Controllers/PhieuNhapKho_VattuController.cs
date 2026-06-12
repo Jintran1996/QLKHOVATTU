@@ -386,7 +386,7 @@ namespace ToolsApp.Controllers
                     item.SoCTKeToan = model.SoCTKeToan;
                     item.SoLuongTT = Convert.ToDecimal(model.SoLuongTT);
                     item.SoLuongYC = Convert.ToDecimal(model.SoLuongTT);
-                    item.NgayKeToan = model.NgayKeToan;
+                    item.NgayKeToan = dmxuatnhap.NGAY;
                     item.GHICHU = model.GHICHU;
                     item.TenVT_NCC = model.TenVT_NCC;
                     item.DVT_NCC = model.DVT_NCC;

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GiaThanh_SPMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GiaThanh_SPMEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GET_MAMH_TAO_PR_SPM" ReturnType="Collection(GiaThanh_SPMModel.GET_MAMH_TAO_PR_SPM_Result)">
+      <Parameter Name="MADH" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GET_MAMH_TAO_PR_SPM_Result">
+    <Property Type="String" Name="MAMH" Nullable="true" MaxLength="57" />
+    <Property Type="String" Name="LOAIVT" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="size" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="kytu11" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="kytu15" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="madh" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="SOLUONG" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="TENHANG" Nullable="true" />
+  </ComplexType>
+</Schema>

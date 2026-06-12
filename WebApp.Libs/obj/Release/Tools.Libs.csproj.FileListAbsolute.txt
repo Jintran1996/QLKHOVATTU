@@ -18,3 +18,13 @@ D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Release\Tools.Libs.csproj.CoreCompile
 D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Release\ToolsApp.Libs.dll
 D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Release\ToolsApp.Libs.pdb
 D:\26_Source\QLVATTUKHOSOI\WebApp.Libs\obj\Release\Tools.Libs.csproj.CopyComplete
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Release\ToolsApp.Libs.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Release\ToolsApp.Libs.pdb
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Release\System.Drawing.Common.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Release\System.IO.Packaging.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\bin\Release\System.IO.Packaging.xml
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Release\Tools.Libs.csproj.AssemblyReference.cache
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Release\Tools.Libs.csproj.CoreCompileInputs.cache
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Release\Tools.Libs.csproj.CopyComplete
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Release\ToolsApp.Libs.dll
+D:\26_Source\QLVATTUKHOSOI2026_v2\WebApp.Libs\obj\Release\ToolsApp.Libs.pdb

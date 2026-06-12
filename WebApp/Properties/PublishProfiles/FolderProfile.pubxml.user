@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <History>True|2025-12-30T01:58:52.2497987Z;True|2025-12-26T08:36:03.9784291+07:00;True|2025-12-25T16:28:52.6982978+07:00;True|2025-11-03T16:13:44.1791228+07:00;False|2025-09-04T11:00:02.9791227+07:00;False|2025-09-04T10:56:10.0893194+07:00;</History>
+    <History>True|2026-06-05T04:10:45.1391062Z;True|2025-12-30T08:58:52.2497987+07:00;True|2025-12-26T08:36:03.9784291+07:00;True|2025-12-25T16:28:52.6982978+07:00;True|2025-11-03T16:13:44.1791228+07:00;False|2025-09-04T11:00:02.9791227+07:00;False|2025-09-04T10:56:10.0893194+07:00;</History>
     <_PublishTargetUrl>D:\3.Publish\QLVATTU_SOI</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
@@ -12,13 +12,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/07/2026 15:03:29</publishTime>
     </File>
     <File Include="bin/App_Browsers.dll">
-      <publishTime>03/10/2026 11:57:26</publishTime>
+      <publishTime>06/09/2026 11:12:22</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>03/10/2026 11:57:26</publishTime>
+      <publishTime>06/09/2026 11:12:22</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>03/10/2026 11:57:26</publishTime>
+      <publishTime>06/09/2026 11:12:22</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
       <publishTime>01/25/2024 15:30:43</publishTime>
@@ -246,40 +246,40 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/06/2023 08:44:19</publishTime>
     </File>
     <File Include="bin/ToolsApp.dll">
-      <publishTime>03/10/2026 11:57:08</publishTime>
+      <publishTime>06/09/2026 11:12:02</publishTime>
     </File>
     <File Include="bin/ToolsApp.EntityFramework.dll">
-      <publishTime>03/10/2026 11:57:06</publishTime>
+      <publishTime>06/05/2026 11:09:59</publishTime>
     </File>
     <File Include="bin/ToolsApp.EntityFramework.dll.config">
-      <publishTime>07/28/2025 11:44:50</publishTime>
+      <publishTime>06/05/2026 08:08:07</publishTime>
     </File>
     <File Include="bin/ToolsApp.EntityFramework.pdb">
-      <publishTime>03/10/2026 11:57:06</publishTime>
+      <publishTime>06/05/2026 11:09:59</publishTime>
     </File>
     <File Include="bin/ToolsApp.Libs.dll">
-      <publishTime>03/09/2026 16:53:02</publishTime>
+      <publishTime>05/28/2026 14:38:44</publishTime>
     </File>
     <File Include="bin/ToolsApp.Libs.pdb">
-      <publishTime>03/09/2026 16:53:02</publishTime>
+      <publishTime>05/28/2026 14:38:44</publishTime>
     </File>
     <File Include="bin/ToolsApp.pdb">
-      <publishTime>03/10/2026 11:57:08</publishTime>
+      <publishTime>06/09/2026 11:12:02</publishTime>
     </File>
     <File Include="bin/ToolsApp.Utilities.dll">
-      <publishTime>03/09/2026 16:53:03</publishTime>
+      <publishTime>03/19/2026 10:14:00</publishTime>
     </File>
     <File Include="bin/ToolsApp.Utilities.dll.config">
       <publishTime>01/25/2024 15:30:32</publishTime>
     </File>
     <File Include="bin/ToolsApp.Utilities.pdb">
-      <publishTime>03/09/2026 16:53:03</publishTime>
+      <publishTime>03/19/2026 10:14:00</publishTime>
     </File>
     <File Include="bin/ToolsApp.XmlSerializers.dll">
-      <publishTime>03/10/2026 11:57:17</publishTime>
+      <publishTime>06/09/2026 11:12:12</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
-      <publishTime>03/10/2026 11:57:26</publishTime>
+      <publishTime>06/09/2026 11:12:22</publishTime>
     </File>
     <File Include="Content/404page.css">
       <publishTime>01/25/2024 15:30:33</publishTime>
@@ -9177,7 +9177,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/25/2024 15:30:38</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/10/2026 11:57:20</publishTime>
+      <publishTime>06/09/2026 11:12:16</publishTime>
     </File>
     <File Include="Rotativa/help-wkhtmltoimage.txt">
       <publishTime>01/07/2026 15:03:29</publishTime>
@@ -9555,7 +9555,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/25/2024 15:30:37</publishTime>
     </File>
     <File Include="Views/DMVattu/Index.cshtml">
-      <publishTime>12/09/2025 15:45:36</publishTime>
+      <publishTime>03/25/2026 16:34:00</publishTime>
     </File>
     <File Include="Views/DMVattu/_frmUpImage.cshtml">
       <publishTime>01/16/2026 13:11:16</publishTime>
@@ -9564,7 +9564,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/12/2026 15:27:34</publishTime>
     </File>
     <File Include="Views/DMVattu/_Insert.cshtml">
-      <publishTime>02/12/2025 08:24:00</publishTime>
+      <publishTime>05/06/2026 14:03:34</publishTime>
     </File>
     <File Include="Views/DMVattu/_Insert_bk.cshtml">
       <publishTime>03/21/2024 16:02:36</publishTime>
@@ -9612,7 +9612,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/29/2025 16:35:20</publishTime>
     </File>
     <File Include="Views/Inphieuchatluongdonvi/_GetListHD.cshtml">
-      <publishTime>12/30/2025 08:55:44</publishTime>
+      <publishTime>04/09/2026 10:55:47</publishTime>
     </File>
     <File Include="Views/Inphieuchatluongdonvi/_GetListHL.cshtml">
       <publishTime>12/19/2025 13:56:42</publishTime>
@@ -9720,7 +9720,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/25/2024 15:30:37</publishTime>
     </File>
     <File Include="Views/LapPhieuYeuCauXuatKhoTuMaPhieuPheDuyet/print_Phieu.cshtml">
-      <publishTime>04/17/2025 13:16:03</publishTime>
+      <publishTime>03/20/2026 08:42:01</publishTime>
     </File>
     <File Include="Views/LapPhieuYeuCauXuatKhoTuMaPhieuPheDuyet/_GetList_MaVatTu.cshtml">
       <publishTime>01/25/2024 15:30:37</publishTime>
@@ -9768,30 +9768,60 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/25/2024 15:30:37</publishTime>
     </File>
     <File Include="Views/PhieuMuaHang/Index.cshtml">
-      <publishTime>01/25/2024 15:30:37</publishTime>
+      <publishTime>03/19/2026 17:11:38</publishTime>
     </File>
     <File Include="Views/PhieuMuaHang/_DetailCTPhieu.cshtml">
-      <publishTime>01/25/2024 15:30:37</publishTime>
+      <publishTime>03/16/2026 08:17:46</publishTime>
     </File>
     <File Include="Views/PhieuMuaHang/_Getlist.cshtml">
-      <publishTime>05/28/2025 09:30:19</publishTime>
+      <publishTime>06/05/2026 11:09:24</publishTime>
     </File>
     <File Include="Views/PhieuMuaHang/_GetListCTPhieu.cshtml">
-      <publishTime>12/25/2025 15:34:21</publishTime>
+      <publishTime>03/19/2026 10:30:35</publishTime>
     </File>
     <File Include="Views/PhieuMuaHang/_Insert.cshtml">
-      <publishTime>01/25/2024 15:30:37</publishTime>
+      <publishTime>06/05/2026 08:24:02</publishTime>
     </File>
     <File Include="Views/PhieuMuaHang/_InsertCTPhieu.cshtml">
-      <publishTime>01/12/2026 16:32:59</publishTime>
+      <publishTime>03/20/2026 11:38:21</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang/_InsertCTPhieu_08.cshtml">
+      <publishTime>06/05/2026 08:33:20</publishTime>
     </File>
     <File Include="Views/PhieuMuaHang/_ReportPrintCT.cshtml">
-      <publishTime>05/28/2025 10:28:38</publishTime>
+      <publishTime>03/16/2026 08:17:46</publishTime>
     </File>
     <File Include="Views/PhieuMuaHang/_UpdateCTPhieu.cshtml">
-      <publishTime>01/25/2024 15:30:37</publishTime>
+      <publishTime>03/16/2026 08:17:46</publishTime>
     </File>
     <File Include="Views/PhieuMuaHang/_Upload.cshtml">
+      <publishTime>03/16/2026 08:17:46</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang_bk/Index.cshtml">
+      <publishTime>01/25/2024 15:30:37</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang_bk/_DetailCTPhieu.cshtml">
+      <publishTime>01/25/2024 15:30:37</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang_bk/_Getlist.cshtml">
+      <publishTime>05/28/2025 09:30:19</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang_bk/_GetListCTPhieu.cshtml">
+      <publishTime>12/25/2025 15:34:21</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang_bk/_Insert.cshtml">
+      <publishTime>01/25/2024 15:30:37</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang_bk/_InsertCTPhieu.cshtml">
+      <publishTime>03/16/2026 09:07:05</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang_bk/_ReportPrintCT.cshtml">
+      <publishTime>05/28/2025 10:28:38</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang_bk/_UpdateCTPhieu.cshtml">
+      <publishTime>01/25/2024 15:30:37</publishTime>
+    </File>
+    <File Include="Views/PhieuMuaHang_bk/_Upload.cshtml">
       <publishTime>04/09/2024 11:52:29</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho/Index.cshtml">
@@ -9831,7 +9861,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/16/2024 16:24:54</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho/_ReportPrint.cshtml">
-      <publishTime>03/12/2025 10:01:20</publishTime>
+      <publishTime>05/08/2026 14:49:56</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho/_ReportPrint_Diengiai.cshtml">
       <publishTime>12/11/2025 11:09:04</publishTime>
@@ -9840,7 +9870,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/11/2025 10:48:51</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/Index.cshtml">
-      <publishTime>02/04/2026 09:29:19</publishTime>
+      <publishTime>03/25/2026 08:40:39</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_DienGiaiView.cshtml">
       <publishTime>05/31/2025 08:55:18</publishTime>
@@ -9858,10 +9888,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/14/2024 13:10:35</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_GetlistCTPhieu_NHGA.cshtml">
-      <publishTime>01/24/2026 08:09:32</publishTime>
+      <publishTime>05/07/2026 08:48:00</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_GetlistCTPhieu_NHTA.cshtml">
-      <publishTime>02/11/2026 10:01:24</publishTime>
+      <publishTime>05/07/2026 08:48:16</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_GetlistCTPhieu_NK.cshtml">
       <publishTime>12/29/2025 10:07:08</publishTime>
@@ -9882,7 +9912,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/11/2024 15:38:19</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_Insert.cshtml">
-      <publishTime>01/27/2026 14:38:57</publishTime>
+      <publishTime>05/12/2026 15:17:55</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_ReportPrint.cshtml">
       <publishTime>06/14/2024 09:19:31</publishTime>
@@ -9972,7 +10002,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/25/2025 15:24:54</publishTime>
     </File>
     <File Include="Views/PhieuYCXuatKho_Vattu/_GetlistCTPhieu_View.cshtml">
-      <publishTime>02/09/2026 16:52:26</publishTime>
+      <publishTime>05/04/2026 15:14:36</publishTime>
     </File>
     <File Include="Views/PhieuYCXuatKho_Vattu/_GetListCTPhieu_X.cshtml">
       <publishTime>01/26/2026 13:17:36</publishTime>
@@ -9981,13 +10011,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/16/2024 11:36:43</publishTime>
     </File>
     <File Include="Views/PhieuYCXuatKho_Vattu/_GetListCTPhieu_XHCMT.cshtml">
-      <publishTime>01/16/2026 17:05:32</publishTime>
+      <publishTime>05/05/2026 08:00:49</publishTime>
     </File>
     <File Include="Views/PhieuYCXuatKho_Vattu/_GetListCTPhieu_XUAT_SX.cshtml">
       <publishTime>11/01/2024 09:38:06</publishTime>
     </File>
     <File Include="Views/PhieuYCXuatKho_Vattu/_Insert.cshtml">
-      <publishTime>09/04/2024 14:35:46</publishTime>
+      <publishTime>04/09/2026 11:28:18</publishTime>
     </File>
     <File Include="Views/PhieuYCXuatKho_Vattu/_UpdateCTPhieu_XBAN.cshtml">
       <publishTime>05/03/2024 16:59:22</publishTime>
@@ -10029,7 +10059,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/25/2024 15:30:37</publishTime>
     </File>
     <File Include="Views/PhieuYeuCauXuatKho_Soi/_ReportPrintCT.cshtml">
-      <publishTime>11/08/2024 10:58:17</publishTime>
+      <publishTime>03/20/2026 08:44:35</publishTime>
     </File>
     <File Include="Views/PhieuYeuCauXuatKho_Soi/_UpdateCTPhieu.cshtml">
       <publishTime>02/20/2024 15:05:29</publishTime>
@@ -10095,7 +10125,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/31/2025 14:10:45</publishTime>
     </File>
     <File Include="Views/tracuutheodoitiendomuahang/Index.cshtml">
-      <publishTime>12/31/2025 09:16:04</publishTime>
+      <publishTime>03/27/2026 17:26:24</publishTime>
     </File>
     <File Include="Views/tracuutheodoitiendomuahang/_Details.cshtml">
       <publishTime>12/30/2025 11:04:34</publishTime>
@@ -10104,13 +10134,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/30/2025 11:04:34</publishTime>
     </File>
     <File Include="Views/tracuutiendomuahang_cungung/GetList.cshtml">
-      <publishTime>01/02/2026 17:28:40</publishTime>
+      <publishTime>03/19/2026 08:58:46</publishTime>
+    </File>
+    <File Include="Views/tracuutiendomuahang_cungung/GetListMAVTTD.cshtml">
+      <publishTime>03/19/2026 09:42:03</publishTime>
     </File>
     <File Include="Views/tracuutiendomuahang_cungung/GetListWeek.cshtml">
       <publishTime>12/31/2025 14:56:50</publishTime>
     </File>
     <File Include="Views/tracuutiendomuahang_cungung/Index.cshtml">
-      <publishTime>01/28/2026 13:54:23</publishTime>
+      <publishTime>03/19/2026 09:43:22</publishTime>
     </File>
     <File Include="Views/tracuutiendomuahang_cungung/_Details.cshtml">
       <publishTime>12/31/2025 09:23:02</publishTime>
@@ -10161,7 +10194,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/10/2026 11:54:46</publishTime>
     </File>
     <File Include="Views/tracuuxuatmavttheophieumuahang/Index.cshtml">
-      <publishTime>03/10/2026 11:51:56</publishTime>
+      <publishTime>04/17/2026 15:25:21</publishTime>
     </File>
     <File Include="Views/TRACUUXUATNHAPKHO/GetList.cshtml">
       <publishTime>01/06/2026 16:08:41</publishTime>
@@ -10182,7 +10215,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/03/2026 14:42:18</publishTime>
     </File>
     <File Include="Views/tracuuxuatnhaptontheoky/GetList3.cshtml">
-      <publishTime>02/04/2026 16:11:13</publishTime>
+      <publishTime>04/13/2026 15:36:35</publishTime>
     </File>
     <File Include="Views/tracuuxuatnhaptontheoky/Index.cshtml">
       <publishTime>02/05/2026 13:16:51</publishTime>
@@ -10192,6 +10225,24 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Views/tracuuxuatnhaptontheoky/_ReportPrintCT.cshtml">
       <publishTime>01/27/2026 15:30:25</publishTime>
+    </File>
+    <File Include="Views/tracuuxuatnhaptontheoky_soi/GetList.cshtml">
+      <publishTime>04/13/2026 16:11:51</publishTime>
+    </File>
+    <File Include="Views/tracuuxuatnhaptontheoky_soi/GetList2.cshtml">
+      <publishTime>04/13/2026 13:41:45</publishTime>
+    </File>
+    <File Include="Views/tracuuxuatnhaptontheoky_soi/GetList3.cshtml">
+      <publishTime>04/13/2026 13:41:45</publishTime>
+    </File>
+    <File Include="Views/tracuuxuatnhaptontheoky_soi/Index.cshtml">
+      <publishTime>04/13/2026 13:45:29</publishTime>
+    </File>
+    <File Include="Views/tracuuxuatnhaptontheoky_soi/_Details.cshtml">
+      <publishTime>04/13/2026 13:41:45</publishTime>
+    </File>
+    <File Include="Views/tracuuxuatnhaptontheoky_soi/_ReportPrintCT.cshtml">
+      <publishTime>04/13/2026 13:41:45</publishTime>
     </File>
     <File Include="Views/TrungTamQLCTXuatKhoTheoBM03_QI16_/Error_404.cshtml">
       <publishTime>01/25/2024 15:30:37</publishTime>
@@ -10203,7 +10254,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/15/2024 15:56:18</publishTime>
     </File>
     <File Include="Views/TrungTamQLCTXuatKhoTheoBM03_QI16_/_Insert.cshtml">
-      <publishTime>02/04/2026 15:41:20</publishTime>
+      <publishTime>03/20/2026 08:42:42</publishTime>
     </File>
     <File Include="Views/UserManagement/Index.cshtml">
       <publishTime>05/22/2025 09:59:07</publishTime>
@@ -10236,7 +10287,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/25/2024 15:30:37</publishTime>
     </File>
     <File Include="Views/XemXetAllVatTu/_GetList03.cshtml">
-      <publishTime>01/19/2026 14:06:49</publishTime>
+      <publishTime>03/19/2026 11:07:54</publishTime>
     </File>
     <File Include="Views/XemXetAllVatTu/_GetList05.cshtml">
       <publishTime>01/19/2026 14:08:00</publishTime>
@@ -10317,7 +10368,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/25/2024 15:30:37</publishTime>
     </File>
     <File Include="Views/XuatKhoTheoPhieuYC/_Getlist_tab2.cshtml">
-      <publishTime>12/16/2024 09:28:24</publishTime>
+      <publishTime>06/04/2026 14:44:40</publishTime>
     </File>
     <File Include="Views/XuatTonKhoALL29022024/Index.cshtml">
       <publishTime>01/08/2025 10:39:12</publishTime>
@@ -10467,7 +10518,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/03/2026 11:14:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/10/2026 09:03:00</publishTime>
+      <publishTime>06/05/2026 11:10:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

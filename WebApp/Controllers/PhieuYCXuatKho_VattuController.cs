@@ -311,7 +311,7 @@ namespace ToolsApp.Controllers
                 {
                     item.SoCTKeToan = model.SoCTKeToan;
                     item.SoLuongTT = Convert.ToDecimal(model.SoLuongTT);
-                    item.NgayKeToan = model.NgayKeToan;
+                    item.NgayKeToan = dmxuatnhap.NGAY;
                     item.GHICHU = model.GHICHU;
                     item.TenVT_NCC = model.TenVT_NCC;
                     item.DVT_NCC = model.DVT_NCC;
@@ -541,6 +541,7 @@ namespace ToolsApp.Controllers
                                         model_item.Ngay = DateTime.Now;
                                         model_item.NGAYCN = DateTime.Now;
                                         model_item.NgayKeToan = tb_update.NGAY;
+                                      
                                         var KeyKhoa = Guid.NewGuid();
                                         model_item.KHOAKEYXN = model.LOAIXN.Trim() + "_KeyKhoa_" + KeyKhoa;
                                         vt_.XUATNHAPs.Add(model_item);
