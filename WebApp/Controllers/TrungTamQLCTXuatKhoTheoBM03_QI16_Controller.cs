@@ -76,31 +76,31 @@ namespace ToolsApp.Controllers
             {
                 try
                 {
-                    NgayKeToan_ = DateTime.ParseExact(NgayKeToan, "dd/MM/yyyy", cul);
-                    //if (NgayKeToan_ < DateTime.Now)
-                    //{
-                    //    return Json(new { status = -1, title = "", text = "Ngày kế toán phải lớn hơn ngày hiện tại.", obj = "" }, JsonRequestBehavior.AllowGet);
-                    //}
+                    NgayKeToan_ = DateTime.ParseExact(NgayKeToan, "dd/MM/yyyy", cul);        
                     NgayKeToan_ = new DateTime(NgayKeToan_.Year,
                     NgayKeToan_.Month, NgayKeToan_.Day, 0, 0, 0);
 
                     #region Update ngày
                     if (searchType == "DK2")
                     {
-                        var check = db_.XUATNHAPs.Where(a => a.SoCTXN == SOCTXN).ToList();
-                        for (int i = 0; i < check.Count(); i++)
+                        // 1. Lấy trực tiếp danh sách cần update (bỏ ToList() sớm để tránh tải dữ liệu không cần thiết nếu muốn, nhưng ở đây giữ nguyên để xử lý)
+                        var listUpdate = db_.XUATNHAPs.Where(a => a.SoCTXN == SOCTXN).ToList();
+
+                        // 2. Cập nhật trực tiếp trên danh sách (Không gọi vào DB nữa -> Giải quyết triệt để N+1)
+                        foreach (var item in listUpdate)
                         {
-                            string khoa = check[i].KHOAKEYXN;
-                            var dataUpdate = db_.XUATNHAPs.Where(a => a.KHOAKEYXN == khoa).FirstOrDefault();
-
-                            dataUpdate.NgayKeToan = NgayKeToan_;
-                            db_.Entry(dataUpdate).State = EntityState.Modified;
-
+                            item.NgayKeToan = NgayKeToan_;
+           
                         }
 
+                       
                         var check_dm = db_.DM_XUATNHAP.Where(a => a.SOCTXN == SOCTXN).FirstOrDefault();
-                        check_dm.NGAY = searchType == "DK2" ? NgayKeToan_ : check_dm.NGAY;
-                        db_.Entry(check_dm).State = EntityState.Modified;
+                        if (check_dm != null)
+                        {
+                            check_dm.NGAY = NgayKeToan_;
+                        }
+
+                      
                         db_.SaveChanges();
                     }
                     #endregion
@@ -140,7 +140,7 @@ namespace ToolsApp.Controllers
 
                     #region Khai báo data TTG
                     var dmxuatnhap = db_.DM_XUATNHAP.FirstOrDefault(p => p.SOCTXN == SOCTXN);
-                    var ctxuatnhap = db_.XUATNHAPs.Where(p => p.SoCTXN == SOCTXN).ToList();
+                    var ctxuatnhap = db_.XUATNHAPs.Where(p => p.SoCTXN == SOCTXN).ToList(); 
                     var xuat3buoc = db_.DMLOAIXNs.FirstOrDefault(p => p.LOAIXN == dmxuatnhap.LOAIXN);
                     //  var department = nstt_.Donvi_mapping_Department.Where(p => p.idmadv == dmxuatnhap.IDMADVNHAN).ToList();
                     var department = nstt_.Donvi_mapping_Department
@@ -227,10 +227,10 @@ namespace ToolsApp.Controllers
                         select_cus_phanloaiphieu.value = List_phanloaiphieu;
                         Cus_PhieuXkho[0] = select_cus_phanloaiphieu;
 
-                        //StringCustomFieldRef REF_SOCTXN = new StringCustomFieldRef();
-                        //REF_SOCTXN.scriptId = "custbody_btm_tt_ma_don_yeu_cau";
-                        //REF_SOCTXN.value = dmxuatnhap.SOCTXN.ToString();
-                        //Cus_PhieuXkho[1] = REF_SOCTXN;
+                        //StringCustomFieldRef allow_conversion = new StringCustomFieldRef();
+                        //allow_conversion.scriptId = "custbody_btm_allow_conversion";
+                        //allow_conversion.value = "T";
+                        //Cus_PhieuXkho[1] = allow_conversion;
 
                         //// CHI TIẾT PHIẾU YC
 
@@ -775,6 +775,12 @@ namespace ToolsApp.Controllers
                             select_cus_phanloaiphieu.scriptId = "custbody_btm_tt_loai_phieu_van_chuyen";
                             select_cus_phanloaiphieu.value = List_phanloaiphieu;
                             Cus_PhieuXkho[0] = select_cus_phanloaiphieu;
+
+                            StringCustomFieldRef allow_conversion = new StringCustomFieldRef();
+                            allow_conversion.scriptId = "custbody_btm_allow_conversion";
+                            allow_conversion.value = "T";
+                            Cus_PhieuXkho[1] = allow_conversion;
+
 
                             //StringCustomFieldRef REF_SOCTXN = new StringCustomFieldRef();
                             //REF_SOCTXN.scriptId = "custbody_btm_tt_ma_don_yeu_cau";

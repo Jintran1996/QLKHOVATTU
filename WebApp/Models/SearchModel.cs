@@ -67,6 +67,18 @@ namespace ToolsApp.Models
         public int? page { get; set; }
     }
 
+    public class SearchTraCuuTonTheoThoiGian_HanSuDung
+    {
+        public string MAKHOSEARCH_ { get; set; }
+        public string MAKHOSEARCH { get; set; }
+        public string MAVTSearch { get; set; }
+        public DateTime? TUNGAY_ { get; set; }
+        public string TUNGAY { get; set; }
+        public DateTime? DENNGAY_ { get; set; }
+        public string DENNGAY { get; set; }
+        public int? page { get; set; }
+    }
+
     public class SearchTraCuuTheoDoiTienDoMuaHang
     {
      //   public List<string> MAPHIEUPDSearch { get; set; }

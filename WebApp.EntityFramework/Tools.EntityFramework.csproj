@@ -1558,6 +1558,9 @@
     <Compile Include="VatTu\VATTU2026_SPLOAD_XUATNHAP_X_ASSETACCOUNT_Result.cs">
       <DependentUpon>wqlvattuDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="VatTu\VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="VatTu\VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result.cs">
       <DependentUpon>wqlvattuDB.tt</DependentUpon>
     </Compile>

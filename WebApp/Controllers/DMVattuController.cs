@@ -910,6 +910,7 @@ namespace ToolsApp.Controllers
                                     item.customForm = form;
                                     item.pricesIncludeTax = true;
                                     item.pricesIncludeTaxSpecified = true;
+                                    
 
                                     RecordRef purchaseTaxCode = new RecordRef();
                                     purchaseTaxCode.internalId = taxcode;

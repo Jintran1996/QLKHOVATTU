@@ -10,6 +10,7 @@
             <th>STT</th>
             <th>Mã vật tư</th>
             <th>Tên vật tư</th>
+            <th>DVT</th>
             <th>Số lượng tồn</th>
             <th>Số lượng nhập</th>
             <th>Số lượng nhập nội bộ</th>
@@ -21,6 +22,8 @@
             <th>ĐVT</th>
             <th>Mã kho</th>
             <th>Đơn giá</th>
+            <th>Ngày SX</th>
+            <th>Hạn sử dụng</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +34,7 @@
             <td>@STT</td>
             <td>@item.MAVT</td>
             <td>@item.TENVT</td>
+            <td>@item.DVT</td>
             <td>@(Convert.ToDecimal(item.SOLUONGTON.Value.ToString("#.0000")))</td>
             <td>@(Convert.ToDecimal(item.SOLUONGNHAP.Value.ToString("#.0000")))</td>
             <td>@(Convert.ToDecimal(item.SOLUONGNHAPNOIBO.Value.ToString("#.0000")))</td>
@@ -42,8 +46,10 @@
             <td>@item.DVT</td>
             <td>@item.MAKHO</td>
             <td>
-                @(decimal.Parse(item.DONGIA.Value.ToString("0.####")))
+                @(decimal.Parse(item.DONGIA.ToString("0.####")))
             </td>
+            <td>@item.NGAYSX.ToString("dd/MM/yyyy")</td>
+            <td>@item.HANSUDUNG.ToString("dd/MM/yyyy")</td>
         </tr>
 
             STT++;

@@ -275,11 +275,21 @@ namespace ToolsApp.Controllers
                 #endregion end Xuất sử dụng
 
                 #region
-                dmxuatnhap.GUIAPI = "1";
-                dmxuatnhap.NGAYGUIAPI = DateTime.Now;
-                vt_.Entry(dmxuatnhap).State = EntityState.Modified;
-                vt_.SaveChanges();
-
+                try
+                {
+                    dmxuatnhap.GUIAPI = "1";
+                    dmxuatnhap.NGAYGUIAPI = DateTime.Now;
+                    vt_.Entry(dmxuatnhap).State = EntityState.Modified;
+                    vt_.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string message = ex.Message;
+                    string exmessage = ex.InnerException.InnerException.Message;
+                    string errormessage = exmessage == null || exmessage == "" ? message : exmessage;
+                    return Json(new { status = -1, title = "", text = errormessage, obj = "" }, JsonRequestBehavior.AllowGet);
+                }
+      
                 #endregion
 
                 return Json(new { status = 1, title = "", text = "Xem xét thành công.", obj = "" }, JsonRequestBehavior.AllowGet);

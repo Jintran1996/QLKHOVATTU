@@ -23,6 +23,7 @@ namespace ToolsApp.EntityFramework.VatTu
         public string MaBP { get; set; }
         public string MaKho { get; set; }
         public string MAVT { get; set; }
+        public string LOT { get; set; }
         public Nullable<decimal> SoLuongYC { get; set; }
         public Nullable<decimal> SoLuongTT { get; set; }
         public string MaPhieuPD { get; set; }
@@ -55,6 +56,8 @@ namespace ToolsApp.EntityFramework.VatTu
         public string MANVMODIFY { get; set; }
         public Nullable<System.DateTime> NGAYMODIFY { get; set; }
         public string KHOATHAMCHIEU { get; set; }
+        public Nullable<System.DateTime> NGAYSX { get; set; }
+        public Nullable<System.DateTime> HANSUDUNG { get; set; }
         public int STT { get; set; }
     }
 }

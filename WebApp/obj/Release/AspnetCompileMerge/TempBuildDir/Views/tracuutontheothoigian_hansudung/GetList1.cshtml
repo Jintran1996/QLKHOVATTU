@@ -1,0 +1,58 @@
+﻿@{
+    var List = ViewBag.listPhieu as List<ToolsApp.EntityFramework.VatTu.VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG_Result>;
+    int STT = 1;
+}
+
+<table class="table table-bordered table-hover table-striped" width="100%">
+    <thead>
+        <tr style="text-align:center;">
+          
+            <th>STT</th>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>LOT</th>
+            <th>Mã phiếu PD</th>
+            <th>ĐVT</th>
+            <th>Số lượng nhập</th>
+            <th>Số lượng xuất</th>
+            <th>Ngày nhập</th>
+            <th>Ngày xuất</th>
+            <th>Ngày sx</th>
+            <th>Hạn sử dụng</th>
+            <th>Số ngày tồn</th>
+            <th style="background-color: #ffcece; color: black">Dưới 3 tháng</th>
+            <th style="background-color:#fecb8e; color: black">Từ 3-6 tháng</th>
+            <th style="background-color:#faee92; color: black">Từ 6-9 tháng</th>
+            <th style="background-color:lightgreen; color: black">Từ 9-12 tháng</th>
+            <th style="background-color:white; color: black">Trên 12 tháng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List.OrderBy(p => p.MAVT))
+        {
+            <tr>
+               
+                <td>@STT</td>
+                <td>@item.MAVT</td>
+                <td>@item.TENVT</td>
+                <td>@item.LOT</td>
+                <td>@item.MAPHIEUPD</td>
+                <td>@item.DVT</td>
+                <td>@item.SOLUONGNHAP</td>
+                <td>@item.SOLUONGXUAT</td>
+                <td>@item.NGAYNHAP</td>
+                <td>@item.NGAYXUAT</td>
+                <td>@item.NGAYSX</td>
+                <td>@item.HANSUDUNG</td>
+                <td>@item.SONGAYTON</td>
+                <td style="background-color: #ffcece; color: black ">@item.C90</td>
+                <td style="background-color: #fecb8e; color: black ">@item.C180</td>
+                <td style="background-color: #faee92; color: black">@item.C270</td>
+                <td style="background-color:lightgreen; color: black">@item.C365</td>
+                <td style="background-color:white; color: black">@item.C500</td>
+            </tr>
+
+            STT++;
+        }
+    </tbody>
+</table>

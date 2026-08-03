@@ -4,7 +4,8 @@
     var dmphieu = ViewBag.dmphieu as ToolsApp.EntityFramework.VatTu.DM_XUATNHAP;
     var ctphieu = ViewBag.ctphieu as ToolsApp.EntityFramework.VatTu.XUATNHAP;
     var chkapi = dmphieu?.GUIAPI;
-        //  var dvt = ViewBag.dvt as List<ToolsApp.EntityFramework.VatTu.tblDMDVTINH>;
+    var dvt = ViewBag.dvt as List<ToolsApp.EntityFramework.VatTu.tblDMDVTINH>;
+    //  var dvt = ViewBag.dvt as List<ToolsApp.EntityFramework.VatTu.tblDMDVTINH>;
 
 }
 
@@ -36,17 +37,24 @@
                 <input type="text" autocomplete="off" id="eNGAYCT" name="NGAYCT_" value="@dmphieu.NGAY.Value.ToString("dd/MM/yyyy")" class="form-control" />
             </div>
         </div>
-        @*<div class="form-group row">
-            <label class="col-md-3">ĐVT: </label>
+        <div class="form-group row">
+            <label class="col-md-3">LOT: </label>
             <div class="col-md-9">
-                <select class="form-control chosen-select" id="eDVT_NCC" name="DVT_NCC">
-                    @foreach (var item in dvt)
-                    {
-                        <option value="@item.DVTDS">@item.DVTDS  ||  @item.TEN</option>
-                    }
-                </select>
+                <input class="form-control" type="text"
+                       id="eLOT" name="LOT" value="@ctphieu.LOT" />
             </div>
-        </div>*@
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3">Ngày SX:</label>
+            <div class="col-md-9">
+                <input type="text"
+                       autocomplete="off"
+                       id="eNGAYSX"
+                       name="NGAYSX_"
+                       value="@(ctphieu?.NGAYSX?.ToString("dd/MM/yyyy") ?? "")"
+                       class="form-control" />
+            </div>
+        </div>
 
     </div>
 
@@ -55,7 +63,7 @@
             <label class="col-md-3">Số lượng TT: </label>
             <div class="col-md-9">
                 <input id="eSOLUONGTT" name="SOLUONGTT" class="form-control" type="number"
-                       step="0.01" min="0" value="@ctphieu.SoLuongTT.Value.ToString("0.00")" data-decimal="2" oninput="_CheckNumber(this)" @(chkapi == "1" ? "readonly" : "" ) >
+                       step="0.01" min="0" value="@ctphieu.SoLuongTT.Value.ToString("0.00")" data-decimal="2" oninput="_CheckNumber(this)" @(chkapi == "1" ? "readonly" : "" )>
             </div>
         </div>
         <div class="form-group row">
@@ -74,59 +82,98 @@
             <label class="col-md-3">Số lượng (NCC): </label>
             <div class="col-md-9">
                 <input id="eSOLUONGTT_NCC" name="SOLUONGTT_NCC" class="form-control" type="number"
-                     step="0.01"  min="0" value="@ctphieu.SOLUONGTT_NCC.Value.ToString("0.00")" data-decimal="2" oninput="_CheckNumber(this)">
+                       step="0.01" min="0" value="@ctphieu.SOLUONGTT_NCC.Value.ToString("0.00")" data-decimal="2" oninput="_CheckNumber(this)">
             </div>
         </div>
-
+        <div class="form-group row">
+            <label class="col-md-3">ĐVT NCC: </label>
+            <div class="col-md-9">
+                <select class="form-control chosen-select" id="eDVT_NCC" name="DVT_NCC">
+                    @foreach (var item in dvt)
+                    {
+                        <option value="@item.DVTDS">@item.DVTDS  ||  @item.TEN</option>
+                    }
+                </select>
+            </div>
+        </div>
+       
     </div>
-</div>
+    <div class="col-md-6">
+        <div class="form-group row">
+            <label class="col-md-3">Hạn sử dụng:</label>
+            <div class="col-md-9">
+                <input type="text"
+                       autocomplete="off"
+                       id="eHANSUDUNG"
+                       name="HANSUDUNG_"
+                       value="@(ctphieu?.HANSUDUNG?.ToString("dd/MM/yyyy") ?? "")"
+                       class="form-control" />
+            </div>
+        </div>
+    </div>
 
-<script type="text/javascript">
-    //Số chữ số thập phân
-    function _CheckNumber(ele) {
-        if ($(ele).data('decimal') != null) {
-            // found valid rule for decimal
-            var decimal = parseInt($(ele).data('decimal')) || 0;
-            var val = $(ele).val();
-            if (decimal > 0) {
-                var splitVal = val.split('.');
-                if (splitVal.length == 2 && splitVal[1].length > decimal) {
-                    // user entered invalid input
-                    $(ele).val(splitVal[0] + '.' + splitVal[1].substr(0, decimal));
-                }
-            } else if (decimal == 0) {
-                // do not allow decimal place
-                var splitVal = val.split('.');
-                if (splitVal.length > 1) {
-                    // user entered invalid input
-                    $(ele).val(splitVal[0]); // always trim everything after '.'
+    <script type="text/javascript">
+        //Số chữ số thập phân
+        function _CheckNumber(ele) {
+            if ($(ele).data('decimal') != null) {
+                // found valid rule for decimal
+                var decimal = parseInt($(ele).data('decimal')) || 0;
+                var val = $(ele).val();
+                if (decimal > 0) {
+                    var splitVal = val.split('.');
+                    if (splitVal.length == 2 && splitVal[1].length > decimal) {
+                        // user entered invalid input
+                        $(ele).val(splitVal[0] + '.' + splitVal[1].substr(0, decimal));
+                    }
+                } else if (decimal == 0) {
+                    // do not allow decimal place
+                    var splitVal = val.split('.');
+                    if (splitVal.length > 1) {
+                        // user entered invalid input
+                        $(ele).val(splitVal[0]); // always trim everything after '.'
+                    }
                 }
             }
         }
-    }
 
-</script>
+    </script>
 
-<script type="text/javascript">
-    var config = {
-        '.chosen-select': {},
-        '.chosen-select-deselect': { allow_single_deselect: true },
-        '.chosen-select-no-single': { disable_search_threshold: 10 },
-        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
-        '.chosen-select-width': { width: "95%" },
-        'search_contains': true
-    }
-    for (var selector in config) {
-        $(selector).chosen(config);
-    }
-
-    $("#eNGAYCT").datepicker({
-        format: 'dd/mm/yyyy',
-        changeYear: true,
-        changeMonth: true,
-        onClose: function (selectedDate) {
-            //$("#FromDate").datepicker("option", "minDate", selectedDate);
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': { allow_single_deselect: true },
+            '.chosen-select-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-width': { width: "95%" },
+            'search_contains': true
         }
-    });
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
 
-</script>
+        $("#eNGAYCT").datepicker({
+            format: 'dd/mm/yyyy',
+            changeYear: true,
+            changeMonth: true,
+            onClose: function (selectedDate) {
+                //$("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+        $("#eNGAYSX").datepicker({
+            format: 'dd/mm/yyyy',
+            changeYear: true,
+            changeMonth: true,
+            onClose: function (selectedDate) {
+                //$("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+        $("#eHANSUDUNG").datepicker({
+            format: 'dd/mm/yyyy',
+            changeYear: true,
+            changeMonth: true,
+            onClose: function (selectedDate) {
+                //$("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+
+    </script>

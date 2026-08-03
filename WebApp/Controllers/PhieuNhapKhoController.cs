@@ -14,6 +14,7 @@ using System.Globalization;
 using System.Collections.Generic;
 using ToolsApp.Utilities;
 using ToolsApp.Helper;
+using System.Net.Mail;
 
 namespace ToolsApp.Controllers
 {
@@ -239,9 +240,10 @@ namespace ToolsApp.Controllers
                 MAHINHTHUC = "NDC";
                 var Masoi_hknvl = soi_.VATTU2024_SPLOAD_DMNGUYENLIEUSOI().ToList();
                 ViewBag.Masoi_hknvl = Masoi_hknvl;
+                ViewBag.nguoixx = vt_.SP_LoadXemXetBM03TTKD(User.UserName).ToList();
             }
-            ViewBag.MAHTHUC = MAHINHTHUC;
 
+            ViewBag.MAHTHUC = MAHINHTHUC;
             return PartialView("_GetListCTPhieu_" + MAHINHTHUC, new NL_CTXUATNHAPViewModels { SOCTXN = SOCTXN });
         }
         #endregion
@@ -2273,6 +2275,30 @@ namespace ToolsApp.Controllers
             {
                 return Json(new { status = -2, title = "", text = "Lưu không thành công.", obj = "" }, JsonRequestBehavior.AllowGet);
             }
+        }
+        #endregion
+
+        #region Gửi mail yêu cầu xem xét
+        [HttpPost]
+        public string openOutlookemailbox(string SOCTXN, string MANVXX)
+        {
+            #region Lấy địa chỉ mail của người pd
+
+            var Email = vt_.DMNHANVIENs.FirstOrDefault(p => p.MANV == MANVXX).EMail;
+            #endregion
+
+            MailMessage mail = new MailMessage();
+            mail.To.Add(new MailAddress(Email));
+            mail.IsBodyHtml = true;
+            mail.Subject = SOCTXN;
+            mail.Body = SOCTXN;
+            var outlookmail = "mailto:" + mail.To.ToString()
+                + "?subject=" + "FW: Trình duyệt mã phiếu: " + mail.Subject.ToString() + " từ chương trình QLVT "
+                + "&body=" + "Kính gửi : Ban GĐ. %0D%0A"
+                + "Trình duyệt Loại phiếu:" + " Tăng giảm tồn kho" + "(" + mail.Body.ToString() + ")%0D%0A"
+                + "Đường dẫn: https://thaituangarment.com.vn/QLVatTuKhoSoi/XemXetPhieuTangGiamKho" + "%0D%0A"
+                + "Trân trọng!";
+            return outlookmail;
         }
         #endregion
 

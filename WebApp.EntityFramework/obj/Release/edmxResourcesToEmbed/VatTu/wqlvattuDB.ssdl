@@ -1861,6 +1861,7 @@
     <Property Name="MaBP" Type="varchar" MaxLength="50" />
     <Property Name="MaKho" Type="varchar" MaxLength="50" />
     <Property Name="MAVT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LOT" Type="nvarchar" MaxLength="150" />
     <Property Name="SoLuongYC" Type="numeric" Precision="18" Scale="6" />
     <Property Name="SoLuongTT" Type="numeric" Precision="18" Scale="6" />
     <Property Name="MaPhieuPD" Type="varchar" MaxLength="100" Nullable="false" />
@@ -1893,6 +1894,8 @@
     <Property Name="MANVMODIFY" Type="varchar" MaxLength="50" />
     <Property Name="NGAYMODIFY" Type="datetime" />
     <Property Name="KHOATHAMCHIEU" Type="nvarchar(max)" />
+    <Property Name="NGAYSX" Type="datetime2" Precision="7" />
+    <Property Name="HANSUDUNG" Type="datetime2" Precision="7" />
     <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <Association Name="FK__LDD_CTPHI__MAPHI__38A15C1B">
@@ -3031,6 +3034,11 @@
     <Parameter Name="SOPHIEU" Type="varchar" Mode="In" />
     <Parameter Name="SHOWROOM" Type="varchar" Mode="In" />
     <Parameter Name="KEY" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAKHO" Type="varchar" Mode="In" />
+    <Parameter Name="NGAY" Type="date" Mode="In" />
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
   </Function>
   <Function Name="VATTU2026_SP_INSERT_CTPHIEU_MAVT_TUONGDUONG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaPhieu" Type="varchar" Mode="In" />

@@ -363,7 +363,11 @@ namespace ToolsApp.Controllers
                         throw new Exception(ex.Message);
                     }
                 }
+
+                model.NGAYSX = Helper.DateHelper.ParseNgay(model.NGAYSX_);
+                model.HANSUDUNG = Helper.DateHelper.ParseNgay(model.HANSUDUNG_);
                 #endregion
+
                 var dmxuatnhap = vt_.DM_XUATNHAP.FirstOrDefault(p => p.SOCTXN == model.SoCTXN);
                 var f_LOAIXN = dmxuatnhap.LOAIXN;
                 var f_SOCTXN = model.SoCTXN;
@@ -387,6 +391,9 @@ namespace ToolsApp.Controllers
                     item.SoLuongTT = Convert.ToDecimal(model.SoLuongTT);
                     item.SoLuongYC = Convert.ToDecimal(model.SoLuongTT);
                     item.NgayKeToan = dmxuatnhap.NGAY;
+                    item.LOT = model.LOT;
+                    item.NGAYSX = model.NGAYSX;
+                    item.HANSUDUNG = model.HANSUDUNG;
                     item.GHICHU = model.GHICHU;
                     item.TenVT_NCC = model.TenVT_NCC;
                     item.DVT_NCC = model.DVT_NCC;
@@ -1312,7 +1319,11 @@ namespace ToolsApp.Controllers
                                             .Select(g => new
                                             {
                                                 MAVT = g.Key,
-                                                TongSoLuong = g.Sum(x => x.SoLuongTT)
+                                                TongSoLuong = g.Sum(x => x.SoLuongTT),
+                                                // Nếu tổng trả về null, gán giá trị mặc định là 0
+                                                TongSoLuongNCC = g.Sum(x => x.SOLUONGTT_NCC) ?? 0
+
+
                                             })
                                             .ToList();
 
@@ -1331,7 +1342,7 @@ namespace ToolsApp.Controllers
 
                             ItemReceiptItemList orderItemList = new ItemReceiptItemList();
                             List<ItemReceiptItem> orderItems = new List<ItemReceiptItem>();
-                            CustomFieldRef[] cusDetail = new CustomFieldRef[100];
+                    //        CustomFieldRef[] cusDetail = new CustomFieldRef[100];
 
                             InitializeRef initializeRef = new InitializeRef()
                             {
@@ -1370,6 +1381,14 @@ namespace ToolsApp.Controllers
                                 externalId = kNhan.FirstOrDefault()?.externalid
                             };
 
+                            CustomFieldRef[] cusfield = new CustomFieldRef[100];
+                            StringCustomFieldRef custbody_btm_allow_conversion = new StringCustomFieldRef();
+                            custbody_btm_allow_conversion.scriptId = "custbody_btm_allow_conversion"; // Script ID của trường trên NetSuite
+                            custbody_btm_allow_conversion.value = "T";
+                            cusfield[0] = custbody_btm_allow_conversion;
+
+                            ir.customFieldList = cusfield.ToArray();
+
                             for (int j = 0; j < ir.itemList.item.Length; j++)
                             {
                                 var itemLine = ir.itemList.item[j];
@@ -1380,17 +1399,66 @@ namespace ToolsApp.Controllers
 
                                 if (mavt != null && groupedByMavt.TryGetValue(mavt, out var list))
                                 {
-                                    double qtyReceive = list.Sum(x => (double)x.TongSoLuong);
+                                    var ncc = ctphieu.FirstOrDefault(p => p.MAVT == mavt);
+                                    string TenVT_NCC = ncc.TenVT_NCC ?? "";
+                                    string DVT_NCC = ncc.DVT_NCC ?? "";
+                                    string sohoadon = ncc.SoCTKeToan ?? "";
+                                    string ngaysx = ncc.NGAYSX  == null ?  "" : ncc.NGAYSX.Value.ToString("dd/MM/yyyy");
+                                    string hansudung = ncc.HANSUDUNG == null ? "" : ncc.HANSUDUNG.Value.ToString("dd/MM/yyyy");
 
+                                    double qtyReceive = list.Sum(x => (double)x.TongSoLuong);
+                                    double TongSoLuongNCC = list.Sum(x => (double)x.TongSoLuongNCC);
+                                    int k = 0;
+                                    CustomFieldRef[] lineCustomItemIR = new CustomFieldRef[99];
                                     if (qtyReceive > 0)
                                     {
                                         itemLine.itemReceive = true;
                                         itemLine.quantity = qtyReceive;
+
+                                        List<CustomFieldRef> ItemCustomFields = new List<CustomFieldRef>();
+
+                                        StringCustomFieldRef icus_tenvt_ncc = new StringCustomFieldRef();
+                                        icus_tenvt_ncc.scriptId = "custcol_ttg_ten_ncc"; // Script ID của trường trên NetSuite
+                                        icus_tenvt_ncc.value = TenVT_NCC;                                      
+                                        ItemCustomFields.Add(icus_tenvt_ncc);
+
+                                        StringCustomFieldRef icus_dvt_ncc = new StringCustomFieldRef();
+                                        icus_dvt_ncc.scriptId = "custcol_ttg_item_dvt_ncc"; // Script ID của trường trên NetSuite
+                                        icus_dvt_ncc.value = DVT_NCC;                               
+                                        ItemCustomFields.Add(icus_dvt_ncc);
+
+                                        StringCustomFieldRef icus_sohoadon_ncc = new StringCustomFieldRef();
+                                        icus_sohoadon_ncc.scriptId = "custcol_ttg_item_sohoadon"; // Script ID của trường trên NetSuite
+                                        icus_sohoadon_ncc.value = sohoadon;                                  
+                                        ItemCustomFields.Add(icus_sohoadon_ncc);
+
+                                        DoubleCustomFieldRef icus_soluongtt_ncc = new DoubleCustomFieldRef();
+                                        icus_soluongtt_ncc.scriptId = "custcol_ttg_item_soluong_ncc"; // Script ID của trường trên NetSuite
+                                        icus_soluongtt_ncc.value = TongSoLuongNCC;                                     
+                                        ItemCustomFields.Add(icus_soluongtt_ncc);
+
+                                        StringCustomFieldRef icus_hansudung_ncc = new StringCustomFieldRef();
+                                        icus_hansudung_ncc.scriptId = "custcol_ttg_item_hansudung"; // Script ID của trường trên NetSuite
+                                        icus_hansudung_ncc.value = hansudung;
+                                        ItemCustomFields.Add(icus_hansudung_ncc);
+
+                                        StringCustomFieldRef icus_ngaysx_ncc = new StringCustomFieldRef();
+                                        icus_ngaysx_ncc.scriptId = "custcol_ttg_item_ngaysx"; // Script ID của trường trên NetSuite
+                                        icus_ngaysx_ncc.value = ngaysx;                              
+                                        ItemCustomFields.Add(icus_ngaysx_ncc);
+
+                         
+
+                                        // GÁN THẲNG VÀO TRƯỜNG customFieldList CỦA DÒNG HIỆN TẠI (Không chứa phần tử null dư thừa)
+                                        itemLine.customFieldList = ItemCustomFields.ToArray();
+
+
                                     }
                                     else
                                     {
                                         itemLine.itemReceive = false;
                                         itemLine.quantity = 0;
+                                        itemLine.customFieldList = null;
                                     }
 
                                     // Remove toàn bộ MAVT này để tránh xử lý lại
@@ -1401,11 +1469,8 @@ namespace ToolsApp.Controllers
                                     itemLine.itemReceive = false;
                                     itemLine.quantity = 0;
                                 }
-                            }
-
-
-
-
+                            }                              
+                       
                             WriteResponse response = ns.Service.add(ir);
 
                             #endregion

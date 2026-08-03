@@ -154,7 +154,6 @@
         <AssociationConnector Association="wqlvattuModel.FK_DanhMucVatTu_DMViTri" />
         <AssociationConnector Association="wqlvattuModel.FK_DMGIATRIVATTU_DANHMUCVATTU" />
         <AssociationConnector Association="wqlvattuModel.FK_TonDauKy_DanhMucVatTu" />
-        <EntityTypeShape EntityType="wqlvattuModel.XUATNHAP" Width="1.5" PointX="35.375" PointY="41.75" />
         <EntityTypeShape EntityType="wqlvattuModel.CTPHIEU05" Width="1.5" PointX="11.25" PointY="27.5" />
         <AssociationConnector Association="wqlvattuModel.FK_CTPHIEU05_DanhMucVatTu" />
         <EntityTypeShape EntityType="wqlvattuModel.TBL_DMLOAIVT_COA" Width="1.5" PointX="8.375" PointY="21.75" />
@@ -167,6 +166,7 @@
         <AssociationConnector Association="wqlvattuModel.FK_CTPHIEU_03022024_DMPHIEU" />
         <AssociationConnector Association="wqlvattuModel.FK_CTPHIEU05_DMPhieu" />
         <AssociationConnector Association="wqlvattuModel.FK_DMPhieu_DMLOAIPHIEU" />
+        <EntityTypeShape EntityType="wqlvattuModel.XUATNHAP" Width="1.5" PointX="20.375" PointY="29.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

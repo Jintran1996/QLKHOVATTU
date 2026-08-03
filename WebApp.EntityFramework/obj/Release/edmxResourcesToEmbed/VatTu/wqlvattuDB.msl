@@ -3670,54 +3670,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="XUATNHAPs">
-      <EntityTypeMapping TypeName="wqlvattuModel.XUATNHAP">
-        <MappingFragment StoreEntitySet="XUATNHAP">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
-          <ScalarProperty Name="NGAYMODIFY" ColumnName="NGAYMODIFY" />
-          <ScalarProperty Name="MANVMODIFY" ColumnName="MANVMODIFY" />
-          <ScalarProperty Name="NGAYCN" ColumnName="NGAYCN" />
-          <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
-          <ScalarProperty Name="MADH_CN" ColumnName="MADH_CN" />
-          <ScalarProperty Name="MaKhoXuat" ColumnName="MaKhoXuat" />
-          <ScalarProperty Name="MaphieuchuyenNB" ColumnName="MaphieuchuyenNB" />
-          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
-          <ScalarProperty Name="Ghichugia" ColumnName="Ghichugia" />
-          <ScalarProperty Name="VAT" ColumnName="VAT" />
-          <ScalarProperty Name="SOLUONGTT_NCC" ColumnName="SOLUONGTT_NCC" />
-          <ScalarProperty Name="DVT_NCC" ColumnName="DVT_NCC" />
-          <ScalarProperty Name="TenVT_NCC" ColumnName="TenVT_NCC" />
-          <ScalarProperty Name="NgayXacNhan" ColumnName="NgayXacNhan" />
-          <ScalarProperty Name="XacNhanTDV" ColumnName="XacNhanTDV" />
-          <ScalarProperty Name="MaTruongDV" ColumnName="MaTruongDV" />
-          <ScalarProperty Name="KHOAKEYXN" ColumnName="KHOAKEYXN" />
-          <ScalarProperty Name="DaXuatKho" ColumnName="DaXuatKho" />
-          <ScalarProperty Name="TongGia" ColumnName="TongGia" />
-          <ScalarProperty Name="DVT_TIEN" ColumnName="DVT_TIEN" />
-          <ScalarProperty Name="RatePO" ColumnName="RatePO" />
-          <ScalarProperty Name="MaTaiSan" ColumnName="MaTaiSan" />
-          <ScalarProperty Name="modified" ColumnName="modified" />
-          <ScalarProperty Name="MaVTTam" ColumnName="MaVTTam" />
-          <ScalarProperty Name="NgayKeToan" ColumnName="NgayKeToan" />
-          <ScalarProperty Name="SoCTKeToan" ColumnName="SoCTKeToan" />
-          <ScalarProperty Name="LoaiCapPhat" ColumnName="LoaiCapPhat" />
-          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-          <ScalarProperty Name="MaPhieuPD" ColumnName="MaPhieuPD" />
-          <ScalarProperty Name="SoLuongTT" ColumnName="SoLuongTT" />
-          <ScalarProperty Name="SoLuongYC" ColumnName="SoLuongYC" />
-          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
-          <ScalarProperty Name="MaKho" ColumnName="MaKho" />
-          <ScalarProperty Name="MaBP" ColumnName="MaBP" />
-          <ScalarProperty Name="DonViYeuCau" ColumnName="DonViYeuCau" />
-          <ScalarProperty Name="MANVXuat" ColumnName="MANVXuat" />
-          <ScalarProperty Name="MaNVYC" ColumnName="MaNVYC" />
-          <ScalarProperty Name="LoaiXN" ColumnName="LoaiXN" />
-          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-          <ScalarProperty Name="SoCTXN" ColumnName="SoCTXN" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CTPHIEU05">
       <EntityTypeMapping TypeName="wqlvattuModel.CTPHIEU05">
         <MappingFragment StoreEntitySet="CTPHIEU05">
@@ -4037,25 +3989,6 @@
           <ScalarProperty Name="SLXemXet" ColumnName="SLXemXet" />
           <ScalarProperty Name="SOLUONGTONCONGTY" ColumnName="SOLUONGTONCONGTY" />
           <ScalarProperty Name="SOLUONGTONDONVI" ColumnName="SOLUONGTONDONVI" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO" FunctionName="wqlvattuModel.Store.VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="wqlvattuModel.VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result">
-          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
-          <ScalarProperty Name="TENVT" ColumnName="TENVT" />
-          <ScalarProperty Name="SOLUONGTON" ColumnName="SOLUONGTON" />
-          <ScalarProperty Name="SOLUONGNHAP" ColumnName="SOLUONGNHAP" />
-          <ScalarProperty Name="SOLUONGNHAPNOIBO" ColumnName="SOLUONGNHAPNOIBO" />
-          <ScalarProperty Name="SOLUONGXUAT" ColumnName="SOLUONGXUAT" />
-          <ScalarProperty Name="SOLUONGXUATNOIBO" ColumnName="SOLUONGXUATNOIBO" />
-          <ScalarProperty Name="TONCUOI" ColumnName="TONCUOI" />
-          <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
-          <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
-          <ScalarProperty Name="DVT" ColumnName="DVT" />
-          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
-          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -4476,6 +4409,102 @@
           <ScalarProperty Name="NumberCheck" ColumnName="NumberCheck" />
           <ScalarProperty Name="FinishCheck" ColumnName="FinishCheck" />
           <ScalarProperty Name="locations" ColumnName="locations" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="XUATNHAPs">
+      <EntityTypeMapping TypeName="wqlvattuModel.XUATNHAP">
+        <MappingFragment StoreEntitySet="XUATNHAP">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="HANSUDUNG" ColumnName="HANSUDUNG" />
+          <ScalarProperty Name="NGAYSX" ColumnName="NGAYSX" />
+          <ScalarProperty Name="KHOATHAMCHIEU" ColumnName="KHOATHAMCHIEU" />
+          <ScalarProperty Name="NGAYMODIFY" ColumnName="NGAYMODIFY" />
+          <ScalarProperty Name="MANVMODIFY" ColumnName="MANVMODIFY" />
+          <ScalarProperty Name="NGAYCN" ColumnName="NGAYCN" />
+          <ScalarProperty Name="MANVCN" ColumnName="MANVCN" />
+          <ScalarProperty Name="MADH_CN" ColumnName="MADH_CN" />
+          <ScalarProperty Name="MaKhoXuat" ColumnName="MaKhoXuat" />
+          <ScalarProperty Name="MaphieuchuyenNB" ColumnName="MaphieuchuyenNB" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="Ghichugia" ColumnName="Ghichugia" />
+          <ScalarProperty Name="VAT" ColumnName="VAT" />
+          <ScalarProperty Name="SOLUONGTT_NCC" ColumnName="SOLUONGTT_NCC" />
+          <ScalarProperty Name="DVT_NCC" ColumnName="DVT_NCC" />
+          <ScalarProperty Name="TenVT_NCC" ColumnName="TenVT_NCC" />
+          <ScalarProperty Name="NgayXacNhan" ColumnName="NgayXacNhan" />
+          <ScalarProperty Name="XacNhanTDV" ColumnName="XacNhanTDV" />
+          <ScalarProperty Name="MaTruongDV" ColumnName="MaTruongDV" />
+          <ScalarProperty Name="KHOAKEYXN" ColumnName="KHOAKEYXN" />
+          <ScalarProperty Name="DaXuatKho" ColumnName="DaXuatKho" />
+          <ScalarProperty Name="TongGia" ColumnName="TongGia" />
+          <ScalarProperty Name="DVT_TIEN" ColumnName="DVT_TIEN" />
+          <ScalarProperty Name="RatePO" ColumnName="RatePO" />
+          <ScalarProperty Name="MaTaiSan" ColumnName="MaTaiSan" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="MaVTTam" ColumnName="MaVTTam" />
+          <ScalarProperty Name="NgayKeToan" ColumnName="NgayKeToan" />
+          <ScalarProperty Name="SoCTKeToan" ColumnName="SoCTKeToan" />
+          <ScalarProperty Name="LoaiCapPhat" ColumnName="LoaiCapPhat" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="MaPhieuPD" ColumnName="MaPhieuPD" />
+          <ScalarProperty Name="SoLuongTT" ColumnName="SoLuongTT" />
+          <ScalarProperty Name="SoLuongYC" ColumnName="SoLuongYC" />
+          <ScalarProperty Name="LOT" ColumnName="LOT" />
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+          <ScalarProperty Name="MaBP" ColumnName="MaBP" />
+          <ScalarProperty Name="DonViYeuCau" ColumnName="DonViYeuCau" />
+          <ScalarProperty Name="MANVXuat" ColumnName="MANVXuat" />
+          <ScalarProperty Name="MaNVYC" ColumnName="MaNVYC" />
+          <ScalarProperty Name="LoaiXN" ColumnName="LoaiXN" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="SoCTXN" ColumnName="SoCTXN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO" FunctionName="wqlvattuModel.Store.VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlvattuModel.VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="TENVT" ColumnName="TENVT" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="SOLUONGTON" ColumnName="SOLUONGTON" />
+          <ScalarProperty Name="SOLUONGNHAP" ColumnName="SOLUONGNHAP" />
+          <ScalarProperty Name="SOLUONGNHAPNOIBO" ColumnName="SOLUONGNHAPNOIBO" />
+          <ScalarProperty Name="SOLUONGXUAT" ColumnName="SOLUONGXUAT" />
+          <ScalarProperty Name="SOLUONGXUATNOIBO" ColumnName="SOLUONGXUATNOIBO" />
+          <ScalarProperty Name="TONCUOI" ColumnName="TONCUOI" />
+          <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
+          <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="NGAYSX" ColumnName="NGAYSX" />
+          <ScalarProperty Name="HANSUDUNG" ColumnName="HANSUDUNG" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG" FunctionName="wqlvattuModel.Store.VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlvattuModel.VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="LOT" ColumnName="LOT" />
+          <ScalarProperty Name="MAKHO" ColumnName="MAKHO" />
+          <ScalarProperty Name="MAPHIEUPD" ColumnName="MAPHIEUPD" />
+          <ScalarProperty Name="SOLUONGNHAP" ColumnName="SOLUONGNHAP" />
+          <ScalarProperty Name="SOLUONGXUAT" ColumnName="SOLUONGXUAT" />
+          <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+          <ScalarProperty Name="NGAYXUAT" ColumnName="NGAYXUAT" />
+          <ScalarProperty Name="NGAYSX" ColumnName="NGAYSX" />
+          <ScalarProperty Name="HANSUDUNG" ColumnName="HANSUDUNG" />
+          <ScalarProperty Name="SONGAYTON" ColumnName="SONGAYTON" />
+          <ScalarProperty Name="TENVT" ColumnName="TENVT" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="C90" ColumnName="90" />
+          <ScalarProperty Name="C180" ColumnName="180" />
+          <ScalarProperty Name="C270" ColumnName="270" />
+          <ScalarProperty Name="C365" ColumnName="365" />
+          <ScalarProperty Name="C500" ColumnName="500" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

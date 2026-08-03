@@ -660,7 +660,13 @@ namespace ToolsApp.Models
         public string MaphieuchuyenNB { get; set; }
         public string MaKhoXuat { get; set; }
         public string MADH_CN { get; set; }
-     
+        public string LOT { get; set; }
+
+        public Nullable<System.DateTime> NGAYSX { get; set; }
+        public string NGAYSX_ { get; set; }
+        public Nullable<System.DateTime> HANSUDUNG { get; set; }
+        public string HANSUDUNG_ { get; set; }
+
 
     }
     public partial class NL_CTXUATNHAPViewModels

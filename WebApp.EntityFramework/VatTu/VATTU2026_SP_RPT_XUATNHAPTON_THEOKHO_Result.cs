@@ -15,6 +15,7 @@ namespace ToolsApp.EntityFramework.VatTu
     {
         public string MAVT { get; set; }
         public string TENVT { get; set; }
+        public string DVT { get; set; }
         public Nullable<decimal> SOLUONGTON { get; set; }
         public Nullable<decimal> SOLUONGNHAP { get; set; }
         public Nullable<decimal> SOLUONGNHAPNOIBO { get; set; }
@@ -23,8 +24,9 @@ namespace ToolsApp.EntityFramework.VatTu
         public Nullable<decimal> TONCUOI { get; set; }
         public string NGAYBATDAU { get; set; }
         public string NGAYKETTHUC { get; set; }
-        public string DVT { get; set; }
         public string MAKHO { get; set; }
-        public Nullable<decimal> DONGIA { get; set; }
+        public decimal DONGIA { get; set; }
+        public System.DateTime NGAYSX { get; set; }
+        public System.DateTime HANSUDUNG { get; set; }
     }
 }

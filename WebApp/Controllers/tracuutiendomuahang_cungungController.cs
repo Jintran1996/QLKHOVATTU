@@ -135,8 +135,14 @@ namespace ToolsApp.Controllers
                 denNgayStr = denNgay.ToString("dd/MM/yyyy");
                 DK3 = 1;
             }
-            var list = dbvt.VATTU2025_SP_THEODOIPHIEUPD_CUGC(mavt, maphieupd, maphieupd, tuNgayStr, denNgayStr, DK1, DK2, DK3, DK4)
-                           .ToList();
+
+            List<VATTU2025_SP_THEODOIPHIEUPD_CUGC_Result> list;
+            using (var db = new wqlvattuEntities())
+            {
+                db.Database.CommandTimeout = 180;
+                list = db.VATTU2025_SP_THEODOIPHIEUPD_CUGC(mavt, maphieupd, maphieupd, tuNgayStr, denNgayStr, DK1, DK2, DK3, DK4)
+                          .ToList();
+            }
             ViewBag.listPhieu = list;
             ViewBag.DMTinhTrangNCC = dbvt.DM_PHTinhTrangNCC.ToList();
             ViewBag.DMTTKythuat = dbvt.DM_TinhTrangKyThuatCUGC.ToList();
@@ -187,8 +193,13 @@ namespace ToolsApp.Controllers
                 denNgayStr = denNgay.ToString("dd/MM/yyyy");
                 DK3 = 1;
             }
-            var list = dbvt.VATTU2025_SP_THEODOIPHIEUPD_CUGC(mavt, maphieupd, maphieupd, tuNgayStr, denNgayStr, DK1, DK2, DK3, DK4)
-                           .ToList();
+            List<VATTU2025_SP_THEODOIPHIEUPD_CUGC_Result> list;
+            using (var db = new wqlvattuEntities())
+            {
+                db.Database.CommandTimeout = 180;
+                list = db.VATTU2025_SP_THEODOIPHIEUPD_CUGC(mavt, maphieupd, maphieupd, tuNgayStr, denNgayStr, DK1, DK2, DK3, DK4)
+                          .ToList();
+            }
             ViewBag.listPhieu = list;
             ViewBag.DMTinhTrangNCC = dbvt.DM_PHTinhTrangNCC.ToList();
             ViewBag.DMTTKythuat = dbvt.DM_TinhTrangKyThuatCUGC.ToList();

@@ -147,7 +147,6 @@ namespace ToolsApp.EntityFramework.VatTu
         public virtual DbSet<VATTU2025_NGOAITE> VATTU2025_NGOAITE { get; set; }
         public virtual DbSet<TABLE_LUUTRU_SOHOADON> TABLE_LUUTRU_SOHOADON { get; set; }
         public virtual DbSet<DANHMUCVATTU> DANHMUCVATTUs { get; set; }
-        public virtual DbSet<XUATNHAP> XUATNHAPs { get; set; }
         public virtual DbSet<CTPHIEU05> CTPHIEU05 { get; set; }
         public virtual DbSet<TBL_DMLOAIVT_COA> TBL_DMLOAIVT_COA { get; set; }
         public virtual DbSet<DM_PHTinhTrangNCC> DM_PHTinhTrangNCC { get; set; }
@@ -156,6 +155,7 @@ namespace ToolsApp.EntityFramework.VatTu
         public virtual DbSet<VATTU2026_CTPHIEU_MAVTTUONGDUONG> VATTU2026_CTPHIEU_MAVTTUONGDUONG { get; set; }
         public virtual DbSet<CTPHIEU> CTPHIEUx { get; set; }
         public virtual DbSet<DMPHIEU> DMPHIEUx { get; set; }
+        public virtual DbSet<XUATNHAP> XUATNHAPs { get; set; }
     
         public virtual ObjectResult<SP_LOADNGUOIPHEDUYET_BY_KIHIEU_Result> SP_LOADNGUOIPHEDUYET_BY_KIHIEU(string kIHIEU)
         {
@@ -2608,23 +2608,6 @@ namespace ToolsApp.EntityFramework.VatTu
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VATTU2026_A23_LoadChiTietBM05_Result>("VATTU2026_A23_LoadChiTietBM05", maphieuParameter);
         }
     
-        public virtual ObjectResult<VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result> VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO(Nullable<System.DateTime> nGAYBATDAU, Nullable<System.DateTime> nGAYKETTHUC, string mAKHO)
-        {
-            var nGAYBATDAUParameter = nGAYBATDAU.HasValue ?
-                new ObjectParameter("NGAYBATDAU", nGAYBATDAU) :
-                new ObjectParameter("NGAYBATDAU", typeof(System.DateTime));
-    
-            var nGAYKETTHUCParameter = nGAYKETTHUC.HasValue ?
-                new ObjectParameter("NGAYKETTHUC", nGAYKETTHUC) :
-                new ObjectParameter("NGAYKETTHUC", typeof(System.DateTime));
-    
-            var mAKHOParameter = mAKHO != null ?
-                new ObjectParameter("MAKHO", mAKHO) :
-                new ObjectParameter("MAKHO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result>("VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO", nGAYBATDAUParameter, nGAYKETTHUCParameter, mAKHOParameter);
-        }
-    
         public virtual ObjectResult<VATTU2026_SP_RPT_XUATNHAPTON_THEONHIEUKHO_Result> VATTU2026_SP_RPT_XUATNHAPTON_THEONHIEUKHO(Nullable<System.DateTime> nGAYBATDAU, Nullable<System.DateTime> nGAYKETTHUC, string mAKHO)
         {
             var nGAYBATDAUParameter = nGAYBATDAU.HasValue ?
@@ -2861,6 +2844,40 @@ namespace ToolsApp.EntityFramework.VatTu
                 new ObjectParameter("manv", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SpLoad_DMPhieu_Phieumuahang_Result>("SpLoad_DMPhieu_Phieumuahang", manvParameter);
+        }
+    
+        public virtual ObjectResult<VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result> VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO(Nullable<System.DateTime> nGAYBATDAU, Nullable<System.DateTime> nGAYKETTHUC, string mAKHO)
+        {
+            var nGAYBATDAUParameter = nGAYBATDAU.HasValue ?
+                new ObjectParameter("NGAYBATDAU", nGAYBATDAU) :
+                new ObjectParameter("NGAYBATDAU", typeof(System.DateTime));
+    
+            var nGAYKETTHUCParameter = nGAYKETTHUC.HasValue ?
+                new ObjectParameter("NGAYKETTHUC", nGAYKETTHUC) :
+                new ObjectParameter("NGAYKETTHUC", typeof(System.DateTime));
+    
+            var mAKHOParameter = mAKHO != null ?
+                new ObjectParameter("MAKHO", mAKHO) :
+                new ObjectParameter("MAKHO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result>("VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO", nGAYBATDAUParameter, nGAYKETTHUCParameter, mAKHOParameter);
+        }
+    
+        public virtual ObjectResult<VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG_Result> VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG(string mAKHO, Nullable<System.DateTime> nGAY, string mAVT)
+        {
+            var mAKHOParameter = mAKHO != null ?
+                new ObjectParameter("MAKHO", mAKHO) :
+                new ObjectParameter("MAKHO", typeof(string));
+    
+            var nGAYParameter = nGAY.HasValue ?
+                new ObjectParameter("NGAY", nGAY) :
+                new ObjectParameter("NGAY", typeof(System.DateTime));
+    
+            var mAVTParameter = mAVT != null ?
+                new ObjectParameter("MAVT", mAVT) :
+                new ObjectParameter("MAVT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG_Result>("VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG", mAKHOParameter, nGAYParameter, mAVTParameter);
         }
     }
 }

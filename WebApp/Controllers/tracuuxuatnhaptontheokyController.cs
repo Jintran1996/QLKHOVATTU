@@ -77,7 +77,7 @@ namespace ToolsApp.Controllers
         }
         #endregion
 
-        #region Danh sách phiếu gần nhất  1
+        #region Danh sách phiếu gần nhất  2
         [HttpPost]
         public ActionResult GetList2(SearchTraCuuXNKho src)
         {

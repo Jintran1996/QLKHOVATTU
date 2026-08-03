@@ -12,13 +12,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/07/2026 15:03:29</publishTime>
     </File>
     <File Include="bin/App_Browsers.dll">
-      <publishTime>06/09/2026 11:12:22</publishTime>
+      <publishTime>07/30/2026 09:11:11</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/09/2026 11:12:22</publishTime>
+      <publishTime>07/30/2026 09:11:11</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/09/2026 11:12:22</publishTime>
+      <publishTime>07/30/2026 09:11:11</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
       <publishTime>01/25/2024 15:30:43</publishTime>
@@ -246,25 +246,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/06/2023 08:44:19</publishTime>
     </File>
     <File Include="bin/ToolsApp.dll">
-      <publishTime>06/09/2026 11:12:02</publishTime>
+      <publishTime>07/30/2026 09:10:46</publishTime>
     </File>
     <File Include="bin/ToolsApp.EntityFramework.dll">
-      <publishTime>06/05/2026 11:09:59</publishTime>
+      <publishTime>07/30/2026 09:10:42</publishTime>
     </File>
     <File Include="bin/ToolsApp.EntityFramework.dll.config">
       <publishTime>06/05/2026 08:08:07</publishTime>
     </File>
     <File Include="bin/ToolsApp.EntityFramework.pdb">
-      <publishTime>06/05/2026 11:09:59</publishTime>
+      <publishTime>07/30/2026 09:10:42</publishTime>
     </File>
     <File Include="bin/ToolsApp.Libs.dll">
-      <publishTime>05/28/2026 14:38:44</publishTime>
+      <publishTime>06/15/2026 11:52:24</publishTime>
     </File>
     <File Include="bin/ToolsApp.Libs.pdb">
-      <publishTime>05/28/2026 14:38:44</publishTime>
+      <publishTime>06/15/2026 11:52:24</publishTime>
     </File>
     <File Include="bin/ToolsApp.pdb">
-      <publishTime>06/09/2026 11:12:02</publishTime>
+      <publishTime>07/30/2026 09:10:46</publishTime>
     </File>
     <File Include="bin/ToolsApp.Utilities.dll">
       <publishTime>03/19/2026 10:14:00</publishTime>
@@ -276,10 +276,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/19/2026 10:14:00</publishTime>
     </File>
     <File Include="bin/ToolsApp.XmlSerializers.dll">
-      <publishTime>06/09/2026 11:12:12</publishTime>
+      <publishTime>07/30/2026 09:10:57</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
-      <publishTime>06/09/2026 11:12:22</publishTime>
+      <publishTime>07/30/2026 09:11:11</publishTime>
     </File>
     <File Include="Content/404page.css">
       <publishTime>01/25/2024 15:30:33</publishTime>
@@ -9177,7 +9177,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/25/2024 15:30:38</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/09/2026 11:12:16</publishTime>
+      <publishTime>07/30/2026 09:11:01</publishTime>
     </File>
     <File Include="Rotativa/help-wkhtmltoimage.txt">
       <publishTime>01/07/2026 15:03:29</publishTime>
@@ -9612,7 +9612,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/29/2025 16:35:20</publishTime>
     </File>
     <File Include="Views/Inphieuchatluongdonvi/_GetListHD.cshtml">
-      <publishTime>04/09/2026 10:55:47</publishTime>
+      <publishTime>07/08/2026 09:08:48</publishTime>
     </File>
     <File Include="Views/Inphieuchatluongdonvi/_GetListHL.cshtml">
       <publishTime>12/19/2025 13:56:42</publishTime>
@@ -9825,7 +9825,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/09/2024 11:52:29</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho/Index.cshtml">
-      <publishTime>12/29/2025 11:07:14</publishTime>
+      <publishTime>07/24/2026 16:08:31</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho/_DienGiaiView.cshtml">
       <publishTime>12/11/2025 10:58:13</publishTime>
@@ -9843,7 +9843,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/24/2024 16:28:37</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho/_GetlistCTPhieu_NDC.cshtml">
-      <publishTime>06/14/2024 13:26:34</publishTime>
+      <publishTime>07/24/2026 13:33:35</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho/_GetlistCTPhieu_NK.cshtml">
       <publishTime>09/12/2025 08:13:19</publishTime>
@@ -9870,7 +9870,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/11/2025 10:48:51</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/Index.cshtml">
-      <publishTime>03/25/2026 08:40:39</publishTime>
+      <publishTime>07/15/2026 13:53:55</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_DienGiaiView.cshtml">
       <publishTime>05/31/2025 08:55:18</publishTime>
@@ -9891,7 +9891,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/07/2026 08:48:00</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_GetlistCTPhieu_NHTA.cshtml">
-      <publishTime>05/07/2026 08:48:16</publishTime>
+      <publishTime>06/24/2026 17:08:59</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_GetlistCTPhieu_NK.cshtml">
       <publishTime>12/29/2025 10:07:08</publishTime>
@@ -9921,7 +9921,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/19/2025 17:14:54</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_UpdateCTPhieu_NK.cshtml">
-      <publishTime>09/11/2025 10:11:31</publishTime>
+      <publishTime>07/15/2026 13:54:09</publishTime>
     </File>
     <File Include="Views/PhieuNhapKho_Vattu/_UploadNHTGA.cshtml">
       <publishTime>01/14/2026 08:50:04</publishTime>
@@ -10005,7 +10005,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/04/2026 15:14:36</publishTime>
     </File>
     <File Include="Views/PhieuYCXuatKho_Vattu/_GetListCTPhieu_X.cshtml">
-      <publishTime>01/26/2026 13:17:36</publishTime>
+      <publishTime>06/25/2026 08:20:29</publishTime>
     </File>
     <File Include="Views/PhieuYCXuatKho_Vattu/_GetListCTPhieu_XBAN.cshtml">
       <publishTime>10/16/2024 11:36:43</publishTime>
@@ -10178,6 +10178,18 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/tracuutontheomavt/_ReportPrintCT.cshtml">
       <publishTime>12/25/2025 10:20:09</publishTime>
     </File>
+    <File Include="Views/tracuutontheothoigian_hansudung/GetList1.cshtml">
+      <publishTime>07/30/2026 08:29:49</publishTime>
+    </File>
+    <File Include="Views/tracuutontheothoigian_hansudung/Index.cshtml">
+      <publishTime>07/29/2026 15:04:46</publishTime>
+    </File>
+    <File Include="Views/tracuutontheothoigian_hansudung/_Details.cshtml">
+      <publishTime>07/29/2026 13:54:04</publishTime>
+    </File>
+    <File Include="Views/tracuutontheothoigian_hansudung/_ReportPrintCT.cshtml">
+      <publishTime>07/29/2026 13:54:04</publishTime>
+    </File>
     <File Include="Views/TRACUUTRANGTHAIXUATNHAPKHO/GetList.cshtml">
       <publishTime>01/06/2026 15:01:04</publishTime>
     </File>
@@ -10209,7 +10221,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/27/2025 16:29:51</publishTime>
     </File>
     <File Include="Views/tracuuxuatnhaptontheoky/GetList.cshtml">
-      <publishTime>02/03/2026 14:42:08</publishTime>
+      <publishTime>07/16/2026 11:44:54</publishTime>
     </File>
     <File Include="Views/tracuuxuatnhaptontheoky/GetList2.cshtml">
       <publishTime>02/03/2026 14:42:18</publishTime>
@@ -10218,7 +10230,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/13/2026 15:36:35</publishTime>
     </File>
     <File Include="Views/tracuuxuatnhaptontheoky/Index.cshtml">
-      <publishTime>02/05/2026 13:16:51</publishTime>
+      <publishTime>07/29/2026 15:04:33</publishTime>
     </File>
     <File Include="Views/tracuuxuatnhaptontheoky/_Details.cshtml">
       <publishTime>01/27/2026 15:30:25</publishTime>
@@ -10518,7 +10530,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/03/2026 11:14:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/05/2026 11:10:16</publishTime>
+      <publishTime>06/25/2026 08:21:25</publishTime>
     </File>
   </ItemGroup>
 </Project>

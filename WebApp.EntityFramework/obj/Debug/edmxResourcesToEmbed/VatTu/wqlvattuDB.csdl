@@ -900,7 +900,6 @@
     <FunctionImport Name="VATTU2025_SP_REPHIEUMUAHANGTHEOBM" ReturnType="Collection(wqlvattuModel.VATTU2025_SP_REPHIEUMUAHANGTHEOBM_Result)">
       <Parameter Name="MAPHIEU" Mode="In" Type="String" />
     </FunctionImport>
-    <EntitySet Name="XUATNHAPs" EntityType="wqlvattuModel.XUATNHAP" />
     <EntitySet Name="CTPHIEU05" EntityType="wqlvattuModel.CTPHIEU05" />
     <AssociationSet Name="FK_CTPHIEU05_DanhMucVatTu" Association="wqlvattuModel.FK_CTPHIEU05_DanhMucVatTu">
       <End Role="DANHMUCVATTU" EntitySet="DANHMUCVATTUs" />
@@ -960,11 +959,6 @@
     </FunctionImport>
     <FunctionImport Name="VATTU2026_A23_LoadChiTietBM05" ReturnType="Collection(wqlvattuModel.VATTU2026_A23_LoadChiTietBM05_Result)">
       <Parameter Name="maphieu" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO" ReturnType="Collection(wqlvattuModel.VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result)">
-      <Parameter Name="NGAYBATDAU" Mode="In" Type="DateTime" />
-      <Parameter Name="NGAYKETTHUC" Mode="In" Type="DateTime" />
-      <Parameter Name="MAKHO" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="VATTU2026_SP_RPT_XUATNHAPTON_THEONHIEUKHO" ReturnType="Collection(wqlvattuModel.VATTU2026_SP_RPT_XUATNHAPTON_THEONHIEUKHO_Result)">
       <Parameter Name="NGAYBATDAU" Mode="In" Type="DateTime" />
@@ -1052,6 +1046,17 @@
     </AssociationSet>
     <FunctionImport Name="SpLoad_DMPhieu_Phieumuahang" ReturnType="Collection(wqlvattuModel.SpLoad_DMPhieu_Phieumuahang_Result)">
       <Parameter Name="manv" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="XUATNHAPs" EntityType="wqlvattuModel.XUATNHAP" />
+    <FunctionImport Name="VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO" ReturnType="Collection(wqlvattuModel.VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result)">
+      <Parameter Name="NGAYBATDAU" Mode="In" Type="DateTime" />
+      <Parameter Name="NGAYKETTHUC" Mode="In" Type="DateTime" />
+      <Parameter Name="MAKHO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG" ReturnType="Collection(wqlvattuModel.VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG_Result)">
+      <Parameter Name="MAKHO" Mode="In" Type="String" />
+      <Parameter Name="NGAY" Mode="In" Type="DateTime" />
+      <Parameter Name="MAVT" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SP_LOADNGUOIPHEDUYET_BY_KIHIEU_Result">
@@ -4511,53 +4516,6 @@
     <Property Type="Int32" Name="ThangNam" Nullable="false" />
     <Property Type="Decimal" Name="TT" Nullable="false" Precision="37" Scale="6" />
   </ComplexType>
-  <EntityType Name="XUATNHAP">
-    <Key>
-      <PropertyRef Name="STT" />
-    </Key>
-    <Property Name="SoCTXN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Ngay" Type="DateTime" Precision="3" />
-    <Property Name="LoaiXN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MaNVYC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MANVXuat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="DonViYeuCau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MaBP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MaKho" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MAVT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="SoLuongYC" Type="Decimal" Precision="18" Scale="6" />
-    <Property Name="SoLuongTT" Type="Decimal" Precision="18" Scale="6" />
-    <Property Name="MaPhieuPD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="GHICHU" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="LoaiCapPhat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SoCTKeToan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NgayKeToan" Type="DateTime" Precision="3" />
-    <Property Name="MaVTTam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="modified" Type="DateTime" Precision="3" />
-    <Property Name="MaTaiSan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="RatePO" Type="Decimal" Precision="30" Scale="4" />
-    <Property Name="DVT_TIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TongGia" Type="Decimal" Precision="30" Scale="4" />
-    <Property Name="DaXuatKho" Type="Byte" />
-    <Property Name="KHOAKEYXN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="MaTruongDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="XacNhanTDV" Type="Byte" />
-    <Property Name="NgayXacNhan" Type="DateTime" Precision="3" />
-    <Property Name="TenVT_NCC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="DVT_NCC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="SOLUONGTT_NCC" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="VAT" Type="Int32" />
-    <Property Name="Ghichugia" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MaphieuchuyenNB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MaKhoXuat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MADH_CN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MANVCN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NGAYCN" Type="DateTime" Precision="3" />
-    <Property Name="MANVMODIFY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NGAYMODIFY" Type="DateTime" Precision="3" />
-    <Property Name="KHOATHAMCHIEU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
   <EntityType Name="CTPHIEU05">
     <Key>
       <PropertyRef Name="ID_INT" />
@@ -4848,21 +4806,6 @@
     <Property Type="Decimal" Name="SLXemXet" Nullable="true" Precision="18" Scale="2" />
     <Property Type="Decimal" Name="SOLUONGTONCONGTY" Nullable="true" Precision="38" Scale="6" />
     <Property Type="Decimal" Name="SOLUONGTONDONVI" Nullable="true" Precision="38" Scale="6" />
-  </ComplexType>
-  <ComplexType Name="VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result">
-    <Property Type="String" Name="MAVT" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="TENVT" Nullable="true" MaxLength="200" />
-    <Property Type="Decimal" Name="SOLUONGTON" Nullable="true" Precision="38" Scale="6" />
-    <Property Type="Decimal" Name="SOLUONGNHAP" Nullable="true" Precision="38" Scale="6" />
-    <Property Type="Decimal" Name="SOLUONGNHAPNOIBO" Nullable="true" Precision="38" Scale="6" />
-    <Property Type="Decimal" Name="SOLUONGXUAT" Nullable="true" Precision="38" Scale="6" />
-    <Property Type="Decimal" Name="SOLUONGXUATNOIBO" Nullable="true" Precision="38" Scale="6" />
-    <Property Type="Decimal" Name="TONCUOI" Nullable="true" Precision="38" Scale="6" />
-    <Property Type="String" Name="NGAYBATDAU" Nullable="true" MaxLength="10" />
-    <Property Type="String" Name="NGAYKETTHUC" Nullable="true" MaxLength="10" />
-    <Property Type="String" Name="DVT" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="MAKHO" Nullable="true" MaxLength="50" />
-    <Property Type="Decimal" Name="DONGIA" Nullable="true" Precision="18" Scale="6" />
   </ComplexType>
   <ComplexType Name="VATTU2026_SP_RPT_XUATNHAPTON_THEONHIEUKHO_Result">
     <Property Type="String" Name="MAVT" Nullable="true" MaxLength="250" />
@@ -5257,5 +5200,92 @@
     <Property Type="Int32" Name="NumberCheck" Nullable="true" />
     <Property Type="Boolean" Name="FinishCheck" Nullable="true" />
     <Property Type="String" Name="locations" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="XUATNHAP">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="SoCTXN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
+    <Property Name="LoaiXN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaNVYC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MANVXuat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DonViYeuCau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaBP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaKho" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAVT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LOT" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuongYC" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="SoLuongTT" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="MaPhieuPD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GHICHU" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiCapPhat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoCTKeToan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayKeToan" Type="DateTime" Precision="3" />
+    <Property Name="MaVTTam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modified" Type="DateTime" Precision="3" />
+    <Property Name="MaTaiSan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RatePO" Type="Decimal" Precision="30" Scale="4" />
+    <Property Name="DVT_TIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TongGia" Type="Decimal" Precision="30" Scale="4" />
+    <Property Name="DaXuatKho" Type="Byte" />
+    <Property Name="KHOAKEYXN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaTruongDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="XacNhanTDV" Type="Byte" />
+    <Property Name="NgayXacNhan" Type="DateTime" Precision="3" />
+    <Property Name="TenVT_NCC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DVT_NCC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SOLUONGTT_NCC" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="VAT" Type="Int32" />
+    <Property Name="Ghichugia" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaphieuchuyenNB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaKhoXuat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MADH_CN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MANVCN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGAYCN" Type="DateTime" Precision="3" />
+    <Property Name="MANVMODIFY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGAYMODIFY" Type="DateTime" Precision="3" />
+    <Property Name="KHOATHAMCHIEU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYSX" Type="DateTime" Precision="7" />
+    <Property Name="HANSUDUNG" Type="DateTime" Precision="7" />
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <ComplexType Name="VATTU2026_SP_RPT_XUATNHAPTON_THEOKHO_Result">
+    <Property Type="String" Name="MAVT" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TENVT" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="DVT" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="SOLUONGTON" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="SOLUONGNHAP" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="SOLUONGNHAPNOIBO" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="SOLUONGXUAT" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="SOLUONGXUATNOIBO" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="TONCUOI" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="String" Name="NGAYBATDAU" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NGAYKETTHUC" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MAKHO" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="DONGIA" Nullable="false" Precision="18" Scale="6" />
+    <Property Type="DateTime" Name="NGAYSX" Nullable="false" />
+    <Property Type="DateTime" Name="HANSUDUNG" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG_Result">
+    <Property Type="String" Name="MAVT" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LOT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MAKHO" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MAPHIEUPD" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="SOLUONGNHAP" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="SOLUONGXUAT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="NGAYNHAP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NGAYXUAT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NGAYSX" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HANSUDUNG" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SONGAYTON" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TENVT" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="DVT" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="C90" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="C180" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="C270" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="C365" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="C500" Nullable="false" Precision="18" Scale="2" />
   </ComplexType>
 </Schema>
