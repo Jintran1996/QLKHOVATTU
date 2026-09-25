@@ -3386,6 +3386,7 @@
     <Compile Include="Controllers\TonghopxuatnhapBM05.cs" />
     <Compile Include="Controllers\XemXetXuatVanChuyenController.cs" />
     <Compile Include="Controllers\XemXetPhieuTangGiamKhoController.cs" />
+    <Compile Include="Controllers\YeuCauHoaChatCongDoanController.cs" />
     <Compile Include="Controllers\XuatTonKhoALL29022024Controller.cs" />
     <Compile Include="Controllers\XemXetBangKeNhapSoiController.cs" />
     <Compile Include="Controllers\XemXetDHGiaCongSoiController.cs" />
@@ -3744,6 +3745,11 @@
     <Content Include="Views\tracuutontheothoigian_hansudung\_ReportPrintCT.cshtml" />
     <Content Include="Views\tracuutontheothoigian_hansudung\GetList1.cshtml" />
     <Content Include="Views\tracuutontheothoigian_hansudung\Index.cshtml" />
+    <Content Include="Views\NhapHoaDonMuaHang\_Upload.cshtml" />
+    <Content Include="Views\NhapHoaDonMuaHang\_frmUpImage.cshtml" />
+    <Content Include="Views\YeuCauHoaChatCongDoan\_GetList.cshtml" />
+    <Content Include="Views\YeuCauHoaChatCongDoan\Index.cshtml" />
+    <Content Include="Views\YeuCauHoaChatCongDoan\_GetList2.cshtml" />
     <None Include="Web References\com.netsuite.webservices\accounting.xsd">
       <SubType>Designer</SubType>
     </None>

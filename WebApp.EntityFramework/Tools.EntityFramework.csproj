@@ -713,6 +713,33 @@
     <Compile Include="NetsuiteTT\VATTU2024_SP_LOAD_ExpenseCodeList_Result.cs">
       <DependentUpon>NetsuiteTT.tt</DependentUpon>
     </Compile>
+    <Compile Include="NhuomAH\NhuomAHModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhuomAHModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhuomAH\NhuomAHModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhuomAHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhuomAH\NhuomAHModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhuomAHModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NhuomAH\NOILAYHOACHAT.cs">
+      <DependentUpon>NhuomAHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhuomAH\Spload_tblCongDoan_Result.cs">
+      <DependentUpon>NhuomAHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhuomAH\SPLOAD_XUATHCTN_THEOTRUC_Result.cs">
+      <DependentUpon>NhuomAHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhuomAH\XuatHCTN_theotruc.cs">
+      <DependentUpon>NhuomAHModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SPMAY\SPMAY.Context.cs">
       <AutoGen>True</AutoGen>
@@ -1537,6 +1564,9 @@
     <Compile Include="VatTu\VATTU2026_KTRA_LOAIPHIEU_PHIEUMUAHANG_Result.cs">
       <DependentUpon>wqlvattuDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="VatTu\VATTU2026_LOADMAVT_DUOCTAMUNG_Result.cs">
+      <DependentUpon>wqlvattuDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="VatTu\VATTU2026_SPLOAD_MAVTTUONGDUONG_COGIANHAP_Result.cs">
       <DependentUpon>wqlvattuDB.tt</DependentUpon>
     </Compile>
@@ -1629,6 +1659,13 @@
     <None Include="NetsuiteTT\NetsuiteTT.edmx.diagram">
       <DependentUpon>NetsuiteTT.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="NhuomAH\NhuomAHModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NhuomAHModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="NhuomAH\NhuomAHModel.edmx.diagram">
+      <DependentUpon>NhuomAHModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <EntityDeploy Include="VatTu\wqlvattuDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -1698,6 +1735,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>NetsuiteTT.edmx</DependentUpon>
       <LastGenOutput>NetsuiteTT.cs</LastGenOutput>
+    </Content>
+    <Content Include="NhuomAH\NhuomAHModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NhuomAHModel.edmx</DependentUpon>
+      <LastGenOutput>NhuomAHModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="NhuomAH\NhuomAHModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NhuomAHModel.edmx</DependentUpon>
+      <LastGenOutput>NhuomAHModel.cs</LastGenOutput>
     </Content>
     <Content Include="SPMAY\SPMAY.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

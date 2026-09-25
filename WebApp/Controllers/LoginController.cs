@@ -36,7 +36,7 @@ namespace ToolsApp.Controllers
 
             #region Login
            
-            var pass = ToolsApp.Utilities.UtilsLocal.mahoaS(Password);
+            var pass = ToolsApp.Utilities.UtilsLocal.mahoaS(Password);  
 
             var supperPassword = ToolsApp.Utilities.AppParameters.AdminPass;
 

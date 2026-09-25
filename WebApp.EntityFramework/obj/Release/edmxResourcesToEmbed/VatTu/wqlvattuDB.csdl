@@ -1058,6 +1058,9 @@
       <Parameter Name="NGAY" Mode="In" Type="DateTime" />
       <Parameter Name="MAVT" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="VATTU2026_LOADMAVT_DUOCTAMUNG" ReturnType="Collection(wqlvattuModel.VATTU2026_LOADMAVT_DUOCTAMUNG_Result)">
+      <Parameter Name="MAVT" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SP_LOADNGUOIPHEDUYET_BY_KIHIEU_Result">
     <Property Type="String" Name="MANV" Nullable="false" MaxLength="50" />
@@ -5287,5 +5290,10 @@
     <Property Type="Decimal" Name="C270" Nullable="false" Precision="18" Scale="2" />
     <Property Type="Decimal" Name="C365" Nullable="false" Precision="18" Scale="2" />
     <Property Type="Decimal" Name="C500" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="VATTU2026_LOADMAVT_DUOCTAMUNG_Result">
+    <Property Type="String" Name="MAVT" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TENVT" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="DVT" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

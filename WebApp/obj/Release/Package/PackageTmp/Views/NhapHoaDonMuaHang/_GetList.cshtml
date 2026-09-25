@@ -19,7 +19,7 @@
             <th>Số hóa đơn</th>
             <th>Ngày HĐ</th>
 
-            <th>Hình ảnh QRcode</th>
+            <th>Hình ảnh</th>
             <th>File PDF</th>
             <th>Link HĐ</th>
             <th>Ngày khai</th>
@@ -37,12 +37,12 @@
     </thead>
 
     <tbody>
-        @foreach (var item in list.Take(100))
+        @foreach (var item in list.OrderByDescending(p => p.NGAYCN).Take(100))
         {
         <tr>
             <td>
                 <a onclick="Delete('@item.SOCTXN')" class="btn">
-                    <i class="far fa-trash-alt"></i> Xóa
+                    <i class="far fa-trash-alt" style="color:red" title="Xóa"></i> 
                 </a>
             </td>
             <td> @STT </td>
@@ -59,11 +59,29 @@
                     {
                         var imagePath = $"{ToolsApp.Utilities.Utils.WebConfigKey.Domain}/Upload/{item.Thumuc}/{fileName}";
 
-                        <a href="@imagePath" target="_blank">
-                            <img src="@imagePath" width="40" style="margin-right:10px; border:1px solid #ccc;" />
-                        </a>
+                        <div style="position: relative; display: inline-block; margin-right: 15px; vertical-align: middle;">
+
+                            <a href="@imagePath" target="_blank">
+                                <img src="@imagePath" width="40" style="margin-right:10px; border:1px solid #ccc;" title="@System.IO.Path.GetFileName(imagePath)" />
+                            </a>
+
+                            <!-- Nút dấu X dùng FontAwesome (hoặc dùng chữ x nếu không có icon) -->
+                            <a onclick="DeleteImageFile('@item.SOCTXN', '@fileName')"
+                               style="position: absolute; top: -5px; right: -5px; background: red; color: white; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 10px; cursor: pointer; text-decoration: none;"
+                               title="Xóa file này">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </div>
                     }
                 }
+                <!-- Thay đổi hàm onclick để kích hoạt ô chọn file ẩn -->
+                <a onclick="TriggerImageUpload('@item.SOCTXN')" class="btn" style="vertical-align: middle;">
+                    <i class="fas fa-plus" style="color: blue" title="Thêm mới file ảnh"></i>
+                </a>
+
+                <!-- Thêm thuộc tính multiple vào cuối thẻ input -->
+                <input type="file" id="fileimage_@item.SOCTXN" accept="image/png, image/jpeg, image/jpg" multiple style="display: none;" onchange="UploadImageFile('@item.SOCTXN')" />
+
 
             </td>
             <td>
@@ -75,11 +93,27 @@
                     {
                         var PDFPath = $"{ToolsApp.Utilities.Utils.WebConfigKey.Domain}/Upload/{item.Thumuc}/{fileName}";
 
-                        <a href="@PDFPath" target="_blank" data-toggle="tooltip" title="@System.IO.Path.GetFileName(PDFPath)">
-                            <img src="~/Content/images/pdf-icon.png" width="40" />
-                        </a>
+                        <div style="position: relative; display: inline-block; margin-right: 15px; vertical-align: middle;">
+                            <a href="@PDFPath" target="_blank" data-toggle="tooltip" title="@System.IO.Path.GetFileName(PDFPath)">
+                                <img src="~/Content/images/pdf-icon.png" width="40" />
+                            </a>
+
+                            <!-- Nút dấu X dùng FontAwesome (hoặc dùng chữ x nếu không có icon) -->
+                            <a onclick="DeletePDFFile('@item.SOCTXN', '@fileName')"
+                               style="position: absolute; top: -5px; right: -5px; background: red; color: white; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 10px; cursor: pointer; text-decoration: none;"
+                               title="Xóa file này">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </div>
                     }
                 }
+                <!-- Thay đổi hàm onclick để kích hoạt ô chọn file ẩn -->
+                <a onclick="TriggerPDFUpload('@item.SOCTXN')" class="btn" style="vertical-align: middle;">
+                    <i class="fas fa-plus" style="color: red" title="Thêm mới file PDF"></i>
+                </a>
+
+                <!-- Thêm thuộc tính multiple vào cuối thẻ input -->
+                <input type="file" id="filepdf_@item.SOCTXN" accept=".pdf" multiple style="display: none;" onchange="UploadPDFFile('@item.SOCTXN')" />
             </td>
             <td>
 
@@ -119,3 +153,5 @@
         }
     </tbody>
 </table>
+
+

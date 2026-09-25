@@ -140,10 +140,5 @@ namespace ToolsApp.Controllers
             return PartialView(list);
         }
         #endregion
-
-
-
-
-
     }
 }

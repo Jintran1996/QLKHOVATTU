@@ -143,8 +143,8 @@
                                                     &nbsp;
                                                     @*<button type="button" onclick="OpenUploadExcelXHCMT()" class="btn btn-info" style="width: 130px"><i class="fa fa-save"></i>&nbsp;UploadExcel</button>
                                                         &nbsp;*@
-                                                    <button onclick="SendMail_XHCMT()" type="button" class="btn btn-warning" style=" width: 100px;"><i class="fa fa-envelope"></i>&nbsp; Email</button>
-                                                    &nbsp;
+                                                    @*<button onclick="SendMail_XHCMT()" type="button" class="btn btn-warning" style=" width: 100px;"><i class="fa fa-envelope"></i>&nbsp; Email</button>
+                                                    &nbsp;*@
                                                 </div>
 
                                             </div>
@@ -255,33 +255,7 @@
     }
 
 
-    function SendMail_XHCMT() {
-        var SOCTXN_ = $("#hidenSOCTXN_XHCMT").val();
-        var MANVXX_ = $("#MANVXX_XHCMT").val();
 
-        var confirm_ = confirm('Bạn có chắc muốn gửi email yêu cầu xem xét?');
-        if (confirm_) {
-                    $.ajax({
-                        url: '@Url.Action("openOutlookemailbox")',
-                        timeout: 20000,
-                        type: "POST",
-                        data: { SOCTXN: SOCTXN_, MANVXX: MANVXX_  },
-                        beforeSend: function (xhr) {
-                            $(".divLoading").addClass("loading");
-                        },
-                        success: function (result) {
-                            window.location = result;
-                            $(".divLoading").removeClass("loading");
-                            window.location.reload();
-
-                        },
-                        error: function (message) {
-                            $(".divLoading").removeClass("loading");
-                        }
-                    });
-                }
-
-            }
 
 
     function _Insert_ctphieu_XHCMT() {
@@ -382,8 +356,13 @@
             if (result && result.status === 1) {
                 $(".divLoading").addClass("loading");
                 let xSoluongton = result.obj;
+                let Maphieupd_XHCMT = result.maphieupd;
 
                 $("#xSoluongton").val(isNaN(xSoluongton) ? "0" : xSoluongton);
+                // Gán mã phiếu (kiểm tra nếu có giá trị thì giữ nguyên, ngược lại để rỗng)
+                $("#Maphieupd_XHCMT").val(Maphieupd_XHCMT ? Maphieupd_XHCMT : "");
+
+                console.log(Maphieupd_XHCMT);
 
                 $(".divLoading").removeClass("loading");
             } else {

@@ -1322,8 +1322,6 @@ namespace ToolsApp.Controllers
                                                 TongSoLuong = g.Sum(x => x.SoLuongTT),
                                                 // Nếu tổng trả về null, gán giá trị mặc định là 0
                                                 TongSoLuongNCC = g.Sum(x => x.SOLUONGTT_NCC) ?? 0
-
-
                                             })
                                             .ToList();
 
@@ -1408,7 +1406,7 @@ namespace ToolsApp.Controllers
 
                                     double qtyReceive = list.Sum(x => (double)x.TongSoLuong);
                                     double TongSoLuongNCC = list.Sum(x => (double)x.TongSoLuongNCC);
-                                    int k = 0;
+                                //    int k = 0;
                                     CustomFieldRef[] lineCustomItemIR = new CustomFieldRef[99];
                                     if (qtyReceive > 0)
                                     {

@@ -36,7 +36,7 @@
                     <a onclick="Detail('@item.MAPHIEU')" class="btn" style="font-size:10px">
                         <i class="far fa-eye">&nbsp;Chi&nbsp;tiết</i>
                     </a>
-                    @if ((DateTime.Now.Date <= item.NGAYYC.Value.Date) || item.NGUOILAPPHIEU == User.Identity.Name)
+                    @if ((DateTime.Now.Date <= item.NGAYYC.Value.Date) || item.NGUOILAPPHIEU == User.Identity.Name )
                     {
                         <a onclick="Delete('@item.MAPHIEU')" class="btn" style="font-size:10px">
                             <i class="far fa-trash-alt">&nbsp;Xóa&nbsp;phiếu</i>

@@ -3,7 +3,7 @@
     int STT = 1;
 }
 
-<table class="table table-bordered table-hover table-striped" width="100%">
+<table class="table table-bordered table-hover" width="100%">
     <thead>
         <tr style="text-align:center;">
           
@@ -20,7 +20,7 @@
             <th>Ngày sx</th>
             <th>Hạn sử dụng</th>
             <th>Số ngày tồn</th>
-            <th style="background-color: #ffcece; color: black">Dưới 3 tháng</th>
+            <th style="background-color: #DD0000; color: black">Dưới 3 tháng</th>
             <th style="background-color:#fecb8e; color: black">Từ 3-6 tháng</th>
             <th style="background-color:#faee92; color: black">Từ 6-9 tháng</th>
             <th style="background-color:lightgreen; color: black">Từ 9-12 tháng</th>
@@ -30,26 +30,51 @@
     <tbody>
         @foreach (var item in List.OrderBy(p => p.MAVT))
         {
-            <tr>
-               
-                <td>@STT</td>
-                <td>@item.MAVT</td>
-                <td>@item.TENVT</td>
-                <td>@item.LOT</td>
-                <td>@item.MAPHIEUPD</td>
-                <td>@item.DVT</td>
-                <td>@item.SOLUONGNHAP</td>
-                <td>@item.SOLUONGXUAT</td>
-                <td>@item.NGAYNHAP</td>
-                <td>@item.NGAYXUAT</td>
-                <td>@item.NGAYSX</td>
-                <td>@item.HANSUDUNG</td>
-                <td>@item.SONGAYTON</td>
-                <td style="background-color: #ffcece; color: black ">@item.C90</td>
-                <td style="background-color: #fecb8e; color: black ">@item.C180</td>
-                <td style="background-color: #faee92; color: black">@item.C270</td>
-                <td style="background-color:lightgreen; color: black">@item.C365</td>
-                <td style="background-color:white; color: black">@item.C500</td>
+            string rowColor = "";
+            // Đảm bảo ép kiểu an toàn nếu SONGAYTON có thể là null hoặc chuỗi trống
+            int songayton = (item.SONGAYTON == "Vô thời hạn" || string.IsNullOrEmpty(item.SONGAYTON)) ? 9999 : Convert.ToInt32(item.SONGAYTON);
+
+            if (songayton < 90)
+            {
+                rowColor = "#DD0000 !important";       // Thêm !important
+            }
+            else if (songayton < 180)
+            {
+                rowColor = "#fecb8e !important";
+            }   
+            else if (songayton < 270)
+            {
+                rowColor = "#faee92 !important";
+            }
+            else if (songayton < 365)
+            {
+                rowColor = "lightgreen !important";
+            }
+            else
+            {
+                rowColor = "white !important";
+            }
+              <tr>
+  
+
+                <td style="background-color: @rowColor; color: black ">@STT</td>
+                <td style="background-color: @rowColor; color: black ">@item.MAVT</td>
+                <td style="background-color: @rowColor; color: black ">@item.TENVT</td>
+                <td style="background-color: @rowColor; color: black ">@item.LOT</td>
+                <td style="background-color: @rowColor; color: black ">@item.MAPHIEUPD</td>
+                <td style="background-color: @rowColor; color: black ">@item.DVT</td>
+                <td style="background-color: @rowColor; color: black ">@item.SOLUONGNHAP</td>
+                <td style="background-color: @rowColor; color: black ">@item.SOLUONGXUAT</td>
+                <td style="background-color: @rowColor; color: black ">@item.NGAYNHAP</td>
+                <td style="background-color: @rowColor; color: black ">@item.NGAYXUAT</td>
+                <td style="background-color: @rowColor; color: black ">@item.NGAYSX</td>
+                <td style="background-color: @rowColor; color: black ">@item.HANSUDUNG</td>
+                <td style="background-color: @rowColor; color: black ">@item.SONGAYTON</td>
+                <td style="background-color: @rowColor; color: black ">@item.C90</td>
+                <td style="background-color: @rowColor; color: black ">@item.C180</td>
+                <td style="background-color: @rowColor; color: black ">@item.C270</td>
+                <td style="background-color: @rowColor; color: black ">@item.C365</td>
+                <td style="background-color: @rowColor; color: black ">@item.C500</td>
             </tr>
 
             STT++;

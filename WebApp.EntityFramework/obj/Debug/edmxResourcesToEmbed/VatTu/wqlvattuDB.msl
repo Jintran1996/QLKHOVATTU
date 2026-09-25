@@ -4508,5 +4508,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VATTU2026_LOADMAVT_DUOCTAMUNG" FunctionName="wqlvattuModel.Store.VATTU2026_LOADMAVT_DUOCTAMUNG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="wqlvattuModel.VATTU2026_LOADMAVT_DUOCTAMUNG_Result">
+          <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+          <ScalarProperty Name="TENVT" ColumnName="TENVT" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

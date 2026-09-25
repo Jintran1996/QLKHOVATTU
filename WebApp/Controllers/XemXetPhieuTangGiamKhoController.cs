@@ -499,6 +499,7 @@ namespace ToolsApp.Controllers
                     "bichlien@thaituan.com.vn",
                     "maithi@thaituan.com.vn",
                     "ktvattu2@thaituan.com.vn",
+                    "kschiphi@thaituan.com.vn",
                 };
             // Gộp danh sách email bằng dấu ';'
             string toEmails = string.Join(";", emailList);

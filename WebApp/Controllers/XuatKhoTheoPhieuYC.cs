@@ -509,7 +509,7 @@ namespace ToolsApp.Controllers
                                         InventoryTransfer IT_PhieuXkho = new InventoryTransfer();
                                         //Date
                                         IT_PhieuXkho.tranDate = Convert.ToDateTime(f_tb.NGAY);
-                                        IT_PhieuXkho.tranDateSpecified = true;  
+                                        IT_PhieuXkho.tranDateSpecified = true;
                                         //Số phiếu// Ref.No
                                         IT_PhieuXkho.tranId = items.SOCTXN; //-- bị chặn trên netsuite
                                         IT_PhieuXkho.externalId = items.SOCTXN;
@@ -534,7 +534,7 @@ namespace ToolsApp.Controllers
 
                                         // đơn vị nhận// Department
 
-                                        RecordRef PYC_Department = new RecordRef(); 
+                                        RecordRef PYC_Department = new RecordRef();
                                         PYC_Department.externalId = department.Count < 1 ? "" : department.FirstOrDefault().externalid;
                                         IT_PhieuXkho.department = PYC_Department;
 
@@ -545,7 +545,7 @@ namespace ToolsApp.Controllers
                                         SelectCustomFieldRef select_cus_phanloaiphieu = new SelectCustomFieldRef();
                                         ListOrRecordRef List_phanloaiphieu = new ListOrRecordRef();
                                         List_phanloaiphieu.internalId = "2";
-                                        select_cus_phanloaiphieu.scriptId = "custbody_btm_tt_loai_phieu_van_chuyen"; 
+                                        select_cus_phanloaiphieu.scriptId = "custbody_btm_tt_loai_phieu_van_chuyen";
                                         select_cus_phanloaiphieu.value = List_phanloaiphieu;
                                         Cus_PhieuXkho[0] = select_cus_phanloaiphieu;
 
@@ -613,12 +613,86 @@ namespace ToolsApp.Controllers
                                         }
                                         else
                                         {
-                                            #region update GuiAPI = 1
-                                            var IsAPI = soi_.NL_DMPHIEUXN.Where(c => c.SOCTXN == SOCTXN).FirstOrDefault();
-                                            IsAPI.GUIAPI = "1";
-                                            IsAPI.NGAYGUIAPI = DateTime.Now;
-                                            soi_.Entry(IsAPI).State = EntityState.Modified;
-                                            soi_.SaveChanges();
+                                            #region Tạo NNB  + ZZZZ
+                                            // 1. Tối ưu lấy mã hình thức (Tránh lỗi NullReferenceException)
+                                            var MA_HINHTHUC = soi_.NL_DMHINHTHUC
+                                                .Where(p => p.MAHTHUC == "NKNB")
+                                                .Select(p => p.MAHTHUC)
+                                                .FirstOrDefault()?.Trim();
+
+                                            if (string.IsNullOrEmpty(MA_HINHTHUC)) return Json(new { status = -1, text = "Không tìm thấy mã hình thức NKNB" }, JsonRequestBehavior.AllowGet);
+
+                                            var SOCTXN_NNB = soi_.SP_NL_TAOSOCHUNGTU(MA_HINHTHUC).FirstOrDefault();
+
+                                            // 2. Sử dụng Any() để kiểm tra nhanh
+                                            if (soi_.NL_DMPHIEUXN.Any(p => p.KETHUA == SOCTXN))
+                                            {
+                                                return Json(new { status = -1, title = "", text = "Phiếu đã xuất kho hoặc đã kế thừa, vui lòng kiểm tra lại", obj = "" }, JsonRequestBehavior.AllowGet);
+                                            }
+
+                                            if (!soi_.NL_DMPHIEUXN.Any(p => p.SOCTXN == SOCTXN_NNB))
+                                            {
+                                                #region Insert DM_XUATNHAP
+                                                var model_copy = new EntityFramework.KhoSoi.NL_DMPHIEUXN
+                                                {
+                                                    SOCTXN = SOCTXN_NNB.ToUpper().Trim(),
+                                                    MAHTHUC = MA_HINHTHUC,
+                                                    SOPO = f_tb.SOPO,
+                                                    NGAY = f_tb.NGAY,
+                                                    MANVNHAN = f_tb.MANVNHAN,
+                                                    IDMADVNHAN = f_tb.IDMADVNHAN,
+                                                    IDMADVXUAT = f_tb.IDMADVXUAT,
+                                                    MAKHOXUAT = f_tb.MAKHOXUAT.Trim(),
+                                                    MAKHONHAN = f_tb.MAKHONHAN.Trim(),
+                                                    GHICHU = string.IsNullOrEmpty(f_tb.GHICHU) ? "" : f_tb.GHICHU,
+                                                    MaNVYC = User.UserName
+                                                };
+
+                                                soi_.NL_DMPHIEUXN.Add(model_copy);
+                                                #endregion
+                                          
+                                                if (ctxuatnhap != null && ctxuatnhap.Any())
+                                                {
+                                                    foreach (var model in ctxuatnhap)
+                                                    {
+                                                        var NewGuid = Guid.NewGuid();
+                                                        var model_item = new EntityFramework.KhoSoi.NL_CTXUATNHAP
+                                                        {                                          
+                                                            SOCTXN = SOCTXN_NNB.ToUpper().Trim(),
+                                                            MAPHIEUPD = model.MAPHIEUPD,
+                                                            MAVT = model.MAVT,
+                                                            LO = model.LO,
+                                                            HIEU = model.HIEU,
+                                                            MAVTTAM = model.MAVT,
+                                                            SOLUONGYC = Convert.ToDecimal(model.SOLUONGYC),
+                                                            SOLUONGTT = Convert.ToDecimal(model.SOLUONGTT),
+                                                            GHICHU = string.IsNullOrEmpty(model.GHICHU) ? "Kế thừa từ " + f_tb.SOCTXN : model.GHICHU,
+                                                            MADH = model.MADH,
+                                                            NGAYKETOAN = model.NGAYKETOAN,
+                                                            NGAYMODIFY = DateTime.Now,
+                                                            KHOAKEYXN = "NBB_KeyKhoa_" + NewGuid,
+                                                            ID_XN = NewGuid,
+                                                            KHOATHAMCHIEU = NewGuid.ToString(),
+                                                        };
+                                                        soi_.NL_CTXUATNHAP.Add(model_item);
+                                                    }
+                                                }
+
+                                                #region update GuiAPI = 1 (Đưa lên trên để gộp SaveChanges)
+                                                var IsAPI = soi_.NL_DMPHIEUXN.FirstOrDefault(c => c.SOCTXN == SOCTXN);
+                                                if (IsAPI != null)
+                                                {
+                                                    IsAPI.GUIAPI = "1";
+                                                    IsAPI.NGAYGUIAPI = DateTime.Now;                                  
+                                                }
+                                                #endregion
+
+                                                // Gộp tất cả các lệnh Insert và Update ở trên vào 1 lần lưu duy nhất
+                                                soi_.SaveChanges();
+
+                                                // Chạy Store Procedure sau khi dữ liệu đã được ghi vào DB
+                                                var kq = soi_.VATTU2026_UPDATE_STATUS_NL_DMPHIEUXN(SOCTXN, SOCTXN_NNB).ToList();
+                                            }
                                             #endregion
                                         }
                                     }
@@ -628,7 +702,6 @@ namespace ToolsApp.Controllers
                                 }
                                 if (mahinhthuc_item == "0")
                                 {
-
                                     #region Xuất sử dụng, 
                                     #region Call data 
                                     var Acc_Coa = mahinhthuc.FirstOrDefault().Account_KT;       //account kt: 1571    
@@ -638,7 +711,7 @@ namespace ToolsApp.Controllers
                                     var taikhoanketoan = Acc_Coa; // Chi phí SX
                                     var ex_location = f_KhoX;
                                     #endregion
-                                     
+
                                     #region InventoryAdjustment
                                     InventoryAdjustment InAdj = new InventoryAdjustment();
                                     CustomFieldRef[] cusfield = new CustomFieldRef[100];
@@ -675,9 +748,9 @@ namespace ToolsApp.Controllers
 
                                     cusfield[j] = CUSTOMRECORD.FUNC_SelectCustomFieldRef("custbody_btm_tt_phan_loai_dieu_chinh",
                                                   ENUM_ID.PhanLoaiDieuChinh.DieuChinhTon); j++;
-                                    cusfield[j] = CUSTOMRECORD.FUNC_SelectCustomFieldRef("custbody_btm_tt_loai_sp", "", 
+                                    cusfield[j] = CUSTOMRECORD.FUNC_SelectCustomFieldRef("custbody_btm_tt_loai_sp", "",
                                                   "VATTU"); j++;
-                                    cusfield[j] = CUSTOMRECORD.FUNC_SelectCustomFieldRef("custbody_btm_tt_nguon_goc",   
+                                    cusfield[j] = CUSTOMRECORD.FUNC_SelectCustomFieldRef("custbody_btm_tt_nguon_goc",
                                                   ENUM_ID.NGUONGOC.MUANGOAIND); j++;
                                     cusfield[j] = CUSTOMRECORD.FUNC_SelectCustomFieldRef("custbody_btm_tt_nguon_goc_hang",
                                                   ENUM_ID.NGUONGOCHANG.MUANGOAI); j++;
@@ -706,7 +779,7 @@ namespace ToolsApp.Controllers
                                         RecordRef reflocation = new RecordRef();
                                         // reflocation.externalId = kNhan.FirstOrDefault().externalid;
                                         reflocation.externalId = ex_location;
-                                        line_IA.location = reflocation;                                        
+                                        line_IA.location = reflocation;
 
                                         InventoryDetail inventoryDetail = new InventoryDetail();
 
@@ -760,6 +833,25 @@ namespace ToolsApp.Controllers
                                         return Json(new { status = 1, title = "", text = "Thêm thành công.", obj = "" }, JsonRequestBehavior.AllowGet);
                                     }
                                     #endregion end Xuất sử dụng
+                                }
+                                if (mahinhthuc_item == "5")
+                                {
+                                    var lines = ctxuatnhap.Select(x => new NL_CTXUATNHAPViewModels
+                                    {
+                                        SOCTXN = x.SOCTXN,      // cột lưu line của SO trên NetSuite
+                                        MAVT = x.MAVT,
+                                        SOLUONGTT = (decimal)x.SOLUONGTT,
+                                        HIEU = x.HIEU,           // null nếu vật tư không có lot
+                                        LO = x.LO,
+                                        KHOAKEYXN = x.KHOAKEYXN
+                                    }).ToList();
+
+                                    bool iff = Services.NetSuiteItemFulfillmentService.CreateYarnSalesOrderFulfillment(f_tb.SOPO,f_tb.InternalidPO, f_tb.SOCTXN, f_tb.NGAY.Value, lines);
+                                    if (iff == false)
+                                    {
+                                        return Json(new { status = -1, title = "", text = "Xuất bán thất bại, Kiểm tra lại tồn kho, Approve SO, Add Location SO", obj = "" }, JsonRequestBehavior.AllowGet);
+                                    }
+
                                 }
                             }
                             catch (Exception ex)

@@ -89,18 +89,13 @@ namespace ToolsApp.Controllers
                         // 2. Cập nhật trực tiếp trên danh sách (Không gọi vào DB nữa -> Giải quyết triệt để N+1)
                         foreach (var item in listUpdate)
                         {
-                            item.NgayKeToan = NgayKeToan_;
-           
-                        }
-
-                       
+                            item.NgayKeToan = NgayKeToan_;           
+                        }                       
                         var check_dm = db_.DM_XUATNHAP.Where(a => a.SOCTXN == SOCTXN).FirstOrDefault();
                         if (check_dm != null)
                         {
                             check_dm.NGAY = NgayKeToan_;
-                        }
-
-                      
+                        }                      
                         db_.SaveChanges();
                     }
                     #endregion
@@ -361,18 +356,11 @@ namespace ToolsApp.Controllers
                                         InAdj.adjLocation = khoxuat;
                                         InAdj.memo = dmxuatnhap.GHICHU;
 
-                                        if (dmxuatnhap.IDMADVNHAN != "30")
-                                        {
-                                            RecordRef mabp = new RecordRef();
-                                            mabp.externalId = f_department_nhan;
-                                            InAdj.department = mabp;
-                                        }
-                                        if (dmxuatnhap.IDMADVNHAN == "30")
-                                        {
-                                            RecordRef mabp = new RecordRef();
-                                            mabp.externalId = f_IAD_detail_department;
-                                            InAdj.department = mabp;
-                                        }
+                                        RecordRef mabp = new RecordRef();
+                                        mabp.externalId = f_department_nhan;
+                                        InAdj.department = mabp;
+                                        
+                                   
                                         //RecordRef class_ = new RecordRef();
                                         //class_.externalId = cls.externalid;
                                         //InAdj.@class = class_;
@@ -471,6 +459,7 @@ namespace ToolsApp.Controllers
                                                                 // var cls = nstt_.Classes.FirstOrDefault(p => p.externalid == "BAN_PTVT");
 
                                         var ex_location = kXuat.FirstOrDefault().externalid;
+                                     
                                         #endregion
 
                                         #region InventoryAdjustment
@@ -496,13 +485,12 @@ namespace ToolsApp.Controllers
                                         khoxuat.externalId = ex_location;
                                         InAdj.adjLocation = khoxuat;
                                         InAdj.memo = dmxuatnhap.GHICHU;
-
-                                        if (dmxuatnhap.IDMADVNHAN != "30")
-                                        {
-                                            RecordRef mabp = new RecordRef();
-                                            mabp.externalId = f_department_nhan;
-                                            InAdj.department = mabp;
-                                        }
+                                       
+                                        RecordRef mabp = new RecordRef();
+                                        mabp.externalId = f_department_nhan;
+                                        InAdj.department = mabp;
+                                       
+                                
 
                                         //RecordRef class_ = new RecordRef();
                                         //class_.externalId = cls.externalid;
@@ -613,7 +601,7 @@ namespace ToolsApp.Controllers
                                 }
 
                                 var customform = "152"; // Điều chỉnh tồn                        
-                                                        //var customform = "169"; // Điều chỉnh tồn                        
+                                                        // var customform = "169"; // Điều chỉnh tồn                        
                                                         // var cls = nstt_.Classes.FirstOrDefault(p => p.externalid == "BAN_PTVT");
                                 var internalidAccount = Acc_Coa; /// Chờ sửa lại
                                 var ex_location = kXuat.FirstOrDefault().externalid;
@@ -643,12 +631,10 @@ namespace ToolsApp.Controllers
                                 InAdj.adjLocation = khoxuat;
                                 InAdj.memo = dmxuatnhap.GHICHU;
 
-                                if (dmxuatnhap.IDMADVNHAN != "30")
-                                {
-                                    RecordRef mabp = new RecordRef();
-                                    mabp.externalId = f_department_nhan;
-                                    InAdj.department = mabp;
-                                }
+                                RecordRef mabp = new RecordRef();
+                                mabp.externalId = f_department_nhan;
+                                InAdj.department = mabp;
+                                
                                 //RecordRef class_ = new RecordRef();
                                 //class_.externalId = cls.externalid;
                                 //InAdj.@class = class_;
@@ -828,8 +814,8 @@ namespace ToolsApp.Controllers
                             { // khi xuất kho, đồng thời insert NNB 
                                 var kyhieu_NNB = vt_.sp_Load_NLKiHieuDV(dmxuatnhap.MaNVYC).FirstOrDefault();
                                 var SOCTXN_NNB = vt_.VATTU2024_SP_TAOSCT_NHAPKHO(kyhieu_NNB.ToUpper(), "NNB").FirstOrDefault().SOCTXN;
-                                var KTRATONTAI = vt_.DM_XUATNHAP.Where(p => p.KETHUATUSOCT == dmxuatnhap.SOCTXN).ToList();
-                                if (KTRATONTAI.Count > 0)
+                               // var KTRATONTAI = vt_.DM_XUATNHAP.Where(p => p.KETHUATUSOCT == dmxuatnhap.SOCTXN).ToList();
+                                if (vt_.DM_XUATNHAP.Any(p => p.KETHUATUSOCT == dmxuatnhap.SOCTXN))
                                 {
                                     return Json(new { status = -1, title = "", text = "Phiếu đã xuất kho hoặc đã kế thừa, vui lòng kiểm tra lại", obj = "" }, JsonRequestBehavior.AllowGet);
                                 }
@@ -967,30 +953,41 @@ namespace ToolsApp.Controllers
                     }
                     #endregion
 
-                    #region Update đã xuất kho thành côngt
-                    var check_dm = db_.DM_XUATNHAP.Where(a => a.SOCTXN == SOCTXN).FirstOrDefault();
+
+                    #region Update đã xuất kho thành công
+                    // 1. Kiểm tra bản ghi DM_XUATNHAP
+                    var check_dm = db_.DM_XUATNHAP.FirstOrDefault(a => a.SOCTXN == SOCTXN);
+                    if (check_dm == null)
+                    {
+                        // Xử lý khi không tìm thấy hóa đơn/chứng từ (tùy thuộc vào logic của bạn, ví dụ: return hoặc throw lỗi)
+                        throw new Exception($"Không tìm thấy chứng từ với số: {SOCTXN}");
+                    }
+
+                    // Cập nhật DM_XUATNHAP
                     check_dm.DAXUATKHO_ = true;
                     check_dm.GUIAPI = "1";
-                    check_dm.NGAY = searchType == "DK2" ? NgayKeToan_ : check_dm.NGAY;
+                    check_dm.NGAY = (searchType == "DK2") ? NgayKeToan_ : check_dm.NGAY;
                     check_dm.NGAYGUIAPI = DateTime.Now;
-                    db_.Entry(check_dm).State = EntityState.Modified;
 
+                    // 2. Lấy danh sách XUATNHAPs trực tiếp và duyệt qua từng phần tử
                     var check = db_.XUATNHAPs.Where(a => a.SoCTXN == SOCTXN).ToList();
-                    for (int i = 0; i < check.Count(); i++)
+                    byte daXuatKhoValue = Convert.ToByte(IsXuatKho == "0" ? 0 : 1);
+
+                    foreach (var item in check)
                     {
-                        string khoa = check[i].KHOAKEYXN;
-                        var dataUpdate = db_.XUATNHAPs.Where(a => a.KHOAKEYXN == khoa).FirstOrDefault();
-                        dataUpdate.DaXuatKho = Convert.ToByte(IsXuatKho == "0" ? 0 : 1);
-                        dataUpdate.MANVXuat = User.UserName;
-                        dataUpdate.modified = DateTime.Now;
-                        if (searchType == "DK2")
-                        {
-                            dataUpdate.NgayKeToan = (NgayKeToan_ == null) ? check_dm.NGAY : NgayKeToan_;
-                        }
-                        db_.Entry(dataUpdate).State = EntityState.Modified;
+                        // Thay vì SELECT lại từ DB, cập nhật trực tiếp trên object đã có trong bộ nhớ
+                        item.DaXuatKho = daXuatKhoValue;
+                        item.MANVXuat = User.UserName;
+                        item.modified = DateTime.Now;
+                            // Nếu NgayKeToan_ null thì lấy check_dm.NGAY (đã được cập nhật ở trên)
+                        item.NgayKeToan = (searchType == "DK2") ? NgayKeToan_ : check_dm.NGAY;
+
                     }
+
+                    // Lưu tất cả thay đổi xuống DB trong 1 Transaction duy nhất
                     db_.SaveChanges();
                     #endregion
+
 
                     return Json(new { status = 1, title = "", text = "Cập nhật thành công", obj = "" }, JsonRequestBehavior.AllowGet);
                 }

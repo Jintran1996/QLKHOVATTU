@@ -52,7 +52,7 @@
         <div class="row" style="margin-bottom:5px">
             <label class="col-md-3 col-sm-3">Mã vật tư:</label>
             <div class="col-md-9 col-sm-9 ten">
-                <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase()" pattern="[A-Z0-9]{11}" title="Nhập chính xác 11 ký tự." class="form-control" type="text" id="MAVT" name="MAVT" />
+                <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9.-]/g, '').toUpperCase()" pattern="[A-Z0-9.-]{11}" title="Nhập chính xác 11 ký tự." class="form-control" type="text" id="MAVT" name="MAVT" />
                 <small class="form-text text-muted">Nhập chính xác 11 ký tự.</small>
             </div>
         </div>

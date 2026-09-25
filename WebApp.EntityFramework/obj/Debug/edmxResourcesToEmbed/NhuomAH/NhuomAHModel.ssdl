@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLSX_Nhuom_AnhHongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="NOILAYHOACHAT">
+    <Key>
+      <PropertyRef Name="LayHCtu" />
+    </Key>
+    <Property Name="LayHCtu" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="diengiai" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="XuatHCTN_theotruc">
+    <Key>
+      <PropertyRef Name="Matruc" />
+      <PropertyRef Name="Matbi" />
+      <PropertyRef Name="Macd" />
+      <PropertyRef Name="Macongthuc" />
+      <PropertyRef Name="LoaiSX" />
+      <PropertyRef Name="MaHC" />
+    </Key>
+    <Property Name="Matruc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Matbi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Macd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Macongthuc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoaiSX" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Masoqt" Type="varchar" MaxLength="50" />
+    <Property Name="Sometmoc" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ChieudaiQT" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="MetTP_tinhtoan" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Doco_lythuyet" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="MaDH" Type="varchar" MaxLength="50" />
+    <Property Name="MaMH" Type="varchar" MaxLength="50" />
+    <Property Name="MaHC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenHC" Type="nvarchar" MaxLength="500" />
+    <Property Name="Nongdo" Type="numeric" Precision="18" Scale="6" />
+    <Property Name="DVT" Type="varchar" MaxLength="50" />
+    <Property Name="KL_1TrucMoc" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Thoigian_batdau" Type="datetime" />
+    <Property Name="KhoaID" Type="varchar" MaxLength="300" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Nguoichinhsua" Type="varchar" MaxLength="50" />
+    <Property Name="Ngaychinhsua" Type="datetime" />
+    <Property Name="Noidungsua" Type="nvarchar" MaxLength="500" />
+    <Property Name="Xacnhan_NMN" Type="bit" />
+    <Property Name="Manvxacnhan" Type="varchar" MaxLength="50" />
+    <Property Name="LayHCtu" Type="varchar" MaxLength="50" />
+    <Property Name="Ngayxacnhan" Type="datetime" />
+    <Property Name="QCxacnhan" Type="bit" />
+    <Property Name="MANVqc_xacnhan" Type="varchar" MaxLength="50" />
+    <Property Name="NgayQC_xacnhan" Type="datetime" />
+    <Property Name="Daxuatkho" Type="bit" />
+    <Property Name="Ngayxuatkho" Type="datetime" />
+  </EntityType>
+  <Function Name="Spload_tblCongDoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPLOAD_XUATHCTN_THEOTRUC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MACD" Type="varchar" Mode="In" />
+    <Parameter Name="MAMH" Type="varchar" Mode="In" />
+    <Parameter Name="KEY" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="QLSX_Nhuom_AnhHongModelStoreContainer">
+    <EntitySet Name="NOILAYHOACHAT" EntityType="Self.NOILAYHOACHAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XuatHCTN_theotruc" EntityType="Self.XuatHCTN_theotruc" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

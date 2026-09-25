@@ -1,0 +1,50 @@
+﻿@{
+    var List2 = ViewBag.List2 as List<ToolsApp.EntityFramework.NhuomAH.SPLOAD_XUATHCTN_THEOTRUC_Result>;
+
+    var stt = 1;
+}
+<table id="myTable2" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+
+            <th>STT</th>
+            <th>Mã trục</th>
+            <th>Mã thiết bị</th>
+            <th>Mã CĐ</th>
+            <th>Mã HC</th>
+            <th>Tên HC</th>
+            <th>Nồng độ</th>
+            <th>Số lượng</th>
+            <th>Xác nhận NMN</th>
+            <th>MANV xác nhận</th>
+            <th>Lấy HCTU</th>
+            <th>Ngày xác nhận</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in List2)
+        {
+        <tr>
+
+            <td>@stt</td>
+            <td>@item.Matruc</td>
+            <td>@item.Matbi</td>
+            <td>@item.Macd</td>
+            <td>@item.MaHC</td>
+            <td>@item.TenHC</td>
+            <td>@item.Nongdo</td>
+            <td>@item.KL_1TrucMoc</td>
+            <td class="text-center">
+                <input type="checkbox"
+                       @(item.Xacnhan_NMN == true ? "checked" : "")
+                       disabled
+                       style="transform: scale(1.2); cursor: not-allowed;" />
+            </td>
+            <td>@item.Manvxacnhan</td>
+            <td>@item.LayHCtu</td>
+            <td>@item.Ngayxacnhan</td>
+        </tr>
+            stt++;
+        }
+    </tbody>
+</table>

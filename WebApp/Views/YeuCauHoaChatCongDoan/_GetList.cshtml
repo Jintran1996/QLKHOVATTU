@@ -1,0 +1,55 @@
+﻿@{
+    var list = ViewBag.List as List<ToolsApp.EntityFramework.NhuomAH.SPLOAD_XUATHCTN_THEOTRUC_Result>;
+
+    var stt = 1;
+}
+<table id="myTable" class="table table-bordered table-striped" style="font-size: 12px">
+    <thead>
+        <tr>
+            <th width="5%"><input type="checkbox" id="checkAll"></th>
+            <th>STT</th>
+            <th>Mã trục</th>
+            <th>Mã thiết bị</th>
+            <th>Mã CĐ</th>
+            <th>Mã HC</th>
+            <th>Tên HC</th>
+            <th>Nồng độ</th>
+            <th>Số lượng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in list)
+        {
+            <tr>
+                <td><input type="checkbox" class="check-item" value="@item.KhoaID"></td>
+                <td>@stt</td>
+                <td>@item.Matruc</td>
+                <td>@item.Matbi</td>
+                <td>@item.Macd</td>
+                <td>@item.MaHC</td>
+                <td>@item.TenHC</td>
+                <td style="color:blue; font: bold">@item.Nongdo</td>
+                <td style="color:blue; font: bold">@item.KL_1TrucMoc</td>
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>
+
+<script src="https://jquery.com"></script> <!-- Thêm dòng này nếu trang chưa có jQuery -->
+<script>$(document).ready(function () {
+        // Khi click vào checkbox "Check All"
+        $('#checkAll').click(function () {
+            // Lấy trạng thái của checkAll (true/false) và gán cho tất cả các .check-item
+            $('.check-item').prop('checked', this.checked);
+        });
+
+        // Tự động bỏ checkAll nếu có 1 checkbox con bị bỏ tích
+        $('.check-item').click(function () {
+            if ($('.check-item:checked').length == $('.check-item').length) {
+                $('#checkAll').prop('checked', true);
+            } else {
+                $('#checkAll').prop('checked', false);
+            }
+        });
+    });</script>

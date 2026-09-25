@@ -1822,8 +1822,6 @@ namespace ToolsApp.Controllers
                                         }
                                         #endregion
 
-
-
                                         #region Assemblies     cũ đóng 10/11/2025                             
                                         //LotNumberedAssemblyItem assemblyItem = new LotNumberedAssemblyItem();
                                         //assemblyItem.externalId = dinhmuccp.FirstOrDefault().Masoi;

@@ -1,0 +1,296 @@
+﻿
+@{
+    ViewBag.Title = "Công đoạn hóa chất";
+
+    var congdoan = ViewBag.congdoan as List<ToolsApp.EntityFramework.NhuomAH.Spload_tblCongDoan_Result>;
+    var noilayhc = ViewBag.noilayhc as List<ToolsApp.EntityFramework.NhuomAH.NOILAYHOACHAT>;
+    var mahang = (ViewBag.mahang as List<string>) ?? new List<string>();
+}
+
+<section class="content" style="font-size: 12px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Công đoạn hóa chất</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Ngày</label>
+                                    <input type="datetime" id="NGAY" name="NGAY" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Mã công đoạn</label>
+                                    <select class="form-control chosen-select" id="congdoan" name="congdoan">
+                                        @foreach (var item in congdoan)
+                                        {
+                                            <option value="@item.macd"> @item.macd || @item.tencd</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Nơi lấy hóa chất</label>
+                                    <select class="form-control chosen-select" id="noilayhc" name="noilayhc">
+                                        @foreach (var item in noilayhc)
+                                        {
+                                            <option value="@item.LayHCtu">@item.LayHCtu || @item.diengiai</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Mã hàng</label>
+                                    <select class="form-control chosen-select" id="mahang" name="mahang">
+                                        @foreach (var item in mahang)
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+            
+
+                            <div class="col-md-12">
+                                <div class="row " style="margin-bottom:5px;">
+                                    <button onclick="_Search()" type="button" class="btn btn-primary" style="width: 100px">&nbsp; Tra cứu</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End section search-->
+            </div>
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+            
+                    <div class="card-body pad">
+                        <!-- Sử dụng row để bọc toàn bộ bố cục 5 - 2 - 5 -->
+                        <div class="row align-items-center">
+
+                            <!-- Bảng bên trái (Chiếm 5/12 cột) -->
+
+                            <div class="col-md-5 table-body table-responsive">
+                            </div>
+
+                            <!-- Khu vực nút bấm ở giữa (Chiếm 2/12 cột) -->
+                            <div class="col-md-1 text-center my-3 my-md-0 align-items-center">
+                                <div class="d-flex flex-md-column justify-content-center align-items-center" style="gap: 10px;">
+                                    <button type="button" id="btnMoveRight" class="btn btn-primary btn-sm px-3 align-items-center" title="Chuyển sang phải">
+                                        <i class="fas fa-chevron-right d-none d-md-inline"></i>
+                                        <i class="fas fa-chevron-down d-inline d-md-none"></i> <!-- Đổi hướng khi xem trên điện thoại -->
+                                    </button>
+                                    <!--<button type="button" id="btnMoveLeft" class="btn btn-secondary btn-sm px-3" title="Chuyển sang trái">
+                <i class="fas fa-chevron-left d-none d-md-inline"></i>
+                <i class="fas fa-chevron-up d-inline d-md-none"></i>-->
+                                    <!-- Đổi hướng khi xem trên điện thoại -->
+                                    <!--</button>-->
+                                </div>
+                            </div>
+
+                            <!-- Bảng bên phải (Chiếm 5/12 cột) -->
+                            <div class="col-md-6 table-body2 table-responsive">
+                            </div>
+
+                        </div> <!-- /.row -->
+                    </div> <!-- /.card-body -->
+                </div> <!-- /.card -->
+            </div> <!-- /.col-md-12 -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+
+
+@section scripts{
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-search-deselect': { allow_single_deselect: true },
+            '.chosen-select-search-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-search-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-search-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+
+        $("#NGAY").datepicker({
+            format: 'dd/mm/yyyy',
+            changeYear: true,
+            changeMonth: true,
+            onClose: function (selectedDate) {
+                //$("#FromDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+    </script>
+    <script>
+
+        function _Search() {
+            reloadData();
+            reloadData_table2();
+        }
+
+
+        function reloadData(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList")',
+                timeout: 200000,
+                data: {
+                    congdoan: $("#congdoan").val(),
+                    mahang: $("#mahang").val(),
+                    page: page
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body').html(response);
+
+                    $("#myTable").DataTable({
+                        "destroy" : true,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+
+         function reloadData_table2(page) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_GetList2")',
+                timeout: 200000,
+                data: {
+                    congdoan: $("#congdoan").val(),
+                    mahang: $("#mahang").val(),
+                    page: page
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body2').html(response);
+
+                    $("#myTable2").DataTable({
+                        "destroy" : true,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bInfo": true,
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    });
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        var $ID_SOCT = "";
+
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        $(document).ready(function () {
+            reloadData(false);
+            reloadData_table2(false);
+
+
+
+            $('#btnSaveAll').click(function () {
+                // Mảng chứa các KhoaID đã được tích chọn
+                var selectedIds = [];
+
+                // Duyệt qua tất cả các checkbox con đang được check
+                $('.check-item:checked').each(function () {
+                    selectedIds.push($(this).val());
+                });
+
+                // Kiểm tra nếu người dùng chưa chọn dòng nào
+                if (selectedIds.length === 0) {
+                    alert("Vui lòng tích chọn ít nhất một dòng trước khi lưu!");
+                    return;
+                }
+
+                // Hiển thị xác nhận (tùy chọn)
+                if (confirm("Bạn có chắc chắn muốn lưu " + selectedIds.length + " dòng đã chọn?")) {
+
+                    // Gửi dữ liệu lên Server bằng Ajax
+                    $.ajax({
+                        url: '@Url.Action("_ChuyenXN")', // <-- Thay thế bằng [Tên_Controller/Tên_Action] của bạn
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({ ids: selectedIds }), // Đóng gói dữ liệu dạng JSON
+                        success: function (response) {
+                            if (response.success) {
+                                alert(response.message);
+                                location.reload(); // Tải lại trang sau khi lưu thành công
+                            } else {
+                                alert("Có lỗi xảy ra: " + response.message);
+                            }
+                        },
+                        error: function () {
+                            alert("Không thể kết nối đến máy chủ. Vui lòng thử lại!");
+                        }
+                    });
+                }
+            });
+
+        });
+
+
+
+
+
+    </script>
+}

@@ -3040,6 +3040,9 @@
           <Parameter Name="SHOWROOM" Type="varchar" Mode="In" />
           <Parameter Name="KEY" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="VATTU2026_LOADMAVT_DUOCTAMUNG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MAVT" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MAKHO" Type="varchar" Mode="In" />
           <Parameter Name="NGAY" Type="date" Mode="In" />
@@ -4418,6 +4421,9 @@
           <FunctionImport Name="VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG" ReturnType="Collection(wqlvattuModel.VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG_Result)">
             <Parameter Name="MAKHO" Mode="In" Type="String" />
             <Parameter Name="NGAY" Mode="In" Type="DateTime" />
+            <Parameter Name="MAVT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VATTU2026_LOADMAVT_DUOCTAMUNG" ReturnType="Collection(wqlvattuModel.VATTU2026_LOADMAVT_DUOCTAMUNG_Result)">
             <Parameter Name="MAVT" Mode="In" Type="String" />
           </FunctionImport>
           </EntityContainer>
@@ -8649,6 +8655,11 @@
           <Property Type="Decimal" Name="C270" Nullable="false" Precision="18" Scale="2" />
           <Property Type="Decimal" Name="C365" Nullable="false" Precision="18" Scale="2" />
           <Property Type="Decimal" Name="C500" Nullable="false" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="VATTU2026_LOADMAVT_DUOCTAMUNG_Result">
+          <Property Type="String" Name="MAVT" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TENVT" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DVT" Nullable="true" MaxLength="50" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -13160,6 +13171,15 @@
                 <ScalarProperty Name="C270" ColumnName="270" />
                 <ScalarProperty Name="C365" ColumnName="365" />
                 <ScalarProperty Name="C500" ColumnName="500" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VATTU2026_LOADMAVT_DUOCTAMUNG" FunctionName="wqlvattuModel.Store.VATTU2026_LOADMAVT_DUOCTAMUNG">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="wqlvattuModel.VATTU2026_LOADMAVT_DUOCTAMUNG_Result">
+                <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+                <ScalarProperty Name="TENVT" ColumnName="TENVT" />
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

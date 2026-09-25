@@ -3035,6 +3035,9 @@
     <Parameter Name="SHOWROOM" Type="varchar" Mode="In" />
     <Parameter Name="KEY" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="VATTU2026_LOADMAVT_DUOCTAMUNG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MAVT" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MAKHO" Type="varchar" Mode="In" />
     <Parameter Name="NGAY" Type="date" Mode="In" />

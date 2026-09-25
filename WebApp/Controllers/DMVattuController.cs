@@ -897,8 +897,8 @@ namespace ToolsApp.Controllers
                                     else
                                     {
                                         item = new InventoryItem();
-
                                     }
+
                                     var taxcode = nstt_.Table_TAX_CODE.Where(p => p.HieuLuc == true).FirstOrDefault().Internalid_taxcode;
                                     var LOAISPCT = nstt_.VATTU2024_LOAD_LOAISPCHITIET(items.MAVT).ToList();
                                     var f_LOAISPCT = LOAISPCT.Count < 1 ? "" : LOAISPCT.FirstOrDefault().externalid;
@@ -909,8 +909,7 @@ namespace ToolsApp.Controllers
                                     form.internalId = int_form;
                                     item.customForm = form;
                                     item.pricesIncludeTax = true;
-                                    item.pricesIncludeTaxSpecified = true;
-                                    
+                                    item.pricesIncludeTaxSpecified = true;                                    
 
                                     RecordRef purchaseTaxCode = new RecordRef();
                                     purchaseTaxCode.internalId = taxcode;

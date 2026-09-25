@@ -2879,5 +2879,14 @@ namespace ToolsApp.EntityFramework.VatTu
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG_Result>("VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG", mAKHOParameter, nGAYParameter, mAVTParameter);
         }
+    
+        public virtual ObjectResult<VATTU2026_LOADMAVT_DUOCTAMUNG_Result> VATTU2026_LOADMAVT_DUOCTAMUNG(string mAVT)
+        {
+            var mAVTParameter = mAVT != null ?
+                new ObjectParameter("MAVT", mAVT) :
+                new ObjectParameter("MAVT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VATTU2026_LOADMAVT_DUOCTAMUNG_Result>("VATTU2026_LOADMAVT_DUOCTAMUNG", mAVTParameter);
+        }
     }
 }

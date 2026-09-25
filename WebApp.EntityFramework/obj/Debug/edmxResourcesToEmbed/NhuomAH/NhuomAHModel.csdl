@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLSX_Nhuom_AnhHongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLSX_Nhuom_AnhHongEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="NOILAYHOACHATs" EntityType="QLSX_Nhuom_AnhHongModel.NOILAYHOACHAT" />
+    <EntitySet Name="XuatHCTN_theotruc" EntityType="QLSX_Nhuom_AnhHongModel.XuatHCTN_theotruc" />
+    <FunctionImport Name="Spload_tblCongDoan" ReturnType="Collection(QLSX_Nhuom_AnhHongModel.Spload_tblCongDoan_Result)" />
+    <FunctionImport Name="SPLOAD_XUATHCTN_THEOTRUC" ReturnType="Collection(QLSX_Nhuom_AnhHongModel.SPLOAD_XUATHCTN_THEOTRUC_Result)">
+      <Parameter Name="MACD" Mode="In" Type="String" />
+      <Parameter Name="MAMH" Mode="In" Type="String" />
+      <Parameter Name="KEY" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="NOILAYHOACHAT">
+    <Key>
+      <PropertyRef Name="LayHCtu" />
+    </Key>
+    <Property Name="LayHCtu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="diengiai" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="XuatHCTN_theotruc">
+    <Key>
+      <PropertyRef Name="Matruc" />
+      <PropertyRef Name="Matbi" />
+      <PropertyRef Name="Macd" />
+      <PropertyRef Name="Macongthuc" />
+      <PropertyRef Name="LoaiSX" />
+      <PropertyRef Name="MaHC" />
+    </Key>
+    <Property Name="Matruc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Matbi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Macd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Macongthuc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LoaiSX" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Masoqt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sometmoc" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ChieudaiQT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MetTP_tinhtoan" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Doco_lythuyet" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaDH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaMH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaHC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenHC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Nongdo" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KL_1TrucMoc" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Thoigian_batdau" Type="DateTime" Precision="3" />
+    <Property Name="KhoaID" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Nguoichinhsua" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ngaychinhsua" Type="DateTime" Precision="3" />
+    <Property Name="Noidungsua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Xacnhan_NMN" Type="Boolean" />
+    <Property Name="Manvxacnhan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LayHCtu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ngayxacnhan" Type="DateTime" Precision="3" />
+    <Property Name="QCxacnhan" Type="Boolean" />
+    <Property Name="MANVqc_xacnhan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayQC_xacnhan" Type="DateTime" Precision="3" />
+    <Property Name="Daxuatkho" Type="Boolean" />
+    <Property Name="Ngayxuatkho" Type="DateTime" Precision="3" />
+  </EntityType>
+  <ComplexType Name="Spload_tblCongDoan_Result">
+    <Property Type="String" Name="macd" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="tencd" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="SPLOAD_XUATHCTN_THEOTRUC_Result">
+    <Property Type="String" Name="Matruc" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Matbi" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Macd" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Macongthuc" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LoaiSX" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Masoqt" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Sometmoc" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ChieudaiQT" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="MetTP_tinhtoan" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Doco_lythuyet" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="MaDH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MaMH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MaHC" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TenHC" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Nongdo" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="String" Name="DVT" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="KL_1TrucMoc" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="Thoigian_batdau" Nullable="true" Precision="23" />
+    <Property Type="String" Name="KhoaID" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="Nguoichinhsua" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Ngaychinhsua" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Noidungsua" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="Xacnhan_NMN" Nullable="true" />
+    <Property Type="String" Name="Manvxacnhan" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LayHCtu" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Ngayxacnhan" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="QCxacnhan" Nullable="true" />
+    <Property Type="String" Name="MANVqc_xacnhan" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NgayQC_xacnhan" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Daxuatkho" Nullable="true" />
+    <Property Type="DateTime" Name="Ngayxuatkho" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

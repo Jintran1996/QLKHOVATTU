@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QLSX_Nhuom_AnhHongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NOILAYHOACHAT">
+          <Key>
+            <PropertyRef Name="LayHCtu" />
+          </Key>
+          <Property Name="LayHCtu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="diengiai" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="XuatHCTN_theotruc">
+          <Key>
+            <PropertyRef Name="Matruc" />
+            <PropertyRef Name="Matbi" />
+            <PropertyRef Name="Macd" />
+            <PropertyRef Name="Macongthuc" />
+            <PropertyRef Name="LoaiSX" />
+            <PropertyRef Name="MaHC" />
+          </Key>
+          <Property Name="Matruc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Matbi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Macd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Macongthuc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LoaiSX" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Masoqt" Type="varchar" MaxLength="50" />
+          <Property Name="Sometmoc" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ChieudaiQT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MetTP_tinhtoan" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Doco_lythuyet" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MaDH" Type="varchar" MaxLength="50" />
+          <Property Name="MaMH" Type="varchar" MaxLength="50" />
+          <Property Name="MaHC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenHC" Type="nvarchar" MaxLength="500" />
+          <Property Name="Nongdo" Type="numeric" Precision="18" Scale="6" />
+          <Property Name="DVT" Type="varchar" MaxLength="50" />
+          <Property Name="KL_1TrucMoc" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Thoigian_batdau" Type="datetime" />
+          <Property Name="KhoaID" Type="varchar" MaxLength="300" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Nguoichinhsua" Type="varchar" MaxLength="50" />
+          <Property Name="Ngaychinhsua" Type="datetime" />
+          <Property Name="Noidungsua" Type="nvarchar" MaxLength="500" />
+          <Property Name="Xacnhan_NMN" Type="bit" />
+          <Property Name="Manvxacnhan" Type="varchar" MaxLength="50" />
+          <Property Name="LayHCtu" Type="varchar" MaxLength="50" />
+          <Property Name="Ngayxacnhan" Type="datetime" />
+          <Property Name="QCxacnhan" Type="bit" />
+          <Property Name="MANVqc_xacnhan" Type="varchar" MaxLength="50" />
+          <Property Name="NgayQC_xacnhan" Type="datetime" />
+          <Property Name="Daxuatkho" Type="bit" />
+          <Property Name="Ngayxuatkho" Type="datetime" />
+        </EntityType>
+        <Function Name="Spload_tblCongDoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SPLOAD_XUATHCTN_THEOTRUC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MACD" Type="varchar" Mode="In" />
+          <Parameter Name="MAMH" Type="varchar" Mode="In" />
+          <Parameter Name="KEY" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="QLSX_Nhuom_AnhHongModelStoreContainer">
+          <EntitySet Name="NOILAYHOACHAT" EntityType="Self.NOILAYHOACHAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="XuatHCTN_theotruc" EntityType="Self.XuatHCTN_theotruc" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLSX_Nhuom_AnhHongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QLSX_Nhuom_AnhHongEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="NOILAYHOACHATs" EntityType="QLSX_Nhuom_AnhHongModel.NOILAYHOACHAT" />
+          <EntitySet Name="XuatHCTN_theotruc" EntityType="QLSX_Nhuom_AnhHongModel.XuatHCTN_theotruc" />
+          <FunctionImport Name="Spload_tblCongDoan" ReturnType="Collection(QLSX_Nhuom_AnhHongModel.Spload_tblCongDoan_Result)" />
+          <FunctionImport Name="SPLOAD_XUATHCTN_THEOTRUC" ReturnType="Collection(QLSX_Nhuom_AnhHongModel.SPLOAD_XUATHCTN_THEOTRUC_Result)">
+            <Parameter Name="MACD" Mode="In" Type="String" />
+            <Parameter Name="MAMH" Mode="In" Type="String" />
+            <Parameter Name="KEY" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="NOILAYHOACHAT">
+          <Key>
+            <PropertyRef Name="LayHCtu" />
+          </Key>
+          <Property Name="LayHCtu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diengiai" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="XuatHCTN_theotruc">
+          <Key>
+            <PropertyRef Name="Matruc" />
+            <PropertyRef Name="Matbi" />
+            <PropertyRef Name="Macd" />
+            <PropertyRef Name="Macongthuc" />
+            <PropertyRef Name="LoaiSX" />
+            <PropertyRef Name="MaHC" />
+          </Key>
+          <Property Name="Matruc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Matbi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Macd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Macongthuc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoaiSX" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Masoqt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sometmoc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ChieudaiQT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MetTP_tinhtoan" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Doco_lythuyet" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MaDH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaMH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaHC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TenHC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Nongdo" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KL_1TrucMoc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Thoigian_batdau" Type="DateTime" Precision="3" />
+          <Property Name="KhoaID" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Nguoichinhsua" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ngaychinhsua" Type="DateTime" Precision="3" />
+          <Property Name="Noidungsua" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Xacnhan_NMN" Type="Boolean" />
+          <Property Name="Manvxacnhan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LayHCtu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ngayxacnhan" Type="DateTime" Precision="3" />
+          <Property Name="QCxacnhan" Type="Boolean" />
+          <Property Name="MANVqc_xacnhan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NgayQC_xacnhan" Type="DateTime" Precision="3" />
+          <Property Name="Daxuatkho" Type="Boolean" />
+          <Property Name="Ngayxuatkho" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="Spload_tblCongDoan_Result">
+          <Property Type="String" Name="macd" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="tencd" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="SPLOAD_XUATHCTN_THEOTRUC_Result">
+          <Property Type="String" Name="Matruc" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Matbi" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Macd" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Macongthuc" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LoaiSX" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Masoqt" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Sometmoc" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="ChieudaiQT" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="MetTP_tinhtoan" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Doco_lythuyet" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="MaDH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaMH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaHC" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenHC" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="Nongdo" Nullable="true" Precision="18" Scale="6" />
+          <Property Type="String" Name="DVT" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="KL_1TrucMoc" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="Thoigian_batdau" Nullable="true" Precision="23" />
+          <Property Type="String" Name="KhoaID" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="Nguoichinhsua" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Ngaychinhsua" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Noidungsua" Nullable="true" MaxLength="500" />
+          <Property Type="Boolean" Name="Xacnhan_NMN" Nullable="true" />
+          <Property Type="String" Name="Manvxacnhan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LayHCtu" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Ngayxacnhan" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="QCxacnhan" Nullable="true" />
+          <Property Type="String" Name="MANVqc_xacnhan" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayQC_xacnhan" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="Daxuatkho" Nullable="true" />
+          <Property Type="DateTime" Name="Ngayxuatkho" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLSX_Nhuom_AnhHongModelStoreContainer" CdmEntityContainer="QLSX_Nhuom_AnhHongEntities" >
+          <EntitySetMapping Name="NOILAYHOACHATs">
+            <EntityTypeMapping TypeName="QLSX_Nhuom_AnhHongModel.NOILAYHOACHAT">
+              <MappingFragment StoreEntitySet="NOILAYHOACHAT">
+                <ScalarProperty Name="diengiai" ColumnName="diengiai" />
+                <ScalarProperty Name="LayHCtu" ColumnName="LayHCtu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XuatHCTN_theotruc">
+            <EntityTypeMapping TypeName="QLSX_Nhuom_AnhHongModel.XuatHCTN_theotruc">
+              <MappingFragment StoreEntitySet="XuatHCTN_theotruc">
+                <ScalarProperty Name="Ngayxuatkho" ColumnName="Ngayxuatkho" />
+                <ScalarProperty Name="Daxuatkho" ColumnName="Daxuatkho" />
+                <ScalarProperty Name="NgayQC_xacnhan" ColumnName="NgayQC_xacnhan" />
+                <ScalarProperty Name="MANVqc_xacnhan" ColumnName="MANVqc_xacnhan" />
+                <ScalarProperty Name="QCxacnhan" ColumnName="QCxacnhan" />
+                <ScalarProperty Name="Ngayxacnhan" ColumnName="Ngayxacnhan" />
+                <ScalarProperty Name="LayHCtu" ColumnName="LayHCtu" />
+                <ScalarProperty Name="Manvxacnhan" ColumnName="Manvxacnhan" />
+                <ScalarProperty Name="Xacnhan_NMN" ColumnName="Xacnhan_NMN" />
+                <ScalarProperty Name="Noidungsua" ColumnName="Noidungsua" />
+                <ScalarProperty Name="Ngaychinhsua" ColumnName="Ngaychinhsua" />
+                <ScalarProperty Name="Nguoichinhsua" ColumnName="Nguoichinhsua" />
+                <ScalarProperty Name="KhoaID" ColumnName="KhoaID" />
+                <ScalarProperty Name="Thoigian_batdau" ColumnName="Thoigian_batdau" />
+                <ScalarProperty Name="KL_1TrucMoc" ColumnName="KL_1TrucMoc" />
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+                <ScalarProperty Name="Nongdo" ColumnName="Nongdo" />
+                <ScalarProperty Name="TenHC" ColumnName="TenHC" />
+                <ScalarProperty Name="MaHC" ColumnName="MaHC" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+                <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+                <ScalarProperty Name="Doco_lythuyet" ColumnName="Doco_lythuyet" />
+                <ScalarProperty Name="MetTP_tinhtoan" ColumnName="MetTP_tinhtoan" />
+                <ScalarProperty Name="ChieudaiQT" ColumnName="ChieudaiQT" />
+                <ScalarProperty Name="Sometmoc" ColumnName="Sometmoc" />
+                <ScalarProperty Name="Masoqt" ColumnName="Masoqt" />
+                <ScalarProperty Name="LoaiSX" ColumnName="LoaiSX" />
+                <ScalarProperty Name="Macongthuc" ColumnName="Macongthuc" />
+                <ScalarProperty Name="Macd" ColumnName="Macd" />
+                <ScalarProperty Name="Matbi" ColumnName="Matbi" />
+                <ScalarProperty Name="Matruc" ColumnName="Matruc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Spload_tblCongDoan" FunctionName="QLSX_Nhuom_AnhHongModel.Store.Spload_tblCongDoan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLSX_Nhuom_AnhHongModel.Spload_tblCongDoan_Result">
+                <ScalarProperty Name="macd" ColumnName="macd" />
+                <ScalarProperty Name="tencd" ColumnName="tencd" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPLOAD_XUATHCTN_THEOTRUC" FunctionName="QLSX_Nhuom_AnhHongModel.Store.SPLOAD_XUATHCTN_THEOTRUC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLSX_Nhuom_AnhHongModel.SPLOAD_XUATHCTN_THEOTRUC_Result">
+                <ScalarProperty Name="Matruc" ColumnName="Matruc" />
+                <ScalarProperty Name="Matbi" ColumnName="Matbi" />
+                <ScalarProperty Name="Macd" ColumnName="Macd" />
+                <ScalarProperty Name="Macongthuc" ColumnName="Macongthuc" />
+                <ScalarProperty Name="LoaiSX" ColumnName="LoaiSX" />
+                <ScalarProperty Name="Masoqt" ColumnName="Masoqt" />
+                <ScalarProperty Name="Sometmoc" ColumnName="Sometmoc" />
+                <ScalarProperty Name="ChieudaiQT" ColumnName="ChieudaiQT" />
+                <ScalarProperty Name="MetTP_tinhtoan" ColumnName="MetTP_tinhtoan" />
+                <ScalarProperty Name="Doco_lythuyet" ColumnName="Doco_lythuyet" />
+                <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+                <ScalarProperty Name="MaHC" ColumnName="MaHC" />
+                <ScalarProperty Name="TenHC" ColumnName="TenHC" />
+                <ScalarProperty Name="Nongdo" ColumnName="Nongdo" />
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+                <ScalarProperty Name="KL_1TrucMoc" ColumnName="KL_1TrucMoc" />
+                <ScalarProperty Name="Thoigian_batdau" ColumnName="Thoigian_batdau" />
+                <ScalarProperty Name="KhoaID" ColumnName="KhoaID" />
+                <ScalarProperty Name="Nguoichinhsua" ColumnName="Nguoichinhsua" />
+                <ScalarProperty Name="Ngaychinhsua" ColumnName="Ngaychinhsua" />
+                <ScalarProperty Name="Noidungsua" ColumnName="Noidungsua" />
+                <ScalarProperty Name="Xacnhan_NMN" ColumnName="Xacnhan_NMN" />
+                <ScalarProperty Name="Manvxacnhan" ColumnName="Manvxacnhan" />
+                <ScalarProperty Name="LayHCtu" ColumnName="LayHCtu" />
+                <ScalarProperty Name="Ngayxacnhan" ColumnName="Ngayxacnhan" />
+                <ScalarProperty Name="QCxacnhan" ColumnName="QCxacnhan" />
+                <ScalarProperty Name="MANVqc_xacnhan" ColumnName="MANVqc_xacnhan" />
+                <ScalarProperty Name="NgayQC_xacnhan" ColumnName="NgayQC_xacnhan" />
+                <ScalarProperty Name="Daxuatkho" ColumnName="Daxuatkho" />
+                <ScalarProperty Name="Ngayxuatkho" ColumnName="Ngayxuatkho" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

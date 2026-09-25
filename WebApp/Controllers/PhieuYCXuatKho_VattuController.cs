@@ -130,6 +130,11 @@ namespace ToolsApp.Controllers
                 ViewBag.MAVTHC = vt_.VATTU2024_SPLOAD_DANHMUCVATTU(LOAIXN).ToList();
                 iLOAIXN = "XHCMT";
             }
+            if (LOAIXN == "XTU")
+            {
+                ViewBag.MAVTHC = vt_.VATTU2024_SPLOAD_DANHMUCVATTU(LOAIXN).ToList();
+                iLOAIXN = "XHCMT";
+            }
             if (LOAIXN == "XUAT_SX")
             {
                 ViewBag.SOCTXN_KETHUA = vt_.VATTU2024_SOCTKETHUA_XUATSX(MAKHOXUAT, "").ToList();
@@ -783,7 +788,12 @@ namespace ToolsApp.Controllers
                 var itemns = CUSTOMSEARCH.SEARCH_ITEM_INTERNALID(MAVT, MAKHOXUAT);
                 var sltonkho = itemns.quantityonhand;
 
-                return Json(new { status = 1, obj = sltonkho }, JsonRequestBehavior.AllowGet);
+
+                var list = vt_.VATTU2026_SP_BAOCAOTONKHOTHEOTHOIGIAN_HANSUDUNG(MAKHOXUAT,DateTime.Now, MAVT)
+                               .ToList();
+                var maphieupd = list?.FirstOrDefault()?.MAPHIEUPD;
+
+                return Json(new { status = 1, obj = sltonkho, maphieupd = maphieupd }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
             {

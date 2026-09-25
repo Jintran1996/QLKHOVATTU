@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLSX_Nhuom_AnhHongModelStoreContainer" CdmEntityContainer="QLSX_Nhuom_AnhHongEntities">
+    <EntitySetMapping Name="NOILAYHOACHATs">
+      <EntityTypeMapping TypeName="QLSX_Nhuom_AnhHongModel.NOILAYHOACHAT">
+        <MappingFragment StoreEntitySet="NOILAYHOACHAT">
+          <ScalarProperty Name="diengiai" ColumnName="diengiai" />
+          <ScalarProperty Name="LayHCtu" ColumnName="LayHCtu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XuatHCTN_theotruc">
+      <EntityTypeMapping TypeName="QLSX_Nhuom_AnhHongModel.XuatHCTN_theotruc">
+        <MappingFragment StoreEntitySet="XuatHCTN_theotruc">
+          <ScalarProperty Name="Ngayxuatkho" ColumnName="Ngayxuatkho" />
+          <ScalarProperty Name="Daxuatkho" ColumnName="Daxuatkho" />
+          <ScalarProperty Name="NgayQC_xacnhan" ColumnName="NgayQC_xacnhan" />
+          <ScalarProperty Name="MANVqc_xacnhan" ColumnName="MANVqc_xacnhan" />
+          <ScalarProperty Name="QCxacnhan" ColumnName="QCxacnhan" />
+          <ScalarProperty Name="Ngayxacnhan" ColumnName="Ngayxacnhan" />
+          <ScalarProperty Name="LayHCtu" ColumnName="LayHCtu" />
+          <ScalarProperty Name="Manvxacnhan" ColumnName="Manvxacnhan" />
+          <ScalarProperty Name="Xacnhan_NMN" ColumnName="Xacnhan_NMN" />
+          <ScalarProperty Name="Noidungsua" ColumnName="Noidungsua" />
+          <ScalarProperty Name="Ngaychinhsua" ColumnName="Ngaychinhsua" />
+          <ScalarProperty Name="Nguoichinhsua" ColumnName="Nguoichinhsua" />
+          <ScalarProperty Name="KhoaID" ColumnName="KhoaID" />
+          <ScalarProperty Name="Thoigian_batdau" ColumnName="Thoigian_batdau" />
+          <ScalarProperty Name="KL_1TrucMoc" ColumnName="KL_1TrucMoc" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="Nongdo" ColumnName="Nongdo" />
+          <ScalarProperty Name="TenHC" ColumnName="TenHC" />
+          <ScalarProperty Name="MaHC" ColumnName="MaHC" />
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="Doco_lythuyet" ColumnName="Doco_lythuyet" />
+          <ScalarProperty Name="MetTP_tinhtoan" ColumnName="MetTP_tinhtoan" />
+          <ScalarProperty Name="ChieudaiQT" ColumnName="ChieudaiQT" />
+          <ScalarProperty Name="Sometmoc" ColumnName="Sometmoc" />
+          <ScalarProperty Name="Masoqt" ColumnName="Masoqt" />
+          <ScalarProperty Name="LoaiSX" ColumnName="LoaiSX" />
+          <ScalarProperty Name="Macongthuc" ColumnName="Macongthuc" />
+          <ScalarProperty Name="Macd" ColumnName="Macd" />
+          <ScalarProperty Name="Matbi" ColumnName="Matbi" />
+          <ScalarProperty Name="Matruc" ColumnName="Matruc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Spload_tblCongDoan" FunctionName="QLSX_Nhuom_AnhHongModel.Store.Spload_tblCongDoan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLSX_Nhuom_AnhHongModel.Spload_tblCongDoan_Result">
+          <ScalarProperty Name="macd" ColumnName="macd" />
+          <ScalarProperty Name="tencd" ColumnName="tencd" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPLOAD_XUATHCTN_THEOTRUC" FunctionName="QLSX_Nhuom_AnhHongModel.Store.SPLOAD_XUATHCTN_THEOTRUC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLSX_Nhuom_AnhHongModel.SPLOAD_XUATHCTN_THEOTRUC_Result">
+          <ScalarProperty Name="Matruc" ColumnName="Matruc" />
+          <ScalarProperty Name="Matbi" ColumnName="Matbi" />
+          <ScalarProperty Name="Macd" ColumnName="Macd" />
+          <ScalarProperty Name="Macongthuc" ColumnName="Macongthuc" />
+          <ScalarProperty Name="LoaiSX" ColumnName="LoaiSX" />
+          <ScalarProperty Name="Masoqt" ColumnName="Masoqt" />
+          <ScalarProperty Name="Sometmoc" ColumnName="Sometmoc" />
+          <ScalarProperty Name="ChieudaiQT" ColumnName="ChieudaiQT" />
+          <ScalarProperty Name="MetTP_tinhtoan" ColumnName="MetTP_tinhtoan" />
+          <ScalarProperty Name="Doco_lythuyet" ColumnName="Doco_lythuyet" />
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+          <ScalarProperty Name="MaHC" ColumnName="MaHC" />
+          <ScalarProperty Name="TenHC" ColumnName="TenHC" />
+          <ScalarProperty Name="Nongdo" ColumnName="Nongdo" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="KL_1TrucMoc" ColumnName="KL_1TrucMoc" />
+          <ScalarProperty Name="Thoigian_batdau" ColumnName="Thoigian_batdau" />
+          <ScalarProperty Name="KhoaID" ColumnName="KhoaID" />
+          <ScalarProperty Name="Nguoichinhsua" ColumnName="Nguoichinhsua" />
+          <ScalarProperty Name="Ngaychinhsua" ColumnName="Ngaychinhsua" />
+          <ScalarProperty Name="Noidungsua" ColumnName="Noidungsua" />
+          <ScalarProperty Name="Xacnhan_NMN" ColumnName="Xacnhan_NMN" />
+          <ScalarProperty Name="Manvxacnhan" ColumnName="Manvxacnhan" />
+          <ScalarProperty Name="LayHCtu" ColumnName="LayHCtu" />
+          <ScalarProperty Name="Ngayxacnhan" ColumnName="Ngayxacnhan" />
+          <ScalarProperty Name="QCxacnhan" ColumnName="QCxacnhan" />
+          <ScalarProperty Name="MANVqc_xacnhan" ColumnName="MANVqc_xacnhan" />
+          <ScalarProperty Name="NgayQC_xacnhan" ColumnName="NgayQC_xacnhan" />
+          <ScalarProperty Name="Daxuatkho" ColumnName="Daxuatkho" />
+          <ScalarProperty Name="Ngayxuatkho" ColumnName="Ngayxuatkho" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -17,7 +17,7 @@
                     <div class="card-header p-0 pt-1">
                         <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
                             <li class="nav-item" id="tab-1">
-                                <a class="nav-link active" id="custom-tabs-one-home-tab" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">@ViewBag.Phieu  </a> 
+                                <a class="nav-link active" id="custom-tabs-one-home-tab" style="display:block;" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">@ViewBag.Phieu  </a>
                             </li>
 
                         </ul>
@@ -40,7 +40,7 @@
                                             {
                                                 <div class="card-body pad">
                                                     <div class="row">
-                                                        <div class="col-md-12 table-body-insert-nhapkho  ">
+                                                        <div class="col-md-12 table-body-insert-hd  ">
 
                                                         </div>
                                                     </div>
@@ -49,6 +49,8 @@
 
                                             <div class="modal-footer">
                                                 <div class="text-right">
+
+                                                    <button id="UploadTemplate" onclick="OpenUploadExcel()" type="button" class="btn bg-gradient-info"><i class="far fa-file-excel"></i> Upload Excel</button>&nbsp;&nbsp;
                                                     <button type="button" id="btSaveInsert" class="btn bg-gradient-primary" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;&nbsp;
                                                 </div>
                                             </div>
@@ -132,7 +134,7 @@
                                             <div class="card-header">
                                                 <h3 class="card-title">
                                                     <b>@ViewBag.Title </b>
-                                                
+
                                                 </h3>
                                             </div>
 
@@ -180,6 +182,52 @@
             </div>
         </div>
     </div>
+    <div id="myModalImage" class="modal fade bd-example-modal-lg" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmImage", id = "frmImage", enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header bg-gradient-blue">
+                        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:mintcream"><strong id="myModalTitleImage"></strong></div>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="myModalContentImage">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="text-right">
+
+                            <button type="button" id="btSaveImage" class="btn btn-success" style="width: 100px"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                            <button type="button" class="btn btn-danger " data-dismiss="modal" style="width: 100px"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                        </div>
+                    </div>}
+            </div>
+        </div>
+    </div>
+    <div id="myModalUpload" class="modal fade bd-example-modal-lg" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmUpload", id = "frmUpload", enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header bg-gradient-blue">
+                        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:mintcream"><strong id="myModalTitleUpload"></strong></div>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="myModalContentUpload">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="text-right">
+                            <button type="button" class="btn btn-danger " data-dismiss="modal" style="width: 100px"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                        </div>
+                    </div>}
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
@@ -215,7 +263,7 @@
     <script>
         function reloadData(page) {
             try {
-                _insert_nhapkho();
+                _insert_hd();
                 reloadData_getlist();
 
             } catch (e) {
@@ -245,11 +293,17 @@
                 },
                 success: function (response) {
                     $(".divLoading").removeClass("loading");
+                    // Nếu DataTable cũ đã tồn tại thì hủy trước
+                    if ($.fn.DataTable.isDataTable("#myTable")) {
+                        $("#myTable").DataTable().destroy();
+                    }
 
                     $('.table-body-khoxn').html(response);
 
                     $("#myTable").DataTable({
-                        //"responsive": true,
+                      //  "responsive": true,
+                        "scrollX": true,          // 👈 Kích hoạt thanh cuộn ngang
+                        "scrollCollapse": true,
                         "lengthChange": true,
                         "autoWidth": true,
                         "stateSave": true,
@@ -268,7 +322,7 @@
 
 
 
-         function _insert_nhapkho() {
+         function _insert_hd() {
             $.ajax({
                 url: '@Url.Action("_Insert")',
                 timeout: 20000,
@@ -280,7 +334,7 @@
                 success: function (response) {
                     $(".divLoading").removeClass("loading");
 
-                    $('.table-body-insert-nhapkho').html(response);
+                    $('.table-body-insert-hd').html(response);
                 },
                 error: function (message) {
                     $(".divLoading").removeClass("loading");
@@ -289,12 +343,22 @@
         }
 
 
+
+
     </script>
 
     <script type="text/javascript">
         var $modal = $('#myModal');
         var $myModalContent = $("#myModalContent");
         var $myModalTitle = $("#myModalTitle");
+
+        var $modalUpload = $('#myModalUpload');
+        var $myModalContentUpload = $("#myModalContentUpload");
+        var $myModalTitleUpload = $("#myModalTitleUpload");
+
+        var $modalImage = $('#myModalImage');
+        var $myModalContentImage = $("#myModalContentImage");
+        var $myModalTitleImage = $("#myModalTitleImage");
 
 
 
@@ -382,6 +446,67 @@
              }
         }
 
+        function OpenUploadExcel() {
+                $myModalContentUpload.html("");
+                $myModalTitleUpload.html("Tải lên");
+                $.ajax({
+                    url: '@Url.Action("_Upload")',
+                    timeout: 20000,
+                    data: {
+                    },
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        $myModalContentUpload.html(result);
+                        $modalUpload.modal();
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+        };
+
+        function UploadTemplate() {
+            form = $("#frmUpload");
+            form.removeData('validator');
+            form.removeData('unobtrusiveValidation');
+            $.validator.unobtrusive.parse("#frmUpload");
+            if (form.valid()) {
+                var formdata = new FormData(); //FormData object
+                var fileInput = document.getElementById('fuInputFile');
+                formdata.append("fuInputFile", fileInput.files[0]);
+
+                $.ajax({
+                    url: "@Url.Action("_FunImport")",
+                    type: "POST",
+                    contentType: false,
+                    processData: false,
+                    data: formdata,
+                    beforeSend: function (xhr) {
+                        $(".divLoading").addClass("loading");
+                    },
+                    success: function (result) {
+                        if (result.status == 1) {
+                            notify(result.text, "success");
+                            $('.close').click();
+                            reloadData(false);
+                        }
+                        else {
+                            notify(result.text, "error");
+                        }
+
+                        $(".divLoading").removeClass("loading");
+                    },
+                    error: function (message) {
+                        $(".divLoading").removeClass("loading");
+                    }
+                });
+            }
+        }
+
         function Delete(SOCTXN_)
         {
             var confirm_ = confirm('Bạn có chắc muốn xóa mã này?');
@@ -413,7 +538,159 @@
             }
         }
 
+        function DeleteImageFile(soctxn, fileName) {
+            if (confirm("Bạn có chắc chắn muốn xóa file này không?")) {
+                $.ajax({
+                            url: '@Url.Action("_DeleteImage")',
+                    type: 'POST',
+                    data: {
+                        soctxn: soctxn,
+                        fileName: fileName
+                    },
+                    success: function (response) {
+                        if (response.status === 1) {
+                            notify(response.text, "success");
+                            // Gọi lại hàm load danh sách để cập nhật lại bảng mà không cần load lại trang
+                            if (typeof reloadData_getlist === "function") {
+                                reloadData_getlist();
+                            } else {
+                                location.reload();
+                            }
+                        } else {
+                            notify(response.text, "error");
+                        }
+                    },
+                    error: function () {
+                        alert("Không thể kết nối đến máy chủ.");
+                    }
+                });
+            }
+        }
 
+        function DeletePDFFile(soctxn, fileName) {
+            if (confirm("Bạn có chắc chắn muốn xóa file này không?")) {
+                $.ajax({
+                         url: '@Url.Action("_DeletePDF")',
+                    type: 'POST',
+                    data: {
+                        soctxn: soctxn,
+                        fileName: fileName
+                    },
+                    success: function (response) {
+                        if (response.status === 1) {
+                            notify(response.text, "success");
+                            // Gọi lại hàm load danh sách để cập nhật lại bảng mà không cần load lại trang
+                            if (typeof reloadData_getlist === "function") {
+                                reloadData_getlist();
+                            } else {
+                                location.reload();
+                            }
+                        } else {
+                            notify(response.text, "error");
+                        }
+                    },
+                    error: function () {
+                        alert("Không thể kết nối đến máy chủ.");
+                    }
+                });
+            }
+        }
+
+        function TriggerImageUpload(soctxn) {
+            $('#fileimage_' + soctxn).click();
+        }
+
+        function TriggerPDFUpload(soctxn) {
+            $('#filepdf_' + soctxn).click();
+        }
+
+        function UploadImageFile(soctxn) {
+            var fileInput = document.getElementById('fileimage_' + soctxn);
+            if (fileInput.files.length === 0) return;
+
+            var formData = new FormData();
+            formData.append("soctxn", soctxn);
+
+            // 🔴 VÒNG LẶP: Đưa tất cả các file đã chọn vào FormData
+            for (var i = 0; i < fileInput.files.length; i++) {
+                formData.append("fileUploads", fileInput.files[i]); // Tên 'fileUploads' phải khớp với mảng trong C# Controller
+            }
+
+            $.ajax({
+ url: '@Url.Action("UploadMultipleImage")',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                beforeSend: function () {
+                    if ($(".divLoading").length) $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    if ($(".divLoading").length) $(".divLoading").removeClass("loading");
+                    $('#fileimage_' + soctxn).val(''); // Reset input
+
+                    if (response.status === 1) {
+                        notify(response.text, "success");
+                        if (typeof reloadData_getlist === "function") {
+                            reloadData_getlist();
+                        } else {
+                            location.reload();
+                        }
+                    } else {
+                        notify(response.text, "error");
+                    }
+                },
+                error: function () {
+                    if ($(".divLoading").length) $(".divLoading").removeClass("loading");
+                    $('#fileimage_' + soctxn).val('');
+                    alert("Không thể kết nối đến máy chủ.");
+                }
+            });
+        }
+
+        function UploadPDFFile(soctxn) {
+            var fileInput = document.getElementById('filepdf_' + soctxn);
+            if (fileInput.files.length === 0) return;
+
+            var formData = new FormData();
+            formData.append("soctxn", soctxn);
+
+            // 🔴 VÒNG LẶP: Đưa tất cả các file đã chọn vào FormData
+            for (var i = 0; i < fileInput.files.length; i++) {
+                formData.append("fileUploads", fileInput.files[i]); // Tên 'fileUploads' phải khớp với mảng trong C# Controller
+            }
+
+            $.ajax({
+                url: '@Url.Action("UploadMultiplePDF")',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                beforeSend: function () {
+                    if ($(".divLoading").length) $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    if ($(".divLoading").length) $(".divLoading").removeClass("loading");
+                    $('#filepdf_' + soctxn).val(''); // Reset input
+
+                    if (response.status === 1) {
+                        notify(response.text, "success");
+                        if (typeof reloadData_getlist === "function") {
+                            reloadData_getlist();
+                        } else {
+                            location.reload();
+                        }
+                    } else {
+                        notify(response.text, "error");
+                    }
+                },
+                error: function () {
+                    if ($(".divLoading").length) $(".divLoading").removeClass("loading");
+                    $('#filepdf_' + soctxn).val('');
+                    alert("Không thể kết nối đến máy chủ.");
+                }
+            });
+        }
 
     </script>
 }

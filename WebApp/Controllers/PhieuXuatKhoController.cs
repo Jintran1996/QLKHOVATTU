@@ -358,7 +358,11 @@ namespace ToolsApp.Controllers
                                         var soluong = itemfields.quantity;
                                         var dvt = itemfields.units.name;
                                         var tonggiaban = itemfields.grossAmt;
-                                      
+                     
+
+                     
+
+
 
 
                                         CustomFieldRef[] madonhang = itemfields.customFieldList;
