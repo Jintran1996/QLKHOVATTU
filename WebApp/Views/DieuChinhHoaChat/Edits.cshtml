@@ -1,0 +1,180 @@
+﻿
+@model ToolsApp.Models.LOADXUATHCTNDto
+
+@{
+    var MaHCs = ViewBag.MaHCs as List<ToolsApp.Models.VatTuDto>;
+}
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.HiddenFor(model => model.KhoaID)
+
+<style>
+    .edit-chemical-form .form-group {
+        margin-bottom: 5px;
+    }
+
+    .edit-chemical-form label {
+        font-size: 13px;
+        margin-bottom: 0;
+        padding-top: 6px;
+    }
+
+    .edit-chemical-form .form-control {
+        font-size: 13px;
+    }
+
+    .edit-chemical-form .section-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #0d6efd;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 6px;
+        margin-bottom: 12px;
+    }
+
+    .edit-chemical-form .required {
+        color: red;
+        margin-left: 2px;
+    }
+
+    .edit-chemical-form textarea {
+        resize: vertical;
+    }
+</style>
+
+<div class="edit-chemical-form">
+
+
+
+    <!-- Mã trục -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row form-group">
+                <label class="col-md-4">
+                    Mã trục:
+                </label>
+
+                <div class="col-md-8">
+                    <input type="text"
+                           class="form-control form-control-sm"
+                           id="MATRUC"
+                           name="Matruc"
+                           value="@Model.Matruc"
+                           disabled="disabled" />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Hóa chất mới -->
+        <div class="col-md-4">
+            <div class="row form-group">
+                <label class="col-md-4">
+                    Hóa chất thay thế:
+                </label>
+
+                <div class="col-md-8">
+                    <select class="form-control form-control-sm chosen-select"
+                            id="MAHCNEW"
+                            name="MAHCNEW">
+
+                        <option value="">-- Hóa chất thay thế --</option>
+
+                        @if (MaHCs != null)
+                        {
+                            foreach (var item in MaHCs)
+                            {
+                                <option value="@item.MAVT"
+                                        @(item.MAVT == Model.MaHC ? "selected=\"selected\"" : "")>
+                                    @item.MAVT - @item.TENVT
+                                </option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Khối lượng -->
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="row form-group">
+
+                <label class="col-md-4">
+                    KL hóa chất:
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-md-8">
+                    <div class="input-group input-group-sm">
+
+                        <input type="number"
+                               class="form-control"
+                               id="KLHC"
+                               name="KLHC"
+                               min="0"
+                               step="0.01"
+                               value="@(Model.KL_1TrucMoc)" />
+
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                Kg
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Nội dung sửa -->
+        <div class="col-md-8">
+            <div class="row form-group">
+
+                <label class="col-md-2">
+                    Nội dung sửa:
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-md-10">
+                    <textarea id="Lydosua"
+                              name="Lydosua"
+                              rows="1"
+                              class="form-control form-control-sm"
+                              placeholder="Nhập nội dung / lý do sửa...">@Model.Noidungsua</textarea>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    var config_ = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': {
+            allow_single_deselect: true
+        },
+        '.chosen-select-no-single': {
+            disable_search_threshold: 10
+        },
+        '.chosen-select-no-results': {
+            no_results_text: 'Oops, nothing found!'
+        },
+        '.chosen-select-width': {
+            width: "95%"
+        },
+        'search_contains': true
+    };
+
+    for (var selector in config_) {
+        $(selector).chosen(config_);
+    }
+
+</script>

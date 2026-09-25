@@ -2,6 +2,7 @@
 using ToolsApp.Models;
 using ToolsApp.EntityFramework.KhoSoi;
 using ToolsApp.EntityFramework.VatTu;
+using System.Collections.Generic;
 
 namespace ToolsApp.App_Start
 {
@@ -231,9 +232,20 @@ namespace ToolsApp.App_Start
                                       .ForMember(dto => dto.TENCHIPHI, opt => opt.MapFrom(src => src.TENCHIPHI))
                                       ;
                 #endregion
+
+                cfg.CreateMap<XuatHCTNTheotrucDto, LOADXUATHCTNDto>().ReverseMap();
             });
 
             _mapper = mapperConfiguration.CreateMapper();
+        }
+
+        public static LOADXUATHCTNDto MapFrom(XuatHCTNTheotrucDto data)
+        {
+            return _mapper.Map<XuatHCTNTheotrucDto, LOADXUATHCTNDto>(data);
+        }
+        public static List<LOADXUATHCTNDto> MapListFrom(List<XuatHCTNTheotrucDto> data)
+        {
+            return _mapper.Map<List<XuatHCTNTheotrucDto>, List<LOADXUATHCTNDto>>(data);
         }
 
         #region User

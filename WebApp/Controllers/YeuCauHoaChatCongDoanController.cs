@@ -58,7 +58,48 @@ namespace ToolsApp.Controllers
         }
 
 
+        [HttpPost]
+        public JsonResult _ChuyenXN(List<string> ids, string LayHCTU = "") // Đổi thành List<string> nếu KhoaID là chuỗi kiệu chữ
+        {
+            try
+            {
+                if (ids == null || ids.Count == 0)
+                {
+     
+                    return Json(new { status = -1, title = "", text = "Không có dữ liệu nào được chọn. " , obj = "" }, JsonRequestBehavior.AllowGet);
+                }
 
+                using (var db = new QLSX_Nhuom_AnhHongEntities()) // Thay bằng DbContext thực tế của bạn
+                {
+                    // Cách 1: Cập nhật trạng thái hàng loạt
+                    // Ví dụ: Tìm các bản ghi có KhoaID nằm trong danh sách được chọn và đổi trạng thái
+                    var records = db.XuatHCTN_theotruc.Where(x => ids.Contains(x.KhoaID)).ToList();
+                    foreach (var item in records)
+                    {
+                        // Thực hiện thay đổi dữ liệu của bạn ở đây
+                         item.Xacnhan_NMN = true;
+                         item.Ngayxacnhan = DateTime.Now;
+                         item.Manvxacnhan =  User.UserName;
+                         item.LayHCtu = LayHCTU;
+                    }
+
+                    // Cách 2: Hoặc nếu bạn muốn insert các dòng này sang một bảng Xuất Hóa Chất khác:
+                    // foreach (var id in ids) { ... tạo thực thể mới và db.Table.Add(...) ... }
+
+                    // Lưu thay đổi vào Database
+                    db.SaveChanges();
+                }
+
+                return Json(new { status = 1, title = "", text = "Đã lưu thành công " + ids.Count + " dòng!", obj = "" }, JsonRequestBehavior.AllowGet);
+            
+            }
+            catch (Exception ex)
+            {
+                // Ghi log lỗi nếu cần thiết
+                return Json(new { status = 1, title = "", text = "Lỗi hệ thống: " + ex.Message, obj = "" }, JsonRequestBehavior.AllowGet);
+          
+            }
+        }
 
 
 

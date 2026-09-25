@@ -1121,5 +1121,132 @@ namespace ToolsApp.Models
         public string text { get; set; }
 
     }
+    public class VatTuDto
+    {
+        public string MAVT { get; set; }
+        public string TENVT { get; set; }
+    }
 
+    public class XuatHCTNTheotrucDto
+    {
+        public string Matruc { get; set; }
+
+        public string Matbi { get; set; }
+
+        public string Macd { get; set; }
+
+        public string Macongthuc { get; set; }
+
+        public string LoaiSX { get; set; }
+
+        public string Masoqt { get; set; }
+
+        public decimal? Sometmoc { get; set; }
+
+        public decimal? ChieudaiQT { get; set; }
+
+        public decimal? MetTP_tinhtoan { get; set; }
+
+        public decimal? Doco_lythuyet { get; set; }
+
+        public string MaDH { get; set; }
+
+        public string MaMH { get; set; }
+
+        public string MaHC { get; set; }
+
+        public string TenHC { get; set; }
+
+        public decimal? Nongdo { get; set; }
+
+        public string DVT { get; set; }
+
+        public decimal? KL_1TrucMoc { get; set; }
+
+        public DateTime? Thoigian_batdau { get; set; }
+
+        public string KhoaID { get; set; }
+
+        public string Nguoichinhsua { get; set; }
+
+        public DateTime? Ngaychinhsua { get; set; }
+
+        public string Noidungsua { get; set; }
+
+        public bool? Xacnhan_NMN { get; set; }
+
+        public string Manvxacnhan { get; set; }
+
+        public string LayHCtu { get; set; }
+
+        public DateTime? Ngayxacnhan { get; set; }
+
+        public bool? QCxacnhan { get; set; }
+
+        public string MANVqc_xacnhan { get; set; }
+
+        public DateTime? NgayQC_xacnhan { get; set; }
+    }
+
+    public class LOADXUATHCTNDto
+    {
+        public string Matruc { get; set; }
+
+        public string Matbi { get; set; }
+
+        public string Macd { get; set; }
+
+
+        public string LoaiSX { get; set; }
+
+        public string Masoqt { get; set; }
+
+        public decimal? Sometmoc { get; set; }
+
+        public decimal? ChieudaiQT { get; set; }
+
+        public decimal? MetTP_tinhtoan { get; set; }
+
+        public decimal? Doco_lythuyet { get; set; }
+
+        public string MaDH { get; set; }
+
+        public string MaMH { get; set; }
+
+        public string MaHC { get; set; }
+
+        public string TenHC { get; set; }
+
+        public decimal? Nongdo { get; set; }
+
+        public string DVT { get; set; }
+
+        public decimal? KL_1TrucMoc { get; set; }
+
+        public DateTime? Thoigian_batdau { get; set; }
+
+        public string KhoaID { get; set; }
+
+        public string Nguoichinhsua { get; set; }
+
+        public DateTime? Ngaychinhsua { get; set; }
+
+        public string Noidungsua { get; set; }
+
+
+    }
+
+    public class LOADXUATHCTNModel
+    {
+        public string Matruc { get; set; }
+
+        public string KhoaID { get; set; }
+        public string MAHCNEW { get; set; }
+
+        public decimal? KLHC { get; set; }
+
+        public string Lydosua { get; set; }
+
+
+    }
 }

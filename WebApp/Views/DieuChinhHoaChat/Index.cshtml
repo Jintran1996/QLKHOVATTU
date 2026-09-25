@@ -1,0 +1,348 @@
+﻿
+
+
+
+@{
+    ViewBag.Title = "Thông tin điều chỉnh mã hóa chất";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container-fluid cursor">
+        <div class="row">
+            <div class="card card-info card-tabs" id="myTap">
+                <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-one-tabContent">
+                        <div class="tab-pane fade col-md-12 show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                            <!--data-->
+                            <div class="row">
+                                <div class="col-md-12 card">
+                                    <div class="card  mx-3 my-3">
+                                        <div class="card-header bg-primary text-white ">
+                                            <h3 class="card-title">
+                                                <i class="fa fa-table mr-2"></i>
+                                                <b>@ViewBag.Title </b>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body pad">
+                                            <div class="row">
+                                                <div class="col-md-12 table-body-khoxn  table-responsive">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                </div>
+                                <!--data-->
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<div id="myModal" class="modal fade modal-wide" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frmUpdate", id = "frmUpdate", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-header">
+                    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle"></strong></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="myModalContent">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button type="button" id="btSaveUp" class="btn btn-sm bg-gradient-primary"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                        &nbsp;
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': { allow_single_deselect: true },
+            '.chosen-select-no-single': { disable_search_threshold: 10 },
+            '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-width': { width: "95%" },
+            'search_contains': true
+        }
+        for (var selector in config) {
+            $(selector).chosen(config);
+        }
+    </script>
+
+    <script>
+        function reloadData(page) {
+            try {
+                reloadData_getlist();
+
+            } catch (e) {
+            }
+        }
+
+
+        function reloadData_getlist(isDelete) {
+            try {
+            $.ajax({
+                url: '@Url.Action("_Getlist")',
+                timeout: 20000,
+                data: {
+
+                },
+                beforeSend: function () {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (response) {
+                    $(".divLoading").removeClass("loading");
+
+                    $('.table-body-khoxn').html(response);
+
+                    $("#myTable").DataTable({
+                        destroy: true,
+                        "language": {
+                            "sProcessing": "Đang xử lý...",
+                            "sLengthMenu": " Hiển thị _MENU_ dữ liệu",
+                            "sZeroRecords": "Không tìm thấy kết quả",
+                            "sEmptyTable": "Không có dữ liệu",
+                            "sInfo": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "sInfoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "sInfoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Tìm kiếm:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Đang tải...",
+                            "oPaginate": {
+                                "sFirst": "Đầu tiên",
+                                "sLast": "Cuối cùng",
+                                "sNext": "Sau",
+                                "sPrevious": "Trước"
+                            },
+                            "oAria": {
+                                "sSortAscending": ":Sắp xếp thứ tự tăng dần",
+                                "sSortDescending": ": Sắp xếp thứ tự giảm dần"
+                            }
+                        },
+                        "info": false,
+                        "processing": false,
+                        "serverSide": false,
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bInfo": true,
+                        "responsive": false,
+                        "scrollX": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                        "stateSave": true,
+                        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                        "initComplete": function (oSettings) {
+
+                        }
+                    })//.buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
+                },
+                error: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+            } catch (e) {
+            }
+        }
+
+
+
+    </script>
+
+    <script type="text/javascript">
+        var $modal = $('#myModal');
+        var $myModalContent = $("#myModalContent");
+        var $myModalTitle = $("#myModalTitle");
+
+        $(document).ready(function () {
+            reloadData(false);
+            $("#btSaveUp").click(function () {
+
+                var form = $("#frmUpdate");
+
+                var formData = new FormData(form[0]);
+                formData.set("Matruc", $("#MATRUC").val());
+                formData.set("KhoaID", $("#KhoaID").val());
+                formData.set("MAHCNEW", $("#MAHCNEW").val());
+                formData.set("KLHC", $("#KLHC").val());
+                formData.set("Lydosua", $("#Lydosua").val());
+
+                $.validator.unobtrusive.parse(form);
+
+                if (form.valid()) {
+
+                    $.ajax({
+                        url: '@Url.Action("_InsertFun")',
+                        type: "POST",
+                        data: formData,
+
+                        contentType: false,
+                        processData: false,
+
+                        beforeSend: function () {
+                            $(".divLoading").addClass("loading");
+                        },
+
+                        success: function (result) {
+
+                            if (result.status >= 1) {
+
+                                notify(result.text, "success");
+
+                                reloadData(true);
+                            }
+                            else {
+
+                                notify(result.text, "error");
+                            }
+
+                            $(".divLoading").removeClass("loading");
+                        },
+
+                        error: function () {
+
+                            $(".divLoading").removeClass("loading");
+                        }
+                    });
+                }
+            });
+
+            /// End document  //
+        });
+
+        function Edits(ID_) {
+            $myModalContent.html("");
+            $myModalTitle.html(`
+        <div class="section-title">
+            <i class="fa fa-flask mr-1"></i>
+            Thông tin thay thế hóa chất
+        </div>
+    `);
+            $.ajax({
+                url: '@Url.Action("_Update")',
+                timeout: 200000,
+                data: {
+                    ID: ID_,
+                },
+                beforeSend: function (xhr) {
+                    $(".divLoading").addClass("loading");
+                },
+                success: function (result) {
+                    if (result.status < 1) {
+                        notify(result.text, "error");
+                        $(".divLoading").removeClass("loading");
+                    }
+                    else {
+                        $myModalContent.html(result);
+                        $modal.modal();
+                    }
+                    $(".divLoading").removeClass("loading");
+                },
+                failure: function (message) {
+                    $(".divLoading").removeClass("loading");
+                }
+            });
+        }
+       
+
+        function _LoadMahcOld() {
+             var MATRUC = $("#MATRUC").val();
+             var MAHCOLD = $("#MAHCOLD");
+             MAHCOLD.empty();
+                 $.ajax({
+                     type: "POST",
+                     async: false,
+                     url: '@Url.Action("_LoadMahcOld")',
+                     data: {
+                         maTruc: MATRUC,
+                     },
+                     success: function (result) {
+                         $.each(result.obj, function (i, state) {
+                             MAHCOLD.append($('<option/>', { value: this.MaHC }).html(this.MaHC));
+                         });
+                         MAHCOLD.trigger("chosen:updated");
+                     }
+                 });
+        }
+
+        $(document).on("change", "#MAHCOLD", function () {
+
+            var MATRUC = $("#MATRUC").val();
+            var MAHCOLD = $(this).val();
+
+           
+            $("#KLHC").val("");
+
+            if (!MATRUC || !MAHCOLD) {
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("_LoadkhoiLuongOld")',
+                data: {
+                    maTruc: MATRUC,
+                    mahcold: MAHCOLD
+                },
+                success: function (result) {
+
+                   // console.log("RESULT:", result);
+
+                    if (result && result.obj && result.obj.length > 0) {
+
+                        var item = result.obj[0];
+
+                       // console.log("KL:", item.KL_1TrucMoc);
+
+                        $("#KLHC").val(item.KL_1TrucMoc);
+
+                    } else {
+
+                        $("#KLHC").val("");
+                    }
+                },
+                error: function (xhr, status, error) {
+
+                    // console.log("ERROR:", error);
+                    // console.log(xhr.responseText);
+
+                    $("#KLHC").val("");
+                }
+            });
+        });
+    </script>
+}
+
+
+
+
+

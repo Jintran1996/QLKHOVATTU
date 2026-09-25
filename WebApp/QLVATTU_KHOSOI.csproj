@@ -3372,6 +3372,7 @@
     <Compile Include="Controllers\PhieuNhapKho_ver2Controller.cs" />
     <Compile Include="Controllers\GetDataBC14Controller.cs" />
     <Compile Include="Controllers\DownloadTonKhoNetsuiteVTController.cs" />
+    <Compile Include="Controllers\TacNghiepHCTN\DieuChinhHoaChatController.cs" />
     <Compile Include="Controllers\tracuutiendomuahang_cungungController.cs" />
     <Compile Include="Controllers\tracuutontheothoigian_hansudungController.cs" />
     <Compile Include="Controllers\tracuuxuatmavttheophieumuahangController.cs" />
@@ -3412,6 +3413,7 @@
     <Compile Include="Helper\FunctionNS.cs" />
     <Compile Include="Helper\ExcelTienDoMuaHangHelper.cs" />
     <Compile Include="Helper\HtmlHelper.cs" />
+    <Compile Include="Helper\StoreDatabaseHelper.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Models\DBViewModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
@@ -3750,6 +3752,9 @@
     <Content Include="Views\YeuCauHoaChatCongDoan\_GetList.cshtml" />
     <Content Include="Views\YeuCauHoaChatCongDoan\Index.cshtml" />
     <Content Include="Views\YeuCauHoaChatCongDoan\_GetList2.cshtml" />
+    <Content Include="Views\DieuChinhHoaChat\Edits.cshtml" />
+    <Content Include="Views\DieuChinhHoaChat\Index.cshtml" />
+    <Content Include="Views\DieuChinhHoaChat\_Getlist.cshtml" />
     <None Include="Web References\com.netsuite.webservices\accounting.xsd">
       <SubType>Designer</SubType>
     </None>

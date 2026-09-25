@@ -1,0 +1,222 @@
+﻿
+@{
+    var Lists = ViewBag.List as IEnumerable<ToolsApp.Models.LOADXUATHCTNDto>;
+}
+
+
+<style>
+    .action-column {
+        white-space: nowrap;
+        text-align: left;
+        width: auto !important;
+    }
+
+    #myTable th,
+    #myTable td {
+        vertical-align: middle;
+    }
+
+    #myTable thead th {
+        text-align: center;
+        white-space: nowrap;
+    }
+</style>
+
+<table id="myTable" class="table table-bordered table-hover table-striped">
+    <thead style="background:#0d6efd;color:white;">
+        <tr>
+            <th class="action-column">Thao tác</th>
+            <th>STT</th>
+            <th>Mã trục</th>
+            <th>Mã thiết bị</th>
+            <th>Mã CĐ</th>
+            <th>Loại SX</th>
+            <th>Mã SQĐT</th>
+            <th>Số tem mộc</th>
+            <th>Chiều dài QT</th>
+            <th>Mét TP tính toán</th>
+            <th>Độ co lý thuyết</th>
+            <th>Mã ĐH</th>
+            <th>Mã MH</th>
+            <th>Mã HC</th>
+            <th>Tên HC</th>
+            <th>Nồng độ</th>
+            <th>ĐVT</th>
+            <th>KL / 1 trục mộc</th>
+            <th>Thời gian bắt đầu</th>
+            <th>Người chỉnh sửa</th>
+            <th>Ngày chỉnh sửa</th>
+            <th>Nội dung sửa</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @{
+            int STT = 1;
+        }
+
+        @if (Lists != null)
+        {
+            foreach (var item in Lists)
+            {
+                <tr>
+
+                    <!-- Thao tác -->
+                    <td class="action-column text-left">
+
+                        <button type="button"
+                                class="btn btn-sm btn-primary"
+                                onclick="Edits('@item.KhoaID')">
+                            <i class="fas fa-edit"></i>
+                            Chỉnh sửa
+                        </button>
+
+
+                    </td>
+
+                    <!-- STT -->
+                    <td style="text-align:center;">
+                        @STT
+                    </td>
+
+                    <!-- Mã trục -->
+                    <td>
+                        <span class="badge badge-secondary">
+                            @item.Matruc
+                        </span>
+                    </td>
+
+                    <!-- Mã thiết bị -->
+                    <td>
+                        <span class="badge badge-primary">
+                            @item.Matbi
+                        </span>
+                    </td>
+
+                    <!-- Mã CĐ -->
+                    <td>
+                        @item.Macd
+                    </td>
+
+                    <!-- Loại SX -->
+                    <td>
+                        <span class="badge badge-info">
+                            @item.LoaiSX
+                        </span>
+                    </td>
+
+                    <!-- Mã SQĐT -->
+                    <td>
+                        @item.Masoqt
+                    </td>
+
+                    <!-- Số tem mộc -->
+                    <td>
+                        @item.Sometmoc
+                    </td>
+
+                    <!-- Chiều dài QT -->
+                    <td class="text-right">
+                        @(item.ChieudaiQT.HasValue
+                            ? item.ChieudaiQT.Value.ToString("N2")
+                            : "")
+                    </td>
+
+                    <!-- Mét TP tính toán -->
+                    <td class="text-right">
+                        @(item.MetTP_tinhtoan.HasValue
+                            ? item.MetTP_tinhtoan.Value.ToString("N2")
+                            : "")
+                    </td>
+
+                    <!-- Độ co lý thuyết -->
+                    <td class="text-right">
+                        @(item.Doco_lythuyet.HasValue
+                            ? item.Doco_lythuyet.Value.ToString("N2")
+                            : "")
+                    </td>
+
+                    <!-- Mã ĐH -->
+                    <td>
+                        <span class="badge badge-warning">
+                            @item.MaDH
+                        </span>
+                    </td>
+
+                    <!-- Mã MH -->
+                    <td>
+                        <span class="badge badge-primary">
+                            @item.MaMH
+                        </span>
+                    </td>
+
+                    <!-- Mã HC -->
+                    <td>
+                        <span class="badge badge-info">
+                            @item.MaHC
+                        </span>
+                    </td>
+
+                    <!-- Tên HC -->
+                    <td>
+                        @item.TenHC
+                    </td>
+
+                    <!-- Nồng độ -->
+                    <td class="text-right">
+                        @(item.Nongdo.HasValue
+                            ? item.Nongdo.Value.ToString("N2")
+                            : "")
+                    </td>
+
+                    <!-- ĐVT -->
+                    <td style="text-align:center;">
+                        <span class="badge badge-light">
+                            @item.DVT
+                        </span>
+                    </td>
+
+                    <!-- KL 1 trục mộc -->
+                    <td class="text-right">
+                        @(item.KL_1TrucMoc.HasValue
+                            ? item.KL_1TrucMoc.Value.ToString("N2")
+                            : "")
+                    </td>
+
+                    <!-- Thời gian bắt đầu -->
+                    <td style="white-space:nowrap;">
+                        @(item.Thoigian_batdau.HasValue
+                            ? item.Thoigian_batdau.Value.ToString("dd/MM/yyyy HH:mm")
+                            : "")
+                    </td>
+
+                    <!-- Người chỉnh sửa -->
+                    <td>
+                        @item.Nguoichinhsua
+                    </td>
+
+                    <!-- Ngày chỉnh sửa -->
+                    <td style="white-space:nowrap;">
+                        @(item.Ngaychinhsua.HasValue
+                            ? item.Ngaychinhsua.Value.ToString("dd/MM/yyyy HH:mm")
+                            : "")
+                    </td>
+
+                    <!-- Nội dung sửa -->
+                    <td>
+                        @item.Noidungsua
+                    </td>
+
+                </tr>
+
+                STT++;
+            }
+        }
+
+    </tbody>
+</table>
+
+
+
+
